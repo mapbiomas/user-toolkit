@@ -10,8 +10,8 @@
  *      joaovsiqueira1@gmail.com
  *
  * @version
- *    1.0.0 - Acess and download municipalites data  
- *    1.1.0 - Acess and download state data
+ *    1.0.0 - Access and download municipalites data  
+ *    1.1.0 - Access and download state data
  *
  * @see
  *      Get the MapBiomas exported data in your "Google Drive/MAPBIOMAS-EXPORT" folder
