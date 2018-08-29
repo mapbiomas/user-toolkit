@@ -3,23 +3,25 @@
  *      Mapbiomas User Toolkit Download Integrated
  * 
  * @description
- *      
  *  
  * @author
  *      João Siqueira
  *      joaovsiqueira1@gmail.com
  *
  * @version
- *    1.0.0 - Access and download municipalites data  
- *    1.1.0 - Access and download state data
+ *    1.0.0 - Acess and download municipalites data  
+ *    1.1.0 - Acess and download state data
+ *    1.2.0 - Acess and download transitions data
  *
  * @see
  *      Get the MapBiomas exported data in your "Google Drive/MAPBIOMAS-EXPORT" folder
  */
+var palettes = require('users/mapbiomas/modules:Palettes.js');
+
 var App = {
 
     options: {
-        version: '1.1.0',
+        version: '1.2.0',
 
         assets: {
             municipalities: "projects/mapbiomas-workspace/AUXILIAR/municipios-2016",
@@ -28,24 +30,60 @@ var App = {
             transitions: 'projects/mapbiomas-workspace/public/collection3/mapbiomas_collection3_transitions_v1',
         },
 
-        years: [
-            '1985', '1986', '1987', '1988',
-            '1989', '1990', '1991', '1992',
-            '1993', '1994', '1995', '1996',
-            '1997', '1998', '1999', '2000',
-            '2001', '2002', '2003', '2004',
-            '2005', '2006', '2007', '2008',
-            '2009', '2010', '2011', '2012',
-            '2013', '2014', '2015', '2016',
-            '2017'
-        ],
+        periods: {
+            'Coverage': [
+                '1985', '1986', '1987', '1988',
+                '1989', '1990', '1991', '1992',
+                '1993', '1994', '1995', '1996',
+                '1997', '1998', '1999', '2000',
+                '2001', '2002', '2003', '2004',
+                '2005', '2006', '2007', '2008',
+                '2009', '2010', '2011', '2012',
+                '2013', '2014', '2015', '2016',
+                '2017'
+            ],
+            'Transitions': [
+                "1985_1986", "1986_1987", "1987_1988", "1988_1989",
+                "1989_1990", "1990_1991", "1991_1992", "1992_1993",
+                "1993_1994", "1994_1995", "1995_1996", "1996_1997",
+                "1997_1998", "1998_1999", "1999_2000", "2000_2001",
+                "2001_2002", "2002_2003", "2003_2004", "2004_2005",
+                "2005_2006", "2006_2007", "2007_2008", "2008_2009",
+                "2009_2010", "2010_2011", "2011_2012", "2012_2013",
+                "2013_2014", "2014_2015", "2015_2016", "2016_2017",
+                "1990_1995", "1995_2000", "2000_2005", "2005_2010",
+                "2010_2015", "2015_2017", "2000_2010", "2010_2017",
+                "1985_2017", "2008_2017", "2012_2017", "1994_2002",
+                "2002_2010", "2010_2016",
+            ]
+        },
+        bandsNames: {
+            'Coverage': 'classification_',
+            'Transitions': 'transition_'
+        },
 
-        integration: null,
-        transitions: null,
+        dataType: 'Coverage',
+
+        data: {
+            'Coverage': null,
+            'Transitions': null,
+        },
+
+        ranges: {
+            'Coverage': {
+                'min': 0,
+                'max': 33
+            },
+            'Transitions': {
+                'min': -2,
+                'max': 3
+            },
+        },
 
         states: null,
         municipalities: null,
         activeFeature: null,
+        activeName: '',
         municipalitiesNames: [],
 
         statesNames: {
@@ -79,9 +117,80 @@ var App = {
         },
 
         palette: {
-            integration: require('users/mapbiomas/modules:Palettes.js')
-                .get('classification2')
-        }
+            'Coverage': palettes.get('classification2'),
+            'Transitions': ['ffa500', 'ff0000', '818181', '06ff00', '4169e1', '8a2be2']
+        },
+        transitionsCodes: [{
+                name: "1. Floresta",
+                noChange: [1, 2, 3, 4, 5, 6, 7, 8],
+                upVeg: [],
+                downVeg: [10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 28, 22, 23, 24, 25, 29, 30],
+                downWater: [],
+                upWater: [26, 33, 31],
+                upPlantacao: [9],
+                ignored: [27]
+            },
+            {
+                name: "2. Formações Naturais não Florestais",
+                noChange: [10, 11, 12, 13],
+                upVeg: [],
+                downVeg: [14, 15, 16, 17, 18, 19, 20, 21, 28, 22, 23, 24, 25, 29, 30],
+                downWater: [],
+                upWater: [26, 33, 31],
+                upPlantacao: [9],
+                ignored: [27, 1, 2, 3, 4, 5, 6, 7, 8]
+            },
+            {
+                name: "3. Uso Agropecuário",
+                noChange: [14, 15, 16, 17, 18, 19, 20, 21, 28],
+                upVeg: [1, 2, 3, 4, 5, 6, 7, 8, 10, 11, 12, 13, 32],
+                downVeg: [],
+                downWater: [],
+                upWater: [26, 31, 33],
+                upPlantacao: [9],
+                ignored: [27, 22, 23, 24, 25, 29, 30]
+            },
+            {
+                name: "4.Áreas não vegetadas",
+                noChange: [22, 23, 24, 25, 29, 30],
+                upVeg: [1, 2, 3, 4, 5, 6, 7, 8, 10, 11, 12, 13, 32],
+                downVeg: [],
+                downWater: [],
+                upWater: [26, 31, 33],
+                upPlantacao: [9],
+                ignored: [27, 14, 15, 18, 19, 20, 21, 28],
+            },
+            {
+                name: "5. Corpos Dágua",
+                noChange: [26, 31, 33],
+                upVeg: [1, 2, 3, 4, 5, 6, 7, 8, 10, 11, 12, 13, 32],
+                downVeg: [],
+                downWater: [14, 15, 16, 17, 18, 19, 20, 21, 28, 22, 23, 24, 25, 29, 30],
+                upWater: [],
+                upPlantacao: [9],
+                ignored: [27]
+            },
+            {
+                name: "Plantacao Florestal",
+                noChange: [9],
+                upVeg: [1, 2, 3, 4, 5, 6, 7, 8, 10, 11, 12, 13, 32],
+                downVeg: [],
+                downWater: [14, 15, 18, 19, 20, 21, 28, 22, 23, 24, 25, 29, 30],
+                upWater: [26, 31, 33],
+                upPlantacao: [],
+                ignored: [27]
+            },
+            {
+                name: "6. Não observado",
+                noChange: [27],
+                upVeg: [],
+                downVeg: [],
+                downWater: [],
+                upWater: [],
+                upPlantacao: [],
+                ignored: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 28, 22, 23, 24, 25, 26, 28, 29, 30, 31, 32, 33]
+            }
+        ],
 
     },
 
@@ -108,8 +217,8 @@ var App = {
 
     loadImages: function () {
 
-        App.options.integration = ee.Image(App.options.assets.integration);
-        App.options.transitions = ee.Image(App.options.assets.transitions);
+        App.options.data.Coverage = ee.Image(App.options.assets.integration);
+        App.options.data.Transitions = ee.Image(App.options.assets.transitions);
 
     },
 
@@ -118,15 +227,15 @@ var App = {
         Map.setCenter(-53.48144, -11.43695, 5);
 
         var imageLayer = ui.Map.Layer({
-            'eeObject': App.options.integration,
+            'eeObject': App.options.data.Coverage,
             'visParams': {
                 'bands': ['classification_2017'],
-                'palette': App.options.palette.integration,
+                'palette': App.options.palette.Coverage,
                 'min': 0,
                 'max': 33,
                 'format': 'png'
             },
-            'name': 'Mapbiomas 2016',
+            'name': 'Mapbiomas 2017',
             'shown': true,
             'opacity': 1.0
         });
@@ -162,6 +271,53 @@ var App = {
         return formated;
     },
 
+    remapTransitions: function (image) {
+        var oldValues = []
+        var newValues = []
+
+        App.options.transitionsCodes.forEach(function (c1) {
+            c1.noChange.forEach(function (noChange1) {
+                c1.noChange.forEach(function (noChange2) {
+                    var oldValue = (noChange1 * 100) + noChange2;
+                    oldValues.push(oldValue);
+                    newValues.push(0)
+                });
+                c1.upVeg.forEach(function (upVeg2) {
+                    var oldValue = (noChange1 * 100) + upVeg2;
+                    oldValues.push(oldValue);
+                    newValues.push(1)
+                });
+                c1.downVeg.forEach(function (downVeg2) {
+                    var oldValue = (noChange1 * 100) + downVeg2;
+                    oldValues.push(oldValue);
+                    newValues.push(-1)
+                });
+                c1.downWater.forEach(function (downWater2) {
+                    var oldValue = (noChange1 * 100) + downWater2;
+                    oldValues.push(oldValue);
+                    newValues.push(-2)
+                });
+                c1.upWater.forEach(function (upWater2) {
+                    var oldValue = (noChange1 * 100) + upWater2;
+                    oldValues.push(oldValue);
+                    newValues.push(2)
+                });
+                c1.upPlantacao.forEach(function (upPlantacao2) {
+                    var oldValue = (noChange1 * 100) + upPlantacao2;
+                    oldValues.push(oldValue);
+                    newValues.push(3)
+                });
+                c1.ignored.forEach(function (ignored2) {
+                    var oldValue = (noChange1 * 100) + ignored2;
+                    oldValues.push(oldValue);
+                    newValues.push(0)
+                });
+            });
+        });
+
+        return image.remap(oldValues, newValues).rename(image.bandNames());
+    },
+
     ui: {
 
         init: function () {
@@ -170,9 +326,15 @@ var App = {
 
         },
 
+        setDataType: function (dataType) {
+
+            App.options.dataType = dataType;
+
+        },
+
         loadStatesList: function (state) {
 
-            App.ui.makeLayersList(state, App.options.activeFeature);
+            App.ui.makeLayersList(state, App.options.activeFeature, App.options.periods[App.options.dataType]);
 
         },
 
@@ -195,8 +357,11 @@ var App = {
                             'placeholder': 'select municipalitie',
                             'onChange': function (municipalitie) {
 
+                                App.options.activeName = municipalitie;
+
                                 App.ui.loadMunicipalitie(municipalitie);
-                                App.ui.makeLayersList(municipalitie, App.options.activeFeature);
+                                App.ui.makeLayersList(municipalitie, App.options.activeFeature,
+                                    App.options.periods[App.options.dataType]);
 
                             },
                             'style': {
@@ -215,7 +380,7 @@ var App = {
         loadState: function (state) {
 
             App.options.activeFeature = App.options.states
-                .filterMetadata('CD_GEOCUF', 'equals', String(state));
+                .filterMetadata('CD_GEOCUF', 'equals', String(App.options.statesNames[state]));
 
             Map.centerObject(App.options.activeFeature);
 
@@ -253,15 +418,23 @@ var App = {
 
         },
 
-        addImageLayer: function (year, label, region) {
+        addImageLayer: function (period, label, region) {
+
+
+            var image = App.options.data[App.options.dataType]
+                .select([App.options.bandsNames[App.options.dataType] + period])
+                .clip(region);
+
+            if (App.options.dataType == 'Transitions') {
+                image = App.remapTransitions(image);
+            }
 
             var imageLayer = ui.Map.Layer({
-                'eeObject': App.options.integration.clip(region),
+                'eeObject': image,
                 'visParams': {
-                    'bands': ['classification_' + year],
-                    'palette': App.options.palette.integration,
-                    'min': 0,
-                    'max': 33,
+                    'palette': App.options.palette[App.options.dataType],
+                    'min': App.options.ranges[App.options.dataType].min,
+                    'max': App.options.ranges[App.options.dataType].max,
                     'format': 'png'
                 },
                 'name': label,
@@ -289,30 +462,30 @@ var App = {
 
         },
 
-        manageLayers: function (checked, year, label, region) {
+        manageLayers: function (checked, period, label, region) {
 
             if (checked) {
-                App.ui.addImageLayer(year, label, region);
+                App.ui.addImageLayer(period, label, region);
             } else {
                 App.ui.removeImageLayer(label);
             }
 
         },
 
-        makeLayersList: function (regionName, region) {
+        makeLayersList: function (regionName, region, periods) {
 
             App.ui.form.panelLayersList.clear();
 
-            App.options.years.forEach(
+            periods.forEach(
 
-                function (year, index, array) {
+                function (period, index, array) {
                     App.ui.form.panelLayersList.add(
                         ui.Checkbox({
-                            "label": regionName + ' ' + year,
+                            "label": regionName + ' ' + period,
                             "value": false,
                             "onChange": function (checked) {
 
-                                App.ui.manageLayers(checked, year, regionName + ' ' + year, region);
+                                App.ui.manageLayers(checked, period, regionName + ' ' + period, region);
 
                             },
                             "disabled": false,
@@ -340,17 +513,17 @@ var App = {
 
                 if (selected) {
 
-                    var year = App.options.years[i];
+                    var period = App.options.periods[App.options.dataType][i];
                     var municName = App.formatName(App.ui.form.selectMunicipalitie.getValue() || 'state');
                     var stateName = App.formatName(App.ui.form.selectState.getValue());
 
                     Export.image.toDrive({
-                        image: App.options.integration
-                            .select(['classification_' + year])
+                        image: App.options.data[App.options.dataType]
+                            .select([App.options.bandsNames[App.options.dataType] + period])
                             .clip(App.options.activeFeature),
-                        description: 'mapbiomas-' + stateName + '-' + municName + '-' + year,
+                        description: 'mapbiomas-' + stateName + '-' + municName + '-' + period,
                         folder: 'MAPBIOMAS-EXPORT',
-                        fileNamePrefix: 'mapbiomas-' + stateName + '-' + municName + '-' + year,
+                        fileNamePrefix: 'mapbiomas-' + stateName + '-' + municName + '-' + period,
                         region: App.options.activeFeature.geometry().bounds(),
                         scale: 30,
                         maxPixels: 1e13,
@@ -370,9 +543,12 @@ var App = {
 
                 this.panelMunicipalities.add(this.labelMunicipalitie);
                 this.panelMunicipalities.add(this.selectMunicipalitie);
+                this.panelDataType.add(this.labelDataType);
+                this.panelDataType.add(this.selectDataType);
 
                 this.panelMain.add(this.panelState);
                 this.panelMain.add(this.panelMunicipalities);
+                this.panelMain.add(this.panelDataType);
 
                 this.panelMain.add(this.labelLayers);
                 this.panelMain.add(this.panelLayersList);
@@ -406,6 +582,13 @@ var App = {
                 },
             }),
 
+            panelDataType: ui.Panel({
+                'layout': ui.Panel.Layout.flow('vertical'),
+                'style': {
+                    'stretch': 'horizontal'
+                },
+            }),
+
             panelLayersList: ui.Panel({
                 'layout': ui.Panel.Layout.flow('vertical'),
                 'style': {
@@ -425,13 +608,18 @@ var App = {
                 'padding': '1px',
                 'fontSize': '16px'
             }),
-            
+
             labelNotes: ui.Label('Go to Task tab to run the export task.', {
                 'padding': '1px',
                 'fontSize': '16px'
             }),
 
             labelMunicipalitie: ui.Label('Municipalities:', {
+                'padding': '1px',
+                'fontSize': '16px'
+            }),
+
+            labelDataType: ui.Label('Data Type:', {
                 'padding': '1px',
                 'fontSize': '16px'
             }),
@@ -452,10 +640,12 @@ var App = {
                 ],
                 'placeholder': 'select state',
                 'onChange': function (state) {
+                    App.options.activeName = state;
 
-                    App.ui.loadState(App.options.statesNames[state]);
+                    App.ui.loadState(state);
                     App.ui.loadStatesList(state);
                     App.ui.loadMunicipalitiesList(App.options.statesNames[state]);
+                    App.ui.form.selectDataType.setDisabled(false);
 
                 },
                 'style': {
@@ -469,6 +659,21 @@ var App = {
                 'style': {
                     'stretch': 'horizontal'
                 }
+            }),
+
+            selectDataType: ui.Select({
+                'items': ['Coverage', 'Transitions'],
+                'placeholder': 'Coverage',
+                'style': {
+                    'stretch': 'horizontal'
+                },
+                'disabled': true,
+                'onChange': function (dataType) {
+
+                    App.ui.setDataType(dataType);
+                    App.ui.makeLayersList(App.options.activeName, App.options.activeFeature, App.options.periods[dataType]);
+
+                },
             }),
 
             buttonExport2Drive: ui.Button({
