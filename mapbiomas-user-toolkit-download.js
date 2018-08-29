@@ -120,6 +120,7 @@ var App = {
             'Coverage': palettes.get('classification2'),
             'Transitions': ['ffa500', 'ff0000', '818181', '06ff00', '4169e1', '8a2be2']
         },
+        
         transitionsCodes: [{
                 name: "1. Floresta",
                 noChange: [1, 2, 3, 4, 5, 6, 7, 8],
