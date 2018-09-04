@@ -1,6 +1,6 @@
 /**
  * @name
- *      Mapbiomas User Toolkit Download
+ *      Mapbiomas User Toolkit Download Integrated
  * 
  * @description
  *  
@@ -120,7 +120,6 @@ var App = {
             'Coverage': palettes.get('classification2'),
             'Transitions': ['ffa500', 'ff0000', '818181', '06ff00', '4169e1', '8a2be2']
         },
-        
         transitionsCodes: [{
                 name: "1. Floresta",
                 noChange: [1, 2, 3, 4, 5, 6, 7, 8],
@@ -249,25 +248,23 @@ var App = {
 
         var formated = name
             .toLowerCase()
-            .replace('á', 'a')
-            .replace('à', 'a')
-            .replace('â', 'a')
-            .replace('ã', 'a')
-            .replace('ä', 'a')
-            .replace('ª', 'a')
-            .replace('é', 'e')
-            .replace('ê', 'e')
-            .replace('í', 'i')
-            .replace('ó', 'o')
-            .replace('ô', 'o')
-            .replace('õ', 'o')
-            .replace('ç', 'c')
-            .replace('ñ', 'n')
-            .replace('&', '')
-            .replace('@', '')
-            .replace('/', '')
-            .replace('.', '')
-            .replace(' ', '');
+            .replace(/á/g, 'a')
+            .replace(/à/g, 'a')
+            .replace(/â/g, 'a')
+            .replace(/ã/g, 'a')
+            .replace(/ä/g, 'a')
+            .replace(/ª/g, 'a')
+            .replace(/é/g, 'e')
+            .replace(/ê/g, 'e')
+            .replace(/í/g, 'i')
+            .replace(/ó/g, 'o')
+            .replace(/ô/g, 'o')
+            .replace(/õ/g, 'o')
+            .replace(/ç/g, 'c')
+            .replace(/ñ/g, 'n')
+            .replace(/&/g, '')
+            .replace(/@/g, '')
+            .replace(/ /g, '');
 
         return formated;
     },
@@ -528,6 +525,8 @@ var App = {
                         region: App.options.activeFeature.geometry().bounds(),
                         scale: 30,
                         maxPixels: 1e13,
+                        skipEmptyTiles: true,
+                        fileDimensions: 256 * 512,
                     });
                 }
             }
