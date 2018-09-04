@@ -1,6 +1,6 @@
 /**
  * @name
- *      Mapbiomas User Toolkit Download Integrated
+ *      Mapbiomas User Toolkit Download
  * 
  * @description
  *  
