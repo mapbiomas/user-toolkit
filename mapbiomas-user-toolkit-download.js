@@ -3,6 +3,7 @@
  *      Mapbiomas User Toolkit Download
  * 
  * @description
+ *      This is a support tool for mapbiomas data users.
  *  
  * @author
  *      João Siqueira
