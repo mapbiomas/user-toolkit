@@ -14,6 +14,7 @@
  *    1.1.0 - Acess and download state data
  *    1.2.0 - Acess and download transitions data
  *    1.2.1 - Fix bug in task name
+ *    1.2.2 - Update states vector
  *
  * @see
  *      Get the MapBiomas exported data in your "Google Drive/MAPBIOMAS-EXPORT" folder
@@ -23,11 +24,11 @@ var palettes = require('users/mapbiomas/modules:Palettes.js');
 var App = {
 
     options: {
-        version: '1.2.1',
+        version: '1.2.2',
 
         assets: {
             municipalities: "projects/mapbiomas-workspace/AUXILIAR/municipios-2016",
-            states: "projects/mapbiomas-workspace/AUXILIAR/estados-2016",
+            states: "projects/mapbiomas-workspace/AUXILIAR/estados-2017",
             integration: 'projects/mapbiomas-workspace/public/collection3/mapbiomas_collection3_integration_v1',
             transitions: 'projects/mapbiomas-workspace/public/collection3/mapbiomas_collection3_transitions_v1',
         },
