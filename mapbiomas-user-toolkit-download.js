@@ -1,6 +1,6 @@
 /**
  * @name
- *      Mapbiomas User Toolkit
+ *      Mapbiomas User Toolkit Download
  * 
  * @description
  *      This is a support tool for mapbiomas data users.
@@ -15,20 +15,24 @@
  *    1.2.0 - Acess and download transitions data
  *    1.2.1 - Fix bug in task name
  *    1.2.2 - Update states vector
+ *    1.2.3 - Add nice mapbiomas logo :)
+ *    1.2.4 - Acess and download biomes data
  *
  * @see
  *      Get the MapBiomas exported data in your "Google Drive/MAPBIOMAS-EXPORT" folder
  */
 var palettes = require('users/mapbiomas/modules:Palettes.js');
+var logos = require('users/mapbiomas/modules:Logos.js');
 
 var App = {
 
     options: {
-        version: '1.2.2',
-
+        version: '1.2.3',
+        logo: logos.mapbiomas,
         assets: {
             municipalities: "projects/mapbiomas-workspace/AUXILIAR/municipios-2016",
             states: "projects/mapbiomas-workspace/AUXILIAR/estados-2017",
+            biomes: "projects/mapbiomas-workspace/AUXILIAR/biomas",
             integration: 'projects/mapbiomas-workspace/public/collection3/mapbiomas_collection3_integration_v1',
             transitions: 'projects/mapbiomas-workspace/public/collection3/mapbiomas_collection3_transitions_v1',
         },
@@ -89,6 +93,15 @@ var App = {
         activeName: '',
         municipalitiesNames: [],
 
+        biomesNames: {
+            'Amazônia': 'AMAZONIA',
+            'Caatinga': 'CAATINGA',
+            'Cerrado': 'CERRADO',
+            'Mata Atlântica': 'MATAATLANTICA',
+            'Pampa': 'PAMPA',
+            'Pantanal': 'PANTANAL'
+        },
+
         statesNames: {
             'Acre': 12,
             'Alagoas': 27,
@@ -123,6 +136,7 @@ var App = {
             'Coverage': palettes.get('classification2'),
             'Transitions': ['ffa500', 'ff0000', '818181', '06ff00', '4169e1', '8a2be2']
         },
+
         transitionsCodes: [{
                 name: "1. Floresta",
                 noChange: [1, 2, 3, 4, 5, 6, 7, 8],
@@ -378,6 +392,25 @@ var App = {
 
         },
 
+        loadBiome: function (biome) {
+
+            App.options.activeFeature = App.options.states
+                .filterMetadata('name', 'equals', String(App.options.biomesNames[biome]));
+
+            Map.centerObject(App.options.activeFeature);
+
+            Map.clear();
+
+            Map.addLayer(ee.Image().byte().paint(App.options.activeFeature, 1, 3), {
+                    'palette': 'ffffff,ff0000',
+                    'min': 0,
+                    'max': 1
+                },
+                biome + ' boundary',
+                true);
+
+        },
+
         loadState: function (state) {
 
             App.options.activeFeature = App.options.states
@@ -539,16 +572,23 @@ var App = {
 
             init: function () {
 
+                this.panelMain.add(this.panelLogo);
                 this.panelMain.add(this.labelTitle);
+                
+                this.panelLogo.add(App.options.logo);
+                this.panelBiomes.add(this.labelBiomes);
+                this.panelBiomes.add(this.selectBiomes);
 
                 this.panelState.add(this.labelState);
                 this.panelState.add(this.selectState);
 
                 this.panelMunicipalities.add(this.labelMunicipalitie);
                 this.panelMunicipalities.add(this.selectMunicipalitie);
+
                 this.panelDataType.add(this.labelDataType);
                 this.panelDataType.add(this.selectDataType);
-
+                
+                // this.panelMain.add(this.panelBiomes);
                 this.panelMain.add(this.panelState);
                 this.panelMain.add(this.panelMunicipalities);
                 this.panelMain.add(this.panelDataType);
@@ -568,6 +608,20 @@ var App = {
                     'width': '360px',
                     'position': 'bottom-left',
                     'margin': '0px 0px 0px 0px',
+                },
+            }),
+
+            panelLogo: ui.Panel({
+                'layout': ui.Panel.Layout.flow('vertical'),
+                'style': {
+                    'margin': '0px 0px 0px 110px',
+                },
+            }),
+
+            panelBiomes: ui.Panel({
+                'layout': ui.Panel.Layout.flow('vertical'),
+                'style': {
+                    'stretch': 'horizontal'
                 },
             }),
 
@@ -595,7 +649,7 @@ var App = {
             panelLayersList: ui.Panel({
                 'layout': ui.Panel.Layout.flow('vertical'),
                 'style': {
-                    'height': '350px',
+                    'height': '300px',
                     'stretch': 'vertical',
                     'backgroundColor': '#cccccc',
                 },
@@ -607,12 +661,12 @@ var App = {
                 'fontSize': '16px'
             }),
 
-            labelState: ui.Label('State:', {
+            labelBiomes: ui.Label('Biome:', {
                 'padding': '1px',
                 'fontSize': '16px'
             }),
 
-            labelNotes: ui.Label('Go to Task tab to run the export task.', {
+            labelState: ui.Label('State:', {
                 'padding': '1px',
                 'fontSize': '16px'
             }),
@@ -630,6 +684,30 @@ var App = {
             labelLayers: ui.Label('Layers:', {
                 'padding': '1px',
                 'fontSize': '16px'
+            }),
+
+            labelNotes: ui.Label('Go to Task tab to run the export task.', {
+                'padding': '1px',
+                'fontSize': '16px'
+            }),
+
+            selectBiomes: ui.Select({
+                'items': [
+                    'Amazônia', 'Caatinga', 'Cerrado', 'Mata Atlântica', 'Pampa', 'Pantanal'
+                ],
+                'placeholder': 'select biome',
+                'onChange': function (biome) {
+                    App.options.activeName = biome;
+
+                    App.ui.loadBiome(biome);
+                    // App.ui.loadStatesList(state);
+                    // App.ui.loadMunicipalitiesList(App.options.statesNames[state]);
+                    // App.ui.form.selectDataType.setDisabled(false);
+
+                },
+                'style': {
+                    'stretch': 'horizontal'
+                }
             }),
 
             selectState: ui.Select({
