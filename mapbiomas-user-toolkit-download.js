@@ -16,7 +16,6 @@
  *    1.2.1 - Fix bug in task name
  *    1.2.2 - Update states vector
  *    1.2.3 - Add nice mapbiomas logo :)
- *    1.2.4 - Acess and download biomes data
  *
  * @see
  *      Get the MapBiomas exported data in your "Google Drive/MAPBIOMAS-EXPORT" folder
