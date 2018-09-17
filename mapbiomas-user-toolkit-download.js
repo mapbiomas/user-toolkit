@@ -7,7 +7,7 @@
  *  
  * @author
  *      João Siqueira
- *      joaovsiqueira1@gmail.com
+ *      contato@mapbiomas.org
  *
  * @version
  *    1.0.0 - Acess and download municipalites data
