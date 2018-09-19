@@ -16,6 +16,7 @@
  *    1.2.1 - Fix bug in task name
  *    1.2.2 - Update states vector
  *    1.2.3 - Add nice mapbiomas logo :)
+ *    1.2.4 - Acess and download biomes data
  *
  * @see
  *      Get the MapBiomas exported data in your "Google Drive/MAPBIOMAS-EXPORT" folder
@@ -26,7 +27,7 @@ var logos = require('users/mapbiomas/modules:Logos.js');
 var App = {
 
     options: {
-        version: '1.2.3',
+        version: '1.2.4',
         logo: logos.mapbiomas,
         assets: {
             municipalities: "projects/mapbiomas-workspace/AUXILIAR/municipios-2016",
@@ -86,6 +87,7 @@ var App = {
             },
         },
 
+        biomes: null,
         states: null,
         municipalities: null,
         activeFeature: null,
@@ -102,33 +104,34 @@ var App = {
         },
 
         statesNames: {
-            'Acre': 12,
-            'Alagoas': 27,
-            'Amazonas': 13,
-            'Amapá': 16,
-            'Bahia': 29,
-            'Ceará': 23,
-            'Distrito Federal': 53,
-            'Espírito Santo': 32,
-            'Goiás': 52,
-            'Maranhão': 21,
-            'Minas Gerais': 31,
-            'Mato Grosso do Sul': 50,
-            'Mato Grosso': 51,
-            'Pará': 15,
-            'Paraíba': 25,
-            'Pernambuco': 26,
-            'Piauí': 22,
-            'Paraná': 41,
-            'Rio de Janeiro': 33,
-            'Rio Grande do Norte': 24,
-            'Rondônia': 11,
-            'Roraima': 14,
-            'Rio Grande do Sul': 43,
-            'Santa Catarina': 42,
-            'Sergipe': 28,
-            'São Paulo': 35,
-            'Tocantins': 17
+            'None': 'None',
+            'Acre': '12',
+            'Alagoas': '27',
+            'Amazonas': '13',
+            'Amapá': '16',
+            'Bahia': '29',
+            'Ceará': '23',
+            'Distrito Federal': '53',
+            'Espírito Santo': '32',
+            'Goiás': '52',
+            'Maranhão': '21',
+            'Minas Gerais': '31',
+            'Mato Grosso do Sul': '50',
+            'Mato Grosso': '51',
+            'Pará': '15',
+            'Paraíba': '25',
+            'Pernambuco': '26',
+            'Piauí': '22',
+            'Paraná': '41',
+            'Rio de Janeiro': '33',
+            'Rio Grande do Norte': '24',
+            'Rondônia': '11',
+            'Roraima': '14',
+            'Rio Grande do Sul': '43',
+            'Santa Catarina': '42',
+            'Sergipe': '28',
+            'São Paulo': '35',
+            'Tocantins': '17'
         },
 
         palette: {
@@ -228,6 +231,7 @@ var App = {
 
         App.options.municipalities = ee.FeatureCollection(App.options.assets.municipalities);
         App.options.states = ee.FeatureCollection(App.options.assets.states);
+        App.options.biomes = ee.FeatureCollection(App.options.assets.biomes);
 
     },
 
@@ -346,9 +350,55 @@ var App = {
 
         },
 
-        loadStatesList: function (state) {
+        // loadBiomesList: function (biome) {
 
-            App.ui.makeLayersList(state, App.options.activeFeature, App.options.periods[App.options.dataType]);
+        //     App.ui.makeLayersList(biome, App.options.activeFeature, App.options.periods[App.options.dataType]);
+
+        // },
+
+        loadStatesList: function (biome) {
+
+            App.ui.form.selectState.setPlaceholder('loading names...');
+
+            ee.List(App.options.states.filterBounds(
+                        App.options.biomes.filterMetadata('name', 'equals', String(App.options.biomesNames[biome])))
+                    .reduceColumns(ee.Reducer.toList(), ['CD_GEOCUF'])
+                    .get('list'))
+                .sort()
+                .evaluate(
+                    function (statesList, errorMsg) {
+
+                        var filtered = Object.keys(App.options.statesNames)
+                            .filter(
+                                function (state) {
+                                    return statesList.indexOf(App.options.statesNames[state]) != -1;
+                                }
+                            );
+                        print(filtered);
+
+                        App.ui.form.selectState = ui.Select({
+                            'items': ['None'].concat(filtered),
+                            'placeholder': 'select state',
+                            'onChange': function (state) {
+                                if (state != 'None') {
+                                    App.options.activeName = state;
+
+                                    App.ui.loadState(state);
+                                    App.ui.loadMunicipalitiesList(App.options.statesNames[state]);
+                                    App.ui.makeLayersList(state, App.options.activeFeature, App.options.periods[App.options.dataType]);
+                                    App.ui.form.selectDataType.setDisabled(false);
+                                }
+                            },
+                            'style': {
+                                'stretch': 'horizontal'
+                            }
+                        });
+
+                        App.ui.form.panelState.widgets()
+                            .set(1, App.ui.form.selectState);
+
+                    }
+                );
 
         },
 
@@ -357,7 +407,7 @@ var App = {
             App.ui.form.selectMunicipalitie.setPlaceholder('loading names...');
 
             ee.List(App.options.municipalities
-                    .filterMetadata('UF', 'equals', state)
+                    .filterMetadata('UF', 'equals', parseInt(state, 10))
                     .reduceColumns(ee.Reducer.toList(), ['NM_MUNICIP'])
                     .get('list'))
                 .sort()
@@ -367,15 +417,16 @@ var App = {
                         App.options.municipalitiesNames = municipalities;
 
                         App.ui.form.selectMunicipalitie = ui.Select({
-                            'items': App.options.municipalitiesNames,
+                            'items': ['None'].concat(App.options.municipalitiesNames),
                             'placeholder': 'select municipalitie',
                             'onChange': function (municipalitie) {
+                                if (municipalitie != 'None') {
+                                    App.options.activeName = municipalitie;
 
-                                App.options.activeName = municipalitie;
-
-                                App.ui.loadMunicipalitie(municipalitie);
-                                App.ui.makeLayersList(municipalitie, App.options.activeFeature,
-                                    App.options.periods[App.options.dataType]);
+                                    App.ui.loadMunicipalitie(municipalitie);
+                                    App.ui.makeLayersList(municipalitie, App.options.activeFeature,
+                                        App.options.periods[App.options.dataType]);
+                                }
 
                             },
                             'style': {
@@ -393,9 +444,9 @@ var App = {
 
         loadBiome: function (biome) {
 
-            App.options.activeFeature = App.options.states
+            App.options.activeFeature = App.options.biomes
                 .filterMetadata('name', 'equals', String(App.options.biomesNames[biome]));
-
+            print(App.options.activeFeature);
             Map.centerObject(App.options.activeFeature);
 
             Map.clear();
@@ -435,7 +486,7 @@ var App = {
 
             App.options.activeFeature = App.options.municipalities
                 .filterMetadata('NM_MUNICIP', 'equals', municipalitie)
-                .filterMetadata('UF', 'equals', uf);
+                .filterMetadata('UF', 'equals', parseInt(uf, 10));
 
             Map.clear();
 
@@ -547,16 +598,21 @@ var App = {
                 if (selected) {
 
                     var period = App.options.periods[App.options.dataType][i];
-                    var municName = App.formatName(App.ui.form.selectMunicipalitie.getValue() || 'state');
-                    var stateName = App.formatName(App.ui.form.selectState.getValue());
+                    var municName = App.formatName(App.ui.form.selectMunicipalitie.getValue() || '');
+                    var stateName = App.formatName(App.ui.form.selectState.getValue() || '');
+                    var biomeName = App.formatName(App.ui.form.selectBiome.getValue() || '');
+
+                    var fileName = 'mapbiomas-' + biomeName + '-' + stateName + '-' + municName + '-' + period;
+
+                    fileName = fileName.replace(/--/g, '-').replace(/--/g, '-');
 
                     Export.image.toDrive({
                         image: App.options.data[App.options.dataType]
                             .select([App.options.bandsNames[App.options.dataType] + period])
                             .clip(App.options.activeFeature),
-                        description: 'mapbiomas-' + stateName + '-' + municName + '-' + period,
+                        description: fileName,
                         folder: 'MAPBIOMAS-EXPORT',
-                        fileNamePrefix: 'mapbiomas-' + stateName + '-' + municName + '-' + period,
+                        fileNamePrefix: fileName,
                         region: App.options.activeFeature.geometry().bounds(),
                         scale: 30,
                         maxPixels: 1e13,
@@ -573,10 +629,10 @@ var App = {
 
                 this.panelMain.add(this.panelLogo);
                 this.panelMain.add(this.labelTitle);
-                
+
                 this.panelLogo.add(App.options.logo);
                 this.panelBiomes.add(this.labelBiomes);
-                this.panelBiomes.add(this.selectBiomes);
+                this.panelBiomes.add(this.selectBiome);
 
                 this.panelState.add(this.labelState);
                 this.panelState.add(this.selectState);
@@ -586,8 +642,8 @@ var App = {
 
                 this.panelDataType.add(this.labelDataType);
                 this.panelDataType.add(this.selectDataType);
-                
-                // this.panelMain.add(this.panelBiomes);
+
+                this.panelMain.add(this.panelBiomes);
                 this.panelMain.add(this.panelState);
                 this.panelMain.add(this.panelMunicipalities);
                 this.panelMain.add(this.panelDataType);
@@ -690,19 +746,22 @@ var App = {
                 'fontSize': '16px'
             }),
 
-            selectBiomes: ui.Select({
+            selectBiome: ui.Select({
                 'items': [
-                    'Amazônia', 'Caatinga', 'Cerrado', 'Mata Atlântica', 'Pampa', 'Pantanal'
+                    'None', 'Amazônia', 'Caatinga', 'Cerrado', 'Mata Atlântica', 'Pampa', 'Pantanal'
                 ],
                 'placeholder': 'select biome',
                 'onChange': function (biome) {
-                    App.options.activeName = biome;
+                    if (biome != 'None') {
 
-                    App.ui.loadBiome(biome);
-                    // App.ui.loadStatesList(state);
-                    // App.ui.loadMunicipalitiesList(App.options.statesNames[state]);
-                    // App.ui.form.selectDataType.setDisabled(false);
+                        App.options.activeName = biome;
 
+                        App.ui.loadBiome(biome);
+                        App.ui.loadStatesList(biome);
+                        App.ui.makeLayersList(biome, App.options.activeFeature, App.options.periods[App.options.dataType]);
+                        // App.ui.loadMunicipalitiesList(App.options.statesNames[state]);
+                        App.ui.form.selectDataType.setDisabled(false);
+                    }
                 },
                 'style': {
                     'stretch': 'horizontal'
@@ -711,7 +770,7 @@ var App = {
 
             selectState: ui.Select({
                 'items': [
-                    'Acre', 'Alagoas', 'Amazonas', 'Amapá', 'Bahia',
+                    'None', 'Acre', 'Alagoas', 'Amazonas', 'Amapá', 'Bahia',
                     'Ceará', 'Distrito Federal', 'Espírito Santo', 'Goiás', 'Maranhão',
                     'Minas Gerais', 'Mato Grosso do Sul', 'Mato Grosso', 'Pará', 'Paraíba',
                     'Pernambuco', 'Piauí', 'Paraná', 'Rio de Janeiro', 'Rio Grande do Norte',
@@ -720,13 +779,15 @@ var App = {
                 ],
                 'placeholder': 'select state',
                 'onChange': function (state) {
-                    App.options.activeName = state;
+                    if (state != 'None') {
+                        App.options.activeName = state;
 
-                    App.ui.loadState(state);
-                    App.ui.loadStatesList(state);
-                    App.ui.loadMunicipalitiesList(App.options.statesNames[state]);
-                    App.ui.form.selectDataType.setDisabled(false);
-
+                        App.ui.loadState(state);
+                        // App.ui.loadStatesList(state);
+                        App.ui.loadMunicipalitiesList(App.options.statesNames[state]);
+                        App.ui.makeLayersList(state, App.options.activeFeature, App.options.periods[App.options.dataType]);
+                        App.ui.form.selectDataType.setDisabled(false);
+                    }
                 },
                 'style': {
                     'stretch': 'horizontal'
