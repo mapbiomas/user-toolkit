@@ -622,7 +622,7 @@ var App = {
                         scale: 30,
                         maxPixels: 1e13,
                         skipEmptyTiles: true,
-                        fileDimensions: 256 * 512,
+                        fileDimensions: App.options.fileDimensions[App.options.dataType],
                     });
                 }
             }
