@@ -75,7 +75,12 @@ var App = {
             'Coverage': null,
             'Transitions': null,
         },
-
+        
+        fileDimensions: {
+            'Coverage': 256 * 512,
+            'Transitions': 256 * 124,    
+        },
+        
         ranges: {
             'Coverage': {
                 'min': 0,
