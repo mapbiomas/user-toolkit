@@ -17,7 +17,8 @@
  *    1.2.2 - Update states vector
  *    1.2.3 - Add nice mapbiomas logo :)
  *    1.2.4 - Acess and download biomes data
- *
+ *    1.3.0 - Updated to collection 3.1
+ * 
  * @see
  *      Get the MapBiomas exported data in your "Google Drive/MAPBIOMAS-EXPORT" folder
  */
@@ -27,7 +28,7 @@ var logos = require('users/mapbiomas/modules:Logos.js');
 var App = {
 
     options: {
-        version: '1.2.4',
+        version: '1.3.0',
         logo: logos.mapbiomas,
         assets: {
             municipalities: "projects/mapbiomas-workspace/AUXILIAR/municipios-2016",
@@ -75,12 +76,12 @@ var App = {
             'Coverage': null,
             'Transitions': null,
         },
-        
+
         fileDimensions: {
             'Coverage': 256 * 512,
-            'Transitions': 256 * 124,    
+            'Transitions': 256 * 124,
         },
-        
+
         ranges: {
             'Coverage': {
                 'min': 0,
@@ -143,6 +144,8 @@ var App = {
             'Coverage': palettes.get('classification2'),
             'Transitions': ['ffa500', 'ff0000', '818181', '06ff00', '4169e1', '8a2be2']
         },
+
+        taskid: 1,
 
         transitionsCodes: [{
                 name: "1. Floresta",
@@ -611,19 +614,32 @@ var App = {
 
                     fileName = fileName.replace(/--/g, '-').replace(/--/g, '-');
 
-                    Export.image.toDrive({
-                        image: App.options.data[App.options.dataType]
+                    var taskId = ee.data.newTaskId(1);
+
+                    var params = {
+                        type: 'EXPORT_IMAGE',
+                        json: ee.Serializer.toJSON(App.options.data[App.options.dataType]
                             .select([App.options.bandsNames[App.options.dataType] + period])
-                            .clip(App.options.activeFeature),
+                            .clip(App.options.activeFeature)),
                         description: fileName,
-                        folder: 'MAPBIOMAS-EXPORT',
+                        driveFolder: 'MAPBIOMAS-EXPORT',
                         fileNamePrefix: fileName,
-                        region: App.options.activeFeature.geometry().bounds(),
+                        region: JSON.stringify(App.options.activeFeature.geometry().bounds().getInfo()),
                         scale: 30,
                         maxPixels: 1e13,
                         skipEmptyTiles: true,
                         fileDimensions: App.options.fileDimensions[App.options.dataType],
-                    });
+                    };
+
+                    var status = ee.data.startProcessing(taskId, params);
+
+                    if (status) {
+                        if (status.started == 'OK') {
+                            print("Exporting data...")
+                        } else {
+                            print("Exporting error!")
+                        }
+                    }
                 }
             }
         },
@@ -746,7 +762,7 @@ var App = {
                 'fontSize': '16px'
             }),
 
-            labelNotes: ui.Label('Go to Task tab to run the export task.', {
+            labelNotes: ui.Label('Click on OK button to start the task.', {
                 'padding': '1px',
                 'fontSize': '16px'
             }),
