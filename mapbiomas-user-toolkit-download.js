@@ -34,8 +34,8 @@ var App = {
             municipalities: "projects/mapbiomas-workspace/AUXILIAR/municipios-2016",
             states: "projects/mapbiomas-workspace/AUXILIAR/estados-2017",
             biomes: "projects/mapbiomas-workspace/AUXILIAR/biomas",
-            integration: 'projects/mapbiomas-workspace/public/collection3/mapbiomas_collection3_integration_v1',
-            transitions: 'projects/mapbiomas-workspace/public/collection3/mapbiomas_collection3_transitions_v1',
+            integration: 'projects/mapbiomas-workspace/public/collection3_1/mapbiomas_collection31_integration_v1',
+            transitions: 'projects/mapbiomas-workspace/public/collection3_1/mapbiomas_collection31_transitions_v1',
         },
 
         periods: {
@@ -85,7 +85,7 @@ var App = {
         ranges: {
             'Coverage': {
                 'min': 0,
-                'max': 33
+                'max': 34
             },
             'Transitions': {
                 'min': -2,
@@ -260,7 +260,7 @@ var App = {
                 'bands': ['classification_2017'],
                 'palette': App.options.palette.Coverage,
                 'min': 0,
-                'max': 33,
+                'max': 34,
                 'format': 'png'
             },
             'name': 'Mapbiomas 2017',
@@ -650,6 +650,7 @@ var App = {
 
                 this.panelMain.add(this.panelLogo);
                 this.panelMain.add(this.labelTitle);
+                this.panelMain.add(this.labelCollection);
 
                 this.panelLogo.add(App.options.logo);
                 this.panelBiomes.add(this.labelBiomes);
@@ -731,6 +732,12 @@ var App = {
                 },
             }),
 
+            labelCollection: ui.Label('Brazil collection 3.1', {
+                'fontWeight': 'bold',
+                'padding': '1px',
+                'fontSize': '16px'
+            }),
+            
             labelTitle: ui.Label('MapBiomas User Toolkit', {
                 'fontWeight': 'bold',
                 'padding': '1px',
