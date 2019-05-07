@@ -292,7 +292,8 @@ var App = {
             .replace(/ñ/g, 'n')
             .replace(/&/g, '')
             .replace(/@/g, '')
-            .replace(/ /g, '');
+            .replace(/ /g, '')
+            .replace(/'/g, '');
 
         return formated;
     },
