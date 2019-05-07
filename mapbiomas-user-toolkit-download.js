@@ -18,6 +18,7 @@
  *    1.2.3 - Add nice mapbiomas logo :)
  *    1.2.4 - Acess and download biomes data
  *    1.3.0 - Updated to collection 3.1
+ *    1.3.1 - Fix minor issues
  * 
  * @see
  *      Get the MapBiomas exported data in your "Google Drive/MAPBIOMAS-EXPORT" folder
@@ -28,7 +29,7 @@ var logos = require('users/mapbiomas/modules:Logos.js');
 var App = {
 
     options: {
-        version: '1.3.0',
+        version: '1.3.1',
         logo: logos.mapbiomas,
         assets: {
             municipalities: "projects/mapbiomas-workspace/AUXILIAR/municipios-2016",
