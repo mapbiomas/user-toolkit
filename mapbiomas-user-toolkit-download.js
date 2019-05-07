@@ -625,7 +625,7 @@ var App = {
                             .clip(App.options.activeFeature)),
                         description: fileName,
                         driveFolder: 'MAPBIOMAS-EXPORT',
-                        fileNamePrefix: fileName,
+                        driveFileNamePrefix: fileName,
                         region: JSON.stringify(App.options.activeFeature.geometry().bounds().getInfo()),
                         scale: 30,
                         maxPixels: 1e13,
