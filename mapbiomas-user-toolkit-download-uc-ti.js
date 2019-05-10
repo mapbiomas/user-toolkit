@@ -11,6 +11,7 @@
  *
  * @version
  *    1.0.0 - Acess and download national protected areas
+ *    1.0.1 - fix minor exporting bugs
  * 
  * @see
  *      Get the MapBiomas exported data in your "Google Drive/MAPBIOMAS-EXPORT" folder
@@ -21,7 +22,7 @@ var logos = require('users/mapbiomas/modules:Logos.js');
 var App = {
 
     options: {
-        version: '1.0.0',
+        version: '1.0.1',
         logo: logos.mapbiomas,
         assets: {
             protectedAreas: "projects/mapbiomas-workspace/AUXILIAR/areas-protegidas",
@@ -252,7 +253,8 @@ var App = {
             .replace(/ñ/g, 'n')
             .replace(/&/g, '')
             .replace(/@/g, '')
-            .replace(/ /g, '');
+            .replace(/ /g, '')
+            .replace(/["'()]/g, '');
 
         return formated;
     },
@@ -536,11 +538,16 @@ var App = {
 
                     var taskId = ee.data.newTaskId(1);
 
+                    var data = App.options.data[App.options.dataType]
+                        .select([App.options.bandsNames[App.options.dataType] + period]);
+
+                    if (App.options.bufferDistance !== 0) {
+                        data = data.clip(App.options.activeFeature.geometry().buffer(App.options.bufferDistance))
+                    }
+
                     var params = {
                         type: 'EXPORT_IMAGE',
-                        json: ee.Serializer.toJSON(App.options.data[App.options.dataType]
-                            .select([App.options.bandsNames[App.options.dataType] + period])
-                            .clip(App.options.activeFeature.geometry().buffer(App.options.bufferDistance))),
+                        json: ee.Serializer.toJSON(data),
                         description: fileName,
                         driveFolder: 'MAPBIOMAS-EXPORT',
                         driveFileNamePrefix: fileName,
