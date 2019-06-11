@@ -1,6 +1,6 @@
 /**
  * @name
- *      Mapbiomas User Toolkit Download National Protected Areas
+ *      Mapbiomas User Toolkit Download National Protected Areas and Watersheds
  * 
  * @description
  *      This is a support tool for mapbiomas data users.
@@ -11,7 +11,8 @@
  *
  * @version
  *    1.0.0 - Acess and download national protected areas
- *    1.0.1 - fix minor exporting bugs
+ *    1.0.1 - Fix minor exporting bugs
+ *    1.1.0 - Acess and download watersheds
  * 
  * @see
  *      Get the MapBiomas exported data in your "Google Drive/MAPBIOMAS-EXPORT" folder
@@ -26,6 +27,7 @@ var App = {
         logo: logos.mapbiomas,
         assets: {
             protectedAreas: "projects/mapbiomas-workspace/AUXILIAR/areas-protegidas",
+            watersheds: "projects/mapbiomas-workspace/AUXILIAR/bacias-nivel-2",
             integration: 'projects/mapbiomas-workspace/public/collection3_1/mapbiomas_collection31_integration_v1',
             transitions: 'projects/mapbiomas-workspace/public/collection3_1/mapbiomas_collection31_transitions_v1',
         },
@@ -86,6 +88,7 @@ var App = {
         },
 
         protectedAreas: null,
+        watersheds: null,
         activeFeature: null,
         activeName: '',
         municipalitiesNames: [],
@@ -111,75 +114,75 @@ var App = {
         bufferDistance: 0,
 
         transitionsCodes: [{
-                name: "1. Floresta",
-                noChange: [1, 2, 3, 4, 5, 6, 7, 8],
-                upVeg: [],
-                downVeg: [10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 28, 22, 23, 24, 25, 29, 30],
-                downWater: [],
-                upWater: [26, 33, 31],
-                upPlantacao: [9],
-                ignored: [27]
-            },
-            {
-                name: "2. Formações Naturais não Florestais",
-                noChange: [10, 11, 12, 13],
-                upVeg: [],
-                downVeg: [14, 15, 16, 17, 18, 19, 20, 21, 28, 22, 23, 24, 25, 29, 30],
-                downWater: [],
-                upWater: [26, 33, 31],
-                upPlantacao: [9],
-                ignored: [27, 1, 2, 3, 4, 5, 6, 7, 8]
-            },
-            {
-                name: "3. Uso Agropecuário",
-                noChange: [14, 15, 16, 17, 18, 19, 20, 21, 28],
-                upVeg: [1, 2, 3, 4, 5, 6, 7, 8, 10, 11, 12, 13, 32],
-                downVeg: [],
-                downWater: [],
-                upWater: [26, 31, 33],
-                upPlantacao: [9],
-                ignored: [27, 22, 23, 24, 25, 29, 30]
-            },
-            {
-                name: "4.Áreas não vegetadas",
-                noChange: [22, 23, 24, 25, 29, 30],
-                upVeg: [1, 2, 3, 4, 5, 6, 7, 8, 10, 11, 12, 13, 32],
-                downVeg: [],
-                downWater: [],
-                upWater: [26, 31, 33],
-                upPlantacao: [9],
-                ignored: [27, 14, 15, 18, 19, 20, 21, 28],
-            },
-            {
-                name: "5. Corpos Dágua",
-                noChange: [26, 31, 33],
-                upVeg: [1, 2, 3, 4, 5, 6, 7, 8, 10, 11, 12, 13, 32],
-                downVeg: [],
-                downWater: [14, 15, 16, 17, 18, 19, 20, 21, 28, 22, 23, 24, 25, 29, 30],
-                upWater: [],
-                upPlantacao: [9],
-                ignored: [27]
-            },
-            {
-                name: "Plantacao Florestal",
-                noChange: [9],
-                upVeg: [1, 2, 3, 4, 5, 6, 7, 8, 10, 11, 12, 13, 32],
-                downVeg: [],
-                downWater: [14, 15, 18, 19, 20, 21, 28, 22, 23, 24, 25, 29, 30],
-                upWater: [26, 31, 33],
-                upPlantacao: [],
-                ignored: [27]
-            },
-            {
-                name: "6. Não observado",
-                noChange: [27],
-                upVeg: [],
-                downVeg: [],
-                downWater: [],
-                upWater: [],
-                upPlantacao: [],
-                ignored: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 28, 22, 23, 24, 25, 26, 28, 29, 30, 31, 32, 33]
-            }
+            name: "1. Floresta",
+            noChange: [1, 2, 3, 4, 5, 6, 7, 8],
+            upVeg: [],
+            downVeg: [10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 28, 22, 23, 24, 25, 29, 30],
+            downWater: [],
+            upWater: [26, 33, 31],
+            upPlantacao: [9],
+            ignored: [27]
+        },
+        {
+            name: "2. Formações Naturais não Florestais",
+            noChange: [10, 11, 12, 13],
+            upVeg: [],
+            downVeg: [14, 15, 16, 17, 18, 19, 20, 21, 28, 22, 23, 24, 25, 29, 30],
+            downWater: [],
+            upWater: [26, 33, 31],
+            upPlantacao: [9],
+            ignored: [27, 1, 2, 3, 4, 5, 6, 7, 8]
+        },
+        {
+            name: "3. Uso Agropecuário",
+            noChange: [14, 15, 16, 17, 18, 19, 20, 21, 28],
+            upVeg: [1, 2, 3, 4, 5, 6, 7, 8, 10, 11, 12, 13, 32],
+            downVeg: [],
+            downWater: [],
+            upWater: [26, 31, 33],
+            upPlantacao: [9],
+            ignored: [27, 22, 23, 24, 25, 29, 30]
+        },
+        {
+            name: "4.Áreas não vegetadas",
+            noChange: [22, 23, 24, 25, 29, 30],
+            upVeg: [1, 2, 3, 4, 5, 6, 7, 8, 10, 11, 12, 13, 32],
+            downVeg: [],
+            downWater: [],
+            upWater: [26, 31, 33],
+            upPlantacao: [9],
+            ignored: [27, 14, 15, 18, 19, 20, 21, 28],
+        },
+        {
+            name: "5. Corpos Dágua",
+            noChange: [26, 31, 33],
+            upVeg: [1, 2, 3, 4, 5, 6, 7, 8, 10, 11, 12, 13, 32],
+            downVeg: [],
+            downWater: [14, 15, 16, 17, 18, 19, 20, 21, 28, 22, 23, 24, 25, 29, 30],
+            upWater: [],
+            upPlantacao: [9],
+            ignored: [27]
+        },
+        {
+            name: "Plantacao Florestal",
+            noChange: [9],
+            upVeg: [1, 2, 3, 4, 5, 6, 7, 8, 10, 11, 12, 13, 32],
+            downVeg: [],
+            downWater: [14, 15, 18, 19, 20, 21, 28, 22, 23, 24, 25, 29, 30],
+            upWater: [26, 31, 33],
+            upPlantacao: [],
+            ignored: [27]
+        },
+        {
+            name: "6. Não observado",
+            noChange: [27],
+            upVeg: [],
+            downVeg: [],
+            downWater: [],
+            upWater: [],
+            upPlantacao: [],
+            ignored: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 28, 22, 23, 24, 25, 26, 28, 29, 30, 31, 32, 33]
+        }
         ],
 
     },
@@ -201,6 +204,7 @@ var App = {
     loadTables: function () {
 
         App.options.protectedAreas = ee.FeatureCollection(App.options.assets.protectedAreas);
+        App.options.watersheds = ee.FeatureCollection(App.options.assets.watersheds);
 
     },
 
@@ -322,7 +326,7 @@ var App = {
 
         loadAnpsList: function (type) {
 
-            App.ui.form.selectAnp.setPlaceholder('loading names...');
+            App.ui.form.selectName.setPlaceholder('loading names...');
 
             var properties = {
                 'Indigenous Lands': 'NomeTI',
@@ -330,12 +334,12 @@ var App = {
             };
 
             ee.List(App.options.activeFeature.reduceColumns(ee.Reducer.toList(), [properties[type]])
-                    .get('list'))
+                .get('list'))
                 .sort()
                 .evaluate(
                     function (anpList, errorMsg) {
 
-                        App.ui.form.selectAnp = ui.Select({
+                        App.ui.form.selectName = ui.Select({
                             'items': ['None'].concat(anpList),
                             'placeholder': 'select ANP',
                             'onChange': function (anp) {
@@ -359,7 +363,48 @@ var App = {
                         });
 
                         App.ui.form.panelAnps.widgets()
-                            .set(1, App.ui.form.selectAnp);
+                            .set(1, App.ui.form.selectName);
+
+                    }
+                );
+
+        },
+
+        loadWatershedsList: function (type) {
+
+            App.ui.form.selectName.setPlaceholder('loading names...');
+
+            ee.List(App.options.activeFeature.reduceColumns(ee.Reducer.toList(), ['name'])
+                .get('list'))
+                .sort()
+                .evaluate(
+                    function (watershedsList, errorMsg) {
+
+                        App.ui.form.selectName = ui.Select({
+                            'items': ['None'].concat(watershedsList),
+                            'placeholder': 'select Watershed',
+                            'onChange': function (watershed) {
+                                if (watershed != 'None') {
+                                    App.options.activeName = watershed;
+
+                                    ee.Number(1).evaluate(
+                                        function (a) {
+                                            App.ui.loadWatershed(watershed);
+                                            App.ui.makeLayersList(watershed, App.options.activeFeature, App.options.periods[App.options.dataType]);
+                                            App.ui.form.selectDataType.setDisabled(false);
+                                        }
+                                    );
+
+                                    App.ui.loadingBox();
+                                }
+                            },
+                            'style': {
+                                'stretch': 'horizontal'
+                            }
+                        });
+
+                        App.ui.form.panelAnps.widgets()
+                            .set(1, App.ui.form.selectName);
 
                     }
                 );
@@ -375,10 +420,10 @@ var App = {
             Map.clear();
 
             Map.addLayer(App.options.activeFeature.style({
-                    color: 'ff0000',
-                    width: 1,
-                    fillColor: 'ff000033',
-                }), {},
+                color: 'ff0000',
+                width: 1,
+                fillColor: 'ff000033',
+            }), {},
                 'Indigenous Land',
                 true);
 
@@ -393,11 +438,29 @@ var App = {
             Map.clear();
 
             Map.addLayer(App.options.activeFeature.style({
-                    color: 'ff0000',
-                    width: 1,
-                    fillColor: 'ff000033',
-                }), {},
+                color: 'ff0000',
+                width: 1,
+                fillColor: 'ff000033',
+            }), {},
                 'Conservation Units',
+                true);
+
+        },
+
+        loadWatersheds: function () {
+
+            App.options.activeFeature = App.options.watersheds;
+
+            Map.centerObject(App.options.activeFeature);
+
+            Map.clear();
+
+            Map.addLayer(App.options.activeFeature.style({
+                color: 'ff0000',
+                width: 1,
+                fillColor: 'ff000033',
+            }), {},
+                'Watersheds level 1',
                 true);
 
         },
@@ -417,11 +480,30 @@ var App = {
             Map.clear();
 
             Map.addLayer(App.options.activeFeature.style({
-                    color: 'ff0000',
-                    width: 1,
-                    fillColor: 'ff000033',
-                }), {},
+                color: 'ff0000',
+                width: 1,
+                fillColor: 'ff000033',
+            }), {},
                 anpName,
+                true);
+
+        },
+
+        loadWatershed: function (name) {
+
+            App.options.activeFeature = App.options.watersheds
+                .filterMetadata('name', 'equals', name);
+
+            Map.centerObject(App.options.activeFeature);
+
+            Map.clear();
+
+            Map.addLayer(App.options.activeFeature.style({
+                color: 'ff0000',
+                width: 1,
+                fillColor: 'ff000033',
+            }), {},
+                name,
                 true);
 
         },
@@ -530,7 +612,7 @@ var App = {
 
                     var period = App.options.periods[App.options.dataType][i];
                     var typeName = App.formatName(App.ui.form.selectType.getValue() || '');
-                    var AnpName = App.formatName(App.ui.form.selectAnp.getValue() || '');
+                    var AnpName = App.formatName(App.ui.form.selectName.getValue() || '');
 
                     var fileName = 'mapbiomas-' + AnpName + '-' + period;
 
@@ -584,7 +666,7 @@ var App = {
                 this.panelType.add(this.selectType);
 
                 this.panelAnps.add(this.labelAnp);
-                this.panelAnps.add(this.selectAnp);
+                this.panelAnps.add(this.selectName);
 
                 this.panelDataType.add(this.labelDataType);
                 this.panelDataType.add(this.selectDataType);
@@ -659,7 +741,7 @@ var App = {
                 },
             }),
 
-            labelCollection: ui.Label('National Protected Areas - Collection 3.1', {
+            labelCollection: ui.Label('National Protected Areas and Watersheds - Collection 3.1', {
                 'fontWeight': 'bold',
                 'padding': '1px',
                 'fontSize': '16px'
@@ -703,7 +785,7 @@ var App = {
 
             selectType: ui.Select({
                 'items': [
-                    'None', 'Indigenous Lands', 'Conservation Units'
+                    'None', 'Indigenous Lands', 'Conservation Units', 'Watersheds Level 1'
                 ],
                 'placeholder': 'select type',
                 'onChange': function (type) {
@@ -711,20 +793,34 @@ var App = {
 
                         App.options.activeName = type;
 
-                        if (type === 'Indigenous Lands') {
-                            ee.Number(1).evaluate(
-                                function (a) {
-                                    App.ui.loadIndigenousLand();
-                                    App.ui.loadAnpsList(type);
-                                }
-                            );
-                        } else {
-                            ee.Number(1).evaluate(
-                                function (a) {
-                                    App.ui.loadConservationUnits();
-                                    App.ui.loadAnpsList(type);
-                                }
-                            );
+                        switch (type) {
+                            case 'Indigenous Lands':
+                                ee.Number(1).evaluate(
+                                    function (a) {
+                                        App.ui.loadIndigenousLand();
+                                        App.ui.loadAnpsList(type);
+                                    }
+                                );
+                                break;
+                            case 'Conservation Units':
+                                ee.Number(1).evaluate(
+                                    function (a) {
+                                        App.ui.loadConservationUnits();
+                                        App.ui.loadAnpsList(type);
+                                    }
+                                );
+                                break;
+                            case 'Watersheds Level 1':
+                                ee.Number(1).evaluate(
+                                    function (a) {
+                                        App.ui.loadWatersheds();
+                                        App.ui.loadWatershedsList(type);
+                                    }
+                                );
+                                break;
+                            default:
+                                print('Error!');
+                                break;
                         }
                         App.ui.loadingBox();
 
@@ -738,7 +834,7 @@ var App = {
                 }
             }),
 
-            selectAnp: ui.Select({
+            selectName: ui.Select({
                 'items': ['None'],
                 'placeholder': 'None',
                 'style': {
