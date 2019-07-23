@@ -19,6 +19,7 @@
  *    1.2.4 - Acess and download biomes data
  *    1.3.0 - Updated to collection 3.1
  *    1.3.1 - Fix minor issues
+ *    1.3.2 - Fix minor issues
  * 
  * @see
  *      Get the MapBiomas exported data in your "Google Drive/MAPBIOMAS-EXPORT" folder
