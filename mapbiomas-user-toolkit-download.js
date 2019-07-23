@@ -152,7 +152,7 @@ var App = {
                 name: "1. Floresta",
                 noChange: [1, 2, 3, 4, 5, 6, 7, 8],
                 upVeg: [],
-                downVeg: [10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 28, 22, 23, 24, 25, 29, 30],
+                downVeg: [10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 28, 22, 23, 24, 25, 29, 30, 32],
                 downWater: [],
                 upWater: [26, 33, 31],
                 upPlantacao: [9],
@@ -160,7 +160,7 @@ var App = {
             },
             {
                 name: "2. Formações Naturais não Florestais",
-                noChange: [10, 11, 12, 13],
+                noChange: [10, 11, 12, 13, 32],
                 upVeg: [],
                 downVeg: [14, 15, 16, 17, 18, 19, 20, 21, 28, 22, 23, 24, 25, 29, 30],
                 downWater: [],
