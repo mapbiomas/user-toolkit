@@ -12,10 +12,11 @@
  * @version
  *    1.0.0 - Acess and download data using user's vector
  *    1.1.0 - Updated to collection 4.0
+ *    1.1.1 - Updated assets
  * 
  * @see
  *      Get the MapBiomas exported data in your "Google Drive/MAPBIOMAS-EXPORT" folder
- *      Tutorial - https://docs.google.com/presentation/d/1AkQ-jp94Fc4oI01nf5l5k9FkGZDIuck6P8muNEvAXNg/edit?ts=5d1f62ce#slide=id.p
+ *      Code and Tutorial - https://github.com/mapbiomas-brazil/user-toolkit
  */
 var palettes = require('users/mapbiomas/modules:Palettes.js');
 var logos = require('users/mapbiomas/modules:Logos.js');
@@ -23,7 +24,7 @@ var logos = require('users/mapbiomas/modules:Logos.js');
 var App = {
 
     options: {
-        version: '1.1.0',
+        version: '1.1.1',
         logo: logos.mapbiomas,
         assets: {
             integration: 'projects/mapbiomas-workspace/public/collection4/mapbiomas_collection40_integration_v1',
@@ -31,7 +32,8 @@ var App = {
             vectors: [
                 'projects/mapbiomas-workspace/AUXILIAR/areas-protegidas',
                 'projects/mapbiomas-workspace/AUXILIAR/municipios-2016',
-                'projects/mapbiomas-workspace/AUXILIAR/estados-2016',
+                'projects/mapbiomas-workspace/AUXILIAR/estados-2017',
+                'projects/mapbiomas-workspace/AUXILIAR/biomas',
                 'projects/mapbiomas-workspace/AUXILIAR/bacias-nivel-1',
                 'projects/mapbiomas-workspace/AUXILIAR/bacias-nivel-2',
             ]
