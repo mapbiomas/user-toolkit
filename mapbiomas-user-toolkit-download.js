@@ -13,6 +13,8 @@
  *    1.0.0 - Acess and download data using user's vector
  *    1.1.0 - Updated to collection 4.0
  *    1.1.1 - Updated assets
+ *    1.1.2 - Fix minor issues
+ *    1.1.3 - Update transitions data
  * 
  * @see
  *      Get the MapBiomas exported data in your "Google Drive/MAPBIOMAS-EXPORT" folder
@@ -24,11 +26,11 @@ var logos = require('users/mapbiomas/modules:Logos.js');
 var App = {
 
     options: {
-        version: '1.1.1',
+        version: '1.1.3',
         logo: logos.mapbiomas,
         assets: {
             integration: 'projects/mapbiomas-workspace/public/collection4/mapbiomas_collection40_integration_v1',
-            transitions: 'projects/mapbiomas-workspace/public/collection4/mapbiomas_collection40_transitions_v1',
+            transitions: 'projects/mapbiomas-workspace/public/collection4/mapbiomas_collection40_transitions_v2',
             vectors: [
                 'projects/mapbiomas-workspace/AUXILIAR/areas-protegidas',
                 'projects/mapbiomas-workspace/AUXILIAR/municipios-2016',
@@ -83,19 +85,19 @@ var App = {
                 '2017', '2018'
             ],
             'Transitions': [
-                "1988_1989", "1989_1990", "1990_1991", "1985_2018",
-                "1991_1992", "1992_1993", "1993_1994", "2010_2018",
-                "2017_2018", "1994_1995", "1995_1996", "1996_1997",
-                "2000_2010", "1987_1988", "1997_1998", "1998_1999",
-                "1999_2000", "1990_2000", "1986_1987", "2000_2001",
-                "2001_2002", "2002_2003", "2015_2018", "1985_1986",
-                "2003_2004", "2004_2005", "2005_2006", "2010_2015",
-                "2010_2016", "2006_2007", "2007_2008", "2008_2009",
-                "2005_2010", "2002_2010", "2009_2010", "2010_2011",
-                "2011_2012", "2000_2005", "1994_2002", "2012_2013",
-                "2013_2014", "2014_2015", "1995_2000", "2012_2018",
-                "2015_2016", "2016_2017", "1985_1990", "1990_1995",
-                "2008_2018",
+                "1985_1986", "1986_1987", "1987_1988", "1988_1989",
+                "1989_1990", "1990_1991", "1991_1992", "1992_1993",
+                "1993_1994", "1994_1995", "1995_1996", "1996_1997",
+                "1997_1998", "1998_1999", "1999_2000", "2000_2001",
+                "2001_2002", "2002_2003", "2003_2004", "2004_2005",
+                "2005_2006", "2006_2007", "2007_2008", "2008_2009",
+                "2009_2010", "2010_2011", "2011_2012", "2012_2013",
+                "2013_2014", "2014_2015", "2015_2016", "2016_2017",
+                "2017_2018", "1985_1990", "1990_1995", "1995_2000",
+                "2000_2005", "2005_2010", "2010_2015", "2015_2018",
+                "1990_2000", "2000_2010", "2010_2018", "1985_2018",
+                "2008_2017", "2012_2018", "1994_2002", "2002_2010",
+                "2010_2016", "2008_2018", "1986_2015", "2001_2016"
             ]
         },
         bandsNames: {
@@ -356,7 +358,7 @@ var App = {
                     });
 
             var allTablesNames;
-            
+
             /**
              * Skip the error msg if MAPBIOMAS folder is not found
              */
@@ -661,17 +663,17 @@ var App = {
 
                     var data = App.options.data[App.options.dataType]
                         .select([App.options.bandsNames[App.options.dataType] + period]);
-                    
+
                     var region = App.options.activeFeature.geometry();
-                    
+
                     if (App.options.bufferDistance !== 0) {
                         data = data.clip(App.options.activeFeature.geometry().buffer(App.options.bufferDistance));
                         region = region.buffer(App.options.bufferDistance);
                     } else {
                         data = data.clip(App.options.activeFeature.geometry());
                     }
-                    
-                    region = region.bounds();
+
+                    regions = regions.bounds();
                     // var params = {
                     //     type: 'EXPORT_IMAGE',
                     //     json: ee.Serializer.toJSON(data),
@@ -694,18 +696,18 @@ var App = {
                     //         print("Exporting error!");
                     //     }
                     // }
-                    
+
                     Export.image.toDrive({
-                            image: data,
-                            description: fileName,
-                            folder: 'MAPBIOMAS-EXPORT',
-                            fileNamePrefix: fileName,
-                            region: region,
-                            scale: 30,
-                            maxPixels: 1e13,
-                            fileFormat: 'GeoTIFF',
-                            fileDimensions: App.options.fileDimensions[App.options.dataType],
-                        });
+                        image: data,
+                        description: fileName,
+                        folder: 'MAPBIOMAS-EXPORT',
+                        fileNamePrefix: fileName,
+                        region: region,
+                        scale: 30,
+                        maxPixels: 1e13,
+                        fileFormat: 'GeoTIFF',
+                        fileDimensions: App.options.fileDimensions[App.options.dataType],
+                    });
                 }
             }
         },
