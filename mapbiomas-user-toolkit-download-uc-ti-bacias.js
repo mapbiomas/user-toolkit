@@ -32,7 +32,7 @@ var App = {
             protectedAreas: "projects/mapbiomas-workspace/AUXILIAR/areas-protegidas",
             watersheds: "projects/mapbiomas-workspace/AUXILIAR/bacias-nivel-2",
             integration: 'projects/mapbiomas-workspace/public/collection4/mapbiomas_collection40_integration_v1',
-            transitions: 'projects/mapbiomas-workspace/public/collection4/mapbiomas_collection40_transitions_v2',
+            transitions: 'projects/mapbiomas-workspace/public/collection4/mapbiomas_collection40_transitions_v3',
         },
 
         periods: {
@@ -60,7 +60,8 @@ var App = {
                 "2000_2005", "2005_2010", "2010_2015", "2015_2018",
                 "1990_2000", "2000_2010", "2010_2018", "1985_2018",
                 "2008_2017", "2012_2018", "1994_2002", "2002_2010",
-                "2010_2016", "2008_2018", "1986_2015", "2001_2016"
+                "2010_2016", "2008_2018", "1986_2015", "2001_2016",
+                "1996_2015"
             ]
         },
         bandsNames: {
