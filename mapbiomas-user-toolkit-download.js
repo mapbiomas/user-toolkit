@@ -824,7 +824,7 @@ var App = {
                 },
             }),
 
-            labelCollection: ui.Label('Collection 4.0', {
+            labelCollection: ui.Label('Collection 4.1', {
                 'fontWeight': 'bold',
                 'padding': '1px',
                 'fontSize': '16px'
