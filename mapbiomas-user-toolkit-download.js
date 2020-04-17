@@ -36,7 +36,7 @@ var App = {
                 'projects/mapbiomas-workspace/AUXILIAR/areas-protegidas',
                 'projects/mapbiomas-workspace/AUXILIAR/municipios-2016',
                 'projects/mapbiomas-workspace/AUXILIAR/estados-2017',
-                'projects/mapbiomas-workspace/AUXILIAR/biomas',
+                'projects/mapbiomas-workspace/AUXILIAR/biomas-2019',
                 'projects/mapbiomas-workspace/AUXILIAR/bacias-nivel-1',
                 'projects/mapbiomas-workspace/AUXILIAR/bacias-nivel-2',
             ]
