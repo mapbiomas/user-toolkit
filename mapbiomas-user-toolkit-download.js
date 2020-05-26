@@ -826,58 +826,58 @@ var App = {
 
             labelCollection: ui.Label('Collection 4.1', {
                 'fontWeight': 'bold',
-                'padding': '1px',
+                // 'padding': '1px',
                 'fontSize': '16px'
             }),
 
             labelTitle: ui.Label('MapBiomas User Toolkit', {
                 'fontWeight': 'bold',
-                'padding': '1px',
+                // 'padding': '1px',
                 'fontSize': '16px'
             }),
 
             labelType: ui.Label('Type:', {
-                'padding': '1px',
+                // 'padding': '1px',
                 'fontSize': '16px'
             }),
 
             labelTables: ui.Label('Tables:', {
-                'padding': '1px',
+                // 'padding': '1px',
                 'fontSize': '16px'
             }),
 
             labelProperties: ui.Label('Properties:', {
-                'padding': '1px',
+                // 'padding': '1px',
                 'fontSize': '16px'
             }),
 
             labelFeature: ui.Label('Features:', {
-                'padding': '1px',
+                // 'padding': '1px',
                 'fontSize': '16px'
             }),
 
             labelDataType: ui.Label('Data Type:', {
-                'padding': '1px',
+                // 'padding': '1px',
                 'fontSize': '16px'
             }),
 
             labelBuffer: ui.Label('Buffer:', {
-                'padding': '1px',
+                // 'padding': '1px',
                 'fontSize': '16px'
             }),
 
             labelLayers: ui.Label('Layers:', {
-                'padding': '1px',
+                // 'padding': '1px',
                 'fontSize': '16px'
             }),
 
             labelNotes: ui.Label('Click on OK button to start the task.', {
-                'padding': '1px',
+                // 'padding': '1px',
                 'fontSize': '16px'
             }),
 
             labelStates: ui.Label('States:', {
-                'padding': '1px',
+                // 'padding': '1px',
                 'fontSize': '16px'
             }),
 
@@ -992,7 +992,7 @@ var App = {
                 },
                 "disabled": false,
                 "style": {
-                    'padding': '2px',
+                    // 'padding': '2px',
                     'stretch': 'horizontal'
                 }
             }),
