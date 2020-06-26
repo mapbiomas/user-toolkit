@@ -16,6 +16,11 @@
  *    1.1.2 - Fix minor issues
  *    1.1.3 - Update transitions data
  *    1.1.4 - Update transitions data to collection 4.1
+ *    1.2.0 - Loads mapbiomas-brazil collection 3.1
+ *          - Loads mapbiomas-brazil collection 4.0
+ *          - Laods mapbiomas-chaco collection 1.0
+ *          - Loads mapbiomas-amazon collection 1.0
+ *          - Updated mapbiomas-amazon collection 2.0
  * 
  * @see
  *      Get the MapBiomas exported data in your "Google Drive/MAPBIOMAS-EXPORT" folder
@@ -27,20 +32,8 @@ var logos = require('users/mapbiomas/modules:Logos.js');
 var App = {
 
     options: {
-        version: '1.1.4',
+        version: '1.2',
         logo: logos.mapbiomas,
-        assets: {
-            integration: 'projects/mapbiomas-workspace/public/collection4_1/mapbiomas_collection41_integration_v1',
-            transitions: 'projects/mapbiomas-workspace/public/collection4_1/mapbiomas_collection41_transitions_v1',
-            vectors: [
-                'projects/mapbiomas-workspace/AUXILIAR/areas-protegidas',
-                'projects/mapbiomas-workspace/AUXILIAR/municipios-2016',
-                'projects/mapbiomas-workspace/AUXILIAR/estados-2017',
-                'projects/mapbiomas-workspace/AUXILIAR/biomas-2019',
-                'projects/mapbiomas-workspace/AUXILIAR/bacias-nivel-1',
-                'projects/mapbiomas-workspace/AUXILIAR/bacias-nivel-2',
-            ]
-        },
 
         statesNames: {
             'None': 'None',
@@ -73,34 +66,256 @@ var App = {
             'Tocantins': '17'
         },
 
-        periods: {
-            'Coverage': [
-                '1985', '1986', '1987', '1988',
-                '1989', '1990', '1991', '1992',
-                '1993', '1994', '1995', '1996',
-                '1997', '1998', '1999', '2000',
-                '2001', '2002', '2003', '2004',
-                '2005', '2006', '2007', '2008',
-                '2009', '2010', '2011', '2012',
-                '2013', '2014', '2015', '2016',
-                '2017', '2018'
+        tables: {
+            'mapbiomas-brazil': [
+                'projects/mapbiomas-workspace/AUXILIAR/estados-2017',
+                'projects/mapbiomas-workspace/AUXILIAR/municipios-2016',
+                'projects/mapbiomas-workspace/AUXILIAR/biomas-2019',
+                'projects/mapbiomas-workspace/AUXILIAR/bacias-nivel-1',
+                'projects/mapbiomas-workspace/AUXILIAR/bacias-nivel-2',
+                'projects/mapbiomas-workspace/AUXILIAR/areas-protegidas',
             ],
-            'Transitions': [
-                "1985_1986", "1986_1987", "1987_1988", "1988_1989",
-                "1989_1990", "1990_1991", "1991_1992", "1992_1993",
-                "1993_1994", "1994_1995", "1995_1996", "1996_1997",
-                "1997_1998", "1998_1999", "1999_2000", "2000_2001",
-                "2001_2002", "2002_2003", "2003_2004", "2004_2005",
-                "2005_2006", "2006_2007", "2007_2008", "2008_2009",
-                "2009_2010", "2010_2011", "2011_2012", "2012_2013",
-                "2013_2014", "2014_2015", "2015_2016", "2016_2017",
-                "2017_2018", "1985_1990", "1990_1995", "1995_2000",
-                "2000_2005", "2005_2010", "2010_2015", "2015_2018",
-                "1990_2000", "2000_2010", "2010_2018", "1985_2018",
-                "2008_2017", "2012_2018", "1994_2002", "2002_2010",
-                "2010_2016", "2008_2018", "1986_2015", "2001_2016"
-            ]
+            'mapbiomas-amazon': [
+                'projects/mapbiomas-raisg/DATOS_AUXILIARES/VECTORES/biomas-2',
+                'projects/mapbiomas-raisg/DATOS_AUXILIARES/VECTORES/cuencas-2',
+                'projects/mapbiomas-raisg/DATOS_AUXILIARES/VECTORES/departamentos-2',
+                'projects/mapbiomas-raisg/DATOS_AUXILIARES/VECTORES/paises-2',
+                'projects/mapbiomas-raisg/DATOS_AUXILIARES/VECTORES/anps-tis-2',
+                'projects/mapbiomas-raisg/DATOS_AUXILIARES/VECTORES/anps-nacionales-2',
+                'projects/mapbiomas-raisg/DATOS_AUXILIARES/VECTORES/anps-departamentales-2',
+            ],
+            'mapbiomas-chaco': [
+                'projects/mapbiomas-chaco/DATOS_AUXILIARES/VECTORES/biomas-paises',
+                'projects/mapbiomas-chaco/DATOS_AUXILIARES/VECTORES/departamentos-estados',
+                'projects/mapbiomas-chaco/DATOS_AUXILIARES/VECTORES/limite-operativo-chaco',
+                'projects/mapbiomas-chaco/DATOS_AUXILIARES/VECTORES/provincias-municipios',
+
+            ],
+            // 'mapbiomas-indonesia': [
+
+            // ],
         },
+
+        collections: {
+            'mapbiomas-brazil': {
+                'collection-3.1': {
+                    'assets': {
+                        'integration': 'projects/mapbiomas-workspace/public/collection3_1/mapbiomas_collection31_integration_v1',
+                        'transitions': 'projects/mapbiomas-workspace/public/collection3_1/mapbiomas_collection31_transitions_v1',
+                    },
+                    'periods': {
+                        'Coverage': [
+                            '1985', '1986', '1987', '1988',
+                            '1989', '1990', '1991', '1992',
+                            '1993', '1994', '1995', '1996',
+                            '1997', '1998', '1999', '2000',
+                            '2001', '2002', '2003', '2004',
+                            '2005', '2006', '2007', '2008',
+                            '2009', '2010', '2011', '2012',
+                            '2013', '2014', '2015', '2016',
+                            '2017'
+                        ],
+                        'Transitions': [
+                            "1985_1986", "1986_1987", "1987_1988", "1988_1989",
+                            "1989_1990", "1990_1991", "1991_1992", "1992_1993",
+                            "1993_1994", "1994_1995", "1995_1996", "1996_1997",
+                            "1997_1998", "1998_1999", "1999_2000", "2000_2001",
+                            "2001_2002", "2002_2003", "2003_2004", "2004_2005",
+                            "2005_2006", "2006_2007", "2007_2008", "2008_2009",
+                            "2009_2010", "2010_2011", "2011_2012", "2012_2013",
+                            "2013_2014", "2014_2015", "2015_2016", "2016_2017",
+                            "1985_1990", "1990_1995", "1995_2000", "2000_2005",
+                            "2005_2010", "2010_2015", "2015_2017", "1990_2000",
+                            "2000_2010", "2010_2017", "1985_2017", "2008_2017",
+                            "2012_2017", "1994_2002", "2002_2010", "2010_2016"
+                        ]
+                    },
+                },
+                'collection-4.0': {
+                    'assets': {
+                        'integration': 'projects/mapbiomas-workspace/public/collection4/mapbiomas_collection40_integration_v1',
+                        'transitions': 'projects/mapbiomas-workspace/public/collection4/mapbiomas_collection40_transitions_v3',
+                    },
+                    'periods': {
+                        'Coverage': [
+                            '1985', '1986', '1987', '1988',
+                            '1989', '1990', '1991', '1992',
+                            '1993', '1994', '1995', '1996',
+                            '1997', '1998', '1999', '2000',
+                            '2001', '2002', '2003', '2004',
+                            '2005', '2006', '2007', '2008',
+                            '2009', '2010', '2011', '2012',
+                            '2013', '2014', '2015', '2016',
+                            '2017', '2018'
+                        ],
+                        'Transitions': [
+                            "1985_1986", "1986_1987", "1987_1988", "1988_1989",
+                            "1989_1990", "1990_1991", "1991_1992", "1992_1993",
+                            "1993_1994", "1994_1995", "1995_1996", "1996_1997",
+                            "1997_1998", "1998_1999", "1999_2000", "2000_2001",
+                            "2001_2002", "2002_2003", "2003_2004", "2004_2005",
+                            "2005_2006", "2006_2007", "2007_2008", "2008_2009",
+                            "2009_2010", "2010_2011", "2011_2012", "2012_2013",
+                            "2013_2014", "2014_2015", "2015_2016", "2016_2017",
+                            "2017_2018", "1985_1990", "1990_1995", "1995_2000",
+                            "2000_2005", "2005_2010", "2010_2015", "2015_2018",
+                            "1990_2000", "2000_2010", "2010_2018", "1985_2018",
+                            "2008_2017", "2012_2018", "1994_2002", "2002_2010",
+                            "2010_2016", "2008_2018", "1986_2015", "2001_2016"
+                        ]
+                    },
+                },
+                'collection-4.1': {
+                    'assets': {
+                        'integration': 'projects/mapbiomas-workspace/public/collection4_1/mapbiomas_collection41_integration_v1',
+                        'transitions': 'projects/mapbiomas-workspace/public/collection4_1/mapbiomas_collection41_transitions_v1',
+                    },
+                    'periods': {
+                        'Coverage': [
+                            '1985', '1986', '1987', '1988',
+                            '1989', '1990', '1991', '1992',
+                            '1993', '1994', '1995', '1996',
+                            '1997', '1998', '1999', '2000',
+                            '2001', '2002', '2003', '2004',
+                            '2005', '2006', '2007', '2008',
+                            '2009', '2010', '2011', '2012',
+                            '2013', '2014', '2015', '2016',
+                            '2017', '2018'
+                        ],
+                        'Transitions': [
+                            "1985_1986", "1986_1987", "1987_1988", "1988_1989",
+                            "1989_1990", "1990_1991", "1991_1992", "1992_1993",
+                            "1993_1994", "1994_1995", "1995_1996", "1996_1997",
+                            "1997_1998", "1998_1999", "1999_2000", "2000_2001",
+                            "2001_2002", "2002_2003", "2003_2004", "2004_2005",
+                            "2005_2006", "2006_2007", "2007_2008", "2008_2009",
+                            "2009_2010", "2010_2011", "2011_2012", "2012_2013",
+                            "2013_2014", "2014_2015", "2015_2016", "2016_2017",
+                            "2017_2018", "1985_1990", "1990_1995", "1995_2000",
+                            "2000_2005", "2005_2010", "2010_2015", "2015_2018",
+                            "1990_2000", "2000_2010", "2010_2018", "1985_2018",
+                            "2008_2017", "2012_2018", "1994_2002", "2002_2010",
+                            "2010_2016", "2008_2018", "1986_2015", "2001_2016"
+                        ]
+                    },
+                },
+                // 'collection-5.0': {
+                //     'assets': {
+                //         'integration': null,
+                //         'transitions': null,
+                //     },
+
+                //     'periods': {
+                //         'Coverage': [
+                //             '1985', '1986', '1987', '1988',
+                //             '1989', '1990', '1991', '1992',
+                //             '1993', '1994', '1995', '1996',
+                //             '1997', '1998', '1999', '2000',
+                //             '2001', '2002', '2003', '2004',
+                //             '2005', '2006', '2007', '2008',
+                //             '2009', '2010', '2011', '2012',
+                //             '2013', '2014', '2015', '2016',
+                //             '2017', '2018', '2019'
+                //         ],
+                //         'Transitions': [] // TODO: update transitions list
+                //     },
+                // },
+            },
+            'mapbiomas-amazon': {
+                'collection-1.0': {
+                    'assets': {
+                        'integration': 'projects/mapbiomas-raisg/public/collection1/mapbiomas_raisg_panamazonia_collection1_integration_v1',
+                        'transitions': 'projects/mapbiomas-raisg/public/collection1/mapbiomas_raisg_panamazonia_collection1_transitions_v1',
+                    },
+                    'periods': {
+                        'Coverage': [
+                            '2000', '2001', '2002', '2003',
+                            '2004', '2005', '2006', '2007',
+                            '2008', '2009', '2010', '2011',
+                            '2012', '2013', '2014', '2015',
+                            '2016', '2017'
+                        ],
+                        'Transitions': [
+                            "2000_2001", "2001_2002", "2002_2003", "2003_2004",
+                            "2004_2005", "2005_2006", "2006_2007", "2007_2008",
+                            "2008_2009", "2009_2010", "2010_2011", "2011_2012",
+                            "2012_2013", "2013_2014", "2014_2015", "2015_2016",
+                            "2016_2017", "2000_2005", "2005_2010", "2010_2015",
+                            "2015_2017", "2000_2010", "2010_2017", "2000_2017"
+                        ]
+                    },
+                },
+                'collection-2.0': {
+                    'assets': {
+                        'integration': 'projects/mapbiomas-raisg/public/collection2/mapbiomas_raisg_panamazonia_collection2_integration_v1',
+                        'transitions': 'projects/mapbiomas-raisg/public/collection2/mapbiomas_raisg_panamazonia_collection2_transitions_v1',
+                    },
+                    'periods': {
+                        'Coverage': [
+                            '1985', '1986', '1987', '1988',
+                            '1989', '1990', '1991', '1992',
+                            '1993', '1994', '1995', '1996',
+                            '1997', '1998', '1999', '2000',
+                            '2001', '2002', '2003', '2004',
+                            '2005', '2006', '2007', '2008',
+                            '2009', '2010', '2011', '2012',
+                            '2013', '2014', '2015', '2016',
+                            '2017', '2018'
+                        ],
+                        'Transitions': [
+                            "1985_1986", "1986_1987", "1987_1988", "1988_1989",
+                            "1989_1990", "1990_1991", "1991_1992", "1992_1993",
+                            "1993_1994", "1994_1995", "1995_1996", "1996_1997",
+                            "1997_1998", "1998_1999", "1999_2000", "2000_2001",
+                            "2001_2002", "2002_2003", "2003_2004", "2004_2005",
+                            "2005_2006", "2006_2007", "2007_2008", "2008_2009",
+                            "2009_2010", "2010_2011", "2011_2012", "2012_2013",
+                            "2013_2014", "2014_2015", "2015_2016", "2016_2017",
+                            "2017_2018", "1985_1990", "1990_1995", "1995_2000",
+                            "2000_2005", "2005_2010", "2010_2015", "2015_2018",
+                            "1990_2000", "2000_2010", "2010_2018", "1985_2018",
+                            "2008_2017", "2012_2018", "1994_2002", "2002_2010",
+                            "2010_2016", "2008_2018", "1986_2015"
+                        ]
+                    },
+                },
+            },
+            'mapbiomas-chaco': {
+                'collection-1.0': {
+                    'assets': {
+                        'integration': 'projects/mapbiomas-chaco/public/collection1/mapbiomas_chaco_collection1_integration_v1',
+                        'transitions': 'projects/mapbiomas-chaco/public/collection1/mapbiomas_chaco_collection1_transitions_v1',
+                    },
+                    'periods': {
+                        'Coverage': [
+                            '2010', '2011', '2012', '2013',
+                            '2014', '2015', '2016', '2017',
+                        ],
+                        'Transitions': [
+                            "2010_2011", "2011_2012", "2012_2013", "2013_2014",
+                            "2014_2015", "2015_2016", "2016_2017", "2010_2017",
+                            "2013_2017"
+                        ]
+                    },
+                },
+            },
+
+            'mapbiomas-indonesia': {
+                'collection-1.0': {
+                },
+            },
+            
+            'mapbiomas-antlantic-forest': {
+                'collection-1.0': {
+                },
+            },
+
+            'mapbiomas-pampa': {
+                'collection-1.0': {
+                },
+            },
+        },
+
         bandsNames: {
             'Coverage': 'classification_',
             'Transitions': 'transition_'
@@ -219,8 +434,7 @@ var App = {
     init: function () {
 
         this.ui.init();
-        this.loadImages();
-        this.startMap();
+
     },
 
     setVersion: function () {
@@ -229,30 +443,25 @@ var App = {
 
     },
 
-    loadImages: function () {
-
-        App.options.data.Coverage = ee.Image(App.options.assets.integration);
-        App.options.data.Transitions = ee.Image(App.options.assets.transitions);
-
-    },
-
-    startMap: function () {
+    startMap: function (year) {
 
         Map.centerObject(App.options.data.Coverage, 5);
 
         var imageLayer = ui.Map.Layer({
             'eeObject': App.options.data.Coverage,
             'visParams': {
-                'bands': ['classification_2018'],
+                'bands': ['classification_' + year],
                 'palette': App.options.palette.Coverage,
                 'min': 0,
                 'max': 34,
                 'format': 'png'
             },
-            'name': 'Mapbiomas 2018',
+            'name': year,
             'shown': true,
             'opacity': 1.0
         });
+
+        Map.clear();
 
         Map.add(imageLayer);
 
@@ -342,15 +551,56 @@ var App = {
 
         },
 
+        setMapbiomasRegion: function (regionName) {
+
+            App.ui.loadCollectionList(regionName);
+            App.ui.loadTablesNames(regionName);
+
+        },
+
         setDataType: function (dataType) {
 
             App.options.dataType = dataType;
 
         },
 
-        loadTablesNames: function () {
+        loadCollectionList: function (regionName) {
 
-            App.ui.form.selectFeatureCollections.setPlaceholder('loading tables names...');
+            App.ui.form.selectCollection.setPlaceholder('loading collections...');
+
+            App.ui.form.selectCollection = ui.Select({
+                'items': Object.keys(App.options.collections[regionName]).reverse(),
+                'placeholder': 'select collection',
+                'onChange': function (collectioName) {
+                    ee.Number(1).evaluate(
+                        function (a) {
+                            App.options.data.Coverage = ee.Image(
+                                App.options.collections[regionName][collectioName].assets.integration);
+
+                            App.options.data.Transitions = ee.Image(
+                                App.options.collections[regionName][collectioName].assets.transitions);
+
+                            var year = App.options.collections[regionName][collectioName].periods.Coverage.slice(-1)[0];
+
+                            App.startMap(year);
+                        }
+                    );
+
+                    App.ui.loadingBox();
+                },
+                'style': {
+                    'stretch': 'horizontal'
+                }
+            });
+
+            App.ui.form.panelCollection.widgets()
+                .set(1, App.ui.form.selectCollection);
+
+        },
+
+        loadTablesNames: function (regionName) {
+
+            App.ui.form.selectRegion.setPlaceholder('loading tables names...');
 
             var roots = ee.data.getAssetRoots()
                 .map(
@@ -370,20 +620,20 @@ var App = {
                     function (obj) {
                         return obj.id;
                     });
-                var allTablesNames = App.options.assets.vectors.concat(tablesNames);
+                var allTablesNames = App.options.tables[regionName].concat(tablesNames);
             }
             catch (e) {
-                var allTablesNames = App.options.assets.vectors;
+                var allTablesNames = App.options.tables[regionName];
             }
 
             App.ui.form.selectFeatureCollections = ui.Select({
-                'items': ['None'].concat(allTablesNames),
+                'items': allTablesNames,
                 'placeholder': 'select table',
                 'onChange': function (tableName) {
                     if (tableName != 'None') {
                         App.options.activeName = tableName;
-
-                        if (tableName === App.options.assets.vectors[1]) {
+                        // print(tableName);
+                        if (tableName === App.options.tables['mapbiomas-brazil'][0]) {
                             App.ui.form.panelStates.add(App.ui.form.labelStates);
                             App.ui.form.panelStates.add(App.ui.form.selectStates);
                         } else {
@@ -391,9 +641,19 @@ var App = {
                             App.ui.form.panelStates.remove(App.ui.form.selectStates);
                             ee.Number(1).evaluate(
                                 function (a) {
+                                    var collectioName = App.ui.form.selectCollection.getValue();
+
                                     App.ui.loadTable(tableName);
-                                    App.ui.makeLayersList(tableName.split('/')[3], App.options.activeFeature, App.options.periods[App.options.dataType]);
+
+                                    App.ui.makeLayersList(
+                                        tableName.split('/').slice(-1)[0],
+                                        App.options.activeFeature,
+                                        App.options.collections[regionName][collectioName]
+                                            .periods[App.options.dataType]
+                                    );
+
                                     App.ui.loadPropertiesNames();
+
                                     App.ui.form.selectDataType.setDisabled(false);
                                 }
                             );
@@ -459,33 +719,38 @@ var App = {
 
             App.ui.form.selectProperties.setPlaceholder('loading tables names...');
 
-            ee.Feature(App.options.table.first()).propertyNames().evaluate(
-                function (propertyNames) {
-                    App.ui.form.selectProperties = ui.Select({
-                        'items': ['None'].concat(propertyNames),
-                        'placeholder': 'select property',
-                        'onChange': function (propertyName) {
-                            if (propertyName != 'None') {
-                                App.options.propertyName = propertyName;
+            ee.Feature(App.options.table.first())
+                .propertyNames()
+                .evaluate(
+                    function (propertyNames) {
 
-                                ee.Number(1).evaluate(
-                                    function (a) {
-                                        App.ui.loadFeatureNames(propertyName);
-                                        App.ui.form.selectDataType.setDisabled(false);
-                                    }
-                                );
+                        // print(propertyNames);
 
+                        App.ui.form.selectProperties = ui.Select({
+                            'items': propertyNames,
+                            'placeholder': 'select property',
+                            'onChange': function (propertyName) {
+                                if (propertyName != 'None') {
+                                    App.options.propertyName = propertyName;
+
+                                    ee.Number(1).evaluate(
+                                        function (a) {
+                                            App.ui.loadFeatureNames(propertyName);
+                                            App.ui.form.selectDataType.setDisabled(false);
+                                        }
+                                    );
+
+                                }
+                            },
+                            'style': {
+                                'stretch': 'horizontal'
                             }
-                        },
-                        'style': {
-                            'stretch': 'horizontal'
-                        }
-                    });
+                        });
 
-                    App.ui.form.panelProperties.widgets()
-                        .set(1, App.ui.form.selectProperties);
-                }
-            );
+                        App.ui.form.panelProperties.widgets()
+                            .set(1, App.ui.form.selectProperties);
+                    }
+                );
 
         },
 
@@ -499,10 +764,8 @@ var App = {
                 .evaluate(
                     function (featureNameList) {
 
-                        // print(featureNameList);
-
                         App.ui.form.selectFeature = ui.Select({
-                            'items': ['None'].concat(featureNameList),
+                            'items': featureNameList,
                             'placeholder': 'select feature',
                             'onChange': function (featureName) {
                                 if (featureName != 'None') {
@@ -510,8 +773,16 @@ var App = {
 
                                     ee.Number(1).evaluate(
                                         function (a) {
+                                            var regionName = App.ui.form.selectRegion.getValue();
+                                            var collectionName = App.ui.form.selectCollection.getValue();
+
                                             App.ui.loadFeature(featureName);
-                                            App.ui.makeLayersList(featureName, App.options.activeFeature, App.options.periods[App.options.dataType]);
+
+                                            App.ui.makeLayersList(
+                                                featureName,
+                                                App.options.activeFeature,
+                                                App.options.collections[regionName][collectionName]
+                                                    .periods[App.options.dataType]);
                                             App.ui.form.selectDataType.setDisabled(false);
                                         }
                                     );
@@ -605,7 +876,7 @@ var App = {
         },
 
         makeLayersList: function (regionName, region, periods) {
-
+            // print(regionName, region, periods)
             App.ui.form.panelLayersList.clear();
 
             periods.forEach(
@@ -646,20 +917,27 @@ var App = {
 
             var layers = App.ui.form.panelLayersList.widgets();
 
+            var regionName = App.ui.form.selectRegion.getValue();
+            var collectionName = App.ui.form.selectCollection.getValue();
+
             for (var i = 0; i < layers.length(); i++) {
 
                 var selected = layers.get(i).getValue();
 
                 if (selected) {
 
-                    var period = App.options.periods[App.options.dataType][i];
+                    var period = App.options.collections[regionName][collectionName]
+                        .periods[App.options.dataType][i];
+
                     var featureName = App.formatName(App.ui.form.selectFeature.getValue() || '');
 
-                    var fileName = 'mapbiomas-' + featureName + '-' + period;
+                    var fileName = [regionName, collectionName, featureName, period].join('-');
 
-                    fileName = fileName.replace(/--/g, '-').replace(/--/g, '-');
+                    fileName = fileName.replace(/--/g, '-').replace(/--/g, '-').replace('.', '');
                     fileName = App.formatName(fileName);
-                    print(fileName);
+
+                    // print(fileName);
+
                     var taskId = ee.data.newTaskId(1);
 
                     var data = App.options.data[App.options.dataType]
@@ -719,9 +997,14 @@ var App = {
 
                 this.panelMain.add(this.panelLogo);
                 this.panelMain.add(this.labelTitle);
-                this.panelMain.add(this.labelCollection);
 
                 this.panelLogo.add(App.options.logo);
+
+                this.panelRegion.add(this.labelRegion);
+                this.panelRegion.add(this.selectRegion);
+
+                this.panelCollection.add(this.labelCollection);
+                this.panelCollection.add(this.selectCollection);
 
                 this.panelFeatureCollections.add(this.labelTables);
                 this.panelFeatureCollections.add(this.selectFeatureCollections);
@@ -739,6 +1022,8 @@ var App = {
                 this.panelBuffer.add(this.selectBuffer);
 
                 // this.panelMain.add(this.panelType);
+                this.panelMain.add(this.panelRegion);
+                this.panelMain.add(this.panelCollection);
                 this.panelMain.add(this.panelFeatureCollections);
                 this.panelMain.add(this.panelStates);
                 this.panelMain.add(this.panelProperties);
@@ -754,7 +1039,6 @@ var App = {
 
                 ui.root.add(this.panelMain);
 
-                App.ui.loadTablesNames();
             },
 
             panelMain: ui.Panel({
@@ -774,6 +1058,20 @@ var App = {
             }),
 
             panelStates: ui.Panel({
+                'layout': ui.Panel.Layout.flow('vertical'),
+                'style': {
+                    'stretch': 'horizontal'
+                },
+            }),
+
+            panelRegion: ui.Panel({
+                'layout': ui.Panel.Layout.flow('vertical'),
+                'style': {
+                    'stretch': 'horizontal'
+                },
+            }),
+
+            panelCollection: ui.Panel({
                 'layout': ui.Panel.Layout.flow('vertical'),
                 'style': {
                     'stretch': 'horizontal'
@@ -824,8 +1122,14 @@ var App = {
                 },
             }),
 
-            labelCollection: ui.Label('Collection 4.1', {
-                'fontWeight': 'bold',
+            labelRegion: ui.Label('Region', {
+                // 'fontWeight': 'bold',
+                // 'padding': '1px',
+                'fontSize': '16px'
+            }),
+
+            labelCollection: ui.Label('Collection', {
+                // 'fontWeight': 'bold',
                 // 'padding': '1px',
                 'fontSize': '16px'
             }),
@@ -889,6 +1193,38 @@ var App = {
                 }
             }),
 
+            selectCollection: ui.Select({
+                'items': [],
+                'placeholder': 'None',
+                'style': {
+                    'stretch': 'horizontal'
+                },
+            }),
+
+            selectRegion: ui.Select({
+                'items': [
+                    'mapbiomas-amazon',
+                    // 'mapbiomas-atlantic-forest',
+                    'mapbiomas-brazil',
+                    'mapbiomas-chaco',
+                    // 'mapbiomas-indonesia',
+                    // 'mapbiomas-pampa',
+                ],
+                'placeholder': 'None',
+                'style': {
+                    'stretch': 'horizontal'
+                },
+                'onChange': function (region) {
+
+                    ee.Number(1).evaluate(
+                        function (a) {
+                            App.ui.setMapbiomasRegion(region);
+                        }
+                    );
+
+                },
+            }),
+
             selectFeatureCollections: ui.Select({
                 'items': ['None'],
                 'placeholder': 'None',
@@ -922,8 +1258,15 @@ var App = {
                 'disabled': true,
                 'onChange': function (dataType) {
 
+                    var regionName = App.ui.form.selectRegion.getValue();
+                    var collectionName = App.ui.form.selectCollection.getValue();
+
                     App.ui.setDataType(dataType);
-                    App.ui.makeLayersList(App.options.activeName, App.options.activeFeature, App.options.periods[dataType]);
+
+                    App.ui.makeLayersList(
+                        App.options.activeName,
+                        App.options.activeFeature,
+                        App.options.collections[regionName][collectionName].periods[dataType]);
 
                 },
             }),
