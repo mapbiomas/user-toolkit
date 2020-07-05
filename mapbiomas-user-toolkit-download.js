@@ -1,6 +1,6 @@
 /**
  * @name
- *      Mapbiomas User Toolkit Download - User's vectores
+ *      Mapbiomas User Toolkit Download
  * 
  * @description
  *      This is a support tool for mapbiomas data users.
