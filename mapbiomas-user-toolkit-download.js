@@ -1265,7 +1265,7 @@ var App = {
                     App.ui.setDataType(dataType);
 
                     App.ui.makeLayersList(
-                        App.options.activeName,
+                        App.options.activeName.split('/').slice(-1)[0],
                         App.options.activeFeature,
                         App.options.collections[regionName][collectionName].periods[dataType]);
 
