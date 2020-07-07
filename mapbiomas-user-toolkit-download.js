@@ -76,6 +76,7 @@ var App = {
                 'projects/mapbiomas-workspace/AUXILIAR/areas-protegidas',
             ],
             'mapbiomas-amazon': [
+                'projects/mapbiomas-raisg/DATOS_AUXILIARES/VECTORES/limite-raisg-2',
                 'projects/mapbiomas-raisg/DATOS_AUXILIARES/VECTORES/biomas-2',
                 'projects/mapbiomas-raisg/DATOS_AUXILIARES/VECTORES/cuencas-2',
                 'projects/mapbiomas-raisg/DATOS_AUXILIARES/VECTORES/departamentos-2',
