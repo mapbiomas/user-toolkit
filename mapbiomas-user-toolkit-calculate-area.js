@@ -72,7 +72,7 @@ var calculateArea = function (image, territory, geometry) {
 
     var reducer = ee.Reducer.sum().group(1, 'class').group(1, 'territory');
 
-    var areas = pixelArea.addBands(territory).addBands(image)
+    var territotiesData = pixelArea.addBands(territory).addBands(image)
         .reduceRegion({
             reducer: reducer,
             geometry: geometry,
@@ -80,9 +80,9 @@ var calculateArea = function (image, territory, geometry) {
             maxPixels: 1e12
         });
   
-    var territotiesData = ee.List(areas.get('groups'));
-    areas = territotiesData
-              .map(convert2table);
+    territotiesData = ee.List(areas.get('groups'));
+    
+    var areas = territotiesData.map(convert2table);
               
     areas = ee.FeatureCollection(areas).flatten();
     
