@@ -1,105 +1,114 @@
 /**
- * calcular area
+ * calcular área
  */
-var year = "2018";
 
 var asset = "projects/mapbiomas-workspace/public/collection4_1/mapbiomas_collection41_integration_v1";
-var assetBiomes = "projects/mapbiomas-workspace/AUXILIAR/biomas-raster-41";
 
-var scale = 30; // Mude a escala aqui se precisar. Tamanho do pixel em metros.
+// Mude o asset para o raster que deseja cruzar com o mapbiomas e
+// extrair estatísticas de área
+var assetTerritories = "projects/mapbiomas-workspace/AUXILIAR/biomas-raster-41";
 
+// Mude a escala aqui se precisar. Tamanho do pixel em metros.
+var scale = 30; 
+
+// Defina uma lista de anos para inserir na tabela
+var years = [
+    '1985', '1986', '1987', '1988', '1989', '1990', '1991', '1992',
+    '1993', '1994', '1995', '1996', '1997', '1998', '1999', '2000',
+    '2001', '2002', '2003', '2004', '2005', '2006', '2007', '2008',
+    '2009', '2010', '2011', '2012', '2013', '2014', '2015', '2016',
+    '2017', '2018'
+  ];
+
+// Defina a pasta de saída no Google Drive
 var driverFolder = 'AREA-EXPORT';
 
-// carrega o raster dos biomas
-var biomes = ee.Image(assetBiomes);
+var territory = ee.Image(assetTerritories);
 
-var biomeId = {
-    'amz': 1,
-    'caa': 5,
-    'cer': 4,
-    'mat': 2,
-    'pam': 6,
-    'pan': 3,
-};
-
-var mapbiomas = ee.Image(asset)
-    .select('classification_'+ year)
-    .mask(biomes.eq(biomeId.caa)) // Mude o bioma aqui!!
-    .selfMask();
+var mapbiomas = ee.Image(asset).selfMask();
 
 var palettes = require('users/mapbiomas/modules:Palettes.js');
 
-Map.addLayer(mapbiomas, {
-        bands: ['classification_' + year],
-        min: 0,
-        max: 34,
-        palette: palettes.get('amazonia'),
-        format: 'png'
-    }, 
-    'mapbiomas ' + year,
-    true);
-
-// get raster with area km2
 var pixelArea = ee.Image.pixelArea().divide(1000000);
 
 var geometry = mapbiomas.geometry();
 
-/**
- * Helper function
- * @param item 
- */
-var convert2featCollection = function (item) {
-
-    item = ee.Dictionary(item);
-
-    var feature = ee.Feature(ee.Geometry.Point([0, 0]))
-        .set('classe', item.get('classe'))
-        .set("area", item.get('sum'));
-
-    return feature;
-
+var convert2table = function (obj) {
+    
+      obj = ee.Dictionary(obj);
+      
+      var territory = obj.get('territory');
+      
+      var classesAndAreas = ee.List(obj.get('groups'));
+      
+      var tableRows = classesAndAreas.map(
+          function(classAndArea) {
+              classAndArea = ee.Dictionary(classAndArea);
+              
+              var classId = classAndArea.get('class');
+              var area = classAndArea.get('sum');
+              
+              return ee.Feature(null)
+                  .set('territory', territory)
+                  .set('class', classId)
+                  .set('area', area);
+          }
+      );
+      
+      return ee.FeatureCollection(ee.List(tableRows));
 };
-
+    
 /**
  * Calculate area crossing a cover map (deforestation, mapbiomas)
  * and a region map (states, biomes, municipalites)
  * @param image 
+ * @param territory 
  * @param geometry
  */
-var calculateArea = function (image, geometry) {
+var calculateArea = function (image, territory, geometry) {
 
-    var reducer = ee.Reducer.sum().group(1, 'classe');
+    var reducer = ee.Reducer.sum().group(1, 'class').group(1, 'territory');
 
-    var areas = pixelArea.addBands(image)
+    var areas = pixelArea.addBands(territory).addBands(image)
         .reduceRegion({
             reducer: reducer,
             geometry: geometry,
             scale: scale,
             maxPixels: 1e12
         });
-
-    var year = ee.Number(image.get('year'));
-    
-    areas = ee.List(areas.get('groups')).map(convert2featCollection);
-    areas = ee.FeatureCollection(areas);
+  
+    var territotiesData = ee.List(areas.get('groups'));
+    areas = territotiesData
+              .map(convert2table);
+              
+    areas = ee.FeatureCollection(areas).flatten();
     
     return areas;
 };
 
-var areas = calculateArea(mapbiomas.selfMask(), geometry)
-    .map(
-        function(feature){
-            return feature.set('year', year);
-        }
-    );
+var areas = years.map(
+    function (year) {
+        var image = mapbiomas.select('classification_' + year);
 
-// print(areas);
+        var areas = calculateArea(image, territory, geometry);
+
+        // set additional properties
+        areas = areas.map(
+            function (feature) {
+                return feature.set('year', year);
+            }
+        );
+
+        return areas;
+    }
+);
+
+areas = ee.FeatureCollection(areas).flatten();
 
 Export.table.toDrive({
     collection: areas,
-    description: 'area-'+ year,
+    description: 'areas-teste-toolkit',
     folder: driverFolder,
-    fileNamePrefix: 'area-'+ year,
+    fileNamePrefix: 'areas-teste-toolkit',
     fileFormat: 'CSV'
-});        
-        
+});
