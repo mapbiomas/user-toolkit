@@ -24,6 +24,9 @@ var years = [
 // Defina a pasta de saída no Google Drive
 var driverFolder = 'AREA-EXPORT';
 
+/**
+ * 
+ */
 var territory = ee.Image(assetTerritories);
 
 var mapbiomas = ee.Image(asset).selfMask();
