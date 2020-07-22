@@ -48,10 +48,12 @@ var convert2table = function (obj) {
               var classId = classAndArea.get('class');
               var area = classAndArea.get('sum');
               
-              return ee.Feature(null)
+              var tableColumns = ee.Feature(null)
                   .set('territory', territory)
                   .set('class', classId)
                   .set('area', area);
+              
+              return tableColumns;
           }
       );
       
