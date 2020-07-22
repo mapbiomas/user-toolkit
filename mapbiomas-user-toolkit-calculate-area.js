@@ -80,7 +80,7 @@ var calculateArea = function (image, territory, geometry) {
             maxPixels: 1e12
         });
   
-    territotiesData = ee.List(areas.get('groups'));
+    territotiesData = ee.List(territotiesData.get('groups'));
     
     var areas = territotiesData.map(convert2table);
               
