@@ -2,6 +2,7 @@
  * calcular área
  */
 
+// Asset de classificação para o qual deseja calcular as estatísticas de área
 var asset = "projects/mapbiomas-workspace/public/collection4_1/mapbiomas_collection41_integration_v1";
 
 // Mude o asset para o raster que deseja cruzar com o mapbiomas e
