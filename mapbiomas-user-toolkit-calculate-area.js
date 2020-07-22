@@ -1,69 +1,74 @@
 /**
- * calcular área
+ * calculate area
  */
 
-// Asset de classificação para o qual deseja calcular as estatísticas de área
+// Asset mapbiomas
 var asset = "projects/mapbiomas-workspace/public/collection4_1/mapbiomas_collection41_integration_v1";
 
-// Mude o asset para o raster que deseja cruzar com o mapbiomas e
-// extrair estatísticas de área
+// Asset of regions for which you want to calculate statistics
 var assetTerritories = "projects/mapbiomas-workspace/AUXILIAR/biomas-raster-41";
 
-// Mude a escala aqui se precisar. Tamanho do pixel em metros.
-var scale = 30; 
+// Change the scale if you need.
+var scale = 30;
 
-// Defina uma lista de anos para inserir na tabela
+// Define a list of years to export
 var years = [
     '1985', '1986', '1987', '1988', '1989', '1990', '1991', '1992',
     '1993', '1994', '1995', '1996', '1997', '1998', '1999', '2000',
     '2001', '2002', '2003', '2004', '2005', '2006', '2007', '2008',
     '2009', '2010', '2011', '2012', '2013', '2014', '2015', '2016',
     '2017', '2018'
-  ];
+];
 
-// Defina a pasta de saída no Google Drive
+// Define a Google Drive output folder 
 var driverFolder = 'AREA-EXPORT';
 
 /**
  * 
  */
+// Territory image
 var territory = ee.Image(assetTerritories);
 
+// LULC mapbiomas image
 var mapbiomas = ee.Image(asset).selfMask();
 
-var palettes = require('users/mapbiomas/modules:Palettes.js');
-
+// Image area in km2
 var pixelArea = ee.Image.pixelArea().divide(1000000);
 
+// Geometry to export
 var geometry = mapbiomas.geometry();
 
+/**
+ * Convert a complex ob to feature collection
+ * @param obj 
+ */
 var convert2table = function (obj) {
-    
-      obj = ee.Dictionary(obj);
-      
-      var territory = obj.get('territory');
-      
-      var classesAndAreas = ee.List(obj.get('groups'));
-      
-      var tableRows = classesAndAreas.map(
-          function(classAndArea) {
-              classAndArea = ee.Dictionary(classAndArea);
-              
-              var classId = classAndArea.get('class');
-              var area = classAndArea.get('sum');
-              
-              var tableColumns = ee.Feature(null)
-                  .set('territory', territory)
-                  .set('class', classId)
-                  .set('area', area);
-              
-              return tableColumns;
-          }
-      );
-      
-      return ee.FeatureCollection(ee.List(tableRows));
+
+    obj = ee.Dictionary(obj);
+
+    var territory = obj.get('territory');
+
+    var classesAndAreas = ee.List(obj.get('groups'));
+
+    var tableRows = classesAndAreas.map(
+        function (classAndArea) {
+            classAndArea = ee.Dictionary(classAndArea);
+
+            var classId = classAndArea.get('class');
+            var area = classAndArea.get('sum');
+
+            var tableColumns = ee.Feature(null)
+                .set('territory', territory)
+                .set('class', classId)
+                .set('area', area);
+
+            return tableColumns;
+        }
+    );
+
+    return ee.FeatureCollection(ee.List(tableRows));
 };
-    
+
 /**
  * Calculate area crossing a cover map (deforestation, mapbiomas)
  * and a region map (states, biomes, municipalites)
@@ -82,13 +87,13 @@ var calculateArea = function (image, territory, geometry) {
             scale: scale,
             maxPixels: 1e12
         });
-  
+
     territotiesData = ee.List(territotiesData.get('groups'));
-    
+
     var areas = territotiesData.map(convert2table);
-              
+
     areas = ee.FeatureCollection(areas).flatten();
-    
+
     return areas;
 };
 
