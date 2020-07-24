@@ -633,34 +633,28 @@ var App = {
                 'onChange': function (tableName) {
                     if (tableName != 'None') {
                         App.options.activeName = tableName;
-                        // print(tableName);
-                        if (tableName === App.options.tables['mapbiomas-brazil'][0]) {
-                            App.ui.form.panelStates.add(App.ui.form.labelStates);
-                            App.ui.form.panelStates.add(App.ui.form.selectStates);
-                        } else {
-                            App.ui.form.panelStates.remove(App.ui.form.labelStates);
-                            App.ui.form.panelStates.remove(App.ui.form.selectStates);
-                            ee.Number(1).evaluate(
-                                function (a) {
-                                    var collectioName = App.ui.form.selectCollection.getValue();
+                        App.ui.form.panelStates.remove(App.ui.form.labelStates);
+                        App.ui.form.panelStates.remove(App.ui.form.selectStates);
+                        ee.Number(1).evaluate(
+                            function (a) {
+                                var collectioName = App.ui.form.selectCollection.getValue();
 
-                                    App.ui.loadTable(tableName);
+                                App.ui.loadTable(tableName);
 
-                                    App.ui.makeLayersList(
-                                        tableName.split('/').slice(-1)[0],
-                                        App.options.activeFeature,
-                                        App.options.collections[regionName][collectioName]
-                                            .periods[App.options.dataType]
-                                    );
+                                App.ui.makeLayersList(
+                                    tableName.split('/').slice(-1)[0],
+                                    App.options.activeFeature,
+                                    App.options.collections[regionName][collectioName]
+                                        .periods[App.options.dataType]
+                                );
 
-                                    App.ui.loadPropertiesNames();
+                                App.ui.loadPropertiesNames();
 
-                                    App.ui.form.selectDataType.setDisabled(false);
-                                }
-                            );
+                                App.ui.form.selectDataType.setDisabled(false);
+                            }
+                        );
 
-                            App.ui.loadingBox();
-                        }
+                        App.ui.loadingBox();
                     }
                 },
                 'style': {
