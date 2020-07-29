@@ -1,5 +1,10 @@
 /**
- * calculate area
+ * @description
+ *    calculate area
+ * 
+ * @author
+ *    João Siqueira
+ * 
  */
 
 // Asset mapbiomas
