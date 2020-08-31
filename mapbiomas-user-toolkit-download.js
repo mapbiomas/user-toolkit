@@ -21,18 +21,97 @@
  *          - Laods mapbiomas-chaco collection 1.0
  *          - Loads mapbiomas-amazon collection 1.0
  *          - Updated mapbiomas-amazon collection 2.0
+ *    1.3.0 - Loads mapbiomas-brazil collection 5.0
+ *          - Export a csv file with areas per classe and year
  * 
  * @see
  *      Get the MapBiomas exported data in your "Google Drive/MAPBIOMAS-EXPORT" folder
  *      Code and Tutorial - https://github.com/mapbiomas-brazil/user-toolkit
  */
+
 var palettes = require('users/mapbiomas/modules:Palettes.js');
 var logos = require('users/mapbiomas/modules:Logos.js');
 
+/**
+ * @description
+ *    calculate area for mapbiomas map
+ * 
+ * @author
+ *    João Siqueira
+ * 
+ */
+var Area = {
+
+    /**
+     * Convert a complex obj to feature collection
+     * @param obj 
+     */
+    convert2table: function (obj) {
+
+        obj = ee.Dictionary(obj);
+
+        var classesAndAreas = ee.List(obj.get('groups'));
+
+        var tableRows = classesAndAreas.map(
+            function (classAndArea) {
+                classAndArea = ee.Dictionary(classAndArea);
+
+                var classId = classAndArea.get('class');
+                var area = classAndArea.get('sum');
+
+                var tableColumns = ee.Feature(null)
+                    .set('class', classId)
+                    .set('area', area);
+
+                return tableColumns;
+            }
+        );
+
+        return ee.FeatureCollection(ee.List(tableRows));
+    },
+
+    /**
+     * Calculate area crossing a cover map (deforestation, mapbiomas)
+     * and a region map (states, biomes, municipalites)
+     * @param image 
+     * @param territory 
+     * @param geometry
+     * @param scale
+     * @param factor
+     */
+    calculate: function (object) {
+
+        var reducer = ee.Reducer.sum().group(1, 'class').group(1, 'territory');
+        var pixelArea = ee.Image.pixelArea().divide(object.factor);
+
+        var territotiesData = pixelArea.addBands(object.territory).addBands(object.image)
+            .reduceRegion({
+                reducer: reducer,
+                geometry: object.geometry,
+                scale: object.scale,
+                maxPixels: 1e13
+            });
+
+        territotiesData = ee.List(territotiesData.get('groups'));
+        print(territotiesData);
+        var areas = territotiesData.map(Area.convert2table);
+
+        areas = ee.FeatureCollection(areas).flatten();
+
+        return areas;
+    }
+
+};
+
+/**
+ * 
+ */
 var App = {
 
     options: {
-        version: '1.2',
+
+        version: '1.3.0',
+
         logo: logos.mapbiomas,
 
         statesNames: {
@@ -200,27 +279,43 @@ var App = {
                         ]
                     },
                 },
-                // 'collection-5.0': {
-                //     'assets': {
-                //         'integration': null,
-                //         'transitions': null,
-                //     },
+                'collection-5.0': {
+                    'assets': {
+                        'integration': 'projects/mapbiomas-workspace/public/collection5/mapbiomas_collection50_integration_v1',
+                        'transitions': 'projects/mapbiomas-workspace/public/collection5/mapbiomas_collection50_transitions_v1',
+                    },
 
-                //     'periods': {
-                //         'Coverage': [
-                //             '1985', '1986', '1987', '1988',
-                //             '1989', '1990', '1991', '1992',
-                //             '1993', '1994', '1995', '1996',
-                //             '1997', '1998', '1999', '2000',
-                //             '2001', '2002', '2003', '2004',
-                //             '2005', '2006', '2007', '2008',
-                //             '2009', '2010', '2011', '2012',
-                //             '2013', '2014', '2015', '2016',
-                //             '2017', '2018', '2019'
-                //         ],
-                //         'Transitions': [] // TODO: update transitions list
-                //     },
-                // },
+                    'periods': {
+                        'Coverage': [
+                            '1985', '1986', '1987', '1988',
+                            '1989', '1990', '1991', '1992',
+                            '1993', '1994', '1995', '1996',
+                            '1997', '1998', '1999', '2000',
+                            '2001', '2002', '2003', '2004',
+                            '2005', '2006', '2007', '2008',
+                            '2009', '2010', '2011', '2012',
+                            '2013', '2014', '2015', '2016',
+                            '2017', '2018', '2019'
+                        ],
+                        'Transitions': [
+                            "1985_1986", "1986_1987", "1987_1988", "1988_1989",
+                            "1989_1990", "1990_1991", "1991_1992", "1992_1993",
+                            "1993_1994", "1994_1995", "1995_1996", "1996_1997",
+                            "1997_1998", "1998_1999", "1999_2000", "2000_2001",
+                            "2001_2002", "2002_2003", "2003_2004", "2004_2005",
+                            "2005_2006", "2006_2007", "2007_2008", "2008_2009",
+                            "2009_2010", "2010_2011", "2011_2012", "2012_2013",
+                            "2013_2014", "2014_2015", "2015_2016", "2016_2017",
+                            "2017_2018", "2018_2019", "1985_1990", "1990_1995",
+                            "1995_2000", "2000_2005", "2005_2010", "2010_2015",
+                            "2015_2019", "1990_2000", "2000_2010", "2010_2019",
+                            "1985_2019", "2008_2019", "2012_2019", "1994_2002",
+                            "2002_2010", "2010_2016", "1990_2008", "1990_2019",
+                            "2000_2019", "2008_2018", "1986_2015", "2001_2016",
+                            "1996_2015"
+                        ]
+                    },
+                },
             },
             'mapbiomas-amazon': {
                 'collection-1.0': {
@@ -305,7 +400,7 @@ var App = {
                 'collection-1.0': {
                 },
             },
-            
+
             'mapbiomas-antlantic-forest': {
                 'collection-1.0': {
                 },
@@ -337,7 +432,7 @@ var App = {
         ranges: {
             'Coverage': {
                 'min': 0,
-                'max': 34
+                'max': 45
             },
             'Transitions': {
                 'min': -2,
@@ -350,7 +445,7 @@ var App = {
         activeName: '',
 
         palette: {
-            'Coverage': palettes.get('classification2'),
+            'Coverage': palettes.get('classification5'),
             'Transitions': ['ffa500', 'ff0000', '818181', '06ff00', '4169e1', '8a2be2']
         },
 
@@ -430,6 +525,46 @@ var App = {
         }
         ],
 
+        className: {
+            1: "Forest",
+            2: "Natural Forest",
+            3: "Forest Formation",
+            4: "Savanna Formation",
+            5: "Magrove",
+            9: "Forest Plantation",
+            10: "Non Forest Natural Formation",
+            11: "Wetland",
+            12: "Grassland",
+            32: "Salt flat",
+            29: "Rocky outcrop",
+            13: "Other Non Forest Natural Formation",
+            14: "Farming",
+            15: "Pasture",
+            18: "Agriculture",
+            19: "Temporary Crops",
+            39: "Soy Beans",
+            20: "Sugar Cane",
+            40: "Rice",
+            41: "Mosaic of Crops",
+            42: "Coffe",
+            43: "Citrus",
+            44: "Cashew",
+            45: "Other",
+            36: "Perennial Crops",
+            21: "Mosaic of Agriculture and Pasture",
+            22: "Non vegetated area",
+            24: "Urban Infrastructure",
+            30: "Mining",
+            23: "Beach and Dune",
+            25: "Other Non Vegetated Area",
+            26: "Water",
+            33: "River, Lake and Ocean",
+            37: "Artificial Water Body",
+            38: "Water Reservoirs",
+            31: "Aquaculture",
+            27: "Non Observed",
+            0: "Non Observed",
+        },
     },
 
     init: function () {
@@ -454,7 +589,7 @@ var App = {
                 'bands': ['classification_' + year],
                 'palette': App.options.palette.Coverage,
                 'min': 0,
-                'max': 34,
+                'max': 45,
                 'format': 'png'
             },
             'name': year,
@@ -492,7 +627,7 @@ var App = {
             .replace(/&/g, '')
             .replace(/@/g, '')
             .replace(/ /g, '')
-            .replace(/["'()]/g, '');
+            .replace(/["'()\/]/g, '');
 
         return formated;
     },
@@ -915,6 +1050,10 @@ var App = {
             var regionName = App.ui.form.selectRegion.getValue();
             var collectionName = App.ui.form.selectCollection.getValue();
 
+            var featureName = App.formatName(App.ui.form.selectFeature.getValue() || '');
+
+            var bandIds = [];
+
             for (var i = 0; i < layers.length(); i++) {
 
                 var selected = layers.get(i).getValue();
@@ -924,16 +1063,10 @@ var App = {
                     var period = App.options.collections[regionName][collectionName]
                         .periods[App.options.dataType][i];
 
-                    var featureName = App.formatName(App.ui.form.selectFeature.getValue() || '');
-
                     var fileName = [regionName, collectionName, featureName, period].join('-');
 
                     fileName = fileName.replace(/--/g, '-').replace(/--/g, '-').replace('.', '');
                     fileName = App.formatName(fileName);
-
-                    // print(fileName);
-
-                    var taskId = ee.data.newTaskId(1);
 
                     var data = App.options.data[App.options.dataType]
                         .select([App.options.bandsNames[App.options.dataType] + period]);
@@ -948,28 +1081,6 @@ var App = {
                     }
 
                     region = region.bounds();
-                    // var params = {
-                    //     type: 'EXPORT_IMAGE',
-                    //     json: ee.Serializer.toJSON(data),
-                    //     description: fileName,
-                    //     driveFolder: 'MAPBIOMAS-EXPORT',
-                    //     driveFileNamePrefix: fileName,
-                    //     region: JSON.stringify(App.options.activeFeature.geometry().bounds().getInfo()),
-                    //     scale: 30,
-                    //     maxPixels: 1e13,
-                    //     skipEmptyTiles: true,
-                    //     fileDimensions: App.options.fileDimensions[App.options.dataType],
-                    // };
-
-                    // var status = ee.data.startProcessing(taskId, params);
-
-                    // if (status) {
-                    //     if (status.started == 'OK') {
-                    //         print("Exporting data...");
-                    //     } else {
-                    //         print("Exporting error!");
-                    //     }
-                    // }
 
                     Export.image.toDrive({
                         image: data,
@@ -982,8 +1093,61 @@ var App = {
                         fileFormat: 'GeoTIFF',
                         fileDimensions: App.options.fileDimensions[App.options.dataType],
                     });
+
+                    bandIds.push(App.options.bandsNames[App.options.dataType] + period);
                 }
             }
+
+            // Export table
+            var territory = ee.Image().paint({
+                'featureCollection': ee.FeatureCollection(App.options.activeFeature),
+                'color': 1
+            });
+
+            var geometry = App.options.activeFeature.geometry().bounds();
+
+            var areas = bandIds.map(
+                function (band) {
+
+                    var image = App.options.data[App.options.dataType].select(band);
+
+                    var area = Area.calculate({
+                        "image": image,
+                        "territory": territory,
+                        "geometry": geometry,
+                        "scale": 30,
+                        "factor": 1000000,
+                    });
+
+                    area = ee.FeatureCollection(area).map(
+                        function (feature) {
+                            var className = ee.Dictionary(App.options.className)
+                                .get(feature.get('class'));
+
+                            return feature.set('class_name', className).set('band', band);
+                        }
+                    );
+
+                    return area;
+                }
+            );
+
+            areas = ee.FeatureCollection(areas).flatten();
+            print(areas);
+
+            var tableName = [regionName, collectionName, featureName, 'area'].join('-');
+
+            tableName = tableName.replace(/--/g, '-').replace(/--/g, '-').replace('.', '');
+            tableName = App.formatName(tableName);
+
+            Export.table.toDrive({
+                'collection': areas,
+                'description': tableName,
+                'folder': 'MAPBIOMAS-EXPORT',
+                'fileNamePrefix': tableName,
+                'fileFormat': 'CSV'
+            });
+
         },
 
         form: {
