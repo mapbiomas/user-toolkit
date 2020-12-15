@@ -23,6 +23,7 @@
  *          - Updated mapbiomas-amazon collection 2.0
  *    1.3.0 - Loads mapbiomas-brazil collection 5.0
  *          - Export a csv file with areas per classe and year
+ *    1.3.1 - Loads mapbiomas-chaco collection 2.0
  * 
  * @see
  *      Get the MapBiomas exported data in your "Google Drive/MAPBIOMAS-EXPORT" folder
@@ -110,7 +111,7 @@ var App = {
 
     options: {
 
-        version: '1.3.0',
+        version: '1.3.1',
 
         logo: logos.mapbiomas,
 
@@ -165,10 +166,11 @@ var App = {
                 'projects/mapbiomas-raisg/DATOS_AUXILIARES/VECTORES/anps-departamentales-2',
             ],
             'mapbiomas-chaco': [
-                'projects/mapbiomas-chaco/DATOS_AUXILIARES/VECTORES/biomas-paises',
-                'projects/mapbiomas-chaco/DATOS_AUXILIARES/VECTORES/departamentos-estados',
-                'projects/mapbiomas-chaco/DATOS_AUXILIARES/VECTORES/limite-operativo-chaco',
-                'projects/mapbiomas-chaco/DATOS_AUXILIARES/VECTORES/provincias-municipios',
+                'projects/mapbiomas-chaco/DATOS_AUXILIARES/ESTADISTICAS/paises',
+                'projects/mapbiomas-chaco/DATOS_AUXILIARES/ESTADISTICAS/limite-chaco',
+                'projects/mapbiomas-chaco/DATOS_AUXILIARES/ESTADISTICAS/departamentos',
+                'projects/mapbiomas-chaco/DATOS_AUXILIARES/ESTADISTICAS/provincias',
+                'projects/mapbiomas-chaco/DATOS_AUXILIARES/ESTADISTICAS/biomas',
 
             ],
             // 'mapbiomas-indonesia': [
@@ -391,6 +393,30 @@ var App = {
                             "2010_2011", "2011_2012", "2012_2013", "2013_2014",
                             "2014_2015", "2015_2016", "2016_2017", "2010_2017",
                             "2013_2017"
+                        ]
+                    },
+                },
+                'collection-2.0': {
+                    'assets': {
+                        'integration': 'projects/mapbiomas-chaco/public/collection2/mapbiomas_chaco_collection2_integration_v1',
+                        'transitions': 'projects/mapbiomas-chaco/public/collection2/mapbiomas_chaco_collection2_transitions_v1',
+                    },
+                    'periods': {
+                        'Coverage': [
+                            '2000', '2001', '2002', '2003',
+                            '2004', '2005', '2006', '2007',
+                            '2008', '2009', '2010', '2011',
+                            '2012', '2013', '2014', '2015',
+                            '2016', '2017', '2018', '2019',
+                        ],
+                        'Transitions': [
+                            "2000_2001", "2001_2002", "2002_2003", "2003_2004",
+                            "2004_2005", "2005_2006", "2006_2007", "2007_2008",
+                            "2008_2009", "2009_2010", "2010_2011", "2011_2012",
+                            "2012_2013", "2013_2014", "2014_2015", "2015_2016",
+                            "2016_2017", "2017_2018", "2018_2019", "2000_2005",
+                            "2005_2010", "2010_2015", "2015_2019", "2000_2010",
+                            "2010_2019", "2000_2019",
                         ]
                     },
                 },
