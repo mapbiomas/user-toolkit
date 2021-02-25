@@ -586,8 +586,7 @@ var App = {
                             //     App.options.collections[regionName][collectioName].assets.secondary_vegetation_age);
 
                             App.options.data.deforestation_regeneration = ee.Image(
-                                App.options.collections[regionName][collectioName].assets.deforestation_regeneration)
-                                .divide(100).byte();
+                                App.options.collections[regionName][collectioName].assets.deforestation_regeneration);
 
                             var year = App.options.collections[regionName][collectioName]
                                 .periods.secondary_vegetation.slice(-1)[0];
