@@ -89,7 +89,7 @@ var Area = {
         areas = ee.FeatureCollection(areas).flatten()
             .map(
                 function (feature) {
-                    return feature.set("unit", object.unit)
+                    return feature.set("unit", object.unit);
                 }
             );
 
