@@ -621,12 +621,11 @@ var App = {
             40: "Rice",
             41: "Mosaic of Crops",
      
-     
-     
             42: "Pastizal abierto", // Only for Chaco
             43: "Pastizal cerrado", // Only for Chaco
             44: "Pastizal disperso", // Only for Chaco
-            45: "Other",
+            45: "Leñosas dispersas", // Only for Chaco
+
             36: "Perennial Crops",
             21: "Mosaic of Agriculture and Pasture",
             22: "Non vegetated area",
