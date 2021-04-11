@@ -95,7 +95,7 @@ var Area = {
             });
 
         territotiesData = ee.List(territotiesData.get('groups'));
-        print(territotiesData);
+        // print(territotiesData);
         var areas = territotiesData.map(Area.convert2table);
 
         areas = ee.FeatureCollection(areas).flatten();
@@ -1255,7 +1255,7 @@ var App = {
             );
 
             areas = ee.FeatureCollection(areas).flatten();
-            print(areas);
+            // print(areas);
 
             var tableName = [regionName, collectionName, featureName, 'area'].join('-');
 
