@@ -608,7 +608,7 @@ var App = {
             9: "Forest Plantation",
             10: "Non Forest Natural Formation",
             11: "Wetland",
-            12: "Grassland",
+            12: "Grassland (Pastizal, Formación Herbácea)",
             32: "Salt flat",
             29: "Rocky outcrop",
             13: "Other Non Forest Natural Formation",
