@@ -604,6 +604,7 @@ var App = {
             3: "Forest Formation",
             4: "Savanna Formation",
             5: "Magrove",
+            6: "Magrove",
             9: "Forest Plantation",
             10: "Non Forest Natural Formation",
             11: "Wetland",
@@ -619,9 +620,12 @@ var App = {
             20: "Sugar Cane",
             40: "Rice",
             41: "Mosaic of Crops",
-            42: "Coffe",
-            43: "Citrus",
-            44: "Cashew",
+     
+     
+     
+            42: "Pastizal abierto", // Only for Chaco
+            43: "Pastizal cerrado", // Only for Chaco
+            44: "Pastizal disperso", // Only for Chaco
             45: "Other",
             36: "Perennial Crops",
             21: "Mosaic of Agriculture and Pasture",
