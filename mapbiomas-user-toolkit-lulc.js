@@ -604,7 +604,7 @@ var App = {
             3: "Forest Formation",
             4: "Savanna Formation",
             5: "Magrove",
-            6: "Magrove",
+            6: "Áreas Naturales Inundables - Leñosas (Bosque Inundable)",
             9: "Forest Plantation",
             10: "Non Forest Natural Formation",
             11: "Wetland",
