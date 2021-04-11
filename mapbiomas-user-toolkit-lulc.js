@@ -615,7 +615,7 @@ var App = {
             14: "Farming",
             15: "Pasture",
             18: "Agriculture",
-            19: "Temporary Crops",
+            19: "Temporary Crops (Herbaceas - Agricultura)",
             39: "Soy Beans",
             20: "Sugar Cane",
             40: "Rice",
