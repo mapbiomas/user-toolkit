@@ -1243,8 +1243,14 @@ var App = {
 
                     area = ee.FeatureCollection(area).map(
                         function (feature) {
-                            var className = ee.Dictionary(App.options.className)
-                                .get(feature.get('class'));
+                            var className;
+                            
+                            if (App.options.dataType == 'Coverage'){
+                                className = ee.Dictionary(App.options.className)
+                                              .get(feature.get('class'));
+                            }else{
+                                className = feature.get('class');
+                            }
 
                             return feature.set('class_name', className).set('band', band);
                         }
