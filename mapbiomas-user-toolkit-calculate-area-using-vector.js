@@ -1,6 +1,6 @@
 /**
  * @description
- *    calculate area
+ *    Calculates area by class id and year
  * 
  * @author
  *    João Siqueira
