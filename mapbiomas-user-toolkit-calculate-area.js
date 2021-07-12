@@ -11,7 +11,7 @@
 var asset = "projects/mapbiomas-workspace/public/collection5/mapbiomas_collection50_integration_v1";
 
 // Asset of regions for which you want to calculate statistics
-var assetTerritories = "projects/mapbiomas-workspace/AUXILIAR/municipios-2016-raster";
+var assetTerritories = "projects/mapbiomas-workspace/AUXILIAR/biomas-estados-2016-raster";
 
 // Change the scale if you need.
 var scale = 30;
