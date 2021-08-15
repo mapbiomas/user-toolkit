@@ -875,11 +875,7 @@ var App = {
             init: function () {
 
                 this.panelMain.add(this.panelLogo);
-                this.panelMain.add(this.labelTitle);
-                this.panelMain.add(this.labelSubtitle);
                 this.panelMain.add(this.labelLink);
-
-                this.panelLogo.add(App.options.logo);
 
                 this.panelRegion.add(this.labelRegion);
                 this.panelRegion.add(this.selectRegion);
@@ -935,9 +931,20 @@ var App = {
             }),
 
             panelLogo: ui.Panel({
+                'widgets': ui.Chart(
+                    [['<p style= font-size:18px;font-family: Helvetica, sans-serif><b>MapBiomas User Toolkit 1.5.0</b></p>']],
+                    'Table',
+                    {
+                        'allowHtml': true,
+                        'pagingSymbols': {
+                            prev: '<img width="320" src="https://staging.plataforma.brasil.mapbiomas.org/static/media/logo-mapbiomas-fogo.7c26b36a.png">',
+                            next: ' '
+                        },
+                    }
+                ),
                 'layout': ui.Panel.Layout.flow('vertical'),
                 'style': {
-                    'margin': '0px 0px 0px 110px',
+                    'stretch': 'horizontal'
                 },
             }),
 
