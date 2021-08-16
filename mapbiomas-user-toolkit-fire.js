@@ -1121,6 +1121,7 @@ var App = {
                 'layout': ui.Panel.Layout.flow('vertical'),
                 'style': {
                     'width': '700px',
+                    'height': '350px',
                 },
             }),
 
