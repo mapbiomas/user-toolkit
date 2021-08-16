@@ -583,9 +583,9 @@ var App = {
             });
 
             Map.addLayer(App.options.activeFeature.style({
-                color: 'ff0000',
+                color: '#000055',
                 width: 1,
-                fillColor: 'ff000033',
+                fillColor: '#0000ff22',
             }), {},
                 tableName.split('/')[3],
                 true);
@@ -609,9 +609,9 @@ var App = {
             });
 
             Map.addLayer(App.options.activeFeature.style({
-                color: 'ff0000',
+                color: '#000055',
                 width: 1,
-                fillColor: 'ff000033',
+                fillColor: '#0000ff11',
             }), {},
                 tableName.split('/')[3],
                 true);
@@ -680,9 +680,10 @@ var App = {
                                             var collectionName = App.ui.form.selectCollection.getValue();
 
                                             App.ui.loadFeature(featureName);
+                                            App.options.activeName = featureName;
 
                                             App.ui.makeLayersList(
-                                                featureName,
+                                                App.options.activeName,
                                                 App.options.activeFeature,
                                                 App.options.collections[regionName][collectionName]
                                                     .periods[App.options.dataType]);
@@ -756,9 +757,9 @@ var App = {
             });
 
             Map.addLayer(App.options.activeFeature.style({
-                color: 'ff0000',
+                color: '#000055',
                 width: 1,
-                fillColor: 'ff000033',
+                fillColor: '#0000ff22',
             }), {},
                 name,
                 true);
@@ -766,7 +767,6 @@ var App = {
         },
 
         addImageLayer: function (period, label, region) {
-
 
             var image = App.options.data[App.options.dataType]
                 .select([App.options.bandsNames[App.options.dataType] + period])
