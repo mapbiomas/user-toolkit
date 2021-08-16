@@ -1036,7 +1036,7 @@ var App = {
 
             panelLogo: ui.Panel({
                 'widgets': ui.Chart(
-                    [['<p style= font-size:18px;font-family: Helvetica, sans-serif><b>MapBiomas User Toolkit 1.5.0</b></p>']],
+                    [['<p style= font-size:18px;font-family: Helvetica, sans-serif><b>MapBiomas User Toolkit 1.1.0</b></p>']],
                     'Table',
                     {
                         'allowHtml': true,
