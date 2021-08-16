@@ -1036,12 +1036,12 @@ var App = {
 
             panelLogo: ui.Panel({
                 'widgets': ui.Chart(
-                    [['<p style= font-size:18px;font-family: Helvetica, sans-serif><b>MapBiomas User Toolkit 1.1.0</b></p>']],
+                    [['<p style=font-size:18px;font-family: Helvetica, sans-serif><b>MapBiomas User Toolkit 1.1.0</b></p>']],
                     'Table',
                     {
                         'allowHtml': true,
                         'pagingSymbols': {
-                            prev: '<img width="320" src="https://staging.plataforma.brasil.mapbiomas.org/static/media/logo-mapbiomas-fogo.7c26b36a.png">',
+                            prev: '<img style="background-color:#ffffff" width="325" src="https://staging.plataforma.brasil.mapbiomas.org/static/media/logo-mapbiomas-fogo.7c26b36a.png">',
                             next: ' '
                         },
                     }
