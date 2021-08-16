@@ -575,7 +575,7 @@ var App = {
             Map.centerObject(App.options.activeFeature);
 
             Map.clear();
-            
+
             Map.setOptions({
                 'styles': {
                     'Dark': mapp.getStyle('Dark')
@@ -601,7 +601,7 @@ var App = {
             Map.centerObject(App.options.activeFeature);
 
             Map.clear();
-            
+
             Map.setOptions({
                 'styles': {
                     'Dark': mapp.getStyle('Dark')
@@ -933,8 +933,10 @@ var App = {
                         function (feature) {
                             var className;
 
-                            className = ee.Dictionary(App.options.className)
-                                .get(ee.Number(feature.get('class')));
+                            // className = ee.Dictionary(App.options.className)
+                            //     .get(ee.Number(feature.get('class')));
+
+                            className = ee.Number(feature.get('class'));
 
                             return feature.set('class_name', className).set('band', band);
                         }
