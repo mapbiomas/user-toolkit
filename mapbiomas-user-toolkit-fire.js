@@ -585,7 +585,7 @@ var App = {
             Map.addLayer(App.options.activeFeature.style({
                 color: '#000055',
                 width: 1,
-                fillColor: '#0000ff22',
+                fillColor: '#0000ff11',
             }), {},
                 tableName.split('/')[3],
                 true);
@@ -759,7 +759,7 @@ var App = {
             Map.addLayer(App.options.activeFeature.style({
                 color: '#000055',
                 width: 1,
-                fillColor: '#0000ff22',
+                fillColor: '#0000ff11',
             }), {},
                 name,
                 true);
