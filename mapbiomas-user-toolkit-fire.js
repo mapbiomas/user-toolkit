@@ -966,7 +966,9 @@ var App = {
 
         showDisclaimer: function () {
 
-            App.ui.form.panelDisclaimer.widgets().reset(App.ui.form.labelDisclaimer);
+            App.ui.form.panelDisclaimer.widgets().reset([]);
+            App.ui.form.panelDisclaimerText.widgets().reset(App.ui.form.labelDisclaimer);
+            App.ui.form.panelDisclaimer.add(App.ui.form.panelDisclaimerText);
             App.ui.form.panelDisclaimer.add(App.ui.form.buttonDisclaimerOk);
 
             Map.add(App.ui.form.panelDisclaimer);
@@ -1125,7 +1127,7 @@ var App = {
                 },
             }),
             
-            panelDisclaimerButtom: ui.Panel({
+            panelDisclaimerText: ui.Panel({
                 'layout': ui.Panel.Layout.flow('vertical'),
                 'style': {
                     'width': '700px',
