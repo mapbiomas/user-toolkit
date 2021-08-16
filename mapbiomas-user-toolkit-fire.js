@@ -1120,6 +1120,14 @@ var App = {
             panelDisclaimer: ui.Panel({
                 'layout': ui.Panel.Layout.flow('vertical'),
                 'style': {
+                    // 'width': '700px',
+                    // 'height': '350px',
+                },
+            }),
+            
+            panelDisclaimerButtom: ui.Panel({
+                'layout': ui.Panel.Layout.flow('vertical'),
+                'style': {
                     'width': '700px',
                     'height': '350px',
                 },
