@@ -8,10 +8,10 @@ var geometry =
       }
     ] */
     ee.Geometry.Polygon(
-        [[[-55.80975401310168, -6.617795520325061],
-          [-55.80975401310168, -7.519994257183307],
-          [-54.93634092716418, -7.519994257183307],
-          [-54.93634092716418, -6.617795520325061]]], null, false);
+        [[[-49.20147764591418, -15.304958621330327],
+          [-49.20147764591418, -16.17996722859655],
+          [-46.80645811466418, -16.17996722859655],
+          [-46.80645811466418, -15.304958621330327]]], null, false);
 /***** End of imports. If edited, may not auto-convert in the playground. *****/
 // HOW TO USE
 // 1. Choose the Biome (line 15)
@@ -27,7 +27,7 @@ var geometry =
 var asset = 'projects/mapbiomas-workspace/MOSAICOS/workspace-c3';
 
 // Choose the biome name: 'AMAZONIA', 'CAATINGA', 'CERRADO', 'MATAATLANTICA', 'PAMPA' or 'PANTANAL'
-var biome = 'AMAZONIA';
+var biome = 'CERRADO';
 
 // Define the year of your interest
 var year = 2019;
