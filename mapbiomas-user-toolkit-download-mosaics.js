@@ -37,7 +37,7 @@ var fileName = 'mosaic-' + String(year);
 // Look the available band list at the console
 var exportBands = [
       "median_blue",
-      "median_gree",
+      "median_green",
       "median_red",
       "median_bir",
       "median_swir1",
