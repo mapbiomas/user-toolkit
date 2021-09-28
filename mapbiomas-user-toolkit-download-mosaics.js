@@ -1,6 +1,7 @@
 /**** Start of imports. If edited, may not auto-convert in the playground. ****/
 var geometry = 
     /* color: #d63000 */
+    /* shown: false */
     /* displayProperties: [
       {
         "type": "rectangle"
@@ -64,6 +65,8 @@ Map.addLayer(mosaic.clip(geometry),
     
     'mapbiomas mosaic'
 );
+
+Map.centerObject(geometry);
 
 // Exports the data to MAPBIOMAS-EXPORT folder in your Google Drive
 Export.image.toDrive(
