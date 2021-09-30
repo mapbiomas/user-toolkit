@@ -7,6 +7,9 @@
  *  
  * @author
  *      João Siqueira
+ * 
+ * @contact
+ *      Tasso Azevedo, Marcos Rosa and João Siqueira
  *      contato@mapbiomas.org
  *
  * @version
@@ -28,6 +31,7 @@
  *    1.4.0 - Loads mapbiomas-atlantic-forest collection 1.0
  *    1.5.0 - Loads mapbiomas-pampa collection 1.0
  *    1.6.0 - Loads mapbiomas-brazil collection 6.0
+ *    1.7.0 - Loads mapbiomas-amazon collection 3.0
  * 
  * @see
  *      Get the MapBiomas exported data in your "Google Drive/MAPBIOMAS-EXPORT" folder
@@ -115,7 +119,7 @@ var App = {
 
     options: {
 
-        version: '1.6.0',
+        version: '1.7.0',
 
         logo: logos.mapbiomas,
 
@@ -231,36 +235,44 @@ var App = {
             ],
             'mapbiomas-amazon': [
                 {
-                    'value': 'projects/mapbiomas-raisg/DATOS_AUXILIARES/VECTORES/limite-raisg-2',
-                    'label': 'limite-raisg'
+                    'value': 'projects/mapbiomas-raisg/DATOS_AUXILIARES/ESTADISTICAS/COLECCION3/biome',
+                    'label': 'biome',
                 },
                 {
-                    'value': 'projects/mapbiomas-raisg/DATOS_AUXILIARES/VECTORES/biomas-2',
-                    'label': 'biomas'
+                    'value': 'projects/mapbiomas-raisg/DATOS_AUXILIARES/ESTADISTICAS/COLECCION3/city_new',
+                    'label': 'city',
                 },
                 {
-                    'value': 'projects/mapbiomas-raisg/DATOS_AUXILIARES/VECTORES/cuencas-2',
-                    'label': 'cuencas'
+                    'value': 'projects/mapbiomas-raisg/DATOS_AUXILIARES/ESTADISTICAS/COLECCION3/country',
+                    'label': 'country',
                 },
                 {
-                    'value': 'projects/mapbiomas-raisg/DATOS_AUXILIARES/VECTORES/departamentos-2',
-                    'label': 'departamentos'
+                    'value': 'projects/mapbiomas-raisg/DATOS_AUXILIARES/ESTADISTICAS/COLECCION3/country_per_biome',
+                    'label': 'country_per_biome',
                 },
                 {
-                    'value': 'projects/mapbiomas-raisg/DATOS_AUXILIARES/VECTORES/paises-2',
-                    'label': 'paises'
+                    'value': 'projects/mapbiomas-raisg/DATOS_AUXILIARES/ESTADISTICAS/COLECCION3/drainage_basin',
+                    'label': 'drainage_basin',
                 },
                 {
-                    'value': 'projects/mapbiomas-raisg/DATOS_AUXILIARES/VECTORES/anps-tis-2',
-                    'label': 'anps-tis'
+                    'value': 'projects/mapbiomas-raisg/DATOS_AUXILIARES/ESTADISTICAS/COLECCION3/federal_conservation_units',
+                    'label': 'federal_conservation_units',
                 },
                 {
-                    'value': 'projects/mapbiomas-raisg/DATOS_AUXILIARES/VECTORES/anps-nacionales-2',
-                    'label': 'anps-nacionales'
+                    'value': 'projects/mapbiomas-raisg/DATOS_AUXILIARES/ESTADISTICAS/COLECCION3/indigenous_land',
+                    'label': 'indigenous_land',
                 },
                 {
-                    'value': 'projects/mapbiomas-raisg/DATOS_AUXILIARES/VECTORES/anps-departamentales-2',
-                    'label': 'anps-departamentales'
+                    'value': 'projects/mapbiomas-raisg/DATOS_AUXILIARES/ESTADISTICAS/COLECCION3/raisg_limit',
+                    'label': 'raisg_limit',
+                },
+                {
+                    'value': 'projects/mapbiomas-raisg/DATOS_AUXILIARES/ESTADISTICAS/COLECCION3/state',
+                    'label': 'state',
+                },
+                {
+                    'value': 'projects/mapbiomas-raisg/DATOS_AUXILIARES/ESTADISTICAS/COLECCION3/state_conservation_units',
+                    'label': 'state_conservation_units',
                 },
             ],
             'mapbiomas-chaco': [
@@ -603,6 +615,41 @@ var App = {
                             "1990_2000", "2000_2010", "2010_2018", "1985_2018",
                             "2008_2017", "2012_2018", "1994_2002", "2002_2010",
                             "2010_2016", "2008_2018", "1986_2015", "2000_2018"
+                        ]
+                    },
+                },
+                'collection-3.0': {
+                    'assets': {
+                        'integration': 'projects/mapbiomas-raisg/public/collection3/mapbiomas_raisg_panamazonia_collection3_integration_v2',
+                        'transitions': 'projects/mapbiomas-raisg/public/collection3/mapbiomas_raisg_panamazonia_collection3_transitions_v2',
+                    },
+                    'periods': {
+                        'Coverage': [
+                            '1985', '1986', '1987', '1988',
+                            '1989', '1990', '1991', '1992',
+                            '1993', '1994', '1995', '1996',
+                            '1997', '1998', '1999', '2000',
+                            '2001', '2002', '2003', '2004',
+                            '2005', '2006', '2007', '2008',
+                            '2009', '2010', '2011', '2012',
+                            '2013', '2014', '2015', '2016',
+                            '2017', '2018', '2019', '2020'
+                        ],
+                        'Transitions': [
+                            '1985_1986', '1986_1987', '1987_1988', '1988_1989',
+                            '1989_1990', '1990_1991', '1991_1992', '1992_1993',
+                            '1993_1994', '1994_1995', '1995_1996', '1996_1997',
+                            '1997_1998', '1998_1999', '1999_2000', '2000_2001',
+                            '2001_2002', '2002_2003', '2003_2004', '2004_2005',
+                            '2005_2006', '2006_2007', '2007_2008', '2008_2009',
+                            '2009_2010', '2010_2011', '2011_2012', '2012_2013',
+                            '2013_2014', '2014_2015', '2015_2016', '2016_2017',
+                            '2017_2018', '2018_2019', '2019_2020', '1985_1990',
+                            '1990_1995', '1995_2000', '2000_2005', '2005_2010',
+                            '2010_2015', '2015_2020', '1990_2000', '2000_2010',
+                            '2010_2020', '1985_2020', '2008_2017', '1994_2002',
+                            '2002_2010', '2010_2016', '1986_2015', '1990_2020',
+                            '2000_2020', '2008_2020', '2012_2020',
                         ]
                     },
                 },
@@ -1631,7 +1678,7 @@ var App = {
 
             panelLogo: ui.Panel({
                 'widgets': ui.Chart(
-                    [['<p style= font-size:18px;font-family: Helvetica, sans-serif><b>MapBiomas User Toolkit 1.6.0</b></p>']],
+                    [['<p style= font-size:18px;font-family: Helvetica, sans-serif><b>MapBiomas User Toolkit 1.7.0</b></p>']],
                     'Table',
                     {
                         'allowHtml': true,
