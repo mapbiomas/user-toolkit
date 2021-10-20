@@ -828,7 +828,7 @@ var App = {
             upVeg: [],
             downVeg: [10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 28, 22, 23, 24, 25, 29, 30],
             downWater: [],
-            upWater: [26, 33, 31],
+            upWater: [26, 33, 31, 34],
             upPlantacao: [9],
             ignored: [27]
         },
@@ -838,7 +838,7 @@ var App = {
             upVeg: [],
             downVeg: [14, 15, 16, 17, 18, 19, 20, 21, 28, 22, 23, 24, 25, 29, 30],
             downWater: [],
-            upWater: [26, 33, 31],
+            upWater: [26, 33, 31, 34],
             upPlantacao: [9],
             ignored: [27, 1, 2, 3, 4, 5, 6, 7, 8]
         },
@@ -848,7 +848,7 @@ var App = {
             upVeg: [1, 2, 3, 4, 5, 6, 7, 8, 10, 11, 12, 13, 32],
             downVeg: [],
             downWater: [],
-            upWater: [26, 31, 33],
+            upWater: [26, 31, 33, 34],
             upPlantacao: [9],
             ignored: [27, 22, 23, 24, 25, 29, 30]
         },
@@ -867,7 +867,7 @@ var App = {
             noChange: [26, 31, 33],
             upVeg: [1, 2, 3, 4, 5, 6, 7, 8, 10, 11, 12, 13, 32],
             downVeg: [],
-            downWater: [14, 15, 16, 17, 18, 19, 20, 21, 28, 22, 23, 24, 25, 29, 30],
+            downWater: [14, 15, 16, 17, 18, 19, 20, 21, 28, 22, 23, 24, 25, 29, 30, 34],
             upWater: [],
             upPlantacao: [9],
             ignored: [27]
@@ -878,7 +878,7 @@ var App = {
             upVeg: [1, 2, 3, 4, 5, 6, 7, 8, 10, 11, 12, 13, 32],
             downVeg: [],
             downWater: [14, 15, 18, 19, 20, 21, 28, 22, 23, 24, 25, 29, 30],
-            upWater: [26, 31, 33],
+            upWater: [26, 31, 33, 34],
             upPlantacao: [],
             ignored: [27]
         },
