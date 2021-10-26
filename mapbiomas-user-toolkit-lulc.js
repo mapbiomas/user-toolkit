@@ -828,7 +828,7 @@ var App = {
             upVeg: [],
             downVeg: [10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 28, 22, 23, 24, 25, 29, 30],
             downWater: [],
-            upWater: [26, 33, 31, 34],
+            upWater: [26, 33, 31],
             upPlantacao: [9],
             ignored: [27]
         },
@@ -838,7 +838,7 @@ var App = {
             upVeg: [],
             downVeg: [14, 15, 16, 17, 18, 19, 20, 21, 28, 22, 23, 24, 25, 29, 30],
             downWater: [],
-            upWater: [26, 33, 31, 34],
+            upWater: [26, 33, 31],
             upPlantacao: [9],
             ignored: [27, 1, 2, 3, 4, 5, 6, 7, 8]
         },
@@ -848,7 +848,7 @@ var App = {
             upVeg: [1, 2, 3, 4, 5, 6, 7, 8, 10, 11, 12, 13, 32],
             downVeg: [],
             downWater: [],
-            upWater: [26, 31, 33, 34],
+            upWater: [26, 31, 33],
             upPlantacao: [9],
             ignored: [27, 22, 23, 24, 25, 29, 30]
         },
@@ -864,7 +864,7 @@ var App = {
         },
         {
             name: "5. Corpos Dágua",
-            noChange: [26, 31, 33, 34],
+            noChange: [26, 31, 33],
             upVeg: [1, 2, 3, 4, 5, 6, 7, 8, 10, 11, 12, 13, 32],
             downVeg: [],
             downWater: [14, 15, 16, 17, 18, 19, 20, 21, 28, 22, 23, 24, 25, 29, 30],
@@ -878,7 +878,7 @@ var App = {
             upVeg: [1, 2, 3, 4, 5, 6, 7, 8, 10, 11, 12, 13, 32],
             downVeg: [],
             downWater: [14, 15, 18, 19, 20, 21, 28, 22, 23, 24, 25, 29, 30],
-            upWater: [26, 31, 33, 34],
+            upWater: [26, 31, 33],
             upPlantacao: [],
             ignored: [27]
         },
@@ -1615,8 +1615,10 @@ var App = {
 
             init: function () {
 
-                this.panelMain.add(this.panelLogo);
+                this.panelLogo.add(App.options.logo);
 
+                this.panelMain.add(this.panelLogo);
+                this.panelMain.add(this.labelTitle);
                 this.panelMain.add(this.labelSubtitle);
                 this.panelMain.add(this.panelLink);
                 this.panelLink.add(this.labelLink);
@@ -1677,20 +1679,21 @@ var App = {
             }),
 
             panelLogo: ui.Panel({
-                'widgets': ui.Chart(
-                    [['<p style= font-size:18px;font-family: Helvetica, sans-serif><b>MapBiomas User Toolkit 1.7.0</b></p>']],
-                    'Table',
-                    {
-                        'allowHtml': true,
-                        'pagingSymbols': {
-                            prev: '<img width="330" src="https://mapbiomas-br-site.s3.amazonaws.com/mapbiomas_brasil_logo_1.png">',
-                            next: ' '
-                        },
-                    }
-                ),
+                // 'widgets': ui.Chart(
+                //     [['<p style= font-size:18px;font-family: Helvetica, sans-serif><b>MapBiomas User Toolkit 1.7.0</b></p>']],
+                //     'Table',
+                //     {
+                //         'allowHtml': true,
+                //         'pagingSymbols': {
+                //             prev: '<img width="330" src="https://mapbiomas-br-site.s3.amazonaws.com/mapbiomas_brasil_logo_1.png">',
+                //             next: ' '
+                //         },
+                //     }
+                // ),
                 'layout': ui.Panel.Layout.flow('vertical'),
                 'style': {
-                    'stretch': 'horizontal'
+                    'stretch': 'horizontal',
+                    'margin': '0px 0px 0px 110px',
                 },
             }),
 
