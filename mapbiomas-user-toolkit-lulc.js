@@ -1004,6 +1004,8 @@ var App = {
             31: "Aquaculture",
             27: "Non Observed",
             0: "Non Observed",
+            
+            35: "Oil Palm"
         },
     },
 
