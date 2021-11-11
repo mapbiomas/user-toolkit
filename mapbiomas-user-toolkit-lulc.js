@@ -1005,7 +1005,7 @@ var App = {
             27: "Non Observed",
             0: "Non Observed",
             
-            35: "Oil Palm"
+            35: "Oil Palm" // Only for Indonesia
         },
     },
 
