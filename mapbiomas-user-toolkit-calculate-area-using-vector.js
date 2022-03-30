@@ -17,7 +17,35 @@ var assetTerritories = "users/joaovsiqueira1/MAPBIOMAS/ti_uc";
 var attribute = "id_arp";
 
 // A list of class ids you are interested
-var classIds = [33];
+var classIds = [
+    3, // Formação Florestal
+    4, // Formação Savânica
+    5, // Mangue
+    49, // Restinga Florestal
+    11, // Área Úmida Natural não Florestal
+    12, // Formação Campestre
+    32, // Apicum
+    29, // Afloramento Rochoso
+    13, // Outra Formação não Florestal
+    18, // Agricultura
+    39, // Soja
+    20, // Cana
+    40, // Arroz
+    41, // Outras Lavouras Temporárias
+    46, // Café
+    47, // Citrus
+    48, // Outras Lavaouras Perenes
+    9, // Silvicultura
+    15, // Pastagem
+    21, // Mosaico de Agricultura ou Pastagem
+    22, // Área não Vegetada
+    23, // Praia e Duna
+    24, // Infraestrutura Urbana
+    30, // Mineração
+    25, // Outra Área não Vegetada
+    33, // Rio, Lago e Oceano
+    31 // 'Aquicultura
+];
 
 // Output csv name
 var outputName = 'areas';
@@ -114,9 +142,9 @@ var calculateArea = function (image, territory, geometry) {
 var areas = years.map(
     function (year) {
         var image = mapbiomas.select('classification_' + year);
-        
+
         var areas = territory.map(
-            function(feature){
+            function (feature) {
                 return calculateArea(
                     image.remap(classIds, classIds, 0),
                     ee.Image().int64().paint({
@@ -127,9 +155,9 @@ var areas = years.map(
                 );
             }
         );
-        
+
         areas = areas.flatten();
-        
+
         // set additional properties
         areas = areas.map(
             function (feature) {
