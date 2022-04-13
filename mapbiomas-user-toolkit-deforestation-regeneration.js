@@ -512,25 +512,33 @@ var App = {
                 3: "Forest Formation",
                 4: "Savanna Formation",
                 5: "Magrove",
+                6: "Áreas Naturales Inundables - Leñosas (Bosque Inundable)",
                 9: "Forest Plantation",
                 10: "Non Forest Natural Formation",
                 11: "Wetland",
-                12: "Grassland",
+                12: "Grassland (Pastizal, Formación Herbácea)",
                 32: "Salt flat",
                 29: "Rocky outcrop",
                 13: "Other Non Forest Natural Formation",
                 14: "Farming",
                 15: "Pasture",
                 18: "Agriculture",
-                19: "Temporary Crops",
+                19: "Temporary Crops (Herbaceas - Agricultura)",
                 39: "Soy Beans",
                 20: "Sugar Cane",
                 40: "Rice",
                 41: "Mosaic of Crops",
-                42: "Coffe",
-                43: "Citrus",
-                44: "Cashew",
-                45: "Other",
+    
+                42: "Pastizal abierto", // Only for Chaco
+                43: "Pastizal cerrado", // Only for Chaco
+                44: "Pastizal disperso", // Only for Chaco
+                45: "Leñosas dispersas", // Only for Chaco
+    
+                46: 'Coffe',
+                47: 'Citrus',
+                48: 'Other Perennial Crops',
+                49: 'Wooded Restinga',
+    
                 36: "Perennial Crops",
                 21: "Mosaic of Agriculture and Pasture",
                 22: "Non vegetated area",
@@ -545,6 +553,8 @@ var App = {
                 31: "Aquaculture",
                 27: "Non Observed",
                 0: "Non Observed",
+    
+                35: "Oil Palm"
             }
         },
 
