@@ -528,17 +528,14 @@ var App = {
                 20: "Sugar Cane",
                 40: "Rice",
                 41: "Mosaic of Crops",
-    
                 42: "Pastizal abierto", // Only for Chaco
                 43: "Pastizal cerrado", // Only for Chaco
                 44: "Pastizal disperso", // Only for Chaco
                 45: "Leñosas dispersas", // Only for Chaco
-    
                 46: 'Coffe',
                 47: 'Citrus',
                 48: 'Other Perennial Crops',
                 49: 'Wooded Restinga',
-    
                 36: "Perennial Crops",
                 21: "Mosaic of Agriculture and Pasture",
                 22: "Non vegetated area",
@@ -553,7 +550,6 @@ var App = {
                 31: "Aquaculture",
                 27: "Non Observed",
                 0: "Non Observed",
-    
                 35: "Oil Palm"
             }
         },
