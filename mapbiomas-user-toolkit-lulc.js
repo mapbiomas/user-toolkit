@@ -123,7 +123,10 @@ var App = {
 
         version: '1.9.0',
 
-        logo: logos.mapbiomas,
+        logo: {
+            uri:'gs://mapbiomas-public/mapbiomas-logos/mapbiomas-logo-horizontal.b64',
+            base64: null
+        },
 
         statesNames: {
             'None': 'None',
@@ -1011,7 +1014,7 @@ var App = {
     },
 
     init: function () {
-
+        
         this.ui.init();
 
     },
@@ -1681,7 +1684,17 @@ var App = {
 
             init: function () {
 
-                App.ui.form.panelLogo.add(App.options.logo);
+                var blob = ee.Blob(App.options.logo.uri);
+
+                blob.string().evaluate(
+                    function(str){
+                        str = str.replace(/\n/g, '');
+                        App.options.logo.base64 = ui.Label({
+                            imageUrl: str,
+                        });
+                        App.ui.form.panelLogo.add(App.options.logo.base64);
+                    }
+                );
 
                 App.ui.form.panelMain.add(App.ui.form.panelLogo);
                 App.ui.form.panelMain.add(App.ui.form.labelTitle);
@@ -1755,21 +1768,10 @@ var App = {
             }),
 
             panelLogo: ui.Panel({
-                // 'widgets': ui.Chart(
-                //     [['<p style= font-size:18px;font-family: Helvetica, sans-serif><b>MapBiomas User Toolkit 1.7.0</b></p>']],
-                //     'Table',
-                //     {
-                //         'allowHtml': true,
-                //         'pagingSymbols': {
-                //             prev: '<img width="330" src="https://mapbiomas-br-site.s3.amazonaws.com/mapbiomas_brasil_logo_1.png">',
-                //             next: ' '
-                //         },
-                //     }
-                // ),
                 'layout': ui.Panel.Layout.flow('vertical'),
                 'style': {
                     'stretch': 'horizontal',
-                    'margin': '0px 0px 0px 110px',
+                    'margin': '10px 0px 5px 15px',
                 },
             }),
 
