@@ -23,8 +23,8 @@ var geometry =
 // Obs: If you define a big geometry, maybe your data get splitted
 // on Google Drive. You will need to make a local mosaic using ArcGis, QGis, ENVI...
 
-// Do not change the mosaics asset
-var asset = 'projects/mapbiomas-workspace/MOSAICOS/workspace-c3';
+// Choose the mosaics landsat 5 and landsat 8 (LANDSAT/mosaics) or landsat 7 (LANDSAT/mosaics-landsat-7)
+var asset = 'projects/nexgenmap/MapBiomas2/LANDSAT/mosaics';
 
 // Choose the biome name: 'AMAZONIA', 'CAATINGA', 'CERRADO', 'MATAATLANTICA', 'PAMPA' or 'PANTANAL'
 var biome = 'CERRADO';
@@ -37,12 +37,12 @@ var fileName = 'mosaic-' + String(year);
 
 // Look the available band list at the console
 var exportBands = [
-      "median_blue",
-      "median_green",
-      "median_red",
-      "median_bir",
-      "median_swir1",
-      "median_swir2",
+      "blue_median",
+      "green_median",
+      "red_median",
+      "bir_median",
+      "swir1_median",
+      "swir2_median",
   ];
 
 // Get the moisac
@@ -58,7 +58,7 @@ print(mosaic.bandNames());
 // Shows the mosaic on map
 Map.addLayer(mosaic.clip(geometry), 
     {
-        bands: 'median_swir1,median_nir,median_red',
+        bands: 'swir1_median,nir_median,red_median',
         gain: '0.08,0.06,0.2',
         gamma: 0.75
     },
