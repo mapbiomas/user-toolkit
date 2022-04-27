@@ -23,7 +23,8 @@ var geometry =
 // Obs: If you define a big geometry, maybe your data get splitted
 // on Google Drive. You will need to make a local mosaic using ArcGis, QGis, ENVI...
 
-// Choose the mosaics landsat 5 and landsat 8 (LANDSAT/mosaics) or landsat 7 (LANDSAT/mosaics-landsat-7)
+// To access landsat 5/8 mosaics use projects/nexgenmap/MapBiomas2/LANDSAT/mosaics
+// To access landsat 7 mosaics use projects/nexgenmap/MapBiomas2/LANDSAT/mosaics-landsat-7
 var asset = 'projects/nexgenmap/MapBiomas2/LANDSAT/mosaics';
 
 // Choose the biome name: 'AMAZONIA', 'CAATINGA', 'CERRADO', 'MATAATLANTICA', 'PAMPA' or 'PANTANAL'
