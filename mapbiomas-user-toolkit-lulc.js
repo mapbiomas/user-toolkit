@@ -1228,6 +1228,12 @@ var App = {
                                     App.options.collections[regionName][collectioName].assets.quality);
 
                             }
+                            if (regionName == 'mapbiomas-brazil' & collectioName == 'collection-7.0') {
+
+                                App.options.data.Quality = ee.Image(
+                                    App.options.collections[regionName][collectioName].assets.quality);
+
+                            }
                             // TODO: improve this logic
                             if (regionName == 'mapbiomas-atlantic-forest' & collectioName == 'collection-1.0') {
 
