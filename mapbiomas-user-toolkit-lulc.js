@@ -1180,6 +1180,7 @@ var App = {
             31: "Aquaculture",
             32: "Salt flat",
             33: "River, Lake and Ocean",
+            34: "Glacier",
             35: "Oil Palm",
             36: "Perennial Crops",
             37: "Artificial Water Body",
