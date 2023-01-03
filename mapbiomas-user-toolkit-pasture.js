@@ -1,6 +1,6 @@
 /**
  * @name
- *      Mapbiomas User Toolkit Download
+ *      Mapbiomas User Toolkit - Pasture
  * 
  * @description
  *      This is a support tool for mapbiomas data users.
@@ -19,8 +19,6 @@
  *      Code and Tutorial - https://github.com/mapbiomas-brazil/user-toolkit
  */
 
-var palettes = require('users/mapbiomas/modules:Palettes.js');
-var logos = require('users/mapbiomas/modules:Logos.js');
 var mapp = require('users/joaovsiqueira1/packages:Mapp.js');
 var legend = require('users/joaovsiqueira1/packages:Legend.js');
 
@@ -109,7 +107,10 @@ var App = {
 
         version: '1.2.0',
 
-        logo: logos.mapbiomas,
+        logo: {
+            uri: 'gs://mapbiomas-public/mapbiomas-logos/mapbiomas-logo-horizontal.b64',
+            base64: null
+        },
 
         statesNames: {
             'None': 'None',
@@ -436,7 +437,7 @@ var App = {
 
     setVersion: function () {
 
-        App.ui.form.labelTitle.setValue('MapBiomas User Toolkit ' + App.options.version);
+        App.ui.form.labelTitle.setValue('MapBiomas User Toolkit - Pasture ' + App.options.version);
 
     },
 
@@ -977,54 +978,64 @@ var App = {
 
             init: function () {
 
-                this.panelMain.add(this.panelLogo);
-                this.panelMain.add(this.labelTitle);
-                this.panelMain.add(this.labelSubtitle);
-                this.panelMain.add(this.labelLink);
+                var blob = ee.Blob(App.options.logo.uri);
 
-                this.panelLogo.add(App.options.logo);
+                blob.string().evaluate(
+                    function (str) {
+                        str = str.replace(/\n/g, '');
+                        App.options.logo.base64 = ui.Label({
+                            imageUrl: str,
+                        });
+                        App.ui.form.panelLogo.add(App.options.logo.base64);
+                    }
+                );
 
-                this.panelRegion.add(this.labelRegion);
-                this.panelRegion.add(this.selectRegion);
+                App.ui.form.panelMain.add(App.ui.form.panelLogo);
+                App.ui.form.panelMain.add(App.ui.form.labelTitle);
+                App.ui.form.panelMain.add(App.ui.form.labelSubtitle);
+                App.ui.form.panelMain.add(App.ui.form.labelLink);
 
-                this.panelCollection.add(this.labelCollection);
-                this.panelCollection.add(this.selectCollection);
+                App.ui.form.panelRegion.add(App.ui.form.labelRegion);
+                App.ui.form.panelRegion.add(App.ui.form.selectRegion);
 
-                this.panelFeatureCollections.add(this.labelTables);
-                this.panelFeatureCollections.add(this.selectFeatureCollections);
+                App.ui.form.panelCollection.add(App.ui.form.labelCollection);
+                App.ui.form.panelCollection.add(App.ui.form.selectCollection);
 
-                this.panelProperties.add(this.labelProperties);
-                this.panelProperties.add(this.selectProperties);
+                App.ui.form.panelFeatureCollections.add(App.ui.form.labelTables);
+                App.ui.form.panelFeatureCollections.add(App.ui.form.selectFeatureCollections);
 
-                this.panelFeature.add(this.labelFeature);
-                this.panelFeature.add(this.selectFeature);
+                App.ui.form.panelProperties.add(App.ui.form.labelProperties);
+                App.ui.form.panelProperties.add(App.ui.form.selectProperties);
 
-                this.panelDataType.add(this.labelDataType);
-                this.panelDataType.add(this.selectDataType);
+                App.ui.form.panelFeature.add(App.ui.form.labelFeature);
+                App.ui.form.panelFeature.add(App.ui.form.selectFeature);
 
-                this.panelBuffer.add(this.labelBuffer);
-                this.panelBuffer.add(this.selectBuffer);
+                App.ui.form.panelDataType.add(App.ui.form.labelDataType);
+                App.ui.form.panelDataType.add(App.ui.form.selectDataType);
 
-                this.panelLegend.add(legend.getLegend(App.options.legend.params));
+                App.ui.form.panelBuffer.add(App.ui.form.labelBuffer);
+                App.ui.form.panelBuffer.add(App.ui.form.selectBuffer);
+
+                App.ui.form.panelLegend.add(legend.getLegend(App.options.legend.params));
 
                 // this.panelMain.add(this.panelType);
-                this.panelMain.add(this.panelRegion);
-                this.panelMain.add(this.panelCollection);
-                this.panelMain.add(this.panelFeatureCollections);
-                this.panelMain.add(this.panelStates);
-                this.panelMain.add(this.panelProperties);
-                this.panelMain.add(this.panelFeature);
-                this.panelMain.add(this.panelDataType);
-                this.panelMain.add(this.panelLegend);
-                this.panelMain.add(this.panelBuffer);
+                App.ui.form.panelMain.add(App.ui.form.panelRegion);
+                App.ui.form.panelMain.add(App.ui.form.panelCollection);
+                App.ui.form.panelMain.add(App.ui.form.panelFeatureCollections);
+                App.ui.form.panelMain.add(App.ui.form.panelStates);
+                App.ui.form.panelMain.add(App.ui.form.panelProperties);
+                App.ui.form.panelMain.add(App.ui.form.panelFeature);
+                App.ui.form.panelMain.add(App.ui.form.panelDataType);
+                App.ui.form.panelMain.add(App.ui.form.panelLegend);
+                App.ui.form.panelMain.add(App.ui.form.panelBuffer);
 
-                this.panelMain.add(this.labelLayers);
-                this.panelMain.add(this.panelLayersList);
+                App.ui.form.panelMain.add(App.ui.form.labelLayers);
+                App.ui.form.panelMain.add(App.ui.form.panelLayersList);
 
-                this.panelMain.add(this.buttonExport2Drive);
-                this.panelMain.add(this.labelNotes);
+                App.ui.form.panelMain.add(App.ui.form.buttonExport2Drive);
+                App.ui.form.panelMain.add(App.ui.form.labelNotes);
 
-                ui.root.add(this.panelMain);
+                ui.root.add(App.ui.form.panelMain);
 
             },
 
@@ -1040,7 +1051,8 @@ var App = {
             panelLogo: ui.Panel({
                 'layout': ui.Panel.Layout.flow('vertical'),
                 'style': {
-                    'margin': '0px 0px 0px 110px',
+                    'stretch': 'horizontal',
+                    'margin': '10px 0px 5px 15px',
                 },
             }),
 
@@ -1129,13 +1141,13 @@ var App = {
                 'fontSize': '16px'
             }),
 
-            labelTitle: ui.Label('MapBiomas User Toolkit', {
+            labelTitle: ui.Label('MapBiomas User Toolkit - Pasture ', {
                 'fontWeight': 'bold',
                 // 'padding': '1px',
                 'fontSize': '16px'
             }),
 
-            labelSubtitle: ui.Label('Pasture', {
+            labelSubtitle: ui.Label('Pasture Quality Collection 7.0', {
                 // 'fontWeight': 'bold',
                 // 'padding': '1px',
                 'fontSize': '14px'
