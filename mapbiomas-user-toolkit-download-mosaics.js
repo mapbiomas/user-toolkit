@@ -24,7 +24,7 @@ var geometry =
 // on Google Drive. You will need to make a local mosaic using ArcGis, QGis, ENVI...
 
 // Do not change
-var asset = 'projects/nexgenmap/MapBiomas2/LANDSAT/mosaics';
+var asset = 'projects/nexgenmap/MapBiomas2/LANDSAT/BRAZIL/mosaics-2';
 
 // Choose the biome name: 'AMAZONIA', 'CAATINGA', 'CERRADO', 'MATAATLANTICA', 'PAMPA' or 'PANTANAL'
 var biome = 'CERRADO';
