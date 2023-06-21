@@ -540,7 +540,8 @@ var App = {
                             App.options.data.cos_0_30cm_kg_m2 = ee.Image(
                                 App.options.collections[regionName][collectioName].assets.cos_0_30cm_kg_m2
                               )
-                              .divide(100).int16();
+                              .divide(100).int16()
+                              .gt(-1);
 
                             App.options.data.cos_0_30cm_kg_m2 = App.options.data.cos_0_30cm_kg_m2
                               .updateMask(App.options.data.cos_0_30cm_kg_m2.gt(-1));
@@ -1293,28 +1294,27 @@ var App = {
                 'fontSize': '16px'
             }),
 
-            // As áreas sempre submersas foram mapeadas como -1, as áreas não observadas como -2, no mapa e as areas mapeadas como água anualmente,
-                  // como em afloramento rochososassociado 
-                  
+
             labelDisclaimer: [
                 ui.Label('DISCLAIMER'),
                 ui.Label('\
-                  Esta é a Coleção Beta do MapBiomas Solo, o 1º ensaio de mapeamento em série temporal de carbono orgânico no solo de 0 a 30cm no Brasil, com mapas anuais de 1985 a 2022 \
-                  produtos disponíveis incluem: \
-                  (i) mapas anuais em toneladas de carbono ôrganico no solo por hectare (t COS/ha) no intervalo de 0 a 30 cm das superficies emersas do Brasil; \
-                  (ii) mapas anuais convertidos em quilos de COS por metro quadrado (kg COS/m²).\
-                  As áreas que os primeiros 30 horizonte A é removido ... \
-                  A descrição do método de mapeamento do carbono orgânico no solo pode ser acessado na seção de metodologias do MapBiomas.\
-                Os mapas anuais de do carbono orgânico no solo bem como os principais conjuntos de estatísticas consolidadas estão disponíveis na área de download do MapBiomas.\
-                Caso tenha sugestões, críticas e idéias para aprimorar o trabalho entre em contato pelo e- mail: contato@mapbiomas.org ou acesse o Fórum MapBiomas.\
-                Os dados do MapBiomas são públicos, abertos e gratuitos sob licença Creative Commons CC - CY - SA e mediante a referência da fonte observando o seguinte formato: "Projeto MapBiomas – Mapeamento de carbono orgânico no solo no Brasil Coleção 1, acessado em [DATA] através do link: [LINK]".'),
+                  O MapBiomas Solo desenvolveu a primeira coleção beta de mapas  anuais de carbono orgânico do solo (COS) no Brasil, no período de 1985 a 2021. Esses mapas foram desenvolvidos com dados de amostras de solo coletadas em campo disponíveis no repositório SoilData (http://soildata.mapbiomas.org/) e diversas covariáveis ambientais que representam os fatores de formação do solo. Com resolução espacial de 30 metros, os mapas  apresentam os estoques de COS nos primeiros 30 cm, em toneladas por hectare (t/ha). \
+                  O produto foi gerado de forma colaborativa e com rigor científico utilizando os melhores, e às vezes únicos, dados de solo disponíveis, informações ambientais e técnicas de mapeamento digital do solo. Apesar disso, é considerada uma primeira aproximação, que deverá ser aprimorada incorporando as contribuições da comunidade científica, dos usuários e novas amostras de solo coletadas em campo. \
+                  Os mapas apresentados ainda possuem uma série de fragilidades, entre as quais, destacam-se lacunas de distribuição espacial e temporal das amostras de solo coletadas em campo e utilizadas para treinar e validar o modelo. \
+                  Maiores detalhes sobre o método estão disponíveis em www.mapbiomas.org, seguindo o caminho: MENU > MÉTODO > MÉTODO MAPBIOMAS SOLO. \
+                  Os dados do MapBiomas são públicos, abertos e gratuitos, inclusive para uso comercial, sob a licença Creative Commons CC BY-SA e mediante a referência da fonte observando o seguinte formato: “MapBiomas, 2023, Mapeamento anual do estoque de carbono orgânico do solo no Brasil 1985-2021 (coleção beta), acessado em [data] através do link: [LINK]". \
+                  Caso tenha sugestões, críticas e ideias para aprimorar o trabalho entre em contato pelo e-mail: contato@mapbiomas.org \
+                '),
                 ui.Label(''),
-                // ui.Label('This is the Collection 2.0 of MapBiomas Fogo with the mapping of fire scars in Brazil from 1985 to 2022, with Annual and Monthly data for the entire period including: (i) non-year data and accumulated in a period; (ii) frequency of a fire scar; (iii) classification of land cover and land use intended for burning.\
-                // Fires associated with recently deforested areas can occur both in areas classified as native vegetation and in areas of anthropogenic use depending on the time of year in which the coverage and use data were classified and the time when the fire occurred.\
-                // The description of the method of mapping fire scars and their classification by burnt vegetation class as well as the determination of frequency can be found in the methodology section of MapBiomas.\
-                // Annual maps of burn scars as well as the main sets of consolidated statistics are available in the download area of ​​MapBiomas.\
-                // If you have suggestions, criticisms and ideas to improve the work, please contact us by e- mail: contato@mapbiomas.org or visit the MapBiomas Forum.\
-                // MapBiomas data is public, available and free under a Creative Commons CC - CY - SA license and by reference to the source, observing the following format: "MapBiomas Project - Mapping of fire scars in Brazil Collection 1, accessed in [DATE] through link: [LINK] ".'),
+                ui.Label(' \
+                  MapBiomas Solo has developed the first beta collection of annual soil organic carbon (SOC) maps for Brazil, covering the period from 1985 to 2021. These maps were created using field soil sample data available in the SoilData repository (http://soildata.mapbiomas.org/) and various environmental covariates that represent soil formation factors. The maps have a spatial resolution of 30 meters and show the SOC stocks in the top 30 cm of soil, measured in tons per hectare (t/ha). \
+                  The product was collaboratively generated with scientific rigor, utilizing the best available soil data, environmental information, and digital soil mapping techniques, which sometimes represent the only available data. \
+                  However, it should be noted that this is an initial approximation that will be further improved by incorporating contributions from the scientific community, users, and new soil samples collected in the field. \
+                  The presented maps still have some limitations, including gaps in the spatial and temporal distribution of soil samples used for model training and validation. \
+                  More detailed information about the methodology can be found at www.mapbiomas.org, by following the path: MENU > METHOD > MAPBIOMAS SOIL METHOD. \
+                  The MapBiomas data is publicly accessible, open, and free of charge, including for commercial use, under the Creative Commons CC BY-SA license. When referencing the data source, please use the following format: "MapBiomas, 2023, Annual mapping of soil organic carbon stock in Brazil 1985-2021 (beta collection), accessed on [date] via the link: [LINK]". \
+                  If you have any suggestions, criticisms, or ideas to enhance this work, please contact us at contato@mapbiomas.org.\
+                '),
             ],
 
             selectName: ui.Select({
