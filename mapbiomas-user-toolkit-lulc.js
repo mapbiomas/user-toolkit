@@ -303,7 +303,7 @@ var App = {
                 },
                 {
                     'value': 'projects/mapbiomas-chaco/DATOS_AUXILIARES/ESTADISTICAS/COLECCION4/VERSION-1/nivel-politico-2',
-                    'label': 'political level 1'
+                    'label': 'political level 2'
                 },
                 {
                     'value': 'projects/mapbiomas-chaco/DATOS_AUXILIARES/ESTADISTICAS/COLECCION4/VERSION-1/pais',
