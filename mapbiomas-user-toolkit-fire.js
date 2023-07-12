@@ -5,7 +5,7 @@
  * @description
  *      This is a support tool for mapbiomas data users.
  *  
- * @author
+ * @authorl
  *      João Siqueira
  *      contato@mapbiomas.org
  *
@@ -1365,7 +1365,7 @@ var App = {
                 // 'padding': '1px',
                 'fontSize': '10px'
             },
-                'https://mapbiomas.org/codigos-de-legenda?cama_set_language=pt-BR'
+                'https://drive.google.com/file/d/10CLAk6mriq8qAAJvB7o7uprM-jVlJjxw/view?usp=sharing'
             ),
 
             labelType: ui.Label('Type:', {
