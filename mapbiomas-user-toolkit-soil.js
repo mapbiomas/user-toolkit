@@ -541,7 +541,6 @@ var App = {
                                 App.options.collections[regionName][collectioName].assets.cos_0_30cm_kg_m2
                               )
                               .divide(100).int16()
-                              .gt(-1);
 
                             App.options.data.cos_0_30cm_kg_m2 = App.options.data.cos_0_30cm_kg_m2
                               .updateMask(App.options.data.cos_0_30cm_kg_m2.gt(-1));
