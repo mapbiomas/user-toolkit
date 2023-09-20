@@ -337,24 +337,26 @@ var App = {
             'mapbiomas-amazon': {
                 'collection-1.0': {
                     'assets': {
-                        'annual_water_coverage': 'projects/mapbiomas-raisg/public/collection5/mapbiomas_raisg_panamazonia_collection1_annual_water_coverage_v1',
-                        'water_frequency': 'projects/mapbiomas-raisg/public/collection5/mapbiomas_raisg_panamazonia_collection1_water_frequency_v1',
+                        'annual_water_coverage': 'projects/mapbiomas-raisg/public/collection5/mapbiomas_raisg_panamazonia_collection1_annual_water_coverage_v2',
+                        'water_frequency': 'projects/mapbiomas-raisg/public/collection5/mapbiomas_raisg_panamazonia_collection1_water_frequency_v2',
                         // 'cumulated_water_coverage': '',
                         // 'monthly_water_coverage': '',
                     },
 
                     'periods': {
                         'annual_water_coverage': [
-                            '1985', '1986', '1987', '1988', '1989', '1990',
-                            '1991', '1992', '1993', '1994', '1995', '1996',
-                            '1997', '1998', '1999', '2000', '2001', '2002',
+                            // '1985', '1986', '1987', '1988', '1989', '1990',
+                            // '1991', '1992', '1993', '1994', '1995', '1996',
+                            // '1997', '1998', '1999',
+                            '2000', '2001', '2002',
                             '2003', '2004', '2005', '2006', '2007', '2008',
                             '2009', '2010', '2011', '2012', '2013', '2014',
                             '2015', '2016', '2017', '2018', '2019', '2020',
                             '2021', '2022'
                         ],
                         'water_frequency': [
-                            '1985_2022'
+                            // '1985_2022'
+                            '2000_2022'
                         ]
                         // 'cumulated_water_coverage': [
                         // ],
@@ -1382,7 +1384,7 @@ var App = {
 
             selectRegion: ui.Select({
                 'items': [
-                    // 'mapbiomas-amazon',
+                    'mapbiomas-amazon',
                     // 'mapbiomas-atlantic-forest',
                     'mapbiomas-brazil',
                     // 'mapbiomas-chaco',
