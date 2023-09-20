@@ -1382,7 +1382,7 @@ var App = {
 
             selectRegion: ui.Select({
                 'items': [
-                    'mapbiomas-amazon',
+                    // 'mapbiomas-amazon',
                     // 'mapbiomas-atlantic-forest',
                     'mapbiomas-brazil',
                     // 'mapbiomas-chaco',
