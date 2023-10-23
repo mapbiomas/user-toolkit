@@ -44,6 +44,7 @@
  *    1.17.0 - Loads mapbiomas-chaco collection 4.0
  *    1.18.0 - Loads mapbiomas-bolivia collection 1.0
  *    1.19.0 - Loads mapbiomas-brazil collection 8.0
+ *    1.20.0 - Loads mapbiomas-indonesia collection 2.0
  * 
  * @see
  *      Get the MapBiomas exported data in your "Google Drive/MAPBIOMAS-EXPORT" folder
@@ -131,7 +132,7 @@ var App = {
 
     options: {
 
-        version: '1.19.0',
+        version: '1.20.0',
 
         logo: {
             uri: 'gs://mapbiomas-public/mapbiomas-logos/mapbiomas-logo-horizontal.b64',
@@ -374,37 +375,29 @@ var App = {
             ],
             'mapbiomas-indonesia': [
                 {
-                    'label': 'city',
-                    'value': 'projects/mapbiomas-indonesia/ANCILLARY_DATA/STATISTICS/COLLECTION1/city'
+                    'label': 'coastal_line',
+                    'value': 'projects/mapbiomas-indonesia/ANCILLARY_DATA/STATISTICS/COLLECTION2/VERSION-2/coastal_line'
                 },
                 {
-                    'label': 'country',
-                    'value': 'projects/mapbiomas-indonesia/ANCILLARY_DATA/STATISTICS/COLLECTION1/country'
+                    'label': 'island_group',
+                    'value': 'projects/mapbiomas-indonesia/ANCILLARY_DATA/STATISTICS/COLLECTION2/VERSION-2/island_group'
                 },
                 {
-                    'label': 'regions',
-                    'value': 'projects/mapbiomas-indonesia/ANCILLARY_DATA/STATISTICS/COLLECTION1/regions'
+                    'label': 'district',
+                    'value': 'projects/mapbiomas-indonesia/ANCILLARY_DATA/STATISTICS/COLLECTION2/VERSION-2/district'
                 },
                 {
-                    'label': 'state',
-                    'value': 'projects/mapbiomas-indonesia/ANCILLARY_DATA/STATISTICS/COLLECTION1/state'
+                    'label': 'province',
+                    'value': 'projects/mapbiomas-indonesia/ANCILLARY_DATA/STATISTICS/COLLECTION2/VERSION-2/province'
                 },
-                // {
-                //     'label': 'category',
-                //     'value': 'projects/mapbiomas-indonesia/ANCILLARY_DATA/STATISTICS/COLLECTION1/category'
-                // },
-                // {
-                //     'label': 'land-tenure',
-                //     'value': 'projects/mapbiomas-indonesia/ANCILLARY_DATA/STATISTICS/COLLECTION1/land-tenure'
-                // },
-                // {
-                //     'label': 'level-1-subcategory',
-                //     'value': 'projects/mapbiomas-indonesia/ANCILLARY_DATA/STATISTICS/COLLECTION1/level-1-subcategory'
-                // },
-                // {
-                //     'label': 'level-2-subcategory',
-                //     'value': 'projects/mapbiomas-indonesia/ANCILLARY_DATA/STATISTICS/COLLECTION1/level-2-subcategory'
-                // },
+                {
+                    'label': 'sub_district',
+                    'value': 'projects/mapbiomas-indonesia/ANCILLARY_DATA/STATISTICS/COLLECTION2/VERSION-2/sub_district'
+                },
+                {
+                    'label': 'village',
+                    'value': 'projects/mapbiomas-indonesia/ANCILLARY_DATA/STATISTICS/COLLECTION2/VERSION-2/village'
+                },
             ],
             'mapbiomas-peru': [
                 {
@@ -1323,6 +1316,42 @@ var App = {
                             '2008', '2009', '2010', '2011',
                             '2012', '2013', '2014', '2015',
                             '2016', '2017', '2018', '2019',
+                        ]
+                    },
+                },
+                'collection-2.0': {
+                    'assets': {
+                        'integration': 'projects/mapbiomas-indonesia/public/collection2/mapbiomas_indonesia_collection2_integration_v1',
+                        'transitions': 'projects/mapbiomas-indonesia/public/collection2/mapbiomas_indonesia_collection2_transitions_v1',
+                        'quality': 'projects/mapbiomas-indonesia/public/collection2/mapbiomas_indonesia_collection2_quality_v1',
+                    },
+                    'periods': {
+                        'Coverage': [
+                            '2000', '2001', '2002', '2003',
+                            '2004', '2005', '2006', '2007',
+                            '2008', '2009', '2010', '2011',
+                            '2012', '2013', '2014', '2015',
+                            '2016', '2017', '2018', '2019',
+                            '2020', '2021', '2022'
+                        ],
+                        'Transitions': [
+                            "2000_2001", "2001_2002", "2002_2003", "2003_2004",
+                            "2004_2005", "2005_2006", "2006_2007", "2007_2008",
+                            "2008_2009", "2009_2010", "2010_2011", "2011_2012",
+                            "2012_2013", "2013_2014", "2014_2015", "2015_2016",
+                            "2016_2017", "2017_2018", "2018_2019", "2019_2020",
+                            "2020_2021", "2021_2022", "2000_2005", "2005_2010",
+                            "2010_2015", "2015_2020", "2000_2010", "2010_2020",
+                            "2000_2022", "2011_2022", "2013_2022", "2014_2022",
+                            "2015_2022", "2004_2022",
+                        ],
+                        'Quality': [
+                            '2000', '2001', '2002', '2003',
+                            '2004', '2005', '2006', '2007',
+                            '2008', '2009', '2010', '2011',
+                            '2012', '2013', '2014', '2015',
+                            '2016', '2017', '2018', '2019',
+                            '2020', '2021', '2022'
                         ]
                     },
                 },
