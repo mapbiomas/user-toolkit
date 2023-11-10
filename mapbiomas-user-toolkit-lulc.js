@@ -45,6 +45,7 @@
  *    1.18.0 - Loads mapbiomas-bolivia collection 1.0
  *    1.19.0 - Loads mapbiomas-brazil collection 8.0
  *    1.20.0 - Loads mapbiomas-indonesia collection 2.0
+ *    1.21.0 - Loads mapbiomas-colombia collection 1.0
  * 
  * @see
  *      Get the MapBiomas exported data in your "Google Drive/MAPBIOMAS-EXPORT" folder
@@ -132,7 +133,7 @@ var App = {
 
     options: {
 
-        version: '1.20.0',
+        version: '1.21.0',
 
         logo: {
             uri: 'gs://mapbiomas-public/mapbiomas-logos/mapbiomas-logo-horizontal.b64',
@@ -523,6 +524,56 @@ var App = {
                     'label': 'territorio-indigena-titulado'
                 }
             ],
+            'mapbiomas-colombia': [
+                {
+                    'value': 'projects/mapbiomas-raisg/COLOMBIA/DATOS_AUXILIARES/ESTADISTICAS/COLECCION1/nivel-politico-1',
+                    'label': 'nivel-politico-1'
+                },
+                {
+                    'value': 'projects/mapbiomas-raisg/COLOMBIA/DATOS_AUXILIARES/ESTADISTICAS/COLECCION1/nivel-politico-2',
+                    'label': 'nivel-politico-2'
+                },
+                {
+                    'value': 'projects/mapbiomas-raisg/COLOMBIA/DATOS_AUXILIARES/ESTADISTICAS/COLECCION1/nivel-politico-3',
+                    'label': 'nivel-politico-3'
+                },
+                {
+                    'value': 'projects/mapbiomas-raisg/COLOMBIA/DATOS_AUXILIARES/ESTADISTICAS/COLECCION1/bioma-pais',
+                    'label': 'bioma-pais'
+                },
+                {
+                    'value': 'projects/mapbiomas-raisg/COLOMBIA/DATOS_AUXILIARES/ESTADISTICAS/COLECCION1/unidad-hidrografica',
+                    'label': 'unidad-hidrografica'
+                },
+                {
+                    'value': 'projects/mapbiomas-raisg/COLOMBIA/DATOS_AUXILIARES/ESTADISTICAS/COLECCION1/regiones-biogeograficas',
+                    'label': 'regiones-biogeograficas'
+                },
+                {
+                    'value': 'projects/mapbiomas-raisg/COLOMBIA/DATOS_AUXILIARES/ESTADISTICAS/COLECCION1/resguardo-indigena',
+                    'label': 'resguardo-indigena'
+                },
+                {
+                    'value': 'projects/mapbiomas-raisg/COLOMBIA/DATOS_AUXILIARES/ESTADISTICAS/COLECCION1/area-natural-protegida-nacional',
+                    'label': 'area-natural-protegida-nacional'
+                },
+                {
+                    'value': 'projects/mapbiomas-raisg/COLOMBIA/DATOS_AUXILIARES/ESTADISTICAS/COLECCION1/area-natural-protegida-departamental',
+                    'label': 'area-natural-protegida-departamental'
+                },
+                {
+                    'value': 'projects/mapbiomas-raisg/COLOMBIA/DATOS_AUXILIARES/ESTADISTICAS/COLECCION1/consejos-comunitarios',
+                    'label': 'consejos-comunitarios'
+                },
+                {
+                    'value': 'projects/mapbiomas-raisg/COLOMBIA/DATOS_AUXILIARES/ESTADISTICAS/COLECCION1/ramsar',
+                    'label': 'ramsar'
+                },
+                {
+                    'value': 'projects/mapbiomas-raisg/COLOMBIA/DATOS_AUXILIARES/ESTADISTICAS/COLECCION1/reservas-forestales-ley-segunda',
+                    'label': 'reservas-forestales-ley-segunda'
+                },
+            ]
         },
 
         collections: {
@@ -1460,6 +1511,55 @@ var App = {
                     },
                 },
             },
+            'mapbiomas-colombia': {
+                'collection-1.0': {
+                    'assets': {
+                        'integration': 'projects/mapbiomas-public/assets/colombia/collection1/mapbiomas_colombia_collection1_integration_v1',
+                        'transitions': 'projects/mapbiomas-public/assets/colombia/collection1/mapbiomas_colombia_collection1_transitions_v1',
+                        'quality': 'projects/mapbiomas-public/assets/colombia/collection1/mapbiomas_colombia_collection1_quality_v1',
+                    },
+                    'periods': {
+                        'Coverage': [
+                            '1985', '1986', '1987', '1988',
+                            '1989', '1990', '1991', '1992',
+                            '1993', '1994', '1995', '1996',
+                            '1997', '1998', '1999', '2000',
+                            '2001', '2002', '2003', '2004',
+                            '2005', '2006', '2007', '2008',
+                            '2009', '2010', '2011', '2012',
+                            '2013', '2014', '2015', '2016',
+                            '2017', '2018', '2019', '2020',
+                            '2021', '2022'
+                        ],
+                        'Transitions': [
+                            '1985_1986', '1986_1987', '1987_1988', '1988_1989',
+                            '1989_1990', '1990_1991', '1991_1992', '1992_1993',
+                            '1993_1994', '1994_1995', '1995_1996', '1996_1997',
+                            '1997_1998', '1998_1999', '1999_2000', '2000_2001',
+                            '2001_2002', '2002_2003', '2003_2004', '2004_2005',
+                            '2005_2006', '2006_2007', '2007_2008', '2008_2009',
+                            '2009_2010', '2010_2011', '2011_2012', '2012_2013',
+                            '2013_2014', '2014_2015', '2015_2016', '2016_2017',
+                            '2017_2018', '2018_2019', '2019_2020', '2020_2021',
+                            '2021_2022', '1985_1990', '1990_1995', '1995_2000',
+                            '2000_2005', '2005_2010', '2010_2015', '2015_2020',
+                            '1990_2000', '2000_2010', '2010_2020', '1985_2022',
+                        ],
+                        'Quality': [
+                            '1985', '1986', '1987', '1988',
+                            '1989', '1990', '1991', '1992',
+                            '1993', '1994', '1995', '1996',
+                            '1997', '1998', '1999', '2000',
+                            '2001', '2002', '2003', '2004',
+                            '2005', '2006', '2007', '2008',
+                            '2009', '2010', '2011', '2012',
+                            '2013', '2014', '2015', '2016',
+                            '2017', '2018', '2019', '2020',
+                            '2021', '2022'
+                        ]
+                    },
+                },
+            },
         },
 
         bandsNames: {
@@ -2356,10 +2456,12 @@ var App = {
 
                 App.ui.form.panelLink1.add(App.ui.form.labelLink1);
                 App.ui.form.panelLink1.add(App.ui.form.labelLink2);
+                App.ui.form.panelLink1.add(App.ui.form.labelLink8);
                 App.ui.form.panelLink1.add(App.ui.form.labelLink3);
+                App.ui.form.panelLink1.add(App.ui.form.labelLink9);
                 App.ui.form.panelLink1.add(App.ui.form.labelLink4);
-                App.ui.form.panelLink1.add(App.ui.form.labelLink5);
-                App.ui.form.panelLink1.add(App.ui.form.labelLink6);
+                App.ui.form.panelLink2.add(App.ui.form.labelLink5);
+                App.ui.form.panelLink2.add(App.ui.form.labelLink6);
                 App.ui.form.panelLink2.add(App.ui.form.labelLink7);
 
                 App.ui.form.panelRegion.add(App.ui.form.labelRegion);
@@ -2570,6 +2672,18 @@ var App = {
                 'https://mapbiomas-peru.s3.amazonaws.com/DESCARGAS/LEYENDA/C%C3%B3digo_de_la_Leyenda_-_MB_Peru_C1.pdf'
             ),
 
+            labelLink8: ui.Label('Bolivia', {
+                'fontSize': '10px',
+            },
+                'https://drive.google.com/file/d/1XS7uUqkEAXlRpidyd-RlXLJLYHi7WxMa/view'
+            ),
+
+            labelLink9: ui.Label('Colombia', {
+                'fontSize': '10px',
+            },
+                'https://colombia.mapbiomas.org/wp-content/uploads/sites/3/2023/10/Colombia-Legend-Code_Col-1.0.pdf'
+            ),
+
             labelType: ui.Label('Type:', {
                 // 'padding': '1px',
                 'fontSize': '16px'
@@ -2636,11 +2750,12 @@ var App = {
                     'mapbiomas-amazon',
                     'mapbiomas-atlantic-forest',
                     'mapbiomas-brazil',
+                    'mapbiomas-bolivia',
                     'mapbiomas-chaco',
+                    'mapbiomas-colombia',
                     'mapbiomas-indonesia',
                     'mapbiomas-pampa',
                     'mapbiomas-peru',
-                    'mapbiomas-bolivia',
                 ],
                 'placeholder': 'None',
                 'style': {
