@@ -46,6 +46,7 @@
  *    1.19.0 - Loads mapbiomas-brazil collection 8.0
  *    1.20.0 - Loads mapbiomas-indonesia collection 2.0
  *    1.21.0 - Loads mapbiomas-colombia collection 1.0
+ *    1.22.0 - Loads mapbiomas-venezuela collection 1.0
  * 
  * @see
  *      Get the MapBiomas exported data in your "Google Drive/MAPBIOMAS-EXPORT" folder
@@ -133,7 +134,7 @@ var App = {
 
     options: {
 
-        version: '1.21.0',
+        version: '1.22.0',
 
         logo: {
             uri: 'gs://mapbiomas-public/mapbiomas-logos/mapbiomas-logo-horizontal.b64',
@@ -573,6 +574,77 @@ var App = {
                     'value': 'projects/mapbiomas-raisg/COLOMBIA/DATOS_AUXILIARES/ESTADISTICAS/COLECCION1/reservas-forestales-ley-segunda',
                     'label': 'reservas-forestales-ley-segunda'
                 },
+            ],
+            'mapbiomas-venezuela': [
+                {
+                    'value': 'projects/mapbiomas-raisg/MAPBIOMAS-VENEZUELA/DATOS-AUXILIARES/ESTADISTICAS/COLECCION1/pais',
+                    'label': 'pais'
+                },
+                {
+                    'value': 'projects/mapbiomas-raisg/MAPBIOMAS-VENEZUELA/DATOS-AUXILIARES/ESTADISTICAS/COLECCION1/nivel_politico_1',
+                    'label': 'nivel_politico_1'
+                },
+                {
+                    'value': 'projects/mapbiomas-raisg/MAPBIOMAS-VENEZUELA/DATOS-AUXILIARES/ESTADISTICAS/COLECCION1/nivel_politico_2',
+                    'label': 'nivel_politico_2'
+                },
+                {
+                    'value': 'projects/mapbiomas-raisg/MAPBIOMAS-VENEZUELA/DATOS-AUXILIARES/ESTADISTICAS/COLECCION1/bioma',
+                    'label': 'bioma'
+                },
+                {
+                    'value': 'projects/mapbiomas-raisg/MAPBIOMAS-VENEZUELA/DATOS-AUXILIARES/ESTADISTICAS/COLECCION1/cuencas',
+                    'label': 'cuencas'
+                },
+                {
+                    'value': 'projects/mapbiomas-raisg/MAPBIOMAS-VENEZUELA/DATOS-AUXILIARES/ESTADISTICAS/COLECCION1/parque_nacional',
+                    'label': 'parque_nacional'
+                },
+                {
+                    'value': 'projects/mapbiomas-raisg/MAPBIOMAS-VENEZUELA/DATOS-AUXILIARES/ESTADISTICAS/COLECCION1/monumento_natural',
+                    'label': 'monumento_natural'
+                },
+                {
+                    'value': 'projects/mapbiomas-raisg/MAPBIOMAS-VENEZUELA/DATOS-AUXILIARES/ESTADISTICAS/COLECCION1/reserva_fauna_silvestre',
+                    'label': 'reserva_fauna_silvestre'
+                },
+                {
+                    'value': 'projects/mapbiomas-raisg/MAPBIOMAS-VENEZUELA/DATOS-AUXILIARES/ESTADISTICAS/COLECCION1/refugio_fauna_silvestre',
+                    'label': 'refugio_fauna_silvestre'
+                },
+                {
+                    'value': 'projects/mapbiomas-raisg/MAPBIOMAS-VENEZUELA/DATOS-AUXILIARES/ESTADISTICAS/COLECCION1/santuario_fauna_silvestre',
+                    'label': 'santuario_fauna_silvestre'
+                },
+                {
+                    'value': 'projects/mapbiomas-raisg/MAPBIOMAS-VENEZUELA/DATOS-AUXILIARES/ESTADISTICAS/COLECCION1/reserva_biosfera',
+                    'label': 'reserva_biosfera'
+                },
+                {
+                    'value': 'projects/mapbiomas-raisg/MAPBIOMAS-VENEZUELA/DATOS-AUXILIARES/ESTADISTICAS/COLECCION1/reserva_forestal',
+                    'label': 'reserva_forestal'
+                },
+                {
+                    'value': 'projects/mapbiomas-raisg/MAPBIOMAS-VENEZUELA/DATOS-AUXILIARES/ESTADISTICAS/COLECCION1/ti_reconocido',
+                    'label': 'ti_reconocido'
+                },
+                {
+                    'value': 'projects/mapbiomas-raisg/MAPBIOMAS-VENEZUELA/DATOS-AUXILIARES/ESTADISTICAS/COLECCION1/ti_en_proceso',
+                    'label': 'ti_en_proceso'
+                },
+                {
+                    'value': 'projects/mapbiomas-raisg/MAPBIOMAS-VENEZUELA/DATOS-AUXILIARES/ESTADISTICAS/COLECCION1/ramsar',
+                    'label': 'ramsar'
+                },
+                {
+                    'value': 'projects/mapbiomas-raisg/MAPBIOMAS-VENEZUELA/DATOS-AUXILIARES/ESTADISTICAS/COLECCION1/ecoregion',
+                    'label': 'ecoregion'
+                },
+                {
+                    'value': 'projects/mapbiomas-raisg/MAPBIOMAS-VENEZUELA/DATOS-AUXILIARES/ESTADISTICAS/COLECCION1/regiones_fisiograficas',
+                    'label': 'regiones_fisiograficas'
+                }
+
             ]
         },
 
@@ -1560,6 +1632,55 @@ var App = {
                     },
                 },
             },
+            'mapbiomas-venezuela': {
+                'collection-1.0': {
+                    'assets': {
+                        'integration': 'projects/mapbiomas-public/assets/venezuela/collection1/mapbiomas_venezuela_collection1_integration_v1',
+                        'transitions': 'projects/mapbiomas-public/assets/venezuela/collection1/mapbiomas_venezuela_collection1_transitions_v1',
+                        'quality': 'projects/mapbiomas-public/assets/venezuela/collection1/mapbiomas_venezuela_collection1_quality_v1',
+                    },
+                    'periods': {
+                        'Coverage': [
+                            '1985', '1986', '1987', '1988',
+                            '1989', '1990', '1991', '1992',
+                            '1993', '1994', '1995', '1996',
+                            '1997', '1998', '1999', '2000',
+                            '2001', '2002', '2003', '2004',
+                            '2005', '2006', '2007', '2008',
+                            '2009', '2010', '2011', '2012',
+                            '2013', '2014', '2015', '2016',
+                            '2017', '2018', '2019', '2020',
+                            '2021', '2022'
+                        ],
+                        'Transitions': [
+                            '1985_1986', '1986_1987', '1987_1988', '1988_1989',
+                            '1989_1990', '1990_1991', '1991_1992', '1992_1993',
+                            '1993_1994', '1994_1995', '1995_1996', '1996_1997',
+                            '1997_1998', '1998_1999', '1999_2000', '2000_2001',
+                            '2001_2002', '2002_2003', '2003_2004', '2004_2005',
+                            '2005_2006', '2006_2007', '2007_2008', '2008_2009',
+                            '2009_2010', '2010_2011', '2011_2012', '2012_2013',
+                            '2013_2014', '2014_2015', '2015_2016', '2016_2017',
+                            '2017_2018', '2018_2019', '2019_2020', '2020_2021',
+                            '2021_2022', '1985_1990', '1990_1995', '1995_2000',
+                            '2000_2005', '2005_2010', '2010_2015', '2015_2020',
+                            '1990_2000', '2000_2010', '2010_2020', '1985_2022',
+                        ],
+                        'Quality': [
+                            '1985', '1986', '1987', '1988',
+                            '1989', '1990', '1991', '1992',
+                            '1993', '1994', '1995', '1996',
+                            '1997', '1998', '1999', '2000',
+                            '2001', '2002', '2003', '2004',
+                            '2005', '2006', '2007', '2008',
+                            '2009', '2010', '2011', '2012',
+                            '2013', '2014', '2015', '2016',
+                            '2017', '2018', '2019', '2020',
+                            '2021', '2022'
+                        ]
+                    },
+                },
+            },
         },
 
         bandsNames: {
@@ -2463,6 +2584,7 @@ var App = {
                 App.ui.form.panelLink2.add(App.ui.form.labelLink5);
                 App.ui.form.panelLink2.add(App.ui.form.labelLink6);
                 App.ui.form.panelLink2.add(App.ui.form.labelLink7);
+                App.ui.form.panelLink2.add(App.ui.form.labelLink10);
 
                 App.ui.form.panelRegion.add(App.ui.form.labelRegion);
                 App.ui.form.panelRegion.add(App.ui.form.selectRegion);
@@ -2684,6 +2806,12 @@ var App = {
                 'https://colombia.mapbiomas.org/wp-content/uploads/sites/3/2023/10/Colombia-Legend-Code_Col-1.0.pdf'
             ),
 
+            labelLink10: ui.Label('Venezuela', {
+                'fontSize': '10px',
+            },
+                'https://venezuela.mapbiomas.org/wp-content/uploads/sites/5/2023/11/Legend-Code_Venezuela-Col-1.pdf'
+            ),
+
             labelType: ui.Label('Type:', {
                 // 'padding': '1px',
                 'fontSize': '16px'
@@ -2756,6 +2884,7 @@ var App = {
                     'mapbiomas-indonesia',
                     'mapbiomas-pampa',
                     'mapbiomas-peru',
+                    'mapbiomas-venezuela',
                 ],
                 'placeholder': 'None',
                 'style': {
