@@ -8,7 +8,7 @@
  */
 
 // Asset mapbiomas
-var asset = "projects/mapbiomas-workspace/public/collection6/mapbiomas_collection60_integration_v1";
+var asset = "projects/mapbiomas-workspace/public/collection8/mapbiomas_collection80_integration_v1";
 
 // Asset of regions for which you want to calculate statistics
 var assetTerritories = "users/joaovsiqueira1/MAPBIOMAS/ti_uc";
