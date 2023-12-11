@@ -3330,7 +3330,7 @@ var App = {
                     'mapbiomas-bolivia',
                     'mapbiomas-chaco',
                     'mapbiomas-colombia',
-                    'mapbiomas-ecuador',
+                    // 'mapbiomas-ecuador',
                     'mapbiomas-indonesia',
                     'mapbiomas-pampa',
                     'mapbiomas-peru',
