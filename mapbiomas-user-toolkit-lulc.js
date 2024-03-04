@@ -1862,8 +1862,8 @@ var App = {
                 },
                 'collection-2.0': {
                     'assets': {
-                        'integration': 'projects/mapbiomas-public/assets/peru/collection2/mapbiomas_peru_collection1_integration_v2',
-                        'transitions': 'projects/mapbiomas-public/assets/peru/collection2/mapbiomas_peru_collection1_transitions_v2',
+                        'integration': 'projects/mapbiomas-public/assets/peru/collection2/mapbiomas_peru_collection1_integration_v1',
+                        'transitions': 'projects/mapbiomas-public/assets/peru/collection2/mapbiomas_peru_collection1_transitions_v1',
                         'quality': 'projects/mapbiomas-public/assets/peru/collection2/mapbiomas_peru_collection1_quality_v2',
                     },
                     'periods': {
