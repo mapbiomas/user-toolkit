@@ -14,6 +14,7 @@
  *    1.1.0 - Irrigated Agriculture - Collection 6.0
  *    1.2.0 - Irrigated Agriculture - Collection 7.0
  *    1.3.0 - Irrigated Agriculture - Collection 8.0
+ *    1.3.1 - Minor issues
  * 
  * @see
  *      Get the MapBiomas exported data in your "Google Drive/MAPBIOMAS-EXPORT" folder
@@ -108,7 +109,7 @@ var App = {
 
     options: {
 
-        version: '1.3.0',
+        version: '1.3.1',
 
         logo: {
             uri: 'gs://mapbiomas-public/mapbiomas-logos/mapbiomas-logo-horizontal.b64',
