@@ -337,7 +337,7 @@ var App = {
         },
 
         fileDimensions: {
-            'irrigated_agriculture': 256 * 512,
+            'irrigated_agriculture': 256 * 124,
             // 'agriculture': 256 * 124,
         },
 
@@ -512,7 +512,8 @@ var App = {
                         function (a) {
 
                             App.options.data.irrigated_agriculture = ee.Image(
-                                App.options.collections[regionName][collectioName].assets.irrigated_agriculture);
+                                App.options.collections[regionName][collectioName].assets.irrigated_agriculture)
+                                .divide(100).byte();
 
                             var year = App.options.collections[regionName][collectioName]
                                 .periods.irrigated_agriculture.slice(-1)[0];
