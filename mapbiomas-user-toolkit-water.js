@@ -106,7 +106,8 @@ var App = {
 
 
         logo: {
-            uri: 'gs://mapbiomas-public/mapbiomas-logos/mapbiomas-logo-horizontal.b64',
+            // uri: 'gs://mapbiomas-public/mapbiomas-logos/mapbiomas-logo-horizontal.b64',
+            uri: 'gs://mapbiomas-public/mapbiomas-logos/mapbiomas-agua-logo.b64',
             base64: null
         },
 
@@ -1122,6 +1123,10 @@ var App = {
                         str = str.replace(/\n/g, '');
                         App.options.logo.base64 = ui.Label({
                             imageUrl: str,
+                            style: {
+                              // width: '300px'
+                              stretch: 'both'
+                            }
                         });
                         App.ui.form.panelLogo.add(App.options.logo.base64);
                     }
@@ -1187,7 +1192,7 @@ var App = {
                 'layout': ui.Panel.Layout.flow('vertical'),
                 'style': {
                     'stretch': 'horizontal',
-                    'margin': '10px 0px 5px 15px',
+                    'margin': '0px 0px 5px 0px',
                 },
             }),
 
