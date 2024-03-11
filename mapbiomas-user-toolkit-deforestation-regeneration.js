@@ -455,11 +455,11 @@ var App = {
                 },
                 'collection-8.0': {
                     'assets': { //TODO: Inserir os assets públicos
-                        'deforestation_regeneration': 'projects/mapbiomas-workspace/public/collection8/mapbiomas_collection80_deforestation_secondary_vegetation_v1',
+                        'deforestation_regeneration': 'projects/mapbiomas-workspace/public/collection8/mapbiomas_collection80_deforestation_secondary_vegetation_v2',
                         // 'deforestation_pv': ''
                         // 'deforestation_sv': '',
                         // 'secondary_vegetation': '',
-                        'secondary_vegetation_age': 'projects/mapbiomas-workspace/public/collection8/mapbiomas_collection80_secondary_vegetation_age_v1',
+                        'secondary_vegetation_age': 'projects/mapbiomas-workspace/public/collection8/mapbiomas_collection80_secondary_vegetation_age_v2',
                     },
 
                     'periods': {
