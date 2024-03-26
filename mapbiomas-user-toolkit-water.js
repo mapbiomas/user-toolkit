@@ -2095,7 +2095,7 @@ var App = {
                 'items': [
                     'mapbiomas-amazon',
                     // 'mapbiomas-atlantic-forest',
-                    // 'mapbiomas-brazil',
+                    'mapbiomas-brazil',
                     'mapbiomas-bolivia',
                     // 'mapbiomas-chaco',
                     'mapbiomas-colombia',
@@ -2103,7 +2103,7 @@ var App = {
                     // 'mapbiomas-indonesia',
                     // 'mapbiomas-pampa',
                     // 'mapbiomas-paraguay',
-                    // 'mapbiomas-peru',
+                    'mapbiomas-peru',
                     // 'mapbiomas-uruguay',
                     'mapbiomas-venezuela',
                 ],
