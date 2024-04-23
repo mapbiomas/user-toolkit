@@ -54,6 +54,7 @@
  *    1.24.0 - Loads mapbiomas-ecuador collection 1.0
  *    1.25.0 - Loads mapbiomas-paraguay collection 1.0
  *    1.26.0 - Loads mapbiomas-peru collection 2.0
+ *    1.27.0 - Loads mapbiomas-chile collection 1.0
  * @see
  *      Get the MapBiomas exported data in your "Google Drive/MAPBIOMAS-EXPORT" folder
  *      Code and Tutorial - https://github.com/mapbiomas-brazil/user-toolkit
@@ -140,7 +141,7 @@ var App = {
 
     options: {
 
-        version: '1.26.0',
+        version: '1.27.0',
 
         logo: {
             uri: 'gs://mapbiomas-public/mapbiomas-logos/mapbiomas-logo-horizontal.b64',
@@ -838,6 +839,41 @@ var App = {
                     "value": "projects/mapbiomas-chaco/MAPBIOMAS-PARAGUAY/DATOS-AUXILIARES/ESTADISTICAS/COLECCION1/VERSION-1/comunidades_indigenas",
                     "label": "Comunidades Indígenas"
                 }
+
+            ],
+            'mapbiomas-chile': [
+                {
+                    "value": "projects/mapbiomas-chile/assets/ANCILLARY_DATA/STATISTICS/COLLECTION1/VERSION-1/nivel-politico-1",
+                    "label": "Nível Político 1"
+                },
+                {
+                    "value": "projects/mapbiomas-chile/assets/ANCILLARY_DATA/STATISTICS/COLLECTION1/VERSION-1/nivel-politico-2",
+                    "label": "Nível Político 2"
+                },
+                {
+                    "value": "projects/mapbiomas-chile/assets/ANCILLARY_DATA/STATISTICS/COLLECTION1/VERSION-1/nivel-politico-3",
+                    "label": "Nível Político 3"
+                },
+                {
+                    "value": "projects/mapbiomas-chile/assets/ANCILLARY_DATA/STATISTICS/COLLECTION1/VERSION-1/nivel-politico-4",
+                    "label": "Nível Político 4"
+                },
+                {
+                    "value": "projects/mapbiomas-chile/assets/ANCILLARY_DATA/STATISTICS/COLLECTION1/VERSION-1/cuencas",
+                    "label": "Cuencas"
+                },
+                {
+                    "value": "projects/mapbiomas-chile/assets/ANCILLARY_DATA/STATISTICS/COLLECTION1/VERSION-1/sub-cuencas",
+                    "label": "Sub-cuencas"
+                },
+                {
+                    "value": "projects/mapbiomas-chile/assets/ANCILLARY_DATA/STATISTICS/COLLECTION1/VERSION-1/areas-silvestres-protegidas",
+                    "label": "Areas Silvestres Protegidas"
+                },
+                {
+                    "value": "projects/mapbiomas-chile/assets/ANCILLARY_DATA/STATISTICS/COLLECTION1/VERSION-1/ecoregiones",
+                    "label": "Ecoregiones"
+                },
 
             ],
         },
@@ -2166,8 +2202,8 @@ var App = {
             'mapbiomas-paraguay': {
                 'collection-1.0': {
                     'assets': {
-                        'integration': 'projects/mapbiomas-public/assets/paraguay/collection1/mapbiomas_paraguay_collection1_integration_v1',
-                        'transitions': 'projects/mapbiomas-public/assets/paraguay/collection1/mapbiomas_paraguay_collection1_transitions_v1',
+                        'integration': 'projects/mapbiomas-public/assets/paraguay/collection1/mapbiomas_paraguay_collection1_integration_v1_',
+                        'transitions': 'projects/mapbiomas-public/assets/paraguay/collection1/mapbiomas_paraguay_collection1_transitions_v1_',
                         'quality': 'projects/mapbiomas-public/assets/paraguay/collection1/mapbiomas_paraguay_collection1_quality_v1',
                     },
                     'periods': {
@@ -2209,6 +2245,43 @@ var App = {
                             '2013', '2014', '2015', '2016',
                             '2017', '2018', '2019', '2020',
                             '2021', '2022'
+                        ]
+                    },
+                },
+            },
+            'mapbiomas-chile': {
+                'collection-1.0': {
+                    'assets': {
+                        'integration': 'projects/mapbiomas-public/assets/chile/collection1/mapbiomas_chile_collection1_integration_v1',
+                        'transitions': 'projects/mapbiomas-public/assets/chile/collection1/mapbiomas_chile_collection1_transitions_v1',
+                        'quality': '',
+                    },
+                    'periods': {
+                        'Coverage': [
+                            '2000', '2001', '2002', '2003',
+                            '2004', '2005', '2006', '2007',
+                            '2008', '2009', '2010', '2011',
+                            '2012', '2013', '2014', '2015',
+                            '2016', '2017', '2018', '2019',
+                            '2020', '2021', '2022'
+                        ],
+                        'Transitions': [
+                            '2000_2001', '2001_2002', '2002_2003', '2003_2004',
+                            '2004_2005', '2005_2006', '2006_2007', '2007_2008',
+                            '2008_2009', '2009_2010', '2010_2011', '2011_2012',
+                            '2012_2013', '2013_2014', '2014_2015', '2015_2016',
+                            '2016_2017', '2017_2018', '2018_2019', '2019_2020',
+                            '2020_2021', '2021_2022', '2000_2005', '2005_2010',
+                            '2010_2015', '2015_2020', '2000_2010', '2010_2020',
+                            '2000_2022',
+                        ],
+                        'Quality': [
+                            '2000', '2001', '2002', '2003',
+                            '2004', '2005', '2006', '2007',
+                            '2008', '2009', '2010', '2011',
+                            '2012', '2013', '2014', '2015',
+                            '2016', '2017', '2018', '2019',
+                            '2020', '2021', '2022'
                         ]
                     },
                 },
@@ -2271,19 +2344,20 @@ var App = {
         ],
 
         palettes: {
-            'mapbiomas-amazon': 'atlantic_forest',
-            'mapbiomas-atlantic-forest': 'atlantic_forest',
-            'mapbiomas-brazil': 'atlantic_forest',
-            'mapbiomas-bolivia': 'atlantic_forest',
-            'mapbiomas-chaco': 'atlantic_forest',
-            'mapbiomas-colombia': 'atlantic_forest',
-            'mapbiomas-ecuador': 'atlantic_forest',
-            'mapbiomas-indonesia': 'atlantic_forest',
-            'mapbiomas-pampa': 'atlantic_forest',
-            'mapbiomas-paraguay': 'atlantic_forest',
-            'mapbiomas-peru': 'atlantic_forest',
-            'mapbiomas-uruguay': 'atlantic_forest',
-            'mapbiomas-venezuela': 'atlantic_forest',
+            'mapbiomas-amazon': 'chile1',
+            'mapbiomas-atlantic-forest': 'chile1',
+            'mapbiomas-brazil': 'chile1',
+            'mapbiomas-bolivia': 'chile1',
+            'mapbiomas-chaco': 'chile1',
+            'mapbiomas-chile': 'chile1',
+            'mapbiomas-colombia': 'chile1',
+            'mapbiomas-ecuador': 'chile1',
+            'mapbiomas-indonesia': 'chile1',
+            'mapbiomas-pampa': 'chile1',
+            'mapbiomas-paraguay': 'chile1',
+            'mapbiomas-peru': 'chile1',
+            'mapbiomas-uruguay': 'chile1',
+            'mapbiomas-venezuela': 'chile1',
         },
 
         bandsNames: {
@@ -2309,7 +2383,7 @@ var App = {
         ranges: {
             'Coverage': {
                 'min': 0,
-                'max': 65
+                'max': 66
             },
             'Transitions': {
                 'min': -2,
@@ -2328,7 +2402,8 @@ var App = {
         mapbiomasRegion: '',
 
         palette: {
-            'Coverage': palettes.get('classification8'),
+            // 'Coverage': palettes.get('classification8'),
+            'Coverage': null,
             'Transitions': [
                 '#ffa500',
                 '#ff0000',
@@ -2614,13 +2689,13 @@ var App = {
                     );
                 }
             );
-            
+
             App.ui.form.panelLink1 = ui.Panel({
                 'layout': ui.Panel.Layout.flow('horizontal', true),
                 'style': {
                     'stretch': 'horizontal'
                 },
-                'widgets': labelLinks 
+                'widgets': labelLinks
             })
 
         },
@@ -3546,6 +3621,7 @@ var App = {
                     'mapbiomas-brazil',
                     'mapbiomas-bolivia',
                     'mapbiomas-chaco',
+                    'mapbiomas-chile',
                     'mapbiomas-colombia',
                     'mapbiomas-ecuador',
                     'mapbiomas-indonesia',
