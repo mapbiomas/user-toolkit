@@ -2341,6 +2341,10 @@ var App = {
                 'name': 'Pampa',
                 'url': 'https://pampa.mapbiomas.org/en/legend-codes/'
             },
+            {
+                'name': 'Chile',
+                'url': 'https://chile.mapbiomas.org/codigos-de-la-leyenda/'
+            },
         ],
 
         palettes: {
