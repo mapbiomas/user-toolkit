@@ -55,6 +55,7 @@
  *    1.25.0 - Loads mapbiomas-paraguay collection 1.0
  *    1.26.0 - Loads mapbiomas-peru collection 2.0
  *    1.27.0 - Loads mapbiomas-chile collection 1.0
+ *    1.28.0 - Loads mapbiomas-argentina collection 1.0
  * @see
  *      Get the MapBiomas exported data in your "Google Drive/MAPBIOMAS-EXPORT" folder
  *      Code and Tutorial - https://github.com/mapbiomas-brazil/user-toolkit
@@ -876,6 +877,57 @@ var App = {
                 },
 
             ],
+            'mapbiomas-argentina': [
+                {
+                    "value": "projects/mapbiomas-argentina/assets/ANCILLARY_DATA/STATISTICS/COLLECTION1/VERSION-1/area-protegida-internacional",
+                    "label": "Área Protegida Internacional"
+                },
+                {
+                    "value": "projects/mapbiomas-argentina/assets/ANCILLARY_DATA/STATISTICS/COLLECTION1/VERSION-1/area-protegida-nacional",
+                    "label": "Área Protegida Nacional"
+                },
+                {
+                    "value": "projects/mapbiomas-argentina/assets/ANCILLARY_DATA/STATISTICS/COLLECTION1/VERSION-1/area-protegida-subnacional",
+                    "label": "Área Protegida Subnacional"
+                },
+                {
+                    "value": "projects/mapbiomas-argentina/assets/ANCILLARY_DATA/STATISTICS/COLLECTION1/VERSION-1/areas-claves-para-la-biodiversidad",
+                    "label": "Áreas Claves para la Biodiversidad"
+                },
+                {
+                    "value": "projects/mapbiomas-argentina/assets/ANCILLARY_DATA/STATISTICS/COLLECTION1/VERSION-1/areas-importantes-para-la-consevacion-de-las-aves",
+                    "label": "Áreas Importantes para la Conservación de las Aves"
+                },
+                {
+                    "value": "projects/mapbiomas-argentina/assets/ANCILLARY_DATA/STATISTICS/COLLECTION1/VERSION-1/cuencas-hidrograficas",
+                    "label": "Cuencas Hidrográficas"
+                },
+                {
+                    "value": "projects/mapbiomas-argentina/assets/ANCILLARY_DATA/STATISTICS/COLLECTION1/VERSION-1/ecorregion",
+                    "label": "Ecorregión"
+                },
+                {
+                    "value": "projects/mapbiomas-argentina/assets/ANCILLARY_DATA/STATISTICS/COLLECTION1/VERSION-1/nivel-politico-1",
+                    "label": "Nível Político 1"
+                },
+                {
+                    "value": "projects/mapbiomas-argentina/assets/ANCILLARY_DATA/STATISTICS/COLLECTION1/VERSION-1/nivel-politico-2",
+                    "label": "Nível Político 2"
+                },
+                {
+                    "value": "projects/mapbiomas-argentina/assets/ANCILLARY_DATA/STATISTICS/COLLECTION1/VERSION-1/nivel-politico-3",
+                    "label": "Nível Político 3"
+                },
+                {
+                    "value": "projects/mapbiomas-argentina/assets/ANCILLARY_DATA/STATISTICS/COLLECTION1/VERSION-1/regiones-forestales",
+                    "label": "Regiones Forestales"
+                },
+                {
+                    "value": "projects/mapbiomas-argentina/assets/ANCILLARY_DATA/STATISTICS/COLLECTION1/VERSION-1/unidades-de-vegetacion",
+                    "label": "Unidades de Vegetación"
+                }
+            ]
+,
         },
 
         collections: {
@@ -2286,9 +2338,61 @@ var App = {
                     },
                 },
             },
+            'mapbiomas-argentina': {
+                'collection-1.0': {
+                    'assets': {
+                        'integration': 'projects/mapbiomas-public/assets/argentina/collection1/mapbiomas_argentina_collection1_integration_v1',
+                        'transitions': 'projects/mapbiomas-public/assets/argentina/collection1/mapbiomas_argentina_collection1_transitions_v1',
+                        'quality': '',
+                    },
+                    'periods': {
+                        'Coverage': [
+                            '1998', '1999', '2000', '2001', 
+                            '2002', '2003', '2004', '2005', 
+                            '2006', '2007', '2008', '2009', 
+                            '2010', '2011', '2012', '2013', 
+                            '2014', '2015', '2016', '2017', 
+                            '2018', '2019', '2020', '2021', 
+                            '2022'
+                        ],
+                        'Transitions': [
+                            '1998_1999', '1999_2000', '2000_2001', '2001_2002', 
+                            '2002_2003', '2003_2004', '2004_2005', '2005_2006', 
+                            '2006_2007', '2007_2008', '2008_2009', '2009_2010', 
+                            '2010_2011', '2011_2012', '2012_2013', '2013_2014', 
+                            '2014_2015', '2015_2016', '2016_2017', '2017_2018', 
+                            '2018_2019', '2019_2020', '2020_2021', '2021_2022', 
+                            '2000_2005', '2005_2010', '2010_2015', '2015_2020', 
+                            '2000_2010', '2010_2020', '1998_2022', '1998_2005', 
+                            '1998_2010', '1998_2020', 
+                        ],
+                        'Quality': [
+                            '1998', '1999', '2000', '2001',
+                            '2002', '2003', '2004', '2005',
+                            '2006', '2007', '2008', '2009',
+                            '2010', '2011', '2012', '2013',
+                            '2014', '2015', '2016', '2017',
+                            '2018', '2019', '2020', '2021',
+                            '2022'
+                        ]
+                    },
+                },
+            },
         },
 
         legendLinks: [
+            {
+                'name': 'Amazon',
+                'url': 'https://amazonia.mapbiomas.org/codigos-de-la-leyenda/'
+            },
+            {
+                'name': 'Argentina',
+                'url': 'https://argentina.mapbiomas.org/codigos-de-la-leyenda/'
+            },
+            {
+                'name': 'Atlantic Forest',
+                'url': 'https://bosqueatlantico.mapbiomas.org/en/legend-codes/'
+            },
             {
                 'name': 'Bolivia',
                 'url': 'https://bolivia.mapbiomas.org/en/codigos-de-la-leyenda/'
@@ -2302,12 +2406,24 @@ var App = {
                 'url': 'https://colombia.mapbiomas.org/en/codigos-de-la-leyenda/'
             },
             {
+                'name': 'Chaco',
+                'url': 'https://chaco.mapbiomas.org/en/legend-codes/'
+            },
+            {
+                'name': 'Chile',
+                'url': 'https://chile.mapbiomas.org/codigos-de-la-leyenda/'
+            },
+            {
                 'name': 'Ecuador',
                 'url': 'https://ecuador.mapbiomas.org/en/codigos-de-la-leyenda/'
             },
             {
                 'name': 'Indonesia',
                 'url': 'https://mapbiomas.nusantara.earth/legendcode'
+            },
+            {
+                'name': 'Pampa',
+                'url': 'https://pampa.mapbiomas.org/en/legend-codes/'
             },
             {
                 'name': 'Paraguay',
@@ -2324,26 +2440,6 @@ var App = {
             {
                 'name': 'Venezuela',
                 'url': 'https://venezuela.mapbiomas.org/en/codigos-de-la-leyenda/'
-            },
-            {
-                'name': 'Amazon',
-                'url': 'https://amazonia.mapbiomas.org/codigos-de-la-leyenda/'
-            },
-            {
-                'name': 'Atlantic Forest',
-                'url': 'https://bosqueatlantico.mapbiomas.org/en/legend-codes/'
-            },
-            {
-                'name': 'Chaco',
-                'url': 'https://chaco.mapbiomas.org/en/legend-codes/'
-            },
-            {
-                'name': 'Pampa',
-                'url': 'https://pampa.mapbiomas.org/en/legend-codes/'
-            },
-            {
-                'name': 'Chile',
-                'url': 'https://chile.mapbiomas.org/codigos-de-la-leyenda/'
             },
         ],
 
@@ -2362,6 +2458,7 @@ var App = {
             'mapbiomas-peru': 'chile1',
             'mapbiomas-uruguay': 'chile1',
             'mapbiomas-venezuela': 'chile1',
+            'mapbiomas-argentina': 'argentina1',
         },
 
         bandsNames: {
@@ -2548,6 +2645,7 @@ var App = {
             57: 'Cultivo Simples', // Only for Chaco
             58: 'Cultivo Múltiple', // Only for Chaco
             62: "Cotton",
+            63: "Steppe",
             0: "Non Observed",
 
         },
@@ -2569,23 +2667,23 @@ var App = {
 
         Map.centerObject(App.options.data.Coverage, 5);
 
-        var imageLayer = ui.Map.Layer({
-            'eeObject': App.options.data.Coverage,
-            'visParams': {
-                'bands': ['classification_' + year],
-                'palette': App.options.palette.Coverage,
-                'min': App.options.ranges.Coverage.min,
-                'max': App.options.ranges.Coverage.max,
-                'format': 'png'
-            },
-            'name': year,
-            'shown': true,
-            'opacity': 1.0
-        });
+        // var imageLayer = ui.Map.Layer({
+        //     'eeObject': App.options.data.Coverage,
+        //     'visParams': {
+        //         'bands': ['classification_' + year],
+        //         'palette': App.options.palette.Coverage,
+        //         'min': App.options.ranges.Coverage.min,
+        //         'max': App.options.ranges.Coverage.max,
+        //         'format': 'png'
+        //     },
+        //     'name': year,
+        //     'shown': true,
+        //     'opacity': 1.0
+        // });
 
         Map.clear();
 
-        Map.add(imageLayer);
+        // Map.add(imageLayer);
 
     },
 
@@ -2670,9 +2768,9 @@ var App = {
     setPalette: function (region) {
 
         App.options.palette.Coverage = palettes.get(App.options.palettes[region]);
-        App.options.ranges.max = App.options.palette.Coverage.length - 1;
+        App.options.ranges.Coverage.max = App.options.palette.Coverage.length - 1;
 
-        print(region, App.options.ranges.max, App.options.palette.Coverage);
+        print(region, App.options.ranges.Coverage.max, App.options.palette.Coverage);
     },
 
     ui: {
@@ -3064,7 +3162,7 @@ var App = {
             if (App.options.dataType == 'Transitions') {
                 image = App.remapTransitions(image);
             }
-
+            print("teste:", App.options.ranges)
             var imageLayer = ui.Map.Layer({
                 'eeObject': image,
                 'visParams': {
@@ -3302,7 +3400,7 @@ var App = {
                 App.ui.form.panelMain.add(App.ui.form.panel1);
 
                 App.ui.form.tab1.add(App.ui.form.checkboxTab1);
-                App.ui.form.tab2.add(App.ui.form.checkboxTab2);
+                // App.ui.form.tab2.add(App.ui.form.checkboxTab2); // desabilitado temporariamente
 
                 App.ui.form.tabs.add(App.ui.form.tab1);
                 App.ui.form.tabs.add(App.ui.form.tab2);
@@ -3485,77 +3583,77 @@ var App = {
             }
             ),
 
-            labelLink1: ui.Label('Amazon', {
-                'fontSize': '10px',
-            },
-                'http://amazonia.mapbiomas.org/codigos-de-la-leyenda'
-            ),
+            // labelLink1: ui.Label('Amazon', {
+            //     'fontSize': '10px',
+            // },
+            //     'http://amazonia.mapbiomas.org/codigos-de-la-leyenda'
+            // ),
 
-            labelLink2: ui.Label('Atlantic Forest', {
-                'fontSize': '10px'
-            },
-                'http://bosqueatlantico.mapbiomas.org/codigos-de-la-leyenda'
-            ),
+            // labelLink2: ui.Label('Atlantic Forest', {
+            //     'fontSize': '10px'
+            // },
+            //     'http://bosqueatlantico.mapbiomas.org/codigos-de-la-leyenda'
+            // ),
 
-            labelLink3: ui.Label('Bolivia', {
-                'fontSize': '10px',
-            },
-                'https://bolivia.mapbiomas.org/codigos-de-la-leyenda/'
-            ),
+            // labelLink3: ui.Label('Bolivia', {
+            //     'fontSize': '10px',
+            // },
+            //     'https://bolivia.mapbiomas.org/codigos-de-la-leyenda/'
+            // ),
 
-            labelLink4: ui.Label('Brazil', {
-                'fontSize': '10px'
-            },
-                'https://brasil.mapbiomas.org/codigos-de-legenda/'
-            ),
+            // labelLink4: ui.Label('Brazil', {
+            //     'fontSize': '10px'
+            // },
+            //     'https://brasil.mapbiomas.org/codigos-de-legenda/'
+            // ),
 
-            labelLink5: ui.Label('Chaco', {
-                'fontSize': '10px'
-            },
-                'http://chaco.mapbiomas.org/codigos-de-la-leyenda-1'
-            ),
+            // labelLink5: ui.Label('Chaco', {
+            //     'fontSize': '10px'
+            // },
+            //     'http://chaco.mapbiomas.org/codigos-de-la-leyenda-1'
+            // ),
 
-            labelLink6: ui.Label('Colombia', {
-                'fontSize': '10px',
-            },
-                'https://colombia.mapbiomas.org/codigos-de-la-leyenda/'
-            ),
+            // labelLink6: ui.Label('Colombia', {
+            //     'fontSize': '10px',
+            // },
+            //     'https://colombia.mapbiomas.org/codigos-de-la-leyenda/'
+            // ),
 
-            labelLink7: ui.Label('Ecuador', {
-                'fontSize': '10px',
-            },
-                'https://ecuador.mapbiomas.org/codigos-de-la-leyenda/'
-            ),
+            // labelLink7: ui.Label('Ecuador', {
+            //     'fontSize': '10px',
+            // },
+            //     'https://ecuador.mapbiomas.org/codigos-de-la-leyenda/'
+            // ),
 
-            labelLink8: ui.Label('Indonesia', {
-                'fontSize': '10px',
-            },
-                'https://mapbiomas.nusantara.earth/legendcode'
-            ),
+            // labelLink8: ui.Label('Indonesia', {
+            //     'fontSize': '10px',
+            // },
+            //     'https://mapbiomas.nusantara.earth/legendcode'
+            // ),
 
-            labelLink9: ui.Label('Pampa', {
-                'fontSize': '10px'
-            },
-                'https://pampa.mapbiomas.org/codigos-de-la-leyenda/'
-            ),
+            // labelLink9: ui.Label('Pampa', {
+            //     'fontSize': '10px'
+            // },
+            //     'https://pampa.mapbiomas.org/codigos-de-la-leyenda/'
+            // ),
 
-            labelLink10: ui.Label('Peru', {
-                'fontSize': '10px',
-            },
-                'https://peru.mapbiomas.org/codigos-de-la-leyenda/'
-            ),
+            // labelLink10: ui.Label('Peru', {
+            //     'fontSize': '10px',
+            // },
+            //     'https://peru.mapbiomas.org/codigos-de-la-leyenda/'
+            // ),
 
-            labelLink11: ui.Label('Venezuela', {
-                'fontSize': '10px',
-            },
-                'https://venezuela.mapbiomas.org/codigos-de-la-leyenda/'
-            ),
+            // labelLink11: ui.Label('Venezuela', {
+            //     'fontSize': '10px',
+            // },
+            //     'https://venezuela.mapbiomas.org/codigos-de-la-leyenda/'
+            // ),
 
-            labelLink12: ui.Label('Uruguay', {
-                'fontSize': '10px',
-            },
-                'https://uruguay.mapbiomas.org/codigos-de-la-leyenda/'
-            ),
+            // labelLink12: ui.Label('Uruguay', {
+            //     'fontSize': '10px',
+            // },
+            //     'https://uruguay.mapbiomas.org/codigos-de-la-leyenda/'
+            // ),
 
             labelType: ui.Label('Type:', {
                 // 'padding': '1px',
@@ -3621,6 +3719,7 @@ var App = {
             selectRegion: ui.Select({
                 'items': [
                     'mapbiomas-amazon',
+                    'mapbiomas-argentina',
                     'mapbiomas-atlantic-forest',
                     'mapbiomas-brazil',
                     'mapbiomas-bolivia',
