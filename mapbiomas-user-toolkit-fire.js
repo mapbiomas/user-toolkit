@@ -5,8 +5,11 @@
  * @description
  *      This is a support tool for mapbiomas data users.
  *  
- * @authorl
+ * @author
  *      João Siqueira
+ * 
+ * @contact
+ *      Tasso Azevedo, Marcos Rosa and João Siqueira
  *      contato@mapbiomas.org
  *
  * @version
@@ -15,6 +18,9 @@
  *    1.1.1 - Add monthly data
  *    1.2.0 - Collection 1.1 fire
  *    1.3.0 - Collection 2.0 fire
+ *    1.4.0 - Collection 3.0 fire
+ *            Atualizando interface seguindo a interface do toolkit do uso e cobertura
+ *            Adicionando logo do fogo
  * 
  * @see
  *      Get the MapBiomas exported data in your "Google Drive/MAPBIOMAS-EXPORT" folder
@@ -22,15 +28,15 @@
  */
 
 var palettes = require('users/mapbiomas/modules:Palettes.js');
-var logos = require('users/mapbiomas/modules:Logos.js');
-var mapp = require('users/joaovsiqueira1/packages:Mapp.js');
+var fire_palettes = require('users/workspaceipam/packages:mapbiomas-toolkit/utils/palettes');
+var logos = require('users/workspaceipam/packages:mapbiomas-toolkit/utils/b64');
 
 /**
  * @description
- *    calculate area for mapbiomas map
+ *    calculate area for mapbiomas fire map
  * 
  * @author
- *    João Siqueira
+ *    João Siqueira and Wallace Silva
  * 
  */
 var Area = {
@@ -103,11 +109,11 @@ var App = {
 
     options: {
 
-        version: '1.3.0',
+        version: '1.4.0',
 
         logo: {
             uri: 'gs://mapbiomas-public/mapbiomas-logos/mapbiomas-logo-horizontal.b64',
-            base64: null
+            base64: logos.get('logo_mapbiomas_fogo')
         },
 
         statesNames: {
@@ -145,81 +151,99 @@ var App = {
             'mapbiomas-brazil': [
                 {
                     'label': 'atlantic_forest_law',
-                    'value': 'projects/mapbiomas-workspace/AUXILIAR/ESTATISTICAS/COLECAO7/VERSAO-2/atlantic_forest_law',
+                    'value': 'projects/mapbiomas-workspace/AUXILIAR/ESTATISTICAS/COLECAO8/VERSAO-1/atlantic_forest_law',
                 },
                 {
                     'label': 'biome',
-                    'value': 'projects/mapbiomas-workspace/AUXILIAR/ESTATISTICAS/COLECAO7/VERSAO-2/biome',
+                    'value': 'projects/mapbiomas-workspace/AUXILIAR/ESTATISTICAS/COLECAO8/VERSAO-1/refined_biome',
                 },
                 {
-                    'label': 'biosphere_reserve',
-                    'value': 'projects/mapbiomas-workspace/AUXILIAR/ESTATISTICAS/COLECAO7/VERSAO-2/biosphere_reserve',
+                    'label': 'biosphere_reserves',
+                    'value': 'projects/mapbiomas-workspace/AUXILIAR/ESTATISTICAS/COLECAO8/VERSAO-1/biosphere_reserves',
                 },
                 {
                     'label': 'city',
-                    'value': 'projects/mapbiomas-workspace/AUXILIAR/ESTATISTICAS/COLECAO7/VERSAO-2/city',
+                    'value': 'projects/mapbiomas-workspace/AUXILIAR/ESTATISTICAS/COLECAO8/VERSAO-1/city',
                 },
                 {
                     'label': 'country',
-                    'value': 'projects/mapbiomas-workspace/AUXILIAR/ESTATISTICAS/COLECAO7/VERSAO-2/country',
+                    'value': 'projects/mapbiomas-workspace/AUXILIAR/ESTATISTICAS/COLECAO8/VERSAO-1/country',
                 },
                 {
                     'label': 'federal_conservation_units_integral_protection',
-                    'value': 'projects/mapbiomas-workspace/AUXILIAR/ESTATISTICAS/COLECAO7/VERSAO-2/federal_conservation_units_integral_protection',
+                    'value': 'projects/mapbiomas-workspace/AUXILIAR/ESTATISTICAS/COLECAO8/VERSAO-1/federal_protected_area_integral_protection',
                 },
                 {
                     'label': 'federal_conservation_units_sustainable_use',
-                    'value': 'projects/mapbiomas-workspace/AUXILIAR/ESTATISTICAS/COLECAO7/VERSAO-2/federal_conservation_units_sustainable_use',
+                    'value': 'projects/mapbiomas-workspace/AUXILIAR/ESTATISTICAS/COLECAO8/VERSAO-1/federal_protected_area_sustainable_use',
                 },
                 {
                     'label': 'indigenous_land',
-                    'value': 'projects/mapbiomas-workspace/AUXILIAR/ESTATISTICAS/COLECAO7/VERSAO-2/indigenous_land',
+                    'value': 'projects/mapbiomas-workspace/AUXILIAR/ESTATISTICAS/COLECAO8/VERSAO-1/indigenous_territories',
                 },
                 {
                     'label': 'legal_amazon',
-                    'value': 'projects/mapbiomas-workspace/AUXILIAR/ESTATISTICAS/COLECAO7/VERSAO-2/legal_amazon',
+                    'value': 'projects/mapbiomas-workspace/AUXILIAR/ESTATISTICAS/COLECAO8/VERSAO-1/legal_amazon',
                 },
                 {
-                    'label': 'level_1_drainage_basin',
-                    'value': 'projects/mapbiomas-workspace/AUXILIAR/ESTATISTICAS/COLECAO7/VERSAO-2/level_1_drainage_basin',
+                    'label': 'pnrh_level_1_basin',
+                    'value': 'projects/mapbiomas-workspace/AUXILIAR/ESTATISTICAS/COLECAO8/VERSAO-1/pnrh_level_1_basin',
                 },
                 {
-                    'label': 'level_1_drainage_basin_pnrh',
-                    'value': 'projects/mapbiomas-workspace/AUXILIAR/ESTATISTICAS/COLECAO7/VERSAO-2/level_1_drainage_basin_pnrh',
-                },
-                {
-                    'label': 'level_2_drainage_basin',
-                    'value': 'projects/mapbiomas-workspace/AUXILIAR/ESTATISTICAS/COLECAO7/VERSAO-2/level_2_drainage_basin',
-                },
-                {
-                    'label': 'level_2_drainage_basin_pnrh',
-                    'value': 'projects/mapbiomas-workspace/AUXILIAR/ESTATISTICAS/COLECAO7/VERSAO-2/level_2_drainage_basin_pnrh',
+                    'label': 'pnrh_level_2_basin',
+                    'value': 'projects/mapbiomas-workspace/AUXILIAR/ESTATISTICAS/COLECAO8/VERSAO-1/pnrh_level_1_basin',
                 },
                 {
                     'label': 'quilombo',
-                    'value': 'projects/mapbiomas-workspace/AUXILIAR/ESTATISTICAS/COLECAO7/VERSAO-2/quilombo',
+                    'value': 'projects/mapbiomas-workspace/AUXILIAR/ESTATISTICAS/COLECAO8/VERSAO-1/quilombos',
                 },
                 {
                     'label': 'semiarid',
-                    'value': 'projects/mapbiomas-workspace/AUXILIAR/ESTATISTICAS/COLECAO7/VERSAO-2/semiarid',
+                    'value': 'projects/mapbiomas-workspace/AUXILIAR/ESTATISTICAS/COLECAO8/VERSAO-1/semiarid',
                 },
                 {
                     'label': 'settlement',
-                    'value': 'projects/mapbiomas-workspace/AUXILIAR/ESTATISTICAS/COLECAO7/VERSAO-2/settlement',
+                    'value': 'projects/mapbiomas-workspace/AUXILIAR/ESTATISTICAS/COLECAO8/VERSAO-1/settlements',
                 },
                 {
                     'label': 'state',
-                    'value': 'projects/mapbiomas-workspace/AUXILIAR/ESTATISTICAS/COLECAO7/VERSAO-2/state',
+                    'value': 'projects/mapbiomas-workspace/AUXILIAR/ESTATISTICAS/COLECAO8/VERSAO-1/state',
                 },
                 {
-                    'label': 'state_conservation_units_integral_protection',
-                    'value': 'projects/mapbiomas-workspace/AUXILIAR/ESTATISTICAS/COLECAO7/VERSAO-2/state_conservation_units_integral_protection',
+                    'label': 'state_protected_area_integral_protection',
+                    'value': 'projects/mapbiomas-workspace/AUXILIAR/ESTATISTICAS/COLECAO8/VERSAO-1/state_protected_area_integral_protection',
                 },
                 {
-                    'label': 'state_conservation_units_sustainable_use',
-                    'value': 'projects/mapbiomas-workspace/AUXILIAR/ESTATISTICAS/COLECAO7/VERSAO-2/state_conservation_units_sustainable_use',
+                    'label': 'state_protected_area_sustainable_use',
+                    'value': 'projects/mapbiomas-workspace/AUXILIAR/ESTATISTICAS/COLECAO8/VERSAO-1/state_protected_area_sustainable_use',
                 },
             ],
+            /*'mapbiomas-indonesia': [
+                {
+                    'label': 'coastal_line',
+                    'value': 'projects/mapbiomas-indonesia/ANCILLARY_DATA/STATISTICS/COLLECTION2/VERSION-2/coastal_line'
+                },
+                {
+                    'label': 'island_group',
+                    'value': 'projects/mapbiomas-indonesia/ANCILLARY_DATA/STATISTICS/COLLECTION2/VERSION-2/island_group'
+                },
+                {
+                    'label': 'district',
+                    'value': 'projects/mapbiomas-indonesia/ANCILLARY_DATA/STATISTICS/COLLECTION2/VERSION-2/district'
+                },
+                {
+                    'label': 'province',
+                    'value': 'projects/mapbiomas-indonesia/ANCILLARY_DATA/STATISTICS/COLLECTION2/VERSION-2/province'
+                },
+                {
+                    'label': 'sub_district',
+                    'value': 'projects/mapbiomas-indonesia/ANCILLARY_DATA/STATISTICS/COLLECTION2/VERSION-2/sub_district'
+                },
+                {
+                    'label': 'village',
+                    'value': 'projects/mapbiomas-indonesia/ANCILLARY_DATA/STATISTICS/COLLECTION2/VERSION-2/village'
+                },
+            ],*/
         },
 
         collections: {
@@ -376,92 +400,216 @@ var App = {
                         'fire_monitor': null,
                     },
                 },
+                'collection-3.0': {
+                    'assets': {
+
+                      'annual_burned': 'projects/mapbiomas-public/assets/brazil/fire/collection3/mapbiomas_fire_collection3_annual_burned_v1',
+                  
+                      'annual_burned_coverage': 'projects/mapbiomas-public/assets/brazil/fire/collection3/mapbiomas_fire_collection3_annual_burned_coverage_v1',
+            
+                      'monthly_burned': 'projects/mapbiomas-public/assets/brazil/fire/collection3/mapbiomas_fire_collection3_monthly_burned_v1',
+            
+                      'annual_burned_scar_size_range': 'projects/mapbiomas-public/assets/brazil/fire/collection3/mapbiomas_fire_collection3_annual_burned_scar_size_range_v1',
+            
+                      'accumulated_burned': 'projects/mapbiomas-public/assets/brazil/fire/collection3/mapbiomas_fire_collection3_accumulated_burned_v1',
+            
+                      'accumulated_burned_coverage': 'projects/mapbiomas-public/assets/brazil/fire/collection3/mapbiomas_fire_collection3_accumulated_burned_coverage_v1',
+            
+                      'fire_frequency': 'projects/mapbiomas-public/assets/brazil/fire/collection3/mapbiomas_fire_collection3_fire_frequency_v1',
+            
+                      'year_last_fire': 'projects/mapbiomas-public/assets/brazil/fire/collection3/mapbiomas_fire_collection3_year_last_fire_v1',
+                      
+                      'fire_monitor': 'projects/mapbiomas-workspace/FOGO/MONITORAMENTO/collection-fire-monthly-sentinel2-v3',
+                    },
+
+                    'periods': {
+                      'annual_burned':[
+                        '1985', '1986', '1987', '1988', '1989', '1990',
+                        '1991', '1992', '1993', '1994', '1995', '1996',
+                        '1997', '1998', '1999', '2000', '2001', '2002',
+                        '2003', '2004', '2005', '2006', '2007', '2008',
+                        '2009', '2010', '2011', '2012', '2013', '2014',
+                        '2015', '2016', '2017', '2018', '2019', '2020',
+                        '2021','2022',  '2023'
+                     ],
+                      'annual_burned_coverage':[
+                        '1985', '1986', '1987', '1988', '1989', '1990',
+                        '1991', '1992', '1993', '1994', '1995', '1996',
+                        '1997', '1998', '1999', '2000', '2001', '2002',
+                        '2003', '2004', '2005', '2006', '2007', '2008',
+                        '2009', '2010', '2011', '2012', '2013', '2014',
+                        '2015', '2016', '2017', '2018', '2019', '2020',
+                        '2021','2022',  '2023'
+                     ],
+                      'monthly_burned':[
+                        '1985', '1986', '1987', '1988', '1989', '1990',
+                        '1991', '1992', '1993', '1994', '1995', '1996',
+                        '1997', '1998', '1999', '2000', '2001', '2002',
+                        '2003', '2004', '2005', '2006', '2007', '2008',
+                        '2009', '2010', '2011', '2012', '2013', '2014',
+                        '2015', '2016', '2017', '2018', '2019', '2020',
+                        '2021','2022',  '2023'
+                     ],
+                      'annual_burned_scar_size_range':[
+                        '1985', '1986', '1987', '1988', '1989', '1990',
+                        '1991', '1992', '1993', '1994', '1995', '1996',
+                        '1997', '1998', '1999', '2000', '2001', '2002',
+                        '2003', '2004', '2005', '2006', '2007', '2008',
+                        '2009', '2010', '2011', '2012', '2013', '2014',
+                        '2015', '2016', '2017', '2018', '2019', '2020',
+                        '2021','2022',  '2023'
+                      ],
+                      'accumulated_burned':[ 
+                        '1985_1985', '1985_1986', '1985_1987', '1985_1988', '1985_1989', 
+                        '1985_1990', '1985_1991', '1985_1992', '1985_1993', '1985_1994', 
+                        '1985_1995', '1985_1996', '1985_1997', '1985_1998', '1985_1999',
+                        '1985_2000', '1985_2001', '1985_2002', '1985_2003', '1985_2004',
+                        '1985_2005', '1985_2006', '1985_2007', '1985_2008', '1985_2009',
+                        '1985_2010', '1985_2011', '1985_2012', '1985_2013', '1985_2014',
+                        '1985_2015', '1985_2016', '1985_2017', '1985_2018', '1985_2019',
+                        '1985_2020', '1985_2021', '1985_2022', '1985_2023', '1986_2023',
+                        '1987_2023', '1988_2023', '1989_2023', '1990_1995', '1990_2023',
+                        '1991_2023', '1992_2023', '1993_2023', '1994_2023', '1995_2000',
+                        '1995_2005', '1995_2023', '1996_2023', '1997_2023', '1998_2023',
+                        '1999_2023', '2000_2005', '2000_2015', '2000_2023', '2001_2023',
+                        '2002_2023', '2003_2023', '2004_2023', '2005_2010', '2005_2015',
+                        '2005_2023', '2006_2023', '2007_2023', '2008_2023', '2009_2023',
+                        '2010_2015', '2010_2023', '2011_2023', '2012_2023', '2013_2023',
+                        '2014_2023', '2015_2020', '2015_2023', '2016_2023', '2017_2023',
+                        '2018_2023', '2019_2023', '2020_2023', '2021_2023', '2022_2023',
+                        '2023_2023'
+                        ],
+                      'accumulated_burned_coverage':[ 
+                        '1985_1985', '1985_1986', '1985_1987', '1985_1988', '1985_1989', 
+                        '1985_1990', '1985_1991', '1985_1992', '1985_1993', '1985_1994', 
+                        '1985_1995', '1985_1996', '1985_1997', '1985_1998', '1985_1999',
+                        '1985_2000', '1985_2001', '1985_2002', '1985_2003', '1985_2004',
+                        '1985_2005', '1985_2006', '1985_2007', '1985_2008', '1985_2009',
+                        '1985_2010', '1985_2011', '1985_2012', '1985_2013', '1985_2014',
+                        '1985_2015', '1985_2016', '1985_2017', '1985_2018', '1985_2019',
+                        '1985_2020', '1985_2021', '1985_2022', '1985_2023', '1986_2023',
+                        '1987_2023', '1988_2023', '1989_2023', '1990_1995', '1990_2023',
+                        '1991_2023', '1992_2023', '1993_2023', '1994_2023', '1995_2000',
+                        '1995_2005', '1995_2023', '1996_2023', '1997_2023', '1998_2023',
+                        '1999_2023', '2000_2005', '2000_2015', '2000_2023', '2001_2023',
+                        '2002_2023', '2003_2023', '2004_2023', '2005_2010', '2005_2015',
+                        '2005_2023', '2006_2023', '2007_2023', '2008_2023', '2009_2023',
+                        '2010_2015', '2010_2023', '2011_2023', '2012_2023', '2013_2023',
+                        '2014_2023', '2015_2020', '2015_2023', '2016_2023', '2017_2023',
+                        '2018_2023', '2019_2023', '2020_2023', '2021_2023', '2022_2023',
+                        '2023_2023'
+                       ],
+                      'fire_frequency':[ 
+                        '1985_1985', '1985_1986', '1985_1987', '1985_1988', '1985_1989', 
+                        '1985_1990', '1985_1991', '1985_1992', '1985_1993', '1985_1994', 
+                        '1985_1995', '1985_1996', '1985_1997', '1985_1998', '1985_1999',
+                        '1985_2000', '1985_2001', '1985_2002', '1985_2003', '1985_2004',
+                        '1985_2005', '1985_2006', '1985_2007', '1985_2008', '1985_2009',
+                        '1985_2010', '1985_2011', '1985_2012', '1985_2013', '1985_2014',
+                        '1985_2015', '1985_2016', '1985_2017', '1985_2018', '1985_2019',
+                        '1985_2020', '1985_2021', '1985_2022', '1985_2023', '1986_2023',
+                        '1987_2023', '1988_2023', '1989_2023', '1990_1995', '1990_2023',
+                        '1991_2023', '1992_2023', '1993_2023', '1994_2023', '1995_2000',
+                        '1995_2005', '1995_2023', '1996_2023', '1997_2023', '1998_2023',
+                        '1999_2023', '2000_2005', '2000_2015', '2000_2023', '2001_2023',
+                        '2002_2023', '2003_2023', '2004_2023', '2005_2010', '2005_2015',
+                        '2005_2023', '2006_2023', '2007_2023', '2008_2023', '2009_2023',
+                        '2010_2015', '2010_2023', '2011_2023', '2012_2023', '2013_2023',
+                        '2014_2023', '2015_2020', '2015_2023', '2016_2023', '2017_2023',
+                        '2018_2023', '2019_2023', '2020_2023', '2021_2023', '2022_2023',
+                        '2023_2023'
+                        ],
+                      'year_last_fire':[
+                                '1986', '1987', '1988', '1989', '1990',
+                        '1991', '1992', '1993', '1994', '1995', '1996',
+                        '1997', '1998', '1999', '2000', '2001', '2002',
+                        '2003', '2004', '2005', '2006', '2007', '2008',
+                        '2009', '2010', '2011', '2012', '2013', '2014',
+                        '2015', '2016', '2017', '2018', '2019', '2020',
+                        '2021','2022',  '2023'
+                        ],
+
+                      'fire_monitor': null,
+                    },
+                },
             },
+            /*'mapbiomas-indonesia': {},*/
         },
+
+        legendLinks: [
+            {
+              'name': 'Brazil',
+              'url': 'https://brasil.mapbiomas.org/en/codigos-de-legenda/'
+            },
+        ],
 
         bandsNames: {
-            'annual_burned_coverage': 'burned_coverage_',
-            'monthly_burned_coverage': 'burned_coverage_',
-            'fire_frequency': 'fire_frequency_',
-            'fire_monitor': 'burned_coverage_',
-
-            // 'burned_cover_cumulated': 'cover_',
+          'annual_burned':'burned_area_',
+          'annual_burned_coverage':'burned_coverage_',
+          'monthly_burned':'burned_monthly_',
+          'annual_burned_scar_size_range':'scar_area_ha_',
+          'accumulated_burned':'fire_accumulated_',
+          'accumulated_burned_coverage':'fire_accumulated_',
+          'year_last_fire':'classification_',
+          'fire_frequency':'fire_frequency_',
         },
 
-        dataType: 'annual_burned_coverage',
+        dataType: 'annual_burned',
 
         data: {
-            'annual_burned_coverage': null,
-            'monthly_burned_coverage': null,
-            'fire_frequency': null,
-            'fire_monitor': null,
-
-            // 'burned_cover_cumulated': null,
+          'annual_burned':null,
+          'annual_burned_coverage':null,
+          'monthly_burned':null,
+          'annual_burned_scar_size_range':null,
+          'accumulated_burned':null,
+          'accumulated_burned_coverage':null,
+          'year_last_fire':null,
+          'fire_frequency':null,                        
+          'fire_monitor': null,
         },
 
         fileDimensions: {
-            'annual_burned_coverage': 256 * 124,
-            'monthly_burned_coverage': 256 * 124,
-            'fire_frequency': 256 * 124,
-            'fire_monitor': 256 * 124,
-
-            // 'burned_cover_cumulated': 256 * 124,
-
+          'annual_burned':256 * 512,
+          'annual_burned_coverage':256 * 512,
+          'monthly_burned':256 * 512,
+          'annual_burned_scar_size_range':256 * 512,
+          'accumulated_burned':256 * 512,
+          'accumulated_burned_coverage':256 * 512,
+          'year_last_fire':256 * 512,
+          'fire_frequency':256 * 512,                        
+          'fire_monitor':256 * 512,
         },
 
         ranges: {
-            'annual_burned_coverage': {
-                'min': 0,
-                'max': 1
-            },
-            'monthly_burned_coverage': {
-                'min': 1,
-                'max': 12
-            },
-            'fire_frequency': {
-                'min': 1,
-                'max': 36
-            },
-            'fire_monitor': {
-                'min': 0,
-                'max': 1
-            },
+          'annual_burned':{'min':1,'max':1},
+          'annual_burned_coverage':{'min':0,'max':62},
+          'monthly_burned':{'min':1,'max':12},
+          'annual_burned_scar_size_range':{'min':1,'max':10},
+          'accumulated_burned':{'min':1,'max':1},
+          'accumulated_burned_coverage':{'min':0,'max':62},
+          'year_last_fire':{'min':1985,'max':2022},
+          'fire_frequency':{'min':0,'max':39},
+          'fire_monitor':{'min':1,'max':1},
+
         },
 
         vector: null,
         activeFeature: null,
         activeName: '',
 
+        mapbiomasRegion: '',
+
         palette: {
-            'annual_burned_coverage': [
-                '#ffffff',
-                '#870508'
-            ],
-            'monthly_burned_coverage': [
-                '#a900ff',
-                '#6f02ff',
-                '#020aff',
-                '#0675ff',
-                '#06ffff',
-                '#ffee00',
-                '#ff7700',
-                '#ff0800',
-                '#c20202',
-                '#0aa602',
-                '#0cff00'
-            ],
-            'fire_frequency': [
-                '#ffffff',
-                '#f8d71f',
-                '#daa118',
-                '#bd6c12',
-                '#9f360b',
-                '#810004',
-                '#4d0709'
-            ],
-            'fire_monitor': [
-                '#870508'
-            ],
+          'annual_burned':['#ff0000'],
+          'annual_burned_coverage':palettes.get('classification8'),
+          'monthly_burned':fire_palettes.get('mensal'),
+          'annual_burned_scar_size_range':fire_palettes.get('tamanho_n2'),
+          'accumulated_burned':['#800000'],
+          'accumulated_burned_coverage':palettes.get('classification8'),
+          'year_last_fire':fire_palettes.get('ano_do_ultimo_fogo'),
+          'fire_frequency':fire_palettes.get('frequencia'),
+          'fire_monitor':['#870508'],
+          
         },
 
         taskid: 1,
@@ -517,7 +665,9 @@ var App = {
             57: 'Cultivo Simples', // Only for Chaco
             58: 'Cultivo Múltiple', // Only for Chaco
             62: "Cotton",
+            63: "Steppe",
             0: "Non Observed",
+
         },
     },
 
@@ -529,37 +679,15 @@ var App = {
 
     setVersion: function () {
 
-        App.ui.form.labelTitle.setValue('MapBiomas User Toolkit ' + App.options.version);
+        App.ui.form.labelTitle.setValue('MapBiomas-Fire User Toolkit ' + App.options.version);
 
     },
 
     startMap: function (year) {
 
-        Map.centerObject(App.options.data.annual_burned_coverage, 5);
-
-        var imageLayer = ui.Map.Layer({
-            'eeObject': App.options.data.annual_burned_coverage,
-            'visParams': {
-                'bands': [App.options.bandsNames.annual_burned_coverage + year],
-                'palette': App.options.palette.annual_burned_coverage,
-                'min': App.options.ranges.annual_burned_coverage.min,
-                'max': App.options.ranges.annual_burned_coverage.max,
-                'format': 'png'
-            },
-            'name': year,
-            'shown': true,
-            'opacity': 1.0
-        });
+        Map.centerObject(App.options.data.Coverage, 5);
 
         Map.clear();
-
-        Map.setOptions({
-            'styles': {
-                'Dark': mapp.getStyle('Dark')
-            }
-        });
-
-        Map.add(imageLayer);
 
     },
 
@@ -587,6 +715,8 @@ var App = {
             .replace(/&/g, '')
             .replace(/@/g, '')
             .replace(/ /g, '')
+            .replace(/\[/g, '') // Nova substituição para o caractere '['
+            .replace(/\]/g, '') // Nova substituição para o caractere ']'
             .replace(/["'()\/]/g, '');
 
         return formated;
@@ -596,16 +726,36 @@ var App = {
 
         init: function () {
 
-            App.ui.form.init();
+            this.form.init();
 
-            Map.setOptions({
-                'styles': {
-                    'Dark': mapp.getStyle('Dark')
+        },
+
+        makeLegendLinksList: function () {
+            var labelLinks = App.options.legendLinks.map(
+                function (initiative) {
+                    return ui.Label(initiative.name, {
+                        'fontSize': '10px'
+                    },
+                        initiative.url
+                    );
                 }
-            });
+            );
+
+            App.ui.form.panelLink1 = ui.Panel({
+                'layout': ui.Panel.Layout.flow('horizontal', true),
+                'style': {
+                    'stretch': 'horizontal'
+                },
+                'widgets': labelLinks
+            })
+
         },
 
         setMapbiomasRegion: function (regionName) {
+
+            App.options.mapbiomasRegion = regionName;
+
+            // App.setPalette(regionName);
 
             App.ui.loadCollectionList(regionName);
             App.ui.loadTablesNames(regionName);
@@ -630,18 +780,18 @@ var App = {
                         function (a) {
 
 
-                            App.options.data.annual_burned_coverage = ee.Image(
-                                App.options.collections[regionName][collectioName].assets.annual_burned_coverage)
-                                .gt(0).byte();
+                            App.options.data.Coverage = ee.Image(App.options.collections[regionName][collectioName].assets.integration);
 
-                            App.options.data.monthly_burned_coverage = ee.Image(
-                                App.options.collections[regionName][collectioName].assets.monthly_burned_coverage)
-                                .divide(100).byte();
-
-                            App.options.data.fire_frequency = ee.Image(
-                                App.options.collections[regionName][collectioName].assets.fire_frequency)
-                                .divide(100).byte();
-
+                            App.options.data.annual_burned = ee.Image(App.options.collections[regionName][collectioName].assets.annual_burned);
+                            App.options.data.annual_burned_coverage = ee.Image(App.options.collections[regionName][collectioName].assets.annual_burned_coverage);
+                            App.options.data.monthly_burned = ee.Image(App.options.collections[regionName][collectioName].assets.monthly_burned);
+                            App.options.data.annual_burned_scar_size_range = ee.Image(App.options.collections[regionName][collectioName].assets.annual_burned_scar_size_range);
+                            App.options.data.accumulated_burned = ee.Image(App.options.collections[regionName][collectioName].assets.accumulated_burned);
+                            App.options.data.accumulated_burned_coverage = ee.Image(App.options.collections[regionName][collectioName].assets.accumulated_burned_coverage);
+                            App.options.data.year_last_fire = ee.Image(App.options.collections[regionName][collectioName].assets.year_last_fire);
+                            App.options.data.fire_frequency = ee.Image(App.options.collections[regionName][collectioName].assets.fire_frequency);                        
+                            App.options.data.fire_monitor = ee.Image(App.options.collections[regionName][collectioName].assets.fire_monitor);
+                            
                             // -----------------------------------------------
                             // monitor de area queimada sentinel
                             var fireMonitor = ee.ImageCollection(
@@ -674,7 +824,8 @@ var App = {
 
                             //--------------------------------------------
 
-                            var year = App.options.collections[regionName][collectioName].periods.annual_burned_coverage.slice(-1)[0];
+
+                            var year = App.options.collections[regionName][collectioName].periods.annual_burned.slice(-1)[0];
 
                             App.startMap(year);
 
@@ -775,16 +926,10 @@ var App = {
 
             Map.clear();
 
-            Map.setOptions({
-                'styles': {
-                    'Dark': mapp.getStyle('Dark')
-                }
-            });
-
             Map.addLayer(App.options.activeFeature.style({
-                color: '#000055',
+                color: 'ff0000',
                 width: 1,
-                fillColor: '#0000ff11',
+                fillColor: 'ff000033',
             }), {},
                 tableName.split('/')[3],
                 true);
@@ -797,22 +942,14 @@ var App = {
 
             App.options.activeFeature = App.options.table;
 
-            // Map.centerObject(App.options.activeFeature);
-
             Map.clear();
 
-            Map.setOptions({
-                'styles': {
-                    'Dark': mapp.getStyle('Dark')
-                }
-            });
-
             Map.addLayer(App.options.activeFeature.style({
-                color: '#000055',
+                color: 'ff0000',
                 width: 1,
-                fillColor: '#0000ff11',
+                fillColor: 'ff000033',
             }), {},
-                tableName.split('/')[3],
+                tableName.split('/').reverse()[0],
                 true);
 
         },
@@ -871,6 +1008,7 @@ var App = {
                             'placeholder': 'select feature',
                             'onChange': function (featureName) {
                                 if (featureName != 'None') {
+                                    App.options.activeName = featureName;
                                     App.options.featureName = featureName;
 
                                     ee.Number(1).evaluate(
@@ -879,10 +1017,9 @@ var App = {
                                             var collectionName = App.ui.form.selectCollection.getValue();
 
                                             App.ui.loadFeature(featureName);
-                                            App.options.activeName = featureName;
 
                                             App.ui.makeLayersList(
-                                                App.options.activeName,
+                                                featureName,
                                                 App.options.activeFeature,
                                                 App.options.collections[regionName][collectionName]
                                                     .periods[App.options.dataType]);
@@ -945,20 +1082,14 @@ var App = {
             App.options.activeFeature = App.options.table
                 .filterMetadata(App.options.propertyName, 'equals', name);
 
-            Map.centerObject(App.options.activeFeature);
+            // Map.centerObject(App.options.activeFeature);
 
             Map.clear();
 
-            Map.setOptions({
-                'styles': {
-                    'Dark': mapp.getStyle('Dark')
-                }
-            });
-
             Map.addLayer(App.options.activeFeature.style({
-                color: '#000055',
+                color: 'ff0000',
                 width: 1,
-                fillColor: '#0000ff11',
+                fillColor: 'ff000033',
             }), {},
                 name,
                 true);
@@ -967,10 +1098,15 @@ var App = {
 
         addImageLayer: function (period, label, region) {
 
+
             var image = App.options.data[App.options.dataType]
                 .select([App.options.bandsNames[App.options.dataType] + period])
                 .clip(region);
 
+            if (App.options.dataType == 'Transitions') {
+                image = App.remapTransitions(image);
+            }
+            print("teste:", App.options.ranges)
             var imageLayer = ui.Map.Layer({
                 'eeObject': image,
                 'visParams': {
@@ -1132,12 +1268,28 @@ var App = {
                         function (feature) {
                             var className;
 
-                            // className = ee.Dictionary(App.options.className)
-                            //     .get(ee.Number(feature.get('class')));
+                            if (App.options.dataType == 'Coverage') {
 
-                            className = ee.Number(feature.get('class'));
+                                className = ee.Dictionary(App.options.className)
+                                    .get(feature.get('class'));
 
-                            return feature.set('class_name', className).set('band', band);
+                                feature = feature.set('class_name', className).set('band', band);
+
+                            } else if (App.options.dataType == 'Transitions') {
+
+                                var classNamet0 = ee.Dictionary(App.options.className)
+                                    .get(ee.Number(feature.get('class')).divide(100).int());
+                                var classNamet1 = ee.Dictionary(App.options.className)
+                                    .get(ee.Number(feature.get('class')).mod(100).int());
+
+                                feature = feature.set('from_class', classNamet0).set('to_class', classNamet1).set('band', band);
+                            } else {
+
+                                className = ee.String(feature.get('class')).cat(' observations');
+                                feature = feature.set('class_name', className).set('band', band);
+                            }
+
+                            return feature;
                         }
                     );
 
@@ -1163,18 +1315,6 @@ var App = {
 
         },
 
-        showDisclaimer: function () {
-
-            App.ui.form.panelDisclaimer.widgets().reset([]);
-            App.ui.form.panelDisclaimerText.widgets().reset(App.ui.form.labelDisclaimer);
-            App.ui.form.panelDisclaimer.add(App.ui.form.panelDisclaimerText);
-            App.ui.form.panelDisclaimer.add(App.ui.form.buttonDisclaimerOk);
-
-            Map.add(App.ui.form.panelDisclaimer);
-
-            App.ui.form.buttonDisclaimerShow.setDisabled(true);
-        },
-
         form: {
 
             init: function () {
@@ -1184,6 +1324,9 @@ var App = {
                 blob.string().evaluate(
                     function (str) {
                         str = str.replace(/\n/g, '');
+                        
+                        str = App.options.logo.base64 === null ? str : App.options.logo.base64;
+                        
                         App.options.logo.base64 = ui.Label({
                             imageUrl: str,
                         });
@@ -1191,50 +1334,74 @@ var App = {
                     }
                 );
 
-                this.panelMain.add(this.panelLogo);
-                this.panelMain.add(this.labelLink);
+                App.ui.makeLegendLinksList();
 
-                this.panelRegion.add(this.labelRegion);
-                this.panelRegion.add(this.selectRegion);
+                App.ui.form.panelMain.add(App.ui.form.panelLogo);
+                App.ui.form.panelMain.add(App.ui.form.labelTitle);
+                App.ui.form.panelMain.add(App.ui.form.labelSubtitle);
+                App.ui.form.panelMain.add(App.ui.form.labelLink);
+                App.ui.form.panelMain.add(App.ui.form.panelLink1);
+                App.ui.form.panelMain.add(App.ui.form.panelLink2);
 
-                this.panelCollection.add(this.labelCollection);
-                this.panelCollection.add(this.selectCollection);
+                App.ui.form.panelMain.add(App.ui.form.tabs);
+                App.ui.form.panelMain.add(App.ui.form.panel1);
 
-                this.panelFeatureCollections.add(this.labelTables);
-                this.panelFeatureCollections.add(this.selectFeatureCollections);
+                App.ui.form.tab1.add(App.ui.form.checkboxTab1);
+                App.ui.form.tab2.add(App.ui.form.checkboxTab2); 
 
-                this.panelProperties.add(this.labelProperties);
-                this.panelProperties.add(this.selectProperties);
+                App.ui.form.tabs.add(App.ui.form.tab1);
+                App.ui.form.tabs.add(App.ui.form.tab2);
 
-                this.panelFeature.add(this.labelFeature);
-                this.panelFeature.add(this.selectFeature);
+                // App.ui.form.panelLink1.add(App.ui.form.labelLink1);
+                // App.ui.form.panelLink1.add(App.ui.form.labelLink2);
+                // App.ui.form.panelLink1.add(App.ui.form.labelLink3);
+                // App.ui.form.panelLink1.add(App.ui.form.labelLink4);
+                // App.ui.form.panelLink1.add(App.ui.form.labelLink5);
+                // App.ui.form.panelLink1.add(App.ui.form.labelLink6);
+                // App.ui.form.panelLink2.add(App.ui.form.labelLink7); // ecuador
+                // App.ui.form.panelLink2.add(App.ui.form.labelLink8);
+                // App.ui.form.panelLink2.add(App.ui.form.labelLink9);
+                // App.ui.form.panelLink2.add(App.ui.form.labelLink10);
+                // App.ui.form.panelLink2.add(App.ui.form.labelLink11);
+                // App.ui.form.panelLink2.add(App.ui.form.labelLink12);
 
-                this.panelDataType.add(this.labelDataType);
-                this.panelDataType.add(this.selectDataType);
+                App.ui.form.panelRegion.add(App.ui.form.labelRegion);
+                App.ui.form.panelRegion.add(App.ui.form.selectRegion);
 
-                this.panelBuffer.add(this.labelBuffer);
-                this.panelBuffer.add(this.selectBuffer);
+                App.ui.form.panelCollection.add(App.ui.form.labelCollection);
+                App.ui.form.panelCollection.add(App.ui.form.selectCollection);
 
-                // this.panelMain.add(this.panelType);
-                this.panelMain.add(this.panelRegion);
-                this.panelMain.add(this.panelCollection);
-                this.panelMain.add(this.panelFeatureCollections);
-                this.panelMain.add(this.panelStates);
-                this.panelMain.add(this.panelProperties);
-                this.panelMain.add(this.panelFeature);
-                this.panelMain.add(this.panelDataType);
-                this.panelMain.add(this.panelBuffer);
+                App.ui.form.panelFeatureCollections.add(App.ui.form.labelTables);
+                App.ui.form.panelFeatureCollections.add(App.ui.form.selectFeatureCollections);
 
-                this.panelMain.add(this.labelLayers);
-                this.panelMain.add(this.panelLayersList);
+                App.ui.form.panelProperties.add(App.ui.form.labelProperties);
+                App.ui.form.panelProperties.add(App.ui.form.selectProperties);
 
-                this.panelMain.add(this.buttonExport2Drive);
-                this.panelMain.add(this.labelNotes);
-                this.panelMain.add(this.buttonDisclaimerShow);
+                App.ui.form.panelFeature.add(App.ui.form.labelFeature);
+                App.ui.form.panelFeature.add(App.ui.form.selectFeature);
 
-                ui.root.add(this.panelMain);
+                App.ui.form.panelDataType.add(App.ui.form.labelDataType);
+                App.ui.form.panelDataType.add(App.ui.form.selectDataType);
 
-                App.ui.showDisclaimer();
+                App.ui.form.panelBuffer.add(App.ui.form.labelBuffer);
+                App.ui.form.panelBuffer.add(App.ui.form.selectBuffer);
+
+                App.ui.form.panel1.add(App.ui.form.panelRegion);
+                App.ui.form.panel1.add(App.ui.form.panelCollection);
+                App.ui.form.panel1.add(App.ui.form.panelFeatureCollections);
+                App.ui.form.panel1.add(App.ui.form.panelStates);
+                App.ui.form.panel1.add(App.ui.form.panelProperties);
+                App.ui.form.panel1.add(App.ui.form.panelFeature);
+                App.ui.form.panel1.add(App.ui.form.panelDataType);
+                App.ui.form.panel1.add(App.ui.form.panelBuffer);
+
+                App.ui.form.panel1.add(App.ui.form.labelLayers);
+                App.ui.form.panel1.add(App.ui.form.panelLayersList);
+
+                App.ui.form.panel1.add(App.ui.form.buttonExport2Drive);
+                App.ui.form.panel1.add(App.ui.form.labelNotes);
+
+                ui.root.add(App.ui.form.panelMain);
 
             },
 
@@ -1252,6 +1419,20 @@ var App = {
                 'style': {
                     'stretch': 'horizontal',
                     'margin': '10px 0px 5px 15px',
+                },
+            }),
+
+            panelLink1: ui.Panel({
+                'layout': ui.Panel.Layout.flow('horizontal'),
+                'style': {
+                    'stretch': 'horizontal'
+                },
+            }),
+
+            panelLink2: ui.Panel({
+                'layout': ui.Panel.Layout.flow('horizontal'),
+                'style': {
+                    'stretch': 'horizontal'
                 },
             }),
 
@@ -1320,22 +1501,6 @@ var App = {
                 },
             }),
 
-            panelDisclaimer: ui.Panel({
-                'layout': ui.Panel.Layout.flow('vertical'),
-                'style': {
-                    // 'width': '700px',
-                    // 'height': '350px',
-                },
-            }),
-
-            panelDisclaimerText: ui.Panel({
-                'layout': ui.Panel.Layout.flow('vertical'),
-                'style': {
-                    'width': '700px',
-                    'height': '300px',
-                },
-            }),
-
             labelRegion: ui.Label('Region', {
                 // 'fontWeight': 'bold',
                 // 'padding': '1px',
@@ -1354,19 +1519,88 @@ var App = {
                 'fontSize': '16px'
             }),
 
-            labelSubtitle: ui.Label('Fire', {
+            labelSubtitle: ui.Label('Land Use and Land Cover', {
                 // 'fontWeight': 'bold',
                 // 'padding': '1px',
                 'fontSize': '14px'
             }),
 
-            labelLink: ui.Label('Legend codes', {
-                // 'fontWeight': 'bold',
-                // 'padding': '1px',
+            labelLink: ui.Label('Legend codes:', {
                 'fontSize': '10px'
-            },
-                'https://drive.google.com/file/d/10CLAk6mriq8qAAJvB7o7uprM-jVlJjxw/view?usp=sharing'
+            }
             ),
+
+            // labelLink1: ui.Label('Amazon', {
+            //     'fontSize': '10px',
+            // },
+            //     'http://amazonia.mapbiomas.org/codigos-de-la-leyenda'
+            // ),
+
+            // labelLink2: ui.Label('Atlantic Forest', {
+            //     'fontSize': '10px'
+            // },
+            //     'http://bosqueatlantico.mapbiomas.org/codigos-de-la-leyenda'
+            // ),
+
+            // labelLink3: ui.Label('Bolivia', {
+            //     'fontSize': '10px',
+            // },
+            //     'https://bolivia.mapbiomas.org/codigos-de-la-leyenda/'
+            // ),
+
+            // labelLink4: ui.Label('Brazil', {
+            //     'fontSize': '10px'
+            // },
+            //     'https://brasil.mapbiomas.org/codigos-de-legenda/'
+            // ),
+
+            // labelLink5: ui.Label('Chaco', {
+            //     'fontSize': '10px'
+            // },
+            //     'http://chaco.mapbiomas.org/codigos-de-la-leyenda-1'
+            // ),
+
+            // labelLink6: ui.Label('Colombia', {
+            //     'fontSize': '10px',
+            // },
+            //     'https://colombia.mapbiomas.org/codigos-de-la-leyenda/'
+            // ),
+
+            // labelLink7: ui.Label('Ecuador', {
+            //     'fontSize': '10px',
+            // },
+            //     'https://ecuador.mapbiomas.org/codigos-de-la-leyenda/'
+            // ),
+
+            // labelLink8: ui.Label('Indonesia', {
+            //     'fontSize': '10px',
+            // },
+            //     'https://mapbiomas.nusantara.earth/legendcode'
+            // ),
+
+            // labelLink9: ui.Label('Pampa', {
+            //     'fontSize': '10px'
+            // },
+            //     'https://pampa.mapbiomas.org/codigos-de-la-leyenda/'
+            // ),
+
+            // labelLink10: ui.Label('Peru', {
+            //     'fontSize': '10px',
+            // },
+            //     'https://peru.mapbiomas.org/codigos-de-la-leyenda/'
+            // ),
+
+            // labelLink11: ui.Label('Venezuela', {
+            //     'fontSize': '10px',
+            // },
+            //     'https://venezuela.mapbiomas.org/codigos-de-la-leyenda/'
+            // ),
+
+            // labelLink12: ui.Label('Uruguay', {
+            //     'fontSize': '10px',
+            // },
+            //     'https://uruguay.mapbiomas.org/codigos-de-la-leyenda/'
+            // ),
 
             labelType: ui.Label('Type:', {
                 // 'padding': '1px',
@@ -1403,7 +1637,7 @@ var App = {
                 'fontSize': '16px'
             }),
 
-            labelNotes: ui.Label('Go to TASK tab in the up-rght corner and click RUN', {
+            labelNotes: ui.Label('Click the RUN button in the TASK tab at the upper-right corner.', {
                 // 'padding': '1px',
                 'fontSize': '16px'
             }),
@@ -1412,23 +1646,6 @@ var App = {
                 // 'padding': '1px',
                 'fontSize': '16px'
             }),
-
-            labelDisclaimer: [
-                ui.Label('DISCLAIMER'),
-                ui.Label('Esta é a Coleção 2.0 do MapBiomas Fogo com o mapeamento de cicatrizes de fogo no Brasil de 1985 a 2022, com dados Anuais e Mensais para todo o período incluindo: (i) dado no ano e acumulado em um período; (ii) frequência de ocorrência de cicatriz de queimada; (iii) classificação da cobertura e uso do terra objetivo de queimada.\
-                O fogo associado a áreas recém desmatadas podem ocorrer tanto em áreas classificadas como vegetação nativa como em áreas de uso antrópico dependendo da época do ano em que os dados de cobertura e uso foram classificados e o momento em que ocorreu o fogo.\
-                A descrição do método de mapeamento das cicatrizes de fogo e sua classificação por classe de vegetação queimada bem como da determinação da frequência podem ser acessados na seção de metodologias do MapBiomas.\
-                Os mapas anuais de cicatrizes de queimadas bem como os principais conjuntos de estatísticas consolidadas estão disponíveis na área de download do MapBiomas.\
-                Caso tenha sugestões, críticas e idéias para aprimorar o trabalho entre em contato pelo e- mail: contato@mapbiomas.org ou acesse o Fórum MapBiomas.\
-                Os dados do MapBiomas são públicos, abertos e gratuitos sob licença Creative Commons CC - CY - SA e mediante a referência da fonte observando o seguinte formato: "Projeto MapBiomas – Mapeamento de cicatrizes de fogo no Brasil Coleção 1, acessado em [DATA] através do link: [LINK]".'),
-                ui.Label(''),
-                ui.Label('This is the Collection 2.0 of MapBiomas Fogo with the mapping of fire scars in Brazil from 1985 to 2022, with Annual and Monthly data for the entire period including: (i) non-year data and accumulated in a period; (ii) frequency of a fire scar; (iii) classification of land cover and land use intended for burning.\
-                Fires associated with recently deforested areas can occur both in areas classified as native vegetation and in areas of anthropogenic use depending on the time of year in which the coverage and use data were classified and the time when the fire occurred.\
-                The description of the method of mapping fire scars and their classification by burnt vegetation class as well as the determination of frequency can be found in the methodology section of MapBiomas.\
-                Annual maps of burn scars as well as the main sets of consolidated statistics are available in the download area of ​​MapBiomas.\
-                If you have suggestions, criticisms and ideas to improve the work, please contact us by e- mail: contato@mapbiomas.org or visit the MapBiomas Forum.\
-                MapBiomas data is public, available and free under a Creative Commons CC - CY - SA license and by reference to the source, observing the following format: "MapBiomas Project - Mapping of fire scars in Brazil Collection 1, accessed in [DATE] through link: [LINK] ".'),
-            ],
 
             selectName: ui.Select({
                 'items': ['None'],
@@ -1448,12 +1665,8 @@ var App = {
 
             selectRegion: ui.Select({
                 'items': [
-                    // 'mapbiomas-amazon',
-                    // 'mapbiomas-atlantic-forest',
                     'mapbiomas-brazil',
-                    // 'mapbiomas-chaco',
                     // 'mapbiomas-indonesia',
-                    // 'mapbiomas-pampa',
                 ],
                 'placeholder': 'None',
                 'style': {
@@ -1495,13 +1708,8 @@ var App = {
             }),
 
             selectDataType: ui.Select({
-                'items': [
-                    'annual_burned_coverage',
-                    'monthly_burned_coverage',
-                    'fire_frequency',
-                    'fire_monitor'
-                ],
-                'placeholder': 'annual_burned_coverage',
+                'items': ['Coverage', 'Transitions'],
+                'placeholder': 'Coverage',
                 'style': {
                     'stretch': 'horizontal'
                 },
@@ -1516,6 +1724,7 @@ var App = {
                     '3km',
                     '4km',
                     '5km',
+                    '10km',
                 ],
                 'placeholder': 'None',
                 'style': {
@@ -1529,6 +1738,7 @@ var App = {
                         '3km': 3000,
                         '4km': 4000,
                         '5km': 5000,
+                        '10km': 10000,
                     };
 
                     App.options.bufferDistance = distances[distance];
@@ -1551,7 +1761,11 @@ var App = {
                         ee.Number(1).evaluate(
                             function (a) {
                                 App.ui.loadTableStates(App.options.activeName);
-                                App.ui.makeLayersList(App.options.activeName.split('/')[3], App.options.activeFeature, App.options.periods[App.options.dataType]);
+                                App.ui.makeLayersList(
+                                    App.options.activeName.split('/')[3],
+                                    App.options.activeFeature,
+                                    App.options.periods[App.options.dataType]
+                                );
                                 App.ui.loadPropertiesNames();
                                 App.ui.form.selectDataType.setDisabled(false);
                             }
@@ -1577,30 +1791,496 @@ var App = {
                 }
             }),
 
-            buttonDisclaimerOk: ui.Button({
-                "label": "Ok, I get it!",
-                "onClick": function () {
-                    Map.remove(App.ui.form.panelDisclaimer);
-                    App.ui.form.buttonDisclaimerShow.setDisabled(false);
+            // panels and tabs
+            tabs: ui.Panel({
+                layout: ui.Panel.Layout.flow('horizontal')
+            }),
+
+            checkboxTab1: ui.Checkbox({
+                'label': '  Toolkit ',
+                'style': {
+                    'margin': '5px 0px 5px -16px',
+                    'stretch': 'horizontal',
+                    'backgroundColor': '#00000000',
                 },
-                "disabled": false,
-                "style": {
-                    // 'padding': '2px',
-                    'stretch': 'horizontal'
+                'onChange': function (checked) {
+                    if (checked) {
+                        App.ui.form.checkboxTab2.setValue(false);
+                        App.ui.form.tab1.style().set('border', '1px solid #808080');
+                        App.ui.form.tab2.style().set('border', '1px solid #80808033');
+
+                        App.ui.form.panelMain.remove(App.ui.form.panel1);
+                        App.ui.form.panelMain.remove(App.ui.form.panel2);
+                        App.ui.form.panelMain.remove(App.ui.form.panel3);
+                        App.ui.form.panelMain.remove(App.ui.form.panel4);
+                        App.ui.form.panelMain.remove(App.ui.form.panel5);
+                        App.ui.form.panelMain.remove(App.ui.form.panel6);
+                        App.ui.form.panelMain.remove(App.ui.form.panel7);
+                        App.ui.form.panelMain.add(App.ui.form.panel1);
+                    }
                 }
             }),
 
-            buttonDisclaimerShow: ui.Button({
-                "label": "Show disclaimer",
-                "onClick": function () {
-                    App.ui.showDisclaimer();
+            checkboxTab2: ui.Checkbox({
+                'label': '  Direct Link',
+                'style': {
+                    'margin': '5px 20px 5px -16px',
+                    'stretch': 'horizontal',
+                    'backgroundColor': '#00000000',
                 },
-                "disabled": false,
-                "style": {
-                    // 'padding': '2px',
-                    'stretch': 'horizontal'
+                'onChange': function (checked) {
+                    if (checked) {
+                        App.ui.form.checkboxTab1.setValue(false);
+                        App.ui.form.tab1.style().set('border', '1px solid #80808033');
+                        App.ui.form.tab2.style().set('border', '1px solid #808080');
+
+                        App.ui.form.panelMain.remove(App.ui.form.panel1);
+                        App.ui.form.panelMain.add(App.ui.form.panel2);
+                        App.ui.form.panelMain.add(App.ui.form.panel3);
+                        App.ui.form.panelMain.add(App.ui.form.panel4);
+                        App.ui.form.panelMain.add(App.ui.form.panel5);
+                        App.ui.form.panelMain.add(App.ui.form.panel6);
+                        App.ui.form.panelMain.add(App.ui.form.panel7);
+                    }
+
                 }
             }),
+
+            tab1: ui.Panel({
+                'style': {
+                    'width': '100px',
+                    'backgroundColor': '#dddddd00',
+                    'stretch': 'horizontal',
+                    'border': '1px solid #808080',
+                    'margin': '0px 0px 0px 6px'
+                },
+            }),
+
+            tab2: ui.Panel({
+                'style': {
+                    'width': '100px',
+                    'backgroundColor': '#dddddd00',
+                    'stretch': 'horizontal',
+                    'border': '1px solid #80808033',
+                }
+            }),
+
+            panel1: ui.Panel({
+                style: {
+                    'stretch': 'both'
+                }
+            }),
+            panel2: ui.Panel({
+                widgets: [
+                    ui.Label('Brazil fire col3: annual_burned_coverage'),
+                    ui.Panel({
+                        widgets: [
+                            ui.Label({ value: '1985', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-annual/fire_annual_1985.tif' }),
+                            ui.Label({ value: '1986', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-annual/fire_annual_1986.tif' }),
+                            ui.Label({ value: '1987', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-annual/fire_annual_1987.tif' }),
+                            ui.Label({ value: '1988', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-annual/fire_annual_1988.tif' }),
+                            ui.Label({ value: '1989', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-annual/fire_annual_1989.tif' }),
+                            ui.Label({ value: '1990', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-annual/fire_annual_1990.tif' }),
+                            ui.Label({ value: '1991', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-annual/fire_annual_1991.tif' }),
+                            ui.Label({ value: '1992', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-annual/fire_annual_1992.tif' }),
+                            ui.Label({ value: '1993', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-annual/fire_annual_1993.tif' }),
+                            ui.Label({ value: '1994', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-annual/fire_annual_1994.tif' }),
+                            ui.Label({ value: '1995', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-annual/fire_annual_1995.tif' }),
+                            ui.Label({ value: '1996', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-annual/fire_annual_1996.tif' }),
+                            ui.Label({ value: '1997', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-annual/fire_annual_1997.tif' }),
+                            ui.Label({ value: '1998', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-annual/fire_annual_1998.tif' }),
+                            ui.Label({ value: '1999', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-annual/fire_annual_1999.tif' }),
+                            ui.Label({ value: '2000', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-annual/fire_annual_2000.tif' }),
+                            ui.Label({ value: '2001', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-annual/fire_annual_2001.tif' }),
+                            ui.Label({ value: '2002', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-annual/fire_annual_2002.tif' }),
+                            ui.Label({ value: '2003', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-annual/fire_annual_2003.tif' }),
+                            ui.Label({ value: '2004', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-annual/fire_annual_2004.tif' }),
+                            ui.Label({ value: '2005', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-annual/fire_annual_2005.tif' }),
+                            ui.Label({ value: '2006', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-annual/fire_annual_2006.tif' }),
+                            ui.Label({ value: '2007', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-annual/fire_annual_2007.tif' }),
+                            ui.Label({ value: '2008', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-annual/fire_annual_2008.tif' }),
+                            ui.Label({ value: '2009', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-annual/fire_annual_2009.tif' }),
+                            ui.Label({ value: '2010', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-annual/fire_annual_2010.tif' }),
+                            ui.Label({ value: '2011', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-annual/fire_annual_2011.tif' }),
+                            ui.Label({ value: '2012', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-annual/fire_annual_2012.tif' }),
+                            ui.Label({ value: '2013', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-annual/fire_annual_2013.tif' }),
+                            ui.Label({ value: '2014', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-annual/fire_annual_2014.tif' }),
+                            ui.Label({ value: '2015', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-annual/fire_annual_2015.tif' }),
+                            ui.Label({ value: '2016', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-annual/fire_annual_2016.tif' }),
+                            ui.Label({ value: '2017', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-annual/fire_annual_2017.tif' }),
+                            ui.Label({ value: '2018', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-annual/fire_annual_2018.tif' }),
+                            ui.Label({ value: '2019', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-annual/fire_annual_2019.tif' }),
+                            ui.Label({ value: '2020', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-annual/fire_annual_2020.tif' }),
+                            ui.Label({ value: '2021', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-annual/fire_annual_2021.tif' }),
+                            ui.Label({ value: '2022', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-annual/fire_annual_2022.tif' }),
+                        ],
+                        'layout': ui.Panel.Layout.flow('horizontal', true),
+                        style: {
+                            'border': '1px grey solid',
+                            'margin': '0px 6px 0px 6px'
+                        }
+                    }),
+                ],
+                style: {
+                    'stretch': 'both'
+                }
+            }),
+            panel3: ui.Panel({
+                widgets: [
+                    ui.Label('Brazil fire col3: annual_burned_coverage'),
+                    ui.Panel({
+                        widgets: [
+                            ui.Label({ value: '1985', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-monthly/fire_monthly_1985.tif' }),
+                            ui.Label({ value: '1986', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-monthly/fire_monthly_1986.tif' }),
+                            ui.Label({ value: '1987', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-monthly/fire_monthly_1987.tif' }),
+                            ui.Label({ value: '1988', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-monthly/fire_monthly_1988.tif' }),
+                            ui.Label({ value: '1989', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-monthly/fire_monthly_1989.tif' }),
+                            ui.Label({ value: '1990', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-monthly/fire_monthly_1990.tif' }),
+                            ui.Label({ value: '1991', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-monthly/fire_monthly_1991.tif' }),
+                            ui.Label({ value: '1992', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-monthly/fire_monthly_1992.tif' }),
+                            ui.Label({ value: '1993', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-monthly/fire_monthly_1993.tif' }),
+                            ui.Label({ value: '1994', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-monthly/fire_monthly_1994.tif' }),
+                            ui.Label({ value: '1995', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-monthly/fire_monthly_1995.tif' }),
+                            ui.Label({ value: '1996', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-monthly/fire_monthly_1996.tif' }),
+                            ui.Label({ value: '1997', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-monthly/fire_monthly_1997.tif' }),
+                            ui.Label({ value: '1998', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-monthly/fire_monthly_1998.tif' }),
+                            ui.Label({ value: '1999', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-monthly/fire_monthly_1999.tif' }),
+                            ui.Label({ value: '2000', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-monthly/fire_monthly_2000.tif' }),
+                            ui.Label({ value: '2001', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-monthly/fire_monthly_2001.tif' }),
+                            ui.Label({ value: '2002', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-monthly/fire_monthly_2002.tif' }),
+                            ui.Label({ value: '2003', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-monthly/fire_monthly_2003.tif' }),
+                            ui.Label({ value: '2004', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-monthly/fire_monthly_2004.tif' }),
+                            ui.Label({ value: '2005', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-monthly/fire_monthly_2005.tif' }),
+                            ui.Label({ value: '2006', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-monthly/fire_monthly_2006.tif' }),
+                            ui.Label({ value: '2007', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-monthly/fire_monthly_2007.tif' }),
+                            ui.Label({ value: '2008', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-monthly/fire_monthly_2008.tif' }),
+                            ui.Label({ value: '2009', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-monthly/fire_monthly_2009.tif' }),
+                            ui.Label({ value: '2010', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-monthly/fire_monthly_2010.tif' }),
+                            ui.Label({ value: '2011', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-monthly/fire_monthly_2011.tif' }),
+                            ui.Label({ value: '2012', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-monthly/fire_monthly_2012.tif' }),
+                            ui.Label({ value: '2013', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-monthly/fire_monthly_2013.tif' }),
+                            ui.Label({ value: '2014', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-monthly/fire_monthly_2014.tif' }),
+                            ui.Label({ value: '2015', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-monthly/fire_monthly_2015.tif' }),
+                            ui.Label({ value: '2016', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-monthly/fire_monthly_2016.tif' }),
+                            ui.Label({ value: '2017', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-monthly/fire_monthly_2017.tif' }),
+                            ui.Label({ value: '2018', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-monthly/fire_monthly_2018.tif' }),
+                            ui.Label({ value: '2019', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-monthly/fire_monthly_2019.tif' }),
+                            ui.Label({ value: '2020', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-monthly/fire_monthly_2020.tif' }),
+                            ui.Label({ value: '2021', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-monthly/fire_monthly_2021.tif' }),
+                            ui.Label({ value: '2022', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-monthly/fire_monthly_2022.tif' }),
+                        ],
+                        'layout': ui.Panel.Layout.flow('horizontal', true),
+                        style: {
+                            'border': '1px grey solid',
+                            'margin': '0px 6px 0px 6px'
+                        }
+                    }),
+                ],
+                style: {
+                    'stretch': 'both'
+                }
+            }),
+            panel4: ui.Panel({
+              widgets: [
+                  ui.Label('Brazil fire col3: annual_burned_scar_size_range'),
+                  ui.Panel({
+                      widgets: [
+                          ui.Label({ value: '1985', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-size/fire_size_1985.tif' }),
+                          ui.Label({ value: '1986', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-size/fire_size_1986.tif' }),
+                          ui.Label({ value: '1987', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-size/fire_size_1987.tif' }),
+                          ui.Label({ value: '1988', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-size/fire_size_1988.tif' }),
+                          ui.Label({ value: '1989', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-size/fire_size_1989.tif' }),
+                          ui.Label({ value: '1990', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-size/fire_size_1990.tif' }),
+                          ui.Label({ value: '1991', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-size/fire_size_1991.tif' }),
+                          ui.Label({ value: '1992', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-size/fire_size_1992.tif' }),
+                          ui.Label({ value: '1993', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-size/fire_size_1993.tif' }),
+                          ui.Label({ value: '1994', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-size/fire_size_1994.tif' }),
+                          ui.Label({ value: '1995', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-size/fire_size_1995.tif' }),
+                          ui.Label({ value: '1996', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-size/fire_size_1996.tif' }),
+                          ui.Label({ value: '1997', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-size/fire_size_1997.tif' }),
+                          ui.Label({ value: '1998', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-size/fire_size_1998.tif' }),
+                          ui.Label({ value: '1999', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-size/fire_size_1999.tif' }),
+                          ui.Label({ value: '2000', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-size/fire_size_2000.tif' }),
+                          ui.Label({ value: '2001', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-size/fire_size_2001.tif' }),
+                          ui.Label({ value: '2002', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-size/fire_size_2002.tif' }),
+                          ui.Label({ value: '2003', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-size/fire_size_2003.tif' }),
+                          ui.Label({ value: '2004', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-size/fire_size_2004.tif' }),
+                          ui.Label({ value: '2005', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-size/fire_size_2005.tif' }),
+                          ui.Label({ value: '2006', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-size/fire_size_2006.tif' }),
+                          ui.Label({ value: '2007', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-size/fire_size_2007.tif' }),
+                          ui.Label({ value: '2008', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-size/fire_size_2008.tif' }),
+                          ui.Label({ value: '2009', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-size/fire_size_2009.tif' }),
+                          ui.Label({ value: '2010', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-size/fire_size_2010.tif' }),
+                          ui.Label({ value: '2011', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-size/fire_size_2011.tif' }),
+                          ui.Label({ value: '2012', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-size/fire_size_2012.tif' }),
+                          ui.Label({ value: '2013', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-size/fire_size_2013.tif' }),
+                          ui.Label({ value: '2014', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-size/fire_size_2014.tif' }),
+                          ui.Label({ value: '2015', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-size/fire_size_2015.tif' }),
+                          ui.Label({ value: '2016', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-size/fire_size_2016.tif' }),
+                          ui.Label({ value: '2017', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-size/fire_size_2017.tif' }),
+                          ui.Label({ value: '2018', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-size/fire_size_2018.tif' }),
+                          ui.Label({ value: '2019', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-size/fire_size_2019.tif' }),
+                          ui.Label({ value: '2020', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-size/fire_size_2020.tif' }),
+                          ui.Label({ value: '2021', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-size/fire_size_2021.tif' }),
+                          ui.Label({ value: '2022', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-size/fire_size_2022.tif' }),
+                      ],
+                      'layout': ui.Panel.Layout.flow('horizontal', true),
+                      style: {
+                          'border': '1px grey solid',
+                          'margin': '0px 6px 0px 6px'
+                      }
+                  }),
+              ],
+              style: {
+                  'stretch': 'both'
+              }
+          }),
+            panel5: ui.Panel({
+              widgets: [
+                  ui.Label('Brazil fire col3: year_last_fire'),
+                  ui.Panel({
+                      widgets: [
+                          ui.Label({ value: '1986', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-last/fire_last_1986.tif' }),
+                          ui.Label({ value: '1987', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-last/fire_last_1987.tif' }),
+                          ui.Label({ value: '1988', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-last/fire_last_1988.tif' }),
+                          ui.Label({ value: '1989', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-last/fire_last_1989.tif' }),
+                          ui.Label({ value: '1990', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-last/fire_last_1990.tif' }),
+                          ui.Label({ value: '1991', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-last/fire_last_1991.tif' }),
+                          ui.Label({ value: '1992', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-last/fire_last_1992.tif' }),
+                          ui.Label({ value: '1993', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-last/fire_last_1993.tif' }),
+                          ui.Label({ value: '1994', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-last/fire_last_1994.tif' }),
+                          ui.Label({ value: '1995', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-last/fire_last_1995.tif' }),
+                          ui.Label({ value: '1996', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-last/fire_last_1996.tif' }),
+                          ui.Label({ value: '1997', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-last/fire_last_1997.tif' }),
+                          ui.Label({ value: '1998', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-last/fire_last_1998.tif' }),
+                          ui.Label({ value: '1999', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-last/fire_last_1999.tif' }),
+                          ui.Label({ value: '2000', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-last/fire_last_2000.tif' }),
+                          ui.Label({ value: '2001', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-last/fire_last_2001.tif' }),
+                          ui.Label({ value: '2002', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-last/fire_last_2002.tif' }),
+                          ui.Label({ value: '2003', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-last/fire_last_2003.tif' }),
+                          ui.Label({ value: '2004', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-last/fire_last_2004.tif' }),
+                          ui.Label({ value: '2005', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-last/fire_last_2005.tif' }),
+                          ui.Label({ value: '2006', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-last/fire_last_2006.tif' }),
+                          ui.Label({ value: '2007', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-last/fire_last_2007.tif' }),
+                          ui.Label({ value: '2008', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-last/fire_last_2008.tif' }),
+                          ui.Label({ value: '2009', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-last/fire_last_2009.tif' }),
+                          ui.Label({ value: '2010', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-last/fire_last_2010.tif' }),
+                          ui.Label({ value: '2011', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-last/fire_last_2011.tif' }),
+                          ui.Label({ value: '2012', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-last/fire_last_2012.tif' }),
+                          ui.Label({ value: '2013', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-last/fire_last_2013.tif' }),
+                          ui.Label({ value: '2014', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-last/fire_last_2014.tif' }),
+                          ui.Label({ value: '2015', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-last/fire_last_2015.tif' }),
+                          ui.Label({ value: '2016', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-last/fire_last_2016.tif' }),
+                          ui.Label({ value: '2017', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-last/fire_last_2017.tif' }),
+                          ui.Label({ value: '2018', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-last/fire_last_2018.tif' }),
+                          ui.Label({ value: '2019', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-last/fire_last_2019.tif' }),
+                          ui.Label({ value: '2020', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-last/fire_last_2020.tif' }),
+                          ui.Label({ value: '2021', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-last/fire_last_2021.tif' }),
+                          ui.Label({ value: '2022', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-last/fire_last_2022.tif' }),
+                      ],
+                      'layout': ui.Panel.Layout.flow('horizontal', true),
+                      style: {
+                          'border': '1px grey solid',
+                          'margin': '0px 6px 0px 6px'
+                      }
+                  }),
+              ],
+              style: {
+                  'stretch': 'both'
+              }
+          }),
+            panel6: ui.Panel({
+              widgets: [
+                  ui.Label('Brazil fire col3: accumulated_burned_coverage'),
+                  ui.Panel({
+                      widgets: [
+                          ui.Label({ value: '1985_1986', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-accumulated/fire_accumulated_1985_1985.tif' }),
+                          ui.Label({ value: '1985_1986', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-accumulated/fire_accumulated_1985_1986.tif' }),
+                          ui.Label({ value: '1985_1987', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-accumulated/fire_accumulated_1985_1987.tif' }),
+                          ui.Label({ value: '1985_1988', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-accumulated/fire_accumulated_1985_1988.tif' }),
+                          ui.Label({ value: '1985_1989', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-accumulated/fire_accumulated_1985_1989.tif' }),
+                          ui.Label({ value: '1985_1990', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-accumulated/fire_accumulated_1985_1990.tif' }),
+                          ui.Label({ value: '1985_1991', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-accumulated/fire_accumulated_1985_1991.tif' }),
+                          ui.Label({ value: '1985_1992', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-accumulated/fire_accumulated_1985_1992.tif' }),
+                          ui.Label({ value: '1985_1993', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-accumulated/fire_accumulated_1985_1993.tif' }),
+                          ui.Label({ value: '1985_1994', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-accumulated/fire_accumulated_1985_1994.tif' }),
+                          ui.Label({ value: '1985_1995', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-accumulated/fire_accumulated_1985_1995.tif' }),
+                          ui.Label({ value: '1985_1996', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-accumulated/fire_accumulated_1985_1996.tif' }),
+                          ui.Label({ value: '1985_1997', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-accumulated/fire_accumulated_1985_1997.tif' }),
+                          ui.Label({ value: '1985_1998', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-accumulated/fire_accumulated_1985_1998.tif' }),
+                          ui.Label({ value: '1985_1999', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-accumulated/fire_accumulated_1985_1999.tif' }),
+                          ui.Label({ value: '1985_2000', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-accumulated/fire_accumulated_1985_2000.tif' }),
+                          ui.Label({ value: '1985_2001', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-accumulated/fire_accumulated_1985_2001.tif' }),
+                          ui.Label({ value: '1985_2002', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-accumulated/fire_accumulated_1985_2002.tif' }),
+                          ui.Label({ value: '1985_2003', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-accumulated/fire_accumulated_1985_2003.tif' }),
+                          ui.Label({ value: '1985_2004', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-accumulated/fire_accumulated_1985_2004.tif' }),
+                          ui.Label({ value: '1985_2005', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-accumulated/fire_accumulated_1985_2005.tif' }),
+                          ui.Label({ value: '1985_2006', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-accumulated/fire_accumulated_1985_2006.tif' }),
+                          ui.Label({ value: '1985_2007', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-accumulated/fire_accumulated_1985_2007.tif' }),
+                          ui.Label({ value: '1985_2008', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-accumulated/fire_accumulated_1985_2008.tif' }),
+                          ui.Label({ value: '1985_2009', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-accumulated/fire_accumulated_1985_2009.tif' }),
+                          ui.Label({ value: '1985_2010', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-accumulated/fire_accumulated_1985_2010.tif' }),
+                          ui.Label({ value: '1985_2011', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-accumulated/fire_accumulated_1985_2011.tif' }),
+                          ui.Label({ value: '1985_2012', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-accumulated/fire_accumulated_1985_2012.tif' }),
+                          ui.Label({ value: '1985_2013', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-accumulated/fire_accumulated_1985_2013.tif' }),
+                          ui.Label({ value: '1985_2014', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-accumulated/fire_accumulated_1985_2014.tif' }),
+                          ui.Label({ value: '1985_2015', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-accumulated/fire_accumulated_1985_2015.tif' }),
+                          ui.Label({ value: '1985_2016', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-accumulated/fire_accumulated_1985_2016.tif' }),
+                          ui.Label({ value: '1985_2017', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-accumulated/fire_accumulated_1985_2017.tif' }),
+                          ui.Label({ value: '1985_2018', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-accumulated/fire_accumulated_1985_2018.tif' }),
+                          ui.Label({ value: '1985_2019', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-accumulated/fire_accumulated_1985_2019.tif' }),
+                          ui.Label({ value: '1985_2020', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-accumulated/fire_accumulated_1985_2020.tif' }),
+                          ui.Label({ value: '2020_2020', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-accumulated/fire_accumulated_2020_2020.tif' }),
+                          ui.Label({ value: '2019_2020', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-accumulated/fire_accumulated_2019_2020.tif' }),
+                          ui.Label({ value: '2018_2020', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-accumulated/fire_accumulated_2018_2020.tif' }),
+                          ui.Label({ value: '2017_2020', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-accumulated/fire_accumulated_2017_2020.tif' }),
+                          ui.Label({ value: '2016_2020', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-accumulated/fire_accumulated_2016_2020.tif' }),
+                          ui.Label({ value: '2015_2020', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-accumulated/fire_accumulated_2015_2020.tif' }),
+                          ui.Label({ value: '2014_2020', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-accumulated/fire_accumulated_2014_2020.tif' }),
+                          ui.Label({ value: '2013_2020', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-accumulated/fire_accumulated_2013_2020.tif' }),
+                          ui.Label({ value: '2012_2020', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-accumulated/fire_accumulated_2012_2020.tif' }),
+                          ui.Label({ value: '2011_2020', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-accumulated/fire_accumulated_2011_2020.tif' }),
+                          ui.Label({ value: '2010_2020', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-accumulated/fire_accumulated_2010_2020.tif' }),
+                          ui.Label({ value: '2009_2020', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-accumulated/fire_accumulated_2009_2020.tif' }),
+                          ui.Label({ value: '2008_2020', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-accumulated/fire_accumulated_2008_2020.tif' }),
+                          ui.Label({ value: '2007_2020', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-accumulated/fire_accumulated_2007_2020.tif' }),
+                          ui.Label({ value: '2006_2020', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-accumulated/fire_accumulated_2006_2020.tif' }),
+                          ui.Label({ value: '2005_2020', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-accumulated/fire_accumulated_2005_2020.tif' }),
+                          ui.Label({ value: '2004_2020', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-accumulated/fire_accumulated_2004_2020.tif' }),
+                          ui.Label({ value: '2003_2020', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-accumulated/fire_accumulated_2003_2020.tif' }),
+                          ui.Label({ value: '2002_2020', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-accumulated/fire_accumulated_2002_2020.tif' }),
+                          ui.Label({ value: '2001_2020', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-accumulated/fire_accumulated_2001_2020.tif' }),
+                          ui.Label({ value: '2000_2020', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-accumulated/fire_accumulated_2000_2020.tif' }),
+                          ui.Label({ value: '1999_2020', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-accumulated/fire_accumulated_1999_2020.tif' }),
+                          ui.Label({ value: '1998_2020', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-accumulated/fire_accumulated_1998_2020.tif' }),
+                          ui.Label({ value: '1997_2020', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-accumulated/fire_accumulated_1997_2020.tif' }),
+                          ui.Label({ value: '1996_2020', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-accumulated/fire_accumulated_1996_2020.tif' }),
+                          ui.Label({ value: '1995_2020', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-accumulated/fire_accumulated_1995_2020.tif' }),
+                          ui.Label({ value: '1994_2020', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-accumulated/fire_accumulated_1994_2020.tif' }),
+                          ui.Label({ value: '1993_2020', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-accumulated/fire_accumulated_1993_2020.tif' }),
+                          ui.Label({ value: '1992_2020', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-accumulated/fire_accumulated_1992_2020.tif' }),
+                          ui.Label({ value: '1991_2020', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-accumulated/fire_accumulated_1991_2020.tif' }),
+                          ui.Label({ value: '1990_2020', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-accumulated/fire_accumulated_1990_2020.tif' }),
+                          ui.Label({ value: '1989_2020', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-accumulated/fire_accumulated_1989_2020.tif' }),
+                          ui.Label({ value: '1988_2020', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-accumulated/fire_accumulated_1988_2020.tif' }),
+                          ui.Label({ value: '1987_2020', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-accumulated/fire_accumulated_1987_2020.tif' }),
+                          ui.Label({ value: '1986_2020', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-accumulated/fire_accumulated_1986_2020.tif' }),
+                          ui.Label({ value: '1990_1995', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-accumulated/fire_accumulated_1990_1995.tif' }),
+                          ui.Label({ value: '1995_2000', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-accumulated/fire_accumulated_1995_2000.tif' }),
+                          ui.Label({ value: '2000_2005', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-accumulated/fire_accumulated_2000_2005.tif' }),
+                          ui.Label({ value: '2005_2010', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-accumulated/fire_accumulated_2005_2010.tif' }),
+                          ui.Label({ value: '2010_2015', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-accumulated/fire_accumulated_2010_2015.tif' }),
+                          ui.Label({ value: '1995_2005', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-accumulated/fire_accumulated_1995_2005.tif' }),
+                          ui.Label({ value: '2005_2015', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-accumulated/fire_accumulated_2005_2015.tif' }),
+                          ui.Label({ value: '2000_2015', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-accumulated/fire_accumulated_2000_2015.tif' }),
+                      ],
+                      'layout': ui.Panel.Layout.flow('horizontal', true),
+                      style: {
+                          'border': '1px grey solid',
+                          'margin': '0px 6px 0px 6px'
+                      }
+                  }),
+              ],
+              style: {
+                  'stretch': 'both'
+              }
+          }),
+            panel7: ui.Panel({
+              widgets: [
+                  ui.Label('Brazil fire col3: frequency_burned_coverage'),
+                  ui.Panel({
+                      widgets: [
+                          ui.Label({ value: '1985_1986', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-frequency/fire_frequency_1985_1985.tif' }),
+                          ui.Label({ value: '1985_1986', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-frequency/fire_frequency_1985_1986.tif' }),
+                          ui.Label({ value: '1985_1987', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-frequency/fire_frequency_1985_1987.tif' }),
+                          ui.Label({ value: '1985_1988', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-frequency/fire_frequency_1985_1988.tif' }),
+                          ui.Label({ value: '1985_1989', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-frequency/fire_frequency_1985_1989.tif' }),
+                          ui.Label({ value: '1985_1990', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-frequency/fire_frequency_1985_1990.tif' }),
+                          ui.Label({ value: '1985_1991', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-frequency/fire_frequency_1985_1991.tif' }),
+                          ui.Label({ value: '1985_1992', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-frequency/fire_frequency_1985_1992.tif' }),
+                          ui.Label({ value: '1985_1993', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-frequency/fire_frequency_1985_1993.tif' }),
+                          ui.Label({ value: '1985_1994', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-frequency/fire_frequency_1985_1994.tif' }),
+                          ui.Label({ value: '1985_1995', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-frequency/fire_frequency_1985_1995.tif' }),
+                          ui.Label({ value: '1985_1996', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-frequency/fire_frequency_1985_1996.tif' }),
+                          ui.Label({ value: '1985_1997', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-frequency/fire_frequency_1985_1997.tif' }),
+                          ui.Label({ value: '1985_1998', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-frequency/fire_frequency_1985_1998.tif' }),
+                          ui.Label({ value: '1985_1999', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-frequency/fire_frequency_1985_1999.tif' }),
+                          ui.Label({ value: '1985_2000', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-frequency/fire_frequency_1985_2000.tif' }),
+                          ui.Label({ value: '1985_2001', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-frequency/fire_frequency_1985_2001.tif' }),
+                          ui.Label({ value: '1985_2002', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-frequency/fire_frequency_1985_2002.tif' }),
+                          ui.Label({ value: '1985_2003', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-frequency/fire_frequency_1985_2003.tif' }),
+                          ui.Label({ value: '1985_2004', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-frequency/fire_frequency_1985_2004.tif' }),
+                          ui.Label({ value: '1985_2005', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-frequency/fire_frequency_1985_2005.tif' }),
+                          ui.Label({ value: '1985_2006', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-frequency/fire_frequency_1985_2006.tif' }),
+                          ui.Label({ value: '1985_2007', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-frequency/fire_frequency_1985_2007.tif' }),
+                          ui.Label({ value: '1985_2008', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-frequency/fire_frequency_1985_2008.tif' }),
+                          ui.Label({ value: '1985_2009', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-frequency/fire_frequency_1985_2009.tif' }),
+                          ui.Label({ value: '1985_2010', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-frequency/fire_frequency_1985_2010.tif' }),
+                          ui.Label({ value: '1985_2011', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-frequency/fire_frequency_1985_2011.tif' }),
+                          ui.Label({ value: '1985_2012', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-frequency/fire_frequency_1985_2012.tif' }),
+                          ui.Label({ value: '1985_2013', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-frequency/fire_frequency_1985_2013.tif' }),
+                          ui.Label({ value: '1985_2014', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-frequency/fire_frequency_1985_2014.tif' }),
+                          ui.Label({ value: '1985_2015', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-frequency/fire_frequency_1985_2015.tif' }),
+                          ui.Label({ value: '1985_2016', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-frequency/fire_frequency_1985_2016.tif' }),
+                          ui.Label({ value: '1985_2017', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-frequency/fire_frequency_1985_2017.tif' }),
+                          ui.Label({ value: '1985_2018', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-frequency/fire_frequency_1985_2018.tif' }),
+                          ui.Label({ value: '1985_2019', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-frequency/fire_frequency_1985_2019.tif' }),
+                          ui.Label({ value: '1985_2020', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-frequency/fire_frequency_1985_2020.tif' }),
+                          ui.Label({ value: '2020_2020', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-frequency/fire_frequency_2020_2020.tif' }),
+                          ui.Label({ value: '2019_2020', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-frequency/fire_frequency_2019_2020.tif' }),
+                          ui.Label({ value: '2018_2020', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-frequency/fire_frequency_2018_2020.tif' }),
+                          ui.Label({ value: '2017_2020', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-frequency/fire_frequency_2017_2020.tif' }),
+                          ui.Label({ value: '2016_2020', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-frequency/fire_frequency_2016_2020.tif' }),
+                          ui.Label({ value: '2015_2020', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-frequency/fire_frequency_2015_2020.tif' }),
+                          ui.Label({ value: '2014_2020', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-frequency/fire_frequency_2014_2020.tif' }),
+                          ui.Label({ value: '2013_2020', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-frequency/fire_frequency_2013_2020.tif' }),
+                          ui.Label({ value: '2012_2020', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-frequency/fire_frequency_2012_2020.tif' }),
+                          ui.Label({ value: '2011_2020', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-frequency/fire_frequency_2011_2020.tif' }),
+                          ui.Label({ value: '2010_2020', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-frequency/fire_frequency_2010_2020.tif' }),
+                          ui.Label({ value: '2009_2020', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-frequency/fire_frequency_2009_2020.tif' }),
+                          ui.Label({ value: '2008_2020', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-frequency/fire_frequency_2008_2020.tif' }),
+                          ui.Label({ value: '2007_2020', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-frequency/fire_frequency_2007_2020.tif' }),
+                          ui.Label({ value: '2006_2020', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-frequency/fire_frequency_2006_2020.tif' }),
+                          ui.Label({ value: '2005_2020', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-frequency/fire_frequency_2005_2020.tif' }),
+                          ui.Label({ value: '2004_2020', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-frequency/fire_frequency_2004_2020.tif' }),
+                          ui.Label({ value: '2003_2020', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-frequency/fire_frequency_2003_2020.tif' }),
+                          ui.Label({ value: '2002_2020', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-frequency/fire_frequency_2002_2020.tif' }),
+                          ui.Label({ value: '2001_2020', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-frequency/fire_frequency_2001_2020.tif' }),
+                          ui.Label({ value: '2000_2020', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-frequency/fire_frequency_2000_2020.tif' }),
+                          ui.Label({ value: '1999_2020', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-frequency/fire_frequency_1999_2020.tif' }),
+                          ui.Label({ value: '1998_2020', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-frequency/fire_frequency_1998_2020.tif' }),
+                          ui.Label({ value: '1997_2020', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-frequency/fire_frequency_1997_2020.tif' }),
+                          ui.Label({ value: '1996_2020', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-frequency/fire_frequency_1996_2020.tif' }),
+                          ui.Label({ value: '1995_2020', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-frequency/fire_frequency_1995_2020.tif' }),
+                          ui.Label({ value: '1994_2020', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-frequency/fire_frequency_1994_2020.tif' }),
+                          ui.Label({ value: '1993_2020', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-frequency/fire_frequency_1993_2020.tif' }),
+                          ui.Label({ value: '1992_2020', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-frequency/fire_frequency_1992_2020.tif' }),
+                          ui.Label({ value: '1991_2020', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-frequency/fire_frequency_1991_2020.tif' }),
+                          ui.Label({ value: '1990_2020', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-frequency/fire_frequency_1990_2020.tif' }),
+                          ui.Label({ value: '1989_2020', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-frequency/fire_frequency_1989_2020.tif' }),
+                          ui.Label({ value: '1988_2020', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-frequency/fire_frequency_1988_2020.tif' }),
+                          ui.Label({ value: '1987_2020', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-frequency/fire_frequency_1987_2020.tif' }),
+                          ui.Label({ value: '1986_2020', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-frequency/fire_frequency_1986_2020.tif' }),
+                          ui.Label({ value: '1990_1995', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-frequency/fire_frequency_1990_1995.tif' }),
+                          ui.Label({ value: '1995_2000', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-frequency/fire_frequency_1995_2000.tif' }),
+                          ui.Label({ value: '2000_2005', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-frequency/fire_frequency_2000_2005.tif' }),
+                          ui.Label({ value: '2005_2010', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-frequency/fire_frequency_2005_2010.tif' }),
+                          ui.Label({ value: '2010_2015', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-frequency/fire_frequency_2010_2015.tif' }),
+                          ui.Label({ value: '1995_2005', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-frequency/fire_frequency_1995_2005.tif' }),
+                          ui.Label({ value: '2005_2015', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-frequency/fire_frequency_2005_2015.tif' }),
+                          ui.Label({ value: '2000_2015', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-frequency/fire_frequency_2000_2015.tif' }),
+                      ],
+                      'layout': ui.Panel.Layout.flow('horizontal', true),
+                      style: {
+                          'border': '1px grey solid',
+                          'margin': '0px 6px 0px 6px'
+                      }
+                  }),
+              ],
+              style: {
+                  'stretch': 'both'
+              }
+          }),
 
         },
     }
