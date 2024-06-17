@@ -539,7 +539,7 @@ var App = {
         legendLinks: [
             {
               'name': 'Brazil',
-              'url': 'https://brasil.mapbiomas.org/en/codigos-de-legenda/'
+              'url': 'https://brasil.mapbiomas.org/wp-content/uploads/sites/4/2024/06/CODIGO-DE-LEGENDA-FOGO-COLECAO-3.pdf'
             },
         ],
 
