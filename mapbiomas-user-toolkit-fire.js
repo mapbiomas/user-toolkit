@@ -721,6 +721,58 @@ var App = {
 
         return formated;
     },
+    
+    formatLabelWithLinks: function(text,links){
+      
+      var panel = ui.Panel({
+          'layout': ui.Panel.Layout.flow('horizontal',true),
+          'style': {'margin': '0px'},
+      });
+      // Função para adicionar texto com links
+      function addTextWithLinks(panel, text, linkDict) {
+        // Expressão regular para encontrar palavras entre **
+        var regex = /\*\*(.*?)\*\*/g;
+        var lastIndex = 0;
+        var match;
+      
+        while ((match = regex.exec(text)) !== null) {
+          // Adiciona texto antes da palavra com link
+          if (match.index > lastIndex) {
+            panel.add(ui.Label(text.substring(lastIndex, match.index),{'margin': '0px 2px 0px 2px'}));
+          }
+      
+          // Adiciona a palavra como link
+          var linkText = match[1];
+          var url = linkDict[linkText];
+          if (url) {
+            var link = ui.Label({
+              value: linkText,
+              targetUrl: url,
+              style: {color: 'blue', textDecoration: 'underline','margin': '0px'}
+            });
+            panel.add(link);
+          } else {
+            // Adiciona como texto normal se não houver URL no dicionário
+            panel.add(ui.Label(linkText,{'margin': '0px'}));
+          }
+      
+          lastIndex = regex.lastIndex;
+        }
+      
+        // Adiciona o restante do texto após a última correspondência
+        if (lastIndex < text.length) {
+          panel.add(ui.Label(text.substring(lastIndex)));
+        }
+      }
+      
+      // Texto com palavras para transformar em links
+      links = links === undefined ? {} : links;
+      
+      // Adiciona o texto e links ao painel
+      addTextWithLinks(panel, text, links);
+      return panel;
+
+    },
 
     ui: {
 
@@ -1314,6 +1366,57 @@ var App = {
             });
 
         },
+        
+        showDisclaimer: function () {
+          
+          App.ui.form.labelDisclaimer = [
+                ui.Label('DISCLAIMER'),
+                ui.Label('A Coleção 3 do MapBiomas Fogo apresenta o mapeamento de cicatrizes de fogo no Brasil de 1985 a 2023, com dados anuais e \
+                          mensais para todo o período, incluindo: (a) Ocorrência de fogo anual, (b) Ocorrência de fogo mensal, (c) Frequência, (d) \
+                          Área queimada acumulada, (e) Tamanho das cicatrizes, e (f) Ano da última ocorrência de fogo. Os dados anuais, acumulados \
+                          e de frequência também estão disponíveis com suas respectivas classes de Uso e Cobertura da Coleção 8 do MapBiomas.',{'margin': '0px'}),
+                App.formatLabelWithLinks('Para baixar os dados, acesse o **Toolkit** e, para a descrição dos respectivos valores dos dados, acesse o **código da legenda**.',{
+                                          'Toolkit':'https://code.earthengine.google.com/?scriptPath=users%2Fmapbiomas%2Fuser-toolkit%3Amapbiomas-user-toolkit-fire.js',
+                                          'código da legenda':'https://docs.google.com/document/d/1RFXhyTAt6OwvJr2zf44s_CwcMmODz1K_Meri0-fkuxo/edit',
+                                          }),
+                App.formatLabelWithLinks('Para maiores informações sobre o método, acesse a descrição do **método** e o **ATBD**',{
+                                            "método": "https://brasil.mapbiomas.org/metodo-mapbiomas-fogo/",
+                                            "ATBD": "https://drive.google.com/file/d/1Jj9c4yYF68pGGyUE6WS9_yN5TapOZMqS/view"
+                                          }),
+                ui.Label('Para baixar os dados, acesse o Toolkit e, para a descrição dos respectivos valores dos dados, acesse o código da legenda.\
+                          Caso tenha sugestões, críticas ou ideias para aprimorar o produto, entre em contato pelo e-mail: contato@mapbiomas.org.',{'margin': '0px'}),
+                ui.Label(''),
+                App.formatLabelWithLinks('DOI: **https://doi.org/10.58053/MapBiomas/VJIJCL**',{"https://doi.org/10.58053/MapBiomas/VJIJCL": "https://doi.org/10.58053/MapBiomas/VJIJCL"}),
+                ui.Label(''),
+                ui.Label('DISCLAIMER'),
+                ui.Label('The MapBiomas Fire Collection 3 presents the mapping of fire scars in Brazil from 1985 to 2023, with annual and monthly data for the\
+                          entire period, including: (a) Annual fire occurrence, (b) Monthly fire occurrence, (c) Frequency, (d) Accumulated burned area, \
+                          (e) Fire scar size, and (f) Year of the last fire occurrence. Annual, accumulated, and frequency data are also available with their \
+                          respective Land Use and Cover classes from MapBiomas Collection 8.',{'margin': '0px'}),
+                App.formatLabelWithLinks('To download the data, access the **Toolkit** and for the description of the respective data values, access the **legend code**.',{
+                                          'Toolkit':'https://code.earthengine.google.com/?scriptPath=users%2Fmapbiomas%2Fuser-toolkit%3Amapbiomas-user-toolkit-fire.js',
+                                          'legend code':'https://docs.google.com/document/d/1RFXhyTAt6OwvJr2zf44s_CwcMmODz1K_Meri0-fkuxo/edit',
+                                          },{'margin': '0px'}),
+                App.formatLabelWithLinks('For more information on the methodology, access the **method** description and the **ATBD**.',{
+                                            "method": "https://brasil.mapbiomas.org/metodo-mapbiomas-fogo/",
+                                            "ATBD": "https://drive.google.com/file/d/1Jj9c4yYF68pGGyUE6WS9_yN5TapOZMqS/view"
+                                          },{'margin': '0px'}),
+                ui.Label('Para baixar os dados, acesse o Toolkit e, para a descrição dos respectivos valores dos dados, acesse o código da legenda.',{'margin': '0px'}),
+                ui.Label('If you have suggestions, criticisms, or ideas to improve the product, please contact us at contato@mapbiomas.org.',{'margin': '0px'}),
+                ui.Label(''),
+                App.formatLabelWithLinks('DOI: **https://doi.org/10.58053/MapBiomas/VJIJCL**',{"https://doi.org/10.58053/MapBiomas/VJIJCL": "https://doi.org/10.58053/MapBiomas/VJIJCL"}),
+                ui.Label('MapBiomas data is public, open, and free under the CC-BY-SA license and by referencing the source in the following format: "MapBiomas Project – Collection [version] of MapBiomas Fire, accessed on [date] through the link: [LINK]".',{'margin': '0px'}),
+            ];
+
+            App.ui.form.panelDisclaimer.widgets().reset([]);
+            App.ui.form.panelDisclaimerText.widgets().reset(App.ui.form.labelDisclaimer);
+            App.ui.form.panelDisclaimer.add(App.ui.form.panelDisclaimerText);
+            App.ui.form.panelDisclaimer.add(App.ui.form.buttonDisclaimerOk);
+
+            Map.add(App.ui.form.panelDisclaimer);
+
+            App.ui.form.buttonDisclaimerShow.setDisabled(true);
+        },
 
         form: {
 
@@ -1402,6 +1505,8 @@ var App = {
                 App.ui.form.panel1.add(App.ui.form.labelNotes);
 
                 ui.root.add(App.ui.form.panelMain);
+
+                App.ui.showDisclaimer();
 
             },
 
@@ -1498,6 +1603,22 @@ var App = {
                     'height': '200px',
                     'stretch': 'vertical',
                     'backgroundColor': '#cccccc',
+                },
+            }),
+
+            panelDisclaimer: ui.Panel({
+                'layout': ui.Panel.Layout.flow('vertical'),
+                'style': {
+                    // 'width': '700px',
+                    // 'height': '350px',
+                },
+            }),
+
+            panelDisclaimerText: ui.Panel({
+                'layout': ui.Panel.Layout.flow('vertical'),
+                'style': {
+                    'width': '700px',
+                    'height': '300px',
                 },
             }),
 
@@ -1783,6 +1904,31 @@ var App = {
                 "label": "Export images to Google Drive",
                 "onClick": function () {
                     App.ui.export2Drive();
+                },
+                "disabled": false,
+                "style": {
+                    // 'padding': '2px',
+                    'stretch': 'horizontal'
+                }
+            }),
+            
+            buttonDisclaimerOk: ui.Button({
+                "label": "Ok, I get it!",
+                "onClick": function () {
+                    Map.remove(App.ui.form.panelDisclaimer);
+                    App.ui.form.buttonDisclaimerShow.setDisabled(false);
+                },
+                "disabled": false,
+                "style": {
+                    // 'padding': '2px',
+                    'stretch': 'horizontal'
+                }
+            }),
+
+            buttonDisclaimerShow: ui.Button({
+                "label": "Show disclaimer",
+                "onClick": function () {
+                    App.ui.showDisclaimer();
                 },
                 "disabled": false,
                 "style": {
