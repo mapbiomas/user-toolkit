@@ -1370,7 +1370,7 @@ var App = {
         showDisclaimer: function () {
           
           App.ui.form.labelDisclaimer = [
-                ui.Label('DISCLAIMER'),
+                ui.Label('NOTA INFORMATIVA - FOGO'),
                 ui.Label(''),
                 ui.Label('A Coleção 3 do MapBiomas Fogo apresenta o mapeamento de cicatrizes de fogo no Brasil de 1985 a 2023, com dados anuais e \
                           mensais para todo o período, incluindo: (a) Ocorrência de fogo anual, (b) Ocorrência de fogo mensal, (c) Frequência, (d) \
@@ -1378,7 +1378,7 @@ var App = {
                           e de frequência também estão disponíveis com suas respectivas classes de Uso e Cobertura da Coleção 8 do MapBiomas.',{'margin': '0px'}),
                 App.formatLabelWithLinks('Para baixar os dados, acesse o **Toolkit** e, para a descrição dos respectivos valores dos dados, acesse o **código da legenda**.',{
                                           'Toolkit':'https://code.earthengine.google.com/?scriptPath=users%2Fmapbiomas%2Fuser-toolkit%3Amapbiomas-user-toolkit-fire.js',
-                                          'código da legenda':'https://docs.google.com/document/d/1RFXhyTAt6OwvJr2zf44s_CwcMmODz1K_Meri0-fkuxo/edit',
+                                          'código da legenda':'https://brasil.mapbiomas.org/wp-content/uploads/sites/4/2024/06/CODIGO-DE-LEGENDA-FOGO-COLECAO-3.pdf',
                                           }),
                 ui.Label(''),
                 App.formatLabelWithLinks('Para maiores informações sobre o método, acesse a descrição do **método** e o **ATBD**',{
@@ -1400,7 +1400,7 @@ var App = {
                 ui.Label(''),
                 App.formatLabelWithLinks('To download the data, access the **Toolkit** and for the description of the respective data values, access the **legend code**.',{
                                           'Toolkit':'https://code.earthengine.google.com/?scriptPath=users%2Fmapbiomas%2Fuser-toolkit%3Amapbiomas-user-toolkit-fire.js',
-                                          'legend code':'https://docs.google.com/document/d/1RFXhyTAt6OwvJr2zf44s_CwcMmODz1K_Meri0-fkuxo/edit',
+                                          'legend code':'https://brasil.mapbiomas.org/wp-content/uploads/sites/4/2024/06/CODIGO-DE-LEGENDA-FOGO-COLECAO-3.pdf',
                                           },{'margin': '0px'}),
                 ui.Label(''),
                 App.formatLabelWithLinks('For more information on the methodology, access the **method** description and the **ATBD**.',{
