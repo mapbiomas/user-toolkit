@@ -2067,6 +2067,7 @@ var App = {
                             ui.Label({ value: '2020', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-annual/fire_annual_2020.tif' }),
                             ui.Label({ value: '2021', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-annual/fire_annual_2021.tif' }),
                             ui.Label({ value: '2022', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-annual/fire_annual_2022.tif' }),
+                            ui.Label({ value: '2023', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-annual/fire_annual_2023.tif' }),
                         ],
                         'layout': ui.Panel.Layout.flow('horizontal', true),
                         style: {
@@ -2081,7 +2082,7 @@ var App = {
             }),
             panel3: ui.Panel({
                 widgets: [
-                    ui.Label('Brazil fire col3: annual_burned_coverage'),
+                    ui.Label('Brazil fire col3: monthly_burned_coverage'),
                     ui.Panel({
                         widgets: [
                             ui.Label({ value: '1985', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-monthly/fire_monthly_1985.tif' }),
@@ -2122,6 +2123,7 @@ var App = {
                             ui.Label({ value: '2020', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-monthly/fire_monthly_2020.tif' }),
                             ui.Label({ value: '2021', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-monthly/fire_monthly_2021.tif' }),
                             ui.Label({ value: '2022', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-monthly/fire_monthly_2022.tif' }),
+                            ui.Label({ value: '2023', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-monthly/fire_monthly_2023.tif' }),
                         ],
                         'layout': ui.Panel.Layout.flow('horizontal', true),
                         style: {
@@ -2177,6 +2179,7 @@ var App = {
                           ui.Label({ value: '2020', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-size/fire_size_2020.tif' }),
                           ui.Label({ value: '2021', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-size/fire_size_2021.tif' }),
                           ui.Label({ value: '2022', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-size/fire_size_2022.tif' }),
+                          ui.Label({ value: '2023', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-size/fire_size_2023.tif' }),
                       ],
                       'layout': ui.Panel.Layout.flow('horizontal', true),
                       style: {
@@ -2231,6 +2234,7 @@ var App = {
                           ui.Label({ value: '2020', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-last/fire_last_2020.tif' }),
                           ui.Label({ value: '2021', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-last/fire_last_2021.tif' }),
                           ui.Label({ value: '2022', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-last/fire_last_2022.tif' }),
+                          ui.Label({ value: '2023', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-last/fire_last_2023.tif' }),
                       ],
                       'layout': ui.Panel.Layout.flow('horizontal', true),
                       style: {
