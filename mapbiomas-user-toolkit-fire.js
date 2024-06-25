@@ -553,6 +553,7 @@ var App = {
           'accumulated_burned_coverage':'fire_accumulated_',
           'year_last_fire':'classification_',
           'fire_frequency':'fire_frequency_',
+          'fire_monitor':'burned_coverage_'
         },
 
         dataType: 'annual_burned',
@@ -878,7 +879,7 @@ var App = {
                             //--------------------------------------------
 
 
-                            var year = App.options.collections[regionName][collectioName].periods.annual_burned.slice(-1)[0];
+                            var year = App.options.collections[regionName][collectioName].periods.annual_burned_coverage.slice(-1)[0];
 
                             App.startMap(year);
 
