@@ -6,7 +6,7 @@
  *      This is a support tool for mapbiomas data users.
  *  
  * @author
- *      João Siqueira
+ *    João Siqueira and Wallace Silva
  * 
  * @contact
  *      Tasso Azevedo, Marcos Rosa and João Siqueira
@@ -22,6 +22,8 @@
  *            Atualizando interface seguindo a interface do toolkit do uso e cobertura
  *            Adicionando logo do fogo
  *            Adicionando discalimer
+ *            Monitor do fogo no nivel de collection 
+ *
  * 
  * @see
  *      Get the MapBiomas exported data in your "Google Drive/MAPBIOMAS-EXPORT" folder
@@ -37,7 +39,7 @@ var logos = require('users/workspaceipam/packages:mapbiomas-toolkit/utils/b64');
  *    calculate area for mapbiomas fire map
  * 
  * @author
- *    João Siqueira and Wallace Silva
+ *    João Siqueira
  * 
  */
 var Area = {
@@ -295,7 +297,6 @@ var App = {
                             '2000_2005','2005_2010','2010_2015','1995_2005',
                             '2005_2015','2000_2015'
                         ],
-                        'fire_monitor': null,
                     },
                 },
                 'collection-1.1': {
@@ -353,7 +354,6 @@ var App = {
                         'annual_burned_coverage': 'projects/mapbiomas-workspace/public/collection7_1/mapbiomas-fire-collection2-annual-burned-coverage-1',
                         'monthly_burned_coverage': 'projects/mapbiomas-workspace/public/collection7_1/mapbiomas-fire-collection2-monthly-burned-coverage-1',
                         'fire_frequency': 'projects/mapbiomas-workspace/public/collection7_1/mapbiomas-fire-collection2-fire-frequency-1',
-                        'fire_monitor': 'projects/mapbiomas-workspace/FOGO/MONITORAMENTO/collection-fire-monthly-sentinel2-v3',
                     },
 
                     'periods': {
@@ -364,7 +364,7 @@ var App = {
                             '2003', '2004', '2005', '2006', '2007', '2008',
                             '2009', '2010', '2011', '2012', '2013', '2014',
                             '2015', '2016', '2017', '2018', '2019', '2020',
-                            '2021','2022',
+                            '2021', '2022',
                         ],
                         'monthly_burned_coverage': [
                             '1985', '1986', '1987', '1988', '1989', '1990',
@@ -398,7 +398,6 @@ var App = {
                             "1995_2000", "2000_2005", "2005_2010", "2010_2015",
                             "2015_2020", "1995_2005", "2005_2015", "2000_2015"
                         ],
-                        'fire_monitor': null,
                     },
                 },
                 'collection-3.0': {
@@ -420,7 +419,6 @@ var App = {
             
                       'year_last_fire': 'projects/mapbiomas-public/assets/brazil/fire/collection3/mapbiomas_fire_collection3_year_last_fire_v1',
                       
-                      'fire_monitor': 'projects/mapbiomas-workspace/FOGO/MONITORAMENTO/collection-fire-monthly-sentinel2-v3',
                     },
 
                     'periods': {
@@ -530,6 +528,15 @@ var App = {
                         '2021','2022',  '2023'
                         ],
 
+                      'fire_monitor': null,
+                    },
+                },
+                'fire_monitor': {
+                    'assets': {
+                      'fire_monitor': 'projects/mapbiomas-workspace/FOGO/MONITORAMENTO/collection-fire-monthly-sentinel2-v3',
+                    },
+
+                    'periods': {
                       'fire_monitor': null,
                     },
                 },
@@ -686,8 +693,8 @@ var App = {
     },
 
     startMap: function (year) {
-
-        Map.centerObject(App.options.data.Coverage, 5);
+      
+        Map.centerObject(App.options.data.annual_burned_coverage, 5);
 
         Map.clear();
 
@@ -832,7 +839,9 @@ var App = {
                 'onChange': function (collectioName) {
                     ee.Number(1).evaluate(
                         function (a) {
-
+                          
+                          
+                            App.ui.setDataType(Object.keys(App.options.collections[regionName][collectioName].assets)[0]);
 
                             App.options.data.Coverage = ee.Image(App.options.collections[regionName][collectioName].assets.integration);
 
@@ -848,8 +857,9 @@ var App = {
                             
                             // -----------------------------------------------
                             // monitor de area queimada sentinel
+                            
                             var fireMonitor = ee.ImageCollection(
-                                App.options.collections[regionName][collectioName].assets.fire_monitor)
+                                App.options.collections[regionName]['fire_monitor'].assets.fire_monitor)
                                 .toBands();
 
                             var oldBands = fireMonitor.bandNames();
@@ -870,7 +880,7 @@ var App = {
 
                             var newBands = ee.List(year_month).map(function (str) { return ee.String('burned_coverage_').cat(str) });
 
-                            App.options.collections['mapbiomas-brazil'][collectioName].periods.fire_monitor = ee.List(year_month).sort().getInfo();
+                            App.options.collections['mapbiomas-brazil']['fire_monitor'].periods.fire_monitor = ee.List(year_month).sort().getInfo();
 
                             App.options.data.fire_monitor = fireMonitor
                                 .select(oldBands, newBands)
@@ -878,8 +888,12 @@ var App = {
 
                             //--------------------------------------------
 
-
-                            var year = App.options.collections[regionName][collectioName].periods.annual_burned_coverage.slice(-1)[0];
+                            var year; 
+                            if (collectioName !== 'fire_monitor'){
+                              year = App.options.collections[regionName][collectioName].periods.annual_burned_coverage.slice(-1)[0];
+                            } else {
+                              year = App.options.collections[regionName][collectioName].periods.fire_monitor.slice(-1)[0];
+                            }
 
                             App.startMap(year);
 
@@ -1017,8 +1031,6 @@ var App = {
                 .evaluate(
                     function (propertyNames) {
 
-                        // print(propertyNames);
-
                         App.ui.form.selectProperties = ui.Select({
                             'items': propertyNames,
                             'placeholder': 'select property',
@@ -1071,7 +1083,6 @@ var App = {
                                             var collectionName = App.ui.form.selectCollection.getValue();
 
                                             App.ui.loadFeature(featureName);
-
                                             App.ui.makeLayersList(
                                                 featureName,
                                                 App.options.activeFeature,
@@ -1160,7 +1171,7 @@ var App = {
             if (App.options.dataType == 'Transitions') {
                 image = App.remapTransitions(image);
             }
-            print("teste:", App.options.ranges)
+
             var imageLayer = ui.Map.Layer({
                 'eeObject': image,
                 'visParams': {
@@ -1205,7 +1216,7 @@ var App = {
         },
 
         makeLayersList: function (regionName, region, periods) {
-            // print(regionName, region, periods)
+
             App.ui.form.panelLayersList.clear();
 
             periods.forEach(
@@ -1329,14 +1340,6 @@ var App = {
 
                                 feature = feature.set('class_name', className).set('band', band);
 
-                            } else if (App.options.dataType == 'Transitions') {
-
-                                var classNamet0 = ee.Dictionary(App.options.className)
-                                    .get(ee.Number(feature.get('class')).divide(100).int());
-                                var classNamet1 = ee.Dictionary(App.options.className)
-                                    .get(ee.Number(feature.get('class')).mod(100).int());
-
-                                feature = feature.set('from_class', classNamet0).set('to_class', classNamet1).set('band', band);
                             } else {
 
                                 className = ee.String(feature.get('class')).cat(' observations');
@@ -1891,6 +1894,7 @@ var App = {
                         ee.Number(1).evaluate(
                             function (a) {
                                 App.ui.loadTableStates(App.options.activeName);
+
                                 App.ui.makeLayersList(
                                     App.options.activeName.split('/')[3],
                                     App.options.activeFeature,
