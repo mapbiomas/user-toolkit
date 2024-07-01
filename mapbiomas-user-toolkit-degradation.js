@@ -786,19 +786,22 @@ var App = {
                               
                               if (mod_100_exception.indexOf(key) !== -1){
                                 App.options.data[key] = ee.Image(App.options.collections[regionName][collectioName].assets[key]).mod(100).int8();
+                                return ; 
                               }
                               
-                              if (mod_100_exception.indexOf(key) !== -1){
+                              if (div_100_exception.indexOf(key) !== -1){
                                 App.options.data[key] = ee.Image(App.options.collections[regionName][collectioName].assets[key]).divide(100).int8();
+                                return ;
                               }
 
                                 App.options.data[key] = ee.Image(App.options.collections[regionName][collectioName].assets[key]);
                               
-                            })
+                            });
                             //--------------------------------------------
 
                             var year; 
-                              year = App.options.collections[regionName][collectioName].periods.edge_30m.slice(-1)[0];
+                            //  year = App.options.collections[regionName][collectioName].periods.edge_30m.slice(-1)[0];
+                              year = 2021;
                           
                             App.startMap(year);
 
