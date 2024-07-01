@@ -779,7 +779,21 @@ var App = {
                             print('App.options.data',App.options.data);
                             
                             Object.keys(App.options.data).forEach(function(key){
-                              App.options.data[key] = ee.Image(App.options.collections[regionName][collectioName].assets[key]);
+                              
+
+                              var mod_100_exception = ['accumulated_burned_coverage'];
+                              var div_100_exception = ['frequency','age'];
+                              
+                              if (mod_100_exception.indexOf(key) !== -1){
+                                App.options.data[key] = ee.Image(App.options.collections[regionName][collectioName].assets[key]).mod(100).int8();
+                              }
+                              
+                              if (mod_100_exception.indexOf(key) !== -1){
+                                App.options.data[key] = ee.Image(App.options.collections[regionName][collectioName].assets[key]).divide(100).int8();
+                              }
+
+                                App.options.data[key] = ee.Image(App.options.collections[regionName][collectioName].assets[key]);
+                              
                             })
                             //--------------------------------------------
 
