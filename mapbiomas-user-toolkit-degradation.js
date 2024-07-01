@@ -1323,7 +1323,7 @@ var App = {
             App.ui.form.panelDisclaimer.add(App.ui.form.panelDisclaimerText);
             App.ui.form.panelDisclaimer.add(App.ui.form.buttonDisclaimerOk);
 
-            Map.add(App.ui.form.panelDisclaimer);
+            // Map.add(App.ui.form.panelDisclaimer);
 
             App.ui.form.buttonDisclaimerShow.setDisabled(true);
         },
