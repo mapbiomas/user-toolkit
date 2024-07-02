@@ -318,13 +318,13 @@ var App = {
             'degradation module (BETA): secundary vegetation': {
                 'assets': {
 
-                  'secundary age':'projects/mapbiomas-workspace/DEGRADACAO/COLECAO/BETA/PROCESS/secondary_vegetation/secondary_vegetation_age_v1',
-                  'secundary coverage':'projects/mapbiomas-workspace/DEGRADACAO/COLECAO/BETA/PROCESS/secondary_vegetation/secondary_vegetation_age_v1',
+                  'secundary_age':'projects/mapbiomas-workspace/DEGRADACAO/COLECAO/BETA/PROCESS/secondary_vegetation/secondary_vegetation_age_v1',
+                  'secundary_coverage':'projects/mapbiomas-workspace/DEGRADACAO/COLECAO/BETA/PROCESS/secondary_vegetation/secondary_vegetation_age_v1',
 
                 },
                 'periods': {
-                  'secundary age':[ '1986', '1987', '1988', '1989', '1990','1991', '1992', '1993', '1994', '1995', '1996','1997', '1998', '1999', '2000', '2001', '2002','2003', '2004', '2005', '2006', '2007', '2008','2009', '2010', '2011', '2012', '2013', '2014','2015', '2016', '2017', '2018', '2019', '2020','2021','2022'  ],
-                  'secundary coverage':[ '1986', '1987', '1988', '1989', '1990','1991', '1992', '1993', '1994', '1995', '1996','1997', '1998', '1999', '2000', '2001', '2002','2003', '2004', '2005', '2006', '2007', '2008','2009', '2010', '2011', '2012', '2013', '2014','2015', '2016', '2017', '2018', '2019', '2020','2021','2022'],
+                  'secundary_age':[ '1986', '1987', '1988', '1989', '1990','1991', '1992', '1993', '1994', '1995', '1996','1997', '1998', '1999', '2000', '2001', '2002','2003', '2004', '2005', '2006', '2007', '2008','2009', '2010', '2011', '2012', '2013', '2014','2015', '2016', '2017', '2018', '2019', '2020','2021','2022'  ],
+                  'secundary_coverage':[ '1986', '1987', '1988', '1989', '1990','1991', '1992', '1993', '1994', '1995', '1996','1997', '1998', '1999', '2000', '2001', '2002','2003', '2004', '2005', '2006', '2007', '2008','2009', '2010', '2011', '2012', '2013', '2014','2015', '2016', '2017', '2018', '2019', '2020','2021','2022'],
 
                 },
             },
@@ -381,8 +381,8 @@ var App = {
           "accumulated_coverage":"frequency_",
           "age":"age_",
           "accumulated_burned_coverage":"frequency_",
-          "secundary age":"age_",
-          "secundary coverage":"age_",
+          "secundary_age":"age_",
+          "secundary_coverage":"age_",
         },
         dataType: 'edge_30m',
         data: {},
@@ -429,8 +429,8 @@ var App = {
           "frequency":{'min':0,'max':39},
           "age":{'min':0,'max':39},
           "accumulated_burned_coverage":{'min':0,'max':69},
-          "secundary age":{'min':0,'max':39},
-          "secundary coverage":{'min':0,'max':69},
+          "secundary_age":{'min':0,'max':39},
+          "secundary_coverage":{'min':0,'max':69},
 
         },
 
@@ -483,8 +483,8 @@ var App = {
           "frequency":fire_palettes.get('frequencia_2'),
           "age":fire_palettes.get('ano_do_ultimo_fogo_2'),
           "accumulated_burned_coverage":palettes.get('classification9'),
-          "secundary age":fire_palettes.get('vegetacao_secundaria'),
-          "secundary coverage":palettes.get('classification9'),
+          "secundary_age":fire_palettes.get('vegetacao_secundaria'),
+          "secundary_coverage":palettes.get('classification9'),
 
         },
 
@@ -711,8 +711,8 @@ var App = {
     
                           datas.forEach(function(key){
 
-                            var mod_100_exception = ['accumulated_burned_coverage'];
-                            var div_100_exception = ['frequency','age'];
+                            var mod_100_exception = ['accumulated_burned_coverage', 'secundary_coverage'];
+                            var div_100_exception = ['frequency','age','secundary_age'];
                             
                             if (mod_100_exception.indexOf(key) !== -1){
                               App.options.data[key] = ee.Image(App.options.collections[regionName][collectioName].assets[key]).mod(100).int8();
@@ -1091,7 +1091,7 @@ var App = {
 
                     region = region.bounds();
 
-                    Export.image.toDrive({
+                    secundary_age.toDrive({
                         image: data,
                         description: fileName,
                         folder: 'MAPBIOMAS-EXPORT',
