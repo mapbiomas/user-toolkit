@@ -30,6 +30,7 @@
  *          - Alterando o plot da feature para uma unica linha
  *          - Alterando posição da escolha da collection e adaptando o codigo a isso
  *          - Removendo labels de loading
+ *          
  *
  * 
  * @see
@@ -124,37 +125,6 @@ var App = {
         logo: {
             uri: 'gs://mapbiomas-public/mapbiomas-logos/mapbiomas-logo-horizontal.b64',
             base64: logos.get('logo_mapbiomas_fogo')
-        },
-
-        statesNames: {
-            'None': 'None',
-            'Acre': '12',
-            'Alagoas': '27',
-            'Amazonas': '13',
-            'Amapá': '16',
-            'Bahia': '29',
-            'Ceará': '23',
-            'Distrito Federal': '53',
-            'Espírito Santo': '32',
-            'Goiás': '52',
-            'Maranhão': '21',
-            'Minas Gerais': '31',
-            'Mato Grosso do Sul': '50',
-            'Mato Grosso': '51',
-            'Pará': '15',
-            'Paraíba': '25',
-            'Pernambuco': '26',
-            'Piauí': '22',
-            'Paraná': '41',
-            'Rio de Janeiro': '33',
-            'Rio Grande do Norte': '24',
-            'Rondônia': '11',
-            'Roraima': '14',
-            'Rio Grande do Sul': '43',
-            'Santa Catarina': '42',
-            'Sergipe': '28',
-            'São Paulo': '35',
-            'Tocantins': '17'
         },
 
         tables: {
