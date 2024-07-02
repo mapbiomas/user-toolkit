@@ -32,6 +32,7 @@
  *          - Alterando o Map.clear() Map.layers().reset([]) e Removendo labels de loading
  *          - Adicionando outros planos de fundo
  *          - Adicionando Coleção 2.1 do MapBiomas-Fogo
+ *          - Adicionando direct links de area queimada anual simples, em raster e shapefile 
  *
  * 
  * @see
