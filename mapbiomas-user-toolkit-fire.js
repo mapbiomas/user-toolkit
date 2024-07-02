@@ -799,25 +799,59 @@ var App = {
     
                           datas.forEach(function(key){
 
-                            var mod_100_exception = ['accumulated_burned_coverage', 'secundary_coverage'];
-                            var div_100_exception = ['frequency','age','secundary_age'];
+                            var mod_100_exception = [''];
+                            var div_100_exception = [''];
                             
                             if (mod_100_exception.indexOf(key) !== -1){
                               App.options.data[key] = ee.Image(App.options.collections[regionName][collectioName].assets[key]).mod(100).int8();
                               return ; 
                             }
-                            
+
                             if (div_100_exception.indexOf(key) !== -1){
                               App.options.data[key] = ee.Image(App.options.collections[regionName][collectioName].assets[key]).divide(100).int8();
                               return ;
                             }
+
+                            if (key === 'fire_monitor'){
+                            // monitor de area queimada sentinel
+                            
+                              var fireMonitor = ee.ImageCollection(
+                                  App.options.collections[regionName]['fire_monitor'].assets.fire_monitor)
+                                  .toBands();
+  
+                              var oldBands = fireMonitor.bandNames();
+                              var year_month = oldBands.iterate(function (current, previous) {
+                                  var newBand = ee.String(current)
+                                      .replace('brazil-', '')
+                                      .replace('_FireMonth', '')
+                                      .replace('-', '_');
+  
+                                  newBand = ee.Algorithms.If({
+                                      condition: newBand.length().eq(6),
+                                      trueCase: newBand.replace('_', '_0'),
+                                      falseCase: newBand
+                                  });
+  
+                                  return ee.List(previous).add(newBand);
+                              }, []);
+  
+                              var newBands = ee.List(year_month).map(function (str) { return ee.String('burned_coverage_').cat(str) });
+  
+                              App.options.collections['mapbiomas-brazil']['fire_monitor'].periods.fire_monitor = ee.List(year_month).sort().getInfo();
+  
+                              App.options.data.fire_monitor = fireMonitor
+                                  .select(oldBands, newBands)
+                                  .gt(0).byte();
+  
+                              return ; 
+                            }
+
 
                               App.options.data[key] = ee.Image(App.options.collections[regionName][collectioName].assets[key]);
                             
                           });
                           
                           App.ui.setDataType(datas[0]);
-                            //--------------------------------------------
 
                             var year = App.options.collections[regionName][collectioName].periods[datas[0]].slice(-1)[0];
 
