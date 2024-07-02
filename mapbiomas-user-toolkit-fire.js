@@ -581,18 +581,6 @@ var App = {
           'fire_monitor': null,
         },
 
-        fileDimensions: {
-          'annual_burned':256 * 124,
-          'annual_burned_coverage':256 * 124,
-          'monthly_burned':256 * 124,
-          'annual_burned_scar_size_range':256 * 124,
-          'accumulated_burned':256 * 124,
-          'accumulated_burned_coverage':256 * 124,
-          'year_last_fire':256 * 124,
-          'fire_frequency':256 * 124,                        
-          'fire_monitor':256 * 124,
-        },
-
         ranges: {
           'annual_burned':{'min':1,'max':1},
           'annual_burned_coverage':{'min':0,'max':62},
@@ -1342,7 +1330,7 @@ var App = {
                         scale: 30,
                         maxPixels: 1e13,
                         fileFormat: 'GeoTIFF',
-                        fileDimensions: App.options.fileDimensions[App.options.dataType],
+                        fileDimensions: 256 * 124,
                     });
 
                     bandIds.push(App.options.bandsNames[App.options.dataType] + period);
