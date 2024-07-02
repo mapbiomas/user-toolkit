@@ -24,7 +24,7 @@
  *            Adicionando discalimer
  *            Monitor do fogo no nivel de collection 
  *    1.4.1 - 2024-07-01
- *          - Lidando com erro no export, devido as dimensões muito altas
+ *          - Lidando com erro no export, devido as dimensões muito altas. Padronizando o parametro Dimensions, no Export.image -> 256 * 124
  *          - Substituindo todos os clips por operações com mascaras
  *          - Redesenhando padrão do nome no export && atualização da função formatString, com replaces mais agressivos
  *
