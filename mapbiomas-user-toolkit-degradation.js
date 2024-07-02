@@ -818,7 +818,7 @@ var App = {
 
             App.options.activeFeature = App.options.table;
 
-            Map.layers().clear();
+            Map.layers().reset([]);
 
             Map.addLayer(ee.Image().paint(App.options.activeFeature,'vazio',1).visualize({palette:'red'}), {},
                 tableName.split('/').reverse()[0],
@@ -959,7 +959,7 @@ var App = {
 
             Map.centerObject(App.options.activeFeature);
 
-            Map.layers().clear();
+            Map.layers().reset([]);
 
             Map.addLayer(ee.Image().paint(App.options.activeFeature,'vazio',1).visualize({palette:'red'}), {},
                 name,
@@ -1311,6 +1311,8 @@ var App = {
 
                 App.ui.showDisclaimer();
                 
+                var Mapp = require('users/joaovsiqueira1/packages:Mapp.js');
+        
                 Map.setOptions({
                   'styles': {
                     'Dark': Mapp.getStyle('Dark'),
