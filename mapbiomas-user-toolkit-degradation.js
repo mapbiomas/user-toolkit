@@ -1118,12 +1118,8 @@ var App = {
 
                     var region = App.options.activeFeature.geometry();
 
-                    if (App.options.bufferDistance !== 0) {
-                        data = data.clip(App.options.activeFeature.geometry().buffer(App.options.bufferDistance));
-                        region = region.buffer(App.options.bufferDistance);
-                    } else {
-                        data = data.clip(App.options.activeFeature.geometry());
-                    }
+
+                    data = data.multiply(ee.Image().paint(App.options.activeFeature.geometry()).eq(0));
 
                     region = region.bounds();
 
