@@ -23,6 +23,10 @@
  *            Adicionando logo do fogo
  *            Adicionando discalimer
  *            Monitor do fogo no nivel de collection 
+ *    1.4.1 - 2024-07-01
+ *          - Lidando com erro no export, devido as dimensões muito altas
+ *          - Substituindo todos os clips por operações com mascaras
+ *          - Redesenhando padrão do nome no export && atualização da função formatString, com replaces mais agressivos
  *
  * 
  * @see
@@ -112,7 +116,7 @@ var App = {
 
     options: {
 
-        version: '1.4.0',
+        version: '1.4.1',
 
         logo: {
             uri: 'gs://mapbiomas-public/mapbiomas-logos/mapbiomas-logo-horizontal.b64',
@@ -732,7 +736,7 @@ var App = {
     //     return formated;
     // },
 
-    transformarString: function (input) {
+    formatName: function (input) {
           // Mapeamento de caracteres com acentos para caracteres simples
           var acentos = {
             'á': 'a', 'ã': 'a', 'â': 'a', 'à': 'a', 'ä': 'a',
@@ -1294,7 +1298,7 @@ var App = {
             var regionName = App.ui.form.selectRegion.getValue();
             var collectionName = App.ui.form.selectCollection.getValue();
 
-            var featureName = App.transformarString(App.ui.form.selectFeature.getValue() || '');
+            var featureName = App.formatName(App.ui.form.selectFeature.getValue() || '');
 
             var bandIds = [];
 
@@ -1307,10 +1311,13 @@ var App = {
                     var period = App.options.collections[regionName][collectionName]
                         .periods[App.options.dataType][i];
 
-                    var fileName = [regionName, collectionName, featureName, period].join('-');
-
-                    fileName = fileName.replace(/--/g, '-').replace(/--/g, '-').replace('.', '');
-                    fileName = App.transformarString(fileName);
+                    var fileName = [
+                        App.formatName(regionName), 
+                        App.formatName(collectionName), 
+                        App.formatName(App.options.dataType), 
+                        App.formatName(featureName), 
+                        App.formatName(period)
+                      ].join('-');
 
                     var data = App.options.data[App.options.dataType]
                         .select([App.options.bandsNames[App.options.dataType] + period]);
@@ -1391,10 +1398,13 @@ var App = {
             areas = ee.FeatureCollection(areas).flatten();
             // print(areas);
 
-            var tableName = [regionName, collectionName, featureName, 'area'].join('-');
-
-            tableName = tableName.replace(/--/g, '-').replace(/--/g, '-').replace('.', '');
-            tableName = App.transformarString(tableName);
+            var tableName = [
+              App.formatName(regionName), 
+              App.formatName(collectionName), 
+              App.formatName(App.options.dataType), 
+              App.formatName(featureName), 
+              'area'
+              ].join('-');
 
             Export.table.toDrive({
                 'collection': areas,
