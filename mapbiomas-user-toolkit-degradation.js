@@ -541,14 +541,6 @@ var App = {
 
     },
 
-    startMap: function (year) {
-      
-        Map.centerObject(App.options.data[Object.keys(App.options.data)[0]], 5);
-
-        Map.clear();
-
-    },
-
     formatName: function (input) {
           // Mapeamento de caracteres com acentos para caracteres simples
           var acentos = {
@@ -720,18 +712,15 @@ var App = {
                           App.ui.setDataType(datas[0]);
                             //--------------------------------------------
 
-                            var year; 
-                              year = App.options.collections[regionName][collectioName][datas[0]].periods[datas[0]].slice(-1)[0];
-                              // year = 2021;
-                          
-                            App.startMap(year);
+                            var year = App.options.collections[regionName][collectioName].periods[datas[0]].slice(-1)[0];
+
+                            Map.centerObject(App.options.data[Object.keys(App.options.data)[0]], 5);
 
                             App.ui.loadDataType();
                             
                         }
                     );
 
-                    App.ui.loadingBox();
                 },
                 'style': {
                     'stretch': 'horizontal'
@@ -792,7 +781,6 @@ var App = {
                             }
                         );
 
-                        App.ui.loadingBox();
                     }
                 },
                 'style': {
@@ -802,25 +790,6 @@ var App = {
 
             App.ui.form.panelFeatureCollections.widgets()
                 .set(1, App.ui.form.selectFeatureCollections);
-
-        },
-
-        loadTableStates: function (tableName) {
-
-            var state = App.ui.form.selectStates.getValue();
-
-            App.options.table = ee.FeatureCollection(tableName)
-                .filterMetadata('UF', 'equals', parseInt(App.options.statesNames[state], 10));
-
-            App.options.activeFeature = App.options.table;
-
-            Map.centerObject(App.options.activeFeature);
-
-            Map.clear();
-
-            Map.addLayer(ee.Image().paint(App.options.activeFeature,'vazio',1).visualize({palette:'red'}), {},
-                tableName.split('/')[3],
-                true);
 
         },
 
@@ -911,7 +880,6 @@ var App = {
                                         }
                                     );
 
-                                    App.ui.loadingBox();
                                 }
                             },
                             'style': {
@@ -968,7 +936,7 @@ var App = {
         loadFeature: function (name) {
 
             App.options.activeFeature = App.options.table
-                .filterMetadata(App.options.propertyName, 'equals', name);
+                .filter(ee.Filter.eq(App.options.propertyName, name));
 
             Map.centerObject(App.options.activeFeature);
 
@@ -1066,13 +1034,6 @@ var App = {
 
         },
 
-        loadingBox: function () {
-            App.ui.form.loadingBox = ui.Panel();
-            App.ui.form.loadingBox.add(ui.Label('Loading...'));
-
-            Map.add(App.ui.form.loadingBox);
-        },
-
         export2Drive: function () {
 
             var layers = App.ui.form.panelLayersList.widgets();
@@ -1116,7 +1077,7 @@ var App = {
                         description: fileName,
                         folder: 'MAPBIOMAS-EXPORT',
                         fileNamePrefix: fileName,
-                        region: region,
+                        region: region.bounds(),
                         scale: 30,
                         maxPixels: 1e13,
                         fileFormat: 'GeoTIFF',
@@ -1330,6 +1291,7 @@ var App = {
                 ui.root.add(App.ui.form.panelMain);
 
                 App.ui.showDisclaimer();
+                
 
             },
 
@@ -1687,44 +1649,6 @@ var App = {
 
                     App.options.bufferDistance = distances[distance];
                 },
-            }),
-
-            selectStates: ui.Select({
-                'items': [
-                    'None', 'Acre', 'Alagoas', 'Amazonas', 'Amapá', 'Bahia',
-                    'Ceará', 'Distrito Federal', 'Espírito Santo', 'Goiás', 'Maranhão',
-                    'Minas Gerais', 'Mato Grosso do Sul', 'Mato Grosso', 'Pará', 'Paraíba',
-                    'Pernambuco', 'Piauí', 'Paraná', 'Rio de Janeiro', 'Rio Grande do Norte',
-                    'Rondônia', 'Roraima', 'Rio Grande do Sul', 'Santa Catarina', 'Sergipe',
-                    'São Paulo', 'Tocantins'
-                ],
-                'placeholder': 'select state',
-                'onChange': function (state) {
-                    if (state != 'None') {
-
-                        ee.Number(1).evaluate(
-                            function (a) {
-                                App.ui.loadTableStates(App.options.activeName);
-                                
-                                if (App.ui.form.selectDataType.getValue() !== null){
-                                  App.ui.makeLayersList(
-                                      App.options.activeName.split('/').slice(-1)[0],
-                                      App.options.activeFeature,
-                                      App.options.collections[regionName][collectionName]
-                                          .periods[App.options.dataType]);
-                                }
-
-                                App.ui.loadPropertiesNames();
-                                App.ui.form.selectDataType.setDisabled(false);
-                            }
-                        );
-
-                        App.ui.loadingBox();
-                    }
-                },
-                'style': {
-                    'stretch': 'horizontal'
-                }
             }),
 
             buttonExport2Drive: ui.Button({
