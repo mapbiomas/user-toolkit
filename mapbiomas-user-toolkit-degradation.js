@@ -825,11 +825,7 @@ var App = {
 
             Map.clear();
 
-            Map.addLayer(App.options.activeFeature.style({
-                color: 'ff0000',
-                width: 1,
-                fillColor: 'ff000033',
-            }), {},
+            Map.addLayer(ee.Image().paint(App.options.activeFeature,'vazio',1).visualize({palette:'red'}), {},
                 tableName.split('/')[3],
                 true);
 
@@ -843,11 +839,7 @@ var App = {
 
             Map.clear();
 
-            Map.addLayer(App.options.activeFeature.style({
-                color: 'ff0000',
-                width: 1,
-                fillColor: 'ff000033',
-            }), {},
+            Map.addLayer(ee.Image().paint(App.options.activeFeature,'vazio',1).visualize({palette:'red'}), {},
                 tableName.split('/').reverse()[0],
                 true);
 
@@ -982,11 +974,7 @@ var App = {
 
             Map.clear();
 
-            Map.addLayer(App.options.activeFeature.style({
-                color: 'ff0000',
-                width: 1,
-                fillColor: 'ff000033',
-            }), {},
+            Map.addLayer(ee.Image().paint(App.options.activeFeature,'vazio',1).visualize({palette:'red'}), {},
                 name,
                 true);
 
