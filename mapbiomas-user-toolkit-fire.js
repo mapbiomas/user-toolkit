@@ -1813,13 +1813,12 @@ var App = {
                         App.ui.form.tab1.style().set('border', '1px solid #808080');
                         App.ui.form.tab2.style().set('border', '1px solid #80808033');
 
-                        // App.ui.form.panelMain.remove(App.ui.form.panel1);
-                        App.ui.form.panelMain.remove(App.ui.form.panel2)
-                          .remove(App.ui.form.panel3)
-                          .remove(App.ui.form.panel4)
-                          .remove(App.ui.form.panel5)
-                          .remove(App.ui.form.panel6)
-                          .remove(App.ui.form.panel7);
+                        App.ui.form.panelMain.remove(App.ui.form.panel2);
+                        App.ui.form.panelMain.remove(App.ui.form.panel3);
+                        App.ui.form.panelMain.remove(App.ui.form.panel4);
+                        App.ui.form.panelMain.remove(App.ui.form.panel5);
+                        App.ui.form.panelMain.remove(App.ui.form.panel6);
+                        App.ui.form.panelMain.remove(App.ui.form.panel7);
                         App.ui.form.panelMain.add(App.ui.form.panel1);
                     }
                 }
