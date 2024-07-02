@@ -1091,7 +1091,7 @@ var App = {
 
                     region = region.bounds();
 
-                    secundary_age.toDrive({
+                    Export.image.toDrive({
                         image: data,
                         description: fileName,
                         folder: 'MAPBIOMAS-EXPORT',
