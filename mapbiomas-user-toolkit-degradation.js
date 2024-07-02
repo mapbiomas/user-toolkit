@@ -818,7 +818,7 @@ var App = {
 
             App.options.activeFeature = App.options.table;
 
-            Map.clear();
+            Map.layers().clear();
 
             Map.addLayer(ee.Image().paint(App.options.activeFeature,'vazio',1).visualize({palette:'red'}), {},
                 tableName.split('/').reverse()[0],
@@ -959,7 +959,7 @@ var App = {
 
             Map.centerObject(App.options.activeFeature);
 
-            Map.clear();
+            Map.layers().clear();
 
             Map.addLayer(ee.Image().paint(App.options.activeFeature,'vazio',1).visualize({palette:'red'}), {},
                 name,
@@ -1310,6 +1310,17 @@ var App = {
                 ui.root.add(App.ui.form.panelMain);
 
                 App.ui.showDisclaimer();
+                
+                Map.setOptions({
+                  'styles': {
+                    'Dark': Mapp.getStyle('Dark'),
+                    // 'Dark2':Mapp.getStyle('Dark2'),
+                    // 'Aubergine':Mapp.getStyle('Aubergine'),
+                    'Silver':Mapp.getStyle('Silver'),
+                    'Night':Mapp.getStyle('Night'),
+                  }
+                });
+                Map.setOptions('Silver');
                 
 
             },
