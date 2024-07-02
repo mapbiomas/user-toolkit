@@ -1074,7 +1074,7 @@ var App = {
                         .periods[App.options.dataType][i];
 
                     var fileName = [
-                        App.formatName(regionName), 
+                        // App.formatName(regionName), 
                         App.formatName(collectionName), 
                         App.formatName(App.options.dataType), 
                         App.formatName(featureName), 
@@ -1146,7 +1146,7 @@ var App = {
             // print(areas);
 
             var tableName = [
-              App.formatName(regionName), 
+              // App.formatName(regionName), 
               App.formatName(collectionName), 
               App.formatName(App.options.dataType), 
               App.formatName(featureName), 
