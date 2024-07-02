@@ -463,8 +463,8 @@ var App = {
           "med <100ha - dist <20k - gde 500ha":palettes.get('classification9'),
           "med <100ha - dist <20k - gde 1000ha":palettes.get('classification9'),
           
-          "frequency":fire_palettes.get('frequencia'),
-          "age":fire_palettes.get('ano_do_ultimo_fogo'),
+          "frequency":fire_palettes.get('frequencia_2'),
+          "age":fire_palettes.get('ano_do_ultimo_fogo_2'),
           "accumulated_burned_coverage":palettes.get('classification9')
 
         },
