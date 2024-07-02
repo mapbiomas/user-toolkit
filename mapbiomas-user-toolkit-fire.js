@@ -30,7 +30,6 @@
  *          - Alterando o plot da feature para uma unica linha
  *          - Alterando posição da escolha da collection e adaptando o codigo a isso
  *          - Removendo labels de loading
- *          
  *
  * 
  * @see
