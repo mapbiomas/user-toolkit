@@ -635,7 +635,6 @@ var App = {
         },
     },
 
-
     init: function () {
 
         this.ui.init();
@@ -799,8 +798,8 @@ var App = {
     
                           datas.forEach(function(key){
 
-                            var mod_100_exception = [''];
-                            var div_100_exception = [''];
+                            var mod_100_exception = ['accumulated_burned_coverage', 'secundary_coverage'];
+                            var div_100_exception = ['frequency','age','secundary_age'];
                             
                             if (mod_100_exception.indexOf(key) !== -1){
                               App.options.data[key] = ee.Image(App.options.collections[regionName][collectioName].assets[key]).mod(100).int8();
@@ -906,7 +905,7 @@ var App = {
 
             App.options.activeFeature = App.options.table;
 
-            Map.clear();
+            Map.layers().reset([]);
 
             Map.addLayer(ee.Image().paint(App.options.activeFeature,'vazio',1).visualize({palette:'red'}), {},
                 tableName.split('/').reverse()[0],
@@ -1047,7 +1046,7 @@ var App = {
 
             Map.centerObject(App.options.activeFeature);
 
-            Map.clear();
+            Map.layers().reset([]);
 
             Map.addLayer(ee.Image().paint(App.options.activeFeature,'vazio',1).visualize({palette:'red'}), {},
                 name,
@@ -1062,7 +1061,7 @@ var App = {
                 .select([App.options.bandsNames[App.options.dataType] + period])
                 .multiply(ee.Image().paint(region).eq(0));
                 
-                // print('App.options.dataType',App.options.dataType);
+                print('App.options.dataType',App.options.dataType);
 
 
 
@@ -1179,7 +1178,7 @@ var App = {
 
                     region = region.bounds();
 
-                    Export.image.toDrive({
+                    secundary_age.toDrive({
                         image: data,
                         description: fileName,
                         folder: 'MAPBIOMAS-EXPORT',
@@ -1398,6 +1397,19 @@ var App = {
                 ui.root.add(App.ui.form.panelMain);
 
                 App.ui.showDisclaimer();
+                
+                var Mapp = require('users/joaovsiqueira1/packages:Mapp.js');
+        
+                Map.setOptions({
+                  'styles': {
+                    'Dark': Mapp.getStyle('Dark'),
+                    // 'Dark2':Mapp.getStyle('Dark2'),
+                    // 'Aubergine':Mapp.getStyle('Aubergine'),
+                    'Silver':Mapp.getStyle('Silver'),
+                    'Night':Mapp.getStyle('Night'),
+                  }
+                });
+                Map.setOptions('Silver');
                 
 
             },
