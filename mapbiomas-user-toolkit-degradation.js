@@ -697,33 +697,32 @@ var App = {
                           
                           var datas = Object.keys(App.options.collections[regionName][collectioName].assets);
                           
-                            App.ui.setDataType(datas[0]);
-                            
-                            print('App.options.data',App.options.data);
-                            
-                            datas.forEach(function(key){
+    
+                          datas.forEach(function(key){
 
-                              var mod_100_exception = ['accumulated_burned_coverage'];
-                              var div_100_exception = ['frequency','age'];
-                              
-                              if (mod_100_exception.indexOf(key) !== -1){
-                                App.options.data[key] = ee.Image(App.options.collections[regionName][collectioName].assets[key]).mod(100).int8();
-                                return ; 
-                              }
-                              
-                              if (div_100_exception.indexOf(key) !== -1){
-                                App.options.data[key] = ee.Image(App.options.collections[regionName][collectioName].assets[key]).divide(100).int8();
-                                return ;
-                              }
+                            var mod_100_exception = ['accumulated_burned_coverage'];
+                            var div_100_exception = ['frequency','age'];
+                            
+                            if (mod_100_exception.indexOf(key) !== -1){
+                              App.options.data[key] = ee.Image(App.options.collections[regionName][collectioName].assets[key]).mod(100).int8();
+                              return ; 
+                            }
+                            
+                            if (div_100_exception.indexOf(key) !== -1){
+                              App.options.data[key] = ee.Image(App.options.collections[regionName][collectioName].assets[key]).divide(100).int8();
+                              return ;
+                            }
 
-                                App.options.data[key] = ee.Image(App.options.collections[regionName][collectioName].assets[key]);
-                              
-                            });
+                              App.options.data[key] = ee.Image(App.options.collections[regionName][collectioName].assets[key]);
+                            
+                          });
+                          
+                          App.ui.setDataType(datas[0]);
                             //--------------------------------------------
 
                             var year; 
-                            //  year = App.options.collections[regionName][collectioName].periods.edge_30m.slice(-1)[0];
-                              year = 2021;
+                              year = App.options.collections[regionName][collectioName][datas[0]].periods[datas[0]].slice(-1)[0];
+                              // year = 2021;
                           
                             App.startMap(year);
 
@@ -946,7 +945,7 @@ var App = {
                             
                             if (App.ui.form.selectDataType.getValue() !== null){
                               App.ui.makeLayersList(
-                                  featureName,
+                                  App.options.activeName.split('/').slice(-1)[0],
                                   App.options.activeFeature,
                                   App.options.collections[regionName][collectionName]
                                       .periods[App.options.dataType]);
@@ -1038,9 +1037,6 @@ var App = {
 
         makeLayersList: function (regionName, region, periods) {
           
-          // print('App.ui.form.selectDataType.getValue()',App.ui.form.selectDataType.getValue());
-          // if (App.ui.form.selectDataType.getValue() === undefined){return ;}
-
             App.ui.form.panelLayersList.clear();
 
             periods.forEach(
@@ -1712,7 +1708,7 @@ var App = {
                                 
                                 if (App.ui.form.selectDataType.getValue() !== null){
                                   App.ui.makeLayersList(
-                                      featureName,
+                                      App.options.activeName.split('/').slice(-1)[0],
                                       App.options.activeFeature,
                                       App.options.collections[regionName][collectionName]
                                           .periods[App.options.dataType]);
