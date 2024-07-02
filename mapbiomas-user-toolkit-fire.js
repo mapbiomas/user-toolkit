@@ -569,17 +569,7 @@ var App = {
 
         dataType: 'annual_burned',
 
-        data: {
-          'annual_burned':null,
-          'annual_burned_coverage':null,
-          'monthly_burned':null,
-          'annual_burned_scar_size_range':null,
-          'accumulated_burned':null,
-          'accumulated_burned_coverage':null,
-          'year_last_fire':null,
-          'fire_frequency':null,                        
-          'fire_monitor': null,
-        },
+        data: {},
 
         ranges: {
           'annual_burned':{'min':1,'max':1},
@@ -687,7 +677,7 @@ var App = {
 
     startMap: function (year) {
       
-        Map.centerObject(App.options.data.annual_burned_coverage, 5);
+        Map.centerObject(App.options.data[Object.keys(App.options.data)[0]], 5);
 
         Map.clear();
 
@@ -1024,14 +1014,9 @@ var App = {
 
             Map.clear();
 
-            Map.addLayer(App.options.activeFeature.style({
-                color: 'ff0000',
-                width: 1,
-                fillColor: 'ff000033',
-            }), {},
+            Map.addLayer(ee.Image().paint(App.options.activeFeature,'vazio',1).visualize({palette:'red'}), {},
                 tableName.split('/')[3],
                 true);
-
         },
 
         loadTable: function (tableName) {
@@ -1041,13 +1026,9 @@ var App = {
             App.options.activeFeature = App.options.table;
 
             Map.clear();
-
-            Map.addLayer(App.options.activeFeature.style({
-                color: 'ff0000',
-                width: 1,
-                fillColor: 'ff000033',
-            }), {},
-                tableName.split('/').reverse()[0],
+            
+            Map.addLayer(ee.Image().paint(App.options.activeFeature,'vazio',1).visualize({palette:'red'}), {},
+                tableName.split('/')[3],
                 true);
 
         },
@@ -1181,12 +1162,8 @@ var App = {
 
             Map.clear();
 
-            Map.addLayer(App.options.activeFeature.style({
-                color: 'ff0000',
-                width: 1,
-                fillColor: 'ff000033',
-            }), {},
-                name,
+            Map.addLayer(ee.Image().paint(App.options.activeFeature,'vazio',1).visualize({palette:'red'}), {},
+                tableName.split('/')[3],
                 true);
 
         },
