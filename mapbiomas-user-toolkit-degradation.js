@@ -1146,10 +1146,13 @@ var App = {
                     var period = App.options.collections[regionName][collectionName]
                         .periods[App.options.dataType][i];
 
-                    var fileName = [regionName, collectionName, featureName, period].join('-');
-
-                    fileName = fileName.replace(/--/g, '-').replace(/--/g, '-').replace('.', '');
-                    fileName = App.formatName(fileName);
+                    var fileName = [
+                        App.formatName(regionName), 
+                        App.formatName(collectionName), 
+                        App.formatName(App.options.dataType), 
+                        App.formatName(featureName), 
+                        App.formatName(period)
+                      ].join('-');
 
                     var data = App.options.data[App.options.dataType]
                         .select([App.options.bandsNames[App.options.dataType] + period]);
@@ -1219,10 +1222,14 @@ var App = {
             areas = ee.FeatureCollection(areas).flatten();
             // print(areas);
 
-            var tableName = [regionName, collectionName, featureName, 'area'].join('-');
+            var tableName = [
+              App.formatName(regionName), 
+              App.formatName(collectionName), 
+              App.formatName(App.options.dataType), 
+              App.formatName(featureName), 
+              'area'
+              ].join('-');
 
-            tableName = tableName.replace(/--/g, '-').replace(/--/g, '-').replace('.', '');
-            tableName = App.formatName(tableName);
 
             Export.table.toDrive({
                 'collection': areas,
