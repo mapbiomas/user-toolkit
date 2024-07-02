@@ -219,7 +219,6 @@ var App = {
             'mapbiomas-brazil': {
             'degradation module (BETA): fragmentation': {
                 'assets': {
-
                   'edge_30m':'projects/mapbiomas-workspace/DEGRADACAO/COLECAO/BETA/PROCESS/edge_area/edge_30m_v3',
                   'edge_60m':'projects/mapbiomas-workspace/DEGRADACAO/COLECAO/BETA/PROCESS/edge_area/edge_60m_v3',
                   'edge_90m':'projects/mapbiomas-workspace/DEGRADACAO/COLECAO/BETA/PROCESS/edge_area/edge_90m_v3',
