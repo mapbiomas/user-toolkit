@@ -31,6 +31,7 @@
  *          - Alterando posição da escolha da collection e adaptando o codigo a isso
  *          - Alterando o Map.clear() Map.layers().reset([]) e Removendo labels de loading
  *          - Adicionando outros planos de fundo
+ *          - Adicionando Coleção 2.1 do MapBiomas-Fogo
  *
  * 
  * @see
@@ -232,7 +233,7 @@ var App = {
                     'assets': {
                         'annual_burned_coverage': 'projects/mapbiomas-workspace/public/collection6/mapbiomas-fire-collection1-annual-burned-coverage-1',
                         'monthly_burned_coverage': 'projects/mapbiomas-workspace/public/collection6/mapbiomas-fire-collection1-monthly-burned-coverage-1',
-                        'fire_frequency': 'projects/mapbiomas-workspace/public/collection6/mapbiomas-fire-collection1-fire-frequency-1',
+                        'fire_frequency_coverage': 'projects/mapbiomas-workspace/public/collection6/mapbiomas-fire-collection1-fire-frequency-1',
                     },
 
                     'periods': {
@@ -252,7 +253,7 @@ var App = {
                             '2009', '2010', '2011', '2012', '2013', '2014',
                             '2015', '2016', '2017', '2018', '2019', '2020'
                         ],
-                        'fire_frequency': [
+                        'fire_frequency_coverage': [
                             '1985_1986','1985_1987','1985_1988','1985_1989',
                             '1985_1990','1985_1991','1985_1992','1985_1993',
                             '1985_1994','1985_1995','1985_1996','1985_1997',
@@ -280,7 +281,7 @@ var App = {
                     'assets': {
                         'annual_burned_coverage': 'projects/mapbiomas-workspace/public/collection7/mapbiomas-fire-collection1-1-annual-burned-coverage-1',
                         'monthly_burned_coverage': 'projects/mapbiomas-workspace/public/collection7/mapbiomas-fire-collection1-1-monthly-burned-coverage-1',
-                        'fire_frequency': 'projects/mapbiomas-workspace/public/collection7/mapbiomas-fire-collection1-1-fire-frequency-1',
+                        'fire_frequency_coverage': 'projects/mapbiomas-workspace/public/collection7/mapbiomas-fire-collection1-1-fire-frequency-1',
                     },
 
                     'periods': {
@@ -302,7 +303,7 @@ var App = {
                             '2015', '2016', '2017', '2018', '2019', '2020',
                             '2021'
                         ],
-                        'fire_frequency': [
+                        'fire_frequency_coverage': [
                             "1985_1985", "1985_1986", "1985_1987", "1985_1988",
                             "1985_1989", "1985_1990", "1985_1991", "1985_1992",
                             "1985_1993", "1985_1994", "1985_1995", "1985_1996",
@@ -330,7 +331,7 @@ var App = {
                     'assets': {
                         'annual_burned_coverage': 'projects/mapbiomas-workspace/public/collection7_1/mapbiomas-fire-collection2-annual-burned-coverage-1',
                         'monthly_burned_coverage': 'projects/mapbiomas-workspace/public/collection7_1/mapbiomas-fire-collection2-monthly-burned-coverage-1',
-                        'fire_frequency': 'projects/mapbiomas-workspace/public/collection7_1/mapbiomas-fire-collection2-fire-frequency-1',
+                        'fire_frequency_coverage': 'projects/mapbiomas-workspace/public/collection7_1/mapbiomas-fire-collection2-fire-frequency-1',
                     },
 
                     'periods': {
@@ -352,7 +353,92 @@ var App = {
                             '2015', '2016', '2017', '2018', '2019', '2020',
                             '2021','2022',
                         ],
-                        'fire_frequency': [
+                        'fire_frequency_coverage': [
+                            "1985_1985", "1985_1986", "1985_1987", "1985_1988",
+                            "1985_1989", "1985_1990", "1985_1991", "1985_1992",
+                            "1985_1993", "1985_1994", "1985_1995", "1985_1996",
+                            "1985_1997", "1985_1998", "1985_1999", "1985_2000",
+                            "1985_2001", "1985_2002", "1985_2003", "1985_2004",
+                            "1985_2005", "1985_2006", "1985_2007", "1985_2008",
+                            "1985_2009", "1985_2010", "1985_2011", "1985_2012",
+                            "1985_2013", "1985_2014", "1985_2015", "1985_2016",
+                            "1985_2017", "1985_2018", "1985_2019", "1985_2020",
+                            "1985_2021", "1985_2022", "2022_2022", "2021_2022",
+                            "2020_2022", "2019_2022", "2018_2022", "2017_2022",
+                            "2016_2022", "2015_2022", "2014_2022", "2013_2022",
+                            "2012_2022", "2011_2022", "2010_2022", "2009_2022",
+                            "2008_2022", "2007_2022", "2006_2022", "2005_2022",
+                            "2004_2022", "2003_2022", "2002_2022", "2001_2022",
+                            "2000_2022", "1999_2022", "1998_2022", "1997_2022",
+                            "1996_2022", "1995_2022", "1994_2022", "1993_2022",
+                            "1992_2022", "1991_2022", "1990_2022", "1989_2022",
+                            "1988_2022", "1987_2022", "1986_2022", "1990_1995",
+                            "1995_2000", "2000_2005", "2005_2010", "2010_2015",
+                            "2015_2020", "1995_2005", "2005_2015", "2000_2015"
+                        ],
+                    },
+                },
+                'collection-2.1': {
+                    'assets': {
+                        'annual_burned': 'projects/mapbiomas-workspace/FOGO_COL2/SUBPRODUTOS/mapbiomas-fire-collection2-annual-burned-v2',
+                        'monthly_burned_coverage': 'projects/mapbiomas-workspace/FOGO_COL2/SUBPRODUTOS/mapbiomas-fire-collection2-monthly-burned-coverage-v2',
+                        'annual_burned_coverage':'projects/mapbiomas-workspace/FOGO_COL2/SUBPRODUTOS/mapbiomas-fire-collection2-annual-burned-coverage-v2',
+                        'accumulated_burned_coverage': 'projects/mapbiomas-workspace/FOGO_COL2/SUBPRODUTOS/mapbiomas-fire-collection2-accumulated-burned-coverage-v2',
+                        'fire_frequency_coverage': 'projects/mapbiomas-workspace/FOGO_COL2/SUBPRODUTOS/mapbiomas-fire-collection2-fire-frequency-coverage-v2',
+                    },
+
+                    'periods': {
+                        'annual_burned': [
+                            '1985', '1986', '1987', '1988', '1989', '1990',
+                            '1991', '1992', '1993', '1994', '1995', '1996',
+                            '1997', '1998', '1999', '2000', '2001', '2002',
+                            '2003', '2004', '2005', '2006', '2007', '2008',
+                            '2009', '2010', '2011', '2012', '2013', '2014',
+                            '2015', '2016', '2017', '2018', '2019', '2020',
+                            '2021', '2022'
+                        ],
+                        'annual_burned_coverage': [
+                            '1985', '1986', '1987', '1988', '1989', '1990',
+                            '1991', '1992', '1993', '1994', '1995', '1996',
+                            '1997', '1998', '1999', '2000', '2001', '2002',
+                            '2003', '2004', '2005', '2006', '2007', '2008',
+                            '2009', '2010', '2011', '2012', '2013', '2014',
+                            '2015', '2016', '2017', '2018', '2019', '2020',
+                            '2021', '2022'
+                        ],
+                        'monthly_burned_coverage': [
+                            '1985', '1986', '1987', '1988', '1989', '1990',
+                            '1991', '1992', '1993', '1994', '1995', '1996',
+                            '1997', '1998', '1999', '2000', '2001', '2002',
+                            '2003', '2004', '2005', '2006', '2007', '2008',
+                            '2009', '2010', '2011', '2012', '2013', '2014',
+                            '2015', '2016', '2017', '2018', '2019', '2020',
+                            '2021','2022'
+                        ],
+                        'accumulated_burned_coverage': [
+                            "1985_1985", "1985_1986", "1985_1987", "1985_1988",
+                            "1985_1989", "1985_1990", "1985_1991", "1985_1992",
+                            "1985_1993", "1985_1994", "1985_1995", "1985_1996",
+                            "1985_1997", "1985_1998", "1985_1999", "1985_2000",
+                            "1985_2001", "1985_2002", "1985_2003", "1985_2004",
+                            "1985_2005", "1985_2006", "1985_2007", "1985_2008",
+                            "1985_2009", "1985_2010", "1985_2011", "1985_2012",
+                            "1985_2013", "1985_2014", "1985_2015", "1985_2016",
+                            "1985_2017", "1985_2018", "1985_2019", "1985_2020",
+                            "1985_2021", "1985_2022", "2022_2022", "2021_2022",
+                            "2020_2022", "2019_2022", "2018_2022", "2017_2022",
+                            "2016_2022", "2015_2022", "2014_2022", "2013_2022",
+                            "2012_2022", "2011_2022", "2010_2022", "2009_2022",
+                            "2008_2022", "2007_2022", "2006_2022", "2005_2022",
+                            "2004_2022", "2003_2022", "2002_2022", "2001_2022",
+                            "2000_2022", "1999_2022", "1998_2022", "1997_2022",
+                            "1996_2022", "1995_2022", "1994_2022", "1993_2022",
+                            "1992_2022", "1991_2022", "1990_2022", "1989_2022",
+                            "1988_2022", "1987_2022", "1986_2022", "1990_1995",
+                            "1995_2000", "2000_2005", "2005_2010", "2010_2015",
+                            "2015_2020", "1995_2005", "2005_2015", "2000_2015"
+                        ],
+                        'fire_frequency_coverage': [
                             "1985_1985", "1985_1986", "1985_1987", "1985_1988",
                             "1985_1989", "1985_1990", "1985_1991", "1985_1992",
                             "1985_1993", "1985_1994", "1985_1995", "1985_1996",
@@ -532,11 +618,13 @@ var App = {
           'annual_burned':'burned_area_',
           'annual_burned_coverage':'burned_coverage_',
           'monthly_burned':'burned_monthly_',
+          'monthly_burned_coverage':'burned_coverage_',
           'annual_burned_scar_size_range':'scar_area_ha_',
           'accumulated_burned':'fire_accumulated_',
           'accumulated_burned_coverage':'fire_accumulated_',
           'year_last_fire':'classification_',
           'fire_frequency':'fire_frequency_',
+          'fire_frequency_coverage':'fire_frequency_',
           'fire_monitor':'burned_coverage_'
         },
 
@@ -546,13 +634,15 @@ var App = {
 
         ranges: {
           'annual_burned':{'min':1,'max':1},
-          'annual_burned_coverage':{'min':0,'max':62},
+          'annual_burned_coverage':{'min':0,'max':69},
           'monthly_burned':{'min':1,'max':12},
+          'monthly_burned_coverage':{'min':1,'max':12},
           'annual_burned_scar_size_range':{'min':1,'max':10},
           'accumulated_burned':{'min':1,'max':1},
-          'accumulated_burned_coverage':{'min':0,'max':62},
+          'accumulated_burned_coverage':{'min':0,'max':69},
           'year_last_fire':{'min':1985,'max':2022},
           'fire_frequency':{'min':0,'max':39},
+          'fire_frequency_coverage':{'min':0,'max':39},
           'fire_monitor':{'min':1,'max':1},
 
         },
@@ -565,13 +655,15 @@ var App = {
 
         palette: {
           'annual_burned':['#ff0000'],
-          'annual_burned_coverage':palettes.get('classification8'),
+          'annual_burned_coverage':palettes.get('classification9'),
           'monthly_burned':fire_palettes.get('mensal'),
+          'monthly_burned_coverage':fire_palettes.get('mensal'),
           'annual_burned_scar_size_range':fire_palettes.get('tamanho_n2'),
           'accumulated_burned':['#800000'],
-          'accumulated_burned_coverage':palettes.get('classification8'),
+          'accumulated_burned_coverage':palettes.get('classification9'),
           'year_last_fire':fire_palettes.get('ano_do_ultimo_fogo'),
           'fire_frequency':fire_palettes.get('frequencia'),
+          'fire_frequency_coverage':fire_palettes.get('frequencia'),
           'fire_monitor':['#870508'],
           
         },
@@ -800,7 +892,7 @@ var App = {
                           datas.forEach(function(key){
 
                             var mod_100_exception = [''];
-                            var div_100_exception = [''];
+                            var div_100_exception = ['monthly_burned_coverage','fire_frequency_coverage'];
                             
                             if (mod_100_exception.indexOf(key) !== -1){
                               App.options.data[key] = ee.Image(App.options.collections[regionName][collectioName].assets[key]).mod(100).int8();
