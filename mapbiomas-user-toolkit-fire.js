@@ -965,10 +965,10 @@ var App = {
                     function (obj) {
                         return obj.id;
                     });
-                var allTablesNames = App.options.tables[regionName].concat(tablesNames);
+                allTablesNames = App.options.tables[regionName].concat(tablesNames);
             }
             catch (e) {
-                var allTablesNames = App.options.tables[regionName];
+                allTablesNames = App.options.tables[regionName];
             }
 
             App.ui.form.selectFeatureCollections = ui.Select({
