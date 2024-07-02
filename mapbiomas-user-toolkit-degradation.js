@@ -315,6 +315,19 @@ var App = {
 
                     },
                 },
+            'degradation module (BETA): secundary vegetation': {
+                'assets': {
+
+                  'secundary age':'projects/mapbiomas-workspace/DEGRADACAO/COLECAO/BETA/PROCESS/secondary_vegetation/secondary_vegetation_age_v1',
+                  'secundary coverage':'projects/mapbiomas-workspace/DEGRADACAO/COLECAO/BETA/PROCESS/secondary_vegetation/secondary_vegetation_age_v1',
+
+                },
+                'periods': {
+                  'secundary age':[ '1986', '1987', '1988', '1989', '1990','1991', '1992', '1993', '1994', '1995', '1996','1997', '1998', '1999', '2000', '2001', '2002','2003', '2004', '2005', '2006', '2007', '2008','2009', '2010', '2011', '2012', '2013', '2014','2015', '2016', '2017', '2018', '2019', '2020','2021','2022'  ],
+                  'secundary coverage':[ '1986', '1987', '1988', '1989', '1990','1991', '1992', '1993', '1994', '1995', '1996','1997', '1998', '1999', '2000', '2001', '2002','2003', '2004', '2005', '2006', '2007', '2008','2009', '2010', '2011', '2012', '2013', '2014','2015', '2016', '2017', '2018', '2019', '2020','2021','2022'],
+
+                },
+            },
             },
             /*'mapbiomas-indonesia': {},*/
         },
@@ -365,9 +378,11 @@ var App = {
           "med lt100ha - dist lt10k - gde eq1000ha":"nat_",
           "med lt100ha - dist lt20k - gde eq500ha":"nat_",
           "med lt100ha - dist lt20k - gde eq1000ha":"nat_",
-          "frequency":"frequency_",
+          "accumulated_coverage":"frequency_",
           "age":"age_",
           "accumulated_burned_coverage":"frequency_",
+          "secundary age":"age_",
+          "secundary coverage":"age_",
         },
         dataType: 'edge_30m',
         data: {},
@@ -414,6 +429,8 @@ var App = {
           "frequency":{'min':0,'max':39},
           "age":{'min':0,'max':39},
           "accumulated_burned_coverage":{'min':0,'max':69},
+          "secundary age":{'min':0,'max':39},
+          "secundary coverage":{'min':0,'max':69},
 
         },
 
@@ -465,7 +482,9 @@ var App = {
           
           "frequency":fire_palettes.get('frequencia_2'),
           "age":fire_palettes.get('ano_do_ultimo_fogo_2'),
-          "accumulated_burned_coverage":palettes.get('classification9')
+          "accumulated_burned_coverage":palettes.get('classification9'),
+          "secundary age":fire_palettes.get('vegetacao_secundaria'),
+          "secundary coverage":palettes.get('classification9'),
 
         },
 
@@ -655,7 +674,7 @@ var App = {
                     'stretch': 'horizontal'
                 },
                 'widgets': labelLinks
-            })
+            });
 
         },
 
@@ -754,10 +773,10 @@ var App = {
                     function (obj) {
                         return obj.id;
                     });
-                var allTablesNames = App.options.tables[regionName].concat(tablesNames);
+                allTablesNames = App.options.tables[regionName].concat(tablesNames);
             }
             catch (e) {
-                var allTablesNames = App.options.tables[regionName];
+                allTablesNames = App.options.tables[regionName];
             }
 
             App.ui.form.selectFeatureCollections = ui.Select({
