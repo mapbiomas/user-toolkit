@@ -578,15 +578,15 @@ var App = {
         },
 
         fileDimensions: {
-          'annual_burned':256 * 512,
-          'annual_burned_coverage':256 * 512,
-          'monthly_burned':256 * 512,
-          'annual_burned_scar_size_range':256 * 512,
-          'accumulated_burned':256 * 512,
-          'accumulated_burned_coverage':256 * 512,
-          'year_last_fire':256 * 512,
-          'fire_frequency':256 * 512,                        
-          'fire_monitor':256 * 512,
+          'annual_burned':256 * 124,
+          'annual_burned_coverage':256 * 124,
+          'monthly_burned':256 * 124,
+          'annual_burned_scar_size_range':256 * 124,
+          'accumulated_burned':256 * 124,
+          'accumulated_burned_coverage':256 * 124,
+          'year_last_fire':256 * 124,
+          'fire_frequency':256 * 124,                        
+          'fire_monitor':256 * 124,
         },
 
         ranges: {
@@ -675,6 +675,7 @@ var App = {
             58: 'Cultivo Múltiple', // Only for Chaco
             62: "Cotton",
             63: "Steppe",
+            69: "Coral",
             0: "Non Observed",
 
         },
@@ -700,36 +701,73 @@ var App = {
 
     },
 
-    formatName: function (name) {
+    // formatName: function (name) {
 
-        var formated = name
-            .toLowerCase()
-            .replace(/á/g, 'a')
-            .replace(/à/g, 'a')
-            .replace(/â/g, 'a')
-            .replace(/ã/g, 'a')
-            .replace(/ä/g, 'a')
-            .replace(/ª/g, 'a')
-            .replace(/é/g, 'e')
-            .replace(/ê/g, 'e')
-            .replace(/í/g, 'i')
-            .replace(/ó/g, 'o')
-            .replace(/ô/g, 'o')
-            .replace(/õ/g, 'o')
-            .replace(/ú/g, 'u')
-            .replace(/û/g, 'u')
-            .replace(/ũ/g, 'u')
-            .replace(/ç/g, 'c')
-            .replace(/ñ/g, 'n')
-            .replace(/&/g, '')
-            .replace(/@/g, '')
-            .replace(/ /g, '')
-            .replace(/\[/g, '') // Nova substituição para o caractere '['
-            .replace(/\]/g, '') // Nova substituição para o caractere ']'
-            .replace(/["'()\/]/g, '');
+    //     var formated = name
+    //         .toLowerCase()
+    //         .replace(/á/g, 'a')
+    //         .replace(/à/g, 'a')
+    //         .replace(/â/g, 'a')
+    //         .replace(/ã/g, 'a')
+    //         .replace(/ä/g, 'a')
+    //         .replace(/ª/g, 'a')
+    //         .replace(/é/g, 'e')
+    //         .replace(/ê/g, 'e')
+    //         .replace(/í/g, 'i')
+    //         .replace(/ó/g, 'o')
+    //         .replace(/ô/g, 'o')
+    //         .replace(/õ/g, 'o')
+    //         .replace(/ú/g, 'u')
+    //         .replace(/û/g, 'u')
+    //         .replace(/ũ/g, 'u')
+    //         .replace(/ç/g, 'c')
+    //         .replace(/ñ/g, 'n')
+    //         .replace(/&/g, '')
+    //         .replace(/@/g, '')
+    //         .replace(/ /g, '')
+    //         .replace(/\[/g, '') // Nova substituição para o caractere '['
+    //         .replace(/\]/g, '') // Nova substituição para o caractere ']'
+    //         .replace(/["'()\/]/g, '');
 
-        return formated;
-    },
+    //     return formated;
+    // },
+
+    transformarString: function (input) {
+          // Mapeamento de caracteres com acentos para caracteres simples
+          var acentos = {
+            'á': 'a', 'ã': 'a', 'â': 'a', 'à': 'a', 'ä': 'a',
+            'é': 'e', 'ê': 'e', 'è': 'e', 'ë': 'e',
+            'í': 'i', 'î': 'i', 'ì': 'i', 'ï': 'i',
+            'ó': 'o', 'õ': 'o', 'ô': 'o', 'ò': 'o', 'ö': 'o',
+            'ú': 'u', 'û': 'u', 'ù': 'u', 'ü': 'u',
+            'ç': 'c',
+            'Á': 'a', 'Ã': 'a', 'Â': 'a', 'À': 'a', 'Ä': 'a',
+            'É': 'e', 'Ê': 'e', 'È': 'e', 'Ë': 'e',
+            'Í': 'i', 'Î': 'i', 'Ì': 'i', 'Ï': 'i',
+            'Ó': 'o', 'Õ': 'o', 'Ô': 'o', 'Ò': 'o', 'Ö': 'o',
+            'Ú': 'u', 'Û': 'u', 'Ù': 'u', 'Ü': 'u',
+            'Ç': 'c'
+          };
+          
+          // Remove acentos
+          var semAcentos = input.split('').map(function(char) {
+            return acentos[char] || char;
+          }).join('');
+          
+          // Converte para caixa baixa
+          var minuscula = semAcentos.toLowerCase();
+          
+          // Substitui espaços por underscores
+          var comUnderscores = minuscula.replace(/\s+/g, '_');
+          
+          // Substitui traço por underscores
+          var comtraco = comUnderscores.replace(/-/g, '_');
+          
+          // Remove caracteres especiais
+          var resultado = comtraco.replace(/[^a-z0-9_]/g, '');
+          
+          return resultado;
+        },
     
     formatLabelWithLinks: function(text,links){
       
@@ -1166,11 +1204,7 @@ var App = {
 
             var image = App.options.data[App.options.dataType]
                 .select([App.options.bandsNames[App.options.dataType] + period])
-                .clip(region);
-
-            if (App.options.dataType == 'Transitions') {
-                image = App.remapTransitions(image);
-            }
+                .multiply(ee.Image().paint(region).eq(0));
 
             var imageLayer = ui.Map.Layer({
                 'eeObject': image,
@@ -1260,7 +1294,7 @@ var App = {
             var regionName = App.ui.form.selectRegion.getValue();
             var collectionName = App.ui.form.selectCollection.getValue();
 
-            var featureName = App.formatName(App.ui.form.selectFeature.getValue() || '');
+            var featureName = App.transformarString(App.ui.form.selectFeature.getValue() || '');
 
             var bandIds = [];
 
@@ -1276,7 +1310,7 @@ var App = {
                     var fileName = [regionName, collectionName, featureName, period].join('-');
 
                     fileName = fileName.replace(/--/g, '-').replace(/--/g, '-').replace('.', '');
-                    fileName = App.formatName(fileName);
+                    fileName = App.transformarString(fileName);
 
                     var data = App.options.data[App.options.dataType]
                         .select([App.options.bandsNames[App.options.dataType] + period]);
@@ -1284,10 +1318,10 @@ var App = {
                     var region = App.options.activeFeature.geometry();
 
                     if (App.options.bufferDistance !== 0) {
-                        data = data.clip(App.options.activeFeature.geometry().buffer(App.options.bufferDistance));
+                        data = data.multiply(ee.Image(0).paint(App.options.activeFeature.geometry().buffer(App.options.bufferDistance)).eq(0));
                         region = region.buffer(App.options.bufferDistance);
                     } else {
-                        data = data.clip(App.options.activeFeature.geometry());
+                        data = data.multiply(ee.Image(0).paint(App.options.activeFeature.geometry()).eq(0));
                     }
 
                     region = region.bounds();
@@ -1360,7 +1394,7 @@ var App = {
             var tableName = [regionName, collectionName, featureName, 'area'].join('-');
 
             tableName = tableName.replace(/--/g, '-').replace(/--/g, '-').replace('.', '');
-            tableName = App.formatName(tableName);
+            tableName = App.transformarString(tableName);
 
             Export.table.toDrive({
                 'collection': areas,
