@@ -1230,7 +1230,6 @@ var App = {
               'area'
               ].join('-');
 
-
             Export.table.toDrive({
                 'collection': areas,
                 'description': tableName,
