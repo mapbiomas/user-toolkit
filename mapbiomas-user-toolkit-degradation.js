@@ -14,7 +14,7 @@
  *
  * @version
  *    0.0.0 - Versão de desenvolvimento
- *           - Collection 1.0 fire
+ *          - Adicionando modulos de degradação 1.0 
  *
  * 
  * @see
