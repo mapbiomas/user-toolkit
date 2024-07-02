@@ -13,7 +13,7 @@
  *      contato@mapbiomas.org
  *
  * @version
- *    1.0.0 - First release
+ *    0.0.0 - Versão de desenvolvimento
  *           - Collection 1.0 fire
  *
  * 
@@ -104,7 +104,7 @@ var App = {
 
     options: {
 
-        version: '1.0.0',
+        version: '0.0.0 - Versão em desenvolvimento, não utilize por enquanto, logo mais estara disponível!',
 
         logo: {
             uri: 'gs://mapbiomas-public/mapbiomas-logos/mapbiomas-logo-horizontal.b64',
@@ -413,49 +413,7 @@ var App = {
           "age":null,
           "accumulated_burned_coverage":null,
         },
-        fileDimensions: {
-          "edge_30m":256 * 512,
-          "edge_60m":256 * 512,
-          "edge_90m":256 * 512,
-          "edge_120m":256 * 512,
-          "edge_150m":256 * 512,
-          "edge_600m":256 * 512,
-          "edge_300m":256 * 512,
-          "edge_1000m":256 * 512,
-          "size_3ha":256 * 512,
-          "size_5ha":256 * 512,
-          "size_10ha":256 * 512,
-          "size_25ha":256 * 512,
-          "size_50ha":256 * 512,
-          "size_75ha":256 * 512,
-          "med <25ha - dist <05k - gde 100ha":256 * 512,
-          "med <25ha - dist <05k - gde 500ha":256 * 512,
-          "med <25ha - dist <05k - gde 1000ha":256 * 512,
-          "med <25ha - dist <10k - gde 100ha":256 * 512,
-          "med <25ha - dist <10k - gde 500ha":256 * 512,
-          "med <25ha - dist <10k - gde 1000ha":256 * 512,
-          "med <25ha - dist <20k - gde 100ha":256 * 512,
-          "med <25ha - dist <20k - gde 500ha":256 * 512,
-          "med <25ha - dist <20k - gde 1000ha":256 * 512,
-          "med <50ha - dist <05k - gde 100ha":256 * 512,
-          "med <50ha - dist <05k - gde 500ha":256 * 512,
-          "med <50ha - dist <05k - gde 1000ha":256 * 512,
-          "med <50ha - dist <10k - gde 100ha":256 * 512,
-          "med <50ha - dist <10k - gde 500ha":256 * 512,
-          "med <50ha - dist <10k - gde 1000ha":256 * 512,
-          "med <50ha - dist <20k - gde 100ha":256 * 512,
-          "med <50ha - dist <20k - gde 1000ha":256 * 512,
-          "med <50ha - dist <20k - gde 500ha":256 * 512,
-          "med <100ha - dist <05k - gde 1000ha":256 * 512,
-          "med <100ha - dist <10k - gde 500ha":256 * 512,
-          "med <100ha - dist <05k - gde 500ha":256 * 512,
-          "med <100ha - dist <10k - gde 1000ha":256 * 512,
-          "med <100ha - dist <20k - gde 500ha":256 * 512,
-          "med <100ha - dist <20k - gde 1000ha":256 * 512,
-          "frequency":256 * 512,
-          "age":256 * 512,
-          "accumulated_burned_coverage":256 * 512,
-        },
+
         ranges: {
           "edge_30m":{'min':0,'max':69},
           "edge_60m":{'min':0,'max':69},
@@ -633,36 +591,42 @@ var App = {
 
     },
 
-    formatName: function (name) {
-
-        var formated = name
-            .toLowerCase()
-            .replace(/á/g, 'a')
-            .replace(/à/g, 'a')
-            .replace(/â/g, 'a')
-            .replace(/ã/g, 'a')
-            .replace(/ä/g, 'a')
-            .replace(/ª/g, 'a')
-            .replace(/é/g, 'e')
-            .replace(/ê/g, 'e')
-            .replace(/í/g, 'i')
-            .replace(/ó/g, 'o')
-            .replace(/ô/g, 'o')
-            .replace(/õ/g, 'o')
-            .replace(/ú/g, 'u')
-            .replace(/û/g, 'u')
-            .replace(/ũ/g, 'u')
-            .replace(/ç/g, 'c')
-            .replace(/ñ/g, 'n')
-            .replace(/&/g, '')
-            .replace(/@/g, '')
-            .replace(/ /g, '')
-            .replace(/\[/g, '') // Nova substituição para o caractere '['
-            .replace(/\]/g, '') // Nova substituição para o caractere ']'
-            .replace(/["'()\/]/g, '');
-
-        return formated;
-    },
+    formatName: function (input) {
+          // Mapeamento de caracteres com acentos para caracteres simples
+          var acentos = {
+            'á': 'a', 'ã': 'a', 'â': 'a', 'à': 'a', 'ä': 'a',
+            'é': 'e', 'ê': 'e', 'è': 'e', 'ë': 'e',
+            'í': 'i', 'î': 'i', 'ì': 'i', 'ï': 'i',
+            'ó': 'o', 'õ': 'o', 'ô': 'o', 'ò': 'o', 'ö': 'o',
+            'ú': 'u', 'û': 'u', 'ù': 'u', 'ü': 'u',
+            'ç': 'c',
+            'Á': 'a', 'Ã': 'a', 'Â': 'a', 'À': 'a', 'Ä': 'a',
+            'É': 'e', 'Ê': 'e', 'È': 'e', 'Ë': 'e',
+            'Í': 'i', 'Î': 'i', 'Ì': 'i', 'Ï': 'i',
+            'Ó': 'o', 'Õ': 'o', 'Ô': 'o', 'Ò': 'o', 'Ö': 'o',
+            'Ú': 'u', 'Û': 'u', 'Ù': 'u', 'Ü': 'u',
+            'Ç': 'c'
+          };
+          
+          // Remove acentos
+          var semAcentos = input.split('').map(function(char) {
+            return acentos[char] || char;
+          }).join('');
+          
+          // Converte para caixa baixa
+          var minuscula = semAcentos.toLowerCase();
+          
+          // Substitui espaços por underscores
+          var comUnderscores = minuscula.replace(/\s+/g, '_');
+          
+          // Substitui traço por underscores
+          var comtraco = comUnderscores.replace(/-/g, '_');
+          
+          // Remove caracteres especiais
+          var resultado = comtraco.replace(/[^a-z0-9_]/g, '');
+          
+          return resultado;
+        },
     
     formatLabelWithLinks: function(text,links){
       
@@ -1210,7 +1174,7 @@ var App = {
                         scale: 30,
                         maxPixels: 1e13,
                         fileFormat: 'GeoTIFF',
-                        fileDimensions: App.options.fileDimensions[App.options.dataType],
+                        fileDimensions: 256 * 124,
                     });
 
                     bandIds.push(App.options.bandsNames[App.options.dataType] + period);
