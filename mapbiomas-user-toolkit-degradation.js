@@ -695,7 +695,6 @@ var App = {
                     ee.Number(1).evaluate(
                         function (a) {
                           
-                          
                           var datas = Object.keys(App.options.collections[regionName][collectioName].assets);
                           
                             App.ui.setDataType(datas[0]);
@@ -729,6 +728,7 @@ var App = {
                             App.startMap(year);
 
                             App.ui.loadDataType();
+                            
                         }
                     );
 
@@ -786,12 +786,6 @@ var App = {
 
                                 App.ui.loadTable(tableName);
 
-                                App.ui.makeLayersList(
-                                    tableName.split('/').slice(-1)[0],
-                                    App.options.activeFeature,
-                                    App.options.collections[regionName][collectioName]
-                                        .periods[App.options.dataType]
-                                );
 
                                 App.ui.loadPropertiesNames();
 
@@ -906,11 +900,14 @@ var App = {
                                             var collectionName = App.ui.form.selectCollection.getValue();
 
                                             App.ui.loadFeature(featureName);
-                                            App.ui.makeLayersList(
-                                                featureName,
-                                                App.options.activeFeature,
-                                                App.options.collections[regionName][collectionName]
-                                                    .periods[App.options.dataType]);
+
+                                            if (App.ui.form.selectDataType.getValue() !== null){
+                                              App.ui.makeLayersList(
+                                                  featureName,
+                                                  App.options.activeFeature,
+                                                  App.options.collections[regionName][collectionName]
+                                                      .periods[App.options.dataType]);
+                                            }
                                             App.ui.form.selectDataType.setDisabled(false);
                                         }
                                     );
@@ -946,11 +943,15 @@ var App = {
                         'onChange': function (dataType) {
 
                             App.ui.setDataType(dataType);
+                            
+                            if (App.ui.form.selectDataType.getValue() !== null){
+                              App.ui.makeLayersList(
+                                  featureName,
+                                  App.options.activeFeature,
+                                  App.options.collections[regionName][collectionName]
+                                      .periods[App.options.dataType]);
+                            }
 
-                            App.ui.makeLayersList(
-                                App.options.activeName.split('/').slice(-1)[0],
-                                App.options.activeFeature,
-                                App.options.collections[regionName][collectionName].periods[dataType]);
 
                         },
                         'style': {
@@ -970,7 +971,7 @@ var App = {
             App.options.activeFeature = App.options.table
                 .filterMetadata(App.options.propertyName, 'equals', name);
 
-            // Map.centerObject(App.options.activeFeature);
+            Map.centerObject(App.options.activeFeature);
 
             Map.clear();
 
@@ -1036,6 +1037,9 @@ var App = {
         },
 
         makeLayersList: function (regionName, region, periods) {
+          
+          // print('App.ui.form.selectDataType.getValue()',App.ui.form.selectDataType.getValue());
+          // if (App.ui.form.selectDataType.getValue() === undefined){return ;}
 
             App.ui.form.panelLayersList.clear();
 
@@ -1313,13 +1317,13 @@ var App = {
                 App.ui.form.panelBuffer.add(App.ui.form.selectBuffer);
 
                 App.ui.form.panel1.add(App.ui.form.panelRegion);
-                App.ui.form.panel1.add(App.ui.form.panelCollection);
                 App.ui.form.panel1.add(App.ui.form.panelFeatureCollections);
                 App.ui.form.panel1.add(App.ui.form.panelStates);
                 App.ui.form.panel1.add(App.ui.form.panelProperties);
                 App.ui.form.panel1.add(App.ui.form.panelFeature);
+                App.ui.form.panel1.add(App.ui.form.panelCollection);
                 App.ui.form.panel1.add(App.ui.form.panelDataType);
-                App.ui.form.panel1.add(App.ui.form.panelBuffer);
+                // App.ui.form.panel1.add(App.ui.form.panelBuffer);
 
                 App.ui.form.panel1.add(App.ui.form.labelLayers);
                 App.ui.form.panel1.add(App.ui.form.panelLayersList);
@@ -1652,8 +1656,8 @@ var App = {
             }),
 
             selectDataType: ui.Select({
-                'items': ['Coverage', 'Transitions'],
-                'placeholder': 'Coverage',
+                'items': ['None'],
+                'placeholder': 'None',
                 'style': {
                     'stretch': 'horizontal'
                 },
@@ -1705,12 +1709,15 @@ var App = {
                         ee.Number(1).evaluate(
                             function (a) {
                                 App.ui.loadTableStates(App.options.activeName);
+                                
+                                if (App.ui.form.selectDataType.getValue() !== null){
+                                  App.ui.makeLayersList(
+                                      featureName,
+                                      App.options.activeFeature,
+                                      App.options.collections[regionName][collectionName]
+                                          .periods[App.options.dataType]);
+                                }
 
-                                App.ui.makeLayersList(
-                                    App.options.activeName.split('/')[3],
-                                    App.options.activeFeature,
-                                    App.options.periods[App.options.dataType]
-                                );
                                 App.ui.loadPropertiesNames();
                                 App.ui.form.selectDataType.setDisabled(false);
                             }
