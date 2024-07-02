@@ -30,6 +30,7 @@
  *          - Alterando o plot da feature para uma unica linha
  *          - Alterando posição da escolha da collection e adaptando o codigo a isso
  *          - Alterando o Map.clear() Map.layers().reset([]) e Removendo labels de loading
+ *          - Adicionando outros planos de fundo
  *
  * 
  * @see
