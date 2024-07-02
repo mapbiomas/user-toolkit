@@ -1940,11 +1940,6 @@ var App = {
                         App.ui.form.tab2.style().set('border', '1px solid #80808033');
 
                         App.ui.form.panelMain.remove(App.ui.form.panel2);
-                        App.ui.form.panelMain.remove(App.ui.form.panel3);
-                        App.ui.form.panelMain.remove(App.ui.form.panel4);
-                        App.ui.form.panelMain.remove(App.ui.form.panel5);
-                        App.ui.form.panelMain.remove(App.ui.form.panel6);
-                        App.ui.form.panelMain.remove(App.ui.form.panel7);
                         App.ui.form.panelMain.add(App.ui.form.panel1);
                     }
                 }
@@ -1966,11 +1961,7 @@ var App = {
                         App.ui.form.panelMain.remove(App.ui.form.panel1);
                         App.ui.form.panelMain
                           .add(App.ui.form.panel2)
-                          .add(App.ui.form.panel3)
-                          .add(App.ui.form.panel4)
-                          .add(App.ui.form.panel5)
-                          .add(App.ui.form.panel6)
-                          .add(App.ui.form.panel7);
+
 
 
 
