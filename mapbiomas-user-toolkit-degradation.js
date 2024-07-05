@@ -886,8 +886,11 @@ var App = {
 
             App.options.activeFeature = App.options.table
                 .filter(ee.Filter.eq(App.options.propertyName, name));
+                
+            ee.Number(0).evaluate(function(a){
+              Map.centerObject(App.options.activeFeature);
+            })
 
-            Map.centerObject(App.options.activeFeature);
 
             Map.layers().reset([]);
 
@@ -1102,8 +1105,8 @@ var App = {
                 do Brasil entre 1986 a 2021. Esses dados são derivados dos mapas anuais de cobertura e uso da terra da Coleção 8 do MapBiomas \
                 Brasil e dos mapas de cicatrizes de fogo da Coleção 2 do MapBiomas Fogo. Este módulo inclui dados sobre: Área de Borda, Tamanho \
                 do Fragmento, Isolamento do Fragmento, Frequência da Área Queimada; Tempo desde o último Fogo e Idade da Vegetação Secundária. \
-                Todos os mapas estão disponíveis em diferentes recortes territoriais (país, bioma, estado, município, bacia hidrográfica e unidade \
-                de conservação) e por classes de cobertura e uso da terra.',{'margin': '0px'}),
+                Todos os mapas estão disponíveis em diferentes recortes territoriais (país, bioma, estado, município, bacia hidrográfica e áreas protegidas)\
+                e por classes de cobertura e uso da terra.',{'margin': '0px'}),
                 ui.Label(''),
                 App.formatLabelWithLinks('Para maiores informações sobre o método, acesse a **página com descrição do método e o ATBD**.',{
                                             "página com descrição do método e o ATBD": "https://brasil.mapbiomas.org/metodo-degradacao/",
@@ -1123,8 +1126,8 @@ var App = {
                 ui.Label('The MapBiomas Degradation Beta Module provides annual data on the degradation drivers of native vegetation in Brazil from 1986 \
                           to 2021. These data are derived from the land cover and land use annual maps of MapBiomas Brazil Collection 8 and the fire scars \
                           maps of MapBiomas Fire Collection 2. This module includes data on Edge Area, Fragment Size, Fragment Isolation, Fire Frequency, \
-                          Time since the Last Fire, and Secondary Vegetation Age. All maps are available in different territories (country, biome, state, \
-                          municipality, watershed, and conservation unit) and by land cover and land use classes.',{'margin': '0px'}),
+                          Time since the Last Fire, and Secondary Vegetation Age. All maps are available in different territories \
+                          (country, biome, state, municipality, watershed, and protected area) and by land cover and land use classes.',{'margin': '0px'}),
                 ui.Label(''),
                 App.formatLabelWithLinks('For more information about the methodology, visit the **page with the method description and the ATBD**.',{
                                             "page with the method description and the ATBD": "https://brasil.mapbiomas.org/metodo-degradacao/",
