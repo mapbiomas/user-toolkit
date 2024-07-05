@@ -16,6 +16,7 @@
  *    0.0.0 - Versão de desenvolvimento
  *          - Adicionando modulos de degradação 1.0 
  *    0.0.1 - Primeira versão
+ *    0.0.2 - Replicando em memoria as camdas da plataforma (Area de classes borda, Area de classes de tamanho de fragmento e Area de classes de distancias dos fragmentos)
  *
  * 
  * @see
