@@ -362,6 +362,7 @@ var App = {
           "Target lte_100ha Distance lte_20km Source gte_500ha":"nat_",
           "Target lte_100ha Distance lte_20km Source gte_1000ha":"nat_",
           "accumulated_coverage":"frequency_",
+          "frequency":"frequency_",
           "age":"age_",
           "accumulated_burned_coverage":"frequency_",
           "secondary_age":"age_",
