@@ -1375,7 +1375,7 @@ var App = {
                 'fontSize': '16px'
             }),
 
-            labelCollection: ui.Label('Collection', {
+            labelCollection: ui.Label('Module', {
                 // 'fontWeight': 'bold',
                 // 'padding': '1px',
                 'fontSize': '16px'
