@@ -1096,50 +1096,48 @@ var App = {
         showDisclaimer: function () {
           
           App.ui.form.labelDisclaimer = [
-                ui.Label('NOTA INFORMATIVA - FOGO'),
+                ui.Label('NOTA INFORMATIVA -  MapBiomas Degradação Módulo BETA'),
                 ui.Label(''),
-                ui.Label('O Módulo Beta de Degradação do MapBiomas oferece um conjunto abrangente de mapas para a análise anual dos vetores de degradação da vegetação nativa do Brasil.\
-                          Dispondo de um catálogo anual que abrange de 1985 a 2022, esses mapas são derivados dos dados da Coleção 8 de cobertura e uso da terra e da Coleção 2 de fogo. \
-                          Este módulo inclui dados sobre: (a) Fragmentação, (b) Área de Borda, (c) Tamanho do Fragmento e (d) Isolamento do Fragmento; (d) Frequência da Área Queimada; \
-                          (e) Tempo Desde o Último Fogo e (f) Idade da Vegetação Secundária. Todos os mapas estão disponíveis em diferentes recortes territoriais e por classes de cobertura \
-                          e uso da terra.',{'margin': '0px'}),
+                ui.Label('O Módulo Beta de Degradação do MapBiomas disponibiliza dados anuais de vetores de degradação da vegetação nativa \
+                do Brasil entre 1986 a 2021. Esses dados são derivados dos mapas anuais de cobertura e uso da terra da Coleção 8 do MapBiomas \
+                Brasil e dos mapas de cicatrizes de fogo da Coleção 2 do MapBiomas Fogo. Este módulo inclui dados sobre: Área de Borda, Tamanho \
+                do Fragmento, Isolamento do Fragmento, Frequência da Área Queimada; Tempo desde o último Fogo e Idade da Vegetação Secundária. \
+                Todos os mapas estão disponíveis em diferentes recortes territoriais (país, bioma, estado, município, bacia hidrográfica e unidade \
+                de conservação) e por classes de cobertura e uso da terra.',{'margin': '0px'}),
                 ui.Label(''),
-                App.formatLabelWithLinks('Para maiores informações sobre o método, acesse a descrição do **método** e o **ATBD**',{
-                                            "método": "",
-                                            "ATBD": ""
+                App.formatLabelWithLinks('Para maiores informações sobre o método, acesse a **página com descrição do método e o ATBD**.',{
+                                            "página com descrição do método e o ATBD": "https://brasil.mapbiomas.org/metodo-degradacao/",
                                           }),
                 ui.Label(''),
-                App.formatLabelWithLinks('Para baixar os dados, acesse o **Toolkit**.',{
+                App.formatLabelWithLinks('Os mapas estão disponíveis para baixar no **Toolkit**.',{
                                           'Toolkit':'https://code.earthengine.google.com/?scriptPath=users%2Fmapbiomas%2Fuser-toolkit%3Amapbiomas-user-toolkit-degradation.js',
                                           }),
                 ui.Label(''),
-                ui.Label('Caso tenha sugestões, críticas ou ideias para aprimorar o produto, entre em contato pelo e-mail: contato@mapbiomas.org.'),
+                ui.Label('Caso tenha dúvidas, sugestões ou críticas para aprimoramento do módulo, entre em contato pelo e-mail: contato@mapbiomas.org.'),
                 ui.Label(''),
-                App.formatLabelWithLinks('DOI: **https://doi.org/10.58053/MapBiomas/VJIJCL**',{"https://doi.org/10.58053/MapBiomas/VJIJCL": "https://doi.org/10.58053/MapBiomas/VJIJCL"}),
+                ui.Label('Os dados do MapBiomas são públicos, abertos e gratuitos sob licença CC-BY-SA e mediante a referência da fonte, observando \
+                          o seguinte formato: "Módulo de degradação da vegetação nativa do Brasil (1986-2021) - versão beta, acessado em [DATA] [LINK]"'),
                 ui.Label(''),
-                ui.Label('DISCLAIMER'),
+                ui.Label('DISCLAIMER MapBiomas Degradation Beta Module'),
                 ui.Label(''),
-                ui.Label('The MapBiomas Degradation Beta Module offers a comprehensive set of maps for the annual analysis of native vegetation degradation vectors in Brazil. \
-                          With an annual catalog covering the years 1985 to 2022, these maps are derived from Collection 8 land cover and use data and Collection 2 fire data. \
-                          This module includes data on Fragmentation (a) Edge Area, (b) Patch Size, and (c) Patch Isolation; Fire (d) Fire Frequency and  \
-                          (e) Time Since Last Fire; and Secondary Vegetation (f) Secondary Vegetation Age. All maps are available with their respective \
-                          land cover and use classes.',{'margin': '0px'}),
+                ui.Label('The MapBiomas Degradation Beta Module provides annual data on the degradation drivers of native vegetation in Brazil from 1986 \
+                          to 2021. These data are derived from the land cover and land use annual maps of MapBiomas Brazil Collection 8 and the fire scars \
+                          maps of MapBiomas Fire Collection 2. This module includes data on Edge Area, Fragment Size, Fragment Isolation, Fire Frequency, \
+                          Time since the Last Fire, and Secondary Vegetation Age. All maps are available in different territories (country, biome, state, \
+                          municipality, watershed, and conservation unit) and by land cover and land use classes.',{'margin': '0px'}),
                 ui.Label(''),
-                App.formatLabelWithLinks('For more information on the methodology, access the **method** description and the **ATBD**.',{
-                                            "method": "",
-                                            "ATBD": ""
-                                          },{'margin': '0px'}),
+                App.formatLabelWithLinks('For more information about the methodology, visit the **page with the method description and the ATBD**.',{
+                                            "page with the method description and the ATBD": "https://brasil.mapbiomas.org/metodo-degradacao/",
+                                          }),
                 ui.Label(''),
-                App.formatLabelWithLinks('To download the data, access the **Toolkit**.',{
+                App.formatLabelWithLinks('The maps are available for download in the **Toolkit**.',{
                                           'Toolkit':'https://code.earthengine.google.com/?scriptPath=users%2Fmapbiomas%2Fuser-toolkit%3Amapbiomas-user-toolkit-fire.js',
                                           'legend code':'',
                                           },{'margin': '0px'}),
                 ui.Label(''),
-                ui.Label('You have suggestions, criticisms, or ideas to improve the product, please contact us at contato@mapbiomas.org.'),
+                ui.Label('If you have questions, suggestions, or feedback for module improvement, please contact us at the following email: contato@mapbiomas.org.'),
                 ui.Label(''),
-                App.formatLabelWithLinks('DOI: **https://doi.org/10.58053/MapBiomas/VJIJCL**',{"https://doi.org/10.58053/MapBiomas/VJIJCL": "https://doi.org/10.58053/MapBiomas/VJIJCL"}),
-                ui.Label(''),
-                ui.Label('MapBiomas data is public, open, and free under the CC-BY-SA license and by referencing the source in the following format: "MapBiomas Project – Collection [version] of MapBiomas Fire, accessed on [date] through the link: [LINK]".',{'margin': '0px'}),
+                ui.Label('MapBiomas data is public, open, and free under the CC-BY-SA license and must be cited in the following format: "Brazil´s native vegetation degradation module (1986-2021) - beta version, accessed on [DATE] [LINK]"',{'margin': '0px'}),
             ];
 
             App.ui.form.panelDisclaimer.widgets().reset([]);
