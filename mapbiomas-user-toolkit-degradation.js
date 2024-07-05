@@ -1172,7 +1172,7 @@ var App = {
                     }
                 );
 
-                App.ui.makeLegendLinksList();
+                // App.ui.makeLegendLinksList();
 
                 App.ui.form.panelMain.add(App.ui.form.panelLogo);
                 App.ui.form.panelMain.add(App.ui.form.labelTitle);
@@ -1189,19 +1189,6 @@ var App = {
 
                 App.ui.form.tabs.add(App.ui.form.tab1);
                 App.ui.form.tabs.add(App.ui.form.tab2);
-
-                // App.ui.form.panelLink1.add(App.ui.form.labelLink1);
-                // App.ui.form.panelLink1.add(App.ui.form.labelLink2);
-                // App.ui.form.panelLink1.add(App.ui.form.labelLink3);
-                // App.ui.form.panelLink1.add(App.ui.form.labelLink4);
-                // App.ui.form.panelLink1.add(App.ui.form.labelLink5);
-                // App.ui.form.panelLink1.add(App.ui.form.labelLink6);
-                // App.ui.form.panelLink2.add(App.ui.form.labelLink7); // ecuador
-                // App.ui.form.panelLink2.add(App.ui.form.labelLink8);
-                // App.ui.form.panelLink2.add(App.ui.form.labelLink9);
-                // App.ui.form.panelLink2.add(App.ui.form.labelLink10);
-                // App.ui.form.panelLink2.add(App.ui.form.labelLink11);
-                // App.ui.form.panelLink2.add(App.ui.form.labelLink12);
 
                 App.ui.form.panelRegion.add(App.ui.form.labelRegion);
                 App.ui.form.panelRegion.add(App.ui.form.selectRegion);
