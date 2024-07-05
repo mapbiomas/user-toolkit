@@ -187,7 +187,7 @@ var App = {
 
         collections: {
             'mapbiomas-brazil': {
-            'degradation module (BETA): edge area': {
+            'degradation BETA: edge area': {
                 'assets': {
                   'edge_30m':'projects/mapbiomas-workspace/DEGRADACAO/COLECAO/BETA/PROCESS/edge_area/edge_30m_v3',
                   'edge_60m':'projects/mapbiomas-workspace/DEGRADACAO/COLECAO/BETA/PROCESS/edge_area/edge_60m_v3',
@@ -210,7 +210,7 @@ var App = {
                 },
                 
             },
-            'degradation module (BETA): patch size': {
+            'degradation BETA: patch size': {
                 'assets': {
                   'size_3ha':'projects/mapbiomas-workspace/DEGRADACAO/COLECAO/BETA/PROCESS/patch_size/size_3ha_v3',
                   'size_5ha':'projects/mapbiomas-workspace/DEGRADACAO/COLECAO/BETA/PROCESS/patch_size/size_5ha_v3',
@@ -229,7 +229,7 @@ var App = {
                 },
                 
             },
-            'degradation module (BETA): patch isolation': {
+            'degradation BETA: patch isolation': {
                 'assets': {
                   'Target lte_25ha Distance lte_05km Source gte_100ha':'projects/mapbiomas-workspace/DEGRADACAO/ISOLATION/nat_uso_frag25__dist05k__100_v6_85_22',
                   'Target lte_25ha Distance lte_05km Source gte_500ha':'projects/mapbiomas-workspace/DEGRADACAO/ISOLATION/nat_uso_frag25__dist05k__500_v6_85_22',
@@ -284,7 +284,7 @@ var App = {
                 },
                 
             },
-            'degradation module (BETA): fire': {
+            'degradation BETA: fire': {
                     'assets': {
                       'frequency':'projects/mapbiomas-workspace/DEGRADACAO/COLECAO/BETA/PROCESS/fire/frequency_v1',
                       'age':'projects/mapbiomas-workspace/DEGRADACAO/COLECAO/BETA/PROCESS/fire/age_v1',
@@ -298,7 +298,7 @@ var App = {
 
                     },
                 },
-            'degradation module (BETA): secondary vegetation': {
+            'degradation BETA: secondary vegetation': {
                 'assets': {
 
                   'secondary_age':'projects/mapbiomas-workspace/DEGRADACAO/COLECAO/BETA/PROCESS/secondary_vegetation/secondary_vegetation_age_v1',
@@ -1005,7 +1005,7 @@ var App = {
 
                     var fileName = [
                         // App.formatName(regionName), 
-                        App.formatName(collectionName), 
+                        App.formatName(collectionName.split(': ')[1]), 
                         App.formatName(App.options.dataType), 
                         App.formatName(featureName), 
                         App.formatName(period)
@@ -1077,7 +1077,7 @@ var App = {
 
             var tableName = [
               // App.formatName(regionName), 
-              App.formatName(collectionName), 
+              App.formatName(collectionName.split(': ')[1]), 
               App.formatName(App.options.dataType), 
               App.formatName(featureName), 
               'area'
