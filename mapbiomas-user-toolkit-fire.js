@@ -33,6 +33,8 @@
  *          - Adicionando outros planos de fundo
  *          - Adicionando Coleção 2.1 do MapBiomas-Fogo
  *          - Adicionando direct links de area queimada anual simples, em raster e shapefile 
+ *    1.4.2 - 2024-07-15
+ *          - Adicionando coleção 1.0 da Indonesia, endereços provisórios
  *
  * 
  * @see
@@ -122,7 +124,7 @@ var App = {
 
     options: {
 
-        version: '1.4.1',
+        version: '1.4.2',
 
         logo: {
             uri: 'gs://mapbiomas-public/mapbiomas-logos/mapbiomas-logo-horizontal.b64',
@@ -200,7 +202,7 @@ var App = {
                     'value': 'projects/mapbiomas-workspace/AUXILIAR/ESTATISTICAS/COLECAO8/VERSAO-1/state_protected_area_sustainable_use',
                 },
             ],
-            /*'mapbiomas-indonesia': [
+            'mapbiomas-indonesia': [
                 {
                     'label': 'coastal_line',
                     'value': 'projects/mapbiomas-indonesia/ANCILLARY_DATA/STATISTICS/COLLECTION2/VERSION-2/coastal_line'
@@ -225,7 +227,7 @@ var App = {
                     'label': 'village',
                     'value': 'projects/mapbiomas-indonesia/ANCILLARY_DATA/STATISTICS/COLLECTION2/VERSION-2/village'
                 },
-            ],*/
+            ],
         },
 
         collections: {
@@ -605,12 +607,73 @@ var App = {
                     },
                 },
             },
-            /*'mapbiomas-indonesia': {},*/
+            'mapbiomas-indonesia': {
+              
+                'collection-1.0': {
+                    'assets': {
+                      'annual_burned': ee.Image('projects/ee-dataaurigagee/assets/Mapbiomas-Indonesia/Fire/Output/MBI_Fire_Col_1/Sub_Product_Collection1/annual_and_monthly_burned_coverage/mapbiomas-fire-collection1-annual-burned-coverage-fin').gte(1),
+
+                      "annual_burned_coverage":"projects/ee-dataaurigagee/assets/Mapbiomas-Indonesia/Fire/Output/MBI_Fire_Col_1/Sub_Product_Collection1/annual_and_monthly_burned_coverage/mapbiomas-fire-collection1-annual-burned-coverage-fin",
+
+                      "monthly_burned":ee.Image("projects/ee-dataaurigagee/assets/Mapbiomas-Indonesia/Fire/Output/MBI_Fire_Col_1/Sub_Product_Collection1/annual_and_monthly_burned_coverage/mapbiomas-fire-collection1-monthly-burned-coverage-fin").divide(100).int8(),
+
+                      "accumulated_burned_coverage":"projects/ee-dataaurigagee/assets/Mapbiomas-Indonesia/Fire/Output/MBI_Fire_Col_1/Sub_Product_Collection1/fire_accumulated_by_period/mapbiomas-fire-collection1-accumulated-burned-coverage-final",
+
+                      "accumulated_burned":"projects/ee-dataaurigagee/assets/Mapbiomas-Indonesia/Fire/Output/MBI_Fire_Col_1/Sub_Product_Collection1/fire_accumulated_by_period/mapbiomas-fire-collection1-accumulated-burned-final",
+
+                      "fire_frequency":"projects/ee-dataaurigagee/assets/Mapbiomas-Indonesia/Fire/Output/MBI_Fire_Col_1/Sub_Product_Collection1/fire_frequency_by_period/mapbiomas-fire-collection1-fire-frequency-final",
+
+                      // "monthly_burned_coverage":"projects/ee-dataaurigagee/assets/Mapbiomas-Indonesia/Fire/Output/MBI_Fire_Col_1/Sub_Product_Collection1/annual_and_monthly_burned_coverage/mapbiomas-fire-collection1-monthly-burned-coverage-fin",
+                      // "fire_frequency_coverage":"projects/ee-dataaurigagee/assets/Mapbiomas-Indonesia/Fire/Output/MBI_Fire_Col_1/Sub_Product_Collection1/fire_frequency_by_period/mapbiomas-fire-collection1-fire-frequency-coverage-final",
+
+                    },
+
+                    'periods': {
+                      'annual_burned':[
+                        '2013', '2014', '2015', '2016', '2017',
+                        '2018', '2019', '2020', '2021', '2022',  '2023'
+                     ],
+                      'annual_burned_coverage':[
+                        '2013', '2014', '2015', '2016', '2017',
+                        '2018', '2019', '2020', '2021', '2022',  '2023'
+                     ],
+                      'monthly_burned':[
+                        '2013', '2014', '2015', '2016', '2017',
+                        '2018', '2019', '2020', '2021', '2022',  '2023'
+                     ],
+                      'accumulated_burned':[ 
+                        "2013_2013","2013_2014","2013_2015","2013_2016","2013_2017",
+                        "2013_2018","2013_2019","2013_2020","2013_2021","2013_2022","2013_2023",
+                        
+                        "2023_2023","2022_2023","2021_2023","2020_2023","2019_2023",
+                        "2018_2023","2017_2023","2016_2023","2015_2023","2014_2023",
+                        ],
+                      'accumulated_burned_coverage':[ 
+                        "2013_2013","2013_2014","2013_2015","2013_2016","2013_2017",
+                        "2013_2018","2013_2019","2013_2020","2013_2021","2013_2022","2013_2023",
+                        
+                        "2023_2023","2022_2023","2021_2023","2020_2023","2019_2023",
+                        "2018_2023","2017_2023","2016_2023","2015_2023","2014_2023",
+                       ],
+                      'fire_frequency':[ 
+                        "2013_2013","2013_2014","2013_2015","2013_2016","2013_2017",
+                        "2013_2018","2013_2019","2013_2020","2013_2021","2013_2022","2013_2023",
+                        
+                        "2023_2023","2022_2023","2021_2023","2020_2023","2019_2023",
+                        "2018_2023","2017_2023","2016_2023","2015_2023","2014_2023",
+                        ],
+                    },
+                },
+            },
         },
 
         legendLinks: [
             {
               'name': 'Brazil',
+              'url': 'https://brasil.mapbiomas.org/wp-content/uploads/sites/4/2024/06/CODIGO-DE-LEGENDA-FOGO-COLECAO-3.pdf'
+            },
+            {
+              'name': 'Indonesia',
               'url': 'https://brasil.mapbiomas.org/wp-content/uploads/sites/4/2024/06/CODIGO-DE-LEGENDA-FOGO-COLECAO-3.pdf'
             },
         ],
@@ -1806,7 +1869,7 @@ var App = {
             selectRegion: ui.Select({
                 'items': [
                     'mapbiomas-brazil',
-                    // 'mapbiomas-indonesia',
+                    'mapbiomas-indonesia',
                 ],
                 'placeholder': 'None',
                 'style': {
