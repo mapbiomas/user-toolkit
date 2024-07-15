@@ -615,7 +615,10 @@ var App = {
               
                 'collection-1.0': {
                     'assets': {
-                      'annual_burned': ee.Image('projects/ee-dataaurigagee/assets/Mapbiomas-Indonesia/Fire/Output/MBI_Fire_Col_1/Sub_Product_Collection1/annual_and_monthly_burned_coverage/mapbiomas-fire-collection1-annual-burned-coverage-fin').gte(1),
+                      'annual_burned': ee.Image('projects/ee-dataaurigagee/assets/Mapbiomas-Indonesia/Fire/Output/MBI_Fire_Col_1/Sub_Product_Collection1/annual_and_monthly_burned_coverage/mapbiomas-fire-collection1-annual-burned-coverage-fin')
+                        .gte(1)
+                        .rename(ee.Image('projects/ee-dataaurigagee/assets/Mapbiomas-Indonesia/Fire/Output/MBI_Fire_Col_1/Sub_Product_Collection1/annual_and_monthly_burned_coverage/mapbiomas-fire-collection1-annual-burned-coverage-fin')
+                          .bandNames().map(function(str){return ee.String(str).replace('coverage','area')})),
 
                       "annual_burned_coverage":"projects/ee-dataaurigagee/assets/Mapbiomas-Indonesia/Fire/Output/MBI_Fire_Col_1/Sub_Product_Collection1/annual_and_monthly_burned_coverage/mapbiomas-fire-collection1-annual-burned-coverage-fin",
 
@@ -676,10 +679,10 @@ var App = {
               'name': 'Brazil',
               'url': 'https://brasil.mapbiomas.org/wp-content/uploads/sites/4/2024/06/CODIGO-DE-LEGENDA-FOGO-COLECAO-3.pdf'
             },
-            {
-              'name': 'Indonesia',
-              'url': 'https://brasil.mapbiomas.org/wp-content/uploads/sites/4/2024/06/CODIGO-DE-LEGENDA-FOGO-COLECAO-3.pdf'
-            },
+            // {
+            //   'name': 'Indonesia',
+            //   'url': 'https://brasil.mapbiomas.org/wp-content/uploads/sites/4/2024/06/CODIGO-DE-LEGENDA-FOGO-COLECAO-3.pdf'
+            // },
         ],
 
         bandsNames: {
