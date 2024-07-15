@@ -204,6 +204,10 @@ var App = {
             ],
             'mapbiomas-indonesia': [
                 {
+                    'label': 'Country',
+                    'value': 'projects/mapbiomas-indonesia/ANCILLARY_DATA/STATISTICS/COLLECTION1/country'
+                },
+                {
                     'label': 'coastal_line',
                     'value': 'projects/mapbiomas-indonesia/ANCILLARY_DATA/STATISTICS/COLLECTION2/VERSION-2/coastal_line'
                 },
