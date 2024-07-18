@@ -1230,7 +1230,7 @@ var App = {
             App.options.activeFeature = App.options.table
                 .filter(ee.Filter.eq(App.options.propertyName, name));
 
-            Map.centerObject(App.options.activeFeature);
+            Map.centerObject(App.options.activeFeature.geometry().bounds());
 
             Map.layers().reset([]);
 
@@ -1717,7 +1717,7 @@ var App = {
                 'fontSize': '16px'
             }),
 
-            labelSubtitle: ui.Label('Burned Area', {
+            labelSubtitle: ui.Label('Burned Area Maps', {
                 // 'fontWeight': 'bold',
                 // 'padding': '1px',
                 'fontSize': '14px'
