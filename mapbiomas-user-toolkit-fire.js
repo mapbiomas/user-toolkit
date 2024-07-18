@@ -615,21 +615,12 @@ var App = {
               
                 'collection-1.0': {
                     'assets': {
-                      'annual_burned': 'projects/mapbiomas-fire-indonesia/assets/FIRE_COL1/SUBPRODUCTS/mapbiomas-fire-collection1-annual-burned-v1',
-
-                      "annual_burned_coverage":"projects/ee-dataaurigagee/assets/Mapbiomas-Indonesia/Fire/Output/MBI_Fire_Col_1/Sub_Product_Collection1/annual_and_monthly_burned_coverage/mapbiomas-fire-collection1-annual-burned-coverage-fin",
-
-                      "monthly_burned":"projects/mapbiomas-fire-indonesia/assets/FIRE_COL1/SUBPRODUCTS/mapbiomas-fire-collection1-monthly-burned-v1",
-
-                      "accumulated_burned_coverage":"projects/ee-dataaurigagee/assets/Mapbiomas-Indonesia/Fire/Output/MBI_Fire_Col_1/Sub_Product_Collection1/fire_accumulated_by_period/mapbiomas-fire-collection1-accumulated-burned-coverage-final",
-
-                      "accumulated_burned":"projects/ee-dataaurigagee/assets/Mapbiomas-Indonesia/Fire/Output/MBI_Fire_Col_1/Sub_Product_Collection1/fire_accumulated_by_period/mapbiomas-fire-collection1-accumulated-burned-final",
-
-                      "fire_frequency":"projects/ee-dataaurigagee/assets/Mapbiomas-Indonesia/Fire/Output/MBI_Fire_Col_1/Sub_Product_Collection1/fire_frequency_by_period/mapbiomas-fire-collection1-fire-frequency-final",
-
-                      // "monthly_burned_coverage":"projects/ee-dataaurigagee/assets/Mapbiomas-Indonesia/Fire/Output/MBI_Fire_Col_1/Sub_Product_Collection1/annual_and_monthly_burned_coverage/mapbiomas-fire-collection1-monthly-burned-coverage-fin",
-                      // "fire_frequency_coverage":"projects/ee-dataaurigagee/assets/Mapbiomas-Indonesia/Fire/Output/MBI_Fire_Col_1/Sub_Product_Collection1/fire_frequency_by_period/mapbiomas-fire-collection1-fire-frequency-coverage-final",
-
+                      'annual_burned':"projects/mapbiomas-public/assets/indonesia/fire/collection1/mapbiomas_fire_collection1_annual_burned_v1",
+                      "annual_burned_coverage":"projects/mapbiomas-public/assets/indonesia/fire/collection1/mapbiomas_fire_collection1_annual_burned_coverage_v1",
+                      "monthly_burned":"projects/mapbiomas-public/assets/indonesia/fire/collection1/mapbiomas_fire_collection1_monthly_burned_v1",
+                      "accumulated_burned_coverage":"projects/mapbiomas-public/assets/indonesia/fire/collection1/mapbiomas_fire_collection1_accumulated_burned_coverage_v1",
+                      "accumulated_burned":"projects/mapbiomas-public/assets/indonesia/fire/collection1/mapbiomas_fire_collection1_accumulated_burned_v1",
+                      "fire_frequency":"projects/mapbiomas-public/assets/indonesia/fire/collection1/mapbiomas_fire_collection1_fire_frequency_v1",
                     },
 
                     'periods': {
@@ -1015,7 +1006,7 @@ var App = {
 
                             var year = App.options.collections[regionName][collectioName].periods[datas[0]].slice(-1)[0];
 
-                            Map.centerObject(App.options.data[Object.keys(App.options.data)[0]], 5);
+                            Map.centerObject(App.options.data[Object.keys(App.options.data)[0]].geometry().bounds(), 5);
 
                             App.ui.loadDataType();
                             
@@ -1726,7 +1717,7 @@ var App = {
                 'fontSize': '16px'
             }),
 
-            labelSubtitle: ui.Label('Land Use and Land Cover', {
+            labelSubtitle: ui.Label('Burned Area', {
                 // 'fontWeight': 'bold',
                 // 'padding': '1px',
                 'fontSize': '14px'
