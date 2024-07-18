@@ -615,14 +615,11 @@ var App = {
               
                 'collection-1.0': {
                     'assets': {
-                      'annual_burned': ee.Image('projects/ee-dataaurigagee/assets/Mapbiomas-Indonesia/Fire/Output/MBI_Fire_Col_1/Sub_Product_Collection1/annual_and_monthly_burned_coverage/mapbiomas-fire-collection1-annual-burned-coverage-fin')
-                        .gte(1)
-                        .rename(ee.Image('projects/ee-dataaurigagee/assets/Mapbiomas-Indonesia/Fire/Output/MBI_Fire_Col_1/Sub_Product_Collection1/annual_and_monthly_burned_coverage/mapbiomas-fire-collection1-annual-burned-coverage-fin')
-                          .bandNames().map(function(str){return ee.String(str).replace('coverage','area')})),
+                      'annual_burned': 'projects/mapbiomas-fire-indonesia/assets/FIRE_COL1/SUBPRODUCTS/mapbiomas-fire-collection1-annual-burned-v1',
 
                       "annual_burned_coverage":"projects/ee-dataaurigagee/assets/Mapbiomas-Indonesia/Fire/Output/MBI_Fire_Col_1/Sub_Product_Collection1/annual_and_monthly_burned_coverage/mapbiomas-fire-collection1-annual-burned-coverage-fin",
 
-                      "monthly_burned":ee.Image("projects/ee-dataaurigagee/assets/Mapbiomas-Indonesia/Fire/Output/MBI_Fire_Col_1/Sub_Product_Collection1/annual_and_monthly_burned_coverage/mapbiomas-fire-collection1-monthly-burned-coverage-fin").divide(100).int8(),
+                      "monthly_burned":"projects/mapbiomas-fire-indonesia/assets/FIRE_COL1/SUBPRODUCTS/mapbiomas-fire-collection1-monthly-burned-v1",
 
                       "accumulated_burned_coverage":"projects/ee-dataaurigagee/assets/Mapbiomas-Indonesia/Fire/Output/MBI_Fire_Col_1/Sub_Product_Collection1/fire_accumulated_by_period/mapbiomas-fire-collection1-accumulated-burned-coverage-final",
 
