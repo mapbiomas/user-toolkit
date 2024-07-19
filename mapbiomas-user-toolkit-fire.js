@@ -35,6 +35,9 @@
  *          - Adicionando direct links de area queimada anual simples, em raster e shapefile 
  *    1.4.2 - 2024-07-15
  *          - Adicionando coleção 1.0 da Indonesia, endereços provisórios
+ *    1.4.3 - Dados finais da coleção 1.0 da Indonesia
+ *          - Ajustando disclaimer para abarcar mais de uma iniciativa
+ *          - Adidionando o dado
  *
  * 
  * @see
