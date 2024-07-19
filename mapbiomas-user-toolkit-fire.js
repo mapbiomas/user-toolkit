@@ -37,7 +37,7 @@
  *          - Adicionando coleção 1.0 da Indonesia, endereços provisórios
  *    1.4.3 - Dados finais da coleção 1.0 da Indonesia
  *          - Ajustando disclaimer para abarcar mais de uma iniciativa
- *          - Adidionando o dado
+ *          - Adicionando o disclaimer do 
  *
  * 
  * @see
