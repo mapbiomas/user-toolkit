@@ -667,10 +667,10 @@ var App = {
               'name': 'Brazil',
               'url': 'https://brasil.mapbiomas.org/wp-content/uploads/sites/4/2024/06/CODIGO-DE-LEGENDA-FOGO-COLECAO-3.pdf'
             },
-            // {
-            //   'name': 'Indonesia',
-            //   'url': 'https://brasil.mapbiomas.org/wp-content/uploads/sites/4/2024/06/CODIGO-DE-LEGENDA-FOGO-COLECAO-3.pdf'
-            // },
+            {
+              'name': 'Indonesia',
+              'url': 'https://docs.google.com/document/d/1S2BoDXwIikuC1U81QvcP50xfIPsJn8btG2V5DOYVgxg/edit'
+            },
         ],
 
         bandsNames: {
