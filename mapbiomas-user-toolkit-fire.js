@@ -1472,12 +1472,12 @@ var App = {
                         'legend code': 'https://brasil.mapbiomas.org/wp-content/uploads/sites/4/2024/06/CODIGO-DE-LEGENDA-FOGO-COLECAO-3.pdf',
                     }, {'margin': '0px'}),
                     ui.Label(''),
+                    ui.Label('If you have suggestions, criticisms, or ideas to improve the product, please contact us at contato@mapbiomas.org.', {'margin': '0px'}),
+                    ui.Label(''),
                     App.formatLabelWithLinks('For more information on the methodology, access the **method** description and the **ATBD**.', {
                         "method": "https://brasil.mapbiomas.org/metodo-mapbiomas-fogo/",
                         "ATBD": "https://drive.google.com/file/d/1Jj9c4yYF68pGGyUE6WS9_yN5TapOZMqS/view"
                     }, {'margin': '0px'}),
-                    ui.Label(''),
-                    ui.Label('If you have suggestions, criticisms, or ideas to improve the product, please contact us at contato@mapbiomas.org.', {'margin': '0px'}),
                     ui.Label(''),
                     App.formatLabelWithLinks('DOI: **https://doi.org/10.58053/MapBiomas/VJIJCL**', {"https://doi.org/10.58053/MapBiomas/VJIJCL": "https://doi.org/10.58053/MapBiomas/VJIJCL"}),
                     ui.Label(''),
