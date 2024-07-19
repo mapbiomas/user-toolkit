@@ -1442,50 +1442,55 @@ var App = {
         showDisclaimer: function () {
             var labelDisclaimer = {
                 "Brasil": [
-                    ui.Label('NOTA INFORMATIVA - FOGO'),
-                    ui.Label(''),
-                    ui.Label('A Coleção 3 do MapBiomas Fogo apresenta o mapeamento de cicatrizes de fogo no Brasil de 1985 a 2023, com dados anuais e \
-                              mensais para todo o período, incluindo: (a) Ocorrência de fogo anual, (b) Ocorrência de fogo mensal, (c) Frequência, (d) \
-                              Área queimada acumulada, (e) Tamanho das cicatrizes, e (f) Ano da última ocorrência de fogo. Os dados anuais, acumulados \
-                              e de frequência também estão disponíveis com suas respectivas classes de Uso e Cobertura da Coleção 8 do MapBiomas.', {'margin': '0px'}),
-                    App.formatLabelWithLinks('Para baixar os dados, acesse o **Toolkit** e, para a descrição dos respectivos valores dos dados, acesse o **código da legenda**.', {
-                        'Toolkit': 'https://code.earthengine.google.com/?scriptPath=users%2Fmapbiomas%2Fuser-toolkit%3Amapbiomas-user-toolkit-fire.js',
-                        'código da legenda': 'https://brasil.mapbiomas.org/wp-content/uploads/sites/4/2024/06/CODIGO-DE-LEGENDA-FOGO-COLECAO-3.pdf',
-                    }),
-                    ui.Label(''),
-                    App.formatLabelWithLinks('Para maiores informações sobre o método, acesse a descrição do **método** e o **ATBD**', {
-                        "método": "https://brasil.mapbiomas.org/metodo-mapbiomas-fogo/",
-                        "ATBD": "https://drive.google.com/file/d/1Jj9c4yYF68pGGyUE6WS9_yN5TapOZMqS/view"
-                    }),
-                    ui.Label(''),
-                    ui.Label('Para baixar os dados, acesse o Toolkit e, para a descrição dos respectivos valores dos dados, acesse o código da legenda.\
-                              Caso tenha sugestões, críticas ou ideias para aprimorar o produto, entre em contato pelo e-mail: contato@mapbiomas.org.', {'margin': '0px'}),
-                    ui.Label(''),
-                    App.formatLabelWithLinks('DOI: **https://doi.org/10.58053/MapBiomas/VJIJCL**', {"https://doi.org/10.58053/MapBiomas/VJIJCL": "https://doi.org/10.58053/MapBiomas/VJIJCL"}),
-                    ui.Label(''),
-                    ui.Label('DISCLAIMER'),
-                    ui.Label(''),
-                    ui.Label('The MapBiomas Fire Collection 3 presents the mapping of fire scars in Brazil from 1985 to 2023, with annual and monthly data for the\
-                              entire period, including: (a) Annual fire occurrence, (b) Monthly fire occurrence, (c) Frequency, (d) Accumulated burned area, \
-                              (e) Fire scar size, and (f) Year of the last fire occurrence. Annual, accumulated, and frequency data are also available with their \
-                              respective Land Use and Cover classes from MapBiomas Collection 8.', {'margin': '0px'}),
-                    ui.Label(''),
-                    App.formatLabelWithLinks('To download the data, access the **Toolkit** and for the description of the respective data values, access the **legend code**.', {
-                        'Toolkit': 'https://code.earthengine.google.com/?scriptPath=users%2Fmapbiomas%2Fuser-toolkit%3Amapbiomas-user-toolkit-fire.js',
-                        'legend code': 'https://brasil.mapbiomas.org/wp-content/uploads/sites/4/2024/06/CODIGO-DE-LEGENDA-FOGO-COLECAO-3.pdf',
-                    }, {'margin': '0px'}),
-                    ui.Label(''),
-                    ui.Label('If you have suggestions, criticisms, or ideas to improve the product, please contact us at contato@mapbiomas.org.', {'margin': '0px'}),
-                    ui.Label(''),
-                    App.formatLabelWithLinks('For more information on the methodology, access the **method** description and the **ATBD**.', {
-                        "method": "https://brasil.mapbiomas.org/metodo-mapbiomas-fogo/",
-                        "ATBD": "https://drive.google.com/file/d/1Jj9c4yYF68pGGyUE6WS9_yN5TapOZMqS/view"
-                    }, {'margin': '0px'}),
-                    ui.Label(''),
-                    App.formatLabelWithLinks('DOI: **https://doi.org/10.58053/MapBiomas/VJIJCL**', {"https://doi.org/10.58053/MapBiomas/VJIJCL": "https://doi.org/10.58053/MapBiomas/VJIJCL"}),
-                    ui.Label(''),
-                    ui.Label('MapBiomas data is public, open, and free under the CC-BY-SA license and by referencing the source in the following format: "MapBiomas Project – Collection [version] of MapBiomas Fire, accessed on [date] through the link: [LINK]".', {'margin': '0px'}),
-                ],
+                  ui.Label('NOTA INFORMATIVA - FOGO'),
+                  ui.Label(''),
+                  ui.Label('A Coleção 3 do MapBiomas Fogo apresenta o mapeamento de cicatrizes de fogo no Brasil de 1985 a 2023, com dados anuais e mensais para ' +
+                           'todo o período, incluindo: (a) Ocorrência de fogo anual, (b) Ocorrência de fogo mensal, (c) Frequência, (d) Área queimada acumulada, ' +
+                           '(e) Tamanho das cicatrizes, e (f) Ano da última ocorrência de fogo. Os dados anuais, acumulados e de frequência também estão disponíveis ' +
+                           'com suas respectivas classes de Uso e Cobertura da Coleção 8 do MapBiomas.', {'margin': '0px'}),
+                  App.formatLabelWithLinks('Para baixar os dados, acesse o **Toolkit** e, para a descrição dos respectivos valores dos dados, acesse o **código da legenda**.', {
+                      'Toolkit': 'https://code.earthengine.google.com/?scriptPath=users%2Fmapbiomas%2Fuser-toolkit%3Amapbiomas-user-toolkit-fire.js',
+                      'código da legenda': 'https://brasil.mapbiomas.org/wp-content/uploads/sites/4/2024/06/CODIGO-DE-LEGENDA-FOGO-COLECAO-3.pdf',
+                  }),
+                  ui.Label(''),
+                  App.formatLabelWithLinks('Para maiores informações sobre o método, acesse a descrição do **método** e o **ATBD**.', {
+                      "método": "https://brasil.mapbiomas.org/metodo-mapbiomas-fogo/",
+                      "ATBD": "https://brasil.mapbiomas.org/wp-content/uploads/sites/4/2024/06/ATBD-MapBiomas-Fogo-Colecao-3-1.pdf"
+                  }),
+                  ui.Label(''),
+                  ui.Label('Para baixar os dados, acesse o Toolkit e, para a descrição dos respectivos valores dos dados, acesse o código da legenda. ' +
+                           'Caso tenha sugestões, críticas ou ideias para aprimorar o produto, entre em contato pelo e-mail: contato@mapbiomas.org.', 
+                           {'margin': '0px'}),
+                  ui.Label(''),
+                  App.formatLabelWithLinks('DOI: **https://data.mapbiomas.org/dataverse/brazil-fire**', {
+                      "https://data.mapbiomas.org/dataverse/brazil-fire": "https://data.mapbiomas.org/dataverse/brazil-fire"
+                  }),
+                  ui.Label(''),
+                  ui.Label('DISCLAIMER'),
+                  ui.Label(''),
+                  ui.Label('The MapBiomas Fire Collection 3 presents the mapping of fire scars in Brazil from 1985 to 2023, with annual and monthly data for the ' +
+                           'entire period, including: (a) Annual fire occurrence, (b) Monthly fire occurrence, (c) Frequency, (d) Accumulated burned area, ' +
+                           '(e) Fire scar size, and (f) Year of the last fire occurrence. Annual, accumulated, and frequency data are also available with their ' +
+                           'respective Land Use and Cover classes from MapBiomas Collection 8.', {'margin': '0px'}),
+                  ui.Label(''),
+                  App.formatLabelWithLinks('For more information on the methodology, access the **method** description and the **ATBD**.', {
+                      "method": "https://brasil.mapbiomas.org/metodo-mapbiomas-fogo/",
+                      "ATBD": "https://brasil.mapbiomas.org/wp-content/uploads/sites/4/2024/06/ATBD-MapBiomas-Fogo-Colecao-3-1.pdf"
+                  }, {'margin': '0px'}),
+                  ui.Label(''),
+                  App.formatLabelWithLinks('To download the data, access the **Toolkit** and for the description of the respective data values, access the **legend code**.', {
+                      'Toolkit': 'https://code.earthengine.google.com/?scriptPath=users%2Fmapbiomas%2Fuser-toolkit%3Amapbiomas-user-toolkit-fire.js',
+                      'legend code': 'https://brasil.mapbiomas.org/wp-content/uploads/sites/4/2024/06/CODIGO-DE-LEGENDA-FOGO-COLECAO-3.pdf',
+                  }, {'margin': '0px'}),
+                  ui.Label(''),
+                  ui.Label('If you have suggestions, criticisms, or ideas to improve the product, please contact us at contato@mapbiomas.org.', {'margin': '0px'}),
+                  ui.Label(''),
+                  App.formatLabelWithLinks('DOI: **https://data.mapbiomas.org/dataverse/brazil-fire**', {
+                      "https://data.mapbiomas.org/dataverse/brazil-fire": "https://data.mapbiomas.org/dataverse/brazil-fire"
+                  }),
+                  ui.Label(''),
+                  ui.Label('MapBiomas data is public, open, and free under the CC-BY-SA license and by referencing the source in the following format: "MapBiomas Project – Collection [version] of MapBiomas Fire, accessed on [date] through the link: [LINK]".', {'margin': '0px'}),
+              ],
                 "Indonesia": [
                     ui.Label('CATATAN INFORMASI - API'),
                     ui.Label(''),
@@ -1500,13 +1505,13 @@ var App = {
                     ui.Label(''),
                     App.formatLabelWithLinks('Untuk informasi lebih lanjut tentang metodologi, akses ke penjelasan **metode** dan **ATBD**.', {
                         "metode": "https://brasil.mapbiomas.org/metodo-mapbiomas-fogo/",
-                        "ATBD": "https://drive.google.com/file/d/1Jj9c4yYF68pGGyUE6WS9_yN5TapOZMqS/view"
+                        "ATBD": "https://brasil.mapbiomas.org/wp-content/uploads/sites/4/2024/06/ATBD-MapBiomas-Fogo-Colecao-3-1.pdf"
                     }),
                     ui.Label(''),
                     ui.Label('Jika anda memiliki saran, kritik, atau ide untuk peningkatan produk, silakan hubungi kami di contato@mapbiomas.org.', {'margin': '0px'}),
                     ui.Label(''),
-                    App.formatLabelWithLinks('DOI: **https://doi.org/10.58053/MapBiomas/VJIJCL**', {
-                        "https://doi.org/10.58053/MapBiomas/VJIJCL": "https://doi.org/10.58053/MapBiomas/VJIJCL"
+                    App.formatLabelWithLinks('DOI: **https://data.mapbiomas.org/dataverse/brazil-fire**', {
+                        "https://data.mapbiomas.org/dataverse/brazil-fire": "https://data.mapbiomas.org/dataverse/brazil-fire"
                     }),
                     ui.Label(''),
                     ui.Label('DISCLAIMER'),
@@ -1518,7 +1523,7 @@ var App = {
                     ui.Label(''),
                     App.formatLabelWithLinks('For more information on the methodology, access the **method** description and the **ATBD**.', {
                         "method": "https://brasil.mapbiomas.org/metodo-mapbiomas-fogo/",
-                        "ATBD": "https://drive.google.com/file/d/1Jj9c4yYF68pGGyUE6WS9_yN5TapOZMqS/view"
+                        "ATBD": "https://brasil.mapbiomas.org/wp-content/uploads/sites/4/2024/06/ATBD-MapBiomas-Fogo-Colecao-3-1.pdf"
                     }, {'margin': '0px'}),
                     ui.Label(''),
                     App.formatLabelWithLinks('To download the data, access the **Toolkit** and for the description of the respective data values, access the **legend code**.', {
@@ -1528,8 +1533,8 @@ var App = {
                     ui.Label(''),
                     ui.Label('If you have suggestions, criticisms, or ideas to improve the product, please contact us at contato@mapbiomas.org.', {'margin': '0px'}),
                     ui.Label(''),
-                    App.formatLabelWithLinks('DOI: **https://doi.org/10.58053/MapBiomas/VJIJCL**', {
-                        "https://doi.org/10.58053/MapBiomas/VJIJCL": "https://doi.org/10.58053/MapBiomas/VJIJCL"
+                    App.formatLabelWithLinks('DOI: **https://data.mapbiomas.org/dataverse/brazil-fire**', {
+                        "https://data.mapbiomas.org/dataverse/brazil-fire": "https://data.mapbiomas.org/dataverse/brazil-fire"
                     }),
                     ui.Label(''),
                     ui.Label('MapBiomas data is public, open, and free under the CC-BY-SA license and by referencing the source in the following format: "MapBiomas Project – Collection [version] of MapBiomas Fire, accessed on [date] through the link: [LINK]".', {'margin': '0px'}),
