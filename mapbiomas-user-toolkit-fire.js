@@ -1438,7 +1438,7 @@ var App = {
         
         showDisclaimer: function () {
           
-          App.ui.form.labelDisclaimer = [
+            var brasil_labelDisclaimer = [
                 ui.Label('NOTA INFORMATIVA - FOGO'),
                 ui.Label(''),
                 ui.Label('A Coleção 3 do MapBiomas Fogo apresenta o mapeamento de cicatrizes de fogo no Brasil de 1985 a 2023, com dados anuais e \
@@ -1484,12 +1484,102 @@ var App = {
                 ui.Label('MapBiomas data is public, open, and free under the CC-BY-SA license and by referencing the source in the following format: "MapBiomas Project – Collection [version] of MapBiomas Fire, accessed on [date] through the link: [LINK]".',{'margin': '0px'}),
             ];
 
-            App.ui.form.panelDisclaimer.widgets().reset([]);
-            App.ui.form.panelDisclaimerText.widgets().reset(App.ui.form.labelDisclaimer);
-            App.ui.form.panelDisclaimer.add(App.ui.form.panelDisclaimerText);
-            App.ui.form.panelDisclaimer.add(App.ui.form.buttonDisclaimerOk);
+            var indonesia_labelDisclaimer = [
+                ui.Label('CATATAN INFORMASI - API'),
+                ui.Label(''),
+                ui.Label('MapBiomas Fire Koleksi 1 menyajikan pemetaan bekas kebakaran di Brasil dari tahun 2013 hingga 2023, dengan data tahunan dan bulanan untuk seluruh periode, termasuk: (a) Kejadian kebakaran tahunan, (b) Kejadian kebakaran bulanan, (c) Frekuensi, (d) Area terbakar yang terakumulasi. Data tahunan, terakumulasi, dan frekuensi juga tersedia dengan kelas Penggunaan Lahan dan Tutupan Lahan masing-masing dari MapBiomas Koleksi 2.'
+                ,{'margin': '0px'}),
+                App.formatLabelWithLinks('Para baixar os dados, acesse o **Toolkit** e, para a descrição dos respectivos valores dos dados, acesse o **código da legenda**.',{
+                                          'Toolkit':'https://code.earthengine.google.com/?scriptPath=users%2Fmapbiomas%2Fuser-toolkit%3Amapbiomas-user-toolkit-fire.js',
+                                          'código da legenda':'https://brasil.mapbiomas.org/wp-content/uploads/sites/4/2024/06/CODIGO-DE-LEGENDA-FOGO-COLECAO-3.pdf',
+                                          }),
+                ui.Label(''),
+                App.formatLabelWithLinks('Untuk informasi lebih lanjut tentang metodologi, akses deskripsi **metode** dan **ATBD**.',{
+                                            "metode": "https://brasil.mapbiomas.org/metodo-mapbiomas-fogo/",
+                                            "ATBD": "https://drive.google.com/file/d/1Jj9c4yYF68pGGyUE6WS9_yN5TapOZMqS/view"
+                                          }),
+                ui.Label(''),
+                ui.Label('Untuk mengunduh data, akses Toolkit dan untuk deskripsi nilai data masing-masing, akses kode legenda.\
+                          Jika Anda memiliki saran, kritik, atau ide untuk meningkatkan produk, silakan hubungi kami di contato@mapbiomas.org.',{'margin': '0px'}),
+                ui.Label(''),
+                ui.Label('Data MapBiomas bersifat publik, terbuka, dan gratis di bawah lisensi CC-BY-SA dan dengan mengacu pada sumber dalam format berikut: "Proyek MapBiomas – Koleksi [versi] dari MapBiomas Fire, diakses pada [tanggal] melalui tautan: [TAUTAN]".',{'margin': '0px'}),
+                ui.Label('DISCLAIMER'),
+                ui.Label(''),
+                ui.Label('The MapBiomas Fire Collection 1 presents the mapping of fire scars in Brazil from 2013 to 2023, with annual and monthly data for the entire period, including: (a) Annual fire occurrence, (b) Monthly fire occurrence, (c) Frequency, (d) Accumulated burned area. Annual, accumulated, and frequency data are also available with their respective Land Use and Land Cover classes from MapBiomas Collection 2.',{'margin': '0px'}),
+                ui.Label(''),
+                App.formatLabelWithLinks('For more information on the methodology, access the **method** description and the **ATBD**.',{
+                                            "method": "https://brasil.mapbiomas.org/metodo-mapbiomas-fogo/",
+                                            "ATBD": "https://drive.google.com/file/d/1Jj9c4yYF68pGGyUE6WS9_yN5TapOZMqS/view"
+                                          },{'margin': '0px'}),
+                ui.Label(''),
+                App.formatLabelWithLinks('To download the data, access the **Toolkit** and for the description of the respective data values, access the **legend code**.',{
+                                          'Toolkit':'https://code.earthengine.google.com/?scriptPath=users%2Fmapbiomas%2Fuser-toolkit%3Amapbiomas-user-toolkit-fire.js',
+                                          'legend code':'https://brasil.mapbiomas.org/wp-content/uploads/sites/4/2024/06/CODIGO-DE-LEGENDA-FOGO-COLECAO-3.pdf',
+                                          },{'margin': '0px'}),
+                ui.Label(''),
+                ui.Label('If you have suggestions, criticisms, or ideas to improve the product, please contact us at contato@mapbiomas.org.',{'margin': '0px'}),
+                ui.Label(''),
+                App.formatLabelWithLinks('DOI: **https://doi.org/10.58053/MapBiomas/VJIJCL**',{"https://doi.org/10.58053/MapBiomas/VJIJCL": "https://doi.org/10.58053/MapBiomas/VJIJCL"}),
+                ui.Label(''),
+                ui.Label('MapBiomas data is public, open, and free under the CC-BY-SA license and by referencing the source in the following format: "MapBiomas Project – Collection [version] of MapBiomas Fire, accessed on [date] through the link: [LINK]".',{'margin': '0px'}),
+            ];
+            var brasil_painel = ui.Panel({
+              'widgets':brasil_labelDisclaimer,
+                'layout': ui.Panel.Layout.flow('vertical'),
+                'style': {},
+            });
 
-            // Map.add(App.ui.form.panelDisclaimer);
+            App.ui.form.panelDisclaimer.widgets().reset([]);
+    
+            var panelDisclaimerText = ui.Panel({
+                'widgets':brasil_labelDisclaimer,
+                'layout': ui.Panel.Layout.flow('vertical'),
+                'style': {
+                    'width': '700px',
+                    'height': '70%',
+                },
+            });
+            
+            var panelButtonsChoiceCollections = ui.Panel({'layout': ui.Panel.Layout.flow('horizontal')});
+            
+            [
+              ['MapBiomas Fogo Brasil',brasil_labelDisclaimer],
+              ['MapBiomas Api Indonesia',indonesia_labelDisclaimer]
+            ].forEach(function(list){
+              var button = ui.Button({
+                "label": list[0],
+                "onClick": function () {
+                    panelDisclaimerText.widgets().reset(list[1]);
+                },
+                "disabled": false,
+                "style": {
+                    // 'padding': '2px',
+                    'stretch': 'horizontal'
+                }
+              });
+              
+              panelButtonsChoiceCollections.add(button);
+
+            });
+            
+            var buttonDisclaimerOk = ui.Button({
+                "label": "Ok, I get it!",
+                "onClick": function () {
+                    Map.remove(App.ui.form.panelDisclaimer);
+                    App.ui.form.buttonDisclaimerShow.setDisabled(false);
+                },
+                "disabled": false,
+                "style": {
+                    // 'padding': '2px',
+                    'stretch': 'horizontal'
+                }
+            });
+
+            App.ui.form.panelDisclaimer.add(panelButtonsChoiceCollections);
+            App.ui.form.panelDisclaimer.add(panelDisclaimerText);
+            App.ui.form.panelDisclaimer.add(buttonDisclaimerOk);
+
+            Map.add(App.ui.form.panelDisclaimer);
 
             App.ui.form.buttonDisclaimerShow.setDisabled(true);
         },
@@ -1568,7 +1658,7 @@ var App = {
                 App.ui.form.panel1.add(App.ui.form.labelNotes);
 
                 ui.root.add(App.ui.form.panelMain);
-
+                
                 App.ui.showDisclaimer();
                 
                 var Mapp = require('users/joaovsiqueira1/packages:Mapp.js');
@@ -1691,13 +1781,6 @@ var App = {
                 },
             }),
 
-            panelDisclaimerText: ui.Panel({
-                'layout': ui.Panel.Layout.flow('vertical'),
-                'style': {
-                    'width': '700px',
-                    'height': '300px',
-                },
-            }),
 
             labelRegion: ui.Label('Region', {
                 // 'fontWeight': 'bold',
@@ -1955,19 +2038,6 @@ var App = {
                 }
             }),
             
-            buttonDisclaimerOk: ui.Button({
-                "label": "Ok, I get it!",
-                "onClick": function () {
-                    Map.remove(App.ui.form.panelDisclaimer);
-                    App.ui.form.buttonDisclaimerShow.setDisabled(false);
-                },
-                "disabled": false,
-                "style": {
-                    // 'padding': '2px',
-                    'stretch': 'horizontal'
-                }
-            }),
-
             buttonDisclaimerShow: ui.Button({
                 "label": "Show disclaimer",
                 "onClick": function () {
