@@ -78,7 +78,7 @@ var Area = {
 
                 var tableColumns = ee.Feature(null)
                     .set('class', classId)
-                    .set('area', area);
+                    .set('area ha', area);
 
                 return tableColumns;
             }
@@ -1401,7 +1401,7 @@ var App = {
                         "territory": territory,
                         "geometry": geometry,
                         "scale": 30,
-                        "factor": 1000000,
+                        "factor": 10000,
                     });
 
                     area = ee.FeatureCollection(area).map(
