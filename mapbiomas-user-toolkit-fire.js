@@ -38,6 +38,9 @@
  *    1.4.3 - Dados finais da coleção 1.0 da Indonesia
  *          - Ajustando disclaimer para abarcar mais de uma iniciativa
  *          - Adicionando o disclaimer da Indonesia
+ *    1.4.4 - 2024-07-29
+ *          - Atualizando direct links. listas: (brazil) add: monthly_burned, accumulated_burned e frequency_burned; remove: monthly_burned_coverage e frequency_burned_coverage)
+ *          - Corrigindo subtitulo 
  *
  * 
  * @see
