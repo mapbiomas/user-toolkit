@@ -131,7 +131,7 @@ var App = {
 
     options: {
 
-        version: '1.4.3',
+        version: '1.4.4',
 
         logo: {
             uri: 'gs://mapbiomas-public/mapbiomas-logos/mapbiomas-logo-horizontal.b64',
