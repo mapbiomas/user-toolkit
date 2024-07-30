@@ -12,6 +12,10 @@
  *      Tasso Azevedo, Marcos Rosa and João Siqueira
  *      contato@mapbiomas.org
  *
+ * @see
+ *      Get the MapBiomas exported data in your "Google Drive/MAPBIOMAS-EXPORT" folder
+ *      Code and Tutorial - https://github.com/mapbiomas-brazil/user-toolkit
+ * 
  * @version
  *    1.0.0 - First release
  *    1.1.0 - Collection 1.0 fire
@@ -42,10 +46,7 @@
  *          - Atualizando direct links. listas: (brazil) add: monthly_burned, accumulated_burned e frequency_burned; remove: monthly_burned_coverage e frequency_burned_coverage)
  *          - Corrigindo subtitulo 
  *
- * 
- * @see
- *      Get the MapBiomas exported data in your "Google Drive/MAPBIOMAS-EXPORT" folder
- *      Code and Tutorial - https://github.com/mapbiomas-brazil/user-toolkit
+
  */
 
 var palettes = require('users/mapbiomas/modules:Palettes.js');
