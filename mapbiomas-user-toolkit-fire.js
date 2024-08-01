@@ -135,7 +135,7 @@ var App = {
 
         logo: {
             uri: 'gs://mapbiomas-public/mapbiomas-logos/mapbiomas-logo-horizontal.b64',
-            base64: logos.get('logo_mapbiomas_fogo')
+            base64: logos.get('logo_mapbiomas_fire')
         },
 
         tables: {
@@ -1658,12 +1658,12 @@ var App = {
                 App.ui.form.panelBuffer.add(App.ui.form.selectBuffer);
 
                 App.ui.form.panel1.add(App.ui.form.panelRegion);
+                App.ui.form.panel1.add(App.ui.form.panelCollection);
+                App.ui.form.panel1.add(App.ui.form.panelDataType);
                 App.ui.form.panel1.add(App.ui.form.panelFeatureCollections);
                 App.ui.form.panel1.add(App.ui.form.panelStates);
                 App.ui.form.panel1.add(App.ui.form.panelProperties);
                 App.ui.form.panel1.add(App.ui.form.panelFeature);
-                App.ui.form.panel1.add(App.ui.form.panelCollection);
-                App.ui.form.panel1.add(App.ui.form.panelDataType);
                 // App.ui.form.panel1.add(App.ui.form.panelBuffer);
 
                 App.ui.form.panel1.add(App.ui.form.labelLayers);
