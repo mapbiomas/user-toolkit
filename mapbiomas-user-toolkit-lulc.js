@@ -843,10 +843,10 @@ var App = {
 
             ],
             'mapbiomas-chile': [
-                {
-                    "value": "projects/mapbiomas-chile/assets/ANCILLARY_DATA/STATISTICS/COLLECTION1/VERSION-1/nivel-politico-1",
-                    "label": "Nível Político 1"
-                },
+//                {
+//                    "value": "projects/mapbiomas-chile/assets/ANCILLARY_DATA/STATISTICS/COLLECTION1/VERSION-1/nivel-politico-1",
+//                    "label": "Nível Político 1"
+//                },
                 {
                     "value": "projects/mapbiomas-chile/assets/ANCILLARY_DATA/STATISTICS/COLLECTION1/VERSION-1/nivel-politico-2",
                     "label": "Nível Político 2"
