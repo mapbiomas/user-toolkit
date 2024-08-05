@@ -2254,8 +2254,8 @@ var App = {
             'mapbiomas-paraguay': {
                 'collection-1.0': {
                     'assets': {
-                        'integration': 'projects/mapbiomas-public/assets/paraguay/collection1/mapbiomas_paraguay_collection1_integration_v1_',
-                        'transitions': 'projects/mapbiomas-public/assets/paraguay/collection1/mapbiomas_paraguay_collection1_transitions_v1_',
+                        'integration': 'projects/mapbiomas-public/assets/paraguay/collection1/mapbiomas_paraguay_collection1_integration_v1',
+                        'transitions': 'projects/mapbiomas-public/assets/paraguay/collection1/mapbiomas_paraguay_collection1_transitions_v1',
                         'quality': 'projects/mapbiomas-public/assets/paraguay/collection1/mapbiomas_paraguay_collection1_quality_v1',
                     },
                     'periods': {
