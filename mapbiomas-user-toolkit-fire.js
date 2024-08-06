@@ -1294,7 +1294,7 @@ var App = {
 
         manageLayers: function (checked, period, label, region) {
 
-            if (checked) {
+            if (checked !== false) {
                 App.ui.addImageLayer(period, label, region);
             } else {
                 App.ui.removeImageLayer(label);
@@ -1636,8 +1636,11 @@ var App = {
                 App.ui.form.tabs.add(App.ui.form.tab1);
                 App.ui.form.tabs.add(App.ui.form.tab2);
 
-                App.ui.form.tabs2.add(App.ui.form.checkboxTab3);
-                App.ui.form.tabs2.add(App.ui.form.checkboxTab4);
+                App.ui.form.tabs2.add(App.ui.form.tab3);
+                App.ui.form.tabs2.add(App.ui.form.tab4);
+
+                App.ui.form.tab3.add(App.ui.form.checkboxTab3);
+                App.ui.form.tab4.add(App.ui.form.checkboxTab4);
 
                 App.ui.form.panel2_head.add(App.ui.form.tabs2);
                 
@@ -2088,7 +2091,7 @@ var App = {
                     'backgroundColor': '#00000000',
                 },
                 'onChange': function (checked) {
-                    if (checked) {
+                    if (checked !== false) {
                         App.ui.form.checkboxTab2.setValue(false);
                         App.ui.form.tab1.style().set('border', '1px solid #808080');
                         App.ui.form.tab2.style().set('border', '1px solid #80808033');
@@ -2107,7 +2110,7 @@ var App = {
                     'backgroundColor': '#00000000',
                 },
                 'onChange': function (checked) {
-                    if (checked) {
+                    if (checked !== false) {
                         App.ui.form.checkboxTab1.setValue(false);
                         App.ui.form.tab1.style().set('border', '1px solid #80808033');
                         App.ui.form.tab2.style().set('border', '1px solid #808080');
@@ -2116,8 +2119,8 @@ var App = {
                         App.ui.form.panelMain
                           .add(App.ui.form.panel2);
                           
-                        // App.ui.form.panel2.clear();
-                        // App.ui.form.panel2.add(App.ui.form.panel3);
+                        App.ui.form.panel2.remove(App.ui.form.panel4);
+                        App.ui.form.panel2.add(App.ui.form.panel3);
                     }
 
                 }
@@ -2131,12 +2134,10 @@ var App = {
                     'backgroundColor': '#00000000',
                 },
                 'onChange': function (checked) {
-                    if (checked) {
-                      
-                      
+                    if (checked !== false) {
                         App.ui.form.checkboxTab4.setValue(false);
-                        App.ui.form.checkboxTab3.style().set('border', '1px solid #80808033');
-                        App.ui.form.checkboxTab4.style().set('border', '1px solid #808080');
+                        App.ui.form.tab4.style().set('border', '1px solid #80808033');
+                        App.ui.form.tab3.style().set('border', '1px solid #808080');
 
                         App.ui.form.panel2.remove(App.ui.form.panel4);
   
@@ -2154,10 +2155,10 @@ var App = {
                     'backgroundColor': '#00000000',
                 },
                 'onChange': function (checked) {
-                    if (checked) {
+                    if (checked !== false) {
                         App.ui.form.checkboxTab3.setValue(false);
-                        App.ui.form.checkboxTab4.style().set('border', '1px solid #80808033');
-                        App.ui.form.checkboxTab3.style().set('border', '1px solid #808080');
+                        App.ui.form.tab3.style().set('border', '1px solid #80808033');
+                        App.ui.form.tab4.style().set('border', '1px solid #808080');
 
                         App.ui.form.panel2.remove(App.ui.form.panel3);
                         App.ui.form.panel2.add(App.ui.form.panel4)
@@ -2175,11 +2176,28 @@ var App = {
                     'margin': '0px 0px 0px 6px'
                 },
             }),
+            
 
             tab2: ui.Panel({
                 'style': {
                     'width': '100px',
                     'backgroundColor': '#dddddd00',
+                    'stretch': 'horizontal',
+                    'border': '1px solid #80808033',
+                }
+            }),
+            tab3: ui.Panel({
+                'style': {
+                    // 'width': '100px',
+                    'backgroundColor': '#cccccc',
+                    'stretch': 'horizontal',
+                    'border': '1px solid #80808033',
+                }
+            }),
+            tab4: ui.Panel({
+                'style': {
+                    // 'width': '100px',
+                    'backgroundColor': '#cccccc',
                     'stretch': 'horizontal',
                     'border': '1px solid #80808033',
                 }
