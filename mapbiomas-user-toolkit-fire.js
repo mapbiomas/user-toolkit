@@ -2113,14 +2113,20 @@ var App = {
                     if (checked !== false) {
                         App.ui.form.checkboxTab1.setValue(false);
                         App.ui.form.tab1.style().set('border', '1px solid #80808033');
-                        App.ui.form.tab2.style().set('border', '1px solid #808080');
+                        App.ui.form.tab2.style().set('border', '1px solid #aa8080');
 
                         App.ui.form.panelMain.remove(App.ui.form.panel1);
                         App.ui.form.panelMain
                           .add(App.ui.form.panel2);
+                        
+                        App.ui.form.tab4.style().set('border', '1px solid #80808033');
+                        App.ui.form.tab3.style().set('border', '1px solid #aa8080');
+
                           
                         App.ui.form.panel2.remove(App.ui.form.panel4);
                         App.ui.form.panel2.add(App.ui.form.panel3);
+                        
+                        
                     }
 
                 }
@@ -2137,7 +2143,7 @@ var App = {
                     if (checked !== false) {
                         App.ui.form.checkboxTab4.setValue(false);
                         App.ui.form.tab4.style().set('border', '1px solid #80808033');
-                        App.ui.form.tab3.style().set('border', '1px solid #808080');
+                        App.ui.form.tab3.style().set('border', '1px solid #aa8080');
 
                         App.ui.form.panel2.remove(App.ui.form.panel4);
   
@@ -2158,7 +2164,7 @@ var App = {
                     if (checked !== false) {
                         App.ui.form.checkboxTab3.setValue(false);
                         App.ui.form.tab3.style().set('border', '1px solid #80808033');
-                        App.ui.form.tab4.style().set('border', '1px solid #808080');
+                        App.ui.form.tab4.style().set('border', '1px solid #aa8080');
 
                         App.ui.form.panel2.remove(App.ui.form.panel3);
                         App.ui.form.panel2.add(App.ui.form.panel4)
@@ -2188,16 +2194,16 @@ var App = {
             }),
             tab3: ui.Panel({
                 'style': {
-                    // 'width': '100px',
-                    'backgroundColor': '#cccccc',
+                    'width': '120px',
+                    'backgroundColor': '#dddddd',
                     'stretch': 'horizontal',
                     'border': '1px solid #80808033',
                 }
             }),
             tab4: ui.Panel({
                 'style': {
-                    // 'width': '100px',
-                    'backgroundColor': '#cccccc',
+                    'width': '120px',
+                    'backgroundColor': '#dddddd',
                     'stretch': 'horizontal',
                     'border': '1px solid #80808033',
                 }
