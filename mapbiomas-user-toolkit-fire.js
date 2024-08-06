@@ -1631,10 +1631,17 @@ var App = {
                 App.ui.form.panelMain.add(App.ui.form.panel1);
 
                 App.ui.form.tab1.add(App.ui.form.checkboxTab1);
-                App.ui.form.tab2.add(App.ui.form.checkboxTab2); 
-
+                App.ui.form.tab2.add(App.ui.form.checkboxTab2);
+                
                 App.ui.form.tabs.add(App.ui.form.tab1);
                 App.ui.form.tabs.add(App.ui.form.tab2);
+
+                App.ui.form.tabs2.add(App.ui.form.checkboxTab3);
+                App.ui.form.tabs2.add(App.ui.form.checkboxTab4);
+
+                App.ui.form.panel2_head.add(App.ui.form.tabs2);
+                
+                App.ui.form.panel2.add(App.ui.form.panel2_head);
 
                 App.ui.form.panelRegion.add(App.ui.form.labelRegion);
                 App.ui.form.panelRegion.add(App.ui.form.selectRegion);
@@ -1671,7 +1678,7 @@ var App = {
 
                 App.ui.form.panel1.add(App.ui.form.buttonExport2Drive);
                 App.ui.form.panel1.add(App.ui.form.labelNotes);
-
+                
                 ui.root.add(App.ui.form.panelMain);
                 
                 App.ui.showDisclaimer();
@@ -2069,6 +2076,9 @@ var App = {
             tabs: ui.Panel({
                 layout: ui.Panel.Layout.flow('horizontal')
             }),
+            tabs2: ui.Panel({
+                layout: ui.Panel.Layout.flow('horizontal')
+            }),
 
             checkboxTab1: ui.Checkbox({
                 'label': '  Toolkit ',
@@ -2104,13 +2114,53 @@ var App = {
 
                         App.ui.form.panelMain.remove(App.ui.form.panel1);
                         App.ui.form.panelMain
-                          .add(App.ui.form.panel2)
+                          .add(App.ui.form.panel2);
+                          
+                        // App.ui.form.panel2.clear();
+                        // App.ui.form.panel2.add(App.ui.form.panel3);
+                    }
 
+                }
+            }),
 
+            checkboxTab3: ui.Checkbox({
+                'label': '  Brazil col 3',
+                'style': {
+                    'margin': '5px 20px 5px -16px',
+                    'stretch': 'horizontal',
+                    'backgroundColor': '#00000000',
+                },
+                'onChange': function (checked) {
+                    if (checked) {
+                      
+                      
+                        App.ui.form.checkboxTab4.setValue(false);
+                        App.ui.form.checkboxTab3.style().set('border', '1px solid #80808033');
+                        App.ui.form.checkboxTab4.style().set('border', '1px solid #808080');
 
+                        App.ui.form.panel2.remove(App.ui.form.panel4);
+  
+                        App.ui.form.panel2
+                          .add(App.ui.form.panel3);
+                    }
 
+                }
+            }),
+            checkboxTab4: ui.Checkbox({
+                'label': '  Indonesia col 1',
+                'style': {
+                    'margin': '5px 20px 5px -16px',
+                    'stretch': 'horizontal',
+                    'backgroundColor': '#00000000',
+                },
+                'onChange': function (checked) {
+                    if (checked) {
+                        App.ui.form.checkboxTab3.setValue(false);
+                        App.ui.form.checkboxTab4.style().set('border', '1px solid #80808033');
+                        App.ui.form.checkboxTab3.style().set('border', '1px solid #808080');
 
-
+                        App.ui.form.panel2.remove(App.ui.form.panel3);
+                        App.ui.form.panel2.add(App.ui.form.panel4)
                     }
 
                 }
@@ -2140,8 +2190,19 @@ var App = {
                     'stretch': 'both'
                 }
             }),
+            panel2: ui.Panel({
+                style: {
+                    'stretch': 'both'
+                }
+            }),
+            panel2_head: ui.Panel({
+                layout:ui.Panel.Layout.Flow('horizontal'),
+                style: {
+                    'stretch': 'both'
+                }
+            }),
           // Brasil links
-           panel2: ui.Panel({
+           panel3: ui.Panel({
               widgets: [
                 ui.Label('Brazil fire col3: annual_burned'),
                 ui.Panel({
@@ -2730,7 +2791,7 @@ var App = {
             }
             }),
           // Indonesia links
-           panel3: ui.Panel({
+           panel4: ui.Panel({
               widgets: [
                 ui.Label('Indonesia fire col1: annual_burned'),
                 ui.Panel({
