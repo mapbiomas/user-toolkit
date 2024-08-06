@@ -1509,7 +1509,9 @@ var App = {
                              'dan bulanan untuk seluruh periode, termasuk: (a) Data kebakaran tahunan, (b) Data kebakaran bulanan, (c) Frekuensi kebakaran, dan ' +
                              '(d) Akumulasi areal terbakar. Data tahunan, akumulasi, dan frekuensi tersedia dengan masing-masing kelas penutupan dan penggunaan ' +
                              'lahan berdasarkan MapBiomas Koleksi 2.', {'margin': '0px'}),
-                    App.formatLabelWithLinks('Untuk mengunduh data, akses ke **Toolkit** dan untuk penjelasan tiap nilai data, akses **kode legenda**.', {
+                    ui.Label(''),
+                    // App.formatLabelWithLinks('Untuk mengunduh data, akses ke **Toolkit** dan untuk penjelasan tiap nilai data, akses **kode legenda**.', {
+                    App.formatLabelWithLinks("Anda dapat mengakses data pada **dashboard** dan mengunduhnya menggunakan **Toolkit**  Untuk penjelasan setiap nilai data, lihat pada **kode legenda**.", {
                         'Toolkit': 'https://code.earthengine.google.com/?scriptPath=users%2Fmapbiomas%2Fuser-toolkit%3Amapbiomas-user-toolkit-fire.js',
                         'kode legenda': 'https://drive.google.com/file/d/1YbFf0XAnxw2XcfpU0CCqka4opi25CSR0/view?usp=sharing',
                     }),
@@ -1520,10 +1522,6 @@ var App = {
                     }),
                     ui.Label(''),
                     ui.Label('Jika anda memiliki saran, kritik, atau ide untuk peningkatan produk, silakan hubungi kami di contato@mapbiomas.org.', {'margin': '0px'}),
-                    ui.Label(''),
-                    App.formatLabelWithLinks('DOI: **https://data.mapbiomas.org/dataverse/brazil-fire**', {
-                        "https://data.mapbiomas.org/dataverse/brazil-fire": "https://data.mapbiomas.org/dataverse/brazil-fire"
-                    }),
                     ui.Label(''),
                     ui.Label('DISCLAIMER'),
                     ui.Label(''),
@@ -1537,16 +1535,14 @@ var App = {
                         "ATBD": "https://brasil.mapbiomas.org/wp-content/uploads/sites/4/2024/06/ATBD-MapBiomas-Fogo-Colecao-3-1.pdf"
                     }, {'margin': '0px'}),
                     ui.Label(''),
-                    App.formatLabelWithLinks('To download the data, access the **Toolkit** and for the description of the respective data values, access the **legend code**.', {
+                    // App.formatLabelWithLinks('To download the data, access the **Toolkit** and for the description of the respective data values, access the **legend code**.', {
+                    App.formatLabelWithLinks('You can access the data in the **dashboard** and download it using the **Toolkit** For descriptions of the respective data values, refer to the **legend code**.', {
                         'Toolkit': 'https://code.earthengine.google.com/?scriptPath=users%2Fmapbiomas%2Fuser-toolkit%3Amapbiomas-user-toolkit-fire.js',
                         'legend code': 'https://drive.google.com/file/d/1YbFf0XAnxw2XcfpU0CCqka4opi25CSR0/view?usp=sharing',
+                        'dashboard':'https://fire.mapbiomas.id/id'
                     }, {'margin': '0px'}),
                     ui.Label(''),
                     ui.Label('If you have suggestions, criticisms, or ideas to improve the product, please contact us at contato@mapbiomas.org.', {'margin': '0px'}),
-                    ui.Label(''),
-                    App.formatLabelWithLinks('DOI: **https://data.mapbiomas.org/dataverse/brazil-fire**', {
-                        "https://data.mapbiomas.org/dataverse/brazil-fire": "https://data.mapbiomas.org/dataverse/brazil-fire"
-                    }),
                     ui.Label(''),
                     ui.Label('MapBiomas data is public, open, and free under the CC-BY-SA license and by referencing the source in the following format: "MapBiomas Project – Collection [version] of MapBiomas Fire, accessed on [date] through the link: [LINK]".', {'margin': '0px'}),
                 ]
@@ -1567,6 +1563,22 @@ var App = {
             });
         
             var panelButtonsChoiceCollections = ui.Panel({'layout': ui.Panel.Layout.flow('horizontal')});
+  
+            var button_close = ui.Button({
+                // "label": '',
+                "onClick": function () {
+                    Map.remove(App.ui.form.panelDisclaimer);
+                    App.ui.form.buttonDisclaimerShow.setDisabled(false);
+                },
+                "disabled": false,
+                "style": {
+                  // 'margin':'0px'
+                    // 'stretch': 'horizontal'
+                },
+                // "imageUrl":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAACXBIWXMAAAsTAAALEwEAmpwYAAABhElEQVR4nO3WXUvCUBgHcME+zqQuNpUItL0QQVg3o7K7ootCgiToE9RFfTy7UUFlvTiVujl7wQv3jzNFK/fWdoY3HniuNvbb/5xn48lk1muVC6XSBpGLOSLxcqKSizn6rEiooQhbhiS0DSkPNiW0jd38ZmhStuisRKEFVc36wkThOeborIjCc/6wVCinBkuFcizYPD4IB/a22cL27RXwrmP8/Oj7YLt+jUnjBVb1iBG8vwOn2QZGX8DwE+Onh2X0rgb0dfceinslJ3ESW+cncDrdBf4jOU2Kj8H0Wn8A+/6G7RlbHnhUNBHshUMfRUITw3Nce52CtPRRKMoEdre3P1zAf848Fdj+daZDONpbZJzEhb0aKajb2fxA6v7dGxUn/4XNiginp81Q3f1ZLDfcKZxOz72HvoR5KDFKXLuA09UCu5cmnzQasC7P2J6xWRFDO9dQiul9TkbMIoHwqgYBpDb65JuBo8982BOFFjtUaIUOe/PkqpqlW5N4vFV4LjTpemVSXt/VnnbeFSNe/AAAAABJRU5ErkJggg=="
+                "imageUrl":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAzElEQVR4nO3WwQqCQBCA4f9YEqx1td7JS+/UzffxEuShbOkVehVD2AVZdLF2WskcGBAH+dhhWAeW+MfIgKNwZmPgHGiEM38H1sApMPUncEF4FD8Nb4HE850CVtJwCtyBCtgMoDegBNaSsAKu5r2LW7StXZyaSKtVB7C4DxWDMVBt6mfTfvucfHuqVeeUQyeNAlcx4NRpdR2j1apnkPoGThRWnun14cHwAXh6Wmrxh7nhxOA29iOuzN2sfhLRYD3VItDEXn2yqZa9JeYVL4hCueRYbYOeAAAAAElFTkSuQmCC"
+            });
+            panelButtonsChoiceCollections.add(button_close);
         
             [
                 ['MapBiomas Fogo Brasil', 'Brasil'],
@@ -1808,7 +1820,7 @@ var App = {
             panelDisclaimer: ui.Panel({
                 'layout': ui.Panel.Layout.flow('vertical'),
                 'style': {
-                    'maxWidth': '50%',
+                    'maxWidth': '70%',
                     'maxHeight': '90%',
                 },
             }),
