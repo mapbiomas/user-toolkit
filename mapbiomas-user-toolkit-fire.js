@@ -1150,6 +1150,7 @@ var App = {
             App.options.table.sort(App.options.propertyName)
                 .reduceColumns(ee.Reducer.toList(), [App.options.propertyName])
                 .get('list')
+                .distinct()
                 .evaluate(
                     function (featureNameList) {
 
