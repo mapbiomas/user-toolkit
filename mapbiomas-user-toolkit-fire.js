@@ -1148,9 +1148,9 @@ var App = {
             App.ui.form.selectFeature.setPlaceholder('loading feature names...');
 
             App.options.table.sort(App.options.propertyName)
-                .reduceColumns(ee.Reducer.toList(), [App.options.propertyName])
-                .get('list')
+                .aggregate_array(App.options.propertyName)
                 .distinct()
+                .sort()
                 .evaluate(
                     function (featureNameList) {
 
@@ -1670,12 +1670,12 @@ var App = {
 
                 App.ui.form.panel1.add(App.ui.form.panelRegion);
                 App.ui.form.panel1.add(App.ui.form.panelCollection);
-                App.ui.form.panel1.add(App.ui.form.panelDataType);
                 App.ui.form.panel1.add(App.ui.form.panelFeatureCollections);
                 App.ui.form.panel1.add(App.ui.form.panelStates);
                 App.ui.form.panel1.add(App.ui.form.panelProperties);
                 App.ui.form.panel1.add(App.ui.form.panelFeature);
                 // App.ui.form.panel1.add(App.ui.form.panelBuffer);
+                App.ui.form.panel1.add(App.ui.form.panelDataType);
 
                 App.ui.form.panel1.add(App.ui.form.labelLayers);
                 App.ui.form.panel1.add(App.ui.form.panelLayersList);
