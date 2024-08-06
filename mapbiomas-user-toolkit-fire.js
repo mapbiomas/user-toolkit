@@ -1459,9 +1459,12 @@ var App = {
                            'todo o período, incluindo: (a) Ocorrência de fogo anual, (b) Ocorrência de fogo mensal, (c) Frequência, (d) Área queimada acumulada, ' +
                            '(e) Tamanho das cicatrizes, e (f) Ano da última ocorrência de fogo. Os dados anuais, acumulados e de frequência também estão disponíveis ' +
                            'com suas respectivas classes de Uso e Cobertura da Coleção 8 do MapBiomas.', {'margin': '0px'}),
-                  App.formatLabelWithLinks('Para baixar os dados, acesse o **Toolkit** e, para a descrição dos respectivos valores dos dados, acesse o **código da legenda**.', {
+                  ui.Label(''),
+                  // App.formatLabelWithLinks('Para baixar os dados, acesse o **Toolkit** e, para a descrição dos respectivos valores dos dados, acesse o **código da legenda**.', {
+                  App.formatLabelWithLinks('Você pode acessar os dados na **plataforma** e baixá-los usando o **Toolkit** Para obter descrições dos respectivos valores de dados, consulte o **código da legenda**.', {
                       'Toolkit': 'https://code.earthengine.google.com/?scriptPath=users%2Fmapbiomas%2Fuser-toolkit%3Amapbiomas-user-toolkit-fire.js',
                       'código da legenda': 'https://brasil.mapbiomas.org/wp-content/uploads/sites/4/2024/06/CODIGO-DE-LEGENDA-FOGO-COLECAO-3.pdf',
+                      'plataforma':'plataforma.brasil.mapbiomas.org/fogo',
                   }),
                   ui.Label(''),
                   App.formatLabelWithLinks('Para maiores informações sobre o método, acesse a descrição do **método** e o **ATBD**.', {
@@ -1489,9 +1492,10 @@ var App = {
                       "ATBD": "https://brasil.mapbiomas.org/wp-content/uploads/sites/4/2024/06/ATBD-MapBiomas-Fogo-Colecao-3-1.pdf"
                   }, {'margin': '0px'}),
                   ui.Label(''),
-                  App.formatLabelWithLinks('To download the data, access the **Toolkit** and for the description of the respective data values, access the **legend code**.', {
+                      App.formatLabelWithLinks('You can access the data in the **dashboard** and download it using the **Toolkit** For descriptions of the respective data values, refer to the **legend code**.', {
                       'Toolkit': 'https://code.earthengine.google.com/?scriptPath=users%2Fmapbiomas%2Fuser-toolkit%3Amapbiomas-user-toolkit-fire.js',
                       'legend code': 'https://brasil.mapbiomas.org/wp-content/uploads/sites/4/2024/06/CODIGO-DE-LEGENDA-FOGO-COLECAO-3.pdf',
+                      'dashboard':'plataforma.brasil.mapbiomas.org/fogo'
                   }, {'margin': '0px'}),
                   ui.Label(''),
                   ui.Label('If you have suggestions, criticisms, or ideas to improve the product, please contact us at contato@mapbiomas.org.', {'margin': '0px'}),
