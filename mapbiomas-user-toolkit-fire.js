@@ -2140,6 +2140,7 @@ var App = {
                     'stretch': 'both'
                 }
             }),
+          // Brasil links
            panel2: ui.Panel({
               widgets: [
                 ui.Label('Brazil fire col3: annual_burned'),
@@ -2728,7 +2729,7 @@ var App = {
                 'stretch': 'both'
             }
             }),
-
+          // Indonesia links
            panel3: ui.Panel({
               widgets: [
                 ui.Label('Indonesia fire col1: annual_burned'),
@@ -2797,7 +2798,27 @@ var App = {
                 ui.Label('Indonesia fire col1: accumulated_burned_coverage'),
                 ui.Panel({
                     widgets: [
-                      ui.Label({ value: '2023_2023', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-accumulated/fire_accumulated_2023_2023.tif'}),
+                        ui.Label({ value: "2013_2013", targetUrl: "https://storage.googleapis.com/mapbiomas-public/initiatives/indonesia/collection_2/fire-col1/accumulated/fire_accumulated_2013_2013.tif"}),
+                        ui.Label({ value: "2013_2014", targetUrl: "https://storage.googleapis.com/mapbiomas-public/initiatives/indonesia/collection_2/fire-col1/accumulated/fire_accumulated_2013_2014.tif"}),
+                        ui.Label({ value: "2013_2015", targetUrl: "https://storage.googleapis.com/mapbiomas-public/initiatives/indonesia/collection_2/fire-col1/accumulated/fire_accumulated_2013_2015.tif"}),
+                        ui.Label({ value: "2013_2016", targetUrl: "https://storage.googleapis.com/mapbiomas-public/initiatives/indonesia/collection_2/fire-col1/accumulated/fire_accumulated_2013_2016.tif"}),
+                        ui.Label({ value: "2013_2017", targetUrl: "https://storage.googleapis.com/mapbiomas-public/initiatives/indonesia/collection_2/fire-col1/accumulated/fire_accumulated_2013_2017.tif"}),
+                        ui.Label({ value: "2013_2018", targetUrl: "https://storage.googleapis.com/mapbiomas-public/initiatives/indonesia/collection_2/fire-col1/accumulated/fire_accumulated_2013_2018.tif"}),
+                        ui.Label({ value: "2013_2019", targetUrl: "https://storage.googleapis.com/mapbiomas-public/initiatives/indonesia/collection_2/fire-col1/accumulated/fire_accumulated_2013_2019.tif"}),
+                        ui.Label({ value: "2013_2020", targetUrl: "https://storage.googleapis.com/mapbiomas-public/initiatives/indonesia/collection_2/fire-col1/accumulated/fire_accumulated_2013_2020.tif"}),
+                        ui.Label({ value: "2013_2021", targetUrl: "https://storage.googleapis.com/mapbiomas-public/initiatives/indonesia/collection_2/fire-col1/accumulated/fire_accumulated_2013_2021.tif"}),
+                        ui.Label({ value: "2013_2022", targetUrl: "https://storage.googleapis.com/mapbiomas-public/initiatives/indonesia/collection_2/fire-col1/accumulated/fire_accumulated_2013_2022.tif"}),
+                        ui.Label({ value: "2013_2023", targetUrl: "https://storage.googleapis.com/mapbiomas-public/initiatives/indonesia/collection_2/fire-col1/accumulated/fire_accumulated_2013_2023.tif"}),
+                        ui.Label({ value: "2023_2023", targetUrl: "https://storage.googleapis.com/mapbiomas-public/initiatives/indonesia/collection_2/fire-col1/accumulated/fire_accumulated_2023_2023.tif"}),
+                        ui.Label({ value: "2022_2023", targetUrl: "https://storage.googleapis.com/mapbiomas-public/initiatives/indonesia/collection_2/fire-col1/accumulated/fire_accumulated_2022_2023.tif"}),
+                        ui.Label({ value: "2021_2023", targetUrl: "https://storage.googleapis.com/mapbiomas-public/initiatives/indonesia/collection_2/fire-col1/accumulated/fire_accumulated_2021_2023.tif"}),
+                        ui.Label({ value: "2020_2023", targetUrl: "https://storage.googleapis.com/mapbiomas-public/initiatives/indonesia/collection_2/fire-col1/accumulated/fire_accumulated_2020_2023.tif"}),
+                        ui.Label({ value: "2019_2023", targetUrl: "https://storage.googleapis.com/mapbiomas-public/initiatives/indonesia/collection_2/fire-col1/accumulated/fire_accumulated_2019_2023.tif"}),
+                        ui.Label({ value: "2018_2023", targetUrl: "https://storage.googleapis.com/mapbiomas-public/initiatives/indonesia/collection_2/fire-col1/accumulated/fire_accumulated_2018_2023.tif"}),
+                        ui.Label({ value: "2017_2023", targetUrl: "https://storage.googleapis.com/mapbiomas-public/initiatives/indonesia/collection_2/fire-col1/accumulated/fire_accumulated_2017_2023.tif"}),
+                        ui.Label({ value: "2016_2023", targetUrl: "https://storage.googleapis.com/mapbiomas-public/initiatives/indonesia/collection_2/fire-col1/accumulated/fire_accumulated_2016_2023.tif"}),
+                        ui.Label({ value: "2015_2023", targetUrl: "https://storage.googleapis.com/mapbiomas-public/initiatives/indonesia/collection_2/fire-col1/accumulated/fire_accumulated_2015_2023.tif"}),
+                        ui.Label({ value: "2014_2023", targetUrl: "https://storage.googleapis.com/mapbiomas-public/initiatives/indonesia/collection_2/fire-col1/accumulated/fire_accumulated_2014_2023.tif"}),
                     ],
                     'layout': ui.Panel.Layout.flow('horizontal', true),
                     style: {
@@ -2808,8 +2829,28 @@ var App = {
                 ui.Label('Indonesia fire col1: accumulated_burned'),
                 ui.Panel({
                     widgets: [
-                      ui.Label({ value: '2023_2023', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-accumulated/fire_accumulated_2023_2023.tif'}),
-                    ],
+                        ui.Label({ value: "2013_2013", targetUrl: "https://storage.googleapis.com/mapbiomas-public/initiatives/indonesia/collection_2/fire-col1/fire-simplifed/FIRE_ACCUMULATED_TOTAL/accumulated_burned_2013_2013.tif"}),
+                        ui.Label({ value: "2013_2014", targetUrl: "https://storage.googleapis.com/mapbiomas-public/initiatives/indonesia/collection_2/fire-col1/fire-simplifed/FIRE_ACCUMULATED_TOTAL/accumulated_burned_2013_2014.tif"}),
+                        ui.Label({ value: "2013_2015", targetUrl: "https://storage.googleapis.com/mapbiomas-public/initiatives/indonesia/collection_2/fire-col1/fire-simplifed/FIRE_ACCUMULATED_TOTAL/accumulated_burned_2013_2015.tif"}),
+                        ui.Label({ value: "2013_2016", targetUrl: "https://storage.googleapis.com/mapbiomas-public/initiatives/indonesia/collection_2/fire-col1/fire-simplifed/FIRE_ACCUMULATED_TOTAL/accumulated_burned_2013_2016.tif"}),
+                        ui.Label({ value: "2013_2017", targetUrl: "https://storage.googleapis.com/mapbiomas-public/initiatives/indonesia/collection_2/fire-col1/fire-simplifed/FIRE_ACCUMULATED_TOTAL/accumulated_burned_2013_2017.tif"}),
+                        ui.Label({ value: "2013_2018", targetUrl: "https://storage.googleapis.com/mapbiomas-public/initiatives/indonesia/collection_2/fire-col1/fire-simplifed/FIRE_ACCUMULATED_TOTAL/accumulated_burned_2013_2018.tif"}),
+                        ui.Label({ value: "2013_2019", targetUrl: "https://storage.googleapis.com/mapbiomas-public/initiatives/indonesia/collection_2/fire-col1/fire-simplifed/FIRE_ACCUMULATED_TOTAL/accumulated_burned_2013_2019.tif"}),
+                        ui.Label({ value: "2013_2020", targetUrl: "https://storage.googleapis.com/mapbiomas-public/initiatives/indonesia/collection_2/fire-col1/fire-simplifed/FIRE_ACCUMULATED_TOTAL/accumulated_burned_2013_2020.tif"}),
+                        ui.Label({ value: "2013_2021", targetUrl: "https://storage.googleapis.com/mapbiomas-public/initiatives/indonesia/collection_2/fire-col1/fire-simplifed/FIRE_ACCUMULATED_TOTAL/accumulated_burned_2013_2021.tif"}),
+                        ui.Label({ value: "2013_2022", targetUrl: "https://storage.googleapis.com/mapbiomas-public/initiatives/indonesia/collection_2/fire-col1/fire-simplifed/FIRE_ACCUMULATED_TOTAL/accumulated_burned_2013_2022.tif"}),
+                        ui.Label({ value: "2013_2023", targetUrl: "https://storage.googleapis.com/mapbiomas-public/initiatives/indonesia/collection_2/fire-col1/fire-simplifed/FIRE_ACCUMULATED_TOTAL/accumulated_burned_2013_2023.tif"}),
+                        ui.Label({ value: "2023_2023", targetUrl: "https://storage.googleapis.com/mapbiomas-public/initiatives/indonesia/collection_2/fire-col1/fire-simplifed/FIRE_ACCUMULATED_TOTAL/accumulated_burned_2023_2023.tif"}),
+                        ui.Label({ value: "2022_2023", targetUrl: "https://storage.googleapis.com/mapbiomas-public/initiatives/indonesia/collection_2/fire-col1/fire-simplifed/FIRE_ACCUMULATED_TOTAL/accumulated_burned_2022_2023.tif"}),
+                        ui.Label({ value: "2021_2023", targetUrl: "https://storage.googleapis.com/mapbiomas-public/initiatives/indonesia/collection_2/fire-col1/fire-simplifed/FIRE_ACCUMULATED_TOTAL/accumulated_burned_2021_2023.tif"}),
+                        ui.Label({ value: "2020_2023", targetUrl: "https://storage.googleapis.com/mapbiomas-public/initiatives/indonesia/collection_2/fire-col1/fire-simplifed/FIRE_ACCUMULATED_TOTAL/accumulated_burned_2020_2023.tif"}),
+                        ui.Label({ value: "2019_2023", targetUrl: "https://storage.googleapis.com/mapbiomas-public/initiatives/indonesia/collection_2/fire-col1/fire-simplifed/FIRE_ACCUMULATED_TOTAL/accumulated_burned_2019_2023.tif"}),
+                        ui.Label({ value: "2018_2023", targetUrl: "https://storage.googleapis.com/mapbiomas-public/initiatives/indonesia/collection_2/fire-col1/fire-simplifed/FIRE_ACCUMULATED_TOTAL/accumulated_burned_2018_2023.tif"}),
+                        ui.Label({ value: "2017_2023", targetUrl: "https://storage.googleapis.com/mapbiomas-public/initiatives/indonesia/collection_2/fire-col1/fire-simplifed/FIRE_ACCUMULATED_TOTAL/accumulated_burned_2017_2023.tif"}),
+                        ui.Label({ value: "2016_2023", targetUrl: "https://storage.googleapis.com/mapbiomas-public/initiatives/indonesia/collection_2/fire-col1/fire-simplifed/FIRE_ACCUMULATED_TOTAL/accumulated_burned_2016_2023.tif"}),
+                        ui.Label({ value: "2015_2023", targetUrl: "https://storage.googleapis.com/mapbiomas-public/initiatives/indonesia/collection_2/fire-col1/fire-simplifed/FIRE_ACCUMULATED_TOTAL/accumulated_burned_2015_2023.tif"}),
+                        ui.Label({ value: "2014_2023", targetUrl: "https://storage.googleapis.com/mapbiomas-public/initiatives/indonesia/collection_2/fire-col1/fire-simplifed/FIRE_ACCUMULATED_TOTAL/accumulated_burned_2014_2023.tif"}),
+                  ],
                     'layout': ui.Panel.Layout.flow('horizontal', true),
                     style: {
                         'border': '1px grey solid',
@@ -2819,7 +2860,27 @@ var App = {
                 ui.Label('Indonesia fire col1: frequency_burned'),
                 ui.Panel({
                     widgets: [
-                      ui.Label({ value: '2023_2023', targetUrl: 'https://storage.googleapis.com/mapbiomas-public/initiatives/brasil/collection_8/fire-col3/fire-accumulated/fire_accumulated_2023_2023.tif'}),
+                        ui.Label({ value: "2013_2013", targetUrl: "https://storage.googleapis.com/mapbiomas-public/initiatives/indonesia/collection_2/fire-col1/fire-simplifed/FIRE_FREQUENCY_TOTAL/frequency_burned_2013_2013.tif"}),
+                        ui.Label({ value: "2013_2014", targetUrl: "https://storage.googleapis.com/mapbiomas-public/initiatives/indonesia/collection_2/fire-col1/fire-simplifed/FIRE_FREQUENCY_TOTAL/frequency_burned_2013_2014.tif"}),
+                        ui.Label({ value: "2013_2015", targetUrl: "https://storage.googleapis.com/mapbiomas-public/initiatives/indonesia/collection_2/fire-col1/fire-simplifed/FIRE_FREQUENCY_TOTAL/frequency_burned_2013_2015.tif"}),
+                        ui.Label({ value: "2013_2016", targetUrl: "https://storage.googleapis.com/mapbiomas-public/initiatives/indonesia/collection_2/fire-col1/fire-simplifed/FIRE_FREQUENCY_TOTAL/frequency_burned_2013_2016.tif"}),
+                        ui.Label({ value: "2013_2017", targetUrl: "https://storage.googleapis.com/mapbiomas-public/initiatives/indonesia/collection_2/fire-col1/fire-simplifed/FIRE_FREQUENCY_TOTAL/frequency_burned_2013_2017.tif"}),
+                        ui.Label({ value: "2013_2018", targetUrl: "https://storage.googleapis.com/mapbiomas-public/initiatives/indonesia/collection_2/fire-col1/fire-simplifed/FIRE_FREQUENCY_TOTAL/frequency_burned_2013_2018.tif"}),
+                        ui.Label({ value: "2013_2019", targetUrl: "https://storage.googleapis.com/mapbiomas-public/initiatives/indonesia/collection_2/fire-col1/fire-simplifed/FIRE_FREQUENCY_TOTAL/frequency_burned_2013_2019.tif"}),
+                        ui.Label({ value: "2013_2020", targetUrl: "https://storage.googleapis.com/mapbiomas-public/initiatives/indonesia/collection_2/fire-col1/fire-simplifed/FIRE_FREQUENCY_TOTAL/frequency_burned_2013_2020.tif"}),
+                        ui.Label({ value: "2013_2021", targetUrl: "https://storage.googleapis.com/mapbiomas-public/initiatives/indonesia/collection_2/fire-col1/fire-simplifed/FIRE_FREQUENCY_TOTAL/frequency_burned_2013_2021.tif"}),
+                        ui.Label({ value: "2013_2022", targetUrl: "https://storage.googleapis.com/mapbiomas-public/initiatives/indonesia/collection_2/fire-col1/fire-simplifed/FIRE_FREQUENCY_TOTAL/frequency_burned_2013_2022.tif"}),
+                        ui.Label({ value: "2013_2023", targetUrl: "https://storage.googleapis.com/mapbiomas-public/initiatives/indonesia/collection_2/fire-col1/fire-simplifed/FIRE_FREQUENCY_TOTAL/frequency_burned_2013_2023.tif"}),
+                        ui.Label({ value: "2023_2023", targetUrl: "https://storage.googleapis.com/mapbiomas-public/initiatives/indonesia/collection_2/fire-col1/fire-simplifed/FIRE_FREQUENCY_TOTAL/frequency_burned_2023_2023.tif"}),
+                        ui.Label({ value: "2022_2023", targetUrl: "https://storage.googleapis.com/mapbiomas-public/initiatives/indonesia/collection_2/fire-col1/fire-simplifed/FIRE_FREQUENCY_TOTAL/frequency_burned_2022_2023.tif"}),
+                        ui.Label({ value: "2021_2023", targetUrl: "https://storage.googleapis.com/mapbiomas-public/initiatives/indonesia/collection_2/fire-col1/fire-simplifed/FIRE_FREQUENCY_TOTAL/frequency_burned_2021_2023.tif"}),
+                        ui.Label({ value: "2020_2023", targetUrl: "https://storage.googleapis.com/mapbiomas-public/initiatives/indonesia/collection_2/fire-col1/fire-simplifed/FIRE_FREQUENCY_TOTAL/frequency_burned_2020_2023.tif"}),
+                        ui.Label({ value: "2019_2023", targetUrl: "https://storage.googleapis.com/mapbiomas-public/initiatives/indonesia/collection_2/fire-col1/fire-simplifed/FIRE_FREQUENCY_TOTAL/frequency_burned_2019_2023.tif"}),
+                        ui.Label({ value: "2018_2023", targetUrl: "https://storage.googleapis.com/mapbiomas-public/initiatives/indonesia/collection_2/fire-col1/fire-simplifed/FIRE_FREQUENCY_TOTAL/frequency_burned_2018_2023.tif"}),
+                        ui.Label({ value: "2017_2023", targetUrl: "https://storage.googleapis.com/mapbiomas-public/initiatives/indonesia/collection_2/fire-col1/fire-simplifed/FIRE_FREQUENCY_TOTAL/frequency_burned_2017_2023.tif"}),
+                        ui.Label({ value: "2016_2023", targetUrl: "https://storage.googleapis.com/mapbiomas-public/initiatives/indonesia/collection_2/fire-col1/fire-simplifed/FIRE_FREQUENCY_TOTAL/frequency_burned_2016_2023.tif"}),
+                        ui.Label({ value: "2015_2023", targetUrl: "https://storage.googleapis.com/mapbiomas-public/initiatives/indonesia/collection_2/fire-col1/fire-simplifed/FIRE_FREQUENCY_TOTAL/frequency_burned_2015_2023.tif"}),
+                        ui.Label({ value: "2014_2023", targetUrl: "https://storage.googleapis.com/mapbiomas-public/initiatives/indonesia/collection_2/fire-col1/fire-simplifed/FIRE_FREQUENCY_TOTAL/frequency_burned_2014_2023.tif"}),
                     ],
                     'layout': ui.Panel.Layout.flow('horizontal', true),
                     style: {
