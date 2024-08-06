@@ -676,7 +676,7 @@ var App = {
             },
             {
               'name': 'Indonesia',
-              'url': 'https://docs.google.com/document/d/1S2BoDXwIikuC1U81QvcP50xfIPsJn8btG2V5DOYVgxg/edit'
+              'url': 'https://drive.google.com/file/d/1YbFf0XAnxw2XcfpU0CCqka4opi25CSR0/view?usp=sharing'
             },
         ],
 
@@ -1505,7 +1505,7 @@ var App = {
                              'lahan berdasarkan MapBiomas Koleksi 2.', {'margin': '0px'}),
                     App.formatLabelWithLinks('Untuk mengunduh data, akses ke **Toolkit** dan untuk penjelasan tiap nilai data, akses **kode legenda**.', {
                         'Toolkit': 'https://code.earthengine.google.com/?scriptPath=users%2Fmapbiomas%2Fuser-toolkit%3Amapbiomas-user-toolkit-fire.js',
-                        'kode legenda': 'https://brasil.mapbiomas.org/wp-content/uploads/sites/4/2024/06/CODIGO-DE-LEGENDA-FOGO-COLECAO-3.pdf',
+                        'kode legenda': 'https://drive.google.com/file/d/1YbFf0XAnxw2XcfpU0CCqka4opi25CSR0/view?usp=sharing',
                     }),
                     ui.Label(''),
                     App.formatLabelWithLinks('Untuk informasi lebih lanjut tentang metodologi, akses ke penjelasan **metode** dan **ATBD**.', {
@@ -1533,7 +1533,7 @@ var App = {
                     ui.Label(''),
                     App.formatLabelWithLinks('To download the data, access the **Toolkit** and for the description of the respective data values, access the **legend code**.', {
                         'Toolkit': 'https://code.earthengine.google.com/?scriptPath=users%2Fmapbiomas%2Fuser-toolkit%3Amapbiomas-user-toolkit-fire.js',
-                        'legend code': 'https://brasil.mapbiomas.org/wp-content/uploads/sites/4/2024/06/CODIGO-DE-LEGENDA-FOGO-COLECAO-3.pdf',
+                        'legend code': 'https://drive.google.com/file/d/1YbFf0XAnxw2XcfpU0CCqka4opi25CSR0/view?usp=sharing',
                     }, {'margin': '0px'}),
                     ui.Label(''),
                     ui.Label('If you have suggestions, criticisms, or ideas to improve the product, please contact us at contato@mapbiomas.org.', {'margin': '0px'}),
@@ -1836,78 +1836,6 @@ var App = {
                 'fontSize': '10px'
             }
             ),
-
-            // labelLink1: ui.Label('Amazon', {
-            //     'fontSize': '10px',
-            // },
-            //     'http://amazonia.mapbiomas.org/codigos-de-la-leyenda'
-            // ),
-
-            // labelLink2: ui.Label('Atlantic Forest', {
-            //     'fontSize': '10px'
-            // },
-            //     'http://bosqueatlantico.mapbiomas.org/codigos-de-la-leyenda'
-            // ),
-
-            // labelLink3: ui.Label('Bolivia', {
-            //     'fontSize': '10px',
-            // },
-            //     'https://bolivia.mapbiomas.org/codigos-de-la-leyenda/'
-            // ),
-
-            // labelLink4: ui.Label('Brazil', {
-            //     'fontSize': '10px'
-            // },
-            //     'https://brasil.mapbiomas.org/codigos-de-legenda/'
-            // ),
-
-            // labelLink5: ui.Label('Chaco', {
-            //     'fontSize': '10px'
-            // },
-            //     'http://chaco.mapbiomas.org/codigos-de-la-leyenda-1'
-            // ),
-
-            // labelLink6: ui.Label('Colombia', {
-            //     'fontSize': '10px',
-            // },
-            //     'https://colombia.mapbiomas.org/codigos-de-la-leyenda/'
-            // ),
-
-            // labelLink7: ui.Label('Ecuador', {
-            //     'fontSize': '10px',
-            // },
-            //     'https://ecuador.mapbiomas.org/codigos-de-la-leyenda/'
-            // ),
-
-            // labelLink8: ui.Label('Indonesia', {
-            //     'fontSize': '10px',
-            // },
-            //     'https://mapbiomas.nusantara.earth/legendcode'
-            // ),
-
-            // labelLink9: ui.Label('Pampa', {
-            //     'fontSize': '10px'
-            // },
-            //     'https://pampa.mapbiomas.org/codigos-de-la-leyenda/'
-            // ),
-
-            // labelLink10: ui.Label('Peru', {
-            //     'fontSize': '10px',
-            // },
-            //     'https://peru.mapbiomas.org/codigos-de-la-leyenda/'
-            // ),
-
-            // labelLink11: ui.Label('Venezuela', {
-            //     'fontSize': '10px',
-            // },
-            //     'https://venezuela.mapbiomas.org/codigos-de-la-leyenda/'
-            // ),
-
-            // labelLink12: ui.Label('Uruguay', {
-            //     'fontSize': '10px',
-            // },
-            //     'https://uruguay.mapbiomas.org/codigos-de-la-leyenda/'
-            // ),
 
             labelType: ui.Label('Type:', {
                 // 'padding': '1px',
