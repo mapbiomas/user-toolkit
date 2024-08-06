@@ -45,13 +45,14 @@
  *    1.4.4 - 2024-07-29
  *          - Atualizando direct links. listas: (brazil) add: monthly_burned, accumulated_burned e frequency_burned; remove: monthly_burned_coverage e frequency_burned_coverage)
  *          - Corrigindo subtitulo 
- *
-
+ *    1.4.5 - 2024-08-06
+ *          - Atualizando direct links. listas: (indonesia) add: monthly_burned, accumulated_burned, frequency_burned, accumulated_burned_coverage, annual_burned_coverage)
+ *          - Removendo nomes repetidos na seleção dos Features
+ *          - Atualizando link para pdf do codigo de legenda 
+ *  - Atualizando textos do disclaimer do Brazil e da Indonésia
+ * 
+ * 
  */
-
-var palettes = require('users/mapbiomas/modules:Palettes.js');
-var fire_palettes = require('users/workspaceipam/packages:mapbiomas-toolkit/utils/palettes');
-var logos = require('users/workspaceipam/packages:mapbiomas-toolkit/utils/b64');
 
 /**
  * @description
@@ -127,6 +128,11 @@ var Area = {
 /**
  * 
  */
+ 
+var palettes = require('users/mapbiomas/modules:Palettes.js');
+var fire_palettes = require('users/workspaceipam/packages:mapbiomas-toolkit/utils/palettes');
+var logos = require('users/workspaceipam/packages:mapbiomas-toolkit/utils/b64');
+
 var App = {
 
     options: {
@@ -677,7 +683,7 @@ var App = {
             {
               'name': 'Indonesia',
               'url': 'https://drive.google.com/file/d/1YbFf0XAnxw2XcfpU0CCqka4opi25CSR0/view?usp=sharing'
-            },
+             },
         ],
 
         bandsNames: {
