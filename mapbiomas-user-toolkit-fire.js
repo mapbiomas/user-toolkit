@@ -675,17 +675,6 @@ var App = {
             },
         },
 
-        legendLinks: [
-            {
-              'name': 'Brazil',
-              'url': 'https://brasil.mapbiomas.org/wp-content/uploads/sites/4/2024/06/CODIGO-DE-LEGENDA-FOGO-COLECAO-3.pdf'
-            },
-            {
-              'name': 'Indonesia',
-              'url': 'https://drive.google.com/file/d/1YbFf0XAnxw2XcfpU0CCqka4opi25CSR0/view?usp=sharing'
-             },
-        ],
-
         bandsNames: {
           'annual_burned':'burned_area_',
           'annual_burned_coverage':'burned_coverage_',
@@ -910,24 +899,23 @@ var App = {
         },
 
         makeLegendLinksList: function () {
-            var labelLinks = App.options.legendLinks.map(
-                function (initiative) {
-                    return ui.Label(initiative.name, {
-                        'fontSize': '10px'
-                    },
-                        initiative.url
-                    );
-                }
-            );
-
+          
             App.ui.form.panelLink1 = ui.Panel({
-                'layout': ui.Panel.Layout.flow('horizontal', true),
-                'style': {
-                    'stretch': 'horizontal'
-                },
-                'widgets': labelLinks
+              'layout': ui.Panel.Layout.flow('horizontal', true),
+              'style': {'stretch': 'horizontal'},
+                'widgets': [
+                  ui.Label({
+                    value:'Brazil',
+                    style:{'fontSize': '10px'},
+                    targetUrl:'https://brasil.mapbiomas.org/wp-content/uploads/sites/4/2024/06/CODIGO-DE-LEGENDA-FOGO-COLECAO-3.pdf',
+                  }),
+                  ui.Label({
+                    value:'Indonesia',
+                    style:{'fontSize': '10px'},
+                    targetUrl:'https://drive.google.com/file/d/1DACRQlH_1k8IxRc75SkKz0d89JB25cEt/view',
+                  }),
+                ]
             });
-
         },
 
         setMapbiomasRegion: function (regionName) {
@@ -1517,12 +1505,12 @@ var App = {
                     // App.formatLabelWithLinks('Untuk mengunduh data, akses ke **Toolkit** dan untuk penjelasan tiap nilai data, akses **kode legenda**.', {
                     App.formatLabelWithLinks("Anda dapat mengakses data pada **dashboard** dan mengunduhnya menggunakan **Toolkit**  Untuk penjelasan setiap nilai data, lihat pada **kode legenda**.", {
                         'Toolkit': 'https://code.earthengine.google.com/?scriptPath=users%2Fmapbiomas%2Fuser-toolkit%3Amapbiomas-user-toolkit-fire.js',
-                        'kode legenda': 'https://drive.google.com/file/d/1YbFf0XAnxw2XcfpU0CCqka4opi25CSR0/view?usp=sharing',
+                        'kode legenda': 'https://drive.google.com/file/d/1DACRQlH_1k8IxRc75SkKz0d89JB25cEt/view',
                     }),
                     ui.Label(''),
                     App.formatLabelWithLinks('Untuk informasi lebih lanjut tentang metodologi, akses ke penjelasan **metode** dan **ATBD**.', {
                         "metode": "https://brasil.mapbiomas.org/metodo-mapbiomas-fogo/",
-                        "ATBD": "https://brasil.mapbiomas.org/wp-content/uploads/sites/4/2024/06/ATBD-MapBiomas-Fogo-Colecao-3-1.pdf"
+                        "ATBD": "https://drive.google.com/drive/folders/150Y9CFW0pL1jn67c6RUsPSc8NLTK68Tr"
                     }),
                     ui.Label(''),
                     ui.Label('Jika anda memiliki saran, kritik, atau ide untuk peningkatan produk, silakan hubungi kami di contato@mapbiomas.org.', {'margin': '0px'}),
@@ -1536,13 +1524,13 @@ var App = {
                     ui.Label(''),
                     App.formatLabelWithLinks('For more information on the methodology, access the **method** description and the **ATBD**.', {
                         "method": "https://brasil.mapbiomas.org/metodo-mapbiomas-fogo/",
-                        "ATBD": "https://brasil.mapbiomas.org/wp-content/uploads/sites/4/2024/06/ATBD-MapBiomas-Fogo-Colecao-3-1.pdf"
+                        "ATBD": "https://drive.google.com/drive/folders/150Y9CFW0pL1jn67c6RUsPSc8NLTK68Tr"
                     }, {'margin': '0px'}),
                     ui.Label(''),
                     // App.formatLabelWithLinks('To download the data, access the **Toolkit** and for the description of the respective data values, access the **legend code**.', {
                     App.formatLabelWithLinks('You can access the data in the **dashboard** and download it using the **Toolkit** For descriptions of the respective data values, refer to the **legend code**.', {
                         'Toolkit': 'https://code.earthengine.google.com/?scriptPath=users%2Fmapbiomas%2Fuser-toolkit%3Amapbiomas-user-toolkit-fire.js',
-                        'legend code': 'https://drive.google.com/file/d/1YbFf0XAnxw2XcfpU0CCqka4opi25CSR0/view?usp=sharing',
+                        'legend code': 'https://drive.google.com/file/d/1DACRQlH_1k8IxRc75SkKz0d89JB25cEt/view',
                         'dashboard':'https://fire.mapbiomas.id/id'
                     }, {'margin': '0px'}),
                     ui.Label(''),
@@ -1648,7 +1636,7 @@ var App = {
                 App.ui.form.panelMain.add(App.ui.form.labelSubtitle);
                 App.ui.form.panelMain.add(App.ui.form.labelLink);
                 App.ui.form.panelMain.add(App.ui.form.panelLink1);
-                App.ui.form.panelMain.add(App.ui.form.panelLink2);
+                // App.ui.form.panelMain.add(App.ui.form.panelLink2);
 
                 App.ui.form.panelMain.add(App.ui.form.tabs);
                 App.ui.form.panelMain.add(App.ui.form.panel1);
@@ -2084,9 +2072,9 @@ var App = {
             }),
 
             checkboxTab3: ui.Checkbox({
-                'label': '  Brazil col 3',
+                'label': '    Brazil',
                 'style': {
-                    'margin': '5px 20px 5px -16px',
+                    'margin': '0px 0px 0px -16px',
                     'stretch': 'horizontal',
                     'backgroundColor': '#00000000',
                 },
@@ -2105,9 +2093,9 @@ var App = {
                 }
             }),
             checkboxTab4: ui.Checkbox({
-                'label': '  Indonesia col 1',
+                'label': '    Indonesia',
                 'style': {
-                    'margin': '5px 20px 5px -16px',
+                    'margin': '0px 0px 0px -16px',
                     'stretch': 'horizontal',
                     'backgroundColor': '#00000000',
                 },
@@ -2145,7 +2133,7 @@ var App = {
             }),
             tab3: ui.Panel({
                 'style': {
-                    'width': '120px',
+                    'width': '110px',
                     'backgroundColor': '#dddddd',
                     'stretch': 'horizontal',
                     'border': '1px solid #80808033',
@@ -2153,7 +2141,7 @@ var App = {
             }),
             tab4: ui.Panel({
                 'style': {
-                    'width': '120px',
+                    'width': '110px',
                     'backgroundColor': '#dddddd',
                     'stretch': 'horizontal',
                     'border': '1px solid #80808033',
