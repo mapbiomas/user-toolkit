@@ -1510,7 +1510,7 @@ var App = {
                     ui.Label(''),
                     App.formatLabelWithLinks('Untuk informasi lebih lanjut tentang metodologi, akses ke penjelasan **metode** dan **ATBD**.', {
                         "metode": "https://brasil.mapbiomas.org/metodo-mapbiomas-fogo/",
-                        "ATBD": "https://drive.google.com/drive/folders/150Y9CFW0pL1jn67c6RUsPSc8NLTK68Tr"
+                        "ATBD": "https://fire.mapbiomas.id/assets/ATBD-Mapbiomas-fire-koleksi-1.pdf"
                     }),
                     ui.Label(''),
                     ui.Label('Jika anda memiliki saran, kritik, atau ide untuk peningkatan produk, silakan hubungi kami di contato@mapbiomas.org.', {'margin': '0px'}),
@@ -1524,7 +1524,7 @@ var App = {
                     ui.Label(''),
                     App.formatLabelWithLinks('For more information on the methodology, access the **method** description and the **ATBD**.', {
                         "method": "https://brasil.mapbiomas.org/metodo-mapbiomas-fogo/",
-                        "ATBD": "https://drive.google.com/drive/folders/150Y9CFW0pL1jn67c6RUsPSc8NLTK68Tr"
+                        "ATBD": "https://fire.mapbiomas.id/assets/ATBD-Mapbiomas-fire-koleksi-1.pdf"
                     }, {'margin': '0px'}),
                     ui.Label(''),
                     // App.formatLabelWithLinks('To download the data, access the **Toolkit** and for the description of the respective data values, access the **legend code**.', {
@@ -2019,7 +2019,11 @@ var App = {
                 layout: ui.Panel.Layout.flow('horizontal')
             }),
             tabs2: ui.Panel({
-                layout: ui.Panel.Layout.flow('horizontal')
+                layout: ui.Panel.Layout.flow('horizontal'),
+                style:{
+                  'margin': '2px 6px 2px 6px',
+                  // 'stretch': 'horizontal',
+                }
             }),
 
             checkboxTab1: ui.Checkbox({
@@ -2133,17 +2137,17 @@ var App = {
             }),
             tab3: ui.Panel({
                 'style': {
-                    'width': '110px',
+                    // 'width': '110px',
                     'backgroundColor': '#dddddd',
-                    'stretch': 'horizontal',
+                    // 'stretch': 'horizontal',
                     'border': '1px solid #80808033',
                 }
             }),
             tab4: ui.Panel({
                 'style': {
-                    'width': '110px',
+                    // 'width': '110px',
                     'backgroundColor': '#dddddd',
-                    'stretch': 'horizontal',
+                    // 'stretch': 'horizontal',
                     'border': '1px solid #80808033',
                 }
             }),
@@ -2161,7 +2165,7 @@ var App = {
             panel2_head: ui.Panel({
                 layout:ui.Panel.Layout.Flow('horizontal'),
                 style: {
-                    'stretch': 'both'
+                    'stretch': 'horizontal'
                 }
             }),
           // Brasil links
