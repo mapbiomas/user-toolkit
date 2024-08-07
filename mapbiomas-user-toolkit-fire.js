@@ -2,7 +2,6 @@
  * @name
  *      Mapbiomas User Toolkit Download
  * 
- * @description
  *      This is a support tool for mapbiomas data users.
  *  
  * @author
@@ -1452,7 +1451,7 @@ var App = {
                   App.formatLabelWithLinks('Você pode acessar os dados na **plataforma** e baixá-los usando o **Toolkit** Para obter descrições dos respectivos valores de dados, consulte o **código da legenda**.', {
                       'Toolkit': 'https://code.earthengine.google.com/?scriptPath=users%2Fmapbiomas%2Fuser-toolkit%3Amapbiomas-user-toolkit-fire.js',
                       'código da legenda': 'https://brasil.mapbiomas.org/wp-content/uploads/sites/4/2024/06/CODIGO-DE-LEGENDA-FOGO-COLECAO-3.pdf',
-                      'plataforma':'plataforma.brasil.mapbiomas.org/fogo',
+                      'plataforma':'https://plataforma.brasil.mapbiomas.org/fogo',
                   }),
                   ui.Label(''),
                   App.formatLabelWithLinks('Para maiores informações sobre o método, acesse a descrição do **método** e o **ATBD**.', {
@@ -1483,7 +1482,7 @@ var App = {
                       App.formatLabelWithLinks('You can access the data in the **dashboard** and download it using the **Toolkit** For descriptions of the respective data values, refer to the **legend code**.', {
                       'Toolkit': 'https://code.earthengine.google.com/?scriptPath=users%2Fmapbiomas%2Fuser-toolkit%3Amapbiomas-user-toolkit-fire.js',
                       'legend code': 'https://brasil.mapbiomas.org/wp-content/uploads/sites/4/2024/06/CODIGO-DE-LEGENDA-FOGO-COLECAO-3.pdf',
-                      'dashboard':'plataforma.brasil.mapbiomas.org/fogo'
+                      'dashboard':'https://plataforma.brasil.mapbiomas.org/fogo'
                   }, {'margin': '0px'}),
                   ui.Label(''),
                   ui.Label('If you have suggestions, criticisms, or ideas to improve the product, please contact us at contato@mapbiomas.org.', {'margin': '0px'}),
