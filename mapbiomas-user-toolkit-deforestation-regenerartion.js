@@ -267,7 +267,7 @@ var App = {
             'mapbiomas-brazil': {
                 'collection-5.0': {
                     'assets': { //TODO: Inserir os assets públicos
-                        'deforestation_regeneration': 'projects/mapbiomas-workspace/public/collection5/mapbiomas_collection50_deforestation_regeneration_v1',
+                        'deforestation_sec_vegetation': 'projects/mapbiomas-workspace/public/collection5/mapbiomas_collection50_deforestation_regeneration_v1',
                         // 'deforestation_pv': '',
                         // 'deforestation_sv': '',
                         // 'secondary_vegetation': '',
@@ -275,7 +275,7 @@ var App = {
                     },
 
                     'periods': {
-                        'deforestation_regeneration': [
+                        'deforestation_sec_vegetation': [
                             '1988', '1989', '1990', '1991',
                             '1992', '1993', '1994', '1995',
                             '1996', '1997', '1998', '1999',
@@ -324,7 +324,7 @@ var App = {
                 },
                 'collection-6.0': {
                     'assets': { //TODO: Inserir os assets públicos
-                        'deforestation_regeneration': 'projects/mapbiomas-workspace/public/collection6/mapbiomas_collection60_deforestation_regeneration_v1',
+                        'deforestation_sec_vegetation': 'projects/mapbiomas-workspace/public/collection6/mapbiomas_collection60_deforestation_regeneration_v1',
                         // 'deforestation_pv': ''
                         // 'deforestation_sv': '',
                         // 'secondary_vegetation': '',
@@ -332,7 +332,7 @@ var App = {
                     },
 
                     'periods': {
-                        'deforestation_regeneration': [
+                        'deforestation_sec_vegetation': [
                             '1988', '1989', '1990', '1991',
                             '1992', '1993', '1994', '1995',
                             '1996', '1997', '1998', '1999',
@@ -381,7 +381,7 @@ var App = {
                 },
                 'collection-7.0': {
                     'assets': { //TODO: Inserir os assets públicos
-                        'deforestation_regeneration': 'projects/mapbiomas-workspace/public/collection7/mapbiomas_collection70_deforestation_regeneration_v1',
+                        'deforestation_sec_vegetation': 'projects/mapbiomas-workspace/public/collection7/mapbiomas_collection70_deforestation_regeneration_v1',
                         // 'deforestation_pv': ''
                         // 'deforestation_sv': '',
                         // 'secondary_vegetation': '',
@@ -389,7 +389,7 @@ var App = {
                     },
 
                     'periods': {
-                        'deforestation_regeneration': [
+                        'deforestation_sec_vegetation': [
                             '1988', '1989', '1990', '1991',
                             '1992', '1993', '1994', '1995',
                             '1996', '1997', '1998', '1999',
@@ -438,7 +438,7 @@ var App = {
                 },
                 'collection-7.1': {
                     'assets': { //TODO: Inserir os assets públicos
-                        'deforestation_regeneration': 'projects/mapbiomas-workspace/public/collection7_1/mapbiomas_collection71_deforestation_regeneration_v1',
+                        'deforestation_sec_vegetation': 'projects/mapbiomas-workspace/public/collection7_1/mapbiomas_collection71_deforestation_regeneration_v1',
                         // 'deforestation_pv': ''
                         // 'deforestation_sv': '',
                         // 'secondary_vegetation': '',
@@ -446,7 +446,7 @@ var App = {
                     },
 
                     'periods': {
-                        'deforestation_regeneration': [
+                        'deforestation_sec_vegetation': [
                             '1988', '1989', '1990', '1991',
                             '1992', '1993', '1994', '1995',
                             '1996', '1997', '1998', '1999',
@@ -495,7 +495,7 @@ var App = {
                 },
                 'collection-8.0': {
                     'assets': { //TODO: Inserir os assets públicos
-                        'deforestation_regeneration': 'projects/mapbiomas-workspace/public/collection8/mapbiomas_collection80_deforestation_secondary_vegetation_v1',
+                        'deforestation_sec_vegetation': 'projects/mapbiomas-workspace/public/collection8/mapbiomas_collection80_deforestation_secondary_vegetation_v1',
                         // 'deforestation_pv': ''
                         // 'deforestation_sv': '',
                         // 'secondary_vegetation': '',
@@ -503,7 +503,7 @@ var App = {
                     },
 
                     'periods': {
-                        'deforestation_regeneration': [
+                        'deforestation_sec_vegetation': [
                             '1986', '1987', 
                             '1988', '1989', '1990', '1991',
                             '1992', '1993', '1994', '1995',
@@ -556,7 +556,7 @@ var App = {
                 },
                 'collection-9.0': {
                     'assets': { //TODO: Inserir os assets públicos
-                        'deforestation_regeneration': 'projects/mapbiomas-public/assets/brazil/lulc/collection9/mapbiomas_collection90_deforestation_secondary_vegetation_v1',
+                        'deforestation_sec_vegetation': 'projects/mapbiomas-public/assets/brazil/lulc/collection9/mapbiomas_collection90_deforestation_secondary_vegetation_v1',
                         // 'deforestation_pv': ''
                         // 'deforestation_sv': '',
                         // 'secondary_vegetation': '',
@@ -564,7 +564,7 @@ var App = {
                     },
 
                     'periods': {
-                        'deforestation_regeneration': [
+                        'deforestation_sec_vegetation': [
                             '1986', '1987', 
                             '1988', '1989', '1990', '1991',
                             '1992', '1993', '1994', '1995',
@@ -623,7 +623,7 @@ var App = {
         },
 
         bandsNames: { //TODO: ajustar o nome das bandas no asset publico
-            'deforestation_regeneration': 'classification_',
+            'deforestation_sec_vegetation': 'classification_',
             'deforestation_pv': '',
             'deforestation_sv': 'deforestation_sv_',
             'secondary_vegetation': 'product_',//'secondary_vegetation_',
@@ -633,7 +633,7 @@ var App = {
         dataType: 'deforestation_pv',
 
         data: {
-            'deforestation_regeneration': null,
+            'deforestation_sec_vegetation': null,
             'deforestation_pv': null,
             'deforestation_sv': null,
             'secondary_vegetation': null,
@@ -641,7 +641,7 @@ var App = {
         },
 
         fileDimensions: {
-            'deforestation_regeneration': 256 * 124,
+            'deforestation_sec_vegetation': 256 * 124,
             'deforestation_pv': 256 * 124,
             'deforestation_sv': 256 * 512,
             'secondary_vegetation': 256 * 512,
@@ -665,7 +665,7 @@ var App = {
                 'min': 0,
                 'max': 30
             },
-            'deforestation_regeneration': {
+            'deforestation_sec_vegetation': {
                 'min': 0,
                 'max': 7
             },
@@ -710,7 +710,7 @@ var App = {
                 '#004529'
             ],
 
-            'deforestation_regeneration': [
+            'deforestation_sec_vegetation': [
                 "#212121", // [0] Outros
                 "#fffbc2", // [1] Antrópico
                 "#09611f", // [2] Vegetação primária
@@ -733,7 +733,7 @@ var App = {
 
         className: {
 
-            'deforestation_regeneration': {
+            'deforestation_sec_vegetation': {
                 0: 'Other',
                 1: 'Anthropic',
                 2: 'Primary Vegetation',
@@ -832,15 +832,15 @@ var App = {
 
     startMap: function (year) {
 
-        Map.centerObject(App.options.data.deforestation_regeneration, 5);
+        Map.centerObject(App.options.data.deforestation_sec_vegetation, 5);
 
         var imageLayer = ui.Map.Layer({
-            'eeObject': App.options.data.deforestation_regeneration.divide(100).byte(),
+            'eeObject': App.options.data.deforestation_sec_vegetation.divide(100).byte(),
             'visParams': {
                 'bands': ['classification_' + year],
-                'palette': App.options.palette.deforestation_regeneration,
-                'min': App.options.ranges.deforestation_regeneration.min,
-                'max': App.options.ranges.deforestation_regeneration.max,
+                'palette': App.options.palette.deforestation_sec_vegetation,
+                'min': App.options.ranges.deforestation_sec_vegetation.min,
+                'max': App.options.ranges.deforestation_sec_vegetation.max,
                 'format': 'png'
             },
             'name': 'Deforestation and Regeneration',
@@ -934,8 +934,8 @@ var App = {
                             //     App.options.collections[regionName][collectioName].assets.secondary_vegetation);
 
                             
-                            App.options.data.deforestation_regeneration = ee.Image(
-                                App.options.collections[regionName][collectioName].assets.deforestation_regeneration);
+                            App.options.data.deforestation_sec_vegetation = ee.Image(
+                                App.options.collections[regionName][collectioName].assets.deforestation_sec_vegetation);
                                 
                             if (collectioName == 'collection-7.1') {
                                 App.options.data.secondary_vegetation_age = ee.Image(
@@ -948,14 +948,14 @@ var App = {
                             }
 
                             //
-                            var bandNames = App.options.data.deforestation_regeneration.bandNames()
+                            var bandNames = App.options.data.deforestation_sec_vegetation.bandNames()
                                 .map(
                                     function (band) {
                                         return ee.String(band).replace('product', 'classification');
                                     }
                                 )
 
-                            App.options.data.deforestation_regeneration = App.options.data.deforestation_regeneration.rename(bandNames);
+                            App.options.data.deforestation_sec_vegetation = App.options.data.deforestation_sec_vegetation.rename(bandNames);
 
                             //
                             var year = App.options.collections[regionName][collectioName]
@@ -988,22 +988,28 @@ var App = {
                         return obj.id;
                     });
 
-            var allTablesNames;
+            roots = roots.filter(function (caminho) {
+                return caminho.indexOf('/MAPBIOMAS') != -1;
+            });
+
+            var allTablesNames = [];
 
             /**
              * Skip the error msg if MAPBIOMAS folder is not found
              */
+
             try {
                 var tablesNames = ee.data.getList({
-                    'id': roots[0] + '/MAPBIOMAS'
+                    'id': roots[0]
                 }).map(
                     function (obj) {
                         return obj.id;
                     });
-                var allTablesNames = App.options.tables[regionName].concat(tablesNames);
+
+                allTablesNames = allTablesNames.concat(App.options.tables[regionName]).concat(tablesNames);
             }
             catch (e) {
-                var allTablesNames = App.options.tables[regionName];
+                allTablesNames = allTablesNames.concat(App.options.tables[regionName]);
             }
 
             App.ui.form.selectFeatureCollections = ui.Select({
@@ -1231,7 +1237,7 @@ var App = {
         addImageLayer: function (period, label, region) {
 
 
-            if (App.options.selectedDataType == 'deforestation_regeneration'){
+            if (App.options.selectedDataType == 'deforestation_sec_vegetation'){
 
                 var image = App.options.data[App.options.dataType]
                     .select([App.options.bandsNames[App.options.dataType] + period])
@@ -1615,7 +1621,7 @@ var App = {
                 'fontSize': '16px'
             }),
 
-            labelSubtitle: ui.Label('Deforestation and Regenerartion', {
+            labelSubtitle: ui.Label('Deforestation and Secondary Vegetation', {
                 // 'fontWeight': 'bold',
                 // 'padding': '1px',
                 'fontSize': '14px'
@@ -1745,7 +1751,7 @@ var App = {
                     // 'deforestation_sv',
                     // 'secondary_vegetation',
                     // 'secondary_vegetation_age',
-                    // 'deforestation_regeneration'
+                    // 'deforestation_sec_vegetation'
                 ],
                 'placeholder': 'Data type',
                 'style': {

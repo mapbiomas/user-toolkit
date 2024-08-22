@@ -588,22 +588,28 @@ var App = {
                         return obj.id;
                     });
 
-            var allTablesNames;
+            roots = roots.filter(function (caminho) {
+                return caminho.indexOf('/MAPBIOMAS') != -1;
+            });
+
+            var allTablesNames = [];
 
             /**
              * Skip the error msg if MAPBIOMAS folder is not found
              */
+
             try {
                 var tablesNames = ee.data.getList({
-                    'id': roots[0] + '/MAPBIOMAS'
+                    'id': roots[0]
                 }).map(
                     function (obj) {
                         return obj.id;
                     });
-                var allTablesNames = App.options.tables[regionName].concat(tablesNames);
+
+                allTablesNames = allTablesNames.concat(App.options.tables[regionName]).concat(tablesNames);
             }
             catch (e) {
-                var allTablesNames = App.options.tables[regionName];
+                allTablesNames = allTablesNames.concat(App.options.tables[regionName]);
             }
 
             App.ui.form.selectFeatureCollections = ui.Select({
