@@ -422,7 +422,7 @@ var App = {
             'mapbiomas-brazil': {
             'degradation BETA: edge area': {
                 'assets': {
-                  'classes_de_borda':assetsConfig.bordasArea.eeObject,
+                  'edge_classes':assetsConfig.bordasArea.eeObject,
                   'edge_30m':'projects/mapbiomas-workspace/DEGRADACAO/COLECAO/BETA/PROCESS/edge_area/edge_30m_v3',
                   'edge_60m':'projects/mapbiomas-workspace/DEGRADACAO/COLECAO/BETA/PROCESS/edge_area/edge_60m_v3',
                   'edge_90m':'projects/mapbiomas-workspace/DEGRADACAO/COLECAO/BETA/PROCESS/edge_area/edge_90m_v3',
@@ -433,7 +433,7 @@ var App = {
                   'edge_1000m':'projects/mapbiomas-workspace/DEGRADACAO/COLECAO/BETA/PROCESS/edge_area/edge_1000m_v3',
                 },
                 'periods': {
-                  'classes_de_borda':[ '1986', '1987', '1988', '1989', '1990','1991', '1992', '1993', '1994', '1995', '1996','1997', '1998', '1999', '2000', '2001', '2002','2003', '2004', '2005', '2006', '2007', '2008','2009', '2010', '2011', '2012', '2013', '2014','2015', '2016', '2017', '2018', '2019', '2020','2021' ],
+                  'edge_classes':[ '1986', '1987', '1988', '1989', '1990','1991', '1992', '1993', '1994', '1995', '1996','1997', '1998', '1999', '2000', '2001', '2002','2003', '2004', '2005', '2006', '2007', '2008','2009', '2010', '2011', '2012', '2013', '2014','2015', '2016', '2017', '2018', '2019', '2020','2021' ],
                   'edge_30m':[ '1986', '1987', '1988', '1989', '1990','1991', '1992', '1993', '1994', '1995', '1996','1997', '1998', '1999', '2000', '2001', '2002','2003', '2004', '2005', '2006', '2007', '2008','2009', '2010', '2011', '2012', '2013', '2014','2015', '2016', '2017', '2018', '2019', '2020','2021' ],
                   'edge_60m':[ '1986', '1987', '1988', '1989', '1990','1991', '1992', '1993', '1994', '1995', '1996','1997', '1998', '1999', '2000', '2001', '2002','2003', '2004', '2005', '2006', '2007', '2008','2009', '2010', '2011', '2012', '2013', '2014','2015', '2016', '2017', '2018', '2019', '2020','2021' ],
                   'edge_90m':[ '1986', '1987', '1988', '1989', '1990','1991', '1992', '1993', '1994', '1995', '1996','1997', '1998', '1999', '2000', '2001', '2002','2003', '2004', '2005', '2006', '2007', '2008','2009', '2010', '2011', '2012', '2013', '2014','2015', '2016', '2017', '2018', '2019', '2020','2021' ],
@@ -447,7 +447,7 @@ var App = {
             },
             'degradation BETA: patch size': {
                 'assets': {
-                  'classes_de_tamanho':assetsConfig.fragmentSize.eeObject,
+                  'size_classes':assetsConfig.fragmentSize.eeObject,
                   'size_3ha':'projects/mapbiomas-workspace/DEGRADACAO/COLECAO/BETA/PROCESS/patch_size/size_3ha_v3',
                   'size_5ha':'projects/mapbiomas-workspace/DEGRADACAO/COLECAO/BETA/PROCESS/patch_size/size_5ha_v3',
                   'size_10ha':'projects/mapbiomas-workspace/DEGRADACAO/COLECAO/BETA/PROCESS/patch_size/size_10ha_v3',
@@ -456,7 +456,7 @@ var App = {
                   'size_75ha':'projects/mapbiomas-workspace/DEGRADACAO/COLECAO/BETA/PROCESS/patch_size/size_75ha_v3',
                 },
                 'periods': {                  
-                  'classes_de_tamanho':[ '1986', '1987', '1988', '1989', '1990','1991', '1992', '1993', '1994', '1995', '1996','1997', '1998', '1999', '2000', '2001', '2002','2003', '2004', '2005', '2006', '2007', '2008','2009', '2010', '2011', '2012', '2013', '2014','2015', '2016', '2017', '2018', '2019', '2020','2021' ],
+                  'size_classes':[ '1986', '1987', '1988', '1989', '1990','1991', '1992', '1993', '1994', '1995', '1996','1997', '1998', '1999', '2000', '2001', '2002','2003', '2004', '2005', '2006', '2007', '2008','2009', '2010', '2011', '2012', '2013', '2014','2015', '2016', '2017', '2018', '2019', '2020','2021' ],
                   'size_3ha':[ '1986', '1987', '1988', '1989', '1990','1991', '1992', '1993', '1994', '1995', '1996','1997', '1998', '1999', '2000', '2001', '2002','2003', '2004', '2005', '2006', '2007', '2008','2009', '2010', '2011', '2012', '2013', '2014','2015', '2016', '2017', '2018', '2019', '2020','2021' ],
                   'size_5ha':[ '1986', '1987', '1988', '1989', '1990','1991', '1992', '1993', '1994', '1995', '1996','1997', '1998', '1999', '2000', '2001', '2002','2003', '2004', '2005', '2006', '2007', '2008','2009', '2010', '2011', '2012', '2013', '2014','2015', '2016', '2017', '2018', '2019', '2020','2021' ],
                   'size_10ha':[ '1986', '1987', '1988', '1989', '1990','1991', '1992', '1993', '1994', '1995', '1996','1997', '1998', '1999', '2000', '2001', '2002','2003', '2004', '2005', '2006', '2007', '2008','2009', '2010', '2011', '2012', '2013', '2014','2015', '2016', '2017', '2018', '2019', '2020','2021' ],
@@ -468,9 +468,9 @@ var App = {
             },
             'degradation BETA: patch isolation': {
                 'assets': {
-                  'classes_de_distancias_de_areas_fonte_de_100ha':assetsConfig.distances100ha.eeObject,
-                  'classes_de_distancias_de_areas_fonte_de_500ha':assetsConfig.distances500ha.eeObject,
-                  'classes_de_distancias_de_areas_fonte_de_1000ha':assetsConfig.distances1000ha.eeObject,
+                  'distance_classes_100ha':assetsConfig.distances100ha.eeObject,
+                  'distance_classes_500ha':assetsConfig.distances500ha.eeObject,
+                  'distance_classes_1000ha':assetsConfig.distances1000ha.eeObject,
                   'Target lte_25ha Distance lte_05km Source gte_100ha':'projects/mapbiomas-workspace/DEGRADACAO/ISOLATION/nat_uso_frag25__dist05k__100_v6_85_22',
                   'Target lte_25ha Distance lte_05km Source gte_500ha':'projects/mapbiomas-workspace/DEGRADACAO/ISOLATION/nat_uso_frag25__dist05k__500_v6_85_22',
                   'Target lte_25ha Distance lte_05km Source gte_1000ha':'projects/mapbiomas-workspace/DEGRADACAO/ISOLATION/nat_uso_frag25__dist05k__1000_v6_85_22',
@@ -497,9 +497,9 @@ var App = {
                   'Target lte_100ha Distance lte_20km Source gte_1000ha':'projects/mapbiomas-workspace/DEGRADACAO/ISOLATION/nat_uso_frag100__dist20k__1000_v6_85_22',
                 },
                 'periods': {
-                  'classes_de_distancias_de_areas_fonte_de_100ha':[ '1986', '1987', '1988', '1989', '1990','1991', '1992', '1993', '1994', '1995', '1996','1997', '1998', '1999', '2000', '2001', '2002','2003', '2004', '2005', '2006', '2007', '2008','2009', '2010', '2011', '2012', '2013', '2014','2015', '2016', '2017', '2018', '2019', '2020','2021' ],
-                  'classes_de_distancias_de_areas_fonte_de_500ha':[ '1986', '1987', '1988', '1989', '1990','1991', '1992', '1993', '1994', '1995', '1996','1997', '1998', '1999', '2000', '2001', '2002','2003', '2004', '2005', '2006', '2007', '2008','2009', '2010', '2011', '2012', '2013', '2014','2015', '2016', '2017', '2018', '2019', '2020','2021' ],
-                  'classes_de_distancias_de_areas_fonte_de_1000ha':[ '1986', '1987', '1988', '1989', '1990','1991', '1992', '1993', '1994', '1995', '1996','1997', '1998', '1999', '2000', '2001', '2002','2003', '2004', '2005', '2006', '2007', '2008','2009', '2010', '2011', '2012', '2013', '2014','2015', '2016', '2017', '2018', '2019', '2020','2021' ],
+                  'distance_classes_100ha':[ '1986', '1987', '1988', '1989', '1990','1991', '1992', '1993', '1994', '1995', '1996','1997', '1998', '1999', '2000', '2001', '2002','2003', '2004', '2005', '2006', '2007', '2008','2009', '2010', '2011', '2012', '2013', '2014','2015', '2016', '2017', '2018', '2019', '2020','2021' ],
+                  'distance_classes_500ha':[ '1986', '1987', '1988', '1989', '1990','1991', '1992', '1993', '1994', '1995', '1996','1997', '1998', '1999', '2000', '2001', '2002','2003', '2004', '2005', '2006', '2007', '2008','2009', '2010', '2011', '2012', '2013', '2014','2015', '2016', '2017', '2018', '2019', '2020','2021' ],
+                  'distance_classes_1000ha':[ '1986', '1987', '1988', '1989', '1990','1991', '1992', '1993', '1994', '1995', '1996','1997', '1998', '1999', '2000', '2001', '2002','2003', '2004', '2005', '2006', '2007', '2008','2009', '2010', '2011', '2012', '2013', '2014','2015', '2016', '2017', '2018', '2019', '2020','2021' ],
                   'Target lte_25ha Distance lte_05km Source gte_100ha':[ '1986', '1987', '1988', '1989', '1990','1991', '1992', '1993', '1994', '1995', '1996','1997', '1998', '1999', '2000', '2001', '2002','2003', '2004', '2005', '2006', '2007', '2008','2009', '2010', '2011', '2012', '2013', '2014','2015', '2016', '2017', '2018', '2019', '2020','2021' ],
                   'Target lte_25ha Distance lte_05km Source gte_500ha':[ '1986', '1987', '1988', '1989', '1990','1991', '1992', '1993', '1994', '1995', '1996','1997', '1998', '1999', '2000', '2001', '2002','2003', '2004', '2005', '2006', '2007', '2008','2009', '2010', '2011', '2012', '2013', '2014','2015', '2016', '2017', '2018', '2019', '2020','2021' ],
                   'Target lte_25ha Distance lte_05km Source gte_1000ha':[ '1986', '1987', '1988', '1989', '1990','1991', '1992', '1993', '1994', '1995', '1996','1997', '1998', '1999', '2000', '2001', '2002','2003', '2004', '2005', '2006', '2007', '2008','2009', '2010', '2011', '2012', '2013', '2014','2015', '2016', '2017', '2018', '2019', '2020','2021' ],
@@ -566,7 +566,7 @@ var App = {
         ],
 
         bandsNames: {
-          'classes_de_borda':assetsConfig.bordasArea.bandName,
+          'edge_classes':assetsConfig.bordasArea.bandName,
           "edge_30m":"edge_30m_",
           "edge_60m":"edge_60m_",
           "edge_90m":"edge_90m_",
@@ -576,7 +576,7 @@ var App = {
           "edge_300m":"edge_300m_",
           "edge_1000m":"edge_1000m_",
     
-          'classes_de_tamanho':assetsConfig.fragmentSize.bandName,
+          'size_classes':assetsConfig.fragmentSize.bandName,
     
           "size_3ha":"size_3ha_",
           "size_5ha":"size_5ha_",
@@ -585,9 +585,9 @@ var App = {
           "size_50ha":"size_50ha_",
           "size_75ha":"size_75ha_",
     
-          "classes_de_distancias_de_areas_fonte_de_100ha":assetsConfig.distances100ha.bandName,
-          "classes_de_distancias_de_areas_fonte_de_500ha":assetsConfig.distances500ha.bandName,
-          "classes_de_distancias_de_areas_fonte_de_1000ha":assetsConfig.distances1000ha.bandName,
+          "distance_classes_100ha":assetsConfig.distances100ha.bandName,
+          "distance_classes_500ha":assetsConfig.distances500ha.bandName,
+          "distance_classes_1000ha":assetsConfig.distances1000ha.bandName,
     
           "Target lte_25ha Distance lte_05km Source gte_100ha":"nat_",
           "Target lte_25ha Distance lte_05km Source gte_500ha":"nat_",
@@ -625,15 +625,11 @@ var App = {
 
 
         ranges: {
-          'classes_de_borda':{'min':assetsConfig.bordasArea.visParams.min, 'max':assetsConfig.bordasArea.visParams.max},
-          
-          'classes_de_tamanho':{'min':assetsConfig.fragmentSize.visParams.min, 'max':assetsConfig.fragmentSize.visParams.max},
-          
-          "classes_de_distancias_de_areas_fonte_de_100ha":{'min':assetsConfig.distances100ha.visParams.min, 'max':assetsConfig.distances100ha.visParams.max},
-          "classes_de_distancias_de_areas_fonte_de_500ha":{'min':assetsConfig.distances500ha.visParams.min, 'max':assetsConfig.distances500ha.visParams.max},
-          "classes_de_distancias_de_areas_fonte_de_1000ha":{'min':assetsConfig.distances1000ha.visParams.min, 'max':assetsConfig.distances1000ha.visParams.max},
-
-          
+          'edge_classes':{'min':assetsConfig.bordasArea.visParams.min, 'max':assetsConfig.bordasArea.visParams.max},
+          'size_classes':{'min':assetsConfig.fragmentSize.visParams.min, 'max':assetsConfig.fragmentSize.visParams.max},
+          "distance_classes_100ha":{'min':assetsConfig.distances100ha.visParams.min, 'max':assetsConfig.distances100ha.visParams.max},
+          "distance_classes_500ha":{'min':assetsConfig.distances500ha.visParams.min, 'max':assetsConfig.distances500ha.visParams.max},
+          "distance_classes_1000ha":{'min':assetsConfig.distances1000ha.visParams.min, 'max':assetsConfig.distances1000ha.visParams.max},
           "edge_30m":{'min':0,'max':69},
           "edge_60m":{'min':0,'max':69},
           "edge_90m":{'min':0,'max':69},
@@ -648,31 +644,30 @@ var App = {
           "size_25ha":{'min':0,'max':69},
           "size_50ha":{'min':0,'max':69},
           "size_75ha":{'min':0,'max':69},
-
-          "Target lte_25ha Distance lte_05km Source gte_100ha":{'min':0,'max':69},
-          "Target lte_25ha Distance lte_05km Source gte_500ha":{'min':0,'max':69},
-          "Target lte_25ha Distance lte_05km Source gte_1000ha":{'min':0,'max':69},
-          "Target lte_25ha Distance lte_10km Source gte_100ha":{'min':0,'max':69},
-          "Target lte_25ha Distance lte_10km Source gte_500ha":{'min':0,'max':69},
-          "Target lte_25ha Distance lte_10km Source gte_1000ha":{'min':0,'max':69},
-          "Target lte_25ha Distance lte_20km Source gte_100ha":{'min':0,'max':69},
-          "Target lte_25ha Distance lte_20km Source gte_500ha":{'min':0,'max':69},
-          "Target lte_25ha Distance lte_20km Source gte_1000ha":{'min':0,'max':69},
-          "Target lte_50ha Distance lte_05km Source gte_100ha":{'min':0,'max':69},
-          "Target lte_50ha Distance lte_05km Source gte_500ha":{'min':0,'max':69},
-          "Target lte_50ha Distance lte_05km Source gte_1000ha":{'min':0,'max':69},
-          "Target lte_50ha Distance lte_10km Source gte_100ha":{'min':0,'max':69},
-          "Target lte_50ha Distance lte_10km Source gte_500ha":{'min':0,'max':69},
-          "Target lte_50ha Distance lte_10km Source gte_1000ha":{'min':0,'max':69},
-          "Target lte_50ha Distance lte_20km Source gte_100ha":{'min':0,'max':69},
-          "Target lte_50ha Distance lte_20km Source gte_500ha":{'min':0,'max':69},
-          "Target lte_50ha Distance lte_20km Source gte_1000ha":{'min':0,'max':69},
-          "Target lte_100ha Distance lte_05km Source gte_500ha":{'min':0,'max':69},
-          "Target lte_100ha Distance lte_05km Source gte_1000ha":{'min':0,'max':69},
-          "Target lte_100ha Distance lte_10km Source gte_500ha":{'min':0,'max':69},
-          "Target lte_100ha Distance lte_10km Source gte_1000ha":{'min':0,'max':69},
-          "Target lte_100ha Distance lte_20km Source gte_500ha":{'min':0,'max':69},
-          "Target lte_100ha Distance lte_20km Source gte_1000ha":{'min':0,'max':69},
+          "Target_lte_25ha_Distance_lte_05km_Source_gte_100ha":{'min':0,'max':69},
+          "Target_lte_25ha_Distance_lte_05km_Source_gte_500ha":{'min':0,'max':69},
+          "Target_lte_25ha_Distance_lte_05km_Source_gte_1000ha":{'min':0,'max':69},
+          "Target_lte_25ha_Distance_lte_10km_Source_gte_100ha":{'min':0,'max':69},
+          "Target_lte_25ha_Distance_lte_10km_Source_gte_500ha":{'min':0,'max':69},
+          "Target_lte_25ha_Distance_lte_10km_Source_gte_1000ha":{'min':0,'max':69},
+          "Target_lte_25ha_Distance_lte_20km_Source_gte_100ha":{'min':0,'max':69},
+          "Target_lte_25ha_Distance_lte_20km_Source_gte_500ha":{'min':0,'max':69},
+          "Target_lte_25ha_Distance_lte_20km_Source_gte_1000ha":{'min':0,'max':69},
+          "Target_lte_50ha_Distance_lte_05km_Source_gte_100ha":{'min':0,'max':69},
+          "Target_lte_50ha_Distance_lte_05km_Source_gte_500ha":{'min':0,'max':69},
+          "Target_lte_50ha_Distance_lte_05km_Source_gte_1000ha":{'min':0,'max':69},
+          "Target_lte_50ha_Distance_lte_10km_Source_gte_100ha":{'min':0,'max':69},
+          "Target_lte_50ha_Distance_lte_10km_Source_gte_500ha":{'min':0,'max':69},
+          "Target_lte_50ha_Distance_lte_10km_Source_gte_1000ha":{'min':0,'max':69},
+          "Target_lte_50ha_Distance_lte_20km_Source_gte_100ha":{'min':0,'max':69},
+          "Target_lte_50ha_Distance_lte_20km_Source_gte_500ha":{'min':0,'max':69},
+          "Target_lte_50ha_Distance_lte_20km_Source_gte_1000ha":{'min':0,'max':69},
+          "Target_lte_100ha_Distance_lte_05km_Source_gte_500ha":{'min':0,'max':69},
+          "Target_lte_100ha_Distance_lte_05km_Source_gte_1000ha":{'min':0,'max':69},
+          "Target_lte_100ha_Distance_lte_10km_Source_gte_500ha":{'min':0,'max':69},
+          "Target_lte_100ha_Distance_lte_10km_Source_gte_1000ha":{'min':0,'max':69},
+          "Target_lte_100ha_Distance_lte_20km_Source_gte_500ha":{'min':0,'max':69},
+          "Target_lte_100ha_Distance_lte_20km_Source_gte_1000ha":{'min':0,'max':69},
           "frequency":{'min':0,'max':39},
           "age":{'min':0,'max':39},
           "accumulated_burned_coverage":{'min':0,'max':69},
@@ -689,13 +684,13 @@ var App = {
 
         palette: {
 
-          'classes_de_borda':assetsConfig.bordasArea.visParams.palette,
+          'edge_classes':assetsConfig.bordasArea.visParams.palette,
           
-          'classes_de_tamanho':assetsConfig.fragmentSize.visParams.palette,
+          'size_classes':assetsConfig.fragmentSize.visParams.palette,
           
-          "classes_de_distancias_de_areas_fonte_de_100ha":assetsConfig.distances100ha.visParams.palette,
-          "classes_de_distancias_de_areas_fonte_de_500ha":assetsConfig.distances500ha.visParams.palette,
-          "classes_de_distancias_de_areas_fonte_de_1000ha":assetsConfig.distances1000ha.visParams.palette,
+          "distance_classes_100ha":assetsConfig.distances100ha.visParams.palette,
+          "distance_classes_500ha":assetsConfig.distances500ha.visParams.palette,
+          "distance_classes_1000ha":assetsConfig.distances1000ha.visParams.palette,
 
           "edge_30m":palettes.get('classification9'),
           "edge_60m":palettes.get('classification9'),
