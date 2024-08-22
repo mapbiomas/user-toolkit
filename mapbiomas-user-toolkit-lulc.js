@@ -2812,23 +2812,8 @@ var App = {
 
         Map.centerObject(App.options.data.Coverage, 5);
 
-        // var imageLayer = ui.Map.Layer({
-        //     'eeObject': App.options.data.Coverage,
-        //     'visParams': {
-        //         'bands': ['classification_' + year],
-        //         'palette': App.options.palette.Coverage,
-        //         'min': App.options.ranges.Coverage.min,
-        //         'max': App.options.ranges.Coverage.max,
-        //         'format': 'png'
-        //     },
-        //     'name': year,
-        //     'shown': true,
-        //     'opacity': 1.0
-        // });
-
         Map.clear();
 
-        // Map.add(imageLayer);
 
     },
 
