@@ -1,6 +1,6 @@
 /**
  * @description
- *    calculate area
+ *    Calculates area by class id and year
  * 
  * @author
  *    João Siqueira
@@ -8,10 +8,47 @@
  */
 
 // Asset mapbiomas
-var asset = "projects/mapbiomas-workspace/public/collection6/mapbiomas_collection60_integration_v1";
+var asset = "projects/mapbiomas-workspace/public/collection8/mapbiomas_collection80_integration_v1";
 
 // Asset of regions for which you want to calculate statistics
-var assetTerritories = "projects/mapbiomas-workspace/AUXILIAR/biomas-estados-2016-raster";
+var assetTerritories = "users/joaovsiqueira1/MAPBIOMAS/ti_uc";
+
+// Numeric attribute to index the shapefile
+var attribute = "id_arp";
+
+// A list of class ids you are interested
+var classIds = [
+    3, // Formação Florestal
+    4, // Formação Savânica
+    5, // Mangue
+    49, // Restinga Florestal
+    11, // Área Úmida Natural não Florestal
+    12, // Formação Campestre
+    32, // Apicum
+    29, // Afloramento Rochoso
+    13, // Outra Formação não Florestal
+    18, // Agricultura
+    39, // Soja
+    20, // Cana
+    40, // Arroz
+    41, // Outras Lavouras Temporárias
+    46, // Café
+    47, // Citrus
+    48, // Outras Lavaouras Perenes
+    9, // Silvicultura
+    15, // Pastagem
+    21, // Mosaico de Agricultura ou Pastagem
+    22, // Área não Vegetada
+    23, // Praia e Duna
+    24, // Infraestrutura Urbana
+    30, // Mineração
+    25, // Outra Área não Vegetada
+    33, // Rio, Lago e Oceano
+    31 // 'Aquicultura
+];
+
+// Output csv name
+var outputName = 'areas';
 
 // Change the scale if you need.
 var scale = 30;
@@ -31,8 +68,8 @@ var driverFolder = 'AREA-EXPORT';
 /**
  * 
  */
-// Territory image
-var territory = ee.Image(assetTerritories);
+// Territory
+var territory = ee.FeatureCollection(assetTerritories);
 
 // LULC mapbiomas image
 var mapbiomas = ee.Image(asset).selfMask();
@@ -44,7 +81,7 @@ var pixelArea = ee.Image.pixelArea().divide(1000000);
 var geometry = mapbiomas.geometry();
 
 /**
- * Convert a complex obj to a feature collection
+ * Convert a complex ob to feature collection
  * @param obj 
  */
 var convert2table = function (obj) {
@@ -63,7 +100,7 @@ var convert2table = function (obj) {
             var area = classAndArea.get('sum');
 
             var tableColumns = ee.Feature(null)
-                .set('territory', territory)
+                .set(attribute, territory)
                 .set('class', classId)
                 .set('area', area);
 
@@ -85,7 +122,7 @@ var calculateArea = function (image, territory, geometry) {
 
     var reducer = ee.Reducer.sum().group(1, 'class').group(1, 'territory');
 
-    var territoriesData = pixelArea.addBands(territory).addBands(image)
+    var territotiesData = pixelArea.addBands(territory).addBands(image)
         .reduceRegion({
             reducer: reducer,
             geometry: geometry,
@@ -93,21 +130,33 @@ var calculateArea = function (image, territory, geometry) {
             maxPixels: 1e12
         });
 
-    territoriesData = ee.List(territoriesData.get('groups'));
+    territotiesData = ee.List(territotiesData.get('groups'));
 
-    var areas = territoriesData.map(convert2table);
+    var areas = territotiesData.map(convert2table);
 
     areas = ee.FeatureCollection(areas).flatten();
 
     return areas;
 };
 
-// Iterate over years, select the classification and calculate area
 var areas = years.map(
     function (year) {
         var image = mapbiomas.select('classification_' + year);
 
-        var areas = calculateArea(image, territory, geometry);
+        var areas = territory.map(
+            function (feature) {
+                return calculateArea(
+                    image.remap(classIds, classIds, 0),
+                    ee.Image().int64().paint({
+                        'featureCollection': ee.FeatureCollection(feature),
+                        'color': attribute
+                    }),
+                    feature.geometry()
+                );
+            }
+        );
+
+        areas = areas.flatten();
 
         // set additional properties
         areas = areas.map(
@@ -120,14 +169,14 @@ var areas = years.map(
     }
 );
 
-// Convert a collection of collections into a single collection
 areas = ee.FeatureCollection(areas).flatten();
 
-// Export a csv file to Google Drive
+Map.addLayer(territory);
+
 Export.table.toDrive({
     collection: areas,
-    description: 'areas-teste-toolkit',
+    description: outputName,
     folder: driverFolder,
-    fileNamePrefix: 'areas-teste-toolkit',
+    fileNamePrefix: outputName,
     fileFormat: 'CSV'
 });
