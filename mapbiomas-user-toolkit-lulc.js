@@ -58,9 +58,10 @@
  *    1.28.0 - Loads mapbiomas-argentina collection 1.0
  *    1.29.0 - Loads mapbiomas-bolivia collection 2.0
  *    1.30.0 - Loads mapbiomas-brasil collection 9.0
+ *    1.31.0 - Loads mapbiomas-chaco collection 5.0
  * @see
  *      Get the MapBiomas exported data in your "Google Drive/MAPBIOMAS-EXPORT" folder
- *      Code and Tutorial - https://github.com/mapbiomas-brazil/user-toolkit
+ *      Code and Tutorial - https://github.com/mapbiomas/user-toolkit
  */
 
 var palettes = require('users/mapbiomas/modules:Palettes.js');
@@ -144,7 +145,7 @@ var App = {
 
     options: {
 
-        version: '1.30.0',
+        version: '1.31.0',
 
         logo: {
             uri: 'gs://mapbiomas-public/mapbiomas-logos/mapbiomas-logo-horizontal.b64',
@@ -345,30 +346,31 @@ var App = {
             ],
             'mapbiomas-chaco': [
                 {
-                    'value': 'projects/mapbiomas-chaco/DATOS_AUXILIARES/ESTADISTICAS/COLECCION4/bioma',
-                    'label': 'biome'
+                    "value": "projects/mapbiomas-territories/assets/TERRITORIES/LULC/CHACO/COLLECTION5/WORKSPACE/BIOMES",
+                    "label": "Biomas"
                 },
                 {
-                    'value': 'projects/mapbiomas-chaco/DATOS_AUXILIARES/ESTADISTICAS/COLECCION4/area-natural-protegida',
-                    'label': 'natural protected area'
+                    "value": "projects/mapbiomas-territories/assets/TERRITORIES/LULC/CHACO/COLLECTION5/WORKSPACE/POLITICAL_LEVEL_1",
+                    "label": "Nível Político 1"
                 },
                 {
-                    'value': 'projects/mapbiomas-chaco/DATOS_AUXILIARES/ESTADISTICAS/COLECCION4/nivel-politico-1',
-                    'label': 'political level 1'
+                    "value": "projects/mapbiomas-territories/assets/TERRITORIES/LULC/CHACO/COLLECTION5/WORKSPACE/POLITICAL_LEVEL_2",
+                    "label": "Nível Político 2"
                 },
                 {
-                    'value': 'projects/mapbiomas-chaco/DATOS_AUXILIARES/ESTADISTICAS/COLECCION4/nivel-politico-2',
-                    'label': 'political level 2'
+                    "value": "projects/mapbiomas-territories/assets/TERRITORIES/LULC/CHACO/COLLECTION5/WORKSPACE/POLITICAL_LEVEL_3",
+                    "label": "Nível Político 3"
                 },
                 {
-                    'value': 'projects/mapbiomas-chaco/DATOS_AUXILIARES/ESTADISTICAS/COLECCION4/pais',
-                    'label': 'country'
+                    "value": "projects/mapbiomas-territories/assets/TERRITORIES/LULC/CHACO/COLLECTION5/WORKSPACE/PROTECTED_AREA",
+                    "label": "Área Protegida"
                 },
                 {
-                    'value': 'projects/mapbiomas-chaco/DATOS_AUXILIARES/ESTADISTICAS/COLECCION4/sitios-ramsar',
-                    'label': 'ramsar site'
-                },
-            ],
+                    "value": "projects/mapbiomas-territories/assets/TERRITORIES/LULC/CHACO/COLLECTION5/WORKSPACE/RAMSAR_SITES",
+                    "label": "Sítios Ramsar"
+                }
+            ]
+,
             'mapbiomas-atlantic-forest': [
                 {
                     'value': "projects/mapbiomas_af_trinacional/ANCILLARY_DATA/STATISTICS/COLLECTION2/atlantic_forest_limit",
@@ -1652,6 +1654,41 @@ var App = {
                         ]
                     },
                 },
+                'collection-5.0': {
+                    'assets': {
+                        'integration': 'projects/mapbiomas-public/assets/chaco/lulc/collection5/mapbiomas_chaco_collection5_integration_v2',
+                        'transitions': 'projects/mapbiomas-public/assets/chaco/lulc/collection5/mapbiomas_chaco_collection5_transitions_v2',
+                    },
+                    'periods': {
+                        'Coverage': [
+                            '1985', '1986', '1987', '1988',
+                            '1989', '1990', '1991', '1992',
+                            '1993', '1994', '1995', '1996',
+                            '1997', '1998', '1999', '2000',
+                            '2001', '2002', '2003', '2004',
+                            '2005', '2006', '2007', '2008',
+                            '2009', '2010', '2011', '2012',
+                            '2013', '2014', '2015', '2016',
+                            '2017', '2018', '2019', '2020',
+                            '2021', '2022', '2023'
+                        ],
+                        'Transitions': [
+                            '1985_1986', '1986_1987', '1987_1988', '1988_1989',
+                            '1989_1990', '1990_1991', '1991_1992', '1992_1993',
+                            '1993_1994', '1994_1995', '1995_1996', '1996_1997',
+                            '1997_1998', '1998_1999', '1999_2000', '2000_2001',
+                            '2001_2002', '2002_2003', '2003_2004', '2004_2005',
+                            '2005_2006', '2006_2007', '2007_2008', '2008_2009',
+                            '2009_2010', '2010_2011', '2011_2012', '2012_2013',
+                            '2013_2014', '2014_2015', '2015_2016', '2016_2017',
+                            '2017_2018', '2018_2019', '2019_2020', '2020_2021',
+                            '2021_2022', '2022_2023', '1985_1990', '1990_1995',
+                            '1995_2000', '2000_2005', '2005_2010', '2010_2015',
+                            '2015_2020', '1990_2000', '2000_2010', '2010_2020',
+                            '1985_2023', '2000_2023',
+                        ]
+                    },
+                },
             },
             'mapbiomas-atlantic-forest': {
                 'collection-1.0': {
@@ -2789,6 +2826,7 @@ var App = {
             50: 'Herbaceous Sandbank Vegetation',
             57: 'Cultivo Simples', // Only for Chaco
             58: 'Cultivo Múltiple', // Only for Chaco
+            61: "Salares",
             62: "Cotton",
             63: "Steppe",
             0: "Non Observed",
