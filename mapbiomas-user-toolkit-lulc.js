@@ -58,10 +58,9 @@
  *    1.28.0 - Loads mapbiomas-argentina collection 1.0
  *    1.29.0 - Loads mapbiomas-bolivia collection 2.0
  *    1.30.0 - Loads mapbiomas-brasil collection 9.0
- *    1.31.0 - Loads mapbiomas-chaco collection 5.0
  * @see
  *      Get the MapBiomas exported data in your "Google Drive/MAPBIOMAS-EXPORT" folder
- *      Code and Tutorial - https://github.com/mapbiomas/user-toolkit
+ *      Code and Tutorial - https://github.com/mapbiomas-brazil/user-toolkit
  */
 
 var palettes = require('users/mapbiomas/modules:Palettes.js');
@@ -96,7 +95,7 @@ var Area = {
 
                 var tableColumns = ee.Feature(null)
                     .set('class', classId)
-                    .set('area', area);
+                    .set('area_km2', area);
 
                 return tableColumns;
             }
@@ -145,7 +144,7 @@ var App = {
 
     options: {
 
-        version: '1.31.0',
+        version: '1.30.0',
 
         logo: {
             uri: 'gs://mapbiomas-public/mapbiomas-logos/mapbiomas-logo-horizontal.b64',
