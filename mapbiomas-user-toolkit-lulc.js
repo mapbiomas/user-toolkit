@@ -58,6 +58,7 @@
  *    1.28.0 - Loads mapbiomas-argentina collection 1.0
  *    1.29.0 - Loads mapbiomas-bolivia collection 2.0
  *    1.30.0 - Loads mapbiomas-brasil collection 9.0
+ *    1.31.0 - Loads mapbiomas-amazon collection 6.0
  * @see
  *      Get the MapBiomas exported data in your "Google Drive/MAPBIOMAS-EXPORT" folder
  *      Code and Tutorial - https://github.com/mapbiomas-brazil/user-toolkit
@@ -144,7 +145,7 @@ var App = {
 
     options: {
 
-        version: '1.30.0',
+        version: '1.31.0',
 
         logo: {
             uri: 'gs://mapbiomas-public/mapbiomas-logos/mapbiomas-logo-horizontal.b64',
@@ -295,53 +296,29 @@ var App = {
             ],
             'mapbiomas-amazon': [
                 {
-                    'value': 'projects/earthengine-legacy/assets/projects/mapbiomas-raisg/DATOS_AUXILIARES/ESTADISTICAS/COLECCION5/V1/biomes',
-                    'label': 'biome',
+                    "value": "projects/mapbiomas-territories/assets/TERRITORIES/LULC/PAN-AMAZONIA/COLLECTION6/WORKSPACE/BIOMES_ALL",
+                    "label": "Biomes"
                 },
                 {
-                    'value': 'projects/earthengine-legacy/assets/projects/mapbiomas-raisg/DATOS_AUXILIARES/ESTADISTICAS/COLECCION5/V1/biomes_per_country',
-                    'label': 'biomes_per_country',
+                    "value": "projects/mapbiomas-territories/assets/TERRITORIES/LULC/PAN-AMAZONIA/COLLECTION6/WORKSPACE/CUENCAS_NIVEL_1_ALL",
+                    "label": "Level 1 Watersheds"
                 },
                 {
-                    'value': 'projects/earthengine-legacy/assets/projects/mapbiomas-raisg/DATOS_AUXILIARES/ESTADISTICAS/COLECCION5/V1/city',
-                    'label': 'city',
+                    "value": "projects/mapbiomas-territories/assets/TERRITORIES/LULC/PAN-AMAZONIA/COLLECTION6/WORKSPACE/INDIGENOUS_TERRITORIES",
+                    "label": "Indigenous Territories"
                 },
                 {
-                    'value': 'projects/earthengine-legacy/assets/projects/mapbiomas-raisg/DATOS_AUXILIARES/ESTADISTICAS/COLECCION5/V1/country',
-                    'label': 'country',
+                    "value": "projects/mapbiomas-territories/assets/TERRITORIES/LULC/PAN-AMAZONIA/COLLECTION6/WORKSPACE/LIMITERAISG",
+                    "label": "Raisg Boundaries"
                 },
                 {
-                    'value': 'projects/earthengine-legacy/assets/projects/mapbiomas-raisg/DATOS_AUXILIARES/ESTADISTICAS/COLECCION5/V1/drainage_basin_per_country',
-                    'label': 'drainage_basin_per_country',
+                    "value": "projects/mapbiomas-territories/assets/TERRITORIES/LULC/PAN-AMAZONIA/COLLECTION6/WORKSPACE/PROTECTED_AREAS_DEPTALES",
+                    "label": "Departmental Protected Areas"
                 },
                 {
-                    'value': 'projects/earthengine-legacy/assets/projects/mapbiomas-raisg/DATOS_AUXILIARES/ESTADISTICAS/COLECCION5/V1/drainage_basin_per_state',
-                    'label': 'drainage_basin_per_state',
-                },
-                {
-                    'value': 'projects/earthengine-legacy/assets/projects/mapbiomas-raisg/DATOS_AUXILIARES/ESTADISTICAS/COLECCION5/V1/dranaige_basin',
-                    'label': 'dranaige_basin',
-                },
-                {
-                    'value': 'projects/earthengine-legacy/assets/projects/mapbiomas-raisg/DATOS_AUXILIARES/ESTADISTICAS/COLECCION5/V1/federal_protected_areas',
-                    'label': 'federal_protected_areas',
-                },
-                {
-                    'value': 'projects/earthengine-legacy/assets/projects/mapbiomas-raisg/DATOS_AUXILIARES/ESTADISTICAS/COLECCION5/V1/indegenous_territories',
-                    'label': 'indegenous_territories',
-                },
-                {
-                    'value': 'projects/earthengine-legacy/assets/projects/mapbiomas-raisg/DATOS_AUXILIARES/ESTADISTICAS/COLECCION5/V1/raisg_limit',
-                    'label': 'raisg_limit',
-                },
-                {
-                    'value': 'projects/earthengine-legacy/assets/projects/mapbiomas-raisg/DATOS_AUXILIARES/ESTADISTICAS/COLECCION5/V1/state',
-                    'label': 'state',
-                },
-                {
-                    'value': 'projects/earthengine-legacy/assets/projects/mapbiomas-raisg/DATOS_AUXILIARES/ESTADISTICAS/COLECCION5/V1/state_protected_areas',
-                    'label': 'state_protected_areas',
-                },
+                    "value": "projects/mapbiomas-territories/assets/TERRITORIES/LULC/PAN-AMAZONIA/COLLECTION6/WORKSPACE/PROTECTED_AREAS_NACIONALES",
+                    "label": "National Protected Areas"
+                }
             ],
             'mapbiomas-chaco': [
                 {
@@ -1547,6 +1524,43 @@ var App = {
                             '2008_2017', '1994_2002', '2002_2010', '2010_2016',
                             '1986_2015', '1990_2022', '2000_2022', '2008_2022',
                             '2010_2022', '2012_2022'
+                        ]
+                    },
+                },
+                'collection-6.0': {
+                    'assets': {
+                        'integration': 'projects/mapbiomas-public/assets/amazon/lulc/collection6/mapbiomas_collection60_integration_v1',
+                        'transitions': 'projects/mapbiomas-public/assets/amazon/lulc/collection6/mapbiomas_collection60_transitions_v1',
+                    },
+                    'periods': {
+                        'Coverage': [
+                            '1985', '1986', '1987', '1988',
+                            '1989', '1990', '1991', '1992',
+                            '1993', '1994', '1995', '1996',
+                            '1997', '1998', '1999', '2000',
+                            '2001', '2002', '2003', '2004',
+                            '2005', '2006', '2007', '2008',
+                            '2009', '2010', '2011', '2012',
+                            '2013', '2014', '2015', '2016',
+                            '2017', '2018', '2019', '2020',
+                            '2021', '2022', '2023'
+                        ],
+                        'Transitions': [
+                            "1985_1986","1986_1987","1987_1988","1988_1989",
+                            "1989_1990","1990_1991","1991_1992","1992_1993",
+                            "1993_1994","1994_1995","1995_1996","1996_1997",
+                            "1997_1998","1998_1999","1999_2000","2000_2001",
+                            "2001_2002","2002_2003","2003_2004","2004_2005",
+                            "2005_2006","2006_2007","2007_2008","2008_2009",
+                            "2009_2010","2010_2011","2011_2012","2012_2013",
+                            "2013_2014","2014_2015","2015_2016","2016_2017",
+                            "2017_2018","2018_2019","2019_2020","2020_2021",
+                            "2021_2022","2022_2023","1985_1990","1990_1995",
+                            "1995_2000","2000_2005","2005_2010","2010_2015",
+                            "2015_2020","1990_2000","2000_2010","2010_2020",
+                            "1985_2023","2008_2017","1994_2002","2002_2010",
+                            "2010_2016","1986_2015","1990_2023","2000_2023",
+                            "2008_2023","2010_2023","2012_2023"
                         ]
                     },
                 },
@@ -3569,10 +3583,10 @@ var App = {
                 App.ui.form.panelMain.add(App.ui.form.panelLink1);
                 App.ui.form.panelMain.add(App.ui.form.panelLink2);
 
-                App.ui.form.panelMain.add(App.ui.form.tabs);
+                // App.ui.form.panelMain.add(App.ui.form.tabs);
                 App.ui.form.panelMain.add(App.ui.form.panel1);
 
-                App.ui.form.tab1.add(App.ui.form.checkboxTab1);
+                // App.ui.form.tab1.add(App.ui.form.checkboxTab1);
                 // App.ui.form.tab2.add(App.ui.form.checkboxTab2); // desabilitado temporariamente
 
                 App.ui.form.tabs.add(App.ui.form.tab1);
