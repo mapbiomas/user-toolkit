@@ -954,8 +954,8 @@ var App = {
             'mapbiomas-brazil': {
                 'collection-3.1': {
                     'assets': {
-                        'integration': 'projects/mapbiomas-workspace/public/collection3_1/mapbiomas_collection31_integration_v1',
-                        'transitions': 'projects/mapbiomas-workspace/public/collection3_1/mapbiomas_collection31_transitions_v1',
+                        'integration': 'projects/mapbiomas-public/assets/brazil/lulc/collection3_1/mapbiomas_collection31_integration_v1',
+                        'transitions': 'projects/mapbiomas-public/assets/brazil/lulc/collection3_1/mapbiomas_collection31_transitions_v1',
                     },
                     'periods': {
                         'Coverage': [
@@ -987,8 +987,8 @@ var App = {
                 },
                 'collection-4.0': {
                     'assets': {
-                        'integration': 'projects/mapbiomas-workspace/public/collection4/mapbiomas_collection40_integration_v1',
-                        'transitions': 'projects/mapbiomas-workspace/public/collection4/mapbiomas_collection40_transitions_v3',
+                        'integration': 'projects/mapbiomas-public/assets/brazil/lulc/collection4/mapbiomas_collection40_integration_v1',
+                        'transitions': 'projects/mapbiomas-public/assets/brazil/lulc/collection4/mapbiomas_collection40_transitions_v3',
                     },
                     'periods': {
                         'Coverage': [
@@ -1021,8 +1021,8 @@ var App = {
                 },
                 'collection-4.1': {
                     'assets': {
-                        'integration': 'projects/mapbiomas-workspace/public/collection4_1/mapbiomas_collection41_integration_v1',
-                        'transitions': 'projects/mapbiomas-workspace/public/collection4_1/mapbiomas_collection41_transitions_v1',
+                        'integration': 'projects/mapbiomas-public/assets/brazil/lulc/collection4_1/mapbiomas_collection41_integration_v1',
+                        'transitions': 'projects/mapbiomas-public/assets/brazil/lulc/collection4_1/mapbiomas_collection41_transitions_v1',
                     },
                     'periods': {
                         'Coverage': [
@@ -1055,9 +1055,9 @@ var App = {
                 },
                 'collection-5.0': {
                     'assets': {
-                        'integration': 'projects/mapbiomas-workspace/public/collection5/mapbiomas_collection50_integration_v1',
-                        'transitions': 'projects/mapbiomas-workspace/public/collection5/mapbiomas_collection50_transitions_v1',
-                        'quality': 'projects/mapbiomas-workspace/public/collection5/mapbiomas_collection50_quality_v1',
+                        'integration': 'projects/mapbiomas-public/assets/brazil/lulc/collection5/mapbiomas_collection50_integration_v1',
+                        'transitions': 'projects/mapbiomas-public/assets/brazil/lulc/collection5/mapbiomas_collection50_transitions_v1',
+                        'quality': 'projects/mapbiomas-public/assets/brazil/lulc/collection5/mapbiomas_collection50_quality_v1',
                     },
 
                     'periods': {
@@ -1104,9 +1104,9 @@ var App = {
                 },
                 'collection-6.0': {
                     'assets': {
-                        'integration': 'projects/mapbiomas-workspace/public/collection6/mapbiomas_collection60_integration_v1',
-                        'transitions': 'projects/mapbiomas-workspace/public/collection6/mapbiomas_collection60_transitions_v1',
-                        'quality': 'projects/mapbiomas-workspace/public/collection5/mapbiomas_collection50_quality_v1', // the same collection 5
+                        'integration': 'projects/mapbiomas-public/assets/brazil/lulc/collection6/mapbiomas_collection60_integration_v1',
+                        'transitions': 'projects/mapbiomas-public/assets/brazil/lulc/collection6/mapbiomas_collection60_transitions_v1',
+                        'quality': 'projects/mapbiomas-public/assets/brazil/lulc/collection5/mapbiomas_collection50_quality_v1', // the same collection 5
                     },
 
                     'periods': {
@@ -1153,9 +1153,9 @@ var App = {
                 },
                 'collection-7.0': {
                     'assets': {
-                        'integration': 'projects/mapbiomas-workspace/public/collection7/mapbiomas_collection70_integration_v2',
-                        'transitions': 'projects/mapbiomas-workspace/public/collection7/mapbiomas_collection70_transitions_v3',
-                        'quality': 'projects/mapbiomas-workspace/public/collection6/mapbiomas_collection60_quality_v1', // the same collection 5
+                        'integration': 'projects/mapbiomas-public/assets/brazil/lulc/collection7/mapbiomas_collection70_integration_v2',
+                        'transitions': 'projects/mapbiomas-public/assets/brazil/lulc/collection7/mapbiomas_collection70_transitions_v3',
+                        'quality': 'projects/mapbiomas-public/assets/brazil/lulc/collection6/mapbiomas_collection60_quality_v1', // the same collection 5
                     },
 
                     'periods': {
@@ -1204,9 +1204,9 @@ var App = {
                 },
                 'collection-7.1': {
                     'assets': {
-                        'integration': 'projects/mapbiomas-workspace/public/collection7_1/mapbiomas_collection71_integration_v1',
-                        'transitions': 'projects/mapbiomas-workspace/public/collection7_1/mapbiomas_collection71_transitions_v1',
-                        'quality': 'projects/mapbiomas-workspace/public/collection6/mapbiomas_collection60_quality_v1', // the same collection 7
+                        'integration': 'projects/mapbiomas-public/assets/brazil/lulc/collection7_1/mapbiomas_collection71_integration_v1',
+                        'transitions': 'projects/mapbiomas-public/assets/brazil/lulc/collection7_1/mapbiomas_collection71_transitions_v1',
+                        'quality': 'projects/mapbiomas-public/assets/brazil/lulc/collection6/mapbiomas_collection60_quality_v1', // the same collection 7
                     },
 
                     'periods': {
@@ -1255,9 +1255,9 @@ var App = {
                 },
                 'collection-8.0': {
                     'assets': {
-                        'integration': 'projects/mapbiomas-workspace/public/collection8/mapbiomas_collection80_integration_v1',
-                        'transitions': 'projects/mapbiomas-workspace/public/collection8/mapbiomas_collection80_transitions_v1',
-                        'quality': 'projects/mapbiomas-workspace/public/collection6/mapbiomas_collection80_quality_v1',
+                        'integration': 'projects/mapbiomas-public/assets/brazil/lulc/collection8/mapbiomas_collection80_integration_v1',
+                        'transitions': 'projects/mapbiomas-public/assets/brazil/lulc/collection8/mapbiomas_collection80_transitions_v1',
+                        'quality': 'projects/mapbiomas-public/assets/brazil/lulc/collection6/mapbiomas_collection80_quality_v1',
                     },
 
                     'periods': {
