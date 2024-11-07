@@ -815,8 +815,8 @@ var App = {
             'mapbiomas-brazil': {
                 'collection-1.0': {
                     'assets': {
-                        'annual_water_coverage': 'projects/mapbiomas-workspace/public/collection6/mapbiomas_water_collection1_annual_water_coverage_v2',
-                        'water_frequency': 'projects/mapbiomas-workspace/public/collection6/mapbiomas_water_collection1_water_frequency_v1',
+                        'annual_water_coverage': 'projects/mapbiomas-public/assets/brazil/lulc/collection6/mapbiomas_water_collection1_annual_water_coverage_v2',
+                        'water_frequency': 'projects/mapbiomas-public/assets/brazil/lulc/collection6/mapbiomas_water_collection1_water_frequency_v1',
                         // 'cumulated_water_coverage': '',
                         // 'monthly_water_coverage': '',
                     },
@@ -852,8 +852,8 @@ var App = {
                 },
                 'collection-2.0': {
                     'assets': {
-                        'annual_water_coverage': 'projects/mapbiomas-workspace/public/collection8/mapbiomas_water_collection2_annual_water_coverage_v1',
-                        'water_frequency': 'projects/mapbiomas-workspace/public/collection8/mapbiomas_water_collection1_water_frequency_v1',
+                        'annual_water_coverage': 'projects/mapbiomas-public/assets/brazil/lulc/collection8/mapbiomas_water_collection2_annual_water_coverage_v1',
+                        'water_frequency': 'projects/mapbiomas-public/assets/brazil/lulc/collection8/mapbiomas_water_collection1_water_frequency_v1',
                         // 'cumulated_water_coverage': '',
                         // 'monthly_water_coverage': '',
                     },
