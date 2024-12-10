@@ -62,6 +62,8 @@
  *    1.32.0 - Loads mapbiomas-venezuela collection 2.0
  *    1.33.0 - Loads mapbiomas-ecuador collection 2.0
  *           - Loads mapbiomas-colombia collection 2.0
+ *    1.34.0 - Loads mapbiomas-pampa collection 4.0
+ *           - Loads mapbiomas-uruguay collection 2.0
  * 
  * @see
  *      Get the MapBiomas exported data in your "Google Drive/MAPBIOMAS-EXPORT" folder
@@ -149,7 +151,7 @@ var App = {
 
     options: {
 
-        version: '1.33.0',
+        version: '1.34.0',
 
         logo: {
             uri: 'gs://mapbiomas-public/mapbiomas-logos/mapbiomas-logo-horizontal.b64',
@@ -386,41 +388,41 @@ var App = {
             ],
             'mapbiomas-pampa': [
                 {
-                    'value': 'projects/earthengine-legacy/assets/projects/MapBiomas_Pampa/ANCILLARY_DATA/STATISTICS/COLLECTION3/countries',
-                    'label': 'countries',
+                    "value": "projects/mapbiomas-territories/assets/TERRITORIES/LULC/PAMPA/COLLECTION4/WORKSPACE/BASIN_LEVEL_1",
+                    "label": "Basin Level 1"
                 },
                 {
-                    'value': 'projects/earthengine-legacy/assets/projects/MapBiomas_Pampa/ANCILLARY_DATA/STATISTICS/COLLECTION3/departamento_municipio_enumeration',
-                    'label': 'departamento_municipio_enumeration',
+                    "value": "projects/mapbiomas-territories/assets/TERRITORIES/LULC/PAMPA/COLLECTION4/WORKSPACE/INDIGENOUS_TERRITORIES",
+                    "label": "Indigenous Territories"
                 },
                 {
-                    'value': 'projects/earthengine-legacy/assets/projects/MapBiomas_Pampa/ANCILLARY_DATA/STATISTICS/COLLECTION3/indigenous_territories',
-                    'label': 'indigenous_territories',
+                    "value": "projects/mapbiomas-territories/assets/TERRITORIES/LULC/PAMPA/COLLECTION4/WORKSPACE/PAMPA_TRINACIONAL_LIMIT",
+                    "label": "Pampa Trinational Limit"
                 },
                 {
-                    'value': 'projects/earthengine-legacy/assets/projects/MapBiomas_Pampa/ANCILLARY_DATA/STATISTICS/COLLECTION3/pampa_limit',
-                    'label': 'pampa_limit',
+                    "value": "projects/mapbiomas-territories/assets/TERRITORIES/LULC/PAMPA/COLLECTION4/WORKSPACE/PHYTOGEOGRAPHIC_PROVINCES",
+                    "label": "Phytogeographic Provinces"
                 },
                 {
-                    'value': 'projects/earthengine-legacy/assets/projects/MapBiomas_Pampa/ANCILLARY_DATA/STATISTICS/COLLECTION3/phytogeography',
-                    'label': 'phytogeography',
+                    "value": "projects/mapbiomas-territories/assets/TERRITORIES/LULC/PAMPA/COLLECTION4/WORKSPACE/POLITICAL_LEVEL_1",
+                    "label": "Political Level 1"
                 },
                 {
-                    'value': 'projects/earthengine-legacy/assets/projects/MapBiomas_Pampa/ANCILLARY_DATA/STATISTICS/COLLECTION3/protected_areas',
-                    'label': 'protected_areas',
+                    "value": "projects/mapbiomas-territories/assets/TERRITORIES/LULC/PAMPA/COLLECTION4/WORKSPACE/POLITICAL_LEVEL_2",
+                    "label": "Political Level 2"
                 },
                 {
-                    'value': 'projects/earthengine-legacy/assets/projects/MapBiomas_Pampa/ANCILLARY_DATA/STATISTICS/COLLECTION3/quilombola_territories',
-                    'label': 'quilombola_territories',
+                    "value": "projects/mapbiomas-territories/assets/TERRITORIES/LULC/PAMPA/COLLECTION4/WORKSPACE/POLITICAL_LEVEL_3",
+                    "label": "Political Level 3"
                 },
                 {
-                    'value': 'projects/earthengine-legacy/assets/projects/MapBiomas_Pampa/ANCILLARY_DATA/STATISTICS/COLLECTION3/state_departamento',
-                    'label': 'state_departamento',
+                    "value": "projects/mapbiomas-territories/assets/TERRITORIES/LULC/PAMPA/COLLECTION4/WORKSPACE/PROTECTED_AREA",
+                    "label": "Protected Area"
                 },
                 {
-                    'value': 'projects/earthengine-legacy/assets/projects/MapBiomas_Pampa/ANCILLARY_DATA/STATISTICS/COLLECTION3/watersheds',
-                    'label': 'watersheds',
-                },
+                    "value": "projects/mapbiomas-territories/assets/TERRITORIES/LULC/PAMPA/COLLECTION4/WORKSPACE/QUILOMBOS",
+                    "label": "Quilombos"
+                }
             ],
             'mapbiomas-indonesia': [
                 {
@@ -691,29 +693,25 @@ var App = {
             ],
             'mapbiomas-uruguay': [
                 {
-                    'value': 'projects/earthengine-legacy/assets/projects/MapBiomas_Pampa/ANCILLARY_DATA/STATISTICS/URUGUAY/COLLECTION1/areas_protegidas',
-                    'label': 'areas_protegidas',
+                    "value": "projects/mapbiomas-territories/assets/TERRITORIES/LULC/URUGUAY/COLLECTION2/WORKSPACE/BASIN_LEVEL_1",
+                    "label": "Basin Level 1"
                 },
                 {
-                    'value': 'projects/earthengine-legacy/assets/projects/MapBiomas_Pampa/ANCILLARY_DATA/STATISTICS/URUGUAY/COLLECTION1/cuencas_nivel_1',
-                    'label': 'cuencas_nivel_1',
+                    "value": "projects/mapbiomas-territories/assets/TERRITORIES/LULC/URUGUAY/COLLECTION2/WORKSPACE/BASIN_LEVEL_2",
+                    "label": "Basin Level 2"
                 },
                 {
-                    'value': 'projects/earthengine-legacy/assets/projects/MapBiomas_Pampa/ANCILLARY_DATA/STATISTICS/URUGUAY/COLLECTION1/cuencas_nivel_2',
-                    'label': 'cuencas_nivel_2',
+                    "value": "projects/mapbiomas-territories/assets/TERRITORIES/LULC/URUGUAY/COLLECTION2/WORKSPACE/ECORREGION",
+                    "label": "Ecoregion"
                 },
                 {
-                    'value': 'projects/earthengine-legacy/assets/projects/MapBiomas_Pampa/ANCILLARY_DATA/STATISTICS/URUGUAY/COLLECTION1/limite_uruguay',
-                    'label': 'limite_uruguay',
+                    "value": "projects/mapbiomas-territories/assets/TERRITORIES/LULC/URUGUAY/COLLECTION2/WORKSPACE/POLITICAL_LEVEL_1",
+                    "label": "Political Level 1"
                 },
                 {
-                    'value': 'projects/earthengine-legacy/assets/projects/MapBiomas_Pampa/ANCILLARY_DATA/STATISTICS/URUGUAY/COLLECTION1/nivel_politico_1',
-                    'label': 'nivel_politico_1',
-                },
-                {
-                    'value': 'projects/earthengine-legacy/assets/projects/MapBiomas_Pampa/ANCILLARY_DATA/STATISTICS/URUGUAY/COLLECTION1/regiones_uruguay',
-                    'label': 'regiones_uruguay',
-                },
+                    "value": "projects/mapbiomas-territories/assets/TERRITORIES/LULC/URUGUAY/COLLECTION2/WORKSPACE/POLITICAL_LEVEL_2",
+                    "label": "Political Level 2"
+                }
             ],
             'mapbiomas-ecuador': [
                 {
@@ -1995,6 +1993,56 @@ var App = {
                         ]
                     },
                 },
+                'collection-4.0': {
+                    'assets': {
+                        'integration': 'projects/mapbiomas-public/assets/pampa/collection4/mapbiomas_pampa_collection4_integration_v1',
+                        'transitions': 'projects/mapbiomas-public/assets/pampa/collection4/mapbiomas_pampa_collection4_transitions_v1',
+                        'quality': 'projects/mapbiomas-public/assets/pampa/collection4/mapbiomas_pampa_collection4_quality_v1',
+                    },
+                    'periods': {
+                        'Coverage': [
+                            '1985', '1986', '1987', '1988',
+                            '1989', '1990', '1991', '1992',
+                            '1993', '1994', '1995', '1996',
+                            '1997', '1998', '1999', '2000',
+                            '2001', '2002', '2003', '2004',
+                            '2005', '2006', '2007', '2008',
+                            '2009', '2010', '2011', '2012',
+                            '2013', '2014', '2015', '2016',
+                            '2017', '2018', '2019', '2020',
+                            '2021', '2022', '2023'
+                        ],
+                        'Transitions': [
+                        "1985_1986", "1986_1987", "1987_1988",
+                        "1988_1989", "1989_1990", "1990_1991","1991_1992",
+                        "1992_1993", "1993_1994", "1994_1995","1995_1996",
+                        "1996_1997", "1997_1998", "1998_1999","1999_2000",
+                        "2000_2001", "2001_2002", "2002_2003","2003_2004",
+                        "2004_2005", "2005_2006", "2006_2007","2007_2008",
+                        "2008_2009", "2009_2010", "2010_2011","2011_2012",
+                        "2012_2013", "2013_2014", "2014_2015","2015_2016",
+                        "2016_2017", "2017_2018", "2018_2019","2019_2020",
+                        "2020_2021", "2021_2022", "2022_2023","1985_1990",
+                        "1990_1995", "1995_2000", "2000_2005","2005_2010",
+                        "2010_2015", "2015_2020", "1990_2000","2000_2010",
+                        "2010_2020", "1985_2023", "2008_2017","1994_2002",
+                        "2002_2010", "2010_2016", "1986_2015","1990_2023",
+                        "2000_2023", "2008_2023", "2010_2023","2012_2023",
+                        ],
+                        'Quality': [
+                            '1985', '1986', '1987', '1988',
+                            '1989', '1990', '1991', '1992',
+                            '1993', '1994', '1995', '1996',
+                            '1997', '1998', '1999', '2000',
+                            '2001', '2002', '2003', '2004',
+                            '2005', '2006', '2007', '2008',
+                            '2009', '2010', '2011', '2012',
+                            '2013', '2014', '2015', '2016',
+                            '2017', '2018', '2019', '2020',
+                            '2021', '2022', '2023'
+                        ]
+                    },
+                },
             },
             'mapbiomas-indonesia': {
                 'collection-1.0': {
@@ -2514,6 +2562,54 @@ var App = {
                             '2013', '2014', '2015', '2016',
                             '2017', '2018', '2019', '2020',
                             '2021', '2022'
+                        ]
+                    },
+                },
+                'collection-2.0': {
+                    'assets': {
+                        'integration': 'projects/mapbiomas-public/assets/uruguay/collection2/mapbiomas_uruguay_collection2_integration_v1',
+                        'transitions': 'projects/mapbiomas-public/assets/uruguay/collection2/mapbiomas_uruguay_collection2_transitions_v1',
+                        'quality':     'projects/mapbiomas-public/assets/uruguay/collection2/mapbiomas_uruguay_collection2_quality_v1',
+                    },
+                    'periods': {
+                        'Coverage': [
+                            '1985', '1986', '1987', '1988',
+                            '1989', '1990', '1991', '1992',
+                            '1993', '1994', '1995', '1996',
+                            '1997', '1998', '1999', '2000',
+                            '2001', '2002', '2003', '2004',
+                            '2005', '2006', '2007', '2008',
+                            '2009', '2010', '2011', '2012',
+                            '2013', '2014', '2015', '2016',
+                            '2017', '2018', '2019', '2020',
+                            '2021', '2022', '2023'
+                        ],
+                        'Transitions': [
+                            "1985_1986", "1986_1987", "1987_1988", "1988_1989",
+                            "1989_1990", "1990_1991", "1991_1992", "1992_1993",
+                            "1993_1994", "1994_1995", "1995_1996", "1996_1997",
+                            "1997_1998", "1998_1999", "1999_2000", "2000_2001",
+                            "2001_2002", "2002_2003", "2003_2004", "2004_2005",
+                            "2005_2006", "2006_2007", "2007_2008", "2008_2009",
+                            "2009_2010", "2010_2011", "2011_2012", "2012_2013",
+                            "2013_2014", "2014_2015", "2015_2016", "2016_2017",
+                            "2017_2018", "2018_2019", "2019_2020", "2020_2021",
+                            "2021_2022", "2022_2023", "1985_1990", "1990_1995",
+                            "1995_2000", "2000_2005", "2005_2010", "2010_2015",
+                            "2015_2020", "1990_2000", "2000_2010", "2010_2020",
+                            "2010_2023", "1985_2023",
+                        ],
+                        'Quality': [
+                            '1985', '1986', '1987', '1988',
+                            '1989', '1990', '1991', '1992',
+                            '1993', '1994', '1995', '1996',
+                            '1997', '1998', '1999', '2000',
+                            '2001', '2002', '2003', '2004',
+                            '2005', '2006', '2007', '2008',
+                            '2009', '2010', '2011', '2012',
+                            '2013', '2014', '2015', '2016',
+                            '2017', '2018', '2019', '2020',
+                            '2021', '2022', '2023'
                         ]
                     },
                 },
