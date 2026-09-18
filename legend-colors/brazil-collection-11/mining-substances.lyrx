@@ -1,0 +1,1980 @@
+{
+  "type": "CIMLayerDocument",
+  "version": "2.9.0",
+  "build": 32739,
+  "layers": [
+    "CIMPATH=map/mapbiomas_legend.xml"
+  ],
+  "layerDefinitions": [
+    {
+      "type": "CIMRasterLayer",
+      "name": "MapBiomas Brazil C11 - mining substances",
+      "uRI": "CIMPATH=map/mapbiomas_legend.xml",
+      "sourceModifiedTime": {
+        "type": "TimeInstant"
+      },
+      "useSourceMetadata": true,
+      "layerType": "Operational",
+      "showLegends": true,
+      "visibility": true,
+      "displayCacheType": "Permanent",
+      "maxDisplayCacheAge": 5,
+      "showPopups": true,
+      "serviceLayerID": -1,
+      "refreshRate": -1,
+      "refreshRateUnit": "esriTimeUnitsSeconds",
+      "blendingMode": "Alpha",
+      "colorizer": {
+        "type": "CIMRasterUniqueValueColorizer",
+        "resamplingType": "NearestNeighbor",
+        "noDataColor": {
+          "type": "CIMRGBColor",
+          "values": [
+            255,
+            255,
+            255,
+            0
+          ]
+        },
+        "defaultColor": {
+          "type": "CIMRGBColor",
+          "values": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "fieldName": "Value",
+        "groups": [
+          {
+            "type": "CIMRasterUniqueValueGroup",
+            "heading": "Value",
+            "classes": [
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "1109"
+                ],
+                "label": "Garimpo/Área Garimpada com Solo Exposto/Metálicos/Cobre",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    255,
+                    69,
+                    0,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "1114"
+                ],
+                "label": "Garimpo/Área Garimpada com Solo Exposto/Metálicos/Estanho",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    255,
+                    69,
+                    0,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "1115"
+                ],
+                "label": "Garimpo/Área Garimpada com Solo Exposto/Metálicos/Ouro",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    255,
+                    69,
+                    0,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "1117"
+                ],
+                "label": "Garimpo/Área Garimpada com Solo Exposto/Não metálicos/Minerais classe 2",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    205,
+                    133,
+                    63,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "1124"
+                ],
+                "label": "Garimpo/Área Garimpada com Solo Exposto/Pedras preciosas e rochas ornamentais/Pedras Preciosas",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    138,
+                    43,
+                    226,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "1125"
+                ],
+                "label": "Garimpo/Área Garimpada com Solo Exposto/Pedras preciosas e rochas ornamentais/Rochas Ornamentais",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    138,
+                    43,
+                    226,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "1138"
+                ],
+                "label": "Garimpo/Área Garimpada com Solo Exposto/Metálicos/Elementos Terras Raras",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    255,
+                    69,
+                    0,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "1158"
+                ],
+                "label": "Garimpo/Área Garimpada com Solo Exposto/Atípica/Atípica",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    119,
+                    136,
+                    153,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "1159"
+                ],
+                "label": "Garimpo/Área Garimpada com Solo Exposto/Sem Substância/Sem Substância",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    169,
+                    169,
+                    169,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "1209"
+                ],
+                "label": "Garimpo/Área Garimpada com Revegetação/Metálicos/Cobre",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    255,
+                    69,
+                    0,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "1214"
+                ],
+                "label": "Garimpo/Área Garimpada com Revegetação/Metálicos/Estanho",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    255,
+                    69,
+                    0,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "1215"
+                ],
+                "label": "Garimpo/Área Garimpada com Revegetação/Metálicos/Ouro",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    255,
+                    69,
+                    0,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "1217"
+                ],
+                "label": "Garimpo/Área Garimpada com Revegetação/Não metálicos/Minerais classe 2",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    205,
+                    133,
+                    63,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "1224"
+                ],
+                "label": "Garimpo/Área Garimpada com Revegetação/Pedras preciosas e rochas ornamentais/Pedras Preciosas",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    138,
+                    43,
+                    226,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "1225"
+                ],
+                "label": "Garimpo/Área Garimpada com Revegetação/Pedras preciosas e rochas ornamentais/Rochas Ornamentais",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    138,
+                    43,
+                    226,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "1238"
+                ],
+                "label": "Garimpo/Área Garimpada com Revegetação/Metálicos/Elementos Terras Raras",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    255,
+                    69,
+                    0,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "1258"
+                ],
+                "label": "Garimpo/Área Garimpada com Revegetação/Atípica/Atípica",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    119,
+                    136,
+                    153,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "1259"
+                ],
+                "label": "Garimpo/Área Garimpada com Revegetação/Sem Substância/Sem Substância",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    169,
+                    169,
+                    169,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "2102"
+                ],
+                "label": "Industrial/Mineração Industrial com Solo Exposto/Metálicos/Ferro",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    255,
+                    140,
+                    0,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "2103"
+                ],
+                "label": "Industrial/Mineração Industrial com Solo Exposto/Metálicos/Manganês",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    255,
+                    140,
+                    0,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "2104"
+                ],
+                "label": "Industrial/Mineração Industrial com Solo Exposto/Metálicos/Níquel",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    255,
+                    140,
+                    0,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "2105"
+                ],
+                "label": "Industrial/Mineração Industrial com Solo Exposto/Não metálicos/Amianto",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    218,
+                    165,
+                    32,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "2106"
+                ],
+                "label": "Industrial/Mineração Industrial com Solo Exposto/Metálicos/Molibdênio",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    255,
+                    140,
+                    0,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "2107"
+                ],
+                "label": "Industrial/Mineração Industrial com Solo Exposto/Metálicos/Titânio",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    255,
+                    140,
+                    0,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "2108"
+                ],
+                "label": "Industrial/Mineração Industrial com Solo Exposto/Metálicos/Cromo",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    255,
+                    140,
+                    0,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "2109"
+                ],
+                "label": "Industrial/Mineração Industrial com Solo Exposto/Metálicos/Cobre",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    255,
+                    140,
+                    0,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "2110"
+                ],
+                "label": "Industrial/Mineração Industrial com Solo Exposto/Metálicos/Alumínio",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    255,
+                    140,
+                    0,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "2111"
+                ],
+                "label": "Industrial/Mineração Industrial com Solo Exposto/Metálicos/Magnésio",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    255,
+                    140,
+                    0,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "2112"
+                ],
+                "label": "Industrial/Mineração Industrial com Solo Exposto/Metálicos/Bário",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    255,
+                    140,
+                    0,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "2113"
+                ],
+                "label": "Industrial/Mineração Industrial com Solo Exposto/Metálicos/Ni",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    255,
+                    140,
+                    0,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "2114"
+                ],
+                "label": "Industrial/Mineração Industrial com Solo Exposto/Metálicos/Estanho",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    255,
+                    140,
+                    0,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "2115"
+                ],
+                "label": "Industrial/Mineração Industrial com Solo Exposto/Metálicos/Ouro",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    255,
+                    140,
+                    0,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "2117"
+                ],
+                "label": "Industrial/Mineração Industrial com Solo Exposto/Não metálicos/Minerais classe 2",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    218,
+                    165,
+                    32,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "2118"
+                ],
+                "label": "Industrial/Mineração Industrial com Solo Exposto/Não metálicos/Flúor",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    218,
+                    165,
+                    32,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "2119"
+                ],
+                "label": "Industrial/Mineração Industrial com Solo Exposto/Não metálicos/Fósforo",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    218,
+                    165,
+                    32,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "2120"
+                ],
+                "label": "Industrial/Mineração Industrial com Solo Exposto/Não metálicos/Grafita",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    218,
+                    165,
+                    32,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "2121"
+                ],
+                "label": "Industrial/Mineração Industrial com Solo Exposto/Não metálicos/Silício",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    218,
+                    165,
+                    32,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "2122"
+                ],
+                "label": "Industrial/Mineração Industrial com Solo Exposto/Não metálicos/Calcário",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    218,
+                    165,
+                    32,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "2124"
+                ],
+                "label": "Industrial/Mineração Industrial com Solo Exposto/Pedras preciosas e rochas ornamentais/Pedras Preciosas",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    153,
+                    50,
+                    204,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "2125"
+                ],
+                "label": "Industrial/Mineração Industrial com Solo Exposto/Pedras preciosas e rochas ornamentais/Rochas Ornamentais",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    153,
+                    50,
+                    204,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "2127"
+                ],
+                "label": "Industrial/Mineração Industrial com Solo Exposto/Energéticos/Carvão Mineral",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    178,
+                    34,
+                    34,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "2128"
+                ],
+                "label": "Industrial/Mineração Industrial com Solo Exposto/Energéticos/Urânio",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    178,
+                    34,
+                    34,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "2129"
+                ],
+                "label": "Industrial/Mineração Industrial com Solo Exposto/Energéticos/Gás Natural e Petróleo",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    178,
+                    34,
+                    34,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "2130"
+                ],
+                "label": "Industrial/Mineração Industrial com Solo Exposto/Metálicos/Zinco",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    255,
+                    140,
+                    0,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "2131"
+                ],
+                "label": "Industrial/Mineração Industrial com Solo Exposto/Metálicos/Antimônio",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    255,
+                    140,
+                    0,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "2132"
+                ],
+                "label": "Industrial/Mineração Industrial com Solo Exposto/Metálicos/Arsênio",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    255,
+                    140,
+                    0,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "2133"
+                ],
+                "label": "Industrial/Mineração Industrial com Solo Exposto/Metálicos/Berílio",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    255,
+                    140,
+                    0,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "2134"
+                ],
+                "label": "Industrial/Mineração Industrial com Solo Exposto/Metálicos/Bismuto",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    255,
+                    140,
+                    0,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "2135"
+                ],
+                "label": "Industrial/Mineração Industrial com Solo Exposto/Metálicos/Césio",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    255,
+                    140,
+                    0,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "2136"
+                ],
+                "label": "Industrial/Mineração Industrial com Solo Exposto/Metálicos/Chumbo",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    255,
+                    140,
+                    0,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "2137"
+                ],
+                "label": "Industrial/Mineração Industrial com Solo Exposto/Metálicos/Cobalto",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    255,
+                    140,
+                    0,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "2138"
+                ],
+                "label": "Industrial/Mineração Industrial com Solo Exposto/Metálicos/Elementos Terras Raras",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    255,
+                    140,
+                    0,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "2139"
+                ],
+                "label": "Industrial/Mineração Industrial com Solo Exposto/Metálicos/Estrôncio",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    255,
+                    140,
+                    0,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "2142"
+                ],
+                "label": "Industrial/Mineração Industrial com Solo Exposto/Metálicos/Lítio",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    255,
+                    140,
+                    0,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "2143"
+                ],
+                "label": "Industrial/Mineração Industrial com Solo Exposto/Metálicos/Mercúrio",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    255,
+                    140,
+                    0,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "2144"
+                ],
+                "label": "Industrial/Mineração Industrial com Solo Exposto/Metálicos/Paládio",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    255,
+                    140,
+                    0,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "2145"
+                ],
+                "label": "Industrial/Mineração Industrial com Solo Exposto/Metálicos/Platina",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    255,
+                    140,
+                    0,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "2147"
+                ],
+                "label": "Industrial/Mineração Industrial com Solo Exposto/Metálicos/Prata",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    255,
+                    140,
+                    0,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "2148"
+                ],
+                "label": "Industrial/Mineração Industrial com Solo Exposto/Metálicos/Rubídio",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    255,
+                    140,
+                    0,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "2149"
+                ],
+                "label": "Industrial/Mineração Industrial com Solo Exposto/Metálicos/Sódio",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    255,
+                    140,
+                    0,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "2150"
+                ],
+                "label": "Industrial/Mineração Industrial com Solo Exposto/Metálicos/Tungstênio",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    255,
+                    140,
+                    0,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "2151"
+                ],
+                "label": "Industrial/Mineração Industrial com Solo Exposto/Metálicos/Vanádio",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    255,
+                    140,
+                    0,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "2152"
+                ],
+                "label": "Industrial/Mineração Industrial com Solo Exposto/Metálicos/Zircônio",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    255,
+                    140,
+                    0,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "2153"
+                ],
+                "label": "Industrial/Mineração Industrial com Solo Exposto/Não metálicos/Água",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    218,
+                    165,
+                    32,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "2154"
+                ],
+                "label": "Industrial/Mineração Industrial com Solo Exposto/Não metálicos/Bromo",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    218,
+                    165,
+                    32,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "2155"
+                ],
+                "label": "Industrial/Mineração Industrial com Solo Exposto/Não metálicos/Caulim",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    218,
+                    165,
+                    32,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "2156"
+                ],
+                "label": "Industrial/Mineração Industrial com Solo Exposto/Não metálicos/Enxofre",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    218,
+                    165,
+                    32,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "2157"
+                ],
+                "label": "Industrial/Mineração Industrial com Solo Exposto/Não metálicos/Fosfato",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    218,
+                    165,
+                    32,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "2159"
+                ],
+                "label": "Industrial/Mineração Industrial com Solo Exposto/Sem Substância/Sem Substância",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    112,
+                    128,
+                    144,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "2202"
+                ],
+                "label": "Industrial/Mineração Industrial com Revegetação/Metálicos/Ferro",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    255,
+                    140,
+                    0,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "2203"
+                ],
+                "label": "Industrial/Mineração Industrial com Revegetação/Metálicos/Manganês",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    255,
+                    140,
+                    0,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "2204"
+                ],
+                "label": "Industrial/Mineração Industrial com Revegetação/Metálicos/Níquel",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    255,
+                    140,
+                    0,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "2205"
+                ],
+                "label": "Industrial/Mineração Industrial com Revegetação/Não metálicos/Amianto",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    218,
+                    165,
+                    32,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "2206"
+                ],
+                "label": "Industrial/Mineração Industrial com Revegetação/Metálicos/Titânio",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    255,
+                    140,
+                    0,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "2208"
+                ],
+                "label": "Industrial/Mineração Industrial com Revegetação/Metálicos/Cromo",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    255,
+                    140,
+                    0,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "2209"
+                ],
+                "label": "Industrial/Mineração Industrial com Revegetação/Metálicos/Cobre",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    255,
+                    140,
+                    0,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "2210"
+                ],
+                "label": "Industrial/Mineração Industrial com Revegetação/Metálicos/Alumínio",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    255,
+                    140,
+                    0,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "2211"
+                ],
+                "label": "Industrial/Mineração Industrial com Revegetação/Metálicos/Magnésio",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    255,
+                    140,
+                    0,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "2212"
+                ],
+                "label": "Industrial/Mineração Industrial com Revegetação/Metálicos/Bário",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    255,
+                    140,
+                    0,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "2213"
+                ],
+                "label": "Industrial/Mineração Industrial com Revegetação/Metálicos/Nióbio",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    255,
+                    140,
+                    0,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "2214"
+                ],
+                "label": "Industrial/Mineração Industrial com Revegetação/Metálicos/Estanho",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    255,
+                    140,
+                    0,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "2215"
+                ],
+                "label": "Industrial/Mineração Industrial com Revegetação/Metálicos/Ouro",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    255,
+                    140,
+                    0,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "2217"
+                ],
+                "label": "Industrial/Mineração Industrial com Revegetação/Não metálicos/Minerais classe 2",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    218,
+                    165,
+                    32,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "2218"
+                ],
+                "label": "Industrial/Mineração Industrial com Revegetação/Não metálicos/Flúor",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    218,
+                    165,
+                    32,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "2219"
+                ],
+                "label": "Industrial/Mineração Industrial com Revegetação/Não metálicos/Fósforo",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    218,
+                    165,
+                    32,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "2220"
+                ],
+                "label": "Industrial/Mineração Industrial com Revegetação/Não metálicos/Grafita",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    218,
+                    165,
+                    32,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "2221"
+                ],
+                "label": "Industrial/Mineração Industrial com Revegetação/Não metálicos/Silício",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    218,
+                    165,
+                    32,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "2222"
+                ],
+                "label": "Industrial/Mineração Industrial com Revegetação/Não metálicos/Calcário",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    218,
+                    165,
+                    32,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "2224"
+                ],
+                "label": "Industrial/Mineração Industrial com Revegetação/Pedras preciosas e rochas ornamentais/Pedras Preciosas",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    153,
+                    50,
+                    204,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "2225"
+                ],
+                "label": "Industrial/Mineração Industrial com Revegetação/Pedras preciosas e rochas ornamentais/Rochas Ornamentais",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    153,
+                    50,
+                    204,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "2227"
+                ],
+                "label": "Industrial/Mineração Industrial com Revegetação/Energéticos/Carvão Mineral",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    178,
+                    34,
+                    34,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "2228"
+                ],
+                "label": "Industrial/Mineração Industrial com Revegetação/Energéticos/Urânio",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    178,
+                    34,
+                    34,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "2229"
+                ],
+                "label": "Industrial/Mineração Industrial com Revegetação/Energéticos/Gás Natural e Petróleo",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    178,
+                    34,
+                    34,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "2230"
+                ],
+                "label": "Industrial/Mineração Industrial com Revegetação/Metálicos/Zinco",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    255,
+                    140,
+                    0,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "2231"
+                ],
+                "label": "Industrial/Mineração Industrial com Revegetação/Metálicos/Antimônio",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    255,
+                    140,
+                    0,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "2232"
+                ],
+                "label": "Industrial/Mineração Industrial com Revegetação/Metálicos/Arsênio",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    255,
+                    140,
+                    0,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "2233"
+                ],
+                "label": "Industrial/Mineração Industrial com Revegetação/Metálicos/Berílio",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    255,
+                    140,
+                    0,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "2234"
+                ],
+                "label": "Industrial/Mineração Industrial com Revegetação/Metálicos/Bismuto",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    255,
+                    140,
+                    0,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "2235"
+                ],
+                "label": "Industrial/Mineração Industrial com Revegetação/Metálicos/Césio",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    255,
+                    140,
+                    0,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "2236"
+                ],
+                "label": "Industrial/Mineração Industrial com Revegetação/Metálicos/Chumbo",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    255,
+                    140,
+                    0,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "2237"
+                ],
+                "label": "Industrial/Mineração Industrial com Revegetação/Metálicos/Cobalto",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    255,
+                    140,
+                    0,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "2238"
+                ],
+                "label": "Industrial/Mineração Industrial com Revegetação/Metálicos/Elementos Terras Raras",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    255,
+                    140,
+                    0,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "2239"
+                ],
+                "label": "Industrial/Mineração Industrial com Revegetação/Metálicos/Estrôncio",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    255,
+                    140,
+                    0,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "2242"
+                ],
+                "label": "Industrial/Mineração Industrial com Revegetação/Metálicos/Lítio",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    255,
+                    140,
+                    0,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "2243"
+                ],
+                "label": "Industrial/Mineração Industrial com Revegetação/Metálicos/Mercúrio",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    255,
+                    140,
+                    0,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "2244"
+                ],
+                "label": "Industrial/Mineração Industrial com Revegetação/Metálicos/Paládio",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    255,
+                    140,
+                    0,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "2245"
+                ],
+                "label": "Industrial/Mineração Industrial com Revegetação/Metálicos/Platina",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    255,
+                    140,
+                    0,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "2246"
+                ],
+                "label": "Industrial/Mineração Industrial com Revegetação/Metálicos/Potássio",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    255,
+                    140,
+                    0,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "2247"
+                ],
+                "label": "Industrial/Mineração Industrial com Revegetação/Metálicos/Prata",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    255,
+                    140,
+                    0,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "2248"
+                ],
+                "label": "Industrial/Mineração Industrial com Revegetação/Metálicos/Rubídio",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    255,
+                    140,
+                    0,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "2249"
+                ],
+                "label": "Industrial/Mineração Industrial com Revegetação/Metálicos/Sódio",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    255,
+                    140,
+                    0,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "2250"
+                ],
+                "label": "Industrial/Mineração Industrial com Revegetação/Metálicos/Tungstênio",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    255,
+                    140,
+                    0,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "2251"
+                ],
+                "label": "Industrial/Mineração Industrial com Revegetação/Metálicos/Vanádio",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    255,
+                    140,
+                    0,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "2252"
+                ],
+                "label": "Industrial/Mineração Industrial com Revegetação/Metálicos/Zircônio",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    255,
+                    140,
+                    0,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "2253"
+                ],
+                "label": "Industrial/Mineração Industrial com Revegetação/Não metálicos/Água",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    218,
+                    165,
+                    32,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "2254"
+                ],
+                "label": "Industrial/Mineração Industrial com Revegetação/Não metálicos/Bromo",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    218,
+                    165,
+                    32,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "2255"
+                ],
+                "label": "Industrial/Mineração Industrial com Revegetação/Não metálicos/Caulim",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    218,
+                    165,
+                    32,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "2256"
+                ],
+                "label": "Industrial/Mineração Industrial com Revegetação/Não metálicos/Enxofre",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    218,
+                    165,
+                    32,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "2257"
+                ],
+                "label": "Industrial/Mineração Industrial com Revegetação/Não metálicos/Fosfato",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    218,
+                    165,
+                    32,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "2259"
+                ],
+                "label": "Industrial/Mineração Industrial com Revegetação/Sem Substância/Sem Substância",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    112,
+                    128,
+                    144,
+                    100
+                  ]
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

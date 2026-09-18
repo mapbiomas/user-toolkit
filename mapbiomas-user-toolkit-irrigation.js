@@ -18,6 +18,7 @@
  *    1.4.0 - Irrigated Agriculture - Collection 9.0
  *    1.5.0 - Irrigation systems - Collection 11.0
  *          - Territories from the MapBiomas platform
+ *    1.5.1 - Collection 11.0 legend (codes 2 and 3 changed); link to legend files
  * 
  * @see
  *      Get the MapBiomas exported data in your "Google Drive/MAPBIOMAS-EXPORT" folder
@@ -112,7 +113,7 @@ var App = {
 
     options: {
 
-        version: '1.5.0',
+        version: '1.5.1',
 
         logo: {
             uri: 'gs://mapbiomas-public/mapbiomas-logos/mapbiomas-logo-horizontal.b64',
@@ -440,6 +441,7 @@ var App = {
                         'irrigated_agriculture': 'projects/mapbiomas-public/assets/brazil/lulc/collection11/mapbiomas_brazil_collection11_agriculture_irrigation_systems_v1',
                     },
                     'encoding': 'raw',
+                    'legend': 'c11',
                     'periods': {
                         'irrigated_agriculture': [
                             '1985', '1986', '1987', '1988',
@@ -519,6 +521,30 @@ var App = {
 
         },
 
+        // Coleção 11: 2 passou a ser "outros sistemas" e 3 "inundação" (arroz).
+        // Fonte: legenda "Irrigation systems" da plataforma MapBiomas.
+        c11: {
+            palette: ['#9724cc', '#51e5ff', '#ec368d'],
+            className: {
+                1: 'Center pivot irrigation',
+                2: 'Other irrigation systems',
+                3: 'Flooding (irrigated rice)',
+            },
+            legend: {
+                "title": 'Legend',
+                "layers": [
+                    ['#9724cc', 1, 'Center pivot irrigation',],
+                    ['#51e5ff', 2, 'Other irrigation systems',],
+                    ['#ec368d', 3, 'Flooding (irrigated rice)',],
+                ],
+                "style": {
+                    "backgroundColor": "#ffffff",
+                    "color": "#212121"
+                },
+                "orientation": "vertical"
+            }
+        },
+
         legend: {
             params: {
                 "title": 'Legend',
@@ -538,8 +564,27 @@ var App = {
 
     init: function () {
 
+        // guarda a legenda original (coleções até a 9.0) para alternar com a da C11
+        App.options.legacy = {
+            'palette': App.options.palette.irrigated_agriculture,
+            'className': App.options.className.irrigated_agriculture,
+            'legend': App.options.legend.params
+        };
+
         this.ui.init();
 
+    },
+
+    setLegendSet: function (collection) {
+
+        var set = collection.legend === 'c11' ? App.options.c11 : App.options.legacy;
+
+        App.options.palette.irrigated_agriculture = set.palette;
+        App.options.className.irrigated_agriculture = set.className;
+        App.options.legend.params = set.legend;
+
+        App.ui.form.panelLegend.clear();
+        App.ui.form.panelLegend.add(legend.getLegend(set.legend));
     },
 
     /**
@@ -679,6 +724,8 @@ var App = {
 
                             App.options.data.irrigated_agriculture = collection.encoding === 'raw' ?
                                 image : image.divide(100).byte();
+
+                            App.setLegendSet(collection);
 
                             var year = App.options.collections[regionName][collectioName]
                                 .periods.irrigated_agriculture.slice(-1)[0];
@@ -1140,6 +1187,7 @@ var App = {
                 this.panelMain.add(this.panelLogo);
                 this.panelMain.add(this.labelTitle);
                 this.panelMain.add(this.labelSubtitle);
+                this.panelMain.add(this.labelLegendFiles);
                 // this.panelMain.add(this.labelLink);
 
                 this.panelRegion.add(this.labelRegion);
@@ -1299,6 +1347,13 @@ var App = {
                 // 'padding': '1px',
                 'fontSize': '14px'
             }),
+
+            // arquivos de legenda da coleção mais recente (legend-colors/ no GitHub)
+            labelLegendFiles: ui.Label('Legend files (QGIS, ArcGIS Pro, SLD, CSV)', {
+                'fontSize': '10px'
+            },
+                'https://github.com/mapbiomas/user-toolkit/tree/master/legend-colors/brazil-collection-11'
+            ),
 
             labelLink: ui.Label('Legend codes', {
                 // 'fontWeight': 'bold',

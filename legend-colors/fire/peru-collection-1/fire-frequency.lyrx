@@ -1,0 +1,252 @@
+{
+  "type": "CIMLayerDocument",
+  "version": "2.9.0",
+  "build": 32739,
+  "layers": [
+    "CIMPATH=map/mapbiomas_legend.xml"
+  ],
+  "layerDefinitions": [
+    {
+      "type": "CIMRasterLayer",
+      "name": "MapBiomas Fire peru C1 - fire frequency",
+      "uRI": "CIMPATH=map/mapbiomas_legend.xml",
+      "sourceModifiedTime": {
+        "type": "TimeInstant"
+      },
+      "useSourceMetadata": true,
+      "layerType": "Operational",
+      "showLegends": true,
+      "visibility": true,
+      "displayCacheType": "Permanent",
+      "maxDisplayCacheAge": 5,
+      "showPopups": true,
+      "serviceLayerID": -1,
+      "refreshRate": -1,
+      "refreshRateUnit": "esriTimeUnitsSeconds",
+      "blendingMode": "Alpha",
+      "colorizer": {
+        "type": "CIMRasterUniqueValueColorizer",
+        "resamplingType": "NearestNeighbor",
+        "noDataColor": {
+          "type": "CIMRGBColor",
+          "values": [
+            255,
+            255,
+            255,
+            0
+          ]
+        },
+        "defaultColor": {
+          "type": "CIMRGBColor",
+          "values": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "fieldName": "Value",
+        "groups": [
+          {
+            "type": "CIMRasterUniqueValueGroup",
+            "heading": "Value",
+            "classes": [
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "1"
+                ],
+                "label": "Burned 1 time",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    253,
+                    241,
+                    176,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "2"
+                ],
+                "label": "Burned 2 times",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    251,
+                    233,
+                    129,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "3"
+                ],
+                "label": "Burned 3 times",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    250,
+                    226,
+                    88,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "4"
+                ],
+                "label": "Burned 4 times",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    249,
+                    222,
+                    68,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "5"
+                ],
+                "label": "Burned 5 times",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    248,
+                    215,
+                    31,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "6"
+                ],
+                "label": "Burned 6 times",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    241,
+                    202,
+                    30,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "7"
+                ],
+                "label": "Burned 7 times",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    233,
+                    188,
+                    28,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "8"
+                ],
+                "label": "Burned 8 times",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    226,
+                    175,
+                    26,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "9"
+                ],
+                "label": "Burned 9 times",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    218,
+                    161,
+                    24,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "10"
+                ],
+                "label": "Burned 10 times",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    210,
+                    147,
+                    22,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "11"
+                ],
+                "label": "Burned 11 times",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    204,
+                    135,
+                    21,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "12"
+                ],
+                "label": "Burned 12 times",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    197,
+                    123,
+                    20,
+                    100
+                  ]
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

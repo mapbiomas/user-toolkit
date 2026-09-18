@@ -1,0 +1,668 @@
+{
+  "type": "CIMLayerDocument",
+  "version": "2.9.0",
+  "build": 32739,
+  "layers": [
+    "CIMPATH=map/mapbiomas_legend.xml"
+  ],
+  "layerDefinitions": [
+    {
+      "type": "CIMRasterLayer",
+      "name": "MapBiomas Water peru C1 - water frequency",
+      "uRI": "CIMPATH=map/mapbiomas_legend.xml",
+      "sourceModifiedTime": {
+        "type": "TimeInstant"
+      },
+      "useSourceMetadata": true,
+      "layerType": "Operational",
+      "showLegends": true,
+      "visibility": true,
+      "displayCacheType": "Permanent",
+      "maxDisplayCacheAge": 5,
+      "showPopups": true,
+      "serviceLayerID": -1,
+      "refreshRate": -1,
+      "refreshRateUnit": "esriTimeUnitsSeconds",
+      "blendingMode": "Alpha",
+      "colorizer": {
+        "type": "CIMRasterUniqueValueColorizer",
+        "resamplingType": "NearestNeighbor",
+        "noDataColor": {
+          "type": "CIMRGBColor",
+          "values": [
+            255,
+            255,
+            255,
+            0
+          ]
+        },
+        "defaultColor": {
+          "type": "CIMRGBColor",
+          "values": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "fieldName": "Value",
+        "groups": [
+          {
+            "type": "CIMRasterUniqueValueGroup",
+            "heading": "Value",
+            "classes": [
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "1"
+                ],
+                "label": "Water in 1 year",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    229,
+                    229,
+                    255,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "2"
+                ],
+                "label": "Water in 2 years",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    229,
+                    229,
+                    255,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "3"
+                ],
+                "label": "Water in 3 years",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    204,
+                    204,
+                    255,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "4"
+                ],
+                "label": "Water in 4 years",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    204,
+                    204,
+                    255,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "5"
+                ],
+                "label": "Water in 5 years",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    204,
+                    204,
+                    255,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "6"
+                ],
+                "label": "Water in 6 years",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    204,
+                    204,
+                    255,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "7"
+                ],
+                "label": "Water in 7 years",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    178,
+                    178,
+                    255,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "8"
+                ],
+                "label": "Water in 8 years",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    178,
+                    178,
+                    255,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "9"
+                ],
+                "label": "Water in 9 years",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    178,
+                    178,
+                    255,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "10"
+                ],
+                "label": "Water in 10 years",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    178,
+                    178,
+                    255,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "11"
+                ],
+                "label": "Water in 11 years",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    153,
+                    153,
+                    255,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "12"
+                ],
+                "label": "Water in 12 years",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    153,
+                    153,
+                    255,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "13"
+                ],
+                "label": "Water in 13 years",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    153,
+                    153,
+                    255,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "14"
+                ],
+                "label": "Water in 14 years",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    153,
+                    153,
+                    255,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "15"
+                ],
+                "label": "Water in 15 years",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    127,
+                    127,
+                    255,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "16"
+                ],
+                "label": "Water in 16 years",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    127,
+                    127,
+                    255,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "17"
+                ],
+                "label": "Water in 17 years",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    127,
+                    127,
+                    255,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "18"
+                ],
+                "label": "Water in 18 years",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    127,
+                    127,
+                    255,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "19"
+                ],
+                "label": "Water in 19 years",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    102,
+                    102,
+                    255,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "20"
+                ],
+                "label": "Water in 20 years",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    102,
+                    102,
+                    255,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "21"
+                ],
+                "label": "Water in 21 years",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    102,
+                    102,
+                    255,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "22"
+                ],
+                "label": "Water in 22 years",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    102,
+                    102,
+                    255,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "23"
+                ],
+                "label": "Water in 23 years",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    76,
+                    76,
+                    255,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "24"
+                ],
+                "label": "Water in 24 years",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    76,
+                    76,
+                    255,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "25"
+                ],
+                "label": "Water in 25 years",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    76,
+                    76,
+                    255,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "26"
+                ],
+                "label": "Water in 26 years",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    76,
+                    76,
+                    255,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "27"
+                ],
+                "label": "Water in 27 years",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    50,
+                    50,
+                    255,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "28"
+                ],
+                "label": "Water in 28 years",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    50,
+                    50,
+                    255,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "29"
+                ],
+                "label": "Water in 29 years",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    50,
+                    50,
+                    255,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "30"
+                ],
+                "label": "Water in 30 years",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    50,
+                    50,
+                    255,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "31"
+                ],
+                "label": "Water in 31 years",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    25,
+                    25,
+                    255,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "32"
+                ],
+                "label": "Water in 32 years",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    25,
+                    25,
+                    255,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "33"
+                ],
+                "label": "Water in 33 years",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    25,
+                    25,
+                    255,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "34"
+                ],
+                "label": "Water in 34 years",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    25,
+                    25,
+                    255,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "35"
+                ],
+                "label": "Water in 35 years",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    0,
+                    0,
+                    255,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "36"
+                ],
+                "label": "Water in 36 years",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    0,
+                    0,
+                    255,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "37"
+                ],
+                "label": "Water in 37 years",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    0,
+                    0,
+                    255,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "38"
+                ],
+                "label": "Water in 38 years",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    0,
+                    0,
+                    255,
+                    100
+                  ]
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

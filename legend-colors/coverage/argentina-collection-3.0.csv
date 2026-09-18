@@ -1,0 +1,20 @@
+value,label,color
+3,Closed forests,#1f8d49
+4,Open forests,#7dc975
+6,Flooded forests,#026975
+9,Forest plantations,#7a5900
+11,Flooded grassland,#519799
+12,Grassland,#d6bc74
+15,Pastures,#edde8e
+19,Temporary crops,#c27ba0
+21,Agriculture and pasture mosaic,#ffefc3
+24,Urban areas,#d4271e
+25,Other non-vegetated areas,#db4d4f
+27,Not observed,#ffffff
+33,"Rivers, lakes or ocean",#2532e4
+34,Ice and and permanent snow,#93dfe6
+36,Perennial crops,#d082de
+63,Shrub and herbaceous mosaics,#c7e0ab
+66,Closed shrublands,#a89358
+73,Peatlands,#6fc179
+77,Open shrublands,#86b074

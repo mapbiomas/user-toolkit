@@ -1,0 +1,121 @@
+value,label,color
+1109,Garimpo/Área Garimpada com Solo Exposto/Metálicos/Cobre,#ff4500
+1114,Garimpo/Área Garimpada com Solo Exposto/Metálicos/Estanho,#ff4500
+1115,Garimpo/Área Garimpada com Solo Exposto/Metálicos/Ouro,#ff4500
+1117,Garimpo/Área Garimpada com Solo Exposto/Não metálicos/Minerais classe 2,#cd853f
+1124,Garimpo/Área Garimpada com Solo Exposto/Pedras preciosas e rochas ornamentais/Pedras Preciosas,#8a2be2
+1125,Garimpo/Área Garimpada com Solo Exposto/Pedras preciosas e rochas ornamentais/Rochas Ornamentais,#8a2be2
+1138,Garimpo/Área Garimpada com Solo Exposto/Metálicos/Elementos Terras Raras,#ff4500
+1158,Garimpo/Área Garimpada com Solo Exposto/Atípica/Atípica,#778899
+1159,Garimpo/Área Garimpada com Solo Exposto/Sem Substância/Sem Substância,#a9a9a9
+1209,Garimpo/Área Garimpada com Revegetação/Metálicos/Cobre,#ff4500
+1214,Garimpo/Área Garimpada com Revegetação/Metálicos/Estanho,#ff4500
+1215,Garimpo/Área Garimpada com Revegetação/Metálicos/Ouro,#ff4500
+1217,Garimpo/Área Garimpada com Revegetação/Não metálicos/Minerais classe 2,#cd853f
+1224,Garimpo/Área Garimpada com Revegetação/Pedras preciosas e rochas ornamentais/Pedras Preciosas,#8a2be2
+1225,Garimpo/Área Garimpada com Revegetação/Pedras preciosas e rochas ornamentais/Rochas Ornamentais,#8a2be2
+1238,Garimpo/Área Garimpada com Revegetação/Metálicos/Elementos Terras Raras,#ff4500
+1258,Garimpo/Área Garimpada com Revegetação/Atípica/Atípica,#778899
+1259,Garimpo/Área Garimpada com Revegetação/Sem Substância/Sem Substância,#a9a9a9
+2102,Industrial/Mineração Industrial com Solo Exposto/Metálicos/Ferro,#ff8c00
+2103,Industrial/Mineração Industrial com Solo Exposto/Metálicos/Manganês,#ff8c00
+2104,Industrial/Mineração Industrial com Solo Exposto/Metálicos/Níquel,#ff8c00
+2105,Industrial/Mineração Industrial com Solo Exposto/Não metálicos/Amianto,#daa520
+2106,Industrial/Mineração Industrial com Solo Exposto/Metálicos/Molibdênio,#ff8c00
+2107,Industrial/Mineração Industrial com Solo Exposto/Metálicos/Titânio,#ff8c00
+2108,Industrial/Mineração Industrial com Solo Exposto/Metálicos/Cromo,#ff8c00
+2109,Industrial/Mineração Industrial com Solo Exposto/Metálicos/Cobre,#ff8c00
+2110,Industrial/Mineração Industrial com Solo Exposto/Metálicos/Alumínio,#ff8c00
+2111,Industrial/Mineração Industrial com Solo Exposto/Metálicos/Magnésio,#ff8c00
+2112,Industrial/Mineração Industrial com Solo Exposto/Metálicos/Bário,#ff8c00
+2113,Industrial/Mineração Industrial com Solo Exposto/Metálicos/Ni,#ff8c00
+2114,Industrial/Mineração Industrial com Solo Exposto/Metálicos/Estanho,#ff8c00
+2115,Industrial/Mineração Industrial com Solo Exposto/Metálicos/Ouro,#ff8c00
+2117,Industrial/Mineração Industrial com Solo Exposto/Não metálicos/Minerais classe 2,#daa520
+2118,Industrial/Mineração Industrial com Solo Exposto/Não metálicos/Flúor,#daa520
+2119,Industrial/Mineração Industrial com Solo Exposto/Não metálicos/Fósforo,#daa520
+2120,Industrial/Mineração Industrial com Solo Exposto/Não metálicos/Grafita,#daa520
+2121,Industrial/Mineração Industrial com Solo Exposto/Não metálicos/Silício,#daa520
+2122,Industrial/Mineração Industrial com Solo Exposto/Não metálicos/Calcário,#daa520
+2124,Industrial/Mineração Industrial com Solo Exposto/Pedras preciosas e rochas ornamentais/Pedras Preciosas,#9932cc
+2125,Industrial/Mineração Industrial com Solo Exposto/Pedras preciosas e rochas ornamentais/Rochas Ornamentais,#9932cc
+2127,Industrial/Mineração Industrial com Solo Exposto/Energéticos/Carvão Mineral,#b22222
+2128,Industrial/Mineração Industrial com Solo Exposto/Energéticos/Urânio,#b22222
+2129,Industrial/Mineração Industrial com Solo Exposto/Energéticos/Gás Natural e Petróleo,#b22222
+2130,Industrial/Mineração Industrial com Solo Exposto/Metálicos/Zinco,#ff8c00
+2131,Industrial/Mineração Industrial com Solo Exposto/Metálicos/Antimônio,#ff8c00
+2132,Industrial/Mineração Industrial com Solo Exposto/Metálicos/Arsênio,#ff8c00
+2133,Industrial/Mineração Industrial com Solo Exposto/Metálicos/Berílio,#ff8c00
+2134,Industrial/Mineração Industrial com Solo Exposto/Metálicos/Bismuto,#ff8c00
+2135,Industrial/Mineração Industrial com Solo Exposto/Metálicos/Césio,#ff8c00
+2136,Industrial/Mineração Industrial com Solo Exposto/Metálicos/Chumbo,#ff8c00
+2137,Industrial/Mineração Industrial com Solo Exposto/Metálicos/Cobalto,#ff8c00
+2138,Industrial/Mineração Industrial com Solo Exposto/Metálicos/Elementos Terras Raras,#ff8c00
+2139,Industrial/Mineração Industrial com Solo Exposto/Metálicos/Estrôncio,#ff8c00
+2142,Industrial/Mineração Industrial com Solo Exposto/Metálicos/Lítio,#ff8c00
+2143,Industrial/Mineração Industrial com Solo Exposto/Metálicos/Mercúrio,#ff8c00
+2144,Industrial/Mineração Industrial com Solo Exposto/Metálicos/Paládio,#ff8c00
+2145,Industrial/Mineração Industrial com Solo Exposto/Metálicos/Platina,#ff8c00
+2147,Industrial/Mineração Industrial com Solo Exposto/Metálicos/Prata,#ff8c00
+2148,Industrial/Mineração Industrial com Solo Exposto/Metálicos/Rubídio,#ff8c00
+2149,Industrial/Mineração Industrial com Solo Exposto/Metálicos/Sódio,#ff8c00
+2150,Industrial/Mineração Industrial com Solo Exposto/Metálicos/Tungstênio,#ff8c00
+2151,Industrial/Mineração Industrial com Solo Exposto/Metálicos/Vanádio,#ff8c00
+2152,Industrial/Mineração Industrial com Solo Exposto/Metálicos/Zircônio,#ff8c00
+2153,Industrial/Mineração Industrial com Solo Exposto/Não metálicos/Água,#daa520
+2154,Industrial/Mineração Industrial com Solo Exposto/Não metálicos/Bromo,#daa520
+2155,Industrial/Mineração Industrial com Solo Exposto/Não metálicos/Caulim,#daa520
+2156,Industrial/Mineração Industrial com Solo Exposto/Não metálicos/Enxofre,#daa520
+2157,Industrial/Mineração Industrial com Solo Exposto/Não metálicos/Fosfato,#daa520
+2159,Industrial/Mineração Industrial com Solo Exposto/Sem Substância/Sem Substância,#708090
+2202,Industrial/Mineração Industrial com Revegetação/Metálicos/Ferro,#ff8c00
+2203,Industrial/Mineração Industrial com Revegetação/Metálicos/Manganês,#ff8c00
+2204,Industrial/Mineração Industrial com Revegetação/Metálicos/Níquel,#ff8c00
+2205,Industrial/Mineração Industrial com Revegetação/Não metálicos/Amianto,#daa520
+2206,Industrial/Mineração Industrial com Revegetação/Metálicos/Titânio,#ff8c00
+2208,Industrial/Mineração Industrial com Revegetação/Metálicos/Cromo,#ff8c00
+2209,Industrial/Mineração Industrial com Revegetação/Metálicos/Cobre,#ff8c00
+2210,Industrial/Mineração Industrial com Revegetação/Metálicos/Alumínio,#ff8c00
+2211,Industrial/Mineração Industrial com Revegetação/Metálicos/Magnésio,#ff8c00
+2212,Industrial/Mineração Industrial com Revegetação/Metálicos/Bário,#ff8c00
+2213,Industrial/Mineração Industrial com Revegetação/Metálicos/Nióbio,#ff8c00
+2214,Industrial/Mineração Industrial com Revegetação/Metálicos/Estanho,#ff8c00
+2215,Industrial/Mineração Industrial com Revegetação/Metálicos/Ouro,#ff8c00
+2217,Industrial/Mineração Industrial com Revegetação/Não metálicos/Minerais classe 2,#daa520
+2218,Industrial/Mineração Industrial com Revegetação/Não metálicos/Flúor,#daa520
+2219,Industrial/Mineração Industrial com Revegetação/Não metálicos/Fósforo,#daa520
+2220,Industrial/Mineração Industrial com Revegetação/Não metálicos/Grafita,#daa520
+2221,Industrial/Mineração Industrial com Revegetação/Não metálicos/Silício,#daa520
+2222,Industrial/Mineração Industrial com Revegetação/Não metálicos/Calcário,#daa520
+2224,Industrial/Mineração Industrial com Revegetação/Pedras preciosas e rochas ornamentais/Pedras Preciosas,#9932cc
+2225,Industrial/Mineração Industrial com Revegetação/Pedras preciosas e rochas ornamentais/Rochas Ornamentais,#9932cc
+2227,Industrial/Mineração Industrial com Revegetação/Energéticos/Carvão Mineral,#b22222
+2228,Industrial/Mineração Industrial com Revegetação/Energéticos/Urânio,#b22222
+2229,Industrial/Mineração Industrial com Revegetação/Energéticos/Gás Natural e Petróleo,#b22222
+2230,Industrial/Mineração Industrial com Revegetação/Metálicos/Zinco,#ff8c00
+2231,Industrial/Mineração Industrial com Revegetação/Metálicos/Antimônio,#ff8c00
+2232,Industrial/Mineração Industrial com Revegetação/Metálicos/Arsênio,#ff8c00
+2233,Industrial/Mineração Industrial com Revegetação/Metálicos/Berílio,#ff8c00
+2234,Industrial/Mineração Industrial com Revegetação/Metálicos/Bismuto,#ff8c00
+2235,Industrial/Mineração Industrial com Revegetação/Metálicos/Césio,#ff8c00
+2236,Industrial/Mineração Industrial com Revegetação/Metálicos/Chumbo,#ff8c00
+2237,Industrial/Mineração Industrial com Revegetação/Metálicos/Cobalto,#ff8c00
+2238,Industrial/Mineração Industrial com Revegetação/Metálicos/Elementos Terras Raras,#ff8c00
+2239,Industrial/Mineração Industrial com Revegetação/Metálicos/Estrôncio,#ff8c00
+2242,Industrial/Mineração Industrial com Revegetação/Metálicos/Lítio,#ff8c00
+2243,Industrial/Mineração Industrial com Revegetação/Metálicos/Mercúrio,#ff8c00
+2244,Industrial/Mineração Industrial com Revegetação/Metálicos/Paládio,#ff8c00
+2245,Industrial/Mineração Industrial com Revegetação/Metálicos/Platina,#ff8c00
+2246,Industrial/Mineração Industrial com Revegetação/Metálicos/Potássio,#ff8c00
+2247,Industrial/Mineração Industrial com Revegetação/Metálicos/Prata,#ff8c00
+2248,Industrial/Mineração Industrial com Revegetação/Metálicos/Rubídio,#ff8c00
+2249,Industrial/Mineração Industrial com Revegetação/Metálicos/Sódio,#ff8c00
+2250,Industrial/Mineração Industrial com Revegetação/Metálicos/Tungstênio,#ff8c00
+2251,Industrial/Mineração Industrial com Revegetação/Metálicos/Vanádio,#ff8c00
+2252,Industrial/Mineração Industrial com Revegetação/Metálicos/Zircônio,#ff8c00
+2253,Industrial/Mineração Industrial com Revegetação/Não metálicos/Água,#daa520
+2254,Industrial/Mineração Industrial com Revegetação/Não metálicos/Bromo,#daa520
+2255,Industrial/Mineração Industrial com Revegetação/Não metálicos/Caulim,#daa520
+2256,Industrial/Mineração Industrial com Revegetação/Não metálicos/Enxofre,#daa520
+2257,Industrial/Mineração Industrial com Revegetação/Não metálicos/Fosfato,#daa520
+2259,Industrial/Mineração Industrial com Revegetação/Sem Substância/Sem Substância,#708090

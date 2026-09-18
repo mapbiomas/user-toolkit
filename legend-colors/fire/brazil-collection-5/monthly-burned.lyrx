@@ -1,0 +1,252 @@
+{
+  "type": "CIMLayerDocument",
+  "version": "2.9.0",
+  "build": 32739,
+  "layers": [
+    "CIMPATH=map/mapbiomas_legend.xml"
+  ],
+  "layerDefinitions": [
+    {
+      "type": "CIMRasterLayer",
+      "name": "MapBiomas Fire brazil C5 - month of burn",
+      "uRI": "CIMPATH=map/mapbiomas_legend.xml",
+      "sourceModifiedTime": {
+        "type": "TimeInstant"
+      },
+      "useSourceMetadata": true,
+      "layerType": "Operational",
+      "showLegends": true,
+      "visibility": true,
+      "displayCacheType": "Permanent",
+      "maxDisplayCacheAge": 5,
+      "showPopups": true,
+      "serviceLayerID": -1,
+      "refreshRate": -1,
+      "refreshRateUnit": "esriTimeUnitsSeconds",
+      "blendingMode": "Alpha",
+      "colorizer": {
+        "type": "CIMRasterUniqueValueColorizer",
+        "resamplingType": "NearestNeighbor",
+        "noDataColor": {
+          "type": "CIMRGBColor",
+          "values": [
+            255,
+            255,
+            255,
+            0
+          ]
+        },
+        "defaultColor": {
+          "type": "CIMRGBColor",
+          "values": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "fieldName": "Value",
+        "groups": [
+          {
+            "type": "CIMRasterUniqueValueGroup",
+            "heading": "Value",
+            "classes": [
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "1"
+                ],
+                "label": "January",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    169,
+                    0,
+                    255,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "2"
+                ],
+                "label": "February",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    111,
+                    2,
+                    255,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "3"
+                ],
+                "label": "March",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    2,
+                    10,
+                    255,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "4"
+                ],
+                "label": "April",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    6,
+                    117,
+                    255,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "5"
+                ],
+                "label": "May",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    6,
+                    255,
+                    255,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "6"
+                ],
+                "label": "June",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    255,
+                    238,
+                    0,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "7"
+                ],
+                "label": "July",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    255,
+                    119,
+                    0,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "8"
+                ],
+                "label": "August",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    255,
+                    8,
+                    0,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "9"
+                ],
+                "label": "September",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    194,
+                    2,
+                    2,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "10"
+                ],
+                "label": "October",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    139,
+                    0,
+                    0,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "11"
+                ],
+                "label": "November",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    10,
+                    166,
+                    2,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "12"
+                ],
+                "label": "December",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    131,
+                    242,
+                    126,
+                    100
+                  ]
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

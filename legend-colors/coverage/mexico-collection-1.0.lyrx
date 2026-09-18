@@ -1,0 +1,300 @@
+{
+  "type": "CIMLayerDocument",
+  "version": "2.9.0",
+  "build": 32739,
+  "layers": [
+    "CIMPATH=map/mapbiomas_legend.xml"
+  ],
+  "layerDefinitions": [
+    {
+      "type": "CIMRasterLayer",
+      "name": "MapBiomas mexico collection 1.0 - coverage",
+      "uRI": "CIMPATH=map/mapbiomas_legend.xml",
+      "sourceModifiedTime": {
+        "type": "TimeInstant"
+      },
+      "useSourceMetadata": true,
+      "layerType": "Operational",
+      "showLegends": true,
+      "visibility": true,
+      "displayCacheType": "Permanent",
+      "maxDisplayCacheAge": 5,
+      "showPopups": true,
+      "serviceLayerID": -1,
+      "refreshRate": -1,
+      "refreshRateUnit": "esriTimeUnitsSeconds",
+      "blendingMode": "Alpha",
+      "colorizer": {
+        "type": "CIMRasterUniqueValueColorizer",
+        "resamplingType": "NearestNeighbor",
+        "noDataColor": {
+          "type": "CIMRGBColor",
+          "values": [
+            255,
+            255,
+            255,
+            0
+          ]
+        },
+        "defaultColor": {
+          "type": "CIMRGBColor",
+          "values": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "fieldName": "Value",
+        "groups": [
+          {
+            "type": "CIMRasterUniqueValueGroup",
+            "heading": "Value",
+            "classes": [
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "3"
+                ],
+                "label": "Tropical humid forest",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    31,
+                    141,
+                    73,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "5"
+                ],
+                "label": "Mangrove",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    4,
+                    56,
+                    29,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "9"
+                ],
+                "label": "Forest plantation",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    122,
+                    89,
+                    0,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "11"
+                ],
+                "label": "Flooded",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    81,
+                    151,
+                    153,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "15"
+                ],
+                "label": "Cultivated grassland",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    237,
+                    222,
+                    142,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "19"
+                ],
+                "label": "Annual crop",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    194,
+                    123,
+                    160,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "24"
+                ],
+                "label": "Urban and built-up area",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    212,
+                    39,
+                    30,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "25"
+                ],
+                "label": "Other non-vegetated areas",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    219,
+                    77,
+                    79,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "33"
+                ],
+                "label": "River, lake or ocean",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    37,
+                    50,
+                    228,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "34"
+                ],
+                "label": "Ice and permanent snow",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    147,
+                    223,
+                    230,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "36"
+                ],
+                "label": "Perennial crop",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    208,
+                    130,
+                    222,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "45"
+                ],
+                "label": "Savanna and natural grassland",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    128,
+                    122,
+                    64,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "66"
+                ],
+                "label": "Shrublands",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    168,
+                    147,
+                    88,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "88"
+                ],
+                "label": "Temperate forest",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    50,
+                    156,
+                    90,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "89"
+                ],
+                "label": "Tropical dry forest",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    107,
+                    212,
+                    108,
+                    100
+                  ]
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

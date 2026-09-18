@@ -1,0 +1,8 @@
+value,label,color
+1,Anthropic,#fffbc2
+2,Primary Vegetation,#09611f
+3,Secondary Vegetation,#4ea376
+4,Deforestation in  Primary Vegetation,#e31a1c
+5,Secondary Vegetation Regrowth,#94fc03
+6,Deforestation in  Secondary Vegetation,#ffa500
+7,Not applied,#212121

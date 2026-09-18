@@ -1,0 +1,460 @@
+{
+  "type": "CIMLayerDocument",
+  "version": "2.9.0",
+  "build": 32739,
+  "layers": [
+    "CIMPATH=map/mapbiomas_legend.xml"
+  ],
+  "layerDefinitions": [
+    {
+      "type": "CIMRasterLayer",
+      "name": "MapBiomas peru collection 4.0 - coverage",
+      "uRI": "CIMPATH=map/mapbiomas_legend.xml",
+      "sourceModifiedTime": {
+        "type": "TimeInstant"
+      },
+      "useSourceMetadata": true,
+      "layerType": "Operational",
+      "showLegends": true,
+      "visibility": true,
+      "displayCacheType": "Permanent",
+      "maxDisplayCacheAge": 5,
+      "showPopups": true,
+      "serviceLayerID": -1,
+      "refreshRate": -1,
+      "refreshRateUnit": "esriTimeUnitsSeconds",
+      "blendingMode": "Alpha",
+      "colorizer": {
+        "type": "CIMRasterUniqueValueColorizer",
+        "resamplingType": "NearestNeighbor",
+        "noDataColor": {
+          "type": "CIMRGBColor",
+          "values": [
+            255,
+            255,
+            255,
+            0
+          ]
+        },
+        "defaultColor": {
+          "type": "CIMRGBColor",
+          "values": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "fieldName": "Value",
+        "groups": [
+          {
+            "type": "CIMRasterUniqueValueGroup",
+            "heading": "Value",
+            "classes": [
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "3"
+                ],
+                "label": "Forest",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    31,
+                    141,
+                    73,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "4"
+                ],
+                "label": "Dry Forest",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    125,
+                    201,
+                    117,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "5"
+                ],
+                "label": "Mangrove",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    4,
+                    56,
+                    29,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "6"
+                ],
+                "label": "Flooded forest",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    2,
+                    105,
+                    117,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "9"
+                ],
+                "label": "Planted forest",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    122,
+                    89,
+                    0,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "12"
+                ],
+                "label": "Herbaceous Formation",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    214,
+                    188,
+                    116,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "15"
+                ],
+                "label": "Pasture (beta)",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    237,
+                    222,
+                    142,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "21"
+                ],
+                "label": "Agricultural and livestock mosaic",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    255,
+                    239,
+                    195,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "23"
+                ],
+                "label": "Beach",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    255,
+                    160,
+                    122,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "24"
+                ],
+                "label": "Urban area",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    212,
+                    39,
+                    30,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "25"
+                ],
+                "label": "Other anthropic non vegetated area",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    219,
+                    77,
+                    79,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "30"
+                ],
+                "label": "Mining",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    156,
+                    0,
+                    39,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "31"
+                ],
+                "label": "Aquaculture",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    9,
+                    16,
+                    119,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "33"
+                ],
+                "label": "River, lake or ocean",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    37,
+                    50,
+                    228,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "34"
+                ],
+                "label": "Glacier",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    147,
+                    223,
+                    230,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "35"
+                ],
+                "label": "Oil Palm",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    144,
+                    101,
+                    208,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "40"
+                ],
+                "label": "Rice (beta)",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    199,
+                    21,
+                    133,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "51"
+                ],
+                "label": "Lowland Flooded Grassland",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    95,
+                    175,
+                    146,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "52"
+                ],
+                "label": "Coastal salt flat surface",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    240,
+                    180,
+                    168,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "61"
+                ],
+                "label": "Salt flat surface",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    245,
+                    213,
+                    213,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "66"
+                ],
+                "label": "Shrubland and Other Shrub Formations",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    168,
+                    147,
+                    88,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "68"
+                ],
+                "label": "Other natural non vegetated area",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    233,
+                    122,
+                    122,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "70"
+                ],
+                "label": "Coastal Lomas (beta)",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    190,
+                    158,
+                    0,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "82"
+                ],
+                "label": "High Andean Flooded Grassland",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    38,
+                    171,
+                    171,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "92"
+                ],
+                "label": "Rocky surface",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    217,
+                    138,
+                    69,
+                    100
+                  ]
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

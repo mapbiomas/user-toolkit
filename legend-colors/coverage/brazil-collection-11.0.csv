@@ -1,0 +1,33 @@
+value,label,color
+3,Forest Formation,#1f8d49
+4,Savanna Formation,#7dc975
+5,Mangrove,#04381d
+6,Floodable Forest,#007785
+7,Flooded Savanna,#228c70
+9,Forest Plantation,#7a5900
+11,Wetland,#519799
+12,Grassland Formation,#d6bc74
+15,Pasture,#edde8e
+20,Sugar cane,#db7093
+21,Mosaic of Uses,#ffefc3
+23,"Beach, Dune and Sand Spot",#ffa07a
+24,Urban Area,#d4271e
+25,Other non Vegetated Areas,#db4d4f
+29,Rocky Outcrop,#ffaa5f
+30,Mining,#9c0027
+31,Aquaculture,#091077
+32,Hypersaline Tidal Flat,#fc8114
+33,"River, Lake and Ocean",#2532e4
+35,Palm Oil,#9065d0
+39,Soybean,#f5b3c8
+40,Rice,#c71585
+41,Other Temporary Crops,#f54ca9
+46,Coffee,#d68fe2
+47,Citrus,#9932cc
+48,Other Perennial Crops,#e6ccff
+49,Wooded Sandbank Vegetation,#02d659
+50,Herbaceous Sandbank Vegetation,#ad5100
+62,Cotton (beta),#ff69b4
+75,Photovoltaic Power Plant (beta),#c12100
+77,Herbaceous-Shrub Mosaic,#c49a5a
+84,Marisma,#6fa8a3

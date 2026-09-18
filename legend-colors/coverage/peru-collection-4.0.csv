@@ -1,0 +1,26 @@
+value,label,color
+3,Forest,#1f8d49
+4,Dry Forest,#7dc975
+5,Mangrove,#04381d
+6,Flooded forest,#026975
+9,Planted forest,#7a5900
+12,Herbaceous Formation,#d6bc74
+15,Pasture (beta),#edde8e
+21,Agricultural and livestock mosaic,#ffefc3
+23,Beach,#ffa07a
+24,Urban area,#d4271e
+25,Other anthropic non vegetated area,#db4d4f
+30,Mining,#9c0027
+31,Aquaculture,#091077
+33,"River, lake or ocean",#2532e4
+34,Glacier,#93dfe6
+35,Oil Palm,#9065d0
+40,Rice (beta),#c71585
+51,Lowland Flooded Grassland,#5faf92
+52,Coastal salt flat surface,#f0b4a8
+61,Salt flat surface,#f5d5d5
+66,Shrubland and Other Shrub Formations,#a89358
+68,Other natural non vegetated area,#e97a7a
+70,Coastal Lomas (beta),#be9e00
+82,High Andean Flooded Grassland,#26abab
+92,Rocky surface,#d98a45

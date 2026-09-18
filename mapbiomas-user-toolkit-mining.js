@@ -16,6 +16,7 @@
  *    1.3.0 - Loads mapbiomas-brazil collection 9.0 mining data
  *    1.4.0 - Loads mapbiomas-brazil collection 11.0 mining substances (new legend)
  *          - Territories from the MapBiomas platform
+ *    1.4.1 - Link to legend files (QGIS, ArcGIS Pro, SLD, CSV)
  * 
  * @see
  *      Get the MapBiomas exported data in your "Google Drive/MAPBIOMAS-EXPORT" folder
@@ -110,7 +111,7 @@ var App = {
 
     options: {
 
-        version: '1.4.0',
+        version: '1.4.1',
 
         logo: {
             uri: 'gs://mapbiomas-public/mapbiomas-logos/mapbiomas-logo-horizontal.b64',
@@ -1551,6 +1552,7 @@ var App = {
                 App.ui.form.panelMain.add(App.ui.form.labelTitle);
                 App.ui.form.panelMain.add(App.ui.form.labelSubtitle);
                 App.ui.form.panelMain.add(App.ui.form.labelLink);
+                App.ui.form.panelMain.add(App.ui.form.labelLegendFiles);
 
                 App.ui.form.panelMain.add(App.ui.form.tabs);
                 App.ui.form.panelMain.add(App.ui.form.panel1);
@@ -1718,6 +1720,13 @@ var App = {
                 // 'padding': '1px',
                 'fontSize': '14px'
             }),
+
+            // arquivos de legenda da coleção mais recente (legend-colors/ no GitHub)
+            labelLegendFiles: ui.Label('Legend files (QGIS, ArcGIS Pro, SLD, CSV)', {
+                'fontSize': '10px'
+            },
+                'https://github.com/mapbiomas/user-toolkit/tree/master/legend-colors/brazil-collection-11'
+            ),
 
             labelLink: ui.Label('Legend codes', {
                 // 'fontWeight': 'bold',

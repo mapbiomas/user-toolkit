@@ -1,0 +1,11 @@
+value,label,color
+3,Closed forest and closed shrubland,#1f8d49
+11,Flooded grasslands and swampy areas,#519799
+12,Grassland,#ccc87e
+15,Pasture,#fbf0ab
+18,Agriculture,#c27ba0
+22,Non-vegetated area,#d4271e
+33,"River, lake or ocean",#2532e4
+79,Pinus plantation,#67671c
+80,Eucalyptus plantation,#886827
+83,Other forestry uses,#ab8231

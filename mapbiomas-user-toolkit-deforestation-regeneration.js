@@ -20,6 +20,7 @@
  *    1.7.0 - Loads mapbiomas-brazil collection 11.0 and fixes collection 10.1 classes
  *          - Loads peru 4.0, bolivia 3.0, uruguay 3.0, paraguay 3.0 and argentina 2.0
  *          - Class encoding per collection; territories from the MapBiomas platform
+ *    1.7.1 - Link to legend files (QGIS, ArcGIS Pro, SLD, CSV)
  * 
  * @see
  *      Get the MapBiomas exported data in your "Google Drive/MAPBIOMAS-EXPORT" folder
@@ -113,7 +114,7 @@ var App = {
 
     options: {
 
-        version: '1.7.0',
+        version: '1.7.1',
 
         logo: {
             uri: 'gs://mapbiomas-public/mapbiomas-logos/mapbiomas-logo-horizontal.b64',
@@ -2286,6 +2287,7 @@ var App = {
                 App.ui.form.panelMain.add(App.ui.form.labelTitle);
                 App.ui.form.panelMain.add(App.ui.form.labelSubtitle);
                 App.ui.form.panelMain.add(App.ui.form.labelLink);
+                App.ui.form.panelMain.add(App.ui.form.labelLegendFiles);
 
                 App.ui.form.panelRegion.add(App.ui.form.labelRegion);
                 App.ui.form.panelRegion.add(App.ui.form.selectRegion);
@@ -2444,6 +2446,13 @@ var App = {
                 // 'padding': '1px',
                 'fontSize': '14px'
             }),
+
+            // arquivos de legenda da coleção mais recente (legend-colors/ no GitHub)
+            labelLegendFiles: ui.Label('Legend files (QGIS, ArcGIS Pro, SLD, CSV)', {
+                'fontSize': '10px'
+            },
+                'https://github.com/mapbiomas/user-toolkit/tree/master/legend-colors/deforestation'
+            ),
 
             labelLink: ui.Label('Legend codes', {
                 // 'fontWeight': 'bold',

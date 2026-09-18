@@ -1,0 +1,25 @@
+value,label,color
+3,Forest,#1f8d49
+4,Wooded savanna,#7dc975
+5,Mangrove,#04381d
+6,Flooded forest,#026975
+9,Forest plantation,#7a6c00
+11,Flooded grassland/shrubland,#519799
+12,Grassland,#d6bc74
+13,Other non-forest natural formations,#d89f5c
+15,Pasture/Fallow lands,#edde8e
+18,Agriculture/Fallow lands,#e974ed
+21,Cropland/Pasture/Fallow lands,#ffefc3
+23,Beach or dune,#ffa07a
+24,Urban,#d4271e
+25,Other non-vegetated anthropic areas,#db4d4f
+29,Rocky outcrop,#ffaa5f
+30,Mining,#9c0027
+31,Aquaculture,#091077
+32,Hypersaline tidal flat,#fc8114
+33,"River, lake or ocean",#2532e4
+50,Xerophytic grassland/shrubland,#ad5100
+66,Shrubland,#a89358
+68,Other non-vegetated natural areas,#e97a7a
+81,Andean herbaceous/shrubby vegetation,#dfeb62
+82,Flooded andean herbaceous/shrubby vegetation,#6fc179

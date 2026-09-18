@@ -1,0 +1,332 @@
+{
+  "type": "CIMLayerDocument",
+  "version": "2.9.0",
+  "build": 32739,
+  "layers": [
+    "CIMPATH=map/mapbiomas_legend.xml"
+  ],
+  "layerDefinitions": [
+    {
+      "type": "CIMRasterLayer",
+      "name": "MapBiomas chaco collection 5.0 - coverage",
+      "uRI": "CIMPATH=map/mapbiomas_legend.xml",
+      "sourceModifiedTime": {
+        "type": "TimeInstant"
+      },
+      "useSourceMetadata": true,
+      "layerType": "Operational",
+      "showLegends": true,
+      "visibility": true,
+      "displayCacheType": "Permanent",
+      "maxDisplayCacheAge": 5,
+      "showPopups": true,
+      "serviceLayerID": -1,
+      "refreshRate": -1,
+      "refreshRateUnit": "esriTimeUnitsSeconds",
+      "blendingMode": "Alpha",
+      "colorizer": {
+        "type": "CIMRasterUniqueValueColorizer",
+        "resamplingType": "NearestNeighbor",
+        "noDataColor": {
+          "type": "CIMRGBColor",
+          "values": [
+            255,
+            255,
+            255,
+            0
+          ]
+        },
+        "defaultColor": {
+          "type": "CIMRGBColor",
+          "values": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "fieldName": "Value",
+        "groups": [
+          {
+            "type": "CIMRasterUniqueValueGroup",
+            "heading": "Value",
+            "classes": [
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "3"
+                ],
+                "label": "Closed woodland",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    31,
+                    141,
+                    73,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "4"
+                ],
+                "label": "Open woodland",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    125,
+                    201,
+                    117,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "6"
+                ],
+                "label": "Flooded woodland",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    2,
+                    105,
+                    117,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "9"
+                ],
+                "label": "Forest plantation",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    122,
+                    89,
+                    0,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "11"
+                ],
+                "label": "Flooded Grassland",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    81,
+                    151,
+                    153,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "15"
+                ],
+                "label": "Pasture",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    237,
+                    222,
+                    142,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "23"
+                ],
+                "label": "Beach, Dune and Sand Spot",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    255,
+                    160,
+                    122,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "24"
+                ],
+                "label": "Urban Area",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    212,
+                    39,
+                    30,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "25"
+                ],
+                "label": "Other non Vegetated Areas",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    219,
+                    77,
+                    79,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "26"
+                ],
+                "label": "Water bodies",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    37,
+                    50,
+                    228,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "42"
+                ],
+                "label": "Open Grassland",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    165,
+                    179,
+                    91,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "43"
+                ],
+                "label": "Closed Grassland",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    194,
+                    210,
+                    107,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "44"
+                ],
+                "label": "Sparse Grassland",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    203,
+                    226,
+                    134,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "45"
+                ],
+                "label": "Sparse woodland",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    128,
+                    122,
+                    64,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "57"
+                ],
+                "label": "Single crop",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    249,
+                    159,
+                    255,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "58"
+                ],
+                "label": "Multiple crop",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    216,
+                    70,
+                    144,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "61"
+                ],
+                "label": "Salt Flat",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    245,
+                    213,
+                    213,
+                    100
+                  ]
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

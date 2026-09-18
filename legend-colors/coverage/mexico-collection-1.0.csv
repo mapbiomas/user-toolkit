@@ -1,0 +1,16 @@
+value,label,color
+3,Tropical humid forest,#1f8d49
+5,Mangrove,#04381d
+9,Forest plantation,#7a5900
+11,Flooded,#519799
+15,Cultivated grassland,#edde8e
+19,Annual crop,#c27ba0
+24,Urban and built-up area,#d4271e
+25,Other non-vegetated areas,#db4d4f
+33,"River, lake or ocean",#2532e4
+34,Ice and permanent snow,#93dfe6
+36,Perennial crop,#d082de
+45,Savanna and natural grassland,#807a40
+66,Shrublands,#a89358
+88,Temperate forest,#329c5a
+89,Tropical dry forest,#6bd46c

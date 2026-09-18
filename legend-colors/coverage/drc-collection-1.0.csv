@@ -1,0 +1,10 @@
+value,label,color
+3,Forest Formation,#1f8d49
+4,Woodland,#7dc975
+5,Mangrove,#04381d
+9,Forest Plantation,#7a5900
+21,Pasture and Agriculture,#ffefc3
+24,Urban Area,#d4271e
+25,Other non Vegetated Area,#db4d4f
+33,"River, Lake, and Ocean",#2532e4
+66,Shrubland,#a89358

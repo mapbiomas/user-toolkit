@@ -1,0 +1,24 @@
+value,label,color
+3,Forest,#1f8d49
+4,Open Forest,#7dc975
+6,Flooded Forest,#026975
+11,Flooded grassland/shrubland,#519799
+12,Grassland/shrubland,#d6bc74
+13,Other non-forest natural formation,#d89f5c
+15,Pasture,#edde8e
+18,Agriculture,#e974ed
+21,Mosaic of Uses,#ffefc3
+23,"Beach, dune and sandbank",#ffa07a
+24,Urban Infrastructure,#d4271e
+25,Other non-vegetated anthropic area,#db4d4f
+29,Rocky outcrop,#ffaa5f
+30,Mining,#9c0027
+33,River and lake,#2532e4
+34,Glacier,#93dfe6
+39,Soybean,#f5b3c8
+61,Salt flat,#f5d5d5
+66,Scrubland,#a89358
+68,Other non-vegetated natural area,#e97a7a
+72,Other crops,#c1799c
+81,Andean grassland and shrubland,#c8c099
+82,Flooded Andean grassland and shrubland,#66b2a3

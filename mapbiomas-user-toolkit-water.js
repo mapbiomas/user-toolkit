@@ -22,6 +22,7 @@
  *    1.5.0 - Brazil Collection 3.0
  *    1.6.0 - Brazil Collection 5.0 (annual water)
  *          - Territories from the MapBiomas platform
+ *    1.6.1 - Link to legend files (QGIS, ArcGIS Pro, SLD, CSV)
  * 
  * @see
  *      Get the MapBiomas exported data in your "Google Drive/MAPBIOMAS-EXPORT" folder
@@ -110,7 +111,7 @@ var App = {
 
     options: {
 
-        version: '1.6.0',
+        version: '1.6.1',
 
 
         logo: {
@@ -1978,6 +1979,7 @@ var App = {
 
                 this.panelMain.add(this.panelLogo);
                 this.panelMain.add(this.labelLink);
+                this.panelMain.add(this.labelLegendFiles);
 
                 this.panelRegion.add(this.labelRegion);
                 this.panelRegion.add(this.selectRegion);
@@ -2144,6 +2146,13 @@ var App = {
                 // 'padding': '1px',
                 'fontSize': '14px'
             }),
+
+            // arquivos de legenda da coleção mais recente (legend-colors/ no GitHub)
+            labelLegendFiles: ui.Label('Legend files (QGIS, ArcGIS Pro, SLD, CSV)', {
+                'fontSize': '10px'
+            },
+                'https://github.com/mapbiomas/user-toolkit/tree/master/legend-colors/water'
+            ),
 
             labelLink: ui.Label('Legend codes', {
                 // 'fontWeight': 'bold',

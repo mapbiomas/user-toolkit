@@ -1,0 +1,14 @@
+value,label,color
+3,Forest Formation,#1f8d49
+5,Mangrove,#04381d
+9,Pulpwood Plantation,#7a5900
+13,Other Natural Vegetation,#d89f5c
+21,Other Agriculture,#ffefc3
+24,Urban Area,#d4271e
+25,Other Non-Vegetation,#db4d4f
+30,Mining Pit,#9c0027
+31,Aquaculture,#091077
+33,"River, Lake, Ocean",#2532e4
+35,Oil Palm,#9065d0
+40,Rice Paddy,#f272c2
+76,Peat Swamp Forest,#2f7360

@@ -1,0 +1,23 @@
+value,label,color
+3,Forest Formation,#1f8d49
+4,Savanna Formation,#7dc975
+5,Mangrove,#04381d
+6,Floodable Forest,#007785
+9,Forest Plantation,#7a5900
+11,Wetland,#519799
+12,Grassland Formation,#d6bc74
+13,Other non-forest natural formation,#d89f5c
+21,Mosaic of Uses,#ffefc3
+23,"Beach, Dune and Sand Spot",#ffa07a
+24,Urban Area,#d4271e
+25,Other non Vegetated Areas,#db4d4f
+27,Not Observed,#ffffff
+29,Rocky Outcrop,#ffaa5f
+30,Mining,#9c0027
+31,Aquaculture,#091077
+33,"River, Lake and Ocean",#2532e4
+34,Glacier,#93dfe6
+68,Other natural non-vegetated area,#e97a7a
+74,Banana,#be83f7
+81,Andean grassland and shrubland,#c8c099
+82,Flooded Andean grassland and shrubland,#66b2a3

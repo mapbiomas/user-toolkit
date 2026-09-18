@@ -1,0 +1,252 @@
+{
+  "type": "CIMLayerDocument",
+  "version": "2.9.0",
+  "build": 32739,
+  "layers": [
+    "CIMPATH=map/mapbiomas_legend.xml"
+  ],
+  "layerDefinitions": [
+    {
+      "type": "CIMRasterLayer",
+      "name": "MapBiomas Fire peru C1 - year of last fire",
+      "uRI": "CIMPATH=map/mapbiomas_legend.xml",
+      "sourceModifiedTime": {
+        "type": "TimeInstant"
+      },
+      "useSourceMetadata": true,
+      "layerType": "Operational",
+      "showLegends": true,
+      "visibility": true,
+      "displayCacheType": "Permanent",
+      "maxDisplayCacheAge": 5,
+      "showPopups": true,
+      "serviceLayerID": -1,
+      "refreshRate": -1,
+      "refreshRateUnit": "esriTimeUnitsSeconds",
+      "blendingMode": "Alpha",
+      "colorizer": {
+        "type": "CIMRasterUniqueValueColorizer",
+        "resamplingType": "NearestNeighbor",
+        "noDataColor": {
+          "type": "CIMRGBColor",
+          "values": [
+            255,
+            255,
+            255,
+            0
+          ]
+        },
+        "defaultColor": {
+          "type": "CIMRGBColor",
+          "values": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "fieldName": "Value",
+        "groups": [
+          {
+            "type": "CIMRasterUniqueValueGroup",
+            "heading": "Value",
+            "classes": [
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "2014"
+                ],
+                "label": "2014",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    170,
+                    32,
+                    22,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "2015"
+                ],
+                "label": "2015",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    166,
+                    33,
+                    26,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "2016"
+                ],
+                "label": "2016",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    163,
+                    33,
+                    30,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "2017"
+                ],
+                "label": "2017",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    159,
+                    34,
+                    34,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "2018"
+                ],
+                "label": "2018",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    155,
+                    34,
+                    38,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "2019"
+                ],
+                "label": "2019",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    150,
+                    27,
+                    30,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "2020"
+                ],
+                "label": "2020",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    144,
+                    20,
+                    23,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "2021"
+                ],
+                "label": "2021",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    139,
+                    14,
+                    15,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "2022"
+                ],
+                "label": "2022",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    133,
+                    7,
+                    8,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "2023"
+                ],
+                "label": "2023",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    128,
+                    0,
+                    0,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "2024"
+                ],
+                "label": "2024",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    128,
+                    0,
+                    0,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "2025"
+                ],
+                "label": "2025",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    117,
+                    0,
+                    0,
+                    100
+                  ]
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

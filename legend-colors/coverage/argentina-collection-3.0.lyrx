@@ -1,0 +1,364 @@
+{
+  "type": "CIMLayerDocument",
+  "version": "2.9.0",
+  "build": 32739,
+  "layers": [
+    "CIMPATH=map/mapbiomas_legend.xml"
+  ],
+  "layerDefinitions": [
+    {
+      "type": "CIMRasterLayer",
+      "name": "MapBiomas argentina collection 3.0 - coverage",
+      "uRI": "CIMPATH=map/mapbiomas_legend.xml",
+      "sourceModifiedTime": {
+        "type": "TimeInstant"
+      },
+      "useSourceMetadata": true,
+      "layerType": "Operational",
+      "showLegends": true,
+      "visibility": true,
+      "displayCacheType": "Permanent",
+      "maxDisplayCacheAge": 5,
+      "showPopups": true,
+      "serviceLayerID": -1,
+      "refreshRate": -1,
+      "refreshRateUnit": "esriTimeUnitsSeconds",
+      "blendingMode": "Alpha",
+      "colorizer": {
+        "type": "CIMRasterUniqueValueColorizer",
+        "resamplingType": "NearestNeighbor",
+        "noDataColor": {
+          "type": "CIMRGBColor",
+          "values": [
+            255,
+            255,
+            255,
+            0
+          ]
+        },
+        "defaultColor": {
+          "type": "CIMRGBColor",
+          "values": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "fieldName": "Value",
+        "groups": [
+          {
+            "type": "CIMRasterUniqueValueGroup",
+            "heading": "Value",
+            "classes": [
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "3"
+                ],
+                "label": "Closed forests",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    31,
+                    141,
+                    73,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "4"
+                ],
+                "label": "Open forests",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    125,
+                    201,
+                    117,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "6"
+                ],
+                "label": "Flooded forests",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    2,
+                    105,
+                    117,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "9"
+                ],
+                "label": "Forest plantations",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    122,
+                    89,
+                    0,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "11"
+                ],
+                "label": "Flooded grassland",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    81,
+                    151,
+                    153,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "12"
+                ],
+                "label": "Grassland",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    214,
+                    188,
+                    116,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "15"
+                ],
+                "label": "Pastures",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    237,
+                    222,
+                    142,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "19"
+                ],
+                "label": "Temporary crops",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    194,
+                    123,
+                    160,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "21"
+                ],
+                "label": "Agriculture and pasture mosaic",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    255,
+                    239,
+                    195,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "24"
+                ],
+                "label": "Urban areas",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    212,
+                    39,
+                    30,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "25"
+                ],
+                "label": "Other non-vegetated areas",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    219,
+                    77,
+                    79,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "27"
+                ],
+                "label": "Not observed",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    255,
+                    255,
+                    255,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "33"
+                ],
+                "label": "Rivers, lakes or ocean",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    37,
+                    50,
+                    228,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "34"
+                ],
+                "label": "Ice and and permanent snow",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    147,
+                    223,
+                    230,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "36"
+                ],
+                "label": "Perennial crops",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    208,
+                    130,
+                    222,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "63"
+                ],
+                "label": "Shrub and herbaceous mosaics",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    199,
+                    224,
+                    171,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "66"
+                ],
+                "label": "Closed shrublands",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    168,
+                    147,
+                    88,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "73"
+                ],
+                "label": "Peatlands",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    111,
+                    193,
+                    121,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "77"
+                ],
+                "label": "Open shrublands",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    134,
+                    176,
+                    116,
+                    100
+                  ]
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

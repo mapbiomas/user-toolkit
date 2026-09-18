@@ -1,0 +1,700 @@
+{
+  "type": "CIMLayerDocument",
+  "version": "2.9.0",
+  "build": 32739,
+  "layers": [
+    "CIMPATH=map/mapbiomas_legend.xml"
+  ],
+  "layerDefinitions": [
+    {
+      "type": "CIMRasterLayer",
+      "name": "MapBiomas Fire brazil C5 - years since last fire",
+      "uRI": "CIMPATH=map/mapbiomas_legend.xml",
+      "sourceModifiedTime": {
+        "type": "TimeInstant"
+      },
+      "useSourceMetadata": true,
+      "layerType": "Operational",
+      "showLegends": true,
+      "visibility": true,
+      "displayCacheType": "Permanent",
+      "maxDisplayCacheAge": 5,
+      "showPopups": true,
+      "serviceLayerID": -1,
+      "refreshRate": -1,
+      "refreshRateUnit": "esriTimeUnitsSeconds",
+      "blendingMode": "Alpha",
+      "colorizer": {
+        "type": "CIMRasterUniqueValueColorizer",
+        "resamplingType": "NearestNeighbor",
+        "noDataColor": {
+          "type": "CIMRGBColor",
+          "values": [
+            255,
+            255,
+            255,
+            0
+          ]
+        },
+        "defaultColor": {
+          "type": "CIMRGBColor",
+          "values": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "fieldName": "Value",
+        "groups": [
+          {
+            "type": "CIMRasterUniqueValueGroup",
+            "heading": "Value",
+            "classes": [
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "1"
+                ],
+                "label": "1 year",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    148,
+                    0,
+                    0,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "2"
+                ],
+                "label": "2 years",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    181,
+                    31,
+                    22,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "3"
+                ],
+                "label": "3 years",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    214,
+                    59,
+                    36,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "4"
+                ],
+                "label": "4 years",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    240,
+                    90,
+                    40,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "5"
+                ],
+                "label": "5 years",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    244,
+                    122,
+                    32,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "6"
+                ],
+                "label": "6 years",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    247,
+                    149,
+                    29,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "7"
+                ],
+                "label": "7 years",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    247,
+                    178,
+                    26,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "8"
+                ],
+                "label": "8 years",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    244,
+                    204,
+                    30,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "9"
+                ],
+                "label": "9 years",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    230,
+                    223,
+                    42,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "10"
+                ],
+                "label": "10 years",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    205,
+                    227,
+                    58,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "11"
+                ],
+                "label": "11 years",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    174,
+                    224,
+                    68,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "12"
+                ],
+                "label": "12 years",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    139,
+                    216,
+                    79,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "13"
+                ],
+                "label": "13 years",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    101,
+                    205,
+                    91,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "14"
+                ],
+                "label": "14 years",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    66,
+                    191,
+                    104,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "15"
+                ],
+                "label": "15 years",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    47,
+                    180,
+                    122,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "16"
+                ],
+                "label": "16 years",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    42,
+                    169,
+                    139,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "17"
+                ],
+                "label": "17 years",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    53,
+                    164,
+                    160,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "18"
+                ],
+                "label": "18 years",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    58,
+                    160,
+                    184,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "19"
+                ],
+                "label": "19 years",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    54,
+                    150,
+                    202,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "20"
+                ],
+                "label": "20 years",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    47,
+                    132,
+                    197,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "21"
+                ],
+                "label": "21 years",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    45,
+                    109,
+                    183,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "22"
+                ],
+                "label": "22 years",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    49,
+                    89,
+                    168,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "23"
+                ],
+                "label": "23 years",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    61,
+                    77,
+                    157,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "24"
+                ],
+                "label": "24 years",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    75,
+                    69,
+                    151,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "25"
+                ],
+                "label": "25 years",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    91,
+                    63,
+                    147,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "26"
+                ],
+                "label": "26 years",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    107,
+                    58,
+                    145,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "27"
+                ],
+                "label": "27 years",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    123,
+                    53,
+                    144,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "28"
+                ],
+                "label": "28 years",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    139,
+                    49,
+                    143,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "29"
+                ],
+                "label": "29 years",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    155,
+                    47,
+                    142,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "30"
+                ],
+                "label": "30 years",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    170,
+                    49,
+                    141,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "31"
+                ],
+                "label": "31 years",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    184,
+                    59,
+                    147,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "32"
+                ],
+                "label": "32 years",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    197,
+                    72,
+                    156,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "33"
+                ],
+                "label": "33 years",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    209,
+                    88,
+                    168,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "34"
+                ],
+                "label": "34 years",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    220,
+                    106,
+                    181,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "35"
+                ],
+                "label": "35 years",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    228,
+                    123,
+                    192,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "36"
+                ],
+                "label": "36 years",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    234,
+                    140,
+                    203,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "37"
+                ],
+                "label": "37 years",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    239,
+                    160,
+                    213,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "38"
+                ],
+                "label": "38 years",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    243,
+                    181,
+                    223,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "39"
+                ],
+                "label": "39 years",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    217,
+                    217,
+                    217,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "40"
+                ],
+                "label": "40 years",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    140,
+                    140,
+                    140,
+                    100
+                  ]
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

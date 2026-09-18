@@ -1,0 +1,25 @@
+value,label,color
+3,Forest,#1f8d49
+5,Mangrove,#04381d
+6,Flooded forest,#026975
+9,Forest plantation,#7a5900
+11,Wetland,#519799
+12,Grasslands / herbaceous,#d6bc74
+13,Other non forest formation,#d89f5c
+21,Mosaic of agriculture and pasture,#ffefc3
+23,"Beach, dune and sand spot",#ffa07a
+24,Infrastructure,#d4271e
+25,Other non-vegetated area,#db4d4f
+29,Rocky outcrop,#ffaa5f
+30,Mining,#9c0027
+31,Aquaculture,#091077
+32,Hypersaline tidal flat,#fc8114
+33,"River, lake or ocean",#2532e4
+34,Glacier,#93dfe6
+35,Palm oil,#9065d0
+49,Wooded sand vegetation,#02d659
+50,Herbaceous sand vegetation,#ad5100
+68,Other natural  non-vegetated area,#e97a7a
+74,Banana,#be83f7
+81,Andinean Herbaceous and Shrubby Vegetation,#dfeb62
+82,Flooded Andinean Herbaceous and Shrubby Vegetation,#6fc179

@@ -71,6 +71,7 @@
  *           - Loads mapbiomas-mexico and mapbiomas-drc collection 1.0
  *           - Palettes and class names from the MapBiomas platform legends
  *           - Periods read from the asset bands; territories from the MapBiomas platform
+ *    1.36.1 - Link to legend files (QGIS, ArcGIS Pro, SLD, CSV)
  * 
  * @see
  *      Get the MapBiomas exported data in your "Google Drive/MAPBIOMAS-EXPORT" folder
@@ -158,7 +159,7 @@ var App = {
 
     options: {
 
-        version: '1.36.0',
+        version: '1.36.1',
 
         logo: {
             uri: 'gs://mapbiomas-public/mapbiomas-logos/mapbiomas-logo-horizontal.b64',
@@ -4893,12 +4894,16 @@ var App = {
                 App.ui.form.panelMain.add(App.ui.form.labelLink);
                 App.ui.form.panelMain.add(App.ui.form.panelLink1);
                 App.ui.form.panelMain.add(App.ui.form.panelLink2);
+                App.ui.form.panelMain.add(App.ui.form.labelLegendFiles);
 
                 // App.ui.form.panelMain.add(App.ui.form.tabs);
                 App.ui.form.panelMain.add(App.ui.form.panel1);
 
                 // App.ui.form.tab1.add(App.ui.form.checkboxTab1);
-                // App.ui.form.tab2.add(App.ui.form.checkboxTab2); // desabilitado temporariamente
+                // Aba 'Direct Link' desabilitada: os links fixos de download (coleções antigas de
+                // chaco, ecuador, peru, bolivia e indonesia) apontam para arquivos que não existem mais.
+                // Reative só depois de atualizar os links para as coleções atuais.
+                // App.ui.form.tab2.add(App.ui.form.checkboxTab2);
 
                 App.ui.form.tabs.add(App.ui.form.tab1);
                 App.ui.form.tabs.add(App.ui.form.tab2);
@@ -5075,6 +5080,13 @@ var App = {
                 // 'padding': '1px',
                 'fontSize': '14px'
             }),
+
+            // arquivos de legenda da coleção mais recente (legend-colors/ no GitHub)
+            labelLegendFiles: ui.Label('Legend files (QGIS, ArcGIS Pro, SLD, CSV)', {
+                'fontSize': '10px'
+            },
+                'https://github.com/mapbiomas/user-toolkit/tree/master/legend-colors/coverage'
+            ),
 
             labelLink: ui.Label('Legend codes:', {
                 'fontSize': '10px'

@@ -1,0 +1,18 @@
+value,label,color
+3,Closed woodland,#1f8d49
+4,Open woodland,#7dc975
+6,Flooded woodland,#026975
+9,Forest plantation,#7a5900
+11,Flooded Grassland,#519799
+15,Pasture,#edde8e
+23,"Beach, Dune and Sand Spot",#ffa07a
+24,Urban Area,#d4271e
+25,Other non Vegetated Areas,#db4d4f
+26,Water bodies,#2532e4
+42,Open Grassland,#a5b35b
+43,Closed Grassland,#c2d26b
+44,Sparse Grassland,#cbe286
+45,Sparse woodland,#807a40
+57,Single crop,#f99fff
+58,Multiple crop,#d84690
+61,Salt Flat,#f5d5d5
