@@ -16,7 +16,12 @@ External modules the scripts depend on (these live in GEE, not in this repo): `u
 
 ## Source of truth
 
-The canonical scripts live in the GEE git repo `https://earthengine.googlesource.com/users/mapbiomas/user-toolkit`, which is edited directly in the Code Editor and has its own history (auto-generated "Updated <file> (added N lines…)" commits). This GitHub repo is a mirror that lags behind it. To sync, clone that repo (it needs `~/.gitcookies` from https://earthengine.googlesource.com/new-password), then copy its `.js` files over the local ones. It contains only the `.js` scripts. `README.md`, `ancillary/`, `legend-colors/`, `misc/`, `prototype/`, and `mapbiomas-user-toolkit-mosaics.js` exist only here.
+Users run the scripts from the GEE git repo `https://earthengine.googlesource.com/users/mapbiomas/user-toolkit`. It holds only the `.js` scripts and can also be edited directly in the Code Editor, which makes auto-generated "Updated <file> (added N lines…)" commits. Its history is unrelated to this repo's, so it can't be a remote of this repo. `README.md`, `LICENSE`, `ancillary/`, `legend-colors/`, `misc/`, `prototype/`, and `mapbiomas-user-toolkit-mosaics.js` exist only here.
+
+A clone of the GEE repo is kept next to this one, in `../user-toolkit-gee`. Git authenticates with `~/.gitcookies` (generate it at https://earthengine.googlesource.com/new-password). Pass `-c credential.helper=` so git doesn't hang waiting for a password prompt.
+
+- **Before editing here:** run `git fetch` in `../user-toolkit-gee` and compare its `.js` files with this repo's. If someone edited a script in the Code Editor, bring that change over first.
+- **To publish:** commit and push here (GitHub). Then, in `../user-toolkit-gee`, `git fetch` and confirm `HEAD == origin/master`, so no Code Editor edits get overwritten. Copy over the `.js` files that already exist there (don't add `mosaics.js`), commit with a message that cites the GitHub commit hash, and `git -c credential.helper= push origin master`.
 
 ## Architecture of a toolkit script
 
