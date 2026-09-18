@@ -19,6 +19,7 @@
  *    0.0.2 - Replicando em memoria as camdas da plataforma (Area de classes borda, Area de classes de tamanho de fragmento e Area de classes de distancias dos fragmentos)
  *    0.0.3 - Atualizando camadas de degradação construidas em memoria
  *    0.0.4 - Territories from the MapBiomas platform
+ *    0.0.5 - single link to the legend files on GitHub
  * 
  * @see
  *      Get the MapBiomas exported data in your "Google Drive/MAPBIOMAS-EXPORT" folder
@@ -339,7 +340,7 @@ var App = {
 
     options: {
 
-        version: '0.0.4',
+        version: '0.0.5',
 
         logo: {
             uri: 'gs://mapbiomas-public/mapbiomas-logos/mapbiomas-logo-horizontal.b64',
@@ -1575,9 +1576,10 @@ var App = {
                 App.ui.form.panelMain.add(App.ui.form.panelLogo);
                 App.ui.form.panelMain.add(App.ui.form.labelTitle);
                 App.ui.form.panelMain.add(App.ui.form.labelSubtitle);
-                App.ui.form.panelMain.add(App.ui.form.labelLink);
-                App.ui.form.panelMain.add(App.ui.form.panelLink1);
-                App.ui.form.panelMain.add(App.ui.form.panelLink2);
+                App.ui.form.panelMain.add(App.ui.form.labelLegendFiles);
+                // App.ui.form.panelMain.add(App.ui.form.labelLink);  // substituído pelo link único para os arquivos de legenda
+                // App.ui.form.panelMain.add(App.ui.form.panelLink1);  // substituído pelo link único para os arquivos de legenda
+                // App.ui.form.panelMain.add(App.ui.form.panelLink2);  // substituído pelo link único para os arquivos de legenda
 
                 App.ui.form.panelMain.add(App.ui.form.tabs);
                 App.ui.form.panelMain.add(App.ui.form.panel1);
@@ -1779,6 +1781,13 @@ var App = {
                 // 'padding': '1px',
                 'fontSize': '14px'
             }),
+
+            // arquivos de legenda (legend-colors/ no GitHub)
+            labelLegendFiles: ui.Label('Legend files (QGIS, ArcGIS Pro, SLD, CSV)', {
+                'fontSize': '10px'
+            },
+                'https://github.com/mapbiomas/user-toolkit/tree/master/legend-colors'
+            ),
 
             labelLink: ui.Label('Legend codes:', {
                 'fontSize': '10px'

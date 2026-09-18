@@ -23,6 +23,7 @@
  *    1.6.0 - Brazil Collection 5.0 (annual water)
  *          - Territories from the MapBiomas platform
  *    1.6.1 - Link to legend files (QGIS, ArcGIS Pro, SLD, CSV)
+ *    1.6.2 - single link to the legend files on GitHub
  * 
  * @see
  *      Get the MapBiomas exported data in your "Google Drive/MAPBIOMAS-EXPORT" folder
@@ -111,7 +112,7 @@ var App = {
 
     options: {
 
-        version: '1.6.1',
+        version: '1.6.2',
 
 
         logo: {
@@ -1978,7 +1979,7 @@ var App = {
                 );
 
                 this.panelMain.add(this.panelLogo);
-                this.panelMain.add(this.labelLink);
+                // this.panelMain.add(this.labelLink);  // substituído pelo link único para os arquivos de legenda
                 this.panelMain.add(this.labelLegendFiles);
 
                 this.panelRegion.add(this.labelRegion);

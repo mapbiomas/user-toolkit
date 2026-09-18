@@ -145,21 +145,22 @@ Land use and land cover toolkit (`mapbiomas-user-toolkit-lulc.js`). Each script 
 
 | Toolkit | Current version |
 |---|---|
-| lulc | 1.36.1 |
-| deforestation-regeneration | 1.7.1 |
-| fire | 1.4.12 |
-| water | 1.6.1 |
-| irrigation | 1.5.1 |
-| mining | 1.4.1 |
-| pasture | 1.5.1 |
-| soil | 1.1.3 |
-| degradation | 0.0.4 |
+| lulc | 1.36.2 |
+| deforestation-regeneration | 1.7.2 |
+| fire | 1.4.13 |
+| water | 1.6.2 |
+| irrigation | 1.5.2 |
+| mining | 1.4.2 |
+| pasture | 1.5.2 |
+| soil | 1.1.4 |
+| degradation | 0.0.5 |
 
 <details>
 <summary>Land use and land cover release history</summary>
 
 | Version | Changes |
 |---|---|
+| 1.36.2 | New toolkit logo; single link to the legend files on GitHub |
 | 1.36.1 | Link to legend files (QGIS, ArcGIS Pro, SLD, CSV) |
 | 1.36.0 | Loads mapbiomas-brazil collection 11.0<br>Loads atlantic-forest 4.0, colombia 3.0, venezuela 3.0, ecuador 3.0, peru 4.0, uruguay 3.0, paraguay 3.0, chile 2.0, argentina 2.0 and 3.0, indonesia 3.0 and 4.1<br>Loads mapbiomas-mexico and mapbiomas-drc collection 1.0<br>Palettes and class names from the MapBiomas platform legends<br>Periods read from the asset bands; territories from the MapBiomas platform |
 | 1.35.0 | Loads mapbiomas-brasil collection 10.1 |

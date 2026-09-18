@@ -25,6 +25,7 @@
  *    1.1.2 - 2025-12-08
  *            Collection 3.0 soil
  *    1.1.3 - Territories from the MapBiomas platform
+ *    1.1.4 - single link to the legend files on GitHub
  * 
  */
 
@@ -264,7 +265,7 @@ var App = {
 
     options: {
 
-        version: '1.1.3',
+        version: '1.1.4',
 
         logo: {
             uri: 'gs://mapbiomas-public/mapbiomas-logos/mapbiomas-logo-horizontal.b64',
@@ -1670,8 +1671,9 @@ var App = {
                 App.ui.form.panelMain.add(App.ui.form.panelLogo);
                 App.ui.form.panelMain.add(App.ui.form.labelTitle);
                 App.ui.form.panelMain.add(App.ui.form.labelSubtitle);
-                App.ui.form.panelMain.add(App.ui.form.labelLink);
-                App.ui.form.panelMain.add(App.ui.form.panelLink1);
+                App.ui.form.panelMain.add(App.ui.form.labelLegendFiles);
+                // App.ui.form.panelMain.add(App.ui.form.labelLink);  // substituído pelo link único para os arquivos de legenda
+                // App.ui.form.panelMain.add(App.ui.form.panelLink1);  // substituído pelo link único para os arquivos de legenda
                 // App.ui.form.panelMain.add(App.ui.form.panelLink2);
 
                 App.ui.form.panelMain.add(App.ui.form.tabs);
@@ -1877,6 +1879,13 @@ var App = {
                 // 'padding': '1px',
                 'fontSize': '14px'
             }),
+
+            // arquivos de legenda (legend-colors/ no GitHub)
+            labelLegendFiles: ui.Label('Legend files (QGIS, ArcGIS Pro, SLD, CSV)', {
+                'fontSize': '10px'
+            },
+                'https://github.com/mapbiomas/user-toolkit/tree/master/legend-colors'
+            ),
 
             labelLink: ui.Label('Legend codes:', {
                 'fontSize': '10px'

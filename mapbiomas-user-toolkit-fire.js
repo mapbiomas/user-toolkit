@@ -50,6 +50,7 @@
  *             collection 1.0 frequency periods, peru accumulated coverage and year 2025;
  *             fixes download links (brazil col5 monthly, paraguay accumulated coverage)
  *             link to legend files (QGIS, ArcGIS Pro, SLD, CSV)
+ *    1.4.13 - single link to the legend files on GitHub
  * 
  */
 
@@ -61,7 +62,7 @@ var App = {
 
     options: {
 
-        version: '1.4.12',
+        version: '1.4.13',
 
         logo: {
             uri: 'gs://mapbiomas-public/mapbiomas-logos/mapbiomas-logo-horizontal.b64',
@@ -2963,8 +2964,8 @@ var App = {
                 App.ui.form.panelMain.add(App.ui.form.panelLogo);
                 App.ui.form.panelMain.add(App.ui.form.labelTitle);
                 App.ui.form.panelMain.add(App.ui.form.labelSubtitle);
-                App.ui.form.panelMain.add(App.ui.form.labelLink);
-                App.ui.form.panelMain.add(App.ui.form.panelLink1);
+                // App.ui.form.panelMain.add(App.ui.form.labelLink);  // substituído pelo link único para os arquivos de legenda
+                // App.ui.form.panelMain.add(App.ui.form.panelLink1);  // substituído pelo link único para os arquivos de legenda
                 App.ui.form.panelMain.add(App.ui.form.labelLegendFiles);
                 // App.ui.form.panelMain.add(App.ui.form.panelLink2);
 

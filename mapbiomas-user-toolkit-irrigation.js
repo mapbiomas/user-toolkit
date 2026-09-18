@@ -19,6 +19,7 @@
  *    1.5.0 - Irrigation systems - Collection 11.0
  *          - Territories from the MapBiomas platform
  *    1.5.1 - Collection 11.0 legend (codes 2 and 3 changed); link to legend files
+ *    1.5.2 - New toolkit logo; single link to the legend files on GitHub
  * 
  * @see
  *      Get the MapBiomas exported data in your "Google Drive/MAPBIOMAS-EXPORT" folder
@@ -113,10 +114,10 @@ var App = {
 
     options: {
 
-        version: '1.5.1',
+        version: '1.5.2',
 
         logo: {
-            uri: 'gs://mapbiomas-public/mapbiomas-logos/mapbiomas-logo-horizontal.b64',
+            uri: 'gs://mapbiomas-public/mapbiomas-logos/mapbiomas-toolkit-logo.b64',
             base64: null
         },
 

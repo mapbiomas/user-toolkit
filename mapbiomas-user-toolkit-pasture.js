@@ -18,6 +18,7 @@
  *    1.5.0 - Pasture Vigor - Collection 11.0
  *          - Territories from the MapBiomas platform
  *    1.5.1 - Link to legend files (QGIS, ArcGIS Pro, SLD, CSV)
+ *    1.5.2 - New toolkit logo; single link to the legend files on GitHub
  * 
  * @see
  *      Get the MapBiomas exported data in your "Google Drive/MAPBIOMAS-EXPORT" folder
@@ -110,10 +111,10 @@ var App = {
 
     options: {
 
-        version: '1.5.1',
+        version: '1.5.2',
 
         logo: {
-            uri: 'gs://mapbiomas-public/mapbiomas-logos/mapbiomas-logo-horizontal.b64',
+            uri: 'gs://mapbiomas-public/mapbiomas-logos/mapbiomas-toolkit-logo.b64',
             base64: null
         },
 
@@ -1100,7 +1101,7 @@ var App = {
                 App.ui.form.panelMain.add(App.ui.form.panelLogo);
                 App.ui.form.panelMain.add(App.ui.form.labelTitle);
                 App.ui.form.panelMain.add(App.ui.form.labelSubtitle);
-                App.ui.form.panelMain.add(App.ui.form.labelLink);
+                // App.ui.form.panelMain.add(App.ui.form.labelLink);  // substituído pelo link único para os arquivos de legenda
                 App.ui.form.panelMain.add(App.ui.form.labelLegendFiles);
 
                 App.ui.form.panelRegion.add(App.ui.form.labelRegion);
