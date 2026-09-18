@@ -8,7 +8,7 @@
  */
 
 // Asset mapbiomas
-var asset = "projects/mapbiomas-workspace/public/collection6/mapbiomas_collection60_integration_v1";
+var asset = "projects/mapbiomas-public/assets/brazil/lulc/collection9/mapbiomas_collection90_integration_v1";
 
 // Asset of regions for which you want to calculate statistics
 var assetTerritories = "projects/mapbiomas-workspace/AUXILIAR/biomas-estados-2016-raster";
@@ -22,7 +22,7 @@ var years = [
     '1993', '1994', '1995', '1996', '1997', '1998', '1999', '2000',
     '2001', '2002', '2003', '2004', '2005', '2006', '2007', '2008',
     '2009', '2010', '2011', '2012', '2013', '2014', '2015', '2016',
-    '2017', '2018', '2019', '2020'
+    '2017', '2018', '2019', '2020', '2021', '2022', '2023'
 ];
 
 // Define a Google Drive output folder 
@@ -44,7 +44,7 @@ var pixelArea = ee.Image.pixelArea().divide(1000000);
 var geometry = mapbiomas.geometry();
 
 /**
- * Convert a complex obj to a feature collection
+ * Convert a complex ob to feature collection
  * @param obj 
  */
 var convert2table = function (obj) {
@@ -85,7 +85,7 @@ var calculateArea = function (image, territory, geometry) {
 
     var reducer = ee.Reducer.sum().group(1, 'class').group(1, 'territory');
 
-    var territoriesData = pixelArea.addBands(territory).addBands(image)
+    var territotiesData = pixelArea.addBands(territory).addBands(image)
         .reduceRegion({
             reducer: reducer,
             geometry: geometry,
@@ -93,16 +93,15 @@ var calculateArea = function (image, territory, geometry) {
             maxPixels: 1e12
         });
 
-    territoriesData = ee.List(territoriesData.get('groups'));
+    territotiesData = ee.List(territotiesData.get('groups'));
 
-    var areas = territoriesData.map(convert2table);
+    var areas = territotiesData.map(convert2table);
 
     areas = ee.FeatureCollection(areas).flatten();
 
     return areas;
 };
 
-// Iterate over years, select the classification and calculate area
 var areas = years.map(
     function (year) {
         var image = mapbiomas.select('classification_' + year);
@@ -120,10 +119,8 @@ var areas = years.map(
     }
 );
 
-// Convert a collection of collections into a single collection
 areas = ee.FeatureCollection(areas).flatten();
 
-// Export a csv file to Google Drive
 Export.table.toDrive({
     collection: areas,
     description: 'areas-teste-toolkit',

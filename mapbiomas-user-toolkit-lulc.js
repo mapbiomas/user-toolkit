@@ -64,6 +64,7 @@
  *           - Loads mapbiomas-colombia collection 2.0
  *    1.34.0 - Loads mapbiomas-pampa collection 4.0
  *           - Loads mapbiomas-uruguay collection 2.0
+ *    1.35.0 - Loads mapbiomas-brasil collection 10.1
  * 
  * @see
  *      Get the MapBiomas exported data in your "Google Drive/MAPBIOMAS-EXPORT" folder
@@ -193,162 +194,162 @@ var App = {
             'mapbiomas-brazil': [
                 {
                     'label': 'Amacro',
-                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/LULC/BRAZIL/COLLECTION9/WORKSPACE/AMACRO',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/AMACRO',
                 },
                 {
                     'label': 'Ministry of the Environment priority areas 2018',
-                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/LULC/BRAZIL/COLLECTION9/WORKSPACE/AREAS_PRIORITARIAS_DO_MMA_2018',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/AREAS_PRIORITARIAS_DO_MMA_2018',
                 },
                 {
                     'label': 'Atlantic Forest Law',
-                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/LULC/BRAZIL/COLLECTION9/WORKSPACE/ATLANTIC_FOREST_LAW',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/ATLANTIC_FOREST_LAW',
                 },
                 {
                     'label': 'Basin Level 1 DNAEE',
-                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/LULC/BRAZIL/COLLECTION9/WORKSPACE/BASIN_LEVEL_1_DNAEE',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/BASIN_LEVEL_1_DNAEE',
                 },
                 {
                     'label': 'Basin Level 1 PNRH',
-                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/LULC/BRAZIL/COLLECTION9/WORKSPACE/BASIN_LEVEL_1_PNRH',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/BASIN_LEVEL_1_PNRH',
                 },
                 {
                     'label': 'Basin Level 2 DNAEE',
-                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/LULC/BRAZIL/COLLECTION9/WORKSPACE/BASIN_LEVEL_2_DNAEE',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/BASIN_LEVEL_2_DNAEE',
                 },
                 {
                     'label': 'Basin Level 2 PNRH',
-                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/LULC/BRAZIL/COLLECTION9/WORKSPACE/BASIN_LEVEL_2_PNRH',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/BASIN_LEVEL_2_PNRH',
                 },
                 {
                     'label': 'Biomes',
-                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/LULC/BRAZIL/COLLECTION9/WORKSPACE/BIOMES',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/BIOMES',
                 },
                 {
                     'label': 'Coastal Marine Zone',
-                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/LULC/BRAZIL/COLLECTION9/WORKSPACE/COASTAL_MARINE_ZONE',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/COASTAL_MARINE_ZONE',
                 },
                 {
                     'label': 'Forest Concessions',
-                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/LULC/BRAZIL/COLLECTION9/WORKSPACE/CONCESSOES_FLORESTAIS',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/CONCESSOES_FLORESTAIS',
                 },
                 {
                     'label': 'DHN250 Level 1',
-                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/LULC/BRAZIL/COLLECTION9/WORKSPACE/DHN250_LEVEL_1',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/DHN250_LEVEL_1',
                 },
                 {
                     'label': 'DHN250 Level 2',
-                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/LULC/BRAZIL/COLLECTION9/WORKSPACE/DHN250_LEVEL_2',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/DHN250_LEVEL_2',
                 },
                 {
                     'label': 'DHN250 Level 3',
-                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/LULC/BRAZIL/COLLECTION9/WORKSPACE/DHN250_LEVEL_3',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/DHN250_LEVEL_3',
                 },
                 {
                     'label': 'Non-Designated Public Forests',
-                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/LULC/BRAZIL/COLLECTION9/WORKSPACE/FLORESTAS_PUBLICAS_NAO_DESTINADAS',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/FLORESTAS_PUBLICAS_NAO_DESTINADAS',
                 },
                 {
                     'label': 'Geoparques',
-                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/LULC/BRAZIL/COLLECTION9/WORKSPACE/GEOPARQUES',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/GEOPARQUES',
                 },
                 {
                     'label': 'Indigenous Territories',
-                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/LULC/BRAZIL/COLLECTION9/WORKSPACE/INDIGENOUS_TERRITORIES',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/INDIGENOUS_TERRITORIES',
                 },
                 {
                     'label': 'Legal Amazon',
-                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/LULC/BRAZIL/COLLECTION9/WORKSPACE/LEGAL_AMAZON',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/LEGAL_AMAZON',
                 },
                 {
                     'label': 'Matopiba',
-                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/LULC/BRAZIL/COLLECTION9/WORKSPACE/MATOPIBA',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/MATOPIBA',
                 },
                 {
                     'label': 'Political Level 1',
-                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/LULC/BRAZIL/COLLECTION9/WORKSPACE/POLITICAL_LEVEL_1',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/POLITICAL_LEVEL_1',
                 },
                 {
                     'label': 'Political Level 2',
-                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/LULC/BRAZIL/COLLECTION9/WORKSPACE/POLITICAL_LEVEL_2',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/POLITICAL_LEVEL_2',
                 },
                 {
                     'label': 'Political Level 3',
-                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/LULC/BRAZIL/COLLECTION9/WORKSPACE/POLITICAL_LEVEL_3',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/POLITICAL_LEVEL_3',
                 },
                 {
                     'label': 'Protected Area',
-                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/LULC/BRAZIL/COLLECTION9/WORKSPACE/PROTECTED_AREA',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/PROTECTED_AREA',
                 },
                 {
                     'label': 'Quilombos',
-                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/LULC/BRAZIL/COLLECTION9/WORKSPACE/QUILOMBOS',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/QUILOMBOS',
                 },
                 {
                     'label': 'Biosphere Reserve',
-                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/LULC/BRAZIL/COLLECTION9/WORKSPACE/RESERVA_DA_BIOSFERA',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/RESERVA_DA_BIOSFERA',
                 },
                 {
                     'label': 'Semiarid',
-                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/LULC/BRAZIL/COLLECTION9/WORKSPACE/SEMIARID',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/SEMIARID',
                 },
                 {
                     'label': 'Settlements',
-                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/LULC/BRAZIL/COLLECTION9/WORKSPACE/SETTLEMENTS',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/SETTLEMENTS',
                 },
                 {
                     'label': 'UGRHS',
-                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/LULC/BRAZIL/COLLECTION9/WORKSPACE/UGRHS',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/UGRHS',
                 }
             ],
             'mapbiomas-amazon': [
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES/LULC/PAN-AMAZONIA/COLLECTION6/WORKSPACE/BIOMES_ALL",
+                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/PAN-AMAZONIA/COLLECTION6/WORKSPACE/BIOMES_ALL",
                     "label": "Biomes"
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES/LULC/PAN-AMAZONIA/COLLECTION6/WORKSPACE/CUENCAS_NIVEL_1_ALL",
+                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/PAN-AMAZONIA/COLLECTION6/WORKSPACE/CUENCAS_NIVEL_1_ALL",
                     "label": "Level 1 Watersheds"
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES/LULC/PAN-AMAZONIA/COLLECTION6/WORKSPACE/INDIGENOUS_TERRITORIES",
+                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/PAN-AMAZONIA/COLLECTION6/WORKSPACE/INDIGENOUS_TERRITORIES",
                     "label": "Indigenous Territories"
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES/LULC/PAN-AMAZONIA/COLLECTION6/WORKSPACE/LIMITERAISG",
+                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/PAN-AMAZONIA/COLLECTION6/WORKSPACE/LIMITERAISG",
                     "label": "Raisg Boundaries"
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES/LULC/PAN-AMAZONIA/COLLECTION6/WORKSPACE/PROTECTED_AREAS_DEPTALES",
+                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/PAN-AMAZONIA/COLLECTION6/WORKSPACE/PROTECTED_AREAS_DEPTALES",
                     "label": "Departmental Protected Areas"
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES/LULC/PAN-AMAZONIA/COLLECTION6/WORKSPACE/PROTECTED_AREAS_NACIONALES",
+                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/PAN-AMAZONIA/COLLECTION6/WORKSPACE/PROTECTED_AREAS_NACIONALES",
                     "label": "National Protected Areas"
                 }
             ],
             'mapbiomas-chaco': [
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES/LULC/CHACO/COLLECTION5/WORKSPACE/BIOMES",
+                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/CHACO/COLLECTION5/WORKSPACE/BIOMES",
                     "label": "Biomas"
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES/LULC/CHACO/COLLECTION5/WORKSPACE/POLITICAL_LEVEL_1",
+                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/CHACO/COLLECTION5/WORKSPACE/POLITICAL_LEVEL_1",
                     "label": "Nível Político 1"
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES/LULC/CHACO/COLLECTION5/WORKSPACE/POLITICAL_LEVEL_2",
+                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/CHACO/COLLECTION5/WORKSPACE/POLITICAL_LEVEL_2",
                     "label": "Nível Político 2"
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES/LULC/CHACO/COLLECTION5/WORKSPACE/POLITICAL_LEVEL_3",
+                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/CHACO/COLLECTION5/WORKSPACE/POLITICAL_LEVEL_3",
                     "label": "Nível Político 3"
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES/LULC/CHACO/COLLECTION5/WORKSPACE/PROTECTED_AREA",
+                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/CHACO/COLLECTION5/WORKSPACE/PROTECTED_AREA",
                     "label": "Área Protegida"
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES/LULC/CHACO/COLLECTION5/WORKSPACE/RAMSAR_SITES",
+                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/CHACO/COLLECTION5/WORKSPACE/RAMSAR_SITES",
                     "label": "Sítios Ramsar"
                 }
             ],
@@ -388,39 +389,39 @@ var App = {
             ],
             'mapbiomas-pampa': [
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES/LULC/PAMPA/COLLECTION4/WORKSPACE/BASIN_LEVEL_1",
+                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/PAMPA/COLLECTION4/WORKSPACE/BASIN_LEVEL_1",
                     "label": "Basin Level 1"
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES/LULC/PAMPA/COLLECTION4/WORKSPACE/INDIGENOUS_TERRITORIES",
+                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/PAMPA/COLLECTION4/WORKSPACE/INDIGENOUS_TERRITORIES",
                     "label": "Indigenous Territories"
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES/LULC/PAMPA/COLLECTION4/WORKSPACE/PAMPA_TRINACIONAL_LIMIT",
+                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/PAMPA/COLLECTION4/WORKSPACE/PAMPA_TRINACIONAL_LIMIT",
                     "label": "Pampa Trinational Limit"
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES/LULC/PAMPA/COLLECTION4/WORKSPACE/PHYTOGEOGRAPHIC_PROVINCES",
+                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/PAMPA/COLLECTION4/WORKSPACE/PHYTOGEOGRAPHIC_PROVINCES",
                     "label": "Phytogeographic Provinces"
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES/LULC/PAMPA/COLLECTION4/WORKSPACE/POLITICAL_LEVEL_1",
+                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/PAMPA/COLLECTION4/WORKSPACE/POLITICAL_LEVEL_1",
                     "label": "Political Level 1"
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES/LULC/PAMPA/COLLECTION4/WORKSPACE/POLITICAL_LEVEL_2",
+                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/PAMPA/COLLECTION4/WORKSPACE/POLITICAL_LEVEL_2",
                     "label": "Political Level 2"
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES/LULC/PAMPA/COLLECTION4/WORKSPACE/POLITICAL_LEVEL_3",
+                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/PAMPA/COLLECTION4/WORKSPACE/POLITICAL_LEVEL_3",
                     "label": "Political Level 3"
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES/LULC/PAMPA/COLLECTION4/WORKSPACE/PROTECTED_AREA",
+                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/PAMPA/COLLECTION4/WORKSPACE/PROTECTED_AREA",
                     "label": "Protected Area"
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES/LULC/PAMPA/COLLECTION4/WORKSPACE/QUILOMBOS",
+                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/PAMPA/COLLECTION4/WORKSPACE/QUILOMBOS",
                     "label": "Quilombos"
                 }
             ],
@@ -569,277 +570,277 @@ var App = {
             ],
             'mapbiomas-colombia': [
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES/LULC/COLOMBIA/COLLECTION2/WORKSPACE/BASIN_LEVEL_1",
+                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/COLOMBIA/COLLECTION2/WORKSPACE/BASIN_LEVEL_1",
                     "label": "Basin Level 1"
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES/LULC/COLOMBIA/COLLECTION2/WORKSPACE/BASIN_LEVEL_2",
+                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/COLOMBIA/COLLECTION2/WORKSPACE/BASIN_LEVEL_2",
                     "label": "Basin Level 2"
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES/LULC/COLOMBIA/COLLECTION2/WORKSPACE/BASIN_LEVEL_3",
+                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/COLOMBIA/COLLECTION2/WORKSPACE/BASIN_LEVEL_3",
                     "label": "Basin Level 3"
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES/LULC/COLOMBIA/COLLECTION2/WORKSPACE/BIOMES_PAIS",
+                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/COLOMBIA/COLLECTION2/WORKSPACE/BIOMES_PAIS",
                     "label": "Country Biomes"
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES/LULC/COLOMBIA/COLLECTION2/WORKSPACE/BOSQUE_SECO_TROPICAL",
+                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/COLOMBIA/COLLECTION2/WORKSPACE/BOSQUE_SECO_TROPICAL",
                     "label": "Tropical Dry Forest"
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES/LULC/COLOMBIA/COLLECTION2/WORKSPACE/CHOCO_BIOGEOGRAFICO",
+                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/COLOMBIA/COLLECTION2/WORKSPACE/CHOCO_BIOGEOGRAFICO",
                     "label": "Choco Biogeographic Region"
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES/LULC/COLOMBIA/COLLECTION2/WORKSPACE/COMPLEJO_GLACIARES",
+                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/COLOMBIA/COLLECTION2/WORKSPACE/COMPLEJO_GLACIARES",
                     "label": "Glacier Complex"
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES/LULC/COLOMBIA/COLLECTION2/WORKSPACE/CONSEJOS_COMUNITARIOS",
+                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/COLOMBIA/COLLECTION2/WORKSPACE/CONSEJOS_COMUNITARIOS",
                     "label": "Community Councils"
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES/LULC/COLOMBIA/COLLECTION2/WORKSPACE/COUNTRY_REGIONS",
+                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/COLOMBIA/COLLECTION2/WORKSPACE/COUNTRY_REGIONS",
                     "label": "Country Regions"
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES/LULC/COLOMBIA/COLLECTION2/WORKSPACE/GLACIARES",
+                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/COLOMBIA/COLLECTION2/WORKSPACE/GLACIARES",
                     "label": "Glaciers"
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES/LULC/COLOMBIA/COLLECTION2/WORKSPACE/LIMITES_CAR",
+                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/COLOMBIA/COLLECTION2/WORKSPACE/LIMITES_CAR",
                     "label": "CAR Limits"
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES/LULC/COLOMBIA/COLLECTION2/WORKSPACE/PARAMOS",
+                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/COLOMBIA/COLLECTION2/WORKSPACE/PARAMOS",
                     "label": "Páramos"
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES/LULC/COLOMBIA/COLLECTION2/WORKSPACE/POLITICAL_LEVEL_1",
+                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/COLOMBIA/COLLECTION2/WORKSPACE/POLITICAL_LEVEL_1",
                     "label": "Political Level 1"
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES/LULC/COLOMBIA/COLLECTION2/WORKSPACE/POLITICAL_LEVEL_2",
+                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/COLOMBIA/COLLECTION2/WORKSPACE/POLITICAL_LEVEL_2",
                     "label": "Political Level 2"
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES/LULC/COLOMBIA/COLLECTION2/WORKSPACE/POLITICAL_LEVEL_3",
+                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/COLOMBIA/COLLECTION2/WORKSPACE/POLITICAL_LEVEL_3",
                     "label": "Political Level 3"
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES/LULC/COLOMBIA/COLLECTION2/WORKSPACE/PROTECTED_AREAS_DEPTALES",
+                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/COLOMBIA/COLLECTION2/WORKSPACE/PROTECTED_AREAS_DEPTALES",
                     "label": "Departmental Protected Areas"
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES/LULC/COLOMBIA/COLLECTION2/WORKSPACE/PROTECTED_AREAS_NACIONALES",
+                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/COLOMBIA/COLLECTION2/WORKSPACE/PROTECTED_AREAS_NACIONALES",
                     "label": "National Protected Areas"
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES/LULC/COLOMBIA/COLLECTION2/WORKSPACE/RAISG_AMAZON_COUNTRY",
+                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/COLOMBIA/COLLECTION2/WORKSPACE/RAISG_AMAZON_COUNTRY",
                     "label": "Amazon RAISG Country"
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES/LULC/COLOMBIA/COLLECTION2/WORKSPACE/RAMSAR_SITES",
+                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/COLOMBIA/COLLECTION2/WORKSPACE/RAMSAR_SITES",
                     "label": "Ramsar Sites"
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES/LULC/COLOMBIA/COLLECTION2/WORKSPACE/RESERVAS_FORESTALES_LEY_2",
+                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/COLOMBIA/COLLECTION2/WORKSPACE/RESERVAS_FORESTALES_LEY_2",
                     "label": "Forest Reserves (Law 2)"
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES/LULC/COLOMBIA/COLLECTION2/WORKSPACE/RESGUARDOS_INDIGENAS",
+                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/COLOMBIA/COLLECTION2/WORKSPACE/RESGUARDOS_INDIGENAS",
                     "label": "Indigenous Reserves"
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES/LULC/COLOMBIA/COLLECTION2/WORKSPACE/ZONAS_DE_RESERVA_CAMPESINA",
+                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/COLOMBIA/COLLECTION2/WORKSPACE/ZONAS_DE_RESERVA_CAMPESINA",
                     "label": "Peasant Reserve Zones"
                 }
             ],
             'mapbiomas-venezuela': [
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES/LULC/VENEZUELA/COLLECTION2/WORKSPACE/BASIN_LEVEL_1_PNRH",
+                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/VENEZUELA/COLLECTION2/WORKSPACE/BASIN_LEVEL_1_PNRH",
                     "label": "Basin Level 1"
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES/LULC/VENEZUELA/COLLECTION2/WORKSPACE/BIOMES",
+                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/VENEZUELA/COLLECTION2/WORKSPACE/BIOMES",
                     "label": "Biomes"
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES/LULC/VENEZUELA/COLLECTION2/WORKSPACE/INDIGENOUS_TERRITORIES",
+                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/VENEZUELA/COLLECTION2/WORKSPACE/INDIGENOUS_TERRITORIES",
                     "label": "Indigenous Territories"
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES/LULC/VENEZUELA/COLLECTION2/WORKSPACE/PHYSIOGRAPHIC_REGIONS",
+                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/VENEZUELA/COLLECTION2/WORKSPACE/PHYSIOGRAPHIC_REGIONS",
                     "label": "Physiographic Regions"
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES/LULC/VENEZUELA/COLLECTION2/WORKSPACE/POLITICAL_LEVEL_1",
+                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/VENEZUELA/COLLECTION2/WORKSPACE/POLITICAL_LEVEL_1",
                     "label": "Political Level 1"
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES/LULC/VENEZUELA/COLLECTION2/WORKSPACE/POLITICAL_LEVEL_2",
+                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/VENEZUELA/COLLECTION2/WORKSPACE/POLITICAL_LEVEL_2",
                     "label": "Political Level 2"
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES/LULC/VENEZUELA/COLLECTION2/WORKSPACE/POLITICAL_LEVEL_3",
+                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/VENEZUELA/COLLECTION2/WORKSPACE/POLITICAL_LEVEL_3",
                     "label": "Political Level 3"
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES/LULC/VENEZUELA/COLLECTION2/WORKSPACE/PROTECTED_AREA",
+                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/VENEZUELA/COLLECTION2/WORKSPACE/PROTECTED_AREA",
                     "label": "Protected Area"
                 }
             ],
             'mapbiomas-uruguay': [
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES/LULC/URUGUAY/COLLECTION2/WORKSPACE/BASIN_LEVEL_1",
+                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/URUGUAY/COLLECTION2/WORKSPACE/BASIN_LEVEL_1",
                     "label": "Basin Level 1"
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES/LULC/URUGUAY/COLLECTION2/WORKSPACE/BASIN_LEVEL_2",
+                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/URUGUAY/COLLECTION2/WORKSPACE/BASIN_LEVEL_2",
                     "label": "Basin Level 2"
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES/LULC/URUGUAY/COLLECTION2/WORKSPACE/ECORREGION",
+                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/URUGUAY/COLLECTION2/WORKSPACE/ECORREGION",
                     "label": "Ecoregion"
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES/LULC/URUGUAY/COLLECTION2/WORKSPACE/POLITICAL_LEVEL_1",
+                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/URUGUAY/COLLECTION2/WORKSPACE/POLITICAL_LEVEL_1",
                     "label": "Political Level 1"
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES/LULC/URUGUAY/COLLECTION2/WORKSPACE/POLITICAL_LEVEL_2",
+                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/URUGUAY/COLLECTION2/WORKSPACE/POLITICAL_LEVEL_2",
                     "label": "Political Level 2"
                 }
             ],
             'mapbiomas-ecuador': [
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES/LULC/ECUADOR/COLLECTION2/WORKSPACE/ACUS",
+                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/ECUADOR/COLLECTION2/WORKSPACE/ACUS",
                     "label": "ACUS"
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES/LULC/ECUADOR/COLLECTION2/WORKSPACE/ACUS_PRIVADAS",
+                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/ECUADOR/COLLECTION2/WORKSPACE/ACUS_PRIVADAS",
                     "label": "Private ACUS"
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES/LULC/ECUADOR/COLLECTION2/WORKSPACE/AREAS_PROTEGIDAS_COMUNITARIAS",
+                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/ECUADOR/COLLECTION2/WORKSPACE/AREAS_PROTEGIDAS_COMUNITARIAS",
                     "label": "Community Protected Areas"
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES/LULC/ECUADOR/COLLECTION2/WORKSPACE/AREAS_PROTEGIDAS_PRIVADAS",
+                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/ECUADOR/COLLECTION2/WORKSPACE/AREAS_PROTEGIDAS_PRIVADAS",
                     "label": "Private Protected Areas"
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES/LULC/ECUADOR/COLLECTION2/WORKSPACE/BASIN_LEVEL_1",
+                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/ECUADOR/COLLECTION2/WORKSPACE/BASIN_LEVEL_1",
                     "label": "Basin Level 1"
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES/LULC/ECUADOR/COLLECTION2/WORKSPACE/BASIN_LEVEL_2",
+                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/ECUADOR/COLLECTION2/WORKSPACE/BASIN_LEVEL_2",
                     "label": "Basin Level 2"
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES/LULC/ECUADOR/COLLECTION2/WORKSPACE/BASIN_LEVEL_3",
+                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/ECUADOR/COLLECTION2/WORKSPACE/BASIN_LEVEL_3",
                     "label": "Basin Level 3"
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES/LULC/ECUADOR/COLLECTION2/WORKSPACE/BASIN_LEVEL_4",
+                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/ECUADOR/COLLECTION2/WORKSPACE/BASIN_LEVEL_4",
                     "label": "Basin Level 4"
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES/LULC/ECUADOR/COLLECTION2/WORKSPACE/BIOMES_PAIS",
+                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/ECUADOR/COLLECTION2/WORKSPACE/BIOMES_PAIS",
                     "label": "Country vs Biomes"
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES/LULC/ECUADOR/COLLECTION2/WORKSPACE/BOSQUE",
+                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/ECUADOR/COLLECTION2/WORKSPACE/BOSQUE",
                     "label": "Forest"
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES/LULC/ECUADOR/COLLECTION2/WORKSPACE/CONNECTIVITY_CORRIDOR",
+                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/ECUADOR/COLLECTION2/WORKSPACE/CONNECTIVITY_CORRIDOR",
                     "label": "Connectivity Corridor"
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES/LULC/ECUADOR/COLLECTION2/WORKSPACE/DEMARCACION_HIDROGRAFICA",
+                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/ECUADOR/COLLECTION2/WORKSPACE/DEMARCACION_HIDROGRAFICA",
                     "label": "Hydrographic Demarcation"
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES/LULC/ECUADOR/COLLECTION2/WORKSPACE/ECOSISTEMAS",
+                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/ECUADOR/COLLECTION2/WORKSPACE/ECOSISTEMAS",
                     "label": "Ecosystems"
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES/LULC/ECUADOR/COLLECTION2/WORKSPACE/ESTRATO_POTENCIAL",
+                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/ECUADOR/COLLECTION2/WORKSPACE/ESTRATO_POTENCIAL",
                     "label": "Potential Stratum"
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES/LULC/ECUADOR/COLLECTION2/WORKSPACE/GLACIARES",
+                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/ECUADOR/COLLECTION2/WORKSPACE/GLACIARES",
                     "label": "Glaciers"
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES/LULC/ECUADOR/COLLECTION2/WORKSPACE/INDIGENOUS_TERRITORIES",
+                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/ECUADOR/COLLECTION2/WORKSPACE/INDIGENOUS_TERRITORIES",
                     "label": "Indigenous Territories"
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES/LULC/ECUADOR/COLLECTION2/WORKSPACE/PATRIMONIO_FORESTAL",
+                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/ECUADOR/COLLECTION2/WORKSPACE/PATRIMONIO_FORESTAL",
                     "label": "Forestry Heritage"
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES/LULC/ECUADOR/COLLECTION2/WORKSPACE/POLITICAL_LEVEL_1",
+                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/ECUADOR/COLLECTION2/WORKSPACE/POLITICAL_LEVEL_1",
                     "label": "Political Level 1"
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES/LULC/ECUADOR/COLLECTION2/WORKSPACE/POLITICAL_LEVEL_2",
+                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/ECUADOR/COLLECTION2/WORKSPACE/POLITICAL_LEVEL_2",
                     "label": "Political Level 2"
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES/LULC/ECUADOR/COLLECTION2/WORKSPACE/POLITICAL_LEVEL_3",
+                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/ECUADOR/COLLECTION2/WORKSPACE/POLITICAL_LEVEL_3",
                     "label": "Political Level 3"
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES/LULC/ECUADOR/COLLECTION2/WORKSPACE/POLITICAL_LEVEL_4",
+                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/ECUADOR/COLLECTION2/WORKSPACE/POLITICAL_LEVEL_4",
                     "label": "Political Level 4"
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES/LULC/ECUADOR/COLLECTION2/WORKSPACE/PROTECCION_HIDRICA",
+                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/ECUADOR/COLLECTION2/WORKSPACE/PROTECCION_HIDRICA",
                     "label": "Water Protection"
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES/LULC/ECUADOR/COLLECTION2/WORKSPACE/PROTECTED_AREAS_NACIONALES",
+                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/ECUADOR/COLLECTION2/WORKSPACE/PROTECTED_AREAS_NACIONALES",
                     "label": "National Protected Areas"
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES/LULC/ECUADOR/COLLECTION2/WORKSPACE/PROTECTED_AREA_SUBNATIONAL",
+                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/ECUADOR/COLLECTION2/WORKSPACE/PROTECTED_AREA_SUBNATIONAL",
                     "label": "Subnational Protected Areas"
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES/LULC/ECUADOR/COLLECTION2/WORKSPACE/RAMSAR_SITES",
+                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/ECUADOR/COLLECTION2/WORKSPACE/RAMSAR_SITES",
                     "label": "Ramsar Sites"
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES/LULC/ECUADOR/COLLECTION2/WORKSPACE/RECARGA_HIDRICA",
+                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/ECUADOR/COLLECTION2/WORKSPACE/RECARGA_HIDRICA",
                     "label": "Water Recharge"
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES/LULC/ECUADOR/COLLECTION2/WORKSPACE/REGION_GEOGRAFICA",
+                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/ECUADOR/COLLECTION2/WORKSPACE/REGION_GEOGRAFICA",
                     "label": "Geographic Region"
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES/LULC/ECUADOR/COLLECTION2/WORKSPACE/RESERVA_DA_BIOSFERA",
+                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/ECUADOR/COLLECTION2/WORKSPACE/RESERVA_DA_BIOSFERA",
                     "label": "Biosphere Reserve"
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES/LULC/ECUADOR/COLLECTION2/WORKSPACE/RESERVA_MARINA",
+                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/ECUADOR/COLLECTION2/WORKSPACE/RESERVA_MARINA",
                     "label": "Marine Reserve"
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES/LULC/ECUADOR/COLLECTION2/WORKSPACE/SOCIO_BOSQUE",
+                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/ECUADOR/COLLECTION2/WORKSPACE/SOCIO_BOSQUE",
                     "label": "Socio Bosque Program"
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES/LULC/ECUADOR/COLLECTION2/WORKSPACE/UNIDAD_BIOGEOGRAFICA",
+                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/ECUADOR/COLLECTION2/WORKSPACE/UNIDAD_BIOGEOGRAFICA",
                     "label": "Biogeographic Unit"
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES/LULC/ECUADOR/COLLECTION2/WORKSPACE/ZONAS_PROTECCION_AMAZONICA",
+                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/ECUADOR/COLLECTION2/WORKSPACE/ZONAS_PROTECCION_AMAZONICA",
                     "label": "Amazon Protection Zones"
                 }
             ],
@@ -1382,6 +1383,73 @@ var App = {
                         ]
                     },
                 },
+                'collection-10.1': {
+                    'assets': {
+                        'integration': 'projects/mapbiomas-public/assets/brazil/lulc/collection10_1/mapbiomas_brazil_collection10_1_coverage_v1',
+//                        'transitions': 'projects/mapbiomas-public/assets/brazil/lulc/collection9/mapbiomas_collection90_transitions_v1',
+                    },
+
+                    'periods': {
+                        'Coverage': [
+                            '1985', '1986', '1987', '1988',
+                            '1989', '1990', '1991', '1992',
+                            '1993', '1994', '1995', '1996',
+                            '1997', '1998', '1999', '2000',
+                            '2001', '2002', '2003', '2004',
+                            '2005', '2006', '2007', '2008',
+                            '2009', '2010', '2011', '2012',
+                            '2013', '2014', '2015', '2016',
+                            '2017', '2018', '2019', '2020',
+                            '2021', '2022', '2023', '2024'
+                        ],
+//                        'Transitions': [
+//                            "1985_1986", "1986_1987", "1987_1988", "1988_1989",
+//                            "1989_1990", "1990_1991", "1991_1992", "1992_1993",
+//                            "1993_1994", "1994_1995", "1995_1996", "1996_1997",
+//                            "1997_1998", "1998_1999", "1999_2000", "2000_2001",
+//                            "2001_2002", "2002_2003", "2003_2004", "2004_2005",
+//                            "2005_2006", "2006_2007", "2007_2008", "2008_2009",
+//                            "2009_2010", "2010_2011", "2011_2012", "2012_2013",
+//                            "2013_2014", "2014_2015", "2015_2016", "2016_2017",
+//                            "2017_2018", "2018_2019", "2019_2020", "2020_2021",
+//                            "2021_2022", "2022_2023", "2023_2024",
+//                            "1985_1990", "1990_1995", "1995_2000",
+//                            "2000_2005", "2005_2010", "2010_2015", "2015_2020",
+//                            "1990_2000", "2000_2010", "2010_2020", "1985_2024",
+//                            "2008_2024", "2012_2024", "1994_2002", "2002_2010",
+//                            "2010_2016", "2016_2024", "2000_2019", "2002_2024",
+//                            "2018_2024", "1993_2008", "1990_2008", "1990_2024",
+//                            "2000_2024", "2008_2018", "1986_2015", "2001_2016",
+//                            "1996_2015", "1992_2002", "2002_2012"
+//                        ],
+                    },
+                },
+
+                'collection-1-10m-Beta': {
+                    'assets': {
+                        'integration': 'projects/mapbiomas-public/assets/brazil/lulc/collection_S2_beta/collection_LULC_S2_beta',
+                    },
+
+                    'periods': {
+                        'Coverage': [
+                            '2016', '2017', '2018', '2019', '2020',
+                            '2021', '2022'
+                        ],
+                   },
+                },
+                'collection-2-10m-Beta': {
+                    'assets': {
+                        'integration': 'projects/mapbiomas-public/assets/brazil/lulc_10m/collection2/mapbiomas_10m_collection2_integration_v1',
+                    },
+
+                    'periods': {
+                        'Coverage': [
+                            '2016', '2017', '2018', '2019', '2020',
+                            '2021', '2022', '2023'
+                        ],
+                   },
+                },
+
             },
             'mapbiomas-amazon': {
                 'collection-1.0': {
@@ -2216,6 +2284,56 @@ var App = {
                         ]
                     },
                 },
+                'collection-3.0': {
+                    'assets': {
+                        'integration': 'projects/mapbiomas-public/assets/peru/collection3/mapbiomas_peru_collection3_integration_v1',
+                        'transitions': 'projects/mapbiomas-public/assets/peru/collection3/mapbiomas_peru_collection3_transitions_v1',
+                        'quality': 'projects/mapbiomas-public/assets/peru/collection3/mapbiomas_peru_collection3_quality_v3',
+                    },
+                    'periods': {
+                        'Coverage': [
+                            '1985', '1986', '1987', '1988',
+                            '1989', '1990', '1991', '1992',
+                            '1993', '1994', '1995', '1996',
+                            '1997', '1998', '1999', '2000',
+                            '2001', '2002', '2003', '2004',
+                            '2005', '2006', '2007', '2008',
+                            '2009', '2010', '2011', '2012',
+                            '2013', '2014', '2015', '2016',
+                            '2017', '2018', '2019', '2020',
+                            '2021', '2022', '2023', '2024'
+                        ],
+                        'Transitions': [
+                            '1985_1986', '1986_1987', '1987_1988', '1988_1989',
+                            '1989_1990', '1990_1991', '1991_1992', '1992_1993',
+                            '1993_1994', '1994_1995', '1995_1996', '1996_1997',
+                            '1997_1998', '1998_1999', '1999_2000', '2000_2001',
+                            '2001_2002', '2002_2003', '2003_2004', '2004_2005',
+                            '2005_2006', '2006_2007', '2007_2008', '2008_2009',
+                            '2009_2010', '2010_2011', '2011_2012', '2012_2013',
+                            '2013_2014', '2014_2015', '2015_2016', '2016_2017',
+                            '2017_2018', '2018_2019', '2019_2020', '2020_2021',
+                            '2021_2022', '1985_1990', '1990_1995', '1995_2000',
+                            '2000_2005', '2005_2010', '2010_2015', '2015_2020',
+                            '1990_2000', '2000_2010', '2010_2020', '1985_2024',
+                            '2008_2017', '1994_2002', '2002_2010', '2010_2016',
+                            '1986_2015', '1990_2024', '2000_2024', '2008_2024',
+                            '2010_2024', '2012_2024',
+                        ],
+                        'Quality': [
+                            '1985', '1986', '1987', '1988',
+                            '1989', '1990', '1991', '1992',
+                            '1993', '1994', '1995', '1996',
+                            '1997', '1998', '1999', '2000',
+                            '2001', '2002', '2003', '2004',
+                            '2005', '2006', '2007', '2008',
+                            '2009', '2010', '2011', '2012',
+                            '2013', '2014', '2015', '2016',
+                            '2017', '2018', '2019', '2020',
+                            '2021', '2022', '2023', '2024'
+                        ]
+                    },
+                },
             },
             'mapbiomas-bolivia': {
                 'collection-1.0': {
@@ -2318,7 +2436,58 @@ var App = {
                         ]
                     },
                 },
-            },
+                'collection-3.0': {
+                    'assets': {
+                        'integration': 'projects/mapbiomas-public/assets/bolivia/lulc/collection3/mapbiomas_bolivia_collection3_integration_v1',
+                        'transitions': 'projects/mapbiomas-public/assets/bolivia/lulc/collection3/mapbiomas_bolivia_collection3_transitions_v1',
+                        'quality': 'projects/mapbiomas-public/assets/bolivia/lulc/collection3/mapbiomas_bolivia_collection3_quality_v1',
+                    },
+                    'periods': {
+                        'Coverage': [
+                            '1985', '1986', '1987', '1988',
+                            '1989', '1990', '1991', '1992',
+                            '1993', '1994', '1995', '1996',
+                            '1997', '1998', '1999', '2000',
+                            '2001', '2002', '2003', '2004',
+                            '2005', '2006', '2007', '2008',
+                            '2009', '2010', '2011', '2012',
+                            '2013', '2014', '2015', '2016',
+                            '2017', '2018', '2019', '2020',
+                            '2021', '2022', '2023', '2024'
+                        ],
+                        'Transitions': [
+                            '1985_1986', '1986_1987', '1987_1988', '1988_1989',
+                            '1989_1990', '1990_1991', '1991_1992', '1992_1993',
+                            '1993_1994', '1994_1995', '1995_1996', '1996_1997',
+                            '1997_1998', '1998_1999', '1999_2000', '2000_2001',
+                            '2001_2002', '2002_2003', '2003_2004', '2004_2005',
+                            '2005_2006', '2006_2007', '2007_2008', '2008_2009',
+                            '2009_2010', '2010_2011', '2011_2012', '2012_2013',
+                            '2013_2014', '2014_2015', '2015_2016', '2016_2017',
+                            '2017_2018', '2018_2019', '2019_2020', '2020_2021',
+                            '2021_2022', '2023_2024',
+                            '1985_1990', '1990_1995', '1995_2000', '2000_2005',
+                            '2005_2010', '2010_2015', '2015_2020', '1990_2000',
+                            '2000_2010', '2010_2020', '1985_2021', '2008_2017',
+                            '1994_2002', '2002_2010', '2010_2016', '1986_2015',
+                            '1990_2024', '2000_2024', '2008_2024', '2010_2024',
+                            '2012_2024',
+                        ],
+                        'Quality': [
+                            '1985', '1986', '1987', '1988',
+                            '1989', '1990', '1991', '1992',
+                            '1993', '1994', '1995', '1996',
+                            '1997', '1998', '1999', '2000',
+                            '2001', '2002', '2003', '2004',
+                            '2005', '2006', '2007', '2008',
+                            '2009', '2010', '2011', '2012',
+                            '2013', '2014', '2015', '2016',
+                            '2017', '2018', '2019', '2020',
+                            '2021', '2022', '2023', '2024'
+                        ]
+                    },
+                },
+             },
             'mapbiomas-colombia': {
                 'collection-1.0': {
                     'assets': {
@@ -2762,6 +2931,55 @@ var App = {
                         ]
                     },
                 },
+                'collection-2.0': {
+                    'assets': {
+                        'integration': 'projects/mapbiomas-public/assets/paraguay/collection2/mapbiomas_paraguay_collection2_integration_v1',
+                        'transitions': 'projects/mapbiomas-public/assets/paraguay/collection2/mapbiomas_paraguay_collection2_transitions_v1',
+                        'quality': 'projects/mapbiomas-public/assets/paraguay/collection2/mapbiomas_paraguay_collection2_quality_v1',
+                    },
+                    'periods': {
+                        'Coverage': [
+                            '1985', '1986', '1987', '1988',
+                            '1989', '1990', '1991', '1992',
+                            '1993', '1994', '1995', '1996',
+                            '1997', '1998', '1999', '2000',
+                            '2001', '2002', '2003', '2004',
+                            '2005', '2006', '2007', '2008',
+                            '2009', '2010', '2011', '2012',
+                            '2013', '2014', '2015', '2016',
+                            '2017', '2018', '2019', '2020',
+                            '2021', '2022', '2023'
+                        ],
+                        'Transitions': [
+                            '1985_1986', '1986_1987', '1987_1988', '1988_1989',
+                            '1989_1990', '1990_1991', '1991_1992', '1992_1993',
+                            '1993_1994', '1994_1995', '1995_1996', '1996_1997',
+                            '1997_1998', '1998_1999', '1999_2000', '2000_2001',
+                            '2001_2002', '2002_2003', '2003_2004', '2004_2005',
+                            '2005_2006', '2006_2007', '2007_2008', '2008_2009',
+                            '2009_2010', '2010_2011', '2011_2012', '2012_2013',
+                            '2013_2014', '2014_2015', '2015_2016', '2016_2017',
+                            '2017_2018', '2018_2019', '2019_2020', '2020_2021',
+                            '2021_2022', '2022-2023', '1985_1990', '1990_1995', '1995_2000',
+                            '2000_2005', '2005_2010', '2010_2015', '2015_2020',
+                            '1990_2000', '2000_2010', '2010_2020', '1985_2023',
+                            '1985_2005', '2005_2023',
+                        ],
+                        'Quality': [
+                            '1985', '1986', '1987', '1988',
+                            '1989', '1990', '1991', '1992',
+                            '1993', '1994', '1995', '1996',
+                            '1997', '1998', '1999', '2000',
+                            '2001', '2002', '2003', '2004',
+                            '2005', '2006', '2007', '2008',
+                            '2009', '2010', '2011', '2012',
+                            '2013', '2014', '2015', '2016',
+                            '2017', '2018', '2019', '2020',
+                            '2021', '2022', '2023'
+                        ]
+                    },
+                },
+
             },
             'mapbiomas-chile': {
                 'collection-1.0': {
@@ -2920,7 +3138,7 @@ var App = {
             'mapbiomas-peru': 'chile1',
             'mapbiomas-uruguay': 'chile1',
             'mapbiomas-venezuela': 'chile1',
-            'mapbiomas-argentina': 'argentina1',
+            'mapbiomas-argentina': 'chile1',
         },
 
         bandsNames: {

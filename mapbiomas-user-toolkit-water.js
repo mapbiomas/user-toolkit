@@ -19,6 +19,7 @@
  *          - Ecuador Collection 1.0
  *          - Peru Collection 1.0
  *          - Venezuela Collection 1.0
+ *    1.5.0 - Brazil Collection 3.0
  * 
  * @see
  *      Get the MapBiomas exported data in your "Google Drive/MAPBIOMAS-EXPORT" folder
@@ -565,11 +566,11 @@ var App = {
                     'label': 'pais'
                 },
                 {
-                    'value': 'projects/mapbiomas-raisg/MAPBIOMAS-VENEZUELA/DATOS-AUXILIARES/ESTADISTICAS/COLECCION1/nivel_politico_1',
+                    'value': 'projects/mapbiomas-raisg/MAPBIOMAS-VENEZUELA/DATOS-AUXILIARES/ESTADISTICAS/COLECCION1/nivel-politico-1',
                     'label': 'nivel_politico_1'
                 },
                 {
-                    'value': 'projects/mapbiomas-raisg/MAPBIOMAS-VENEZUELA/DATOS-AUXILIARES/ESTADISTICAS/COLECCION1/nivel_politico_2',
+                    'value': 'projects/mapbiomas-raisg/MAPBIOMAS-VENEZUELA/DATOS-AUXILIARES/ESTADISTICAS/COLECCION1/nivel-politico-2',
                     'label': 'nivel_politico_2'
                 },
                 {
@@ -589,31 +590,31 @@ var App = {
                     'label': 'monumento_natural'
                 },
                 {
-                    'value': 'projects/mapbiomas-raisg/MAPBIOMAS-VENEZUELA/DATOS-AUXILIARES/ESTADISTICAS/COLECCION1/reserva_fauna_silvestre',
+                    'value': 'projects/mapbiomas-raisg/MAPBIOMAS-VENEZUELA/DATOS-AUXILIARES/ESTADISTICAS/COLECCION1/reserva-fauna-silvestre',
                     'label': 'reserva_fauna_silvestre'
                 },
+//                {
+//                    'value': 'projects/mapbiomas-raisg/MAPBIOMAS-VENEZUELA/DATOS-AUXILIARES/ESTADISTICAS/COLECCION1/refugio_fauna_silvestre',
+//                    'label': 'refugio_fauna_silvestre'
+//                },
                 {
-                    'value': 'projects/mapbiomas-raisg/MAPBIOMAS-VENEZUELA/DATOS-AUXILIARES/ESTADISTICAS/COLECCION1/refugio_fauna_silvestre',
-                    'label': 'refugio_fauna_silvestre'
-                },
-                {
-                    'value': 'projects/mapbiomas-raisg/MAPBIOMAS-VENEZUELA/DATOS-AUXILIARES/ESTADISTICAS/COLECCION1/santuario_fauna_silvestre',
+                    'value': 'projects/mapbiomas-raisg/MAPBIOMAS-VENEZUELA/DATOS-AUXILIARES/ESTADISTICAS/COLECCION1/santuario-fauna-silvestre',
                     'label': 'santuario_fauna_silvestre'
                 },
                 {
-                    'value': 'projects/mapbiomas-raisg/MAPBIOMAS-VENEZUELA/DATOS-AUXILIARES/ESTADISTICAS/COLECCION1/reserva_biosfera',
+                    'value': 'projects/mapbiomas-raisg/MAPBIOMAS-VENEZUELA/DATOS-AUXILIARES/ESTADISTICAS/COLECCION1/reserva-biosfera',
                     'label': 'reserva_biosfera'
                 },
                 {
-                    'value': 'projects/mapbiomas-raisg/MAPBIOMAS-VENEZUELA/DATOS-AUXILIARES/ESTADISTICAS/COLECCION1/reserva_forestal',
+                    'value': 'projects/mapbiomas-raisg/MAPBIOMAS-VENEZUELA/DATOS-AUXILIARES/ESTADISTICAS/COLECCION1/reserva-forestal',
                     'label': 'reserva_forestal'
                 },
                 {
-                    'value': 'projects/mapbiomas-raisg/MAPBIOMAS-VENEZUELA/DATOS-AUXILIARES/ESTADISTICAS/COLECCION1/ti_reconocido',
+                    'value': 'projects/mapbiomas-raisg/MAPBIOMAS-VENEZUELA/DATOS-AUXILIARES/ESTADISTICAS/COLECCION1/ti-reconocido',
                     'label': 'ti_reconocido'
                 },
                 {
-                    'value': 'projects/mapbiomas-raisg/MAPBIOMAS-VENEZUELA/DATOS-AUXILIARES/ESTADISTICAS/COLECCION1/ti_en_proceso',
+                    'value': 'projects/mapbiomas-raisg/MAPBIOMAS-VENEZUELA/DATOS-AUXILIARES/ESTADISTICAS/COLECCION1/ti-en-proceso',
                     'label': 'ti_en_proceso'
                 },
                 {
@@ -625,7 +626,7 @@ var App = {
                     'label': 'ecoregion'
                 },
                 {
-                    'value': 'projects/mapbiomas-raisg/MAPBIOMAS-VENEZUELA/DATOS-AUXILIARES/ESTADISTICAS/COLECCION1/regiones_fisiograficas',
+                    'value': 'projects/mapbiomas-raisg/MAPBIOMAS-VENEZUELA/DATOS-AUXILIARES/ESTADISTICAS/COLECCION1/regiones-fisiograficas',
                     'label': 'regiones_fisiograficas'
                 }
 
@@ -888,6 +889,45 @@ var App = {
                         // ],
                     },
                 },
+                'collection-3.0': {
+                    'assets': {
+                        'annual_water_coverage': 'projects/mapbiomas-public/assets/brazil/water/collection3/mapbiomas_water_annual_water_coverage_v1',
+                        'water_frequency': 'projects/mapbiomas-public/assets/brazil/water/collection3/mapbiomas_water_frequency_v1',
+                        // 'cumulated_water_coverage': '',
+                        // 'monthly_water_coverage': '',
+                    },
+
+                    'periods': {
+                        'annual_water_coverage': [
+                            '1985', '1986', '1987', '1988', '1989', '1990',
+                            '1991', '1992', '1993', '1994', '1995', '1996',
+                            '1997', '1998', '1999', '2000', '2001', '2002',
+                            '2003', '2004', '2005', '2006', '2007', '2008',
+                            '2009', '2010', '2011', '2012', '2013', '2014',
+                            '2015', '2016', '2017', '2018', '2019', '2020',
+                            '2021', '2022', '2023'
+                        ],
+                        'water_frequency': [
+                            '1985_2023'
+                        ]
+                        // 'cumulated_water_coverage': [
+                        //     '2000', '2001', '2002', '2003',
+                        //     '2004', '2005', '2006', '2007',
+                        //     '2008', '2009', '2010', '2011',
+                        //     '2012', '2013', '2014', '2015',
+                        //     '2016', '2017', '2018', '2019'
+                        // ],
+                        // 'monthly_water_coverage': [
+                        //     '1985', '1986', '1987', '1988', '1989', '1990',
+                        //     '1991', '1992', '1993', '1994', '1995', '1996',
+                        //     '1997', '1998', '1999', '2000', '2001', '2002',
+                        //     '2003', '2004', '2005', '2006', '2007', '2008',
+                        //     '2009', '2010', '2011', '2012', '2013', '2014',
+                        //     '2015', '2016', '2017', '2018', '2019', '2020'
+                        // ],
+                    },
+                },
+
             },
             'mapbiomas-amazon': {
                 'collection-1.0': {

@@ -1,6 +1,6 @@
 /**
  * @name
- *      Mapbiomas User Toolkit Download
+ *      Mapbiomas User Toolkit Downloads
  * 
  * @description
  *      This is a support tool for mapbiomas data users.
@@ -33,7 +33,7 @@ var logos = require('users/workspaceipam/packages:mapbiomas-toolkit/utils/b64');
  *    calculate area for mapbiomas fire map
  * 
  * @author
- *    João Siqueira
+ *    Wallace Silva e João Siqueira
  * 
  */
 var Area = {
@@ -102,7 +102,7 @@ var Area = {
 
 // Criação das variáveis para cada produto
 // --- base auxiliar
-var landcover = ee.Image('projects/mapbiomas-workspace/public/collection8/mapbiomas_collection80_integration_v1');
+var landcover = ee.Image('projects/mapbiomas-public/assets/brazil/lulc/collection9/mapbiomas_collection90_integration_v1');
 var mb_landcover_values  = [3, 4, 5, 6, 9, 11, 12, 13, 15, 20, 21, 23, 24, 25, 29, 30, 31, 32, 33, 36, 39, 40, 41, 46, 47, 48, 49, 50, 62];
 var mb_vegNat_values =     [3, 4, 5, 6, 0, 11, 12, 13,  0,  0,  0,  0,  0,  0, 0,  0,  0,  0, 33,  0,  0,  0,  0,  0,  0,  0, 49, 50,  0];
 
@@ -125,54 +125,54 @@ var landcover_base = landcover_remap.gte(1);
 
 
 var bordasArea = landcover_base.where(landcover_base.eq(1), 9)
-  .blend(ee.Image('projects/mapbiomas-workspace/DEGRADACAO/COLECAO/BETA/PROCESS/edge_area/edge_1000m_v3').gt(1).multiply(8))
-  .blend(ee.Image('projects/mapbiomas-workspace/DEGRADACAO/COLECAO/BETA/PROCESS/edge_area/edge_600m_v3').gt(1).multiply(7))
-  .blend(ee.Image('projects/mapbiomas-workspace/DEGRADACAO/COLECAO/BETA/PROCESS/edge_area/edge_300m_v3').gt(1).multiply(6))
-  .blend(ee.Image('projects/mapbiomas-workspace/DEGRADACAO/COLECAO/BETA/PROCESS/edge_area/edge_150m_v3').gt(1).multiply(5))
-  .blend(ee.Image('projects/mapbiomas-workspace/DEGRADACAO/COLECAO/BETA/PROCESS/edge_area/edge_120m_v3').gt(1).multiply(4))
-  .blend(ee.Image('projects/mapbiomas-workspace/DEGRADACAO/COLECAO/BETA/PROCESS/edge_area/edge_90m_v3').gt(1).multiply(3))
-  .blend(ee.Image('projects/mapbiomas-workspace/DEGRADACAO/COLECAO/BETA/PROCESS/edge_area/edge_60m_v3').gt(1).multiply(2))
-  .blend(ee.Image('projects/mapbiomas-workspace/DEGRADACAO/COLECAO/BETA/PROCESS/edge_area/edge_30m_v3').gt(1).multiply(1));
+  .blend(ee.Image('projects/mapbiomas-workspace/DEGRADACAO/COLECAO/BETA/PROCESS/edge_area/edge_1000m_col9_v1').gt(1).multiply(8))
+  .blend(ee.Image('projects/mapbiomas-workspace/DEGRADACAO/COLECAO/BETA/PROCESS/edge_area/edge_600m_col9_v1').gt(1).multiply(7))
+  .blend(ee.Image('projects/mapbiomas-workspace/DEGRADACAO/COLECAO/BETA/PROCESS/edge_area/edge_300m_col9_v1').gt(1).multiply(6))
+  .blend(ee.Image('projects/mapbiomas-workspace/DEGRADACAO/COLECAO/BETA/PROCESS/edge_area/edge_150m_col9_v1').gt(1).multiply(5))
+  .blend(ee.Image('projects/mapbiomas-workspace/DEGRADACAO/COLECAO/BETA/PROCESS/edge_area/edge_120m_col9_v1').gt(1).multiply(4))
+  .blend(ee.Image('projects/mapbiomas-workspace/DEGRADACAO/COLECAO/BETA/PROCESS/edge_area/edge_90m_col9_v1').gt(1).multiply(3))
+  .blend(ee.Image('projects/mapbiomas-workspace/DEGRADACAO/COLECAO/BETA/PROCESS/edge_area/edge_60m_col9_v1').gt(1).multiply(2))
+  .blend(ee.Image('projects/mapbiomas-workspace/DEGRADACAO/COLECAO/BETA/PROCESS/edge_area/edge_30m_col9_v1').gt(1).multiply(1));
 
 var fragmentSize = landcover_base.where(landcover_base.eq(1), 7)
-  .blend(ee.Image('projects/mapbiomas-workspace/DEGRADACAO/COLECAO/BETA/PROCESS/patch_size/size_75ha_v3').gt(1).multiply(6))
-  .blend(ee.Image('projects/mapbiomas-workspace/DEGRADACAO/COLECAO/BETA/PROCESS/patch_size/size_50ha_v3').gt(1).multiply(5))
-  .blend(ee.Image('projects/mapbiomas-workspace/DEGRADACAO/COLECAO/BETA/PROCESS/patch_size/size_25ha_v3').gt(1).multiply(4))
-  .blend(ee.Image('projects/mapbiomas-workspace/DEGRADACAO/COLECAO/BETA/PROCESS/patch_size/size_10ha_v3').gt(1).multiply(3))
-  .blend(ee.Image('projects/mapbiomas-workspace/DEGRADACAO/COLECAO/BETA/PROCESS/patch_size/size_5ha_v3').gt(1).multiply(2))
-  .blend(ee.Image('projects/mapbiomas-workspace/DEGRADACAO/COLECAO/BETA/PROCESS/patch_size/size_3ha_v3').gt(1).multiply(1));
+  .blend(ee.Image('projects/mapbiomas-workspace/DEGRADACAO/COLECAO/BETA/PROCESS/patch_size/size_75ha_col9_v1').gt(1).multiply(6))
+  .blend(ee.Image('projects/mapbiomas-workspace/DEGRADACAO/COLECAO/BETA/PROCESS/patch_size/size_50ha_col9_v1').gt(1).multiply(5))
+  .blend(ee.Image('projects/mapbiomas-workspace/DEGRADACAO/COLECAO/BETA/PROCESS/patch_size/size_25ha_col9_v1').gt(1).multiply(4))
+  .blend(ee.Image('projects/mapbiomas-workspace/DEGRADACAO/COLECAO/BETA/PROCESS/patch_size/size_10ha_col9_v1').gt(1).multiply(3))
+  .blend(ee.Image('projects/mapbiomas-workspace/DEGRADACAO/COLECAO/BETA/PROCESS/patch_size/size_5ha_col9_v1').gt(1).multiply(2))
+  .blend(ee.Image('projects/mapbiomas-workspace/DEGRADACAO/COLECAO/BETA/PROCESS/patch_size/size_3ha_col9_v1').gt(1).multiply(1));
 
 var distances100ha = landcover_base.multiply(0)
-  .where(ee.Image('projects/mapbiomas-workspace/DEGRADACAO/ISOLATION/BR_Distance/natural_mask_maior100ha_v5_85_22'),10)
-  .where(ee.Image('projects/mapbiomas-workspace/DEGRADACAO/ISOLATION/nat_uso_frag50__dist05k__100_v6_85_22'),2)
-  .where(ee.Image('projects/mapbiomas-workspace/DEGRADACAO/ISOLATION/nat_uso_frag25__dist05k__100_v6_85_22'),3)
-  .where(ee.Image('projects/mapbiomas-workspace/DEGRADACAO/ISOLATION/nat_uso_frag50__dist10k__100_v6_85_22'),5)
-  .where(ee.Image('projects/mapbiomas-workspace/DEGRADACAO/ISOLATION/nat_uso_frag25__dist10k__100_v6_85_22'),6)
-  .where(ee.Image('projects/mapbiomas-workspace/DEGRADACAO/ISOLATION/nat_uso_frag50__dist20k__100_v6_85_22'),8)
-  .where(ee.Image('projects/mapbiomas-workspace/DEGRADACAO/ISOLATION/nat_uso_frag25__dist20k__100_v6_85_22'),9);
+  .where(ee.Image('projects/mapbiomas-workspace/DEGRADACAO/ISOLATION_col9_v2/BR_Distance/natural_mask_maior100ha_85_234'),10)
+  .where(ee.Image('projects/mapbiomas-workspace/DEGRADACAO/ISOLATION_col9_v2/nat_uso_frag50_dist05k_100_v7_85_23'),2)
+  .where(ee.Image('projects/mapbiomas-workspace/DEGRADACAO/ISOLATION_col9_v2/nat_uso_frag25_dist05k_100_v7_85_23'),3)
+  .where(ee.Image('projects/mapbiomas-workspace/DEGRADACAO/ISOLATION_col9_v2/nat_uso_frag50_dist10k_100_v7_85_23'),5)
+  .where(ee.Image('projects/mapbiomas-workspace/DEGRADACAO/ISOLATION_col9_v2/nat_uso_frag25_dist10k_100_v7_85_23'),6)
+  .where(ee.Image('projects/mapbiomas-workspace/DEGRADACAO/ISOLATION_col9_v2/nat_uso_frag50_dist20k_100_v7_85_23'),8)
+  .where(ee.Image('projects/mapbiomas-workspace/DEGRADACAO/ISOLATION_col9_v2/nat_uso_frag25_dist20k_100_v7_85_23'),9);
 
 var distances500ha = landcover_base.multiply(0)
-  .where(ee.Image('projects/mapbiomas-workspace/DEGRADACAO/ISOLATION/BR_Distance/natural_mask_maior500ha_v5_85_22'),11)
-  .where(ee.Image('projects/mapbiomas-workspace/DEGRADACAO/ISOLATION/nat_uso_frag100__dist05k__500_v6_85_22'),1)
-  .where(ee.Image('projects/mapbiomas-workspace/DEGRADACAO/ISOLATION/nat_uso_frag50__dist05k__500_v6_85_22'),2)
-  .where(ee.Image('projects/mapbiomas-workspace/DEGRADACAO/ISOLATION/nat_uso_frag25__dist05k__500_v6_85_22'),3)
-  .where(ee.Image('projects/mapbiomas-workspace/DEGRADACAO/ISOLATION/nat_uso_frag100__dist10k__500_v6_85_22'),4)
-  .where(ee.Image('projects/mapbiomas-workspace/DEGRADACAO/ISOLATION/nat_uso_frag50__dist10k__500_v6_85_22'),5)
-  .where(ee.Image('projects/mapbiomas-workspace/DEGRADACAO/ISOLATION/nat_uso_frag25__dist10k__500_v6_85_22'),6)
-  .where(ee.Image('projects/mapbiomas-workspace/DEGRADACAO/ISOLATION/nat_uso_frag50__dist20k__500_v6_85_22'),8)
-  .where(ee.Image('projects/mapbiomas-workspace/DEGRADACAO/ISOLATION/nat_uso_frag25__dist20k__500_v6_85_22'),9);
+  .where(ee.Image('projects/mapbiomas-workspace/DEGRADACAO/ISOLATION_col9_v2/BR_Distance/natural_mask_maior500ha_85_234'),11)
+  .where(ee.Image('projects/mapbiomas-workspace/DEGRADACAO/ISOLATION_col9_v2/nat_uso_frag100_dist05k_500_v7_85_23'),1)
+  .where(ee.Image('projects/mapbiomas-workspace/DEGRADACAO/ISOLATION_col9_v2/nat_uso_frag50_dist05k_500_v7_85_23'),2)
+  .where(ee.Image('projects/mapbiomas-workspace/DEGRADACAO/ISOLATION_col9_v2/nat_uso_frag25_dist05k_500_v7_85_23'),3)
+  .where(ee.Image('projects/mapbiomas-workspace/DEGRADACAO/ISOLATION_col9_v2/nat_uso_frag100_dist10k_500_v7_85_23'),4)
+  .where(ee.Image('projects/mapbiomas-workspace/DEGRADACAO/ISOLATION_col9_v2/nat_uso_frag50_dist10k_500_v7_85_23'),5)
+  .where(ee.Image('projects/mapbiomas-workspace/DEGRADACAO/ISOLATION_col9_v2/nat_uso_frag25_dist10k_500_v7_85_23'),6)
+  .where(ee.Image('projects/mapbiomas-workspace/DEGRADACAO/ISOLATION_col9_v2/nat_uso_frag50_dist20k_500_v7_85_23'),8)
+  .where(ee.Image('projects/mapbiomas-workspace/DEGRADACAO/ISOLATION_col9_v2/nat_uso_frag25_dist20k_500_v7_85_23'),9);
 
 var distances1000ha = landcover_base.multiply(0)
-  .where(ee.Image('projects/mapbiomas-workspace/DEGRADACAO/ISOLATION/BR_Distance/natural_mask_maior1000ha_v5_85_22'),12)
-  .where(ee.Image('projects/mapbiomas-workspace/DEGRADACAO/ISOLATION/nat_uso_frag100__dist05k__1000_v6_85_22'),1)
-  .where(ee.Image('projects/mapbiomas-workspace/DEGRADACAO/ISOLATION/nat_uso_frag50__dist05k__1000_v6_85_22'),2)
-  .where(ee.Image('projects/mapbiomas-workspace/DEGRADACAO/ISOLATION/nat_uso_frag25__dist05k__1000_v6_85_22'),3)
-  .where(ee.Image('projects/mapbiomas-workspace/DEGRADACAO/ISOLATION/nat_uso_frag100__dist10k__1000_v6_85_22'),4)
-  .where(ee.Image('projects/mapbiomas-workspace/DEGRADACAO/ISOLATION/nat_uso_frag50__dist10k__1000_v6_85_22'),5)
-  .where(ee.Image('projects/mapbiomas-workspace/DEGRADACAO/ISOLATION/nat_uso_frag25__dist10k__1000_v6_85_22'),6)
-  .where(ee.Image('projects/mapbiomas-workspace/DEGRADACAO/ISOLATION/nat_uso_frag100__dist20k__1000_v6_85_22'),7)
-  .where(ee.Image('projects/mapbiomas-workspace/DEGRADACAO/ISOLATION/nat_uso_frag50__dist20k__1000_v6_85_22'),8)
-  .where(ee.Image('projects/mapbiomas-workspace/DEGRADACAO/ISOLATION/nat_uso_frag25__dist20k__1000_v6_85_22'),9);
+  .where(ee.Image('projects/mapbiomas-workspace/DEGRADACAO/ISOLATION_col9_v2/BR_Distance/natural_mask_maior1000ha_85_234'),12)
+  .where(ee.Image('projects/mapbiomas-workspace/DEGRADACAO/ISOLATION_col9_v2/nat_uso_frag100_dist05k_1000_v7_85_23'),1)
+  .where(ee.Image('projects/mapbiomas-workspace/DEGRADACAO/ISOLATION_col9_v2/nat_uso_frag50_dist05k_1000_v7_85_23'),2)
+  .where(ee.Image('projects/mapbiomas-workspace/DEGRADACAO/ISOLATION_col9_v2/nat_uso_frag25_dist05k_1000_v7_85_23'),3)
+  .where(ee.Image('projects/mapbiomas-workspace/DEGRADACAO/ISOLATION_col9_v2/nat_uso_frag100_dist10k_1000_v7_85_23'),4)
+  .where(ee.Image('projects/mapbiomas-workspace/DEGRADACAO/ISOLATION_col9_v2/nat_uso_frag50_dist10k_1000_v7_85_23'),5)
+  .where(ee.Image('projects/mapbiomas-workspace/DEGRADACAO/ISOLATION_col9_v2/nat_uso_frag25_dist10k_1000_v7_85_23'),6)
+  .where(ee.Image('projects/mapbiomas-workspace/DEGRADACAO/ISOLATION_col9_v2/nat_uso_frag100_dist20k_1000_v7_85_23'),7)
+  .where(ee.Image('projects/mapbiomas-workspace/DEGRADACAO/ISOLATION_col9_v2/nat_uso_frag50_dist20k_1000_v7_85_23'),8)
+  .where(ee.Image('projects/mapbiomas-workspace/DEGRADACAO/ISOLATION_col9_v2/nat_uso_frag25_dist20k_1000_v7_85_23'),9);
 
 // Adicionando os objetos ao dicionário assetsConfig
 var assetsConfig = {
@@ -248,7 +248,7 @@ var assetsConfig = {
       6: 'Fragmentos de até 25 ha distantes 10 km de áreas fonte',
       8: 'Fragmentos de até 50 ha distantes 20 km de áreas fonte',
       9: 'Fragmentos de até 25 ha distantes 20 km de áreas fonte',
-      10: 'Área fonte com de 100 a 500 ha',
+      10: 'Área fonte com 100 a 500 ha',
       11: 'Área fonte com 500 a 1000 ha',
       12: 'Área fonte com 1000 ha ou mais'
     },
@@ -348,73 +348,113 @@ var App = {
         tables: {
             'mapbiomas-brazil': [
                 {
-                    'label': 'atlantic_forest_law',
-                    'value': 'projects/mapbiomas-workspace/AUXILIAR/ESTATISTICAS/COLECAO8/VERSAO-1/atlantic_forest_law',
+                    'label': 'Amacro',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/AMACRO',
                 },
                 {
-                    'label': 'biome',
-                    'value': 'projects/mapbiomas-workspace/AUXILIAR/ESTATISTICAS/COLECAO8/VERSAO-1/refined_biome',
+                    'label': 'Ministry of the Environment priority areas 2018',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/AREAS_PRIORITARIAS_DO_MMA_2018',
                 },
                 {
-                    'label': 'biosphere_reserves',
-                    'value': 'projects/mapbiomas-workspace/AUXILIAR/ESTATISTICAS/COLECAO8/VERSAO-1/biosphere_reserves',
+                    'label': 'Atlantic Forest Law',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/ATLANTIC_FOREST_LAW',
                 },
                 {
-                    'label': 'city',
-                    'value': 'projects/mapbiomas-workspace/AUXILIAR/ESTATISTICAS/COLECAO8/VERSAO-1/city',
+                    'label': 'Basin Level 1 DNAEE',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/BASIN_LEVEL_1_DNAEE',
                 },
                 {
-                    'label': 'country',
-                    'value': 'projects/mapbiomas-workspace/AUXILIAR/ESTATISTICAS/COLECAO8/VERSAO-1/country',
+                    'label': 'Basin Level 1 PNRH',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/BASIN_LEVEL_1_PNRH',
                 },
                 {
-                    'label': 'federal_conservation_units_integral_protection',
-                    'value': 'projects/mapbiomas-workspace/AUXILIAR/ESTATISTICAS/COLECAO8/VERSAO-1/federal_protected_area_integral_protection',
+                    'label': 'Basin Level 2 DNAEE',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/BASIN_LEVEL_2_DNAEE',
                 },
                 {
-                    'label': 'federal_conservation_units_sustainable_use',
-                    'value': 'projects/mapbiomas-workspace/AUXILIAR/ESTATISTICAS/COLECAO8/VERSAO-1/federal_protected_area_sustainable_use',
+                    'label': 'Basin Level 2 PNRH',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/BASIN_LEVEL_2_PNRH',
                 },
                 {
-                    'label': 'indigenous_land',
-                    'value': 'projects/mapbiomas-workspace/AUXILIAR/ESTATISTICAS/COLECAO8/VERSAO-1/indigenous_territories',
+                    'label': 'Biomes',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/BIOMES',
                 },
                 {
-                    'label': 'legal_amazon',
-                    'value': 'projects/mapbiomas-workspace/AUXILIAR/ESTATISTICAS/COLECAO8/VERSAO-1/legal_amazon',
+                    'label': 'Coastal Marine Zone',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/COASTAL_MARINE_ZONE',
                 },
                 {
-                    'label': 'pnrh_level_1_basin',
-                    'value': 'projects/mapbiomas-workspace/AUXILIAR/ESTATISTICAS/COLECAO8/VERSAO-1/pnrh_level_1_basin',
+                    'label': 'Forest Concessions',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/CONCESSOES_FLORESTAIS',
                 },
                 {
-                    'label': 'pnrh_level_2_basin',
-                    'value': 'projects/mapbiomas-workspace/AUXILIAR/ESTATISTICAS/COLECAO8/VERSAO-1/pnrh_level_1_basin',
+                    'label': 'DHN250 Level 1',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/DHN250_LEVEL_1',
                 },
                 {
-                    'label': 'quilombo',
-                    'value': 'projects/mapbiomas-workspace/AUXILIAR/ESTATISTICAS/COLECAO8/VERSAO-1/quilombos',
+                    'label': 'DHN250 Level 2',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/DHN250_LEVEL_2',
                 },
                 {
-                    'label': 'semiarid',
-                    'value': 'projects/mapbiomas-workspace/AUXILIAR/ESTATISTICAS/COLECAO8/VERSAO-1/semiarid',
+                    'label': 'DHN250 Level 3',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/DHN250_LEVEL_3',
                 },
                 {
-                    'label': 'settlement',
-                    'value': 'projects/mapbiomas-workspace/AUXILIAR/ESTATISTICAS/COLECAO8/VERSAO-1/settlements',
+                    'label': 'Non-Designated Public Forests',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/FLORESTAS_PUBLICAS_NAO_DESTINADAS',
                 },
                 {
-                    'label': 'state',
-                    'value': 'projects/mapbiomas-workspace/AUXILIAR/ESTATISTICAS/COLECAO8/VERSAO-1/state',
+                    'label': 'Geoparques',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/GEOPARQUES',
                 },
                 {
-                    'label': 'state_protected_area_integral_protection',
-                    'value': 'projects/mapbiomas-workspace/AUXILIAR/ESTATISTICAS/COLECAO8/VERSAO-1/state_protected_area_integral_protection',
+                    'label': 'Indigenous Territories',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/INDIGENOUS_TERRITORIES',
                 },
                 {
-                    'label': 'state_protected_area_sustainable_use',
-                    'value': 'projects/mapbiomas-workspace/AUXILIAR/ESTATISTICAS/COLECAO8/VERSAO-1/state_protected_area_sustainable_use',
+                    'label': 'Legal Amazon',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/LEGAL_AMAZON',
                 },
+                {
+                    'label': 'Matopiba',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/MATOPIBA',
+                },
+                {
+                    'label': 'Political Level 1',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/POLITICAL_LEVEL_1',
+                },
+                {
+                    'label': 'Political Level 2',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/POLITICAL_LEVEL_2',
+                },
+                {
+                    'label': 'Political Level 3',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/POLITICAL_LEVEL_3',
+                },
+                {
+                    'label': 'Protected Area',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/PROTECTED_AREA',
+                },
+                {
+                    'label': 'Quilombos',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/QUILOMBOS',
+                },
+                {
+                    'label': 'Biosphere Reserve',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/RESERVA_DA_BIOSFERA',
+                },
+                {
+                    'label': 'Semiarid',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/SEMIARID',
+                },
+                {
+                    'label': 'Settlements',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/SETTLEMENTS',
+                },
+                {
+                    'label': 'UGRHS',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/UGRHS',
+                }
             ],
         },
 
@@ -423,46 +463,46 @@ var App = {
             'degradation BETA: edge area': {
                 'assets': {
                   'edge_classes':assetsConfig.bordasArea.eeObject,
-                  'edge_30m':'projects/mapbiomas-workspace/DEGRADACAO/COLECAO/BETA/PROCESS/edge_area/edge_30m_v3',
-                  'edge_60m':'projects/mapbiomas-workspace/DEGRADACAO/COLECAO/BETA/PROCESS/edge_area/edge_60m_v3',
-                  'edge_90m':'projects/mapbiomas-workspace/DEGRADACAO/COLECAO/BETA/PROCESS/edge_area/edge_90m_v3',
-                  'edge_120m':'projects/mapbiomas-workspace/DEGRADACAO/COLECAO/BETA/PROCESS/edge_area/edge_120m_v3',
-                  'edge_150m':'projects/mapbiomas-workspace/DEGRADACAO/COLECAO/BETA/PROCESS/edge_area/edge_150m_v3',
-                  'edge_300m':'projects/mapbiomas-workspace/DEGRADACAO/COLECAO/BETA/PROCESS/edge_area/edge_300m_v3',
-                  'edge_600m':'projects/mapbiomas-workspace/DEGRADACAO/COLECAO/BETA/PROCESS/edge_area/edge_600m_v3',
-                  'edge_1000m':'projects/mapbiomas-workspace/DEGRADACAO/COLECAO/BETA/PROCESS/edge_area/edge_1000m_v3',
+                  'edge_30m':'projects/mapbiomas-workspace/DEGRADACAO/COLECAO/BETA/PROCESS/edge_area/edge_30m_col9_v1',
+                  'edge_60m':'projects/mapbiomas-workspace/DEGRADACAO/COLECAO/BETA/PROCESS/edge_area/edge_60m_col9_v1',
+                  'edge_90m':'projects/mapbiomas-workspace/DEGRADACAO/COLECAO/BETA/PROCESS/edge_area/edge_90m_col9_v1',
+                  'edge_120m':'projects/mapbiomas-workspace/DEGRADACAO/COLECAO/BETA/PROCESS/edge_area/edge_120m_col9_v1',
+                  'edge_150m':'projects/mapbiomas-workspace/DEGRADACAO/COLECAO/BETA/PROCESS/edge_area/edge_150m_col9_v1',
+                  'edge_300m':'projects/mapbiomas-workspace/DEGRADACAO/COLECAO/BETA/PROCESS/edge_area/edge_300m_col9_v1',
+                  'edge_600m':'projects/mapbiomas-workspace/DEGRADACAO/COLECAO/BETA/PROCESS/edge_area/edge_600m_col9_v1',
+                  'edge_1000m':'projects/mapbiomas-workspace/DEGRADACAO/COLECAO/BETA/PROCESS/edge_area/edge_1000m_col9_v1',
                 },
                 'periods': {
-                  'edge_classes':[ '1986', '1987', '1988', '1989', '1990','1991', '1992', '1993', '1994', '1995', '1996','1997', '1998', '1999', '2000', '2001', '2002','2003', '2004', '2005', '2006', '2007', '2008','2009', '2010', '2011', '2012', '2013', '2014','2015', '2016', '2017', '2018', '2019', '2020','2021' ],
-                  'edge_30m':[ '1986', '1987', '1988', '1989', '1990','1991', '1992', '1993', '1994', '1995', '1996','1997', '1998', '1999', '2000', '2001', '2002','2003', '2004', '2005', '2006', '2007', '2008','2009', '2010', '2011', '2012', '2013', '2014','2015', '2016', '2017', '2018', '2019', '2020','2021' ],
-                  'edge_60m':[ '1986', '1987', '1988', '1989', '1990','1991', '1992', '1993', '1994', '1995', '1996','1997', '1998', '1999', '2000', '2001', '2002','2003', '2004', '2005', '2006', '2007', '2008','2009', '2010', '2011', '2012', '2013', '2014','2015', '2016', '2017', '2018', '2019', '2020','2021' ],
-                  'edge_90m':[ '1986', '1987', '1988', '1989', '1990','1991', '1992', '1993', '1994', '1995', '1996','1997', '1998', '1999', '2000', '2001', '2002','2003', '2004', '2005', '2006', '2007', '2008','2009', '2010', '2011', '2012', '2013', '2014','2015', '2016', '2017', '2018', '2019', '2020','2021' ],
-                  'edge_120m':[ '1986', '1987', '1988', '1989', '1990','1991', '1992', '1993', '1994', '1995', '1996','1997', '1998', '1999', '2000', '2001', '2002','2003', '2004', '2005', '2006', '2007', '2008','2009', '2010', '2011', '2012', '2013', '2014','2015', '2016', '2017', '2018', '2019', '2020','2021' ],
-                  'edge_150m':[ '1986', '1987', '1988', '1989', '1990','1991', '1992', '1993', '1994', '1995', '1996','1997', '1998', '1999', '2000', '2001', '2002','2003', '2004', '2005', '2006', '2007', '2008','2009', '2010', '2011', '2012', '2013', '2014','2015', '2016', '2017', '2018', '2019', '2020','2021' ],
-                  'edge_300m':[ '1986', '1987', '1988', '1989', '1990','1991', '1992', '1993', '1994', '1995', '1996','1997', '1998', '1999', '2000', '2001', '2002','2003', '2004', '2005', '2006', '2007', '2008','2009', '2010', '2011', '2012', '2013', '2014','2015', '2016', '2017', '2018', '2019', '2020','2021' ],
-                  'edge_600m':[ '1986', '1987', '1988', '1989', '1990','1991', '1992', '1993', '1994', '1995', '1996','1997', '1998', '1999', '2000', '2001', '2002','2003', '2004', '2005', '2006', '2007', '2008','2009', '2010', '2011', '2012', '2013', '2014','2015', '2016', '2017', '2018', '2019', '2020','2021' ],
-                  'edge_1000m':[ '1986', '1987', '1988', '1989', '1990','1991', '1992', '1993', '1994', '1995', '1996','1997', '1998', '1999', '2000', '2001', '2002','2003', '2004', '2005', '2006', '2007', '2008','2009', '2010', '2011', '2012', '2013', '2014','2015', '2016', '2017', '2018', '2019', '2020','2021' ],
+                  'edge_classes':[ '1986', '1987', '1988', '1989', '1990','1991', '1992', '1993', '1994', '1995', '1996','1997', '1998', '1999', '2000', '2001', '2002','2003', '2004', '2005', '2006', '2007', '2008','2009', '2010', '2011', '2012', '2013', '2014','2015', '2016', '2017', '2018', '2019', '2020','2021', '2022' ],
+                  'edge_30m':[ '1986', '1987', '1988', '1989', '1990','1991', '1992', '1993', '1994', '1995', '1996','1997', '1998', '1999', '2000', '2001', '2002','2003', '2004', '2005', '2006', '2007', '2008','2009', '2010', '2011', '2012', '2013', '2014','2015', '2016', '2017', '2018', '2019', '2020','2021', '2022' ],
+                  'edge_60m':[ '1986', '1987', '1988', '1989', '1990','1991', '1992', '1993', '1994', '1995', '1996','1997', '1998', '1999', '2000', '2001', '2002','2003', '2004', '2005', '2006', '2007', '2008','2009', '2010', '2011', '2012', '2013', '2014','2015', '2016', '2017', '2018', '2019', '2020','2021', '2022' ],
+                  'edge_90m':[ '1986', '1987', '1988', '1989', '1990','1991', '1992', '1993', '1994', '1995', '1996','1997', '1998', '1999', '2000', '2001', '2002','2003', '2004', '2005', '2006', '2007', '2008','2009', '2010', '2011', '2012', '2013', '2014','2015', '2016', '2017', '2018', '2019', '2020','2021', '2022' ],
+                  'edge_120m':[ '1986', '1987', '1988', '1989', '1990','1991', '1992', '1993', '1994', '1995', '1996','1997', '1998', '1999', '2000', '2001', '2002','2003', '2004', '2005', '2006', '2007', '2008','2009', '2010', '2011', '2012', '2013', '2014','2015', '2016', '2017', '2018', '2019', '2020','2021', '2022' ],
+                  'edge_150m':[ '1986', '1987', '1988', '1989', '1990','1991', '1992', '1993', '1994', '1995', '1996','1997', '1998', '1999', '2000', '2001', '2002','2003', '2004', '2005', '2006', '2007', '2008','2009', '2010', '2011', '2012', '2013', '2014','2015', '2016', '2017', '2018', '2019', '2020','2021', '2022' ],
+                  'edge_300m':[ '1986', '1987', '1988', '1989', '1990','1991', '1992', '1993', '1994', '1995', '1996','1997', '1998', '1999', '2000', '2001', '2002','2003', '2004', '2005', '2006', '2007', '2008','2009', '2010', '2011', '2012', '2013', '2014','2015', '2016', '2017', '2018', '2019', '2020','2021', '2022' ],
+                  'edge_600m':[ '1986', '1987', '1988', '1989', '1990','1991', '1992', '1993', '1994', '1995', '1996','1997', '1998', '1999', '2000', '2001', '2002','2003', '2004', '2005', '2006', '2007', '2008','2009', '2010', '2011', '2012', '2013', '2014','2015', '2016', '2017', '2018', '2019', '2020','2021', '2022' ],
+                  'edge_1000m':[ '1986', '1987', '1988', '1989', '1990','1991', '1992', '1993', '1994', '1995', '1996','1997', '1998', '1999', '2000', '2001', '2002','2003', '2004', '2005', '2006', '2007', '2008','2009', '2010', '2011', '2012', '2013', '2014','2015', '2016', '2017', '2018', '2019', '2020','2021', '2022' ],
                 },
                 
             },
             'degradation BETA: patch size': {
                 'assets': {
                   'size_classes':assetsConfig.fragmentSize.eeObject,
-                  'size_3ha':'projects/mapbiomas-workspace/DEGRADACAO/COLECAO/BETA/PROCESS/patch_size/size_3ha_v3',
-                  'size_5ha':'projects/mapbiomas-workspace/DEGRADACAO/COLECAO/BETA/PROCESS/patch_size/size_5ha_v3',
-                  'size_10ha':'projects/mapbiomas-workspace/DEGRADACAO/COLECAO/BETA/PROCESS/patch_size/size_10ha_v3',
-                  'size_25ha':'projects/mapbiomas-workspace/DEGRADACAO/COLECAO/BETA/PROCESS/patch_size/size_25ha_v3',
-                  'size_50ha':'projects/mapbiomas-workspace/DEGRADACAO/COLECAO/BETA/PROCESS/patch_size/size_50ha_v3', 
-                  'size_75ha':'projects/mapbiomas-workspace/DEGRADACAO/COLECAO/BETA/PROCESS/patch_size/size_75ha_v3',
+                  'size_3ha':'projects/mapbiomas-workspace/DEGRADACAO/COLECAO/BETA/PROCESS/patch_size/size_3ha_col9_v1',
+                  'size_5ha':'projects/mapbiomas-workspace/DEGRADACAO/COLECAO/BETA/PROCESS/patch_size/size_5ha_col9_v1',
+                  'size_10ha':'projects/mapbiomas-workspace/DEGRADACAO/COLECAO/BETA/PROCESS/patch_size/size_10ha_col9_v1',
+                  'size_25ha':'projects/mapbiomas-workspace/DEGRADACAO/COLECAO/BETA/PROCESS/patch_size/size_25ha_col9_v1',
+                  'size_50ha':'projects/mapbiomas-workspace/DEGRADACAO/COLECAO/BETA/PROCESS/patch_size/size_50ha_col9_v1', 
+                  'size_75ha':'projects/mapbiomas-workspace/DEGRADACAO/COLECAO/BETA/PROCESS/patch_size/size_75ha_col9_v1',
                 },
                 'periods': {                  
-                  'size_classes':[ '1986', '1987', '1988', '1989', '1990','1991', '1992', '1993', '1994', '1995', '1996','1997', '1998', '1999', '2000', '2001', '2002','2003', '2004', '2005', '2006', '2007', '2008','2009', '2010', '2011', '2012', '2013', '2014','2015', '2016', '2017', '2018', '2019', '2020','2021' ],
-                  'size_3ha':[ '1986', '1987', '1988', '1989', '1990','1991', '1992', '1993', '1994', '1995', '1996','1997', '1998', '1999', '2000', '2001', '2002','2003', '2004', '2005', '2006', '2007', '2008','2009', '2010', '2011', '2012', '2013', '2014','2015', '2016', '2017', '2018', '2019', '2020','2021' ],
-                  'size_5ha':[ '1986', '1987', '1988', '1989', '1990','1991', '1992', '1993', '1994', '1995', '1996','1997', '1998', '1999', '2000', '2001', '2002','2003', '2004', '2005', '2006', '2007', '2008','2009', '2010', '2011', '2012', '2013', '2014','2015', '2016', '2017', '2018', '2019', '2020','2021' ],
-                  'size_10ha':[ '1986', '1987', '1988', '1989', '1990','1991', '1992', '1993', '1994', '1995', '1996','1997', '1998', '1999', '2000', '2001', '2002','2003', '2004', '2005', '2006', '2007', '2008','2009', '2010', '2011', '2012', '2013', '2014','2015', '2016', '2017', '2018', '2019', '2020','2021' ],
-                  'size_25ha':[ '1986', '1987', '1988', '1989', '1990','1991', '1992', '1993', '1994', '1995', '1996','1997', '1998', '1999', '2000', '2001', '2002','2003', '2004', '2005', '2006', '2007', '2008','2009', '2010', '2011', '2012', '2013', '2014','2015', '2016', '2017', '2018', '2019', '2020','2021' ],
-                  'size_50ha':[ '1986', '1987', '1988', '1989', '1990','1991', '1992', '1993', '1994', '1995', '1996','1997', '1998', '1999', '2000', '2001', '2002','2003', '2004', '2005', '2006', '2007', '2008','2009', '2010', '2011', '2012', '2013', '2014','2015', '2016', '2017', '2018', '2019', '2020','2021' ],
-                  'size_75ha':[ '1986', '1987', '1988', '1989', '1990','1991', '1992', '1993', '1994', '1995', '1996','1997', '1998', '1999', '2000', '2001', '2002','2003', '2004', '2005', '2006', '2007', '2008','2009', '2010', '2011', '2012', '2013', '2014','2015', '2016', '2017', '2018', '2019', '2020','2021' ],
+                  'size_classes':[ '1986', '1987', '1988', '1989', '1990','1991', '1992', '1993', '1994', '1995', '1996','1997', '1998', '1999', '2000', '2001', '2002','2003', '2004', '2005', '2006', '2007', '2008','2009', '2010', '2011', '2012', '2013', '2014','2015', '2016', '2017', '2018', '2019', '2020','2021', '2022' ],
+                  'size_3ha':[ '1986', '1987', '1988', '1989', '1990','1991', '1992', '1993', '1994', '1995', '1996','1997', '1998', '1999', '2000', '2001', '2002','2003', '2004', '2005', '2006', '2007', '2008','2009', '2010', '2011', '2012', '2013', '2014','2015', '2016', '2017', '2018', '2019', '2020','2021', '2022' ],
+                  'size_5ha':[ '1986', '1987', '1988', '1989', '1990','1991', '1992', '1993', '1994', '1995', '1996','1997', '1998', '1999', '2000', '2001', '2002','2003', '2004', '2005', '2006', '2007', '2008','2009', '2010', '2011', '2012', '2013', '2014','2015', '2016', '2017', '2018', '2019', '2020','2021', '2022' ],
+                  'size_10ha':[ '1986', '1987', '1988', '1989', '1990','1991', '1992', '1993', '1994', '1995', '1996','1997', '1998', '1999', '2000', '2001', '2002','2003', '2004', '2005', '2006', '2007', '2008','2009', '2010', '2011', '2012', '2013', '2014','2015', '2016', '2017', '2018', '2019', '2020','2021', '2022' ],
+                  'size_25ha':[ '1986', '1987', '1988', '1989', '1990','1991', '1992', '1993', '1994', '1995', '1996','1997', '1998', '1999', '2000', '2001', '2002','2003', '2004', '2005', '2006', '2007', '2008','2009', '2010', '2011', '2012', '2013', '2014','2015', '2016', '2017', '2018', '2019', '2020','2021', '2022' ],
+                  'size_50ha':[ '1986', '1987', '1988', '1989', '1990','1991', '1992', '1993', '1994', '1995', '1996','1997', '1998', '1999', '2000', '2001', '2002','2003', '2004', '2005', '2006', '2007', '2008','2009', '2010', '2011', '2012', '2013', '2014','2015', '2016', '2017', '2018', '2019', '2020','2021', '2022' ],
+                  'size_75ha':[ '1986', '1987', '1988', '1989', '1990','1991', '1992', '1993', '1994', '1995', '1996','1997', '1998', '1999', '2000', '2001', '2002','2003', '2004', '2005', '2006', '2007', '2008','2009', '2010', '2011', '2012', '2013', '2014','2015', '2016', '2017', '2018', '2019', '2020','2021' , '2022'],
                 },
                 
             },
@@ -471,86 +511,86 @@ var App = {
                   'distance_classes_100ha':assetsConfig.distances100ha.eeObject,
                   'distance_classes_500ha':assetsConfig.distances500ha.eeObject,
                   'distance_classes_1000ha':assetsConfig.distances1000ha.eeObject,
-                  'Target lte_25ha Distance lte_05km Source gte_100ha':'projects/mapbiomas-workspace/DEGRADACAO/ISOLATION/nat_uso_frag25__dist05k__100_v6_85_22',
-                  'Target lte_25ha Distance lte_05km Source gte_500ha':'projects/mapbiomas-workspace/DEGRADACAO/ISOLATION/nat_uso_frag25__dist05k__500_v6_85_22',
-                  'Target lte_25ha Distance lte_05km Source gte_1000ha':'projects/mapbiomas-workspace/DEGRADACAO/ISOLATION/nat_uso_frag25__dist05k__1000_v6_85_22',
-                  'Target lte_25ha Distance lte_10km Source gte_100ha':'projects/mapbiomas-workspace/DEGRADACAO/ISOLATION/nat_uso_frag25__dist10k__100_v6_85_22',
-                  'Target lte_25ha Distance lte_10km Source gte_500ha':'projects/mapbiomas-workspace/DEGRADACAO/ISOLATION/nat_uso_frag25__dist10k__500_v6_85_22',
-                  'Target lte_25ha Distance lte_10km Source gte_1000ha':'projects/mapbiomas-workspace/DEGRADACAO/ISOLATION/nat_uso_frag25__dist10k__1000_v6_85_22',
-                  'Target lte_25ha Distance lte_20km Source gte_100ha':'projects/mapbiomas-workspace/DEGRADACAO/ISOLATION/nat_uso_frag25__dist20k__100_v6_85_22',
-                  'Target lte_25ha Distance lte_20km Source gte_500ha':'projects/mapbiomas-workspace/DEGRADACAO/ISOLATION/nat_uso_frag25__dist20k__500_v6_85_22',
-                  'Target lte_25ha Distance lte_20km Source gte_1000ha':'projects/mapbiomas-workspace/DEGRADACAO/ISOLATION/nat_uso_frag25__dist20k__1000_v6_85_22',
-                  'Target lte_50ha Distance lte_05km Source gte_100ha':'projects/mapbiomas-workspace/DEGRADACAO/ISOLATION/nat_uso_frag50__dist05k__100_v6_85_22',
-                  'Target lte_50ha Distance lte_05km Source gte_500ha':'projects/mapbiomas-workspace/DEGRADACAO/ISOLATION/nat_uso_frag50__dist05k__500_v6_85_22',
-                  'Target lte_50ha Distance lte_05km Source gte_1000ha':'projects/mapbiomas-workspace/DEGRADACAO/ISOLATION/nat_uso_frag50__dist05k__1000_v6_85_22',
-                  'Target lte_50ha Distance lte_10km Source gte_100ha':'projects/mapbiomas-workspace/DEGRADACAO/ISOLATION/nat_uso_frag50__dist10k__100_v6_85_22',
-                  'Target lte_50ha Distance lte_10km Source gte_500ha':'projects/mapbiomas-workspace/DEGRADACAO/ISOLATION/nat_uso_frag50__dist10k__500_v6_85_22',
-                  'Target lte_50ha Distance lte_10km Source gte_1000ha':'projects/mapbiomas-workspace/DEGRADACAO/ISOLATION/nat_uso_frag50__dist10k__1000_v6_85_22',
-                  'Target lte_50ha Distance lte_20km Source gte_100ha':'projects/mapbiomas-workspace/DEGRADACAO/ISOLATION/nat_uso_frag50__dist20k__100_v6_85_22',
-                  'Target lte_50ha Distance lte_20km Source gte_500ha':'projects/mapbiomas-workspace/DEGRADACAO/ISOLATION/nat_uso_frag50__dist20k__500_v6_85_22',
-                  'Target lte_50ha Distance lte_20km Source gte_1000ha':'projects/mapbiomas-workspace/DEGRADACAO/ISOLATION/nat_uso_frag50__dist20k__1000_v6_85_22',
-                  'Target lte_100ha Distance lte_05km Source gte_500ha':'projects/mapbiomas-workspace/DEGRADACAO/ISOLATION/nat_uso_frag100__dist05k__500_v6_85_22',
-                  'Target lte_100ha Distance lte_05km Source gte_1000ha':'projects/mapbiomas-workspace/DEGRADACAO/ISOLATION/nat_uso_frag100__dist05k__1000_v6_85_22',
-                  'Target lte_100ha Distance lte_10km Source gte_500ha':'projects/mapbiomas-workspace/DEGRADACAO/ISOLATION/nat_uso_frag100__dist10k__500_v6_85_22',
-                  'Target lte_100ha Distance lte_10km Source gte_1000ha':'projects/mapbiomas-workspace/DEGRADACAO/ISOLATION/nat_uso_frag100__dist10k__1000_v6_85_22',
-                  'Target lte_100ha Distance lte_20km Source gte_500ha':'projects/mapbiomas-workspace/DEGRADACAO/ISOLATION/nat_uso_frag100__dist20k__500_v6_85_22',
-                  'Target lte_100ha Distance lte_20km Source gte_1000ha':'projects/mapbiomas-workspace/DEGRADACAO/ISOLATION/nat_uso_frag100__dist20k__1000_v6_85_22',
+                  'Target lte_25ha Distance lte_05km Source gte_100ha':'projects/mapbiomas-workspace/DEGRADACAO/ISOLATION_col9_v2/nat_uso_frag25_dist05k_100_v7_85_23',
+                  'Target lte_25ha Distance lte_05km Source gte_500ha':'projects/mapbiomas-workspace/DEGRADACAO/ISOLATION_col9_v2/nat_uso_frag25_dist05k_500_v7_85_23',
+                  'Target lte_25ha Distance lte_05km Source gte_1000ha':'projects/mapbiomas-workspace/DEGRADACAO/ISOLATION_col9_v2/nat_uso_frag25_dist05k_1000_v7_85_23',
+                  'Target lte_25ha Distance lte_10km Source gte_100ha':'projects/mapbiomas-workspace/DEGRADACAO/ISOLATION_col9_v2/nat_uso_frag25_dist10k_100_v7_85_23',
+                  'Target lte_25ha Distance lte_10km Source gte_500ha':'projects/mapbiomas-workspace/DEGRADACAO/ISOLATION_col9_v2/nat_uso_frag25_dist10k_500_v7_85_23',
+                  'Target lte_25ha Distance lte_10km Source gte_1000ha':'projects/mapbiomas-workspace/DEGRADACAO/ISOLATION_col9_v2/nat_uso_frag25_dist10k_1000_v7_85_23',
+                  'Target lte_25ha Distance lte_20km Source gte_100ha':'projects/mapbiomas-workspace/DEGRADACAO/ISOLATION_col9_v2/nat_uso_frag25_dist20k_100_v7_85_23',
+                  'Target lte_25ha Distance lte_20km Source gte_500ha':'projects/mapbiomas-workspace/DEGRADACAO/ISOLATION_col9_v2/nat_uso_frag25_dist20k_500_v7_85_23',
+                  'Target lte_25ha Distance lte_20km Source gte_1000ha':'projects/mapbiomas-workspace/DEGRADACAO/ISOLATION_col9_v2/nat_uso_frag25_dist20k_1000_v7_85_23',
+                  'Target lte_50ha Distance lte_05km Source gte_100ha':'projects/mapbiomas-workspace/DEGRADACAO/ISOLATION_col9_v2/nat_uso_frag50_dist05k_100_v7_85_23',
+                  'Target lte_50ha Distance lte_05km Source gte_500ha':'projects/mapbiomas-workspace/DEGRADACAO/ISOLATION_col9_v2/nat_uso_frag50_dist05k_500_v7_85_23',
+                  'Target lte_50ha Distance lte_05km Source gte_1000ha':'projects/mapbiomas-workspace/DEGRADACAO/ISOLATION_col9_v2/nat_uso_frag50_dist05k_1000_v7_85_23',
+                  'Target lte_50ha Distance lte_10km Source gte_100ha':'projects/mapbiomas-workspace/DEGRADACAO/ISOLATION_col9_v2/nat_uso_frag50_dist10k_100_v7_85_23',
+                  'Target lte_50ha Distance lte_10km Source gte_500ha':'projects/mapbiomas-workspace/DEGRADACAO/ISOLATION_col9_v2/nat_uso_frag50_dist10k_500_v7_85_23',
+                  'Target lte_50ha Distance lte_10km Source gte_1000ha':'projects/mapbiomas-workspace/DEGRADACAO/ISOLATION_col9_v2/nat_uso_frag50_dist10k_1000_v7_85_23',
+                  'Target lte_50ha Distance lte_20km Source gte_100ha':'projects/mapbiomas-workspace/DEGRADACAO/ISOLATION_col9_v2/nat_uso_frag50_dist20k_100_v7_85_23',
+                  'Target lte_50ha Distance lte_20km Source gte_500ha':'projects/mapbiomas-workspace/DEGRADACAO/ISOLATION_col9_v2/nat_uso_frag50_dist20k_500_v7_85_23',
+                  'Target lte_50ha Distance lte_20km Source gte_1000ha':'projects/mapbiomas-workspace/DEGRADACAO/ISOLATION_col9_v2/nat_uso_frag50_dist20k_1000_v7_85_23',
+                  'Target lte_100ha Distance lte_05km Source gte_500ha':'projects/mapbiomas-workspace/DEGRADACAO/ISOLATION_col9_v2/nat_uso_frag100_dist05k_500_v7_85_23',
+                  'Target lte_100ha Distance lte_05km Source gte_1000ha':'projects/mapbiomas-workspace/DEGRADACAO/ISOLATION_col9_v2/nat_uso_frag100_dist05k_1000_v7_85_23',
+                  'Target lte_100ha Distance lte_10km Source gte_500ha':'projects/mapbiomas-workspace/DEGRADACAO/ISOLATION_col9_v2/nat_uso_frag100_dist10k_500_v7_85_23',
+                  'Target lte_100ha Distance lte_10km Source gte_1000ha':'projects/mapbiomas-workspace/DEGRADACAO/ISOLATION_col9_v2/nat_uso_frag100_dist10k_1000_v7_85_23',
+                  'Target lte_100ha Distance lte_20km Source gte_500ha':'projects/mapbiomas-workspace/DEGRADACAO/ISOLATION_col9_v2/nat_uso_frag100_dist20k_500_v7_85_23',
+                  'Target lte_100ha Distance lte_20km Source gte_1000ha':'projects/mapbiomas-workspace/DEGRADACAO/ISOLATION_col9_v2/nat_uso_frag100_dist20k_1000_v7_85_23',
                 },
                 'periods': {
-                  'distance_classes_100ha':[ '1986', '1987', '1988', '1989', '1990','1991', '1992', '1993', '1994', '1995', '1996','1997', '1998', '1999', '2000', '2001', '2002','2003', '2004', '2005', '2006', '2007', '2008','2009', '2010', '2011', '2012', '2013', '2014','2015', '2016', '2017', '2018', '2019', '2020','2021' ],
-                  'distance_classes_500ha':[ '1986', '1987', '1988', '1989', '1990','1991', '1992', '1993', '1994', '1995', '1996','1997', '1998', '1999', '2000', '2001', '2002','2003', '2004', '2005', '2006', '2007', '2008','2009', '2010', '2011', '2012', '2013', '2014','2015', '2016', '2017', '2018', '2019', '2020','2021' ],
-                  'distance_classes_1000ha':[ '1986', '1987', '1988', '1989', '1990','1991', '1992', '1993', '1994', '1995', '1996','1997', '1998', '1999', '2000', '2001', '2002','2003', '2004', '2005', '2006', '2007', '2008','2009', '2010', '2011', '2012', '2013', '2014','2015', '2016', '2017', '2018', '2019', '2020','2021' ],
-                  'Target lte_25ha Distance lte_05km Source gte_100ha':[ '1986', '1987', '1988', '1989', '1990','1991', '1992', '1993', '1994', '1995', '1996','1997', '1998', '1999', '2000', '2001', '2002','2003', '2004', '2005', '2006', '2007', '2008','2009', '2010', '2011', '2012', '2013', '2014','2015', '2016', '2017', '2018', '2019', '2020','2021' ],
-                  'Target lte_25ha Distance lte_05km Source gte_500ha':[ '1986', '1987', '1988', '1989', '1990','1991', '1992', '1993', '1994', '1995', '1996','1997', '1998', '1999', '2000', '2001', '2002','2003', '2004', '2005', '2006', '2007', '2008','2009', '2010', '2011', '2012', '2013', '2014','2015', '2016', '2017', '2018', '2019', '2020','2021' ],
-                  'Target lte_25ha Distance lte_05km Source gte_1000ha':[ '1986', '1987', '1988', '1989', '1990','1991', '1992', '1993', '1994', '1995', '1996','1997', '1998', '1999', '2000', '2001', '2002','2003', '2004', '2005', '2006', '2007', '2008','2009', '2010', '2011', '2012', '2013', '2014','2015', '2016', '2017', '2018', '2019', '2020','2021' ],
-                  'Target lte_25ha Distance lte_10km Source gte_100ha':[ '1986', '1987', '1988', '1989', '1990','1991', '1992', '1993', '1994', '1995', '1996','1997', '1998', '1999', '2000', '2001', '2002','2003', '2004', '2005', '2006', '2007', '2008','2009', '2010', '2011', '2012', '2013', '2014','2015', '2016', '2017', '2018', '2019', '2020','2021' ],
-                  'Target lte_25ha Distance lte_10km Source gte_500ha':[ '1986', '1987', '1988', '1989', '1990','1991', '1992', '1993', '1994', '1995', '1996','1997', '1998', '1999', '2000', '2001', '2002','2003', '2004', '2005', '2006', '2007', '2008','2009', '2010', '2011', '2012', '2013', '2014','2015', '2016', '2017', '2018', '2019', '2020','2021' ],
-                  'Target lte_25ha Distance lte_10km Source gte_1000ha':[ '1986', '1987', '1988', '1989', '1990','1991', '1992', '1993', '1994', '1995', '1996','1997', '1998', '1999', '2000', '2001', '2002','2003', '2004', '2005', '2006', '2007', '2008','2009', '2010', '2011', '2012', '2013', '2014','2015', '2016', '2017', '2018', '2019', '2020','2021' ],
-                  'Target lte_25ha Distance lte_20km Source gte_100ha':[ '1986', '1987', '1988', '1989', '1990','1991', '1992', '1993', '1994', '1995', '1996','1997', '1998', '1999', '2000', '2001', '2002','2003', '2004', '2005', '2006', '2007', '2008','2009', '2010', '2011', '2012', '2013', '2014','2015', '2016', '2017', '2018', '2019', '2020','2021' ],
-                  'Target lte_25ha Distance lte_20km Source gte_500ha':[ '1986', '1987', '1988', '1989', '1990','1991', '1992', '1993', '1994', '1995', '1996','1997', '1998', '1999', '2000', '2001', '2002','2003', '2004', '2005', '2006', '2007', '2008','2009', '2010', '2011', '2012', '2013', '2014','2015', '2016', '2017', '2018', '2019', '2020','2021' ],
-                  'Target lte_25ha Distance lte_20km Source gte_1000ha':[ '1986', '1987', '1988', '1989', '1990','1991', '1992', '1993', '1994', '1995', '1996','1997', '1998', '1999', '2000', '2001', '2002','2003', '2004', '2005', '2006', '2007', '2008','2009', '2010', '2011', '2012', '2013', '2014','2015', '2016', '2017', '2018', '2019', '2020','2021' ],
-                  'Target lte_50ha Distance lte_05km Source gte_100ha':[ '1986', '1987', '1988', '1989', '1990','1991', '1992', '1993', '1994', '1995', '1996','1997', '1998', '1999', '2000', '2001', '2002','2003', '2004', '2005', '2006', '2007', '2008','2009', '2010', '2011', '2012', '2013', '2014','2015', '2016', '2017', '2018', '2019', '2020','2021' ],
-                  'Target lte_50ha Distance lte_05km Source gte_500ha':[ '1986', '1987', '1988', '1989', '1990','1991', '1992', '1993', '1994', '1995', '1996','1997', '1998', '1999', '2000', '2001', '2002','2003', '2004', '2005', '2006', '2007', '2008','2009', '2010', '2011', '2012', '2013', '2014','2015', '2016', '2017', '2018', '2019', '2020','2021' ],
-                  'Target lte_50ha Distance lte_05km Source gte_1000ha':[ '1986', '1987', '1988', '1989', '1990','1991', '1992', '1993', '1994', '1995', '1996','1997', '1998', '1999', '2000', '2001', '2002','2003', '2004', '2005', '2006', '2007', '2008','2009', '2010', '2011', '2012', '2013', '2014','2015', '2016', '2017', '2018', '2019', '2020','2021' ],
-                  'Target lte_50ha Distance lte_10km Source gte_100ha':[ '1986', '1987', '1988', '1989', '1990','1991', '1992', '1993', '1994', '1995', '1996','1997', '1998', '1999', '2000', '2001', '2002','2003', '2004', '2005', '2006', '2007', '2008','2009', '2010', '2011', '2012', '2013', '2014','2015', '2016', '2017', '2018', '2019', '2020','2021' ],
-                  'Target lte_50ha Distance lte_10km Source gte_500ha':[ '1986', '1987', '1988', '1989', '1990','1991', '1992', '1993', '1994', '1995', '1996','1997', '1998', '1999', '2000', '2001', '2002','2003', '2004', '2005', '2006', '2007', '2008','2009', '2010', '2011', '2012', '2013', '2014','2015', '2016', '2017', '2018', '2019', '2020','2021' ],
-                  'Target lte_50ha Distance lte_10km Source gte_1000ha':[ '1986', '1987', '1988', '1989', '1990','1991', '1992', '1993', '1994', '1995', '1996','1997', '1998', '1999', '2000', '2001', '2002','2003', '2004', '2005', '2006', '2007', '2008','2009', '2010', '2011', '2012', '2013', '2014','2015', '2016', '2017', '2018', '2019', '2020','2021' ],
-                  'Target lte_50ha Distance lte_20km Source gte_100ha':[ '1986', '1987', '1988', '1989', '1990','1991', '1992', '1993', '1994', '1995', '1996','1997', '1998', '1999', '2000', '2001', '2002','2003', '2004', '2005', '2006', '2007', '2008','2009', '2010', '2011', '2012', '2013', '2014','2015', '2016', '2017', '2018', '2019', '2020','2021' ],
-                  'Target lte_50ha Distance lte_20km Source gte_500ha':[ '1986', '1987', '1988', '1989', '1990','1991', '1992', '1993', '1994', '1995', '1996','1997', '1998', '1999', '2000', '2001', '2002','2003', '2004', '2005', '2006', '2007', '2008','2009', '2010', '2011', '2012', '2013', '2014','2015', '2016', '2017', '2018', '2019', '2020','2021' ],
-                  'Target lte_50ha Distance lte_20km Source gte_1000ha':[ '1986', '1987', '1988', '1989', '1990','1991', '1992', '1993', '1994', '1995', '1996','1997', '1998', '1999', '2000', '2001', '2002','2003', '2004', '2005', '2006', '2007', '2008','2009', '2010', '2011', '2012', '2013', '2014','2015', '2016', '2017', '2018', '2019', '2020','2021' ],
-                  'Target lte_100ha Distance lte_05km Source gte_500ha':[ '1986', '1987', '1988', '1989', '1990','1991', '1992', '1993', '1994', '1995', '1996','1997', '1998', '1999', '2000', '2001', '2002','2003', '2004', '2005', '2006', '2007', '2008','2009', '2010', '2011', '2012', '2013', '2014','2015', '2016', '2017', '2018', '2019', '2020','2021' ],
-                  'Target lte_100ha Distance lte_05km Source gte_1000ha':[ '1986', '1987', '1988', '1989', '1990','1991', '1992', '1993', '1994', '1995', '1996','1997', '1998', '1999', '2000', '2001', '2002','2003', '2004', '2005', '2006', '2007', '2008','2009', '2010', '2011', '2012', '2013', '2014','2015', '2016', '2017', '2018', '2019', '2020','2021' ],
-                  'Target lte_100ha Distance lte_10km Source gte_500ha':[ '1986', '1987', '1988', '1989', '1990','1991', '1992', '1993', '1994', '1995', '1996','1997', '1998', '1999', '2000', '2001', '2002','2003', '2004', '2005', '2006', '2007', '2008','2009', '2010', '2011', '2012', '2013', '2014','2015', '2016', '2017', '2018', '2019', '2020','2021' ],
-                  'Target lte_100ha Distance lte_10km Source gte_1000ha':[ '1986', '1987', '1988', '1989', '1990','1991', '1992', '1993', '1994', '1995', '1996','1997', '1998', '1999', '2000', '2001', '2002','2003', '2004', '2005', '2006', '2007', '2008','2009', '2010', '2011', '2012', '2013', '2014','2015', '2016', '2017', '2018', '2019', '2020','2021' ],
-                  'Target lte_100ha Distance lte_20km Source gte_500ha':[ '1986', '1987', '1988', '1989', '1990','1991', '1992', '1993', '1994', '1995', '1996','1997', '1998', '1999', '2000', '2001', '2002','2003', '2004', '2005', '2006', '2007', '2008','2009', '2010', '2011', '2012', '2013', '2014','2015', '2016', '2017', '2018', '2019', '2020','2021' ],
-                  'Target lte_100ha Distance lte_20km Source gte_1000ha':[ '1986', '1987', '1988', '1989', '1990','1991', '1992', '1993', '1994', '1995', '1996','1997', '1998', '1999', '2000', '2001', '2002','2003', '2004', '2005', '2006', '2007', '2008','2009', '2010', '2011', '2012', '2013', '2014','2015', '2016', '2017', '2018', '2019', '2020','2021' ],
+                  'distance_classes_100ha':[ '1986', '1987', '1988', '1989', '1990','1991', '1992', '1993', '1994', '1995', '1996','1997', '1998', '1999', '2000', '2001', '2002','2003', '2004', '2005', '2006', '2007', '2008','2009', '2010', '2011', '2012', '2013', '2014','2015', '2016', '2017', '2018', '2019', '2020','2021', '2022' ],
+                  'distance_classes_500ha':[ '1986', '1987', '1988', '1989', '1990','1991', '1992', '1993', '1994', '1995', '1996','1997', '1998', '1999', '2000', '2001', '2002','2003', '2004', '2005', '2006', '2007', '2008','2009', '2010', '2011', '2012', '2013', '2014','2015', '2016', '2017', '2018', '2019', '2020','2021', '2022' ],
+                  'distance_classes_1000ha':[ '1986', '1987', '1988', '1989', '1990','1991', '1992', '1993', '1994', '1995', '1996','1997', '1998', '1999', '2000', '2001', '2002','2003', '2004', '2005', '2006', '2007', '2008','2009', '2010', '2011', '2012', '2013', '2014','2015', '2016', '2017', '2018', '2019', '2020','2021', '2022' ],
+                  'Target lte_25ha Distance lte_05km Source gte_100ha':[ '1986', '1987', '1988', '1989', '1990','1991', '1992', '1993', '1994', '1995', '1996','1997', '1998', '1999', '2000', '2001', '2002','2003', '2004', '2005', '2006', '2007', '2008','2009', '2010', '2011', '2012', '2013', '2014','2015', '2016', '2017', '2018', '2019', '2020','2021', '2022' ],
+                  'Target lte_25ha Distance lte_05km Source gte_500ha':[ '1986', '1987', '1988', '1989', '1990','1991', '1992', '1993', '1994', '1995', '1996','1997', '1998', '1999', '2000', '2001', '2002','2003', '2004', '2005', '2006', '2007', '2008','2009', '2010', '2011', '2012', '2013', '2014','2015', '2016', '2017', '2018', '2019', '2020','2021', '2022' ],
+                  'Target lte_25ha Distance lte_05km Source gte_1000ha':[ '1986', '1987', '1988', '1989', '1990','1991', '1992', '1993', '1994', '1995', '1996','1997', '1998', '1999', '2000', '2001', '2002','2003', '2004', '2005', '2006', '2007', '2008','2009', '2010', '2011', '2012', '2013', '2014','2015', '2016', '2017', '2018', '2019', '2020','2021', '2022' ],
+                  'Target lte_25ha Distance lte_10km Source gte_100ha':[ '1986', '1987', '1988', '1989', '1990','1991', '1992', '1993', '1994', '1995', '1996','1997', '1998', '1999', '2000', '2001', '2002','2003', '2004', '2005', '2006', '2007', '2008','2009', '2010', '2011', '2012', '2013', '2014','2015', '2016', '2017', '2018', '2019', '2020','2021', '2022' ],
+                  'Target lte_25ha Distance lte_10km Source gte_500ha':[ '1986', '1987', '1988', '1989', '1990','1991', '1992', '1993', '1994', '1995', '1996','1997', '1998', '1999', '2000', '2001', '2002','2003', '2004', '2005', '2006', '2007', '2008','2009', '2010', '2011', '2012', '2013', '2014','2015', '2016', '2017', '2018', '2019', '2020','2021', '2022' ],
+                  'Target lte_25ha Distance lte_10km Source gte_1000ha':[ '1986', '1987', '1988', '1989', '1990','1991', '1992', '1993', '1994', '1995', '1996','1997', '1998', '1999', '2000', '2001', '2002','2003', '2004', '2005', '2006', '2007', '2008','2009', '2010', '2011', '2012', '2013', '2014','2015', '2016', '2017', '2018', '2019', '2020','2021', '2022' ],
+                  'Target lte_25ha Distance lte_20km Source gte_100ha':[ '1986', '1987', '1988', '1989', '1990','1991', '1992', '1993', '1994', '1995', '1996','1997', '1998', '1999', '2000', '2001', '2002','2003', '2004', '2005', '2006', '2007', '2008','2009', '2010', '2011', '2012', '2013', '2014','2015', '2016', '2017', '2018', '2019', '2020','2021', '2022' ],
+                  'Target lte_25ha Distance lte_20km Source gte_500ha':[ '1986', '1987', '1988', '1989', '1990','1991', '1992', '1993', '1994', '1995', '1996','1997', '1998', '1999', '2000', '2001', '2002','2003', '2004', '2005', '2006', '2007', '2008','2009', '2010', '2011', '2012', '2013', '2014','2015', '2016', '2017', '2018', '2019', '2020','2021', '2022' ],
+                  'Target lte_25ha Distance lte_20km Source gte_1000ha':[ '1986', '1987', '1988', '1989', '1990','1991', '1992', '1993', '1994', '1995', '1996','1997', '1998', '1999', '2000', '2001', '2002','2003', '2004', '2005', '2006', '2007', '2008','2009', '2010', '2011', '2012', '2013', '2014','2015', '2016', '2017', '2018', '2019', '2020','2021', '2022' ],
+                  'Target lte_50ha Distance lte_05km Source gte_100ha':[ '1986', '1987', '1988', '1989', '1990','1991', '1992', '1993', '1994', '1995', '1996','1997', '1998', '1999', '2000', '2001', '2002','2003', '2004', '2005', '2006', '2007', '2008','2009', '2010', '2011', '2012', '2013', '2014','2015', '2016', '2017', '2018', '2019', '2020','2021', '2022' ],
+                  'Target lte_50ha Distance lte_05km Source gte_500ha':[ '1986', '1987', '1988', '1989', '1990','1991', '1992', '1993', '1994', '1995', '1996','1997', '1998', '1999', '2000', '2001', '2002','2003', '2004', '2005', '2006', '2007', '2008','2009', '2010', '2011', '2012', '2013', '2014','2015', '2016', '2017', '2018', '2019', '2020','2021', '2022' ],
+                  'Target lte_50ha Distance lte_05km Source gte_1000ha':[ '1986', '1987', '1988', '1989', '1990','1991', '1992', '1993', '1994', '1995', '1996','1997', '1998', '1999', '2000', '2001', '2002','2003', '2004', '2005', '2006', '2007', '2008','2009', '2010', '2011', '2012', '2013', '2014','2015', '2016', '2017', '2018', '2019', '2020','2021', '2022' ],
+                  'Target lte_50ha Distance lte_10km Source gte_100ha':[ '1986', '1987', '1988', '1989', '1990','1991', '1992', '1993', '1994', '1995', '1996','1997', '1998', '1999', '2000', '2001', '2002','2003', '2004', '2005', '2006', '2007', '2008','2009', '2010', '2011', '2012', '2013', '2014','2015', '2016', '2017', '2018', '2019', '2020','2021', '2022' ],
+                  'Target lte_50ha Distance lte_10km Source gte_500ha':[ '1986', '1987', '1988', '1989', '1990','1991', '1992', '1993', '1994', '1995', '1996','1997', '1998', '1999', '2000', '2001', '2002','2003', '2004', '2005', '2006', '2007', '2008','2009', '2010', '2011', '2012', '2013', '2014','2015', '2016', '2017', '2018', '2019', '2020','2021', '2022' ],
+                  'Target lte_50ha Distance lte_10km Source gte_1000ha':[ '1986', '1987', '1988', '1989', '1990','1991', '1992', '1993', '1994', '1995', '1996','1997', '1998', '1999', '2000', '2001', '2002','2003', '2004', '2005', '2006', '2007', '2008','2009', '2010', '2011', '2012', '2013', '2014','2015', '2016', '2017', '2018', '2019', '2020','2021', '2022' ],
+                  'Target lte_50ha Distance lte_20km Source gte_100ha':[ '1986', '1987', '1988', '1989', '1990','1991', '1992', '1993', '1994', '1995', '1996','1997', '1998', '1999', '2000', '2001', '2002','2003', '2004', '2005', '2006', '2007', '2008','2009', '2010', '2011', '2012', '2013', '2014','2015', '2016', '2017', '2018', '2019', '2020','2021', '2022' ],
+                  'Target lte_50ha Distance lte_20km Source gte_500ha':[ '1986', '1987', '1988', '1989', '1990','1991', '1992', '1993', '1994', '1995', '1996','1997', '1998', '1999', '2000', '2001', '2002','2003', '2004', '2005', '2006', '2007', '2008','2009', '2010', '2011', '2012', '2013', '2014','2015', '2016', '2017', '2018', '2019', '2020','2021', '2022' ],
+                  'Target lte_50ha Distance lte_20km Source gte_1000ha':[ '1986', '1987', '1988', '1989', '1990','1991', '1992', '1993', '1994', '1995', '1996','1997', '1998', '1999', '2000', '2001', '2002','2003', '2004', '2005', '2006', '2007', '2008','2009', '2010', '2011', '2012', '2013', '2014','2015', '2016', '2017', '2018', '2019', '2020','2021', '2022' ],
+                  'Target lte_100ha Distance lte_05km Source gte_500ha':[ '1986', '1987', '1988', '1989', '1990','1991', '1992', '1993', '1994', '1995', '1996','1997', '1998', '1999', '2000', '2001', '2002','2003', '2004', '2005', '2006', '2007', '2008','2009', '2010', '2011', '2012', '2013', '2014','2015', '2016', '2017', '2018', '2019', '2020','2021', '2022' ],
+                  'Target lte_100ha Distance lte_05km Source gte_1000ha':[ '1986', '1987', '1988', '1989', '1990','1991', '1992', '1993', '1994', '1995', '1996','1997', '1998', '1999', '2000', '2001', '2002','2003', '2004', '2005', '2006', '2007', '2008','2009', '2010', '2011', '2012', '2013', '2014','2015', '2016', '2017', '2018', '2019', '2020','2021', '2022' ],
+                  'Target lte_100ha Distance lte_10km Source gte_500ha':[ '1986', '1987', '1988', '1989', '1990','1991', '1992', '1993', '1994', '1995', '1996','1997', '1998', '1999', '2000', '2001', '2002','2003', '2004', '2005', '2006', '2007', '2008','2009', '2010', '2011', '2012', '2013', '2014','2015', '2016', '2017', '2018', '2019', '2020','2021', '2022' ],
+                  'Target lte_100ha Distance lte_10km Source gte_1000ha':[ '1986', '1987', '1988', '1989', '1990','1991', '1992', '1993', '1994', '1995', '1996','1997', '1998', '1999', '2000', '2001', '2002','2003', '2004', '2005', '2006', '2007', '2008','2009', '2010', '2011', '2012', '2013', '2014','2015', '2016', '2017', '2018', '2019', '2020','2021', '2022' ],
+                  'Target lte_100ha Distance lte_20km Source gte_500ha':[ '1986', '1987', '1988', '1989', '1990','1991', '1992', '1993', '1994', '1995', '1996','1997', '1998', '1999', '2000', '2001', '2002','2003', '2004', '2005', '2006', '2007', '2008','2009', '2010', '2011', '2012', '2013', '2014','2015', '2016', '2017', '2018', '2019', '2020','2021', '2022' ],
+                  'Target lte_100ha Distance lte_20km Source gte_1000ha':[ '1986', '1987', '1988', '1989', '1990','1991', '1992', '1993', '1994', '1995', '1996','1997', '1998', '1999', '2000', '2001', '2002','2003', '2004', '2005', '2006', '2007', '2008','2009', '2010', '2011', '2012', '2013', '2014','2015', '2016', '2017', '2018', '2019', '2020','2021', '2022' ],
                 },
                 
             },
             'degradation BETA: fire': {
                     'assets': {
-                      'frequency':'projects/mapbiomas-workspace/DEGRADACAO/COLECAO/BETA/PROCESS/fire/frequency_v1',
-                      'age':'projects/mapbiomas-workspace/DEGRADACAO/COLECAO/BETA/PROCESS/fire/age_v1',
-                      'accumulated_burned_coverage':'projects/mapbiomas-workspace/DEGRADACAO/COLECAO/BETA/PROCESS/fire/frequency_v1',
+                      'recurrence':'projects/mapbiomas-workspace/DEGRADACAO/COLECAO/BETA/PROCESS/fire/recurrence_col9_v1',
+                      'age':'projects/mapbiomas-workspace/DEGRADACAO/COLECAO/BETA/PROCESS/fire/age_col9_v1',
+                      'accumulated_burned_coverage':'projects/mapbiomas-workspace/DEGRADACAO/COLECAO/BETA/PROCESS/fire/recurrence_col9_v1',
  
                     },
                     'periods': {
-                      'frequency':[ '1986', '1987', '1988', '1989', '1990','1991', '1992', '1993', '1994', '1995', '1996','1997', '1998', '1999', '2000', '2001', '2002','2003', '2004', '2005', '2006', '2007', '2008','2009', '2010', '2011', '2012', '2013', '2014','2015', '2016', '2017', '2018', '2019', '2020','2021'],
-                      'age':[ '1986', '1987', '1988', '1989', '1990','1991', '1992', '1993', '1994', '1995', '1996','1997', '1998', '1999', '2000', '2001', '2002','2003', '2004', '2005', '2006', '2007', '2008','2009', '2010', '2011', '2012', '2013', '2014','2015', '2016', '2017', '2018', '2019', '2020','2021' ],
-                      'accumulated_burned_coverage':[ '1986', '1987', '1988', '1989', '1990','1991', '1992', '1993', '1994', '1995', '1996','1997', '1998', '1999', '2000', '2001', '2002','2003', '2004', '2005', '2006', '2007', '2008','2009', '2010', '2011', '2012', '2013', '2014','2015', '2016', '2017', '2018', '2019', '2020','2021' ],
+                      'recurrence':[ '1986', '1987', '1988', '1989', '1990','1991', '1992', '1993', '1994', '1995', '1996','1997', '1998', '1999', '2000', '2001', '2002','2003', '2004', '2005', '2006', '2007', '2008','2009', '2010', '2011', '2012', '2013', '2014','2015', '2016', '2017', '2018', '2019', '2020','2021', '2022'],
+                      'age':[ '1986', '1987', '1988', '1989', '1990','1991', '1992', '1993', '1994', '1995', '1996','1997', '1998', '1999', '2000', '2001', '2002','2003', '2004', '2005', '2006', '2007', '2008','2009', '2010', '2011', '2012', '2013', '2014','2015', '2016', '2017', '2018', '2019', '2020','2021', '2022' ],
+                      'accumulated_burned_coverage':[ '1986', '1987', '1988', '1989', '1990','1991', '1992', '1993', '1994', '1995', '1996','1997', '1998', '1999', '2000', '2001', '2002','2003', '2004', '2005', '2006', '2007', '2008','2009', '2010', '2011', '2012', '2013', '2014','2015', '2016', '2017', '2018', '2019', '2020','2021', '2022' ],
 
                     },
                 },
             'degradation BETA: secondary vegetation': {
                 'assets': {
 
-                  'secondary_age':'projects/mapbiomas-workspace/DEGRADACAO/COLECAO/BETA/PROCESS/secondary_vegetation/secondary_vegetation_age_v1',
-                  'secondary_coverage':'projects/mapbiomas-workspace/DEGRADACAO/COLECAO/BETA/PROCESS/secondary_vegetation/secondary_vegetation_age_v1',
+                  'secondary_age':'projects/mapbiomas-workspace/DEGRADACAO/COLECAO/BETA/PROCESS/secondary_vegetation/secondary_vegetation_age_col9_v1',
+                  'secondary_coverage':'projects/mapbiomas-workspace/DEGRADACAO/COLECAO/BETA/PROCESS/secondary_vegetation/secondary_vegetation_age_col9_v1',
 
                 },
                 'periods': {
-                  'secondary_age':[ '1986', '1987', '1988', '1989', '1990','1991', '1992', '1993', '1994', '1995', '1996','1997', '1998', '1999', '2000', '2001', '2002','2003', '2004', '2005', '2006', '2007', '2008','2009', '2010', '2011', '2012', '2013', '2014','2015', '2016', '2017', '2018', '2019', '2020','2021' ],
-                  'secondary_coverage':[ '1986', '1987', '1988', '1989', '1990','1991', '1992', '1993', '1994', '1995', '1996','1997', '1998', '1999', '2000', '2001', '2002','2003', '2004', '2005', '2006', '2007', '2008','2009', '2010', '2011', '2012', '2013', '2014','2015', '2016', '2017', '2018', '2019', '2020','2021' ],
+                  'secondary_age':[ '1986', '1987', '1988', '1989', '1990','1991', '1992', '1993', '1994', '1995', '1996','1997', '1998', '1999', '2000', '2001', '2002','2003', '2004', '2005', '2006', '2007', '2008','2009', '2010', '2011', '2012', '2013', '2014','2015', '2016', '2017', '2018', '2019', '2020','2021', '2022' ],
+                  'secondary_coverage':[ '1986', '1987', '1988', '1989', '1990','1991', '1992', '1993', '1994', '1995', '1996','1997', '1998', '1999', '2000', '2001', '2002','2003', '2004', '2005', '2006', '2007', '2008','2009', '2010', '2011', '2012', '2013', '2014','2015', '2016', '2017', '2018', '2019', '2020','2021', '2022' ],
 
                 },
             },
@@ -613,10 +653,10 @@ var App = {
           "Target lte_100ha Distance lte_10km Source gte_1000ha":"nat_",
           "Target lte_100ha Distance lte_20km Source gte_500ha":"nat_",
           "Target lte_100ha Distance lte_20km Source gte_1000ha":"nat_",
-          "accumulated_coverage":"frequency_",
-          "frequency":"frequency_",
+          "accumulated_coverage":"recurrence_",
+          "recurrence":"recurrence_",
           "age":"age_",
-          "accumulated_burned_coverage":"frequency_",
+          "accumulated_burned_coverage":"recurrence_",
           "secondary_age":"age_",
           "secondary_coverage":"age_",
         },
@@ -668,7 +708,7 @@ var App = {
           "Target_lte_100ha_Distance_lte_10km_Source_gte_1000ha":{'min':0,'max':69},
           "Target_lte_100ha_Distance_lte_20km_Source_gte_500ha":{'min':0,'max':69},
           "Target_lte_100ha_Distance_lte_20km_Source_gte_1000ha":{'min':0,'max':69},
-          "frequency":{'min':0,'max':39},
+          "recurrence":{'min':0,'max':39},
           "age":{'min':0,'max':39},
           "accumulated_burned_coverage":{'min':0,'max':69},
           "secondary_age":{'min':0,'max':39},
@@ -733,7 +773,7 @@ var App = {
           "Target lte_100ha Distance lte_20km Source gte_500ha":palettes.get('classification9'),
           "Target lte_100ha Distance lte_20km Source gte_1000ha":palettes.get('classification9'),
           
-          "frequency":fire_palettes.get('frequencia_2'),
+          "recurrence":fire_palettes.get('frequencia_2'),
           "age":fire_palettes.get('ano_do_ultimo_fogo_2'),
           "accumulated_burned_coverage":palettes.get('classification9'),
           "secondary_age":fire_palettes.get('vegetacao_secundaria'),
@@ -911,7 +951,7 @@ var App = {
                           datas.forEach(function(key){
 
                             var mod_100_exception = ['accumulated_burned_coverage', 'secondary_coverage'];
-                            var div_100_exception = ['frequency','age','secondary_age'];
+                            var div_100_exception = ['recurrence','age','secondary_age'];
                             
                             if (mod_100_exception.indexOf(key) !== -1){
                               App.options.data[key] = ee.Image(App.options.collections[regionName][collectioName].assets[key]).mod(100).int8();
@@ -960,22 +1000,28 @@ var App = {
                         return obj.id;
                     });
 
-            var allTablesNames;
+            roots = roots.filter(function (caminho) {
+                return caminho.indexOf('/MAPBIOMAS') != -1;
+            });
+
+            var allTablesNames = [];
 
             /**
              * Skip the error msg if MAPBIOMAS folder is not found
              */
+
             try {
                 var tablesNames = ee.data.getList({
-                    'id': roots[0] + '/MAPBIOMAS'
+                    'id': roots[0]
                 }).map(
                     function (obj) {
                         return obj.id;
                     });
-                allTablesNames = App.options.tables[regionName].concat(tablesNames);
+
+                allTablesNames = allTablesNames.concat(App.options.tables[regionName]).concat(tablesNames);
             }
             catch (e) {
-                allTablesNames = App.options.tables[regionName];
+                allTablesNames = allTablesNames.concat(App.options.tables[regionName]);
             }
 
             App.ui.form.selectFeatureCollections = ui.Select({
@@ -992,6 +1038,12 @@ var App = {
 
                                 App.ui.loadTable(tableName);
 
+                                App.ui.makeLayersList(
+                                    tableName.split('/').slice(-1)[0],
+                                    App.options.activeFeature,
+                                    App.options.collections[regionName][collectioName]
+                                        .periods[App.options.dataType]
+                                );
 
                                 App.ui.loadPropertiesNames();
 
@@ -999,6 +1051,7 @@ var App = {
                             }
                         );
 
+                        // App.ui.loadingBox();
                     }
                 },
                 'style': {
@@ -1371,8 +1424,8 @@ var App = {
                 ui.Label('NOTA INFORMATIVA -  MapBiomas Degradação Módulo BETA'),
                 ui.Label(''),
                 ui.Label('O Módulo Beta de Degradação do MapBiomas disponibiliza dados anuais de vetores de degradação da vegetação nativa \
-                do Brasil entre 1986 a 2021. Esses dados são derivados dos mapas anuais de cobertura e uso da terra da Coleção 8 do MapBiomas \
-                Brasil e dos mapas de cicatrizes de fogo da Coleção 2 do MapBiomas Fogo. Este módulo inclui dados sobre: Área de Borda, Tamanho \
+                do Brasil entre 1986 a 2022. Esses dados são derivados dos mapas anuais de cobertura e uso da terra da Coleção 9 do MapBiomas \
+                Brasil e dos mapas de cicatrizes de fogo da Coleção 3 do MapBiomas Fogo. Este módulo inclui dados sobre: Área de Borda, Tamanho \
                 do Fragmento, Isolamento do Fragmento, Frequência da Área Queimada; Tempo desde o último Fogo e Idade da Vegetação Secundária. \
                 Todos os mapas estão disponíveis em diferentes recortes territoriais (país, bioma, estado, município, bacia hidrográfica e áreas protegidas)\
                 e por classes de cobertura e uso da terra.',{'margin': '0px'}),
@@ -1393,8 +1446,8 @@ var App = {
                 ui.Label('DISCLAIMER MapBiomas Degradation Beta Module'),
                 ui.Label(''),
                 ui.Label('The MapBiomas Degradation Beta Module provides annual data on the degradation drivers of native vegetation in Brazil from 1986 \
-                          to 2021. These data are derived from the land cover and land use annual maps of MapBiomas Brazil Collection 8 and the fire scars \
-                          maps of MapBiomas Fire Collection 2. This module includes data on Edge Area, Fragment Size, Fragment Isolation, Fire Frequency, \
+                          to 2022. These data are derived from the land cover and land use annual maps of MapBiomas Brazil Collection 9 and the fire scars \
+                          maps of MapBiomas Fire Collection 3. This module includes data on Edge Area, Fragment Size, Fragment Isolation, Fire Frequency, \
                           Time since the Last Fire, and Secondary Vegetation Age. All maps are available in different territories \
                           (country, biome, state, municipality, watershed, and protected area) and by land cover and land use classes.',{'margin': '0px'}),
                 ui.Label(''),
@@ -1481,11 +1534,11 @@ var App = {
                 App.ui.form.panelBuffer.add(App.ui.form.selectBuffer);
 
                 App.ui.form.panel1.add(App.ui.form.panelRegion);
+                App.ui.form.panel1.add(App.ui.form.panelCollection);
                 App.ui.form.panel1.add(App.ui.form.panelFeatureCollections);
                 App.ui.form.panel1.add(App.ui.form.panelStates);
                 App.ui.form.panel1.add(App.ui.form.panelProperties);
                 App.ui.form.panel1.add(App.ui.form.panelFeature);
-                App.ui.form.panel1.add(App.ui.form.panelCollection);
                 App.ui.form.panel1.add(App.ui.form.panelDataType);
                 // App.ui.form.panel1.add(App.ui.form.panelBuffer);
 

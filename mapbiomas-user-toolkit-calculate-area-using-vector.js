@@ -1,6 +1,6 @@
 /**
  * @description
- *    Calculates area by class id and year
+ *    Calculates area by class id and year in hectares
  * 
  * @author
  *    João Siqueira
@@ -8,13 +8,13 @@
  */
 
 // Asset mapbiomas
-var asset = "projects/mapbiomas-workspace/public/collection8/mapbiomas_collection80_integration_v1";
+var asset = 'projects/mapbiomas-public/assets/brazil/lulc/collection10/mapbiomas_brazil_collection10_coverage_v2';
 
 // Asset of regions for which you want to calculate statistics
-var assetTerritories = "users/joaovsiqueira1/MAPBIOMAS/ti_uc";
+var assetTerritories = "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/INDIGENOUS_TERRITORIES";
 
 // Numeric attribute to index the shapefile
-var attribute = "id_arp";
+var attribute = "CATEG_ID";
 
 // A list of class ids you are interested
 var classIds = [
@@ -59,7 +59,7 @@ var years = [
     '1993', '1994', '1995', '1996', '1997', '1998', '1999', '2000',
     '2001', '2002', '2003', '2004', '2005', '2006', '2007', '2008',
     '2009', '2010', '2011', '2012', '2013', '2014', '2015', '2016',
-    '2017', '2018', '2019', '2020'
+    '2017', '2018', '2019', '2020', '2021', '2022', '2023', '2023'
 ];
 
 // Define a Google Drive output folder 
@@ -74,8 +74,8 @@ var territory = ee.FeatureCollection(assetTerritories);
 // LULC mapbiomas image
 var mapbiomas = ee.Image(asset).selfMask();
 
-// Image area in km2
-var pixelArea = ee.Image.pixelArea().divide(1000000);
+// Image area in hectares
+var pixelArea = ee.Image.pixelArea().divide(10000);
 
 // Geometry to export
 var geometry = mapbiomas.geometry();

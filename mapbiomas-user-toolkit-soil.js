@@ -2,25 +2,112 @@
  * @name
  *      Mapbiomas User Toolkit Download
  * 
- * @description
  *      This is a support tool for mapbiomas data users.
  *  
  * @author
- *      João Siqueira
- *      Wallace Silva
+ *    João Siqueira and Wallace Silva
+ * 
+ * @contact
+ *      Tasso Azevedo, Marcos Rosa and João Siqueira
  *      contato@mapbiomas.org
  *
- * @version
- *    1.0.0 - First release
- * 
  * @see
  *      Get the MapBiomas exported data in your "Google Drive/MAPBIOMAS-EXPORT" folder
  *      Code and Tutorial - https://github.com/mapbiomas-brazil/user-toolkit
+ * 
+ * @version
+ *    1.0.0 - 
+ *            First release
+ *    1.1.0 - 
+ *            Collection 2.0 soil
+ *    1.1.1 - 2025-09-20
+ *            Collection 2.1 soil
+ *    1.1.2 - 2025-12-08
+ *            Collection 3.0 soil
+ * 
  */
 
-var palettes = require('users/mapbiomas/modules:Palettes.js');
-var logos = require('users/mapbiomas/modules:Logos.js');
-var mapp = require('users/joaovsiqueira1/packages:Mapp.js');
+
+// collection 2_1
+var carbon_2_1 = ee.Image('projects/mapbiomas-public/assets/brazil/soil/collection2_1/mapbiomas_brazil_collection21_soil_carbon_v2');
+carbon_2_1 = carbon_2_1.rename(carbon_2_1.bandNames().map(function(str) {return ee.String(str).replace('carbon', 'prediction')}));
+// print('carbon_2_1',carbon_2_1);
+
+var clay_fraction_2_1 = ee.ImageCollection('projects/mapbiomas-public/assets/brazil/soil/collection2_1/mapbiomas_brazil_collection21_soil_clay_fraction_v2').toBands();
+clay_fraction_2_1 = clay_fraction_2_1
+  .rename(clay_fraction_2_1.bandNames().map(function(str) {return ee.String('clay').cat(ee.String(str).replace('clay_fraction', '', 'g')).replace('_v2_', 'cm', 'g');}));
+// print('clay_fraction_2_1',clay_fraction_2_1);
+
+var sand_fraction_2_1 = ee.ImageCollection('projects/mapbiomas-public/assets/brazil/soil/collection2_1/mapbiomas_brazil_collection21_soil_sand_fraction_v2').toBands();
+sand_fraction_2_1 = sand_fraction_2_1
+  .rename(sand_fraction_2_1.bandNames().map(function(str) {return ee.String('sand').cat(ee.String(str).replace('sand_fraction', '', 'g')).replace('_v2_', 'cm', 'g');}));
+// print('sand_fraction_2_1',sand_fraction_2_1);
+
+var silt_fraction_2_1 = ee.ImageCollection('projects/mapbiomas-public/assets/brazil/soil/collection2_1/mapbiomas_brazil_collection21_soil_silt_fraction_v2').toBands();
+silt_fraction_2_1 = silt_fraction_2_1
+  .rename(silt_fraction_2_1.bandNames().map(function(str) {return ee.String('silt').cat(ee.String(str).replace('silt_fraction', '', 'g')).replace('_v2_', 'cm', 'g');}));
+// print('silt_fraction_2_1',silt_fraction_2_1);
+
+var textural_class_2_1 = ee.ImageCollection('projects/mapbiomas-public/assets/brazil/soil/collection2_1/mapbiomas_brazil_collection21_soil_textural_class_v2').toBands();
+textural_class_2_1 = textural_class_2_1
+    .rename(textural_class_2_1.bandNames().map(function(str) {return ee.String('textural_classes').cat(ee.String(str).replace('textural_class', '', 'g')).replace('_v2_', 'cm', 'g');}));
+// print('textural_class_2_1',textural_class_2_1);
+
+var textural_group_2_1 = ee.ImageCollection('projects/mapbiomas-public/assets/brazil/soil/collection2_1/mapbiomas_brazil_collection21_soil_textural_group_v2').toBands();
+textural_group_2_1 = textural_group_2_1
+    .rename(textural_group_2_1.bandNames().map(function(str) {return ee.String('textural_groups').cat(ee.String(str).replace('textural_group', '', 'g')).replace('_v2_', 'cm', 'g');}));
+// print('textural_group_2_1',textural_group_2_1);
+
+var textural_subgroup_2_1 = ee.ImageCollection('projects/mapbiomas-public/assets/brazil/soil/collection2_1/mapbiomas_brazil_collection21_soil_textural_subgroup_v2').toBands();
+textural_subgroup_2_1 = textural_subgroup_2_1
+    .rename(textural_subgroup_2_1.bandNames().map(function(str) {return ee.String('textural_subgroups').cat(ee.String(str).replace('textural_subgroup', '', 'g')).replace('_v2_', 'cm', 'g');}));
+// print('textural_subgroup_2_1',textural_subgroup_2_1);
+
+
+// collection 3
+var carbon_3 = ee.Image('projects/mapbiomas-public/assets/brazil/soil/collection3/mapbiomas_brazil_collection3_soil_carbon_v1');
+carbon_3 = carbon_3.rename(carbon_3.bandNames().map(function(str) {return ee.String(str).replace('carbon', 'prediction')}));
+// print('carbon_3',carbon_3);
+
+var clay_fraction_3 = ee.ImageCollection('projects/mapbiomas-public/assets/brazil/soil/collection3/mapbiomas_brazil_collection3_soil_clay_fraction_v1').toBands();
+clay_fraction_3 = clay_fraction_3
+  .rename(clay_fraction_3.bandNames().map(function(str) {return ee.String('clay').cat(ee.String(str).replace('clay_fraction', '', 'g')).replace('_v1_', 'cm', 'g');}));
+// print('clay_fraction_3',clay_fraction_3);
+
+var sand_fraction_3 = ee.ImageCollection('projects/mapbiomas-public/assets/brazil/soil/collection3/mapbiomas_brazil_collection3_soil_sand_fraction_v1').toBands();
+sand_fraction_3 = sand_fraction_3
+  .rename(sand_fraction_3.bandNames().map(function(str) {return ee.String('sand').cat(ee.String(str).replace('sand_fraction', '', 'g')).replace('_v1_', 'cm', 'g');}));
+// print('sand_fraction_3',sand_fraction_3);
+
+var silt_fraction_3 = ee.ImageCollection('projects/mapbiomas-public/assets/brazil/soil/collection3/mapbiomas_brazil_collection3_soil_silt_fraction_v1').toBands();
+silt_fraction_3 = silt_fraction_3
+  .rename(silt_fraction_3.bandNames().map(function(str) {return ee.String('silt').cat(ee.String(str).replace('silt_fraction', '', 'g')).replace('_v1_', 'cm', 'g');}));
+// print('silt_fraction_3',silt_fraction_3);
+
+var textural_class_3 = ee.ImageCollection('projects/mapbiomas-public/assets/brazil/soil/collection3/mapbiomas_brazil_collection3_soil_textural_class_v1').toBands();
+textural_class_3 = textural_class_3
+    .rename(textural_class_3.bandNames().map(function(str) {return ee.String('textural_classes').cat(ee.String(str).replace('textural_class', '', 'g')).replace('_v1_', 'cm', 'g');}));
+// print('textural_class_3',textural_class_3);
+
+var textural_group_3 = ee.ImageCollection('projects/mapbiomas-public/assets/brazil/soil/collection3/mapbiomas_brazil_collection3_soil_textural_group_v1').toBands();
+textural_group_3 = textural_group_3
+    .rename(textural_group_3.bandNames().map(function(str) {return ee.String('textural_groups').cat(ee.String(str).replace('textural_group', '', 'g')).replace('_v1_', 'cm', 'g');}));
+// print('textural_group_3',textural_group_3);
+
+var textural_subgroup_3 = ee.ImageCollection('projects/mapbiomas-public/assets/brazil/soil/collection3/mapbiomas_brazil_collection3_soil_textural_subgroup_v1').toBands();
+textural_subgroup_3 = textural_subgroup_3
+    .rename(textural_subgroup_3.bandNames().map(function(str) {return ee.String('textural_subgroups').cat(ee.String(str).replace('textural_subgroup', '', 'g')).replace('_v1_', 'cm', 'g');}));
+// print('textural_subgroup_3',textural_subgroup_3);
+
+
+var stoniness_3 = ee.ImageCollection('projects/mapbiomas-public/assets/brazil/soil/collection3/mapbiomas_brazil_collection3_soil_stoniness_v1').toBands();
+stoniness_3 = stoniness_3
+    .rename(stoniness_3.bandNames().map(function(str) {return ee.String(str).replace('_v1_soil_depth_stoniness', 'vol', 'g')}));
+print('stoniness_3',stoniness_3);
+
+// stoniness_deph_50vol
+// stoniness_deph_90vol
+
 
 /**
  * @description
@@ -28,6 +115,8 @@ var mapp = require('users/joaovsiqueira1/packages:Mapp.js');
  * 
  * @author
  *    João Siqueira
+ * @adaptation for carbon calculate
+ *    Wallace Silva
  * 
  */
 var Area = {
@@ -70,7 +159,7 @@ var Area = {
             function (classAndArea) {
                 classAndArea = ee.Dictionary(classAndArea);
 
-                var classId = classAndArea.getNumber('class').mod(100).int();
+                var classId = classAndArea.getNumber('class');//.mod(100).int();
 
                 // var area = classAndArea.get('sum');
                 var gt_cos = classAndArea.getNumber('sum')
@@ -81,6 +170,8 @@ var Area = {
                     // .set('index',ee.String(classId).cat(obj.get('territory')))
                     // .set('Área ha', area)
                     .set('Gt COS', gt_cos);
+
+
                 return tableColumns;
             }
         );
@@ -160,152 +251,148 @@ modf * @param factor
     }
 
 };
-
 /**
  * 
  */
+ 
+var palettes = require('users/mapbiomas/modules:Palettes.js');
+// var fire_palettes = require('users/workspaceipam/packages:mapbiomas-toolkit/utils/palettes');
+var logos = require('users/workspaceipam/packages:mapbiomas-toolkit/utils/b64');
+
 var App = {
 
     options: {
 
-        version: '1.3.0',
+        version: '1.1.2',
 
         logo: {
             uri: 'gs://mapbiomas-public/mapbiomas-logos/mapbiomas-logo-horizontal.b64',
-            base64: null
-        },
-
-        statesNames: {
-            'None': 'None',
-            'Acre': '12',
-            'Alagoas': '27',
-            'Amazonas': '13',
-            'Amapá': '16',
-            'Bahia': '29',
-            'Ceará': '23',
-            'Distrito Federal': '53',
-            'Espírito Santo': '32',
-            'Goiás': '52',
-            'Maranhão': '21',
-            'Minas Gerais': '31',
-            'Mato Grosso do Sul': '50',
-            'Mato Grosso': '51',
-            'Pará': '15',
-            'Paraíba': '25',
-            'Pernambuco': '26',
-            'Piauí': '22',
-            'Paraná': '41',
-            'Rio de Janeiro': '33',
-            'Rio Grande do Norte': '24',
-            'Rondônia': '11',
-            'Roraima': '14',
-            'Rio Grande do Sul': '43',
-            'Santa Catarina': '42',
-            'Sergipe': '28',
-            'São Paulo': '35',
-            'Tocantins': '17'
+            base64: logos.get('logo_mapbiomas_solo')
         },
 
         tables: {
             'mapbiomas-brazil': [
                 {
-                    'label': 'atlantic_forest_law',
-                    'value': 'projects/mapbiomas-workspace/AUXILIAR/ESTATISTICAS/COLECAO7/VERSAO-2/atlantic_forest_law',
+                    'label': 'Amacro',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/AMACRO',
                 },
                 {
-                    'label': 'biome',
-                    'value': 'projects/mapbiomas-workspace/AUXILIAR/ESTATISTICAS/COLECAO7/VERSAO-2/biome',
+                    'label': 'Ministry of the Environment priority areas 2018',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/AREAS_PRIORITARIAS_DO_MMA_2018',
                 },
                 {
-                    'label': 'biosphere_reserve',
-                    'value': 'projects/mapbiomas-workspace/AUXILIAR/ESTATISTICAS/COLECAO7/VERSAO-2/biosphere_reserve',
+                    'label': 'Atlantic Forest Law',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/ATLANTIC_FOREST_LAW',
                 },
                 {
-                    'label': 'city',
-                    'value': 'projects/mapbiomas-workspace/AUXILIAR/ESTATISTICAS/COLECAO7/VERSAO-2/city',
+                    'label': 'Basin Level 1 DNAEE',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/BASIN_LEVEL_1_DNAEE',
                 },
                 {
-                    'label': 'country',
-                    'value': 'projects/mapbiomas-workspace/AUXILIAR/ESTATISTICAS/COLECAO7/VERSAO-2/country',
+                    'label': 'Basin Level 1 PNRH',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/BASIN_LEVEL_1_PNRH',
                 },
                 {
-                    'label': 'federal_conservation_units_integral_protection',
-                    'value': 'projects/mapbiomas-workspace/AUXILIAR/ESTATISTICAS/COLECAO7/VERSAO-2/federal_conservation_units_integral_protection',
+                    'label': 'Basin Level 2 DNAEE',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/BASIN_LEVEL_2_DNAEE',
                 },
                 {
-                    'label': 'federal_conservation_units_sustainable_use',
-                    'value': 'projects/mapbiomas-workspace/AUXILIAR/ESTATISTICAS/COLECAO7/VERSAO-2/federal_conservation_units_sustainable_use',
+                    'label': 'Basin Level 2 PNRH',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/BASIN_LEVEL_2_PNRH',
                 },
                 {
-                    'label': 'indigenous_land',
-                    'value': 'projects/mapbiomas-workspace/AUXILIAR/ESTATISTICAS/COLECAO7/VERSAO-2/indigenous_land',
+                    'label': 'Biomes',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/BIOMES',
                 },
                 {
-                    'label': 'legal_amazon',
-                    'value': 'projects/mapbiomas-workspace/AUXILIAR/ESTATISTICAS/COLECAO7/VERSAO-2/legal_amazon',
+                    'label': 'Coastal Marine Zone',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/COASTAL_MARINE_ZONE',
                 },
                 {
-                    'label': 'level_1_drainage_basin',
-                    'value': 'projects/mapbiomas-workspace/AUXILIAR/ESTATISTICAS/COLECAO7/VERSAO-2/level_1_drainage_basin',
+                    'label': 'Forest Concessions',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/CONCESSOES_FLORESTAIS',
                 },
                 {
-                    'label': 'level_1_drainage_basin_pnrh',
-                    'value': 'projects/mapbiomas-workspace/AUXILIAR/ESTATISTICAS/COLECAO7/VERSAO-2/level_1_drainage_basin_pnrh',
+                    'label': 'DHN250 Level 1',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/DHN250_LEVEL_1',
                 },
                 {
-                    'label': 'level_2_drainage_basin',
-                    'value': 'projects/mapbiomas-workspace/AUXILIAR/ESTATISTICAS/COLECAO7/VERSAO-2/level_2_drainage_basin',
+                    'label': 'DHN250 Level 2',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/DHN250_LEVEL_2',
                 },
                 {
-                    'label': 'level_2_drainage_basin_pnrh',
-                    'value': 'projects/mapbiomas-workspace/AUXILIAR/ESTATISTICAS/COLECAO7/VERSAO-2/level_2_drainage_basin_pnrh',
+                    'label': 'DHN250 Level 3',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/DHN250_LEVEL_3',
                 },
                 {
-                    'label': 'quilombo',
-                    'value': 'projects/mapbiomas-workspace/AUXILIAR/ESTATISTICAS/COLECAO7/VERSAO-2/quilombo',
+                    'label': 'Non-Designated Public Forests',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/FLORESTAS_PUBLICAS_NAO_DESTINADAS',
                 },
                 {
-                    'label': 'semiarid',
-                    'value': 'projects/mapbiomas-workspace/AUXILIAR/ESTATISTICAS/COLECAO7/VERSAO-2/semiarid',
+                    'label': 'Geoparques',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/GEOPARQUES',
                 },
                 {
-                    'label': 'settlement',
-                    'value': 'projects/mapbiomas-workspace/AUXILIAR/ESTATISTICAS/COLECAO7/VERSAO-2/settlement',
+                    'label': 'Indigenous Territories',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/INDIGENOUS_TERRITORIES',
                 },
                 {
-                    'label': 'state',
-                    'value': 'projects/mapbiomas-workspace/AUXILIAR/ESTATISTICAS/COLECAO7/VERSAO-2/state',
+                    'label': 'Legal Amazon',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/LEGAL_AMAZON',
                 },
                 {
-                    'label': 'state_conservation_units_integral_protection',
-                    'value': 'projects/mapbiomas-workspace/AUXILIAR/ESTATISTICAS/COLECAO7/VERSAO-2/state_conservation_units_integral_protection',
+                    'label': 'Matopiba',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/MATOPIBA',
                 },
                 {
-                    'label': 'state_conservation_units_sustainable_use',
-                    'value': 'projects/mapbiomas-workspace/AUXILIAR/ESTATISTICAS/COLECAO7/VERSAO-2/state_conservation_units_sustainable_use',
+                    'label': 'Political Level 1',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/POLITICAL_LEVEL_1',
                 },
+                {
+                    'label': 'Political Level 2',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/POLITICAL_LEVEL_2',
+                },
+                {
+                    'label': 'Political Level 3',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/POLITICAL_LEVEL_3',
+                },
+                {
+                    'label': 'Protected Area',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/PROTECTED_AREA',
+                },
+                {
+                    'label': 'Quilombos',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/QUILOMBOS',
+                },
+                {
+                    'label': 'Biosphere Reserve',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/RESERVA_DA_BIOSFERA',
+                },
+                {
+                    'label': 'Semiarid',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/SEMIARID',
+                },
+                {
+                    'label': 'Settlements',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/SETTLEMENTS',
+                },
+                {
+                    'label': 'UGRHS',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/UGRHS',
+                }
             ],
+            // 'mapbiomas-indonesia': [],
         },
 
         collections: {
             'mapbiomas-brazil': {
-                'collection-beta': {
+                'collection1-beta': {
                     'assets': {
-                        'cos_0_30cm_t_ha': 'projects/mapbiomas-workspace/SOLOS/PRODUTOS_BETA/soil_organic_carbon-0_30_cm_t_ha-beta_2_1',
-                        'cos_0_30cm_kg_m2': 'projects/mapbiomas-workspace/public/collection7_1/mapbiomas_soil_collection1_carbon_coverage_v1',
+                        'soc_t_ha_000_030cm': 'projects/mapbiomas-public/assets/brazil/soil/collection1/mapbiomas_soil_collection1_soil_organic_carbon_0_30cm_t_ha_v1',
+                        // 'soc_kg_m2_000_030cm': 'projects/mapbiomas-public/assets/brazil/soil/collection1/mapbiomas_soil_collection1_soil_organic_carbon_0_30cm_kg_m2_v1',
                     },
-
                     'periods': {
-                        'cos_0_30cm_t_ha': [
-                            '1985', '1986', '1987', '1988', '1989', '1990',
-                            '1991', '1992', '1993', '1994', '1995', '1996',
-                            '1997', '1998', '1999', '2000', '2001', '2002',
-                            '2003', '2004', '2005', '2006', '2007', '2008',
-                            '2009', '2010', '2011', '2012', '2013', '2014',
-                            '2015', '2016', '2017', '2018', '2019', '2020',
-                            '2021'
-                        ],
-                        'cos_0_30cm_kg_m2': [
+                        'soc_t_ha_000_030cm': [
                             '1985', '1986', '1987', '1988', '1989', '1990',
                             '1991', '1992', '1993', '1994', '1995', '1996',
                             '1997', '1998', '1999', '2000', '2001', '2002',
@@ -314,39 +401,216 @@ var App = {
                             '2015', '2016', '2017', '2018', '2019', '2020',
                             '2021',
                         ],
+                        'soc_kg_m2_000_030cm': [
+                            '1985', '1986', '1987', '1988', '1989', '1990',
+                            '1991', '1992', '1993', '1994', '1995', '1996',
+                            '1997', '1998', '1999', '2000', '2001', '2002',
+                            '2003', '2004', '2005', '2006', '2007', '2008',
+                            '2009', '2010', '2011', '2012', '2013', '2014',
+                            '2015', '2016', '2017', '2018', '2019', '2020',
+                            '2021'
+                        ],
                     },
+                    'coverage_reference':ee.Image('projects/mapbiomas-public/assets/brazil/lulc/collection7_1/mapbiomas_collection71_integration_v1')
+                },
+                'collection2-beta': {
+                    'assets': {
+                        'soc_t_ha_000_030cm':'projects/mapbiomas-public/assets/brazil/soil/collection2/mapbiomas_soil_collection2_soc_t_ha_000_030cm',
+                        // 'soc_kg_m2_000_030cm':'projects/mapbiomas-public/assets/brazil/soil/collection2/mapbiomas_soil_collection2_soc_kg_m2_000_030cm',
+                        'granulometry_clay_percent':'projects/mapbiomas-public/assets/brazil/soil/collection2/mapbiomas_soil_collection2_granulometry_clay_percentage',
+                        'granulometry_sand_percent':'projects/mapbiomas-public/assets/brazil/soil/collection2/mapbiomas_soil_collection2_granulometry_sand_percentage',
+                        'granulometry_silt_percent':'projects/mapbiomas-public/assets/brazil/soil/collection2/mapbiomas_soil_collection2_granulometry_silt_percentage',
+                        'textural_classes':'projects/mapbiomas-public/assets/brazil/soil/collection2/mapbiomas_soil_collection2_textural_classes',
+                        'textural_subgroups':'projects/mapbiomas-public/assets/brazil/soil/collection2/mapbiomas_soil_collection2_textural_subgroups',
+                        'textural_groups':'projects/mapbiomas-public/assets/brazil/soil/collection2/mapbiomas_soil_collection2_textural_groups',
+                    },
+                    'periods': {
+                        'soc_t_ha_000_030cm': [
+                          '1985','1986','1987','1988','1989','1990','1991','1992','1993','1994',
+                          '1995','1996','1997','1998','1999','2000','2001','2002','2003','2004',
+                          '2005','2006','2007','2008','2009','2010','2011','2012','2013','2014',
+                          '2015','2016','2017','2018','2019','2020','2021','2022','2023',
+                        ],
+                        'soc_kg_m2_000_030cm':[
+                          '1985','1986','1987','1988','1989','1990','1991','1992','1993','1994',
+                          '1995','1996','1997','1998','1999','2000','2001','2002','2003','2004',
+                          '2005','2006','2007','2008','2009','2010','2011','2012','2013','2014',
+                          '2015','2016','2017','2018','2019','2020','2021','2022','2023',
+                        ],                        
+                        'granulometry_clay_percent': [
+                          '000_010cm',
+                          '010_020cm',
+                          '020_030cm',
+                          '000_020cm',
+                          '000_030cm',
+                        ],
+                        'granulometry_sand_percent':[
+                          '000_010cm',
+                          '010_020cm',
+                          '020_030cm',
+                          '000_020cm',
+                          '000_030cm',
+                        ],
+                        'granulometry_silt_percent':[
+                          '000_010cm',
+                          '010_020cm',
+                          '020_030cm',
+                          '000_020cm',
+                          '000_030cm',
+                        ],
+                        'textural_classes':[
+                          '000_010cm',
+                          '000_020cm',
+                          '000_030cm',
+                        ],
+                        'textural_subgroups':[
+                          '000_010cm',
+                          '000_020cm',
+                          '000_030cm',
+                        ],
+                        'textural_groups':[
+                          '000_010cm',
+                          '000_020cm',
+                          '000_030cm',
+                        ],
+                    },
+                    'coverage_reference':ee.Image('projects/mapbiomas-public/assets/brazil/lulc/collection9/mapbiomas_collection90_integration_v1'),
+                },
+                'collection2_1-beta': {
+                    'assets': {
+                        'soc_t_ha_000_030cm':carbon_2_1,
+                        'granulometry_clay_percent':clay_fraction_2_1,
+                        'granulometry_sand_percent':sand_fraction_2_1,
+                        'granulometry_silt_percent':silt_fraction_2_1,
+                        'textural_classes':textural_class_2_1,
+                        'textural_subgroups':textural_subgroup_2_1,
+                        'textural_groups':textural_group_2_1,
+                    },
+                    'periods': {
+                        'soc_t_ha_000_030cm': [
+                          '1985','1986','1987','1988','1989','1990','1991','1992','1993','1994',
+                          '1995','1996','1997','1998','1999','2000','2001','2002','2003','2004',
+                          '2005','2006','2007','2008','2009','2010','2011','2012','2013','2014',
+                          '2015','2016','2017','2018','2019','2020','2021','2022','2023','2024'
+                        ],
+                        'granulometry_clay_percent': [
+                          '000_010cm',
+                          '010_020cm',
+                          '020_030cm',
+                          '000_020cm',
+                          '000_030cm',
+                        ],
+                        'granulometry_sand_percent':[
+                          '000_010cm',
+                          '010_020cm',
+                          '020_030cm',
+                          '000_020cm',
+                          '000_030cm',
+                        ],
+                        'granulometry_silt_percent':[
+                          '000_010cm',
+                          '010_020cm',
+                          '020_030cm',
+                          '000_020cm',
+                          '000_030cm',
+                        ],
+                        'textural_classes':[
+                          '000_010cm',
+                          '000_020cm',
+                          '000_030cm',
+                        ],
+                        'textural_subgroups':[
+                          '000_010cm',
+                          '000_020cm',
+                          '000_030cm',
+                        ],
+                        'textural_groups':[
+                          '000_010cm',
+                          '000_020cm',
+                          '000_030cm',
+                        ],
+                    },
+                    'coverage_reference':ee.Image('projects/mapbiomas-public/assets/brazil/lulc/collection10/mapbiomas_brazil_collection10_integration_v1').slice(0,-1),
+                },
+                'collection3-beta': {
+                    'assets': {
+                        'soc_t_ha_000_030cm':carbon_3,
+                        'granulometry_clay_percent':clay_fraction_3,
+                        'granulometry_sand_percent':sand_fraction_3,
+                        'granulometry_silt_percent':silt_fraction_3,
+                        'textural_classes':textural_class_3,
+                        'textural_subgroups':textural_subgroup_3,
+                        'textural_groups':textural_group_3,
+                        'stoniness':stoniness_3,
+                    },
+                    'periods': {
+                        'soc_t_ha_000_030cm': [
+                          '1985','1986','1987','1988','1989','1990','1991','1992','1993','1994',
+                          '1995','1996','1997','1998','1999','2000','2001','2002','2003','2004',
+                          '2005','2006','2007','2008','2009','2010','2011','2012','2013','2014',
+                          '2015','2016','2017','2018','2019','2020','2021','2022','2023','2024'
+                        ],
+                        'granulometry_clay_percent': ['000_010cm', '010_020cm', '020_030cm', '030_040cm', '040_050cm', '050_060cm', '060_070cm', '070_080cm', '080_090cm', '090_100cm'],
+                        'granulometry_sand_percent': ['000_010cm', '010_020cm', '020_030cm', '030_040cm', '040_050cm', '050_060cm', '060_070cm', '070_080cm', '080_090cm', '090_100cm'],
+                        'granulometry_silt_percent': ['000_010cm', '010_020cm', '020_030cm', '030_040cm', '040_050cm', '050_060cm', '060_070cm', '070_080cm', '080_090cm', '090_100cm'],
+                        'textural_classes': ['000_010cm','000_020cm','000_030cm','020_040cm','030_060cm','060_100cm'],
+                        'textural_subgroups': ['000_010cm','000_020cm','000_030cm','020_040cm','030_060cm','060_100cm'],
+                        'textural_groups': ['000_010cm','000_020cm','000_030cm','020_040cm','030_060cm','060_100cm'],
+                        'stoniness': ['50vol','90vol'],
+                    },
+                    'coverage_reference':ee.Image('projects/mapbiomas-public/assets/brazil/lulc/collection10/mapbiomas_brazil_collection10_integration_v1').slice(0,-1),
                 },
             },
         },
 
         bandsNames: {
-            'cos_0_30cm_t_ha': 'prediction_',
-            'cos_0_30cm_kg_m2': 'prediction_',
+            'soc_t_ha_000_030cm':'prediction_',
+            'soc_kg_m2_000_030cm':'prediction_',
+            'granulometry_clay_percent':'clay_',
+            'granulometry_sand_percent':'sand_',
+            'granulometry_silt_percent':'silt_',
+            'textural_classes':'textural_classes_',
+            'textural_groups':'textural_groups_',
+            'textural_subgroups':'textural_subgroups_',
+            'stoniness':'soil_depth_stoniness_'
         },
 
-        dataType: 'cos_0_30cm_t_ha',
+        dataType: 'soc_t_ha_000_030cm',
 
         data: {
-            'cos_0_30cm_t_ha': null,
-            'cos_0_30cm_kg_m2': null,
-            
-            // 'burned_cover_cumulated': null,
+          'soc_t_ha_000_030cm':null,
+          'soc_kg_m2_000_030cm':null,
+          'granulometry_clay_percent':null,
+          'granulometry_sand_percent':null,
+          'granulometry_silt_percent':null,
+          'textural_classes':null,
+          'textural_subgroups':null,
+          'textural_groups':null,
+          'stoniness':null,
         },
 
         fileDimensions: {
-            'cos_0_30cm_t_ha': 256 * 124,
-            'cos_0_30cm_kg_m2': 256 * 124,
+          'soc_t_ha_000_030cm': 256 * 124,
+          'soc_kg_m2_000_030cm': 256 * 124,
+          'granulometry_clay_percent': 256 * 124,
+          'granulometry_sand_percent': 256 * 124,
+          'granulometry_silt_percent': 256 * 124,
+          'textural_classes': 256 * 124,
+          'textural_subgroups': 256 * 124,
+          'textural_groups': 256 * 124,
+          'stoniness': 256 * 124,
         },
 
         ranges: {
-            'cos_0_30cm_t_ha': {
-                'min': 0,
-                'max': 80
-            },
-            'cos_0_30cm_kg_m2': {
-                'min': 0,
-                'max': 8
-            },
+          'soc_t_ha_000_030cm': {min:0, max:90},
+          'soc_kg_m2_000_030cm': {min:0,  max:9},
+          'granulometry_clay_percent': {min:0,  max:100},
+          'granulometry_sand_percent': {min:0,  max:100},
+          'granulometry_silt_percent': {min:0,  max:100},
+          'textural_classes': {min:0, max:13},
+          'textural_subgroups': {min:0, max:8},
+          'textural_groups': {min:0,  max:5},
+          'stoniness': {min:0,  max:100},
         },
 
         vector: null,
@@ -354,69 +618,21 @@ var App = {
         activeName: '',
 
         palette: {
-            'cos_0_30cm_t_ha': [
-              'ffffff','ffffe5','fff7bc','fee391','fec44f','fe9929','ec7014','cc4c02','993404','662506'
-            ],
-            'cos_0_30cm_kg_m2': [
-              'ffffff','ffffe5','fff7bc','fee391','fec44f','fe9929','ec7014','cc4c02','993404','662506'
-            ],
+          'soc_t_ha_000_030cm': ['ffffff','ffffe5','fff7bc','fee391','fec44f','fe9929','ec7014','cc4c02','993404','662506'],
+          'soc_kg_m2_000_030cm': ['ffffff','ffffe5','fff7bc','fee391','fec44f','fe9929','ec7014','cc4c02','993404','662506'],
+          'granulometry_clay_percent': ['#ffffff','DEBBBD','AA8686','956262','9C5050','8C3306','932703','7A1D03','6C1902','5C1402','4E1101'],
+          'granulometry_sand_percent': ['#ffffff','ffe5d8','ffccb3','f7a886','ff9680','e08370','d67258','b05841','95413b','6a2a12','522010'],
+          'granulometry_silt_percent': ['#ffffff','D1E9C9','A9D0A1','88C997','7DB78E','6A8E74','517A64','406A55','2E5A49','1F4A3C','123029'],
+          'textural_classes': ['#ffffff','#a83800','#aa8686','#3481a7','#e9a9a9','#80b1d3','#c994c7','#f4a582','#d7c5a5','#F8D488','#E4B074','#fffe73','#298289','#ABBA7C'],
+          'textural_subgroups': ['#ffffff','#a83800','#aa8686','#f4a582','#298289','#d7c5a5','#F8D488','#E4B074','#fffe73'],
+          'textural_groups': ['#ffffff','#a83800','#aa8686','#b5d6ae','#fffe73','#d7c5a5'],
+          'stoniness': ['#56008f','#7d00a3','#c300a9','#ff2f9a','#ff4f78','#ff6e63','#ff9678','#ffc5a1','#ffdfc6','#fff8eb','#fbf9f6'],
         },
 
         taskid: 1,
 
         bufferDistance: 0,
 
-        className: {
-            1: "Forest",
-            2: "Natural Forest",
-            3: "Forest Formation",
-            4: "Savanna Formation",
-            5: "Magrove",
-            6: "Áreas Naturales Inundables - Leñosas (Bosque Inundable)",
-            9: "Forest Plantation",
-            10: "Non Forest Natural Formation",
-            11: "Wetland",
-            12: "Grassland (Pastizal, Formación Herbácea)",
-            13: "Other Non Forest Natural Formation",
-            14: "Farming",
-            15: "Pasture",
-            18: "Agriculture",
-            19: "Temporary Crops (Herbaceas - Agricultura)",
-            20: "Sugar Cane",
-            21: "Mosaic of Agriculture and Pasture",
-            22: "Non vegetated area",
-            23: "Beach and Dune",
-            24: "Urban Infrastructure",
-            25: "Other Non Vegetated Area",
-            26: "Water",
-            27: "Non Observed",
-            29: "Rocky outcrop",
-            30: "Mining",
-            31: "Aquaculture",
-            32: "Salt flat",
-            33: "River, Lake and Ocean",
-            34: "Glacier",
-            35: "Oil Palm",
-            36: "Perennial Crops",
-            37: "Artificial Water Body",
-            38: "Water Reservoirs",
-            39: "Soy Beans",
-            40: "Rice",
-            41: "Mosaic of Crops",
-            42: "Pastizal abierto", // Only for Chaco
-            43: "Pastizal cerrado", // Only for Chaco
-            44: "Pastizal disperso", // Only for Chaco
-            45: "Leñosas dispersas", // Only for Chaco
-            46: 'Coffe',
-            47: 'Citrus',
-            48: 'Other Perennial Crops',
-            49: 'Wooded Sandbank Vegetation',
-            50: 'Herbaceous Sandbank Vegetation',
-            57: 'Cultivo Simples', // Only for Chaco
-            58: 'Cultivo Múltiple', // Only for Chaco
-            62: "Cotton",
-            0: "Non Observed",
-        },
     },
 
     init: function () {
@@ -427,83 +643,168 @@ var App = {
 
     setVersion: function () {
 
-        App.ui.form.labelTitle.setValue('MapBiomas User Toolkit ' + App.options.version);
+        App.ui.form.labelTitle.setValue('MapBiomas-Soil User Toolkit ' + App.options.version);
 
     },
 
-    startMap: function (year) {
-
-        Map.centerObject(App.options.data.cos_0_30cm_t_ha, 5);
-
-        var imageLayer = ui.Map.Layer({
-            'eeObject': App.options.data.cos_0_30cm_t_ha,
-            'visParams': {
-                'bands': [App.options.bandsNames.cos_0_30cm_t_ha + year],
-                'palette': App.options.palette.cos_0_30cm_t_ha,
-                'min': App.options.ranges.cos_0_30cm_t_ha.min,
-                'max': App.options.ranges.cos_0_30cm_t_ha.max,
-                'format': 'png'
-            },
-            'name': year,
-            'shown': true,
-            'opacity': 1.0
-        });
-
-        Map.clear();
-
-        Map.setOptions({
-            'styles': {
-                'Dark': mapp.getStyle('Dark')
+    formatName: function (input) {
+          // Mapeamento de caracteres com acentos para caracteres simples
+          var acentos = {
+            'á': 'a', 'ã': 'a', 'â': 'a', 'à': 'a', 'ä': 'a',
+            'é': 'e', 'ê': 'e', 'è': 'e', 'ë': 'e',
+            'í': 'i', 'î': 'i', 'ì': 'i', 'ï': 'i',
+            'ó': 'o', 'õ': 'o', 'ô': 'o', 'ò': 'o', 'ö': 'o',
+            'ú': 'u', 'û': 'u', 'ù': 'u', 'ü': 'u',
+            'ç': 'c',
+            'Á': 'a', 'Ã': 'a', 'Â': 'a', 'À': 'a', 'Ä': 'a',
+            'É': 'e', 'Ê': 'e', 'È': 'e', 'Ë': 'e',
+            'Í': 'i', 'Î': 'i', 'Ì': 'i', 'Ï': 'i',
+            'Ó': 'o', 'Õ': 'o', 'Ô': 'o', 'Ò': 'o', 'Ö': 'o',
+            'Ú': 'u', 'Û': 'u', 'Ù': 'u', 'Ü': 'u',
+            'Ç': 'c'
+          };
+          
+          // Remove acentos
+          var semAcentos = input.split('').map(function(char) {
+            return acentos[char] || char;
+          }).join('');
+          
+          // Converte para caixa baixa
+          var minuscula = semAcentos.toLowerCase();
+          
+          // Substitui espaços por underscores
+          var comUnderscores = minuscula.replace(/\s+/g, '_');
+          
+          // Substitui traço por underscores
+          var comtraco = comUnderscores.replace(/-/g, '_');
+          
+          // Remove caracteres especiais
+          var resultado = comtraco.replace(/[^a-z0-9_]/g, '');
+          
+          return resultado;
+        },
+    
+    formatLabelWithLinks: function(text, links, maxChars) {
+      maxChars = maxChars || 60;  // ajuste conforme largura desejada
+    
+      // Painel em wrap horizontal
+      var panel = ui.Panel({
+        layout: ui.Panel.Layout.flow('horizontal', true),
+        style: { margin: '0px' }
+      });
+    
+      // Estilos
+      var txtStyle  = { margin: '0px 2px 0px 2px' };
+      var linkStyle = {
+        margin:          '0px 2px 0px 2px',
+        color:           'blue',
+        textDecoration:  'underline'
+      };
+    
+      // Regex que captura **link** + pontuação opcional logo após
+      var regex = /\*\*(.*?)\*\*([,.;:!?])?/g;
+    
+      // 1) Função para quebrar textos muito longos em pedaços <= maxChars
+      function splitLong(txt) {
+        var words = txt.split(' ');
+        var lines = [];
+        var curr  = '';
+        for (var i = 0; i < words.length; i++) {
+          var w = words[i];
+          if ((curr + ' ' + w).trim().length > maxChars) {
+            lines.push(curr.trim());
+            curr = w;
+          } else {
+            curr = (curr + ' ' + w).trim();
+          }
+        }
+        if (curr) lines.push(curr);
+        return lines;
+      }
+    
+      // 2) Função auxiliar para adicionar uma linha de texto simples
+      function addTextLine(str) {
+        panel.add(ui.Label(str, txtStyle));
+      }
+    
+      // 3) Função auxiliar para adicionar um link (com pontuação já inclusa)
+      function addLink(labelText, url) {
+        panel.add(ui.Label({
+          value:     labelText,
+          targetUrl: url || null,
+          style:     url ? linkStyle : txtStyle
+        }));
+      }
+    
+      // 4) Função que quebra o texto em link/non-link e adiciona ao painel
+      function addPieces(str) {
+        var lastIndex = 0;
+        var m;
+        while ((m = regex.exec(str)) !== null) {
+          // 4.1) Texto antes do link
+          if (m.index > lastIndex) {
+            var before = str.substring(lastIndex, m.index);
+            var chunks = splitLong(before);
+            for (var j = 0; j < chunks.length; j++) {
+              addTextLine(chunks[j]);
             }
-        });
-
-        Map.add(imageLayer);
-
-    },
-
-    formatName: function (name) {
-
-        var formated = name
-            .toLowerCase()
-            .replace(/á/g, 'a')
-            .replace(/à/g, 'a')
-            .replace(/â/g, 'a')
-            .replace(/ã/g, 'a')
-            .replace(/ä/g, 'a')
-            .replace(/ª/g, 'a')
-            .replace(/é/g, 'e')
-            .replace(/ê/g, 'e')
-            .replace(/í/g, 'i')
-            .replace(/ó/g, 'o')
-            .replace(/ô/g, 'o')
-            .replace(/õ/g, 'o')
-            .replace(/ú/g, 'u')
-            .replace(/û/g, 'u')
-            .replace(/ũ/g, 'u')
-            .replace(/ç/g, 'c')
-            .replace(/ñ/g, 'n')
-            .replace(/&/g, '')
-            .replace(/@/g, '')
-            .replace(/ /g, '')
-            .replace(/["'()\/]/g, '');
-
-        return formated;
+          }
+          // 4.2) O próprio link + pontuação
+          var lblText = m[1] + (m[2] || '');
+          var url     = links[m[1]];
+          addLink(lblText, url);
+    
+          lastIndex = regex.lastIndex;
+        }
+        // 4.3) Resto do texto após o último link
+        if (lastIndex < str.length) {
+          var after = str.substring(lastIndex);
+          var tailChunks = splitLong(after);
+          for (var k = 0; k < tailChunks.length; k++) {
+            addTextLine(tailChunks[k]);
+          }
+        }
+      }
+    
+      // Executa
+      links = links || {};
+      addPieces(text);
+      return panel;
     },
 
     ui: {
 
         init: function () {
 
-            App.ui.form.init();
+            this.form.init();
 
-            Map.setOptions({
-                'styles': {
-                    'Dark': mapp.getStyle('Dark')
-                }
+        },
+
+        makeLegendLinksList: function () {
+          
+            App.ui.form.panelLink1 = ui.Panel({
+              'layout': ui.Panel.Layout.flow('horizontal', true),
+              'style': {'stretch': 'horizontal'},
+                'widgets': [
+                  ui.Label({
+                    value:'Brazil',
+                    style:{'fontSize': '10px'},
+                    targetUrl:'https://brasil.mapbiomas.org/codigos-de-legenda',
+                  }),
+                  // ui.Label({
+                  //   value:'Indonesia',
+                  //   style:{'fontSize': '10px'},
+                  //   targetUrl:'https://drive.google.com/file/d/1DACRQlH_1k8IxRc75SkKz0d89JB25cEt/view',
+                  // }),
+                ]
             });
         },
 
         setMapbiomasRegion: function (regionName) {
+
+            App.options.mapbiomasRegion = regionName;
+
+            // App.setPalette(regionName);
 
             App.ui.loadCollectionList(regionName);
             App.ui.loadTablesNames(regionName);
@@ -526,37 +827,22 @@ var App = {
                 'onChange': function (collectioName) {
                     ee.Number(1).evaluate(
                         function (a) {
-
-
-                            App.options.data.cos_0_30cm_t_ha = ee.ImageCollection(
-                                App.options.collections[regionName][collectioName].assets.cos_0_30cm_t_ha
-                              )
-                              .mosaic();
-                              
-                            App.options.data.cos_0_30cm_t_ha = App.options.data.cos_0_30cm_t_ha
-                              .updateMask(App.options.data.cos_0_30cm_t_ha.gt(-1));
-                                
-
-                            App.options.data.cos_0_30cm_kg_m2 = ee.Image(
-                                App.options.collections[regionName][collectioName].assets.cos_0_30cm_kg_m2
-                              )
-                              .divide(100).int16()
-
-                            App.options.data.cos_0_30cm_kg_m2 = App.options.data.cos_0_30cm_kg_m2
-                              .updateMask(App.options.data.cos_0_30cm_kg_m2.gt(-1));
-                                
-
+                            
+                            Object.keys(App.options.data).forEach(function(key){
+                              App.options.data[key] = ee.Image(App.options.collections[regionName][collectioName].assets[key]);
+                            });
+                            
+                            
                             //--------------------------------------------
+                            var year = App.options.collections[regionName][collectioName].periods.soc_t_ha_000_030cm.slice(-1)[0];
 
-                            var year = App.options.collections[regionName][collectioName].periods.cos_0_30cm_t_ha.slice(-1)[0];
-
-                            App.startMap(year);
+                            // App.startMap(year);
 
                             App.ui.loadDataType();
                         }
                     );
 
-                    App.ui.loadingBox();
+                    // App.ui.loadingBox();
                 },
                 'style': {
                     'stretch': 'horizontal'
@@ -578,22 +864,28 @@ var App = {
                         return obj.id;
                     });
 
-            var allTablesNames;
+            roots = roots.filter(function (caminho) {
+                return caminho.indexOf('/MAPBIOMAS') != -1;
+            });
+
+            var allTablesNames = [];
 
             /**
              * Skip the error msg if MAPBIOMAS folder is not found
              */
+
             try {
                 var tablesNames = ee.data.getList({
-                    'id': roots[0] + '/MAPBIOMAS'
+                    'id': roots[0]
                 }).map(
                     function (obj) {
                         return obj.id;
                     });
-                var allTablesNames = App.options.tables[regionName].concat(tablesNames);
+
+                allTablesNames = allTablesNames.concat(App.options.tables[regionName]).concat(tablesNames);
             }
             catch (e) {
-                var allTablesNames = App.options.tables[regionName];
+                allTablesNames = allTablesNames.concat(App.options.tables[regionName]);
             }
 
             App.ui.form.selectFeatureCollections = ui.Select({
@@ -623,7 +915,7 @@ var App = {
                             }
                         );
 
-                        App.ui.loadingBox();
+                        // App.ui.loadingBox();
                     }
                 },
                 'style': {
@@ -636,57 +928,16 @@ var App = {
 
         },
 
-        loadTableStates: function (tableName) {
-
-            var state = App.ui.form.selectStates.getValue();
-
-            App.options.table = ee.FeatureCollection(tableName)
-                .filterMetadata('UF', 'equals', parseInt(App.options.statesNames[state], 10));
-
-            App.options.activeFeature = App.options.table;
-
-            Map.centerObject(App.options.activeFeature);
-
-            Map.clear();
-
-            Map.setOptions({
-                'styles': {
-                    'Dark': mapp.getStyle('Dark')
-                }
-            });
-
-            Map.addLayer(App.options.activeFeature.style({
-                color: '#000055',
-                width: 1,
-                fillColor: '#0000ff11',
-            }), {},
-                tableName.split('/')[3],
-                true);
-
-        },
-
         loadTable: function (tableName) {
 
             App.options.table = ee.FeatureCollection(tableName);
 
             App.options.activeFeature = App.options.table;
 
-            // Map.centerObject(App.options.activeFeature);
+            Map.layers().reset([]);
 
-            Map.clear();
-
-            Map.setOptions({
-                'styles': {
-                    'Dark': mapp.getStyle('Dark')
-                }
-            });
-
-            Map.addLayer(App.options.activeFeature.style({
-                color: '#000055',
-                width: 1,
-                fillColor: '#0000ff11',
-            }), {},
-                tableName.split('/')[3],
+            Map.addLayer(ee.Image().paint(App.options.activeFeature,'vazio',1).visualize({palette:'red'}), {},
+                tableName.split('/').reverse()[0],
                 true);
 
         },
@@ -699,8 +950,6 @@ var App = {
                 .propertyNames()
                 .evaluate(
                     function (propertyNames) {
-
-                        // print(propertyNames);
 
                         App.ui.form.selectProperties = ui.Select({
                             'items': propertyNames,
@@ -735,8 +984,9 @@ var App = {
             App.ui.form.selectFeature.setPlaceholder('loading feature names...');
 
             App.options.table.sort(App.options.propertyName)
-                .reduceColumns(ee.Reducer.toList(), [App.options.propertyName])
-                .get('list')
+                .aggregate_array(App.options.propertyName)
+                .distinct()
+                .sort()
                 .evaluate(
                     function (featureNameList) {
 
@@ -745,6 +995,7 @@ var App = {
                             'placeholder': 'select feature',
                             'onChange': function (featureName) {
                                 if (featureName != 'None') {
+                                    App.options.activeName = featureName;
                                     App.options.featureName = featureName;
 
                                     ee.Number(1).evaluate(
@@ -753,18 +1004,18 @@ var App = {
                                             var collectionName = App.ui.form.selectCollection.getValue();
 
                                             App.ui.loadFeature(featureName);
-                                            App.options.activeName = featureName;
 
-                                            App.ui.makeLayersList(
-                                                App.options.activeName,
-                                                App.options.activeFeature,
-                                                App.options.collections[regionName][collectionName]
-                                                    .periods[App.options.dataType]);
+                                            if (App.ui.form.selectDataType.getValue() !== null){
+                                              App.ui.makeLayersList(
+                                                  featureName,
+                                                  App.options.activeFeature,
+                                                  App.options.collections[regionName][collectionName]
+                                                      .periods[App.options.dataType]);
+                                            }
                                             App.ui.form.selectDataType.setDisabled(false);
                                         }
                                     );
 
-                                    App.ui.loadingBox();
                                 }
                             },
                             'style': {
@@ -795,11 +1046,15 @@ var App = {
                         'onChange': function (dataType) {
 
                             App.ui.setDataType(dataType);
+                            
+                            if (App.ui.form.selectDataType.getValue() !== null){
+                              App.ui.makeLayersList(
+                                  App.options.activeName.split('/').slice(-1)[0],
+                                  App.options.activeFeature,
+                                  App.options.collections[regionName][collectionName]
+                                      .periods[App.options.dataType]);
+                            }
 
-                            App.ui.makeLayersList(
-                                App.options.activeName.split('/').slice(-1)[0],
-                                App.options.activeFeature,
-                                App.options.collections[regionName][collectionName].periods[dataType]);
 
                         },
                         'style': {
@@ -817,23 +1072,13 @@ var App = {
         loadFeature: function (name) {
 
             App.options.activeFeature = App.options.table
-                .filterMetadata(App.options.propertyName, 'equals', name);
+                .filter(ee.Filter.eq(App.options.propertyName, name));
 
-            Map.centerObject(App.options.activeFeature);
+            Map.centerObject(App.options.activeFeature.geometry().bounds());
 
-            Map.clear();
+            Map.layers().reset([]);
 
-            Map.setOptions({
-                'styles': {
-                    'Dark': mapp.getStyle('Dark')
-                }
-            });
-
-            Map.addLayer(App.options.activeFeature.style({
-                color: '#000055',
-                width: 1,
-                fillColor: '#0000ff11',
-            }), {},
+            Map.addLayer(ee.Image().paint(App.options.activeFeature,'vazio',1).visualize({palette:'red'}), {},
                 name,
                 true);
 
@@ -841,9 +1086,15 @@ var App = {
 
         addImageLayer: function (period, label, region) {
 
+
             var image = App.options.data[App.options.dataType]
                 .select([App.options.bandsNames[App.options.dataType] + period])
-                .clip(region);
+                .multiply(ee.Image().paint(region).eq(0));
+                
+                print('App.options.dataType',App.options.dataType);
+
+
+
 
             var imageLayer = ui.Map.Layer({
                 'eeObject': image,
@@ -880,7 +1131,7 @@ var App = {
 
         manageLayers: function (checked, period, label, region) {
 
-            if (checked) {
+            if (checked !== false) {
                 App.ui.addImageLayer(period, label, region);
             } else {
                 App.ui.removeImageLayer(label);
@@ -889,7 +1140,7 @@ var App = {
         },
 
         makeLayersList: function (regionName, region, periods) {
-            // print(regionName, region, periods)
+          
             App.ui.form.panelLayersList.clear();
 
             periods.forEach(
@@ -919,13 +1170,6 @@ var App = {
 
         },
 
-        loadingBox: function () {
-            App.ui.form.loadingBox = ui.Panel();
-            App.ui.form.loadingBox.add(ui.Label('Loading...'));
-
-            Map.add(App.ui.form.loadingBox);
-        },
-
         export2Drive: function () {
 
             var layers = App.ui.form.panelLayersList.widgets();
@@ -946,22 +1190,21 @@ var App = {
                     var period = App.options.collections[regionName][collectionName]
                         .periods[App.options.dataType][i];
 
-                    var fileName = [regionName, collectionName, featureName, period, App.options.dataType].join('-');
-
-                    fileName = fileName.replace(/--/g, '-').replace(/--/g, '-').replace('.', '');
-                    fileName = App.formatName(fileName);
+                    var fileName = [
+                        App.formatName(regionName), 
+                        App.formatName(collectionName), 
+                        App.formatName(App.options.dataType), 
+                        App.formatName(featureName), 
+                        App.formatName(period)
+                      ].join('-');
 
                     var data = App.options.data[App.options.dataType]
                         .select([App.options.bandsNames[App.options.dataType] + period]);
 
                     var region = App.options.activeFeature.geometry();
 
-                    if (App.options.bufferDistance !== 0) {
-                        data = data.clip(App.options.activeFeature.geometry().buffer(App.options.bufferDistance));
-                        region = region.buffer(App.options.bufferDistance);
-                    } else {
-                        data = data.clip(App.options.activeFeature.geometry());
-                    }
+
+                    data = data.multiply(ee.Image().paint(App.options.activeFeature.geometry()).eq(0));
 
                     region = region.bounds();
 
@@ -970,11 +1213,11 @@ var App = {
                         description: fileName,
                         folder: 'MAPBIOMAS-EXPORT',
                         fileNamePrefix: fileName,
-                        region: region,
+                        region: region.bounds(),
                         scale: 30,
                         maxPixels: 1e13,
                         fileFormat: 'GeoTIFF',
-                        fileDimensions: App.options.fileDimensions[App.options.dataType],
+                        fileDimensions: 256 * 124,
                     });
 
                     bandIds.push(App.options.bandsNames[App.options.dataType] + period);
@@ -991,10 +1234,21 @@ var App = {
 
             var areas = bandIds.map(
                 function (band) {
-
-                    var image_class = ee.Image('projects/mapbiomas-workspace/public/collection7_1/mapbiomas_collection71_integration_v1')
-                      .select('classification_' + band.slice(-4)); // o calculo
-                    var image_quant = App.options.data[App.options.dataType].select(band); // o calculo
+                    
+                    var year = band.slice(-4);
+                    var image_observed = App.options.data[App.options.dataType].select(band); // o calculo
+                    var image_quant,image_class;
+                    
+                    if (App.options.dataType.indexOf('cm') === -1){
+                      image_quant = App.options.data['soc_t_ha_000_030cm'].slice(-1);
+                      image_class = App.options.collections[regionName][collectionName]['coverage_reference'].slice(-1);
+                    } else {
+                      image_quant = App.options.data['soc_t_ha_000_030cm'].select('.*' + year);
+                      var image_coverage = App.options.collections[regionName][collectionName]['coverage_reference'].select('.*' + year);
+                      image_class = image_observed.multiply(100).add(image_coverage);
+                     
+                    }
+                  
                     var factors = {
                       'cos_0_30cm_t_ha':1, // mantem t/ha 
                       'cos_0_30cm_kg_m2':10, // kg/m² para t/ha
@@ -1004,8 +1258,10 @@ var App = {
                         "image_quant": image_quant,
                         "territory": territory,
                         "geometry": geometry,
-                        "scale": 30,
-                        "factor": factors[App.options.dataType], // hectares ou metros
+                        // "scale": 30,
+                        "scale": 500,
+                        // "factor": factors[App.options.dataType], // hectares ou metros
+                        "factor": 1
                     });
 
                     area = ee.FeatureCollection(area).map(
@@ -1013,11 +1269,12 @@ var App = {
                             var className;
 
                             className = ee.Dictionary(App.options.className)
-                                .get(ee.Number(feature.get('class')));
+                                .get(ee.Number(App.options.dataType.indexOf('soc_t_ha_000_030cm') === -1 ? feature.getNumber('class') : feature.getNumber('class').mod(100).int()));
 
                             // className = ee.Number(feature.get('class'));
 
-                            return feature.set('class_name', className).set('band', band);
+                            return feature//.set('class_name', className)
+                              .set('band', band);
                         }
                     );
 
@@ -1026,12 +1283,15 @@ var App = {
             );
 
             areas = ee.FeatureCollection(areas).flatten();
-            // print(areas);
+            print(areas);
 
-            var tableName = [regionName, collectionName, featureName, App.options.dataType].join('-');
-
-            tableName = tableName.replace(/--/g, '-').replace(/--/g, '-').replace('.', '');
-            tableName = App.formatName(tableName);
+            var tableName = [
+              App.formatName(regionName), 
+              App.formatName(collectionName), 
+              App.formatName(App.options.dataType), 
+              App.formatName(featureName), 
+              'area'
+              ].join('-');
 
             Export.table.toDrive({
                 'collection': areas,
@@ -1042,16 +1302,272 @@ var App = {
             });
 
         },
-
+        
         showDisclaimer: function () {
+            var labelDisclaimer = {"Brasil": [
+                  // ----------------------------------------------------------
+                  // PORTUGUÊS
+                  // ----------------------------------------------------------
+                  ui.Label('MAPBIOMAS SOLO - NOTA INFORMATIVA - PORTUGUÊS'),
+                  ui.Label(''),
+              
+                  ui.Label('MapBiomas Solo — Mapas anuais do estoque de carbono orgânico do solo'),
+                  ui.Label('Mapas estáticos de granulometria (argila, silte e areia), textura e pedregosidade do solo'),
+                  ui.Label(''),
+              
+                  ui.Label('A Coleção 3 do MapBiomas Solo apresenta mapas anuais do estoque de carbono orgânico do solo na camada de 0–30 cm no Brasil, cobrindo 1985–2024 (versão beta).'),
+                  ui.Label('Os cruzamentos com dados anuais de cobertura e uso da terra foram realizados utilizando a Coleção 10 do MapBiomas.'),
+                  ui.Label(''),
+              
+                  ui.Label('Além dos mapas anuais de carbono orgânico, a Coleção 3 disponibiliza um conjunto ampliado de produtos estáticos, incluindo:'),
+                  ui.Label('• Mapas de granulometria (areia, silte e argila) com resolução vertical de 10 cm, abrangendo 0–100 cm (dez camadas);'),
+                  ui.Label('• Mapas de textura do solo em três níveis (classe, subgrupamento e grupamento textural), para seis intervalos integrados de profundidade (0–10, 0–20, 0–30, 20–40, 30–60 e 60–100 cm);'),
+                  ui.Label('• Mapas de pedregosidade do solo, expressa como distância vertical (cm) até dois limites pedológicos funcionais: pedregosidade dominante (50%) e pedregosidade extrema (90%).'),
+                  ui.Label(''),
+              
+                  ui.Label('Todos os produtos foram desenvolvidos com dados de amostras de solo do Repositório Brasileiro de Dados de Solo (SoilData):'),
+                  App.formatLabelWithLinks(
+                      '**soildata.mapbiomas.org**',
+                      {'soildata.mapbiomas.org': 'https://soildata.mapbiomas.org'}
+                  ),
+                  ui.Label(''),
+              
+                  ui.Label('Atenção: Os mapas foram desenvolvidos com rigor técnico-científico, após curadoria, padronização e harmonização das amostras, integrando informações ambientais e técnicas avançadas de modelagem espaço-temporal.'),
+                  ui.Label('No entanto, podem apresentar limitações devido à baixa densidade espacial e temporal das amostras de solo utilizadas no treinamento dos modelos.'),
+                  ui.Label('Para mais detalhes sobre os métodos utilizados, consulte a descrição metodológica e o ATBD em:'),
+                  App.formatLabelWithLinks(
+                      '**brasil.mapbiomas.org/metodo-mapbiomas-solo/**',
+                      {'brasil.mapbiomas.org/metodo-mapbiomas-solo/': 'https://brasil.mapbiomas.org/metodo-mapbiomas-solo/'}
+                  ),
+                  ui.Label(''),
+              
+                  ui.Label('Caso deseje contribuir com sugestões, críticas ou ideias, entre em contato conosco pelo e-mail:'),
+                  App.formatLabelWithLinks(
+                      '**contato@mapbiomas.org**',
+                      {'contato@mapbiomas.org': 'mailto:contato@mapbiomas.org'}
+                  ),
+                  ui.Label(''),
+              
+                  ui.Label('Os dados do MapBiomas são públicos, abertos e gratuitos sob licença CC-BY. Referencie conforme o formato abaixo:'),
+                  ui.Label(''),
+              
+                  ui.Label('"MapBiomas. Série de Mapas Anuais do Estoque de Carbono Orgânico do Solo do Brasil 0–30 cm (1985–2024) – MapBiomas Solo Coleção 3 (beta), acessado em [data], link:"'),
+                  App.formatLabelWithLinks(
+                      '**https://doi.org/10.58053/MapBiomas/2LUSVQ**',
+                      {'https://doi.org/10.58053/MapBiomas/2LUSVQ': 'https://doi.org/10.58053/MapBiomas/2LUSVQ'}
+                  ),
+                  ui.Label(''),
+              
+                  ui.Label('"MapBiomas. Mapas de Granulometria e Textura do Solo do Brasil 0–100 cm – MapBiomas Solo Coleção 3 (beta), acessado em [data], link:"'),
+                  App.formatLabelWithLinks(
+                      '**https://doi.org/10.58053/MapBiomas/9ORUPF**',
+                      {'https://doi.org/10.58053/MapBiomas/9ORUPF': 'https://doi.org/10.58053/MapBiomas/9ORUPF'}
+                  ),
+                  ui.Label(''),
+              
+                  ui.Label('"MapBiomas. Mapas de Pedregosidade do Solo do Brasil – MapBiomas Solo Coleção 3 (beta), acessado em [data], link:"'),
+                  App.formatLabelWithLinks(
+                      '**https://doi.org/10.58053/MapBiomas/1JGPIU**',
+                      {'https://doi.org/10.58053/MapBiomas/1JGPIU': 'https://doi.org/10.58053/MapBiomas/1JGPIU'}
+                  ),
+                  ui.Label(''),
+              
+                  // ----------------------------------------------------------
+                  // INGLÊS
+                  // ----------------------------------------------------------
+                  ui.Label('MAPBIOMAS SOIL - INFORMATION NOTE - ENGLISH'),
+                  ui.Label(''),
+              
+                  ui.Label('MapBiomas Soil Collection 3 presents annual maps of soil organic carbon stocks in the 0–30 cm layer across Brazil (1985–2024, beta version).'),
+                  ui.Label('Cross-analysis with annual land cover and land use data was performed using MapBiomas Collection 10.'),
+                  ui.Label(''),
+              
+                  ui.Label('Collection 3 also provides an expanded set of static products, including:'),
+                  ui.Label('• Soil granulometry maps (sand, silt, clay) with 10-cm vertical resolution across 0–100 cm (ten layers);'),
+                  ui.Label('• Soil texture maps at three levels (class, subgroup, group) for six integrated depth intervals (0–10, 0–20, 0–30, 20–40, 30–60, 60–100 cm);'),
+                  ui.Label('• Soil stoniness maps, expressed as vertical distance (cm) to dominant (50%) and extreme (90%) pedological thresholds.'),
+                  ui.Label(''),
+              
+                  ui.Label('All products were developed using soil sample data from the Brazilian Soil Data Repository (SoilData):'),
+                  App.formatLabelWithLinks(
+                      '**soildata.mapbiomas.org**',
+                      {'soildata.mapbiomas.org': 'https://soildata.mapbiomas.org'}
+                  ),
+                  ui.Label(''),
+              
+                  ui.Label('Attention: The maps were produced with technical and scientific rigor, including curation, standardization, harmonization, environmental covariates and advanced spatio-temporal modeling.'),
+                  ui.Label('Limitations remain due to the low spatial and temporal density of soil samples used to train the models.'),
+                  ui.Label('For methodological details and the ATBD, consult:'),
+                  App.formatLabelWithLinks(
+                      '**brasil.mapbiomas.org/en/metodo-mapbiomas-solo/**',
+                      {'brasil.mapbiomas.org/en/metodo-mapbiomas-solo/': 'https://brasil.mapbiomas.org/en/metodo-mapbiomas-solo/'}
+                  ),
+                  ui.Label(''),
+              
+                  ui.Label('For suggestions, criticisms or ideas, contact us at:'),
+                  App.formatLabelWithLinks(
+                      '**contato@mapbiomas.org**',
+                      {'contato@mapbiomas.org': 'mailto:contato@mapbiomas.org'}
+                  ),
+                  ui.Label(''),
+              
+                  ui.Label('MapBiomas data is public, open and free (CC-BY). Please reference as follows:'),
+                  ui.Label(''),
+              
+                  ui.Label('"MapBiomas. Annual Series of Maps of Soil Organic Carbon Stock in Brazil 0–30 cm (1985–2024) – MapBiomas Soil Collection 3 (beta), accessed on [date], link:"'),
+                  App.formatLabelWithLinks(
+                      '**https://doi.org/10.58053/MapBiomas/2LUSVQ**',
+                      {'https://doi.org/10.58053/MapBiomas/2LUSVQ': 'https://doi.org/10.58053/MapBiomas/2LUSVQ'}
+                  ),
+                  ui.Label(''),
+              
+                  ui.Label('"MapBiomas. Soil Particle Size and Texture Maps for Brazil 0–100 cm – MapBiomas Soil Collection 3 (beta), accessed on [date], link:"'),
+                  App.formatLabelWithLinks(
+                      '**https://doi.org/10.58053/MapBiomas/9ORUPF**',
+                      {'https://doi.org/10.58053/MapBiomas/9ORUPF': 'https://doi.org/10.58053/MapBiomas/9ORUPF'}
+                  ),
+                  ui.Label(''),
+              
+                  ui.Label('"MapBiomas. Soil Stoniness Maps for Brazil – MapBiomas Soil Collection 3 (beta), accessed on [date], link:"'),
+                  App.formatLabelWithLinks(
+                      '**https://doi.org/10.58053/MapBiomas/1JGPIU**',
+                      {'https://doi.org/10.58053/MapBiomas/1JGPIU': 'https://doi.org/10.58053/MapBiomas/1JGPIU'}
+                  ),
+                  ui.Label(''),
+              
+                  // ----------------------------------------------------------
+                  // ESPAÑOL
+                  // ----------------------------------------------------------
+                  ui.Label('MAPBIOMAS SUELO - NOTA INFORMATIVA - ESPAÑOL'),
+                  ui.Label(''),
+              
+                  ui.Label('La Colección 3 de MapBiomas Suelo presenta mapas anuales del stock de carbono orgánico del suelo en la capa de 0–30 cm en Brasil (1985–2024, versión beta).'),
+                  ui.Label('Los cruces con los datos anuales de cobertura y uso de la tierra se realizaron utilizando la Colección 10 de MapBiomas.'),
+                  ui.Label(''),
+              
+                  ui.Label('Además de los mapas anuales, la Colección 3 ofrece un conjunto ampliado de productos estáticos, incluyendo:'),
+                  ui.Label('• Mapas de granulometría (arena, limo, arcilla) con resolución vertical de 10 cm entre 0 y 100 cm (diez capas);'),
+                  ui.Label('• Mapas de textura del suelo en tres niveles (clase, subagrupamiento, agrupamiento) para seis intervalos integrados de profundidad (0–10, 0–20, 0–30, 20–40, 30–60, 60–100 cm);'),
+                  ui.Label('• Mapas de pedregosidad del suelo, expresados como distancia vertical (cm) hasta límites pedológicos dominantes (50%) y extremos (90%).'),
+                  ui.Label(''),
+              
+                  ui.Label('Todos los productos fueron desarrollados con datos del Repositorio Brasileño de Datos de Suelo (SoilData):'),
+                  App.formatLabelWithLinks(
+                      '**soildata.mapbiomas.org**',
+                      {'soildata.mapbiomas.org': 'https://soildata.mapbiomas.org'}
+                  ),
+                  ui.Label(''),
+              
+                  ui.Label('Atención: Los mapas se desarrollaron con rigor técnico-científico, incluyendo curaduría, estandarización, armonización y modelado espacio-temporal avanzado.'),
+                  ui.Label('Sin embargo, pueden presentar limitaciones debido a la baja densidad espacial y temporal de las muestras de suelo usadas en el entrenamiento.'),
+                  ui.Label('Para más detalles sobre los métodos utilizados, consulte:'),
+                  App.formatLabelWithLinks(
+                      '**brasil.mapbiomas.org/es/metodo-mapbiomas-solo/**',
+                      {'brasil.mapbiomas.org/es/metodo-mapbiomas-solo/': 'https://brasil.mapbiomas.org/es/metodo-mapbiomas-solo/'}
+                  ),
+                  ui.Label(''),
+              
+                  ui.Label('Si desea contribuir con sugerencias, críticas o ideas, escríbanos a:'),
+                  App.formatLabelWithLinks(
+                      '**contato@mapbiomas.org**',
+                      {'contato@mapbiomas.org': 'mailto:contato@mapbiomas.org'}
+                  ),
+                  ui.Label(''),
+              
+                  ui.Label('Los datos de MapBiomas son públicos, abiertos y gratuitos bajo licencia CC-BY. Cite según el formato siguiente:'),
+                  ui.Label(''),
+              
+                  ui.Label('"MapBiomas. Serie de Mapas Anuales del Stock de Carbono Orgánico del Suelo de Brasil 0–30 cm (1985–2024) – MapBiomas Suelo Colección 3 (beta), accedido en [fecha], link:"'),
+                  App.formatLabelWithLinks(
+                      '**https://doi.org/10.58053/MapBiomas/2LUSVQ**',
+                      {'https://doi.org/10.58053/MapBiomas/2LUSVQ': 'https://doi.org/10.58053/MapBiomas/2LUSVQ'}
+                  ),
+                  ui.Label(''),
+              
+                  ui.Label('"MapBiomas. Mapas de Granulometría y Textura del Suelo de Brasil 0–100 cm – MapBiomas Suelo Colección 3 (beta), accedido en [fecha], link:"'),
+                  App.formatLabelWithLinks(
+                      '**https://doi.org/10.58053/MapBiomas/9ORUPF**',
+                      {'https://doi.org/10.58053/MapBiomas/9ORUPF': 'https://doi.org/10.58053/MapBiomas/9ORUPF'}
+                  ),
+                  ui.Label(''),
+              
+                  ui.Label('"MapBiomas. Mapas de Pedregosidad del Suelo de Brasil – MapBiomas Suelo Colección 3 (beta), accedido en [fecha], link:"'),
+                  App.formatLabelWithLinks(
+                      '**https://doi.org/10.58053/MapBiomas/1JGPIU**',
+                      {'https://doi.org/10.58053/MapBiomas/1JGPIU': 'https://doi.org/10.58053/MapBiomas/1JGPIU'}
+                  )
+              ]
+          
 
+            };
+        
+            var brasil_painel = ui.Panel({
+                'widgets': labelDisclaimer['Brasil'],
+                'layout': ui.Panel.Layout.flow('vertical'),
+                'style': {},
+            });
+        
             App.ui.form.panelDisclaimer.widgets().reset([]);
-            App.ui.form.panelDisclaimerText.widgets().reset(App.ui.form.labelDisclaimer);
-            App.ui.form.panelDisclaimer.add(App.ui.form.panelDisclaimerText);
-            App.ui.form.panelDisclaimer.add(App.ui.form.buttonDisclaimerOk);
-
+        
+            var panelDisclaimerText = ui.Panel({
+                'widgets': labelDisclaimer['Brasil'],
+                'layout': ui.Panel.Layout.flow('vertical'),
+                'style': {'stretch': 'both'},
+            });
+        
+            var panelButtonsChoiceCollections = ui.Panel({'layout': ui.Panel.Layout.flow('horizontal')});
+  
+            var button_close = ui.Button({
+                // "label": '',
+                "onClick": function () {
+                    Map.remove(App.ui.form.panelDisclaimer);
+                    App.ui.form.buttonDisclaimerShow.setDisabled(false);
+                },
+                "disabled": false,
+                "style": {
+                  // 'margin':'0px'
+                    // 'stretch': 'horizontal'
+                },
+                // "imageUrl":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAACXBIWXMAAAsTAAALEwEAmpwYAAABhElEQVR4nO3WXUvCUBgHcME+zqQuNpUItL0QQVg3o7K7ootCgiToE9RFfTy7UUFlvTiVujl7wQv3jzNFK/fWdoY3HniuNvbb/5xn48lk1muVC6XSBpGLOSLxcqKSizn6rEiooQhbhiS0DSkPNiW0jd38ZmhStuisRKEFVc36wkThOeborIjCc/6wVCinBkuFcizYPD4IB/a22cL27RXwrmP8/Oj7YLt+jUnjBVb1iBG8vwOn2QZGX8DwE+Onh2X0rgb0dfceinslJ3ESW+cncDrdBf4jOU2Kj8H0Wn8A+/6G7RlbHnhUNBHshUMfRUITw3Nce52CtPRRKMoEdre3P1zAf848Fdj+daZDONpbZJzEhb0aKajb2fxA6v7dGxUn/4XNiginp81Q3f1ZLDfcKZxOz72HvoR5KDFKXLuA09UCu5cmnzQasC7P2J6xWRFDO9dQiul9TkbMIoHwqgYBpDb65JuBo8982BOFFjtUaIUOe/PkqpqlW5N4vFV4LjTpemVSXt/VnnbeFSNe/AAAAABJRU5ErkJggg=="
+                "imageUrl":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAzElEQVR4nO3WwQqCQBCA4f9YEqx1td7JS+/UzffxEuShbOkVehVD2AVZdLF2WskcGBAH+dhhWAeW+MfIgKNwZmPgHGiEM38H1sApMPUncEF4FD8Nb4HE850CVtJwCtyBCtgMoDegBNaSsAKu5r2LW7StXZyaSKtVB7C4DxWDMVBt6mfTfvucfHuqVeeUQyeNAlcx4NRpdR2j1apnkPoGThRWnun14cHwAXh6Wmrxh7nhxOA29iOuzN2sfhLRYD3VItDEXn2yqZa9JeYVL4hCueRYbYOeAAAAAElFTkSuQmCC"
+            });
+            panelButtonsChoiceCollections.add(button_close);
+        
+            [
+                ['MapBiomas Solo Brasil', 'Brasil'],
+                // ['MapBiomas Soil Indonesia', 'Indonesia']
+            ].forEach(function(list){
+                var button = ui.Button({
+                    "label": list[0],
+                    "onClick": function () {
+                        panelDisclaimerText.widgets().reset(labelDisclaimer[list[1]]);
+                    },
+                    "disabled": false,
+                    "style": {
+                        'stretch': 'horizontal'
+                    }
+                });
+                panelButtonsChoiceCollections.add(button);
+            });
+        
+            var buttonDisclaimerOk = ui.Button({
+                "label": "Ok, I get it!",
+                "onClick": function () {
+                    Map.remove(App.ui.form.panelDisclaimer);
+                    App.ui.form.buttonDisclaimerShow.setDisabled(false);
+                },
+                "disabled": false,
+                "style": {
+                    'stretch': 'horizontal'
+                }
+            });
+        
+            App.ui.form.panelDisclaimer.add(panelButtonsChoiceCollections);
+            App.ui.form.panelDisclaimer.add(panelDisclaimerText);
+            App.ui.form.panelDisclaimer.add(buttonDisclaimerOk);
+        
             Map.add(App.ui.form.panelDisclaimer);
-
+        
             App.ui.form.buttonDisclaimerShow.setDisabled(true);
         },
 
@@ -1064,6 +1580,9 @@ var App = {
                 blob.string().evaluate(
                     function (str) {
                         str = str.replace(/\n/g, '');
+                        
+                        str = App.options.logo.base64 === null ? str : App.options.logo.base64;
+                        
                         App.options.logo.base64 = ui.Label({
                             imageUrl: str,
                         });
@@ -1071,50 +1590,87 @@ var App = {
                     }
                 );
 
-                this.panelMain.add(this.panelLogo);
-                this.panelMain.add(this.labelLink);
+                App.ui.makeLegendLinksList();
 
-                this.panelRegion.add(this.labelRegion);
-                this.panelRegion.add(this.selectRegion);
+                App.ui.form.panelMain.add(App.ui.form.panelLogo);
+                App.ui.form.panelMain.add(App.ui.form.labelTitle);
+                App.ui.form.panelMain.add(App.ui.form.labelSubtitle);
+                App.ui.form.panelMain.add(App.ui.form.labelLink);
+                App.ui.form.panelMain.add(App.ui.form.panelLink1);
+                // App.ui.form.panelMain.add(App.ui.form.panelLink2);
 
-                this.panelCollection.add(this.labelCollection);
-                this.panelCollection.add(this.selectCollection);
+                App.ui.form.panelMain.add(App.ui.form.tabs);
+                App.ui.form.panelMain.add(App.ui.form.panel1);
 
-                this.panelFeatureCollections.add(this.labelTables);
-                this.panelFeatureCollections.add(this.selectFeatureCollections);
+                App.ui.form.tab1.add(App.ui.form.checkboxTab1);
+                App.ui.form.tab2.add(App.ui.form.checkboxTab2);
+                
+                App.ui.form.tabs.add(App.ui.form.tab1);
+                App.ui.form.tabs.add(App.ui.form.tab2);
 
-                this.panelProperties.add(this.labelProperties);
-                this.panelProperties.add(this.selectProperties);
+                App.ui.form.tabs2.add(App.ui.form.tab3);
+                App.ui.form.tabs2.add(App.ui.form.tab4);
 
-                this.panelFeature.add(this.labelFeature);
-                this.panelFeature.add(this.selectFeature);
+                App.ui.form.tab3.add(App.ui.form.checkboxTab3);
+                // App.ui.form.tab4.add(App.ui.form.checkboxTab4);
 
-                this.panelDataType.add(this.labelDataType);
-                this.panelDataType.add(this.selectDataType);
+                App.ui.form.panel2_head.add(App.ui.form.tabs2);
+                
+                App.ui.form.panel2.add(App.ui.form.panel2_head);
 
-                this.panelBuffer.add(this.labelBuffer);
-                this.panelBuffer.add(this.selectBuffer);
+                App.ui.form.panelRegion.add(App.ui.form.labelRegion);
+                App.ui.form.panelRegion.add(App.ui.form.selectRegion);
 
-                // this.panelMain.add(this.panelType);
-                this.panelMain.add(this.panelRegion);
-                this.panelMain.add(this.panelCollection);
-                this.panelMain.add(this.panelFeatureCollections);
-                this.panelMain.add(this.panelStates);
-                this.panelMain.add(this.panelProperties);
-                this.panelMain.add(this.panelFeature);
-                this.panelMain.add(this.panelDataType);
-                this.panelMain.add(this.panelBuffer);
+                App.ui.form.panelCollection.add(App.ui.form.labelCollection);
+                App.ui.form.panelCollection.add(App.ui.form.selectCollection);
 
-                this.panelMain.add(this.labelLayers);
-                this.panelMain.add(this.panelLayersList);
+                App.ui.form.panelFeatureCollections.add(App.ui.form.labelTables);
+                App.ui.form.panelFeatureCollections.add(App.ui.form.selectFeatureCollections);
 
-                this.panelMain.add(this.buttonExport2Drive);
-                this.panelMain.add(this.labelNotes);
-                this.panelMain.add(this.buttonDisclaimerShow);
+                App.ui.form.panelProperties.add(App.ui.form.labelProperties);
+                App.ui.form.panelProperties.add(App.ui.form.selectProperties);
 
-                ui.root.add(this.panelMain);
+                App.ui.form.panelFeature.add(App.ui.form.labelFeature);
+                App.ui.form.panelFeature.add(App.ui.form.selectFeature);
 
+                App.ui.form.panelDataType.add(App.ui.form.labelDataType);
+                App.ui.form.panelDataType.add(App.ui.form.selectDataType);
+
+                App.ui.form.panelBuffer.add(App.ui.form.labelBuffer);
+                App.ui.form.panelBuffer.add(App.ui.form.selectBuffer);
+
+                App.ui.form.panel1.add(App.ui.form.panelRegion);
+                App.ui.form.panel1.add(App.ui.form.panelCollection);
+                App.ui.form.panel1.add(App.ui.form.panelFeatureCollections);
+                App.ui.form.panel1.add(App.ui.form.panelStates);
+                App.ui.form.panel1.add(App.ui.form.panelProperties);
+                App.ui.form.panel1.add(App.ui.form.panelFeature);
+                // App.ui.form.panel1.add(App.ui.form.panelBuffer);
+                App.ui.form.panel1.add(App.ui.form.panelDataType);
+
+                App.ui.form.panel1.add(App.ui.form.labelLayers);
+                App.ui.form.panel1.add(App.ui.form.panelLayersList);
+
+                App.ui.form.panel1.add(App.ui.form.buttonExport2Drive);
+                App.ui.form.panel1.add(App.ui.form.labelNotes);
+                
+                ui.root.add(App.ui.form.panelMain);
+                
                 App.ui.showDisclaimer();
+                
+                var Mapp = require('users/joaovsiqueira1/packages:Mapp.js');
+        
+                Map.setOptions({
+                  'styles': {
+                    'Dark': Mapp.getStyle('Dark'),
+                    // 'Dark2':Mapp.getStyle('Dark2'),
+                    // 'Aubergine':Mapp.getStyle('Aubergine'),
+                    'Silver':Mapp.getStyle('Silver'),
+                    'Night':Mapp.getStyle('Night'),
+                  }
+                });
+                Map.setOptions('Silver');
+                
 
             },
 
@@ -1132,6 +1688,20 @@ var App = {
                 'style': {
                     'stretch': 'horizontal',
                     'margin': '10px 0px 5px 15px',
+                },
+            }),
+
+            panelLink1: ui.Panel({
+                'layout': ui.Panel.Layout.flow('horizontal'),
+                'style': {
+                    'stretch': 'horizontal'
+                },
+            }),
+
+            panelLink2: ui.Panel({
+                'layout': ui.Panel.Layout.flow('horizontal'),
+                'style': {
+                    'stretch': 'horizontal'
                 },
             }),
 
@@ -1203,18 +1773,11 @@ var App = {
             panelDisclaimer: ui.Panel({
                 'layout': ui.Panel.Layout.flow('vertical'),
                 'style': {
-                    // 'width': '700px',
-                    // 'height': '350px',
+                    'maxWidth': '70%',
+                    'maxHeight': '90%',
                 },
             }),
 
-            panelDisclaimerText: ui.Panel({
-                'layout': ui.Panel.Layout.flow('vertical'),
-                'style': {
-                    'width': '700px',
-                    'height': '300px',
-                },
-            }),
 
             labelRegion: ui.Label('Region', {
                 // 'fontWeight': 'bold',
@@ -1234,18 +1797,15 @@ var App = {
                 'fontSize': '16px'
             }),
 
-            labelSubtitle: ui.Label('Fire', {
+            labelSubtitle: ui.Label('Soil Maps', {
                 // 'fontWeight': 'bold',
                 // 'padding': '1px',
                 'fontSize': '14px'
             }),
 
-            labelLink: ui.Label('Legend codes', {
-                // 'fontWeight': 'bold',
-                // 'padding': '1px',
+            labelLink: ui.Label('Legend codes:', {
                 'fontSize': '10px'
-            },
-                'https://mapbiomas.org/codigos-de-legenda?cama_set_language=pt-BR'
+            }
             ),
 
             labelType: ui.Label('Type:', {
@@ -1283,7 +1843,7 @@ var App = {
                 'fontSize': '16px'
             }),
 
-            labelNotes: ui.Label('Go to TASK tab in the up-rght corner and click RUN', {
+            labelNotes: ui.Label('Click the RUN button in the TASK tab at the upper-right corner.', {
                 // 'padding': '1px',
                 'fontSize': '16px'
             }),
@@ -1292,29 +1852,6 @@ var App = {
                 // 'padding': '1px',
                 'fontSize': '16px'
             }),
-
-
-            labelDisclaimer: [
-                ui.Label('DISCLAIMER'),
-                ui.Label('\
-                  O MapBiomas Solo desenvolveu a primeira coleção beta de mapas  anuais de carbono orgânico do solo (COS) no Brasil, no período de 1985 a 2021. Esses mapas foram desenvolvidos com dados de amostras de solo coletadas em campo disponíveis no repositório SoilData (http://soildata.mapbiomas.org/) e diversas covariáveis ambientais que representam os fatores de formação do solo. Com resolução espacial de 30 metros, os mapas  apresentam os estoques de COS nos primeiros 30 cm, em toneladas por hectare (t/ha). \
-                  O produto foi gerado de forma colaborativa e com rigor científico utilizando os melhores, e às vezes únicos, dados de solo disponíveis, informações ambientais e técnicas de mapeamento digital do solo. Apesar disso, é considerada uma primeira aproximação, que deverá ser aprimorada incorporando as contribuições da comunidade científica, dos usuários e novas amostras de solo coletadas em campo. \
-                  Os mapas apresentados ainda possuem uma série de fragilidades, entre as quais, destacam-se lacunas de distribuição espacial e temporal das amostras de solo coletadas em campo e utilizadas para treinar e validar o modelo. \
-                  Maiores detalhes sobre o método estão disponíveis em www.mapbiomas.org, seguindo o caminho: MENU > MÉTODO > MÉTODO MAPBIOMAS SOLO. \
-                  Os dados do MapBiomas são públicos, abertos e gratuitos, inclusive para uso comercial, sob a licença Creative Commons CC BY-SA e mediante a referência da fonte observando o seguinte formato: “MapBiomas, 2023, Mapeamento anual do estoque de carbono orgânico do solo no Brasil 1985-2021 (coleção beta), acessado em [data] através do link: [LINK]". \
-                  Caso tenha sugestões, críticas e ideias para aprimorar o trabalho entre em contato pelo e-mail: contato@mapbiomas.org \
-                '),
-                ui.Label(''),
-                ui.Label(' \
-                  MapBiomas Solo has developed the first beta collection of annual soil organic carbon (SOC) maps for Brazil, covering the period from 1985 to 2021. These maps were created using field soil sample data available in the SoilData repository (http://soildata.mapbiomas.org/) and various environmental covariates that represent soil formation factors. The maps have a spatial resolution of 30 meters and show the SOC stocks in the top 30 cm of soil, measured in tons per hectare (t/ha). \
-                  The product was collaboratively generated with scientific rigor, utilizing the best available soil data, environmental information, and digital soil mapping techniques, which sometimes represent the only available data. \
-                  However, it should be noted that this is an initial approximation that will be further improved by incorporating contributions from the scientific community, users, and new soil samples collected in the field. \
-                  The presented maps still have some limitations, including gaps in the spatial and temporal distribution of soil samples used for model training and validation. \
-                  More detailed information about the methodology can be found at www.mapbiomas.org, by following the path: MENU > METHOD > MAPBIOMAS SOIL METHOD. \
-                  The MapBiomas data is publicly accessible, open, and free of charge, including for commercial use, under the Creative Commons CC BY-SA license. When referencing the data source, please use the following format: "MapBiomas, 2023, Annual mapping of soil organic carbon stock in Brazil 1985-2021 (beta collection), accessed on [date] via the link: [LINK]". \
-                  If you have any suggestions, criticisms, or ideas to enhance this work, please contact us at contato@mapbiomas.org.\
-                '),
-            ],
 
             selectName: ui.Select({
                 'items': ['None'],
@@ -1334,12 +1871,8 @@ var App = {
 
             selectRegion: ui.Select({
                 'items': [
-                    // 'mapbiomas-amazon',
-                    // 'mapbiomas-atlantic-forest',
                     'mapbiomas-brazil',
-                    // 'mapbiomas-chaco',
                     // 'mapbiomas-indonesia',
-                    // 'mapbiomas-pampa',
                 ],
                 'placeholder': 'None',
                 'style': {
@@ -1381,11 +1914,8 @@ var App = {
             }),
 
             selectDataType: ui.Select({
-                'items': [
-                    'cos_0_30cm_t_ha',
-                    'cos_0_30cm_kg_m2',
-                ],
-                'placeholder': 'cos_0_30cm_t_ha',
+                'items': ['None'],
+                'placeholder': 'None',
                 'style': {
                     'stretch': 'horizontal'
                 },
@@ -1400,6 +1930,7 @@ var App = {
                     '3km',
                     '4km',
                     '5km',
+                    '10km',
                 ],
                 'placeholder': 'None',
                 'style': {
@@ -1413,40 +1944,11 @@ var App = {
                         '3km': 3000,
                         '4km': 4000,
                         '5km': 5000,
+                        '10km': 10000,
                     };
 
                     App.options.bufferDistance = distances[distance];
                 },
-            }),
-
-            selectStates: ui.Select({
-                'items': [
-                    'None', 'Acre', 'Alagoas', 'Amazonas', 'Amapá', 'Bahia',
-                    'Ceará', 'Distrito Federal', 'Espírito Santo', 'Goiás', 'Maranhão',
-                    'Minas Gerais', 'Mato Grosso do Sul', 'Mato Grosso', 'Pará', 'Paraíba',
-                    'Pernambuco', 'Piauí', 'Paraná', 'Rio de Janeiro', 'Rio Grande do Norte',
-                    'Rondônia', 'Roraima', 'Rio Grande do Sul', 'Santa Catarina', 'Sergipe',
-                    'São Paulo', 'Tocantins'
-                ],
-                'placeholder': 'select state',
-                'onChange': function (state) {
-                    if (state != 'None') {
-
-                        ee.Number(1).evaluate(
-                            function (a) {
-                                App.ui.loadTableStates(App.options.activeName);
-                                App.ui.makeLayersList(App.options.activeName.split('/')[3], App.options.activeFeature, App.options.periods[App.options.dataType]);
-                                App.ui.loadPropertiesNames();
-                                App.ui.form.selectDataType.setDisabled(false);
-                            }
-                        );
-
-                        App.ui.loadingBox();
-                    }
-                },
-                'style': {
-                    'stretch': 'horizontal'
-                }
             }),
 
             buttonExport2Drive: ui.Button({
@@ -1460,20 +1962,7 @@ var App = {
                     'stretch': 'horizontal'
                 }
             }),
-
-            buttonDisclaimerOk: ui.Button({
-                "label": "Ok, I get it!",
-                "onClick": function () {
-                    Map.remove(App.ui.form.panelDisclaimer);
-                    App.ui.form.buttonDisclaimerShow.setDisabled(false);
-                },
-                "disabled": false,
-                "style": {
-                    // 'padding': '2px',
-                    'stretch': 'horizontal'
-                }
-            }),
-
+            
             buttonDisclaimerShow: ui.Button({
                 "label": "Show disclaimer",
                 "onClick": function () {
@@ -1485,6 +1974,360 @@ var App = {
                     'stretch': 'horizontal'
                 }
             }),
+
+            // panels and tabs
+            tabs: ui.Panel({
+                layout: ui.Panel.Layout.flow('horizontal')
+            }),
+            tabs2: ui.Panel({
+                layout: ui.Panel.Layout.flow('horizontal'),
+                style:{
+                  'margin': '2px 6px 2px 6px',
+                  // 'stretch': 'horizontal',
+                }
+            }),
+
+            checkboxTab1: ui.Checkbox({
+                'label': '  Toolkit ',
+                'style': {
+                    'margin': '5px 0px 5px -16px',
+                    'stretch': 'horizontal',
+                    'backgroundColor': '#00000000',
+                },
+                'onChange': function (checked) {
+                    if (checked !== false) {
+                        App.ui.form.checkboxTab2.setValue(false);
+                        App.ui.form.tab1.style().set('border', '1px solid #808080');
+                        App.ui.form.tab2.style().set('border', '1px solid #80808033');
+
+                        App.ui.form.panelMain.remove(App.ui.form.panel2);
+                        App.ui.form.panelMain.add(App.ui.form.panel1);
+                    }
+                }
+            }),
+
+            checkboxTab2: ui.Checkbox({
+                'label': '  Direct Link',
+                'style': {
+                    'margin': '5px 20px 5px -16px',
+                    'stretch': 'horizontal',
+                    'backgroundColor': '#00000000',
+                },
+                'onChange': function (checked) {
+                    if (checked !== false) {
+                        App.ui.form.checkboxTab1.setValue(false);
+                        App.ui.form.tab1.style().set('border', '1px solid #80808033');
+                        App.ui.form.tab2.style().set('border', '1px solid #aa8080');
+
+                        App.ui.form.panelMain.remove(App.ui.form.panel1);
+                        App.ui.form.panelMain
+                          .add(App.ui.form.panel2);
+                        
+                        App.ui.form.tab4.style().set('border', '1px solid #80808033');
+                        App.ui.form.tab3.style().set('border', '1px solid #aa8080');
+
+                          
+                        App.ui.form.panel2.remove(App.ui.form.panel4);
+                        App.ui.form.panel2.add(App.ui.form.panel3);
+                        
+                        
+                    }
+
+                }
+            }),
+
+            checkboxTab3: ui.Checkbox({
+                'label': '    Brazil',
+                'style': {
+                    'margin': '0px 0px 0px -16px',
+                    'stretch': 'horizontal',
+                    'backgroundColor': '#00000000',
+                },
+                'onChange': function (checked) {
+                    if (checked !== false) {
+                        App.ui.form.checkboxTab4.setValue(false);
+                        App.ui.form.tab4.style().set('border', '1px solid #80808033');
+                        App.ui.form.tab3.style().set('border', '1px solid #aa8080');
+
+                        App.ui.form.panel2.remove(App.ui.form.panel4);
+  
+                        App.ui.form.panel2
+                          .add(App.ui.form.panel3);
+                    }
+
+                }
+            }),
+            checkboxTab4: ui.Checkbox({
+                'label': '    Indonesia',
+                'style': {
+                    'margin': '0px 0px 0px -16px',
+                    'stretch': 'horizontal',
+                    'backgroundColor': '#00000000',
+                },
+                'onChange': function (checked) {
+                    if (checked !== false) {
+                        // App.ui.form.checkboxTab3.setValue(false);
+                        // App.ui.form.tab3.style().set('border', '1px solid #80808033');
+                        // App.ui.form.tab4.style().set('border', '1px solid #aa8080');
+
+                        // App.ui.form.panel2.remove(App.ui.form.panel3);
+                        // App.ui.form.panel2.add(App.ui.form.panel4)
+                    }
+
+                }
+            }),
+
+            tab1: ui.Panel({
+                'style': {
+                    'width': '100px',
+                    'backgroundColor': '#dddddd00',
+                    'stretch': 'horizontal',
+                    'border': '1px solid #808080',
+                    'margin': '0px 0px 0px 6px'
+                },
+            }),
+            
+
+            tab2: ui.Panel({
+                'style': {
+                    'width': '100px',
+                    'backgroundColor': '#dddddd00',
+                    'stretch': 'horizontal',
+                    'border': '1px solid #80808033',
+                }
+            }),
+            tab3: ui.Panel({
+                'style': {
+                    // 'width': '110px',
+                    'backgroundColor': '#dddddd',
+                    // 'stretch': 'horizontal',
+                    'border': '1px solid #80808033',
+                }
+            }),
+            tab4: ui.Panel({
+                'style': {
+                    // 'width': '110px',
+                    'backgroundColor': '#dddddd',
+                    // 'stretch': 'horizontal',
+                    'border': '1px solid #80808033',
+                }
+            }),
+
+            panel1: ui.Panel({
+                style: {
+                    'stretch': 'both'
+                }
+            }),
+            panel2: ui.Panel({
+                style: {
+                    'stretch': 'both'
+                }
+            }),
+            panel2_head: ui.Panel({
+                layout:ui.Panel.Layout.Flow('horizontal'),
+                style: {
+                    'stretch': 'horizontal'
+                }
+            }),
+          // Brasil links
+          panel3: ui.Panel({
+            widgets: [
+          
+              // ----------------------------------------------------------
+              // Série de Carbono (40 anos)
+              // ----------------------------------------------------------
+              ui.Label('Brazil soil col3: carbon (annual series)'),
+              ui.Panel({
+                widgets: [
+          
+                  ui.Label({ value: 'carbon_1985', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_carbon_v1/mbsoil03-carbon_1985_v1.tif' }),
+                  ui.Label({ value: 'carbon_1986', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_carbon_v1/mbsoil03-carbon_1986_v1.tif' }),
+                  ui.Label({ value: 'carbon_1987', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_carbon_v1/mbsoil03-carbon_1987_v1.tif' }),
+                  ui.Label({ value: 'carbon_1988', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_carbon_v1/mbsoil03-carbon_1988_v1.tif' }),
+                  ui.Label({ value: 'carbon_1989', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_carbon_v1/mbsoil03-carbon_1989_v1.tif' }),
+          
+                  ui.Label({ value: 'carbon_1990', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_carbon_v1/mbsoil03-carbon_1990_v1.tif' }),
+                  ui.Label({ value: 'carbon_1991', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_carbon_v1/mbsoil03-carbon_1991_v1.tif' }),
+                  ui.Label({ value: 'carbon_1992', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_carbon_v1/mbsoil03-carbon_1992_v1.tif' }),
+                  ui.Label({ value: 'carbon_1993', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_carbon_v1/mbsoil03-carbon_1993_v1.tif' }),
+                  ui.Label({ value: 'carbon_1994', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_carbon_v1/mbsoil03-carbon_1994_v1.tif' }),
+          
+                  ui.Label({ value: 'carbon_1995', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_carbon_v1/mbsoil03-carbon_1995_v1.tif' }),
+                  ui.Label({ value: 'carbon_1996', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_carbon_v1/mbsoil03-carbon_1996_v1.tif' }),
+                  ui.Label({ value: 'carbon_1997', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_carbon_v1/mbsoil03-carbon_1997_v1.tif' }),
+                  ui.Label({ value: 'carbon_1998', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_carbon_v1/mbsoil03-carbon_1998_v1.tif' }),
+                  ui.Label({ value: 'carbon_1999', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_carbon_v1/mbsoil03-carbon_1999_v1.tif' }),
+          
+                  ui.Label({ value: 'carbon_2000', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_carbon_v1/mbsoil03-carbon_2000_v1.tif' }),
+                  ui.Label({ value: 'carbon_2001', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_carbon_v1/mbsoil03-carbon_2001_v1.tif' }),
+                  ui.Label({ value: 'carbon_2002', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_carbon_v1/mbsoil03-carbon_2002_v1.tif' }),
+                  ui.Label({ value: 'carbon_2003', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_carbon_v1/mbsoil03-carbon_2003_v1.tif' }),
+                  ui.Label({ value: 'carbon_2004', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_carbon_v1/mbsoil03-carbon_2004_v1.tif' }),
+          
+                  ui.Label({ value: 'carbon_2005', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_carbon_v1/mbsoil03-carbon_2005_v1.tif' }),
+                  ui.Label({ value: 'carbon_2006', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_carbon_v1/mbsoil03-carbon_2006_v1.tif' }),
+                  ui.Label({ value: 'carbon_2007', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_carbon_v1/mbsoil03-carbon_2007_v1.tif' }),
+                  ui.Label({ value: 'carbon_2008', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_carbon_v1/mbsoil03-carbon_2008_v1.tif' }),
+                  ui.Label({ value: 'carbon_2009', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_carbon_v1/mbsoil03-carbon_2009_v1.tif' }),
+          
+                  ui.Label({ value: 'carbon_2010', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_carbon_v1/mbsoil03-carbon_2010_v1.tif' }),
+                  ui.Label({ value: 'carbon_2011', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_carbon_v1/mbsoil03-carbon_2011_v1.tif' }),
+                  ui.Label({ value: 'carbon_2012', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_carbon_v1/mbsoil03-carbon_2012_v1.tif' }),
+                  ui.Label({ value: 'carbon_2013', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_carbon_v1/mbsoil03-carbon_2013_v1.tif' }),
+                  ui.Label({ value: 'carbon_2014', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_carbon_v1/mbsoil03-carbon_2014_v1.tif' }),
+          
+                  ui.Label({ value: 'carbon_2015', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_carbon_v1/mbsoil03-carbon_2015_v1.tif' }),
+                  ui.Label({ value: 'carbon_2016', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_carbon_v1/mbsoil03-carbon_2016_v1.tif' }),
+                  ui.Label({ value: 'carbon_2017', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_carbon_v1/mbsoil03-carbon_2017_v1.tif' }),
+                  ui.Label({ value: 'carbon_2018', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_carbon_v1/mbsoil03-carbon_2018_v1.tif' }),
+                  ui.Label({ value: 'carbon_2019', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_carbon_v1/mbsoil03-carbon_2019_v1.tif' }),
+          
+                  ui.Label({ value: 'carbon_2020', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_carbon_v1/mbsoil03-carbon_2020_v1.tif' }),
+                  ui.Label({ value: 'carbon_2021', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_carbon_v1/mbsoil03-carbon_2021_v1.tif' }),
+                  ui.Label({ value: 'carbon_2022', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_carbon_v1/mbsoil03-carbon_2022_v1.tif' }),
+                  ui.Label({ value: 'carbon_2023', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_carbon_v1/mbsoil03-carbon_2023_v1.tif' }),
+                  ui.Label({ value: 'carbon_2024', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_carbon_v1/mbsoil03-carbon_2024_v1.tif' })
+          
+                ],
+                layout: ui.Panel.Layout.flow('horizontal', true),
+                style: { border: '1px grey solid', margin: '0px 6px 0px 6px' }
+              }),
+          
+              // ----------------------------------------------------------
+              // Série de Horizontes de Argila (10 camadas de 10 cm)
+              // ----------------------------------------------------------
+              ui.Label('Brazil soil col3: clay fraction (10 cm horizons)'),
+              ui.Panel({
+                widgets: [
+                  ui.Label({ value: 'clay_000_010cm', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_clay_fraction_v1/mbsoil03-clay_fraction_000_010cm_v1.tif' }),
+                  ui.Label({ value: 'clay_010_020cm', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_clay_fraction_v1/mbsoil03-clay_fraction_010_020cm_v1.tif' }),
+                  ui.Label({ value: 'clay_020_030cm', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_clay_fraction_v1/mbsoil03-clay_fraction_020_030cm_v1.tif' }),
+                  ui.Label({ value: 'clay_030_040cm', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_clay_fraction_v1/mbsoil03-clay_fraction_030_040cm_v1.tif' }),
+                  ui.Label({ value: 'clay_040_050cm', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_clay_fraction_v1/mbsoil03-clay_fraction_040_050cm_v1.tif' }),
+                  ui.Label({ value: 'clay_050_060cm', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_clay_fraction_v1/mbsoil03-clay_fraction_050_060cm_v1.tif' }),
+                  ui.Label({ value: 'clay_060_070cm', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_clay_fraction_v1/mbsoil03-clay_fraction_060_070cm_v1.tif' }),
+                  ui.Label({ value: 'clay_070_080cm', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_clay_fraction_v1/mbsoil03-clay_fraction_070_080cm_v1.tif' }),
+                  ui.Label({ value: 'clay_080_090cm', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_clay_fraction_v1/mbsoil03-clay_fraction_080_090cm_v1.tif' }),
+                  ui.Label({ value: 'clay_090_100cm', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_clay_fraction_v1/mbsoil03-clay_fraction_090_100cm_v1.tif' })
+                ],
+                layout: ui.Panel.Layout.flow('horizontal', true),
+                style: { border: '1px grey solid', margin: '0px 6px 0px 6px' }
+              }),
+          
+              // ----------------------------------------------------------
+              // Série de Horizontes de Areia (10 camadas de 10 cm)
+              // ----------------------------------------------------------
+              ui.Label('Brazil soil col3: sand fraction (10 cm horizons)'),
+              ui.Panel({
+                widgets: [
+                  ui.Label({ value: 'sand_000_010cm', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_sand_fraction_v1/mbsoil03-sand_fraction_000_010cm_v1.tif' }),
+                  ui.Label({ value: 'sand_010_020cm', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_sand_fraction_v1/mbsoil03-sand_fraction_010_020cm_v1.tif' }),
+                  ui.Label({ value: 'sand_020_030cm', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_sand_fraction_v1/mbsoil03-sand_fraction_020_030cm_v1.tif' }),
+                  ui.Label({ value: 'sand_030_040cm', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_sand_fraction_v1/mbsoil03-sand_fraction_030_040cm_v1.tif' }),
+                  ui.Label({ value: 'sand_040_050cm', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_sand_fraction_v1/mbsoil03-sand_fraction_040_050cm_v1.tif' }),
+                  ui.Label({ value: 'sand_050_060cm', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_sand_fraction_v1/mbsoil03-sand_fraction_050_060cm_v1.tif' }),
+                  ui.Label({ value: 'sand_060_070cm', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_sand_fraction_v1/mbsoil03-sand_fraction_060_070cm_v1.tif' }),
+                  ui.Label({ value: 'sand_070_080cm', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_sand_fraction_v1/mbsoil03-sand_fraction_070_080cm_v1.tif' }),
+                  ui.Label({ value: 'sand_080_090cm', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_sand_fraction_v1/mbsoil03-sand_fraction_080_090cm_v1.tif' }),
+                  ui.Label({ value: 'sand_090_100cm', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_sand_fraction_v1/mbsoil03-sand_fraction_090_100cm_v1.tif' })
+                ],
+                layout: ui.Panel.Layout.flow('horizontal', true),
+                style: { border: '1px grey solid', margin: '0px 6px 0px 6px' }
+              }),
+          
+              // ----------------------------------------------------------
+              // Série de Horizontes de Silte (10 camadas de 10 cm)
+              // ----------------------------------------------------------
+              ui.Label('Brazil soil col3: silt fraction (10 cm horizons)'),
+              ui.Panel({
+                widgets: [
+                  ui.Label({ value: 'silt_000_010cm', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_silt_fraction_v1/mbsoil03-silt_fraction_000_010cm_v1.tif' }),
+                  ui.Label({ value: 'silt_010_020cm', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_silt_fraction_v1/mbsoil03-silt_fraction_010_020cm_v1.tif' }),
+                  ui.Label({ value: 'silt_020_030cm', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_silt_fraction_v1/mbsoil03-silt_fraction_020_030cm_v1.tif' }),
+                  ui.Label({ value: 'silt_030_040cm', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_silt_fraction_v1/mbsoil03-silt_fraction_030_040cm_v1.tif' }),
+                  ui.Label({ value: 'silt_040_050cm', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_silt_fraction_v1/mbsoil03-silt_fraction_040_050cm_v1.tif' }),
+                  ui.Label({ value: 'silt_050_060cm', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_silt_fraction_v1/mbsoil03-silt_fraction_050_060cm_v1.tif' }),
+                  ui.Label({ value: 'silt_060_070cm', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_silt_fraction_v1/mbsoil03-silt_fraction_060_070cm_v1.tif' }),
+                  ui.Label({ value: 'silt_070_080cm', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_silt_fraction_v1/mbsoil03-silt_fraction_070_080cm_v1.tif' }),
+                  ui.Label({ value: 'silt_080_090cm', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_silt_fraction_v1/mbsoil03-silt_fraction_080_090cm_v1.tif' }),
+                  ui.Label({ value: 'silt_090_100cm', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_silt_fraction_v1/mbsoil03-silt_fraction_090_100cm_v1.tif' })
+                ],
+                layout: ui.Panel.Layout.flow('horizontal', true),
+                style: { border: '1px grey solid', margin: '0px 6px 0px 6px' }
+              }),
+          
+              // ----------------------------------------------------------
+              // Grupo Textural (6 profundidades)
+              // ----------------------------------------------------------
+              ui.Label('Brazil soil col3: textural group (integrated depths)'),
+              ui.Panel({
+                widgets: [
+                  ui.Label({ value: 'textural_group_000_010cm', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_textural_group_v1/mbsoil03-textural_group_000_010cm_v1.tif' }),
+                  ui.Label({ value: 'textural_group_000_020cm', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_textural_group_v1/mbsoil03-textural_group_000_020cm_v1.tif' }),
+                  ui.Label({ value: 'textural_group_000_030cm', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_textural_group_v1/mbsoil03-textural_group_000_030cm_v1.tif' }),
+                  ui.Label({ value: 'textural_group_020_040cm', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_textural_group_v1/mbsoil03-textural_group_020_040cm_v1.tif' }),
+                  ui.Label({ value: 'textural_group_030_060cm', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_textural_group_v1/mbsoil03-textural_group_030_060cm_v1.tif' }),
+                  ui.Label({ value: 'textural_group_060_100cm', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_textural_group_v1/mbsoil03-textural_group_060_100cm_v1.tif' })
+                ],
+                layout: ui.Panel.Layout.flow('horizontal', true),
+                style: { border: '1px grey solid', margin: '0px 6px 0px 6px' }
+              }),
+          
+              // ----------------------------------------------------------
+              // Subgrupo Textural (6 profundidades)
+              // ----------------------------------------------------------
+              ui.Label('Brazil soil col3: textural subgroup (integrated depths)'),
+              ui.Panel({
+                widgets: [
+                  ui.Label({ value: 'textural_subgroup_000_010cm', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_textural_subgroup_v1/mbsoil03-textural_subgroup_000_010cm_v1.tif' }),
+                  ui.Label({ value: 'textural_subgroup_000_020cm', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_textural_subgroup_v1/mbsoil03-textural_subgroup_000_020cm_v1.tif' }),
+                  ui.Label({ value: 'textural_subgroup_000_030cm', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_textural_subgroup_v1/mbsoil03-textural_subgroup_000_030cm_v1.tif' }),
+                  ui.Label({ value: 'textural_subgroup_020_040cm', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_textural_subgroup_v1/mbsoil03-textural_subgroup_020_040cm_v1.tif' }),
+                  ui.Label({ value: 'textural_subgroup_030_060cm', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_textural_subgroup_v1/mbsoil03-textural_subgroup_030_060cm_v1.tif' }),
+                  ui.Label({ value: 'textural_subgroup_060_100cm', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_textural_subgroup_v1/mbsoil03-textural_subgroup_060_100cm_v1.tif' })
+                ],
+                layout: ui.Panel.Layout.flow('horizontal', true),
+                style: { border: '1px grey solid', margin: '0px 6px 0px 6px' }
+              }),
+          
+              // ----------------------------------------------------------
+              // Classe Textural (6 profundidades)
+              // ----------------------------------------------------------
+              ui.Label('Brazil soil col3: textural class (integrated depths)'),
+              ui.Panel({
+                widgets: [
+                  ui.Label({ value: 'textural_class_000_010cm', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_textural_class_v1/mbsoil03-textural_class_000_010cm_v1.tif' }),
+                  ui.Label({ value: 'textural_class_000_020cm', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_textural_class_v1/mbsoil03-textural_class_000_020cm_v1.tif' }),
+                  ui.Label({ value: 'textural_class_000_030cm', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_textural_class_v1/mbsoil03-textural_class_000_030cm_v1.tif' }),
+                  ui.Label({ value: 'textural_class_020_040cm', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_textural_class_v1/mbsoil03-textural_class_020_040cm_v1.tif' }),
+                  ui.Label({ value: 'textural_class_030_060cm', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_textural_class_v1/mbsoil03-textural_class_030_060cm_v1.tif' }),
+                  ui.Label({ value: 'textural_class_060_100cm', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_textural_class_v1/mbsoil03-textural_class_060_100cm_v1.tif' })
+                ],
+                layout: ui.Panel.Layout.flow('horizontal', true),
+                style: { border: '1px grey solid', margin: '0px 6px 0px 6px' }
+              }),
+          
+              // ----------------------------------------------------------
+              // Pedregosidade (mapas estáticos)
+              // ----------------------------------------------------------
+              ui.Label('Brazil soil col3: stoniness (static classes)'),
+              ui.Panel({
+                widgets: [
+                  ui.Label({value: 'stoniness_50vol',targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_stoniness_v1/mbsoil03-stoniness_50vol_v1.tif'}),
+                  ui.Label({value: 'stoniness_90vol',targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_stoniness_v1/mbsoil03-stoniness_90vol_v1.tif'})
+                ],
+                layout: ui.Panel.Layout.flow('horizontal', true),
+                style: { border: '1px grey solid', margin: '0px 6px 0px 6px' }
+              })
+          
+            ],
+            style: {
+              'stretch': 'both'
+            }
+          }),
+
+          // Indonesia links
+          // panel4: ui.Panel(),
 
         },
     }
