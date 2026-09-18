@@ -65,27 +65,39 @@ There are also small helper scripts: `calculate-area`, `calculate-area-using-vec
 
 ## Quick start
 
-1. **Get the code.** Open the [repository in the Code Editor](https://code.earthengine.google.com/?accept_repo=users/mapbiomas/user-toolkit). It will appear under **Reader** in the *Scripts* tab.
+1. **Open the repository.** Follow [this link](https://code.earthengine.google.com/?accept_repo=users/mapbiomas/user-toolkit) to add the repository to your Code Editor. It shows up in the *Scripts* tab, under *Reader*. Open a toolkit, for example `mapbiomas-user-toolkit-lulc.js`, and click **Run**.
 
-   <img src="misc/getting-code.png" alt="Scripts tab showing the user-toolkit repository" width="480">
+   <img src="misc/tutorial/01-scripts.png" alt="The user-toolkit repository in the Scripts tab" width="420">
 
-2. **(Optional) Bring your own territory.** In the *Assets* tab, create a folder named `MAPBIOMAS` (all capitals) at the root of your assets, and upload your shapefile into it (*New → Table upload*, with the `.shp`, `.shx`, `.prj` and `.dbf` files, or a `.zip`). The toolkit lists every table in that folder.
+2. **Pick a region and a collection.** The toolkit panel opens on the right side of the map. Choose the **Region** first, then the **Collection**. The latest collection is at the top of the list.
 
-   <img src="misc/create-folder.png" alt="Creating the MAPBIOMAS folder" width="480"> <img src="misc/upload-table.png" alt="Uploading a table" width="480">
+   <img src="misc/tutorial/03-toolkit-overview.jpg" alt="Toolkit panel next to the map" width="760">
 
-3. **Run a toolkit.** Open a script and click **Run**. In the panel, choose the **region**, **collection** and **table** (your own or an official territory), then the **property** (attribute) that names the features and the **feature** you want. The map zooms to it. A buffer of 1 to 5 km can be applied to the export.
+   <img src="misc/tutorial/04-region.png" alt="Region list" width="260">
 
-   <img src="misc/accessing-data-2.png" alt="Selecting region and table" width="480"> <img src="misc/accessing-data-5.png" alt="Selecting a feature" width="480">
+3. **Choose a territory.** The **Tables** list has the official MapBiomas territories for the region (country, states, municipalities, biomes, basins, protected areas, indigenous lands and more), plus any tables you uploaded yourself (see step 7).
 
-4. **Choose the data type and years.** Tick the years in *Layers*; they are added to the map.
+   <img src="misc/tutorial/05-tables.png" alt="Territory tables for Brazil" width="300">
 
-   <img src="misc/accessing-data-6.png" alt="Layers list" width="480">
+4. **Choose the property and the feature.** **Properties** is the attribute that names each feature (for states, `NM_UF`). Pick one, then choose the territory in **Features**. The map shows its outline.
 
-5. **Export.** Click **Export images to Google Drive**, open the **Tasks** tab and click **RUN** on each task. The files go to a `MAPBIOMAS-EXPORT` folder in your Google Drive: one GeoTIFF per year and a CSV with the area of each class.
+   <img src="misc/tutorial/06-properties.jpg" alt="States outlined on the map and the list of properties" width="760">
 
-   <img src="misc/accessing-data-7.png" alt="Export button" width="480"> <img src="misc/accessing-data-8.png" alt="Running tasks" width="480">
+5. **Choose the data type and the years.** **Data Type** offers coverage, and also transitions and quality when the collection has them. Tick the years you want under **Layers** and they are added to the map. **Buffer** (1 to 5 km) only changes the export area.
 
-A video tutorial (in Portuguese) is on [YouTube](https://www.youtube.com/watch?v=z3Yx1kwxWN0).
+   <img src="misc/tutorial/07-layer.jpg" alt="Land cover of Mato Grosso in 2025, collection 11" width="760">
+
+6. **Export.** Click **Export images to Google Drive**, open the **Tasks** tab and click **RUN** on each task. In the dialog, keep the defaults and click **RUN** again. You get one GeoTIFF per year and a CSV with the area of each class, in the `MAPBIOMAS-EXPORT` folder of your Google Drive.
+
+   <img src="misc/tutorial/08-tasks.png" alt="Export tasks in the Tasks tab" width="520">
+
+   <img src="misc/tutorial/09-export-dialog.png" alt="Export dialog with the MAPBIOMAS-EXPORT Drive folder" width="300">
+
+7. **(Optional) Use your own territory.** In the *Assets* tab, use **NEW → Folder** to create a folder named `MAPBIOMAS` (all capitals) at the root of the Cloud project you use in the Code Editor. Then use **NEW → Shape files** to upload your `.shp`, `.shx`, `.dbf` and `.prj` files (or a `.zip`) into it. Every table in that folder appears in the **Tables** list, and you can pick the property and feature as in step 4.
+
+   <img src="misc/tutorial/02-new-menu.png" alt="NEW menu in the Assets tab" width="260">
+
+A video tutorial (in Portuguese, recorded with an earlier version) is on [YouTube](https://www.youtube.com/watch?v=z3Yx1kwxWN0).
 
 ## Legend files
 
