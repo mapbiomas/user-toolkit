@@ -1,4 +1,9 @@
-<p align="right"><img src="misc/mapbiomas-icon.png" height="120" alt="MapBiomas"></p>
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="misc/toolkit-lockup-dark.svg">
+    <img src="misc/toolkit-lockup.svg" width="360" alt="MapBiomas User Toolkit">
+  </picture>
+</p>
 
 # MapBiomas User Toolkit
 
