@@ -17,6 +17,9 @@
  *    1.4.0 - Data from collection 8.0
  *    1.5.0 - Data from collection 9.0
  *    1.6.0 - Data from collection 10.1
+ *    1.7.0 - Loads mapbiomas-brazil collection 11.0 and fixes collection 10.1 classes
+ *          - Loads peru 4.0, bolivia 3.0, uruguay 3.0, paraguay 3.0 and argentina 2.0
+ *          - Class encoding per collection; territories from the MapBiomas platform
  * 
  * @see
  *      Get the MapBiomas exported data in your "Google Drive/MAPBIOMAS-EXPORT" folder
@@ -110,7 +113,7 @@ var App = {
 
     options: {
 
-        version: '1.5.0',
+        version: '1.7.0',
 
         logo: {
             uri: 'gs://mapbiomas-public/mapbiomas-logos/mapbiomas-logo-horizontal.b64',
@@ -151,275 +154,465 @@ var App = {
         tables: {
             'mapbiomas-brazil': [
                 {
-                    'label': 'Amacro',
-                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/AMACRO',
+                    'label': 'AMACRO (IBGE, 2026)',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-STAGING/BRAZIL/WORKSPACE/AMACRO/AMACRO_v3',
                 },
                 {
-                    'label': 'Ministry of the Environment priority areas 2018',
-                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/AREAS_PRIORITARIAS_DO_MMA_2018',
+                    'label': 'Amazônia Legal (IBGE, 2024)',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-STAGING/BRAZIL/WORKSPACE/LEGAL_AMAZON/LEGAL_AMAZON_v3',
                 },
                 {
-                    'label': 'Atlantic Forest Law',
-                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/ATLANTIC_FOREST_LAW',
+                    'label': 'Atlantic Forest Law 1:1.000.000 (SOS Mata Atlântica, 2015)',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-STAGING/BRAZIL/WORKSPACE/ATLANTIC_FOREST_LAW/ATLANTIC_FOREST_LAW_v3',
                 },
                 {
-                    'label': 'Basin Level 1 DNAEE',
-                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/BASIN_LEVEL_1_DNAEE',
-                },
-                {
-                    'label': 'Basin Level 1 PNRH',
-                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/BASIN_LEVEL_1_PNRH',
-                },
-                {
-                    'label': 'Basin Level 2 DNAEE',
-                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/BASIN_LEVEL_2_DNAEE',
-                },
-                {
-                    'label': 'Basin Level 2 PNRH',
-                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/BASIN_LEVEL_2_PNRH',
-                },
-                {
-                    'label': 'Biomes',
-                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/BIOMES',
-                },
-                {
-                    'label': 'Coastal Marine Zone',
-                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/COASTAL_MARINE_ZONE',
-                },
-                {
-                    'label': 'Forest Concessions',
-                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/CONCESSOES_FLORESTAIS',
-                },
-                {
-                    'label': 'DHN250 Level 1',
-                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/DHN250_LEVEL_1',
-                },
-                {
-                    'label': 'DHN250 Level 2',
-                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/DHN250_LEVEL_2',
-                },
-                {
-                    'label': 'DHN250 Level 3',
-                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/DHN250_LEVEL_3',
-                },
-                {
-                    'label': 'Non-Designated Public Forests',
-                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/FLORESTAS_PUBLICAS_NAO_DESTINADAS',
-                },
-                {
-                    'label': 'Geoparques',
-                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/GEOPARQUES',
-                },
-                {
-                    'label': 'Indigenous Territories',
-                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/INDIGENOUS_TERRITORIES',
-                },
-                {
-                    'label': 'Legal Amazon',
-                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/LEGAL_AMAZON',
-                },
-                {
-                    'label': 'Matopiba',
-                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/MATOPIBA',
-                },
-                {
-                    'label': 'Political Level 1',
-                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/POLITICAL_LEVEL_1',
-                },
-                {
-                    'label': 'Political Level 2',
-                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/POLITICAL_LEVEL_2',
-                },
-                {
-                    'label': 'Political Level 3',
-                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/POLITICAL_LEVEL_3',
-                },
-                {
-                    'label': 'Protected Area',
-                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/PROTECTED_AREA',
-                },
-                {
-                    'label': 'Quilombos',
-                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/QUILOMBOS',
+                    'label': 'Biome (IBGE, 2025)',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/BRAZIL/WORKSPACE/BIOMES/BIOMES_v4',
                 },
                 {
                     'label': 'Biosphere Reserve',
-                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/RESERVA_DA_BIOSFERA',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-STAGING/BRAZIL/WORKSPACE/RESERVA_DA_BIOSFERA/RESERVA_DA_BIOSFERA_v3',
                 },
                 {
-                    'label': 'Semiarid',
-                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/SEMIARID',
+                    'label': 'Biosphere Reserve (RBMA, 2026)',
+                    'value': 'projects/mapbiomas-territories/assets/PLATFORM/demo/mapbiomas/brazil/territories/RESERVA_DA_BIOSFERA_RBMA_2026_A597F0B9/a1cce443-608c-4a32-b313-9918e04e11dd',
                 },
                 {
-                    'label': 'Settlements',
-                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/SETTLEMENTS',
+                    'label': 'Bolsa Verde Territories (MMA, 2026)',
+                    'value': 'projects/mapbiomas-territories/assets/PLATFORM/demo/mapbiomas/brazil/territories/TERRITORIOS_DO_BOLSA_VERDE_MMA_2026_4FCCFE72/ac604980-6a99-4770-a64b-41ab84a10585',
                 },
                 {
-                    'label': 'UGRHS',
-                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/UGRHS',
-                }
+                    'label': 'Brasil (IBGE, 2025)',
+                    'value': 'projects/mapbiomas-territories/assets/PLATFORM/demo/mapbiomas/brazil/territories/BRASIL_IBGE_2025_D71F57FE/cc8a1562-88be-4106-8701-34da9e3a3a40',
+                },
+                {
+                    'label': 'Census Tracts',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/BRAZIL/WORKSPACE/CENSUS_TRACTS/CENSUS_TRACTS_v1',
+                },
+                {
+                    'label': 'Coastal and Marine System (IBGE, 2025)',
+                    'value': 'projects/mapbiomas-territories/assets/PLATFORM/demo/mapbiomas/brazil/territories/SISTEMA_COSTEIRO_E_MARINHO_IBGE_2025_DB52694B/b545395d-1b7c-4f1a-bec1-0c438526c179',
+                },
+                {
+                    'label': 'Concessões Florestais (MMA, 2026)',
+                    'value': 'projects/mapbiomas-territories/assets/PLATFORM/demo/mapbiomas/brazil/territories/CONCESSOES_FLORESTAIS_MMA_2026_61E001B1/5fd69700-34cf-42a5-a563-d290eaec7839',
+                },
+                {
+                    'label': 'Conservation Units (CNUC, 2026)',
+                    'value': 'projects/mapbiomas-territories/assets/PLATFORM/demo/mapbiomas/brazil/territories/UNIDADES_DE_CONSERVACAO_XNUC_2026_8DCD0C0B/ea04ccaf-0ff1-445a-9a29-a551015b0868',
+                },
+                {
+                    'label': 'DHN250 - Level 1 - National Hydrographic Division (ANA, 2017)',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-STAGING/BRAZIL/WORKSPACE/DHN250_LEVEL_1/DHN250_LEVEL_1_v2',
+                },
+                {
+                    'label': 'DHN250 - Level 2 - National Hydrographic Division (ANA, 2017)',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-STAGING/BRAZIL/WORKSPACE/DHN250_LEVEL_2/DHN250_LEVEL_2_v3',
+                },
+                {
+                    'label': 'DHN250 - Level 3 - National Hydrographic Division (ANA, 2017)',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-STAGING/BRAZIL/WORKSPACE/DHN250_LEVEL_3/DHN250_LEVEL_3_v4',
+                },
+                {
+                    'label': 'Estados (IBGE, 2025)',
+                    'value': 'projects/mapbiomas-territories/assets/PLATFORM/demo/mapbiomas/brazil/territories/ESTADOS_IBGE_2025_F7EAF953/3f95fd9d-4b26-4243-8612-37b9d5b12a55',
+                },
+                {
+                    'label': 'Federal watershed Committee',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/BRAZIL/WORKSPACE/FEDERAL_COMMITTEE/FEDERAL_COMMITTEE_v1',
+                },
+                {
+                    'label': 'Florestas Públicas não Destinadas (tipo B) (MMA, 2026)',
+                    'value': 'projects/mapbiomas-territories/assets/PLATFORM/demo/mapbiomas/brazil/territories/FLORESTAS_PUBLICAS_NAO_DESTINADAS_TIPO_B_MMA_2026_FA7D29E9/1f8935c8-0c73-42e2-a3d9-ceb8e063da2d',
+                },
+                {
+                    'label': 'Hydrographic Regions',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/BRAZIL/WORKSPACE/HYDROGRAPHIC_REGIONS/HYDROGRAPHIC_REGIONS_v1',
+                },
+                {
+                    'label': 'Marine Conservation Unit',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/BRAZIL/WORKSPACE/MARINE_CONSERVATION_UNIT/MARINE_CONSERVATION_UNIT_v2',
+                },
+                {
+                    'label': 'MATOPIBA (EMBRAPA, 2025)',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-STAGING/BRAZIL/WORKSPACE/MATOPIBA/MATOPIBA_v3',
+                },
+                {
+                    'label': 'Metropolitan Areas',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/BRAZIL/WORKSPACE/METROPOLITAN_REGIONS/METROPOLITAN_REGIONS_v2',
+                },
+                {
+                    'label': 'Municipal Districts',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/BRAZIL/WORKSPACE/MUNICIPAL_DISTRICTS/MUNICIPAL_DISTRICTS_v2',
+                },
+                {
+                    'label': 'Municipalities .(IBGE, 2025)',
+                    'value': 'projects/mapbiomas-territories/assets/PLATFORM/demo/mapbiomas/brazil/territories/MUNICIPIOS_IBGE_2025_637F97E6/0afdffeb-2a5b-4b93-8163-d52f92f555e5',
+                },
+                {
+                    'label': 'Municipios Prioritários da Amazônia (MMA, 2026)',
+                    'value': 'projects/mapbiomas-territories/assets/PLATFORM/demo/mapbiomas/brazil/territories/MUNICIPIOS_PRIORITARIOS_DA_AMAZONIA_MMA_2026_26694C97/a2f415d9-1408-4c4b-9d02-8e6b6455d202',
+                },
+                {
+                    'label': 'Municípios Costeiros com extensão de 5km na costa (Solved, 2026)',
+                    'value': 'projects/mapbiomas-territories/assets/PLATFORM/demo/mapbiomas/brazil/territories/MUNICIPIOS_COSTEIROS_COM_EXTENSAO_DE_5KM_NA_COSTA_SOLVED_2026_F94FBCCB/82cd7d4f-15d0-4961-a6d8-1a699fb77314',
+                },
+                {
+                    'label': 'Planalto da BAP (ANA, 2021)',
+                    'value': 'projects/mapbiomas-territories/assets/PLATFORM/demo/mapbiomas/brazil/territories/PLANALTO_DA_BAP_ANA_2021_D4F5966E/9cfd02e1-f425-41e1-8364-240a8dbf1b68',
+                },
+                {
+                    'label': 'Priority Area (MMA 2018)',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-STAGING/BRAZIL/WORKSPACE/AREAS_PRIORITARIAS_DO_MMA_2018/AREAS_PRIORITARIAS_DO_MMA_2018_v2',
+                },
+                {
+                    'label': 'Quilombos (INCRA, 2026)',
+                    'value': 'projects/mapbiomas-territories/assets/PLATFORM/demo/mapbiomas/brazil/territories/QUILOMBOS_INCRA_2026_C57B5884/ff433ee4-7137-4845-aa3d-42f66d2b7823',
+                },
+                {
+                    'label': 'Regiões (IBGE, 2025)',
+                    'value': 'projects/mapbiomas-territories/assets/PLATFORM/demo/mapbiomas/brazil/territories/REGIOES_IBGE_2025_2CDBB85D/97f303cb-f543-400c-9c8f-47cc6b9b3a66',
+                },
+                {
+                    'label': 'Risk Sectors IBGE',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/BRAZIL/WORKSPACE/RISK_SECTORS_BATER_IBGE/RISK_SECTORS_BATER_IBGE_v2',
+                },
+                {
+                    'label': 'Rural Census Tracts',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/BRAZIL/WORKSPACE/RURAL_CENSUS_TRACTS/RURAL_CENSUS_TRACTS_v1',
+                },
+                {
+                    'label': 'Slums and Poor Urban Communities',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/BRAZIL/WORKSPACE/SLUMS_AND_POOR_URBAN_COMMUNITIES/SLUMS_AND_POOR_URBAN_COMMUNITIES_v1',
+                },
+                {
+                    'label': 'State Units for Planning and Management of Water Resources',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/BRAZIL/WORKSPACE/STATE_UNITS_PLANNING_MANAGEMENT_WATER_RESOURCES/STATE_UNITS_PLANNING_MANAGEMENT_WATER_RESOURCES_v1',
+                },
+                {
+                    'label': 'State watershed Committee',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/BRAZIL/WORKSPACE/STATE_COMMITTEE/STATE_COMMITTEE_v1',
+                },
+                {
+                    'label': 'Terras Indígenas (FUNAI, 2026)',
+                    'value': 'projects/mapbiomas-territories/assets/PLATFORM/demo/mapbiomas/brazil/territories/TERRAS_INDIGENAS_FUNAI_2026_F7F13F79/8b94c232-c551-4dd1-ac0c-2b40145db021',
+                },
+                {
+                    'label': 'Urban Census Tracts',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/BRAZIL/WORKSPACE/URBAN_CENSUS_TRACTS/URBAN_CENSUS_TRACTS_v1',
+                },
+                {
+                    'label': 'Urban Concentrations',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/BRAZIL/WORKSPACE/URBAN_CONCENTRATION/URBAN_CONCENTRATION_v2',
+                },
+                {
+                    'label': 'Water Resources Management Unit',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-STAGING/BRAZIL/WORKSPACE/UGRHS/UGRHS_v3',
+                },
+            ],
+            'mapbiomas-colombia': [
+                {
+                    'label': 'Biomes',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/COLOMBIA/WORKSPACE/BIOMES/BIOMES_v1',
+                },
+                {
+                    'label': 'Country',
+                    'value': 'projects/mapbiomas-territories/assets/PLATFORM/demo/mapbiomas/colombia/territories/NIVEL_POLITICO_1_702287F6/a8e40af2-14e4-4286-8ba2-498ebbd6213f',
+                },
+                {
+                    'label': 'Departmental Protected Areas',
+                    'value': 'projects/mapbiomas-territories/assets/PLATFORM/demo/mapbiomas/colombia/territories/AREA_NATURAL_PROTEGIDA_DEPARTAMENTAL_3A57466D/d7d6e181-fa6e-4195-b05a-d0f040b579f6',
+                },
+                {
+                    'label': 'Indigenous Reserve',
+                    'value': 'projects/mapbiomas-territories/assets/PLATFORM/demo/mapbiomas/colombia/territories/RESGUARDO_INDIGENA_20EEC6ED/3b6a3676-3ccc-4890-bc95-48d3d0f65dad',
+                },
+                {
+                    'label': 'National Protected Areas',
+                    'value': 'projects/mapbiomas-territories/assets/PLATFORM/demo/mapbiomas/colombia/territories/AREA_NATURAL_PROTEGIDA_NACIONAL_82D4B280/e122952e-631e-4a22-bc00-dc4a1822ec42',
+                },
+                {
+                    'label': 'Political Level - 1',
+                    'value': 'projects/mapbiomas-territories/assets/PLATFORM/demo/mapbiomas/colombia/territories/NIVEL_POLITICO_1_0C5BADC9/a8e40af2-14e4-4286-8ba2-498ebbd6213f',
+                },
             ],
             'mapbiomas-peru': [
                 {
-                    "value": "projects/mapbiomas-raisg/PERU/DATOS_AUXILIARES/ESTADISTICAS/COLECCION1/nivel-politico-1",
-                    "label": "nivel-politico-1"
+                    'label': 'Afforestation and Reforestation Concession',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-STAGING/PERU/WORKSPACE/AFFORESTATION_AND_REFORESTATION_CONCESSION/AFFORESTATION_AND_REFORESTATION_CONCESSION_v1',
                 },
                 {
-                    "value": "projects/mapbiomas-raisg/PERU/DATOS_AUXILIARES/ESTADISTICAS/COLECCION1/nivel-politico-2",
-                    "label": "nivel-politico-2"
+                    'label': 'Biome',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-STAGING/PERU/WORKSPACE/BIOMES/BIOMES_v1',
                 },
                 {
-                    "value": "projects/mapbiomas-raisg/PERU/DATOS_AUXILIARES/ESTADISTICAS/COLECCION1/nivel-politico-3",
-                    "label": "nivel-politico-3"
+                    'label': 'Biosphere Reserve',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-STAGING/PERU/WORKSPACE/RESERVA_DA_BIOSFERA/RESERVA_DA_BIOSFERA_v1',
                 },
                 {
-                    "value": "projects/mapbiomas-raisg/PERU/DATOS_AUXILIARES/ESTADISTICAS/COLECCION1/nivel-politico-4",
-                    "label": "nivel-politico-4"
+                    'label': 'Conservation Concession',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-STAGING/PERU/WORKSPACE/CONSERVATION_CONCESSION/CONSERVATION_CONCESSION_v1',
                 },
                 {
-                    "value": "projects/mapbiomas-raisg/PERU/DATOS_AUXILIARES/ESTADISTICAS/COLECCION1/bioma-pais",
-                    "label": "bioma-pais"
+                    'label': 'Country',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-STAGING/PERU/WORKSPACE/POLITICAL_LEVEL_1/POLITICAL_LEVEL_1_v1',
                 },
                 {
-                    "value": "projects/mapbiomas-raisg/PERU/DATOS_AUXILIARES/ESTADISTICAS/COLECCION1/area-conservacion-privada",
-                    "label": "area-conservacion-privada"
+                    'label': 'District',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-STAGING/PERU/WORKSPACE/POLITICAL_LEVEL_4/POLITICAL_LEVEL_4_v1',
                 },
                 {
-                    "value": "projects/mapbiomas-raisg/PERU/DATOS_AUXILIARES/ESTADISTICAS/COLECCION1/area-conservacion-regional",
-                    "label": "area-conservacion-regional"
+                    'label': 'Ecoregion',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-STAGING/PERU/WORKSPACE/ECORREGION/ECORREGION_v1',
                 },
                 {
-                    "value": "projects/mapbiomas-raisg/PERU/DATOS_AUXILIARES/ESTADISTICAS/COLECCION1/area-natural-protegida",
-                    "label": "area-natural-protegida"
+                    'label': 'Ecotourism Concession',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-STAGING/PERU/WORKSPACE/ECOTOURISM_CONCESSION/ECOTOURISM_CONCESSION_v1',
                 },
                 {
-                    "value": "projects/mapbiomas-raisg/PERU/DATOS_AUXILIARES/ESTADISTICAS/COLECCION1/comunidad-campesina-reconocida",
-                    "label": "comunidad-campesina-reconocida"
+                    'label': 'Ecozone',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-STAGING/PERU/WORKSPACE/ECOZONE/ECOZONE_v1',
                 },
                 {
-                    "value": "projects/mapbiomas-raisg/PERU/DATOS_AUXILIARES/ESTADISTICAS/COLECCION1/comunidad-campesina-titulada",
-                    "label": "comunidad-campesina-titulada"
+                    'label': 'Forest Concession for Timber Production',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-STAGING/PERU/WORKSPACE/TIMBER_CONCESSION/TIMBER_CONCESSION_v1',
                 },
                 {
-                    "value": "projects/mapbiomas-raisg/PERU/DATOS_AUXILIARES/ESTADISTICAS/COLECCION1/comunidad-nativa-solicitud",
-                    "label": "comunidad-nativa-solicitud"
+                    'label': 'Fragile ecosystem',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-STAGING/PERU/WORKSPACE/FRAGILE_ECOSYSTEM/FRAGILE_ECOSYSTEM_v1',
                 },
                 {
-                    "value": "projects/mapbiomas-raisg/PERU/DATOS_AUXILIARES/ESTADISTICAS/COLECCION1/comunidad-nativa-titulada",
-                    "label": "comunidad-nativa-titulada"
+                    'label': 'Geographical region',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-STAGING/PERU/WORKSPACE/REGION_GEOGRAFICA/REGION_GEOGRAFICA_v1',
                 },
                 {
-                    "value": "projects/mapbiomas-raisg/PERU/DATOS_AUXILIARES/ESTADISTICAS/COLECCION1/ecozona",
-                    "label": "ecozona"
+                    'label': 'Local Forest',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-STAGING/PERU/WORKSPACE/LOCAL_FOREST/LOCAL_FOREST_v1',
                 },
                 {
-                    "value": "projects/mapbiomas-raisg/PERU/DATOS_AUXILIARES/ESTADISTICAS/COLECCION1/region-geografica",
-                    "label": "region-geografica"
+                    'label': 'Mountain Ranges',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-STAGING/PERU/WORKSPACE/MOUNTAIN_RANGES/MOUNTAIN_RANGES_v1',
                 },
                 {
-                    "value": "projects/mapbiomas-raisg/PERU/DATOS_AUXILIARES/ESTADISTICAS/COLECCION1/reserva-indigena",
-                    "label": "reserva-indigena"
+                    'label': 'Permanent Production Forest',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-STAGING/PERU/WORKSPACE/PERMANENT_PRODUCTION_FOREST/PERMANENT_PRODUCTION_FOREST_v1',
                 },
                 {
-                    "value": "projects/mapbiomas-raisg/PERU/DATOS_AUXILIARES/ESTADISTICAS/COLECCION1/reserva-territorial",
-                    "label": "reserva-territorial"
+                    'label': 'Private Conservation Area',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-STAGING/PERU/WORKSPACE/PRIVATE_CONSERVATION_AREAS/PRIVATE_CONSERVATION_AREAS_v1',
                 },
                 {
-                    "value": "projects/mapbiomas-raisg/PERU/DATOS_AUXILIARES/ESTADISTICAS/COLECCION1/unidad-hidrografica",
-                    "label": "unidad-hidrografica"
-                }
-
+                    'label': 'Province',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/PERU/WORKSPACE/POLITICAL_LEVEL_3/POLITICAL_LEVEL_3_v2',
+                },
+                {
+                    'label': 'Recognized Peasant Community',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-STAGING/PERU/WORKSPACE/RECOGNIZED_PEASANT_COMMUNITY/RECOGNIZED_PEASANT_COMMUNITY_v1',
+                },
+                {
+                    'label': 'Region',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-STAGING/PERU/WORKSPACE/POLITICAL_LEVEL_2/POLITICAL_LEVEL_2_v1',
+                },
+                {
+                    'label': 'Regional Conservation Area',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-STAGING/PERU/WORKSPACE/REGIONAL_CONSERVATION_AREAS/REGIONAL_CONSERVATION_AREAS_v1',
+                },
+                {
+                    'label': 'Reserva Indígena',
+                    'value': 'projects/mapbiomas-territories/assets/PLATFORM/demo/mapbiomas/peru/territories/RESERVA_INDIGENA_6E4F75E5/faf9488e-579f-484b-93d6-25bfdff3b107',
+                },
+                {
+                    'label': 'Solicitud de titulación',
+                    'value': 'projects/mapbiomas-territories/assets/PLATFORM/demo/mapbiomas/peru/territories/SOLICITUD_DE_TITULACION_4ACD554F/675c0402-f60a-4325-9ebb-456fc6783311',
+                },
+                {
+                    'label': 'Territorial reserve',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-STAGING/PERU/WORKSPACE/LAND_RESERVE/LAND_RESERVE_v1',
+                },
+                {
+                    'label': 'Titled Native Community',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-STAGING/PERU/WORKSPACE/TITLED_NATIVE_COMMUNITY/TITLED_NATIVE_COMMUNITY_v1',
+                },
+                {
+                    'label': 'Watershed level 1',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-STAGING/PERU/WORKSPACE/BASIN_LEVEL_1/BASIN_LEVEL_1_v1',
+                },
+                {
+                    'label': 'Watershed level 2',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-STAGING/PERU/WORKSPACE/BASIN_LEVEL_2/BASIN_LEVEL_2_v1',
+                },
+                {
+                    'label': 'Watershed level 3',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-STAGING/PERU/WORKSPACE/BASIN_LEVEL_3/BASIN_LEVEL_3_v1',
+                },
+                {
+                    'label': 'Watershed level 4',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-STAGING/PERU/WORKSPACE/BASIN_LEVEL_4/BASIN_LEVEL_4_v1',
+                },
+                {
+                    'label': 'Wildlife Management Area Concession',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-STAGING/PERU/WORKSPACE/WILDLIFE_MANAGEMENT_AREA_CONCESSION/WILDLIFE_MANAGEMENT_AREA_CONCESSION_v1',
+                },
+                {
+                    'label': 'Zona de amortiguamiento',
+                    'value': 'projects/mapbiomas-territories/assets/PLATFORM/demo/mapbiomas/peru/territories/ZONA_DE_AMORTIGUAMIENTO_7FAB1B05/e378dcab-fca7-4bdc-95fd-07ec69cb3d17',
+                },
+                {
+                    'label': 'Área natural protegida',
+                    'value': 'projects/mapbiomas-territories/assets/PLATFORM/demo/mapbiomas/peru/territories/AREA_NATURAL_PROTEGIDA_76E84300/a3d27bcf-5e0b-4321-8ce9-91e369030435',
+                },
             ],
-
-            'mapbiomas-colombia': [
+            'mapbiomas-bolivia': [
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/COLOMBIA/COLLECTION2/WORKSPACE/BASIN_LEVEL_1",
-                    "label": "Basin Level 1"
+                    'label': 'Basin Level 1',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/BOLIVIA/WORKSPACE/CH_LEVEL_1/CH_LEVEL_1_v2',
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/COLOMBIA/COLLECTION2/WORKSPACE/BASIN_LEVEL_2",
-                    "label": "Basin Level 2"
+                    'label': 'Basin Level 2',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/BOLIVIA/WORKSPACE/CH_LEVEL_2/CH_LEVEL_2_v2',
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/COLOMBIA/COLLECTION2/WORKSPACE/BASIN_LEVEL_3",
-                    "label": "Basin Level 3"
+                    'label': 'Biome',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/BOLIVIA/WORKSPACE/BIOMES/BIOMES_v1',
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/COLOMBIA/COLLECTION2/WORKSPACE/BIOMES_PAIS",
-                    "label": "Country Biomes"
+                    'label': 'Country',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/BOLIVIA/WORKSPACE/POLITICAL_LEVEL_1/POLITICAL_LEVEL_1_v1',
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/COLOMBIA/COLLECTION2/WORKSPACE/BOSQUE_SECO_TROPICAL",
-                    "label": "Tropical Dry Forest"
+                    'label': 'Department',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/BOLIVIA/WORKSPACE/POLITICAL_LEVEL_2/POLITICAL_LEVEL_2_v2',
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/COLOMBIA/COLLECTION2/WORKSPACE/CHOCO_BIOGEOGRAFICO",
-                    "label": "Choco Biogeographic Region"
+                    'label': 'Ecoregion',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/BOLIVIA/WORKSPACE/ECORREGION/ECORREGION_v1',
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/COLOMBIA/COLLECTION2/WORKSPACE/COMPLEJO_GLACIARES",
-                    "label": "Glacier Complex"
+                    'label': 'Indigenous Territory',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/BOLIVIA/WORKSPACE/INDIGENOUS_TERRITORIES/INDIGENOUS_TERRITORIES_v2',
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/COLOMBIA/COLLECTION2/WORKSPACE/CONSEJOS_COMUNITARIOS",
-                    "label": "Community Councils"
+                    'label': 'Municipality',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/BOLIVIA/WORKSPACE/POLITICAL_LEVEL_3/POLITICAL_LEVEL_3_v2',
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/COLOMBIA/COLLECTION2/WORKSPACE/COUNTRY_REGIONS",
-                    "label": "Country Regions"
+                    'label': 'National Protected Area',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/BOLIVIA/WORKSPACE/PROTECTED_AREAS_NACIONALES/PROTECTED_AREAS_NACIONALES_v2',
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/COLOMBIA/COLLECTION2/WORKSPACE/GLACIARES",
-                    "label": "Glaciers"
+                    'label': 'Ramsar Sites',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/BOLIVIA/WORKSPACE/RAMSAR_SITES/RAMSAR_SITES_v2',
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/COLOMBIA/COLLECTION2/WORKSPACE/LIMITES_CAR",
-                    "label": "CAR Limits"
+                    'label': 'Subnational Protected Area',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/BOLIVIA/WORKSPACE/PROTECTED_AREA_SUBNATIONAL/PROTECTED_AREA_SUBNATIONAL_v2',
+                },
+            ],
+            'mapbiomas-uruguay': [
+                {
+                    'label': 'Country',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/URUGUAY/WORKSPACE/POLITICAL_LEVEL_1/POLITICAL_LEVEL_1_v4',
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/COLOMBIA/COLLECTION2/WORKSPACE/PARAMOS",
-                    "label": "Páramos"
+                    'label': 'Department',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/URUGUAY/WORKSPACE/POLITICAL_LEVEL_2/POLITICAL_LEVEL_2_v4',
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/COLOMBIA/COLLECTION2/WORKSPACE/POLITICAL_LEVEL_1",
-                    "label": "Political Level 1"
+                    'label': 'Ecoregion',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/URUGUAY/WORKSPACE/ECORREGION/ECORREGION_v2',
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/COLOMBIA/COLLECTION2/WORKSPACE/POLITICAL_LEVEL_2",
-                    "label": "Political Level 2"
+                    'label': 'Level 1 Watershed',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/URUGUAY/WORKSPACE/BASIN_LEVEL_1/BASIN_LEVEL_1_v1',
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/COLOMBIA/COLLECTION2/WORKSPACE/POLITICAL_LEVEL_3",
-                    "label": "Political Level 3"
+                    'label': 'Level 2 Watershed',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/URUGUAY/WORKSPACE/BASIN_LEVEL_2/BASIN_LEVEL_2_v3',
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/COLOMBIA/COLLECTION2/WORKSPACE/PROTECTED_AREAS_DEPTALES",
-                    "label": "Departmental Protected Areas"
+                    'label': 'Municipality',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/URUGUAY/WORKSPACE/POLITICAL_LEVEL_3/POLITICAL_LEVEL_3_v2',
+                },
+            ],
+            'mapbiomas-paraguay': [
+                {
+                    'label': 'Ecorregiones Dinerstein (DINERTTEIN, 1995)',
+                    'value': 'projects/mapbiomas-territories/assets/PLATFORM/demo/mapbiomas/paraguay/territories/ECORREGIONES_DINERSTEIN_DINERTTEIN_1995_5BDBA83B/1f599108-9da4-4b94-adc4-4f5746d7889a',
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/COLOMBIA/COLLECTION2/WORKSPACE/PROTECTED_AREAS_NACIONALES",
-                    "label": "National Protected Areas"
+                    'label': 'Ecorregiones Paraguay (SEAM, 2013)',
+                    'value': 'projects/mapbiomas-territories/assets/PLATFORM/demo/mapbiomas/paraguay/territories/ECORREGIONES_PARAGUAY_SEAM_2013_576969F6/02c84b77-2754-42fc-a847-8127997ba4b0',
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/COLOMBIA/COLLECTION2/WORKSPACE/RAISG_AMAZON_COUNTRY",
-                    "label": "Amazon RAISG Country"
+                    'label': 'Nivel Politico 1 (Servicio Nacional de Catastro, 2024)',
+                    'value': 'projects/mapbiomas-territories/assets/PLATFORM/demo/mapbiomas/paraguay/territories/NIVEL_POLITICO_1_SERVICIO_NACIONAL_DE_CATASTRO_2024_1C3C87EF/1b0759e9-76c6-4b3d-9127-db1772da0683',
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/COLOMBIA/COLLECTION2/WORKSPACE/RAMSAR_SITES",
-                    "label": "Ramsar Sites"
+                    'label': 'Nivel Politico 2 (Servicio Nacional de Catastro, 2024)',
+                    'value': 'projects/mapbiomas-territories/assets/PLATFORM/demo/mapbiomas/paraguay/territories/NIVEL_POLITICO_2_SERVICIO_NACIONAL_DE_CATASTRO_2024_BF678EE7/968a3bcd-e17a-4dc1-9fdc-a95a39c3e770',
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/COLOMBIA/COLLECTION2/WORKSPACE/RESERVAS_FORESTALES_LEY_2",
-                    "label": "Forest Reserves (Law 2)"
+                    'label': 'Nivel Politico 3 (Servicio Nacional de Catastro, 2024)',
+                    'value': 'projects/mapbiomas-territories/assets/PLATFORM/demo/mapbiomas/paraguay/territories/NIVEL_POLITICO_3_SERVICIO_NACIONAL_DE_CATASTRO_2024_F0C8BC32/002a36c2-4bba-498a-bbd1-a7945d730651',
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/COLOMBIA/COLLECTION2/WORKSPACE/RESGUARDOS_INDIGENAS",
-                    "label": "Indigenous Reserves"
+                    'label': 'Reserva de la Biosfera (Ministerio del Ambiente y Desarrollo Sostenible, 2022)',
+                    'value': 'projects/mapbiomas-territories/assets/PLATFORM/demo/mapbiomas/paraguay/territories/RESERVA_DE_LA_BIOSFERA_MINISTERIO_DEL_AMBIENTE_Y_DESARROLLO_SOSTENIBLE_2022_FC4291BD/d7f52f57-d24c-4113-9e6e-09903433d45f',
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/COLOMBIA/COLLECTION2/WORKSPACE/ZONAS_DE_RESERVA_CAMPESINA",
-                    "label": "Peasant Reserve Zones"
-                }
+                    'label': 'Sitios Ramsar (WWF, 2013)',
+                    'value': 'projects/mapbiomas-territories/assets/PLATFORM/demo/mapbiomas/paraguay/territories/SITIOS_RAMSAR_WWF_2013_A5FE46D6/3aff578c-ff21-4963-9a69-be4d93b81ab1',
+                },
+                {
+                    'label': 'Territorios Indígenas (Federación por la Autodeterminación de los Pueblos Indígenas, 2017)',
+                    'value': 'projects/mapbiomas-territories/assets/PLATFORM/demo/mapbiomas/paraguay/territories/TERRITORIOS_INDIGENAS_FEDERACION_POR_LA_AUTODETERMINACION_DE_LOS_PUEBLOS_INDIGENAS_2017_812392F7/0e281a13-900f-4d1c-ad64-cf572f14a326',
+                },
+                {
+                    'label': 'Área Silvestre Protegida (Ministerio del Ambiente y Desarrollo Sostenible, 2022)',
+                    'value': 'projects/mapbiomas-territories/assets/PLATFORM/demo/mapbiomas/paraguay/territories/AREA_SILVESTRE_PROTEGIDA_MINISTERIO_DEL_AMBIENTE_Y_DESARROLLO_SOSTENIBLE_2022_7DDE49F3/e16a8ee9-24c4-44c8-88b0-4b6b2dc86d1d',
+                },
+            ],
+            'mapbiomas-argentina': [
+                {
+                    'label': 'Country',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/ARGENTINA/WORKSPACE/POLITICAL_LEVEL_1/POLITICAL_LEVEL_1_v3',
+                },
+                {
+                    'label': 'Department',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/ARGENTINA/WORKSPACE/POLITICAL_LEVEL_3/POLITICAL_LEVEL_3_v4',
+                },
+                {
+                    'label': 'Ecoregions',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/ARGENTINA/WORKSPACE/ECORREGION/ECORREGION_v5',
+                },
+                {
+                    'label': 'Important Bird Areas',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/ARGENTINA/WORKSPACE/IMPORTANT_BIRD_AREAS/IMPORTANT_BIRD_AREAS_v5',
+                },
+                {
+                    'label': 'International Protected Areas',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/ARGENTINA/WORKSPACE/INTERNATIONAL_PROTECTED_AREAS/INTERNATIONAL_PROTECTED_AREAS_v5',
+                },
+                {
+                    'label': 'Key Biodiversity Areas',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/ARGENTINA/WORKSPACE/KEY_BIODIVERSITY_AREAS/KEY_BIODIVERSITY_AREAS_v5',
+                },
+                {
+                    'label': 'National Protected Areas',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/ARGENTINA/WORKSPACE/PROTECTED_AREAS_NACIONALES/PROTECTED_AREAS_NACIONALES_v5',
+                },
+                {
+                    'label': 'Province',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/ARGENTINA/WORKSPACE/POLITICAL_LEVEL_2/POLITICAL_LEVEL_2_v3',
+                },
+                {
+                    'label': 'River Basins (Level 1)',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/ARGENTINA/WORKSPACE/BASIN_LEVEL_1/BASIN_LEVEL_1_v5',
+                },
+                {
+                    'label': 'Subnational Protected Areas',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/ARGENTINA/WORKSPACE/PROTECTED_AREA_SUBNATIONAL/PROTECTED_AREA_SUBNATIONAL_v5',
+                },
             ],
         },
 
@@ -428,16 +621,11 @@ var App = {
         selectedDataType: null,
 
         collections: {
-       'mapbiomas-brazil': {
+            'mapbiomas-brazil': {
                 'collection-5.0': {
-                    'assets': { //TODO: Inserir os assets públicos
+                    'assets': {
                         'deforestation_sec_vegetation': 'projects/mapbiomas-public/assets/brazil/lulc/collection5/mapbiomas_collection50_deforestation_regeneration_v1',
-                        // 'deforestation_pv': '',
-                        // 'deforestation_sv': '',
-                        // 'secondary_vegetation': '',
-                        // 'secondary_vegetation_age': '',
                     },
-
                     'periods': {
                         'deforestation_sec_vegetation': [
                             '1988', '1989', '1990', '1991',
@@ -447,7 +635,7 @@ var App = {
                             '2004', '2005', '2006', '2007',
                             '2008', '2009', '2010', '2011',
                             '2012', '2013', '2014', '2015',
-                            '2016', '2017',
+                            '2016', '2017'
                         ],
                         'secondary_vegetation': [
                             '1988', '1989', '1990', '1991',
@@ -457,7 +645,7 @@ var App = {
                             '2004', '2005', '2006', '2007',
                             '2008', '2009', '2010', '2011',
                             '2012', '2013', '2014', '2015',
-                            '2016', '2017',
+                            '2016', '2017'
                         ],
                         'secondary_vegetation_age': [
                             '1988', '1989', '1990', '1991',
@@ -467,7 +655,7 @@ var App = {
                             '2004', '2005', '2006', '2007',
                             '2008', '2009', '2010', '2011',
                             '2012', '2013', '2014', '2015',
-                            '2016', '2017',
+                            '2016', '2017'
                         ],
                         'deforestation_sv': [
                             '1988', '1989', '1990', '1991',
@@ -477,44 +665,40 @@ var App = {
                             '2004', '2005', '2006', '2007',
                             '2008', '2009', '2010', '2011',
                             '2012', '2013', '2014', '2015',
-                            '2016', '2017',
+                            '2016', '2017'
                         ],
                         'deforestation_pv': [
-                            'deforestation_pv_year'
+                            'deforestation_pv_year',
                         ],
-
-
                     },
+                    'encoding': 'x100',
                 },
                 'collection-6.0': {
-                    'assets': { //TODO: Inserir os assets públicos
+                    'assets': {
                         'deforestation_sec_vegetation': 'projects/mapbiomas-public/assets/brazil/lulc/collection6/mapbiomas_collection60_deforestation_regeneration_v1',
-                        // 'deforestation_pv': ''
-                        // 'deforestation_sv': '',
-                        // 'secondary_vegetation': '',
-                        // 'secondary_vegetation_age': '',
                     },
-
                     'periods': {
                         'deforestation_sec_vegetation': [
-                            '1988', '1989', '1990', '1991',
-                            '1992', '1993', '1994', '1995',
-                            '1996', '1997', '1998', '1999',
-                            '2000', '2001', '2002', '2003',
-                            '2004', '2005', '2006', '2007',
-                            '2008', '2009', '2010', '2011',
-                            '2012', '2013', '2014', '2015',
-                            '2016', '2017', '2018', '2019'
+                            '1987', '1988', '1989', '1990',
+                            '1991', '1992', '1993', '1994',
+                            '1995', '1996', '1997', '1998',
+                            '1999', '2000', '2001', '2002',
+                            '2003', '2004', '2005', '2006',
+                            '2007', '2008', '2009', '2010',
+                            '2011', '2012', '2013', '2014',
+                            '2015', '2016', '2017', '2018',
+                            '2019'
                         ],
                         'secondary_vegetation': [
-                            '1988', '1989', '1990', '1991',
-                            '1992', '1993', '1994', '1995',
-                            '1996', '1997', '1998', '1999',
-                            '2000', '2001', '2002', '2003',
-                            '2004', '2005', '2006', '2007',
-                            '2008', '2009', '2010', '2011',
-                            '2012', '2013', '2014', '2015',
-                            '2016', '2017', '2018', '2019'
+                            '1987', '1988', '1989', '1990',
+                            '1991', '1992', '1993', '1994',
+                            '1995', '1996', '1997', '1998',
+                            '1999', '2000', '2001', '2002',
+                            '2003', '2004', '2005', '2006',
+                            '2007', '2008', '2009', '2010',
+                            '2011', '2012', '2013', '2014',
+                            '2015', '2016', '2017', '2018',
+                            '2019'
                         ],
                         'secondary_vegetation_age': [
                             '1988', '1989', '1990', '1991',
@@ -537,41 +721,37 @@ var App = {
                             '2016', '2017', '2018', '2019'
                         ],
                         'deforestation_pv': [
-                            'deforestation_pv_year'
+                            'deforestation_pv_year',
                         ],
-
-
                     },
+                    'encoding': 'x100',
                 },
                 'collection-7.0': {
-                    'assets': { //TODO: Inserir os assets públicos
+                    'assets': {
                         'deforestation_sec_vegetation': 'projects/mapbiomas-public/assets/brazil/lulc/collection7/mapbiomas_collection70_deforestation_regeneration_v1',
-                        // 'deforestation_pv': ''
-                        // 'deforestation_sv': '',
-                        // 'secondary_vegetation': '',
-                        // 'secondary_vegetation_age': '',
                     },
-
                     'periods': {
                         'deforestation_sec_vegetation': [
-                            '1988', '1989', '1990', '1991',
-                            '1992', '1993', '1994', '1995',
-                            '1996', '1997', '1998', '1999',
-                            '2000', '2001', '2002', '2003',
-                            '2004', '2005', '2006', '2007',
-                            '2008', '2009', '2010', '2011',
-                            '2012', '2013', '2014', '2015',
-                            '2016', '2017', '2018', '2019'
+                            '1986', '1987', '1988', '1989',
+                            '1990', '1991', '1992', '1993',
+                            '1994', '1995', '1996', '1997',
+                            '1998', '1999', '2000', '2001',
+                            '2002', '2003', '2004', '2005',
+                            '2006', '2007', '2008', '2009',
+                            '2010', '2011', '2012', '2013',
+                            '2014', '2015', '2016', '2017',
+                            '2018', '2019', '2020', '2021'
                         ],
                         'secondary_vegetation': [
-                            '1988', '1989', '1990', '1991',
-                            '1992', '1993', '1994', '1995',
-                            '1996', '1997', '1998', '1999',
-                            '2000', '2001', '2002', '2003',
-                            '2004', '2005', '2006', '2007',
-                            '2008', '2009', '2010', '2011',
-                            '2012', '2013', '2014', '2015',
-                            '2016', '2017', '2018', '2019'
+                            '1986', '1987', '1988', '1989',
+                            '1990', '1991', '1992', '1993',
+                            '1994', '1995', '1996', '1997',
+                            '1998', '1999', '2000', '2001',
+                            '2002', '2003', '2004', '2005',
+                            '2006', '2007', '2008', '2009',
+                            '2010', '2011', '2012', '2013',
+                            '2014', '2015', '2016', '2017',
+                            '2018', '2019', '2020', '2021'
                         ],
                         'secondary_vegetation_age': [
                             '1988', '1989', '1990', '1991',
@@ -594,51 +774,49 @@ var App = {
                             '2016', '2017', '2018', '2019'
                         ],
                         'deforestation_pv': [
-                            'deforestation_pv_year'
+                            'deforestation_pv_year',
                         ],
-
-
                     },
+                    'encoding': 'x100',
                 },
                 'collection-7.1': {
-                    'assets': { //TODO: Inserir os assets públicos
+                    'assets': {
                         'deforestation_sec_vegetation': 'projects/mapbiomas-public/assets/brazil/lulc/collection7_1/mapbiomas_collection71_deforestation_regeneration_v1',
-                        // 'deforestation_pv': ''
-                        // 'deforestation_sv': '',
-                        // 'secondary_vegetation': '',
                         'secondary_vegetation_age': 'projects/mapbiomas-public/assets/brazil/lulc/collection7_1/mapbiomas_collection71_secondary_vegetation_age_v1',
                     },
-
                     'periods': {
                         'deforestation_sec_vegetation': [
-                            '1988', '1989', '1990', '1991',
-                            '1992', '1993', '1994', '1995',
-                            '1996', '1997', '1998', '1999',
-                            '2000', '2001', '2002', '2003',
-                            '2004', '2005', '2006', '2007',
-                            '2008', '2009', '2010', '2011',
-                            '2012', '2013', '2014', '2015',
-                            '2016', '2017', '2018', '2019'
+                            '1986', '1987', '1988', '1989',
+                            '1990', '1991', '1992', '1993',
+                            '1994', '1995', '1996', '1997',
+                            '1998', '1999', '2000', '2001',
+                            '2002', '2003', '2004', '2005',
+                            '2006', '2007', '2008', '2009',
+                            '2010', '2011', '2012', '2013',
+                            '2014', '2015', '2016', '2017',
+                            '2018', '2019', '2020', '2021'
                         ],
                         'secondary_vegetation': [
-                            '1988', '1989', '1990', '1991',
-                            '1992', '1993', '1994', '1995',
-                            '1996', '1997', '1998', '1999',
-                            '2000', '2001', '2002', '2003',
-                            '2004', '2005', '2006', '2007',
-                            '2008', '2009', '2010', '2011',
-                            '2012', '2013', '2014', '2015',
-                            '2016', '2017', '2018', '2019'
+                            '1986', '1987', '1988', '1989',
+                            '1990', '1991', '1992', '1993',
+                            '1994', '1995', '1996', '1997',
+                            '1998', '1999', '2000', '2001',
+                            '2002', '2003', '2004', '2005',
+                            '2006', '2007', '2008', '2009',
+                            '2010', '2011', '2012', '2013',
+                            '2014', '2015', '2016', '2017',
+                            '2018', '2019', '2020', '2021'
                         ],
                         'secondary_vegetation_age': [
-                            '1988', '1989', '1990', '1991',
-                            '1992', '1993', '1994', '1995',
-                            '1996', '1997', '1998', '1999',
-                            '2000', '2001', '2002', '2003',
-                            '2004', '2005', '2006', '2007',
-                            '2008', '2009', '2010', '2011',
-                            '2012', '2013', '2014', '2015',
-                            '2016', '2017', '2018', '2019'
+                            '1986', '1987', '1988', '1989',
+                            '1990', '1991', '1992', '1993',
+                            '1994', '1995', '1996', '1997',
+                            '1998', '1999', '2000', '2001',
+                            '2002', '2003', '2004', '2005',
+                            '2006', '2007', '2008', '2009',
+                            '2010', '2011', '2012', '2013',
+                            '2014', '2015', '2016', '2017',
+                            '2018', '2019', '2020', '2021'
                         ],
                         'deforestation_sv': [
                             '1988', '1989', '1990', '1991',
@@ -651,55 +829,52 @@ var App = {
                             '2016', '2017', '2018', '2019'
                         ],
                         'deforestation_pv': [
-                            'deforestation_pv_year'
+                            'deforestation_pv_year',
                         ],
-
-
                     },
+                    'encoding': 'x100',
                 },
                 'collection-8.0': {
-                    'assets': { //TODO: Inserir os assets públicos
+                    'assets': {
                         'deforestation_sec_vegetation': 'projects/mapbiomas-public/assets/brazil/lulc/collection8/mapbiomas_collection80_deforestation_secondary_vegetation_v1',
-                        // 'deforestation_pv': ''
-                        // 'deforestation_sv': '',
-                        // 'secondary_vegetation': '',
                         'secondary_vegetation_age': 'projects/mapbiomas-public/assets/brazil/lulc/collection8/mapbiomas_collection80_secondary_vegetation_age_v1',
                     },
-
                     'periods': {
                         'deforestation_sec_vegetation': [
-                            '1986', '1987', 
-                            '1988', '1989', '1990', '1991',
-                            '1992', '1993', '1994', '1995',
-                            '1996', '1997', '1998', '1999',
-                            '2000', '2001', '2002', '2003',
-                            '2004', '2005', '2006', '2007',
-                            '2008', '2009', '2010', '2011',
-                            '2012', '2013', '2014', '2015',
-                            '2016', '2017', '2018', '2019',
-                            '2020', '2021'
+                            '1986', '1987', '1988', '1989',
+                            '1990', '1991', '1992', '1993',
+                            '1994', '1995', '1996', '1997',
+                            '1998', '1999', '2000', '2001',
+                            '2002', '2003', '2004', '2005',
+                            '2006', '2007', '2008', '2009',
+                            '2010', '2011', '2012', '2013',
+                            '2014', '2015', '2016', '2017',
+                            '2018', '2019', '2020', '2021',
+                            '2022'
                         ],
                         'secondary_vegetation': [
-                            '1988', '1989', '1990', '1991',
-                            '1992', '1993', '1994', '1995',
-                            '1996', '1997', '1998', '1999',
-                            '2000', '2001', '2002', '2003',
-                            '2004', '2005', '2006', '2007',
-                            '2008', '2009', '2010', '2011',
-                            '2012', '2013', '2014', '2015',
-                            '2016', '2017', '2018', '2019'
+                            '1986', '1987', '1988', '1989',
+                            '1990', '1991', '1992', '1993',
+                            '1994', '1995', '1996', '1997',
+                            '1998', '1999', '2000', '2001',
+                            '2002', '2003', '2004', '2005',
+                            '2006', '2007', '2008', '2009',
+                            '2010', '2011', '2012', '2013',
+                            '2014', '2015', '2016', '2017',
+                            '2018', '2019', '2020', '2021',
+                            '2022'
                         ],
                         'secondary_vegetation_age': [
-                            '1986', '1987',
-                            '1988', '1989', '1990', '1991',
-                            '1992', '1993', '1994', '1995',
-                            '1996', '1997', '1998', '1999',
-                            '2000', '2001', '2002', '2003',
-                            '2004', '2005', '2006', '2007',
-                            '2008', '2009', '2010', '2011',
-                            '2012', '2013', '2014', '2015',
-                            '2016', '2017', '2018', '2019',
-                            '2020', '2021'
+                            '1986', '1987', '1988', '1989',
+                            '1990', '1991', '1992', '1993',
+                            '1994', '1995', '1996', '1997',
+                            '1998', '1999', '2000', '2001',
+                            '2002', '2003', '2004', '2005',
+                            '2006', '2007', '2008', '2009',
+                            '2010', '2011', '2012', '2013',
+                            '2014', '2015', '2016', '2017',
+                            '2018', '2019', '2020', '2021',
+                            '2022'
                         ],
                         'deforestation_sv': [
                             '1988', '1989', '1990', '1991',
@@ -712,55 +887,52 @@ var App = {
                             '2016', '2017', '2018', '2019'
                         ],
                         'deforestation_pv': [
-                            'deforestation_pv_year'
+                            'deforestation_pv_year',
                         ],
                     },
+                    'encoding': 'x100',
                 },
                 'collection-9.0': {
-                    'assets': { //TODO: Inserir os assets públicos
+                    'assets': {
                         'deforestation_sec_vegetation': 'projects/mapbiomas-public/assets/brazil/lulc/collection9/mapbiomas_collection90_deforestation_secondary_vegetation_v1',
-                        // 'deforestation_pv': ''
-                        // 'deforestation_sv': '',
-                        // 'secondary_vegetation': '',
                         'secondary_vegetation_age': 'projects/mapbiomas-public/assets/brazil/lulc/collection9/mapbiomas_collection90_secondary_vegetation_age_v1',
                     },
-
                     'periods': {
                         'deforestation_sec_vegetation': [
-                            '1986', '1987', 
-                            '1988', '1989', '1990', '1991',
-                            '1992', '1993', '1994', '1995',
-                            '1996', '1997', '1998', '1999',
-                            '2000', '2001', '2002', '2003',
-                            '2004', '2005', '2006', '2007',
-                            '2008', '2009', '2010', '2011',
-                            '2012', '2013', '2014', '2015',
-                            '2016', '2017', '2018', '2019',
-                            '2020', '2021', '2022', '2023'
+                            '1986', '1987', '1988', '1989',
+                            '1990', '1991', '1992', '1993',
+                            '1994', '1995', '1996', '1997',
+                            '1998', '1999', '2000', '2001',
+                            '2002', '2003', '2004', '2005',
+                            '2006', '2007', '2008', '2009',
+                            '2010', '2011', '2012', '2013',
+                            '2014', '2015', '2016', '2017',
+                            '2018', '2019', '2020', '2021',
+                            '2022', '2023'
                         ],
                         'secondary_vegetation': [
-                            '1986', '1987',
-                            '1988', '1989', '1990', '1991',
-                            '1992', '1993', '1994', '1995',
-                            '1996', '1997', '1998', '1999',
-                            '2000', '2001', '2002', '2003',
-                            '2004', '2005', '2006', '2007',
-                            '2008', '2009', '2010', '2011',
-                            '2012', '2013', '2014', '2015',
-                            '2016', '2017', '2018', '2019',
-                            '2020', '2021', '2022', '2023'
+                            '1986', '1987', '1988', '1989',
+                            '1990', '1991', '1992', '1993',
+                            '1994', '1995', '1996', '1997',
+                            '1998', '1999', '2000', '2001',
+                            '2002', '2003', '2004', '2005',
+                            '2006', '2007', '2008', '2009',
+                            '2010', '2011', '2012', '2013',
+                            '2014', '2015', '2016', '2017',
+                            '2018', '2019', '2020', '2021',
+                            '2022', '2023'
                         ],
                         'secondary_vegetation_age': [
-                            '1986', '1987',
-                            '1988', '1989', '1990', '1991',
-                            '1992', '1993', '1994', '1995',
-                            '1996', '1997', '1998', '1999',
-                            '2000', '2001', '2002', '2003',
-                            '2004', '2005', '2006', '2007',
-                            '2008', '2009', '2010', '2011',
-                            '2012', '2013', '2014', '2015',
-                            '2016', '2017', '2018', '2019',
-                            '2020', '2021', '2022', '2023'
+                            '1986', '1987', '1988', '1989',
+                            '1990', '1991', '1992', '1993',
+                            '1994', '1995', '1996', '1997',
+                            '1998', '1999', '2000', '2001',
+                            '2002', '2003', '2004', '2005',
+                            '2006', '2007', '2008', '2009',
+                            '2010', '2011', '2012', '2013',
+                            '2014', '2015', '2016', '2017',
+                            '2018', '2019', '2020', '2021',
+                            '2022', '2023'
                         ],
                         'deforestation_sv': [
                             '1988', '1989', '1990', '1991',
@@ -774,57 +946,52 @@ var App = {
                             '2020', '2021', '2022', '2023'
                         ],
                         'deforestation_pv': [
-                            'deforestation_pv_year'
+                            'deforestation_pv_year',
                         ],
-
-
                     },
+                    'encoding': 'x100',
                 },
                 'collection-10.1': {
-                    'assets': { //TODO: Inserir os assets públicos
+                    'assets': {
                         'deforestation_sec_vegetation': 'projects/mapbiomas-public/assets/brazil/lulc/collection10_1/mapbiomas_brazil_collection10_1_deforestation_secondary_vegetation_v3',
-                        // 'deforestation_pv': ''
-                        // 'deforestation_sv': '',
-                        // 'secondary_vegetation': '',
-                        //'secondary_vegetation_age': 'projects/mapbiomas-public/assets/brazil/lulc/collection9/mapbiomas_collection90_secondary_vegetation_age_v1',
                     },
-
+                    'encoding': 'raw',
                     'periods': {
                         'deforestation_sec_vegetation': [
-                            '1986', '1987', 
-                            '1988', '1989', '1990', '1991',
-                            '1992', '1993', '1994', '1995',
-                            '1996', '1997', '1998', '1999',
-                            '2000', '2001', '2002', '2003',
-                            '2004', '2005', '2006', '2007',
-                            '2008', '2009', '2010', '2011',
-                            '2012', '2013', '2014', '2015',
-                            '2016', '2017', '2018', '2019',
-                            '2020', '2021', '2022', '2023', '2024'
+                            '1987', '1988', '1989', '1990',
+                            '1991', '1992', '1993', '1994',
+                            '1995', '1996', '1997', '1998',
+                            '1999', '2000', '2001', '2002',
+                            '2003', '2004', '2005', '2006',
+                            '2007', '2008', '2009', '2010',
+                            '2011', '2012', '2013', '2014',
+                            '2015', '2016', '2017', '2018',
+                            '2019', '2020', '2021', '2022',
+                            '2023', '2024'
                         ],
                         'secondary_vegetation': [
-                            '1986', '1987',
-                            '1988', '1989', '1990', '1991',
-                            '1992', '1993', '1994', '1995',
-                            '1996', '1997', '1998', '1999',
-                            '2000', '2001', '2002', '2003',
-                            '2004', '2005', '2006', '2007',
-                            '2008', '2009', '2010', '2011',
-                            '2012', '2013', '2014', '2015',
-                            '2016', '2017', '2018', '2019',
-                            '2020', '2021', '2022', '2023', '2024'
+                            '1987', '1988', '1989', '1990',
+                            '1991', '1992', '1993', '1994',
+                            '1995', '1996', '1997', '1998',
+                            '1999', '2000', '2001', '2002',
+                            '2003', '2004', '2005', '2006',
+                            '2007', '2008', '2009', '2010',
+                            '2011', '2012', '2013', '2014',
+                            '2015', '2016', '2017', '2018',
+                            '2019', '2020', '2021', '2022',
+                            '2023', '2024'
                         ],
                         'secondary_vegetation_age': [
-                            '1986', '1987',
-                            '1988', '1989', '1990', '1991',
-                            '1992', '1993', '1994', '1995',
-                            '1996', '1997', '1998', '1999',
-                            '2000', '2001', '2002', '2003',
-                            '2004', '2005', '2006', '2007',
-                            '2008', '2009', '2010', '2011',
-                            '2012', '2013', '2014', '2015',
-                            '2016', '2017', '2018', '2019',
-                            '2020', '2021', '2022', '2023'
+                            '1986', '1987', '1988', '1989',
+                            '1990', '1991', '1992', '1993',
+                            '1994', '1995', '1996', '1997',
+                            '1998', '1999', '2000', '2001',
+                            '2002', '2003', '2004', '2005',
+                            '2006', '2007', '2008', '2009',
+                            '2010', '2011', '2012', '2013',
+                            '2014', '2015', '2016', '2017',
+                            '2018', '2019', '2020', '2021',
+                            '2022', '2023'
                         ],
                         'deforestation_sv': [
                             '1988', '1989', '1990', '1991',
@@ -838,59 +1005,84 @@ var App = {
                             '2020', '2021', '2022', '2023'
                         ],
                         'deforestation_pv': [
-                            'deforestation_pv_year'
+                            'deforestation_pv_year',
                         ],
-
-
+                    },
+                },
+                'collection-11.0': {
+                    'assets': {
+                        'deforestation_sec_vegetation': 'projects/mapbiomas-public/assets/brazil/lulc/collection11/mapbiomas_brazil_collection11_deforestation_secondary_vegetation_v5',
+                    },
+                    'encoding': 'raw',
+                    'periods': {
+                        'deforestation_sec_vegetation': [
+                            '1987', '1988', '1989', '1990',
+                            '1991', '1992', '1993', '1994',
+                            '1995', '1996', '1997', '1998',
+                            '1999', '2000', '2001', '2002',
+                            '2003', '2004', '2005', '2006',
+                            '2007', '2008', '2009', '2010',
+                            '2011', '2012', '2013', '2014',
+                            '2015', '2016', '2017', '2018',
+                            '2019', '2020', '2021', '2022',
+                            '2023', '2024', '2025'
+                        ],
+                        'secondary_vegetation': [
+                            '1987', '1988', '1989', '1990',
+                            '1991', '1992', '1993', '1994',
+                            '1995', '1996', '1997', '1998',
+                            '1999', '2000', '2001', '2002',
+                            '2003', '2004', '2005', '2006',
+                            '2007', '2008', '2009', '2010',
+                            '2011', '2012', '2013', '2014',
+                            '2015', '2016', '2017', '2018',
+                            '2019', '2020', '2021', '2022',
+                            '2023', '2024', '2025'
+                        ],
                     },
                 },
             },
             'mapbiomas-colombia': {
                 'collection-2.0': {
-                    'assets': { //TODO: Inserir os assets públicos
+                    'assets': {
                         'deforestation_sec_vegetation': 'projects/mapbiomas-public/assets/colombia/collection2/mapbiomas_colombia_collection2_deforestation_secondary_vegetation_v1',
-                        // 'deforestation_pv': ''
-                        // 'deforestation_sv': '',
-                        // 'secondary_vegetation': '',
-                        //'secondary_vegetation_age': 'projects/mapbiomas-public/assets/colombia/collection2/mapbiomas_colombia_collection2_secondary_vegetation_age_v1',
                     },
-
                     'periods': {
                         'deforestation_sec_vegetation': [
-                            '1986', '1987', 
-                            '1988', '1989', '1990', '1991',
-                            '1992', '1993', '1994', '1995',
-                            '1996', '1997', '1998', '1999',
-                            '2000', '2001', '2002', '2003',
-                            '2004', '2005', '2006', '2007',
-                            '2008', '2009', '2010', '2011',
-                            '2012', '2013', '2014', '2015',
-                            '2016', '2017', '2018', '2019',
-                            '2020', '2021', '2022', '2023'
+                            '1986', '1987', '1988', '1989',
+                            '1990', '1991', '1992', '1993',
+                            '1994', '1995', '1996', '1997',
+                            '1998', '1999', '2000', '2001',
+                            '2002', '2003', '2004', '2005',
+                            '2006', '2007', '2008', '2009',
+                            '2010', '2011', '2012', '2013',
+                            '2014', '2015', '2016', '2017',
+                            '2018', '2019', '2020', '2021',
+                            '2022', '2023'
                         ],
                         'secondary_vegetation': [
-                            '1986', '1987',
-                            '1988', '1989', '1990', '1991',
-                            '1992', '1993', '1994', '1995',
-                            '1996', '1997', '1998', '1999',
-                            '2000', '2001', '2002', '2003',
-                            '2004', '2005', '2006', '2007',
-                            '2008', '2009', '2010', '2011',
-                            '2012', '2013', '2014', '2015',
-                            '2016', '2017', '2018', '2019',
-                            '2020', '2021', '2022', '2023'
+                            '1986', '1987', '1988', '1989',
+                            '1990', '1991', '1992', '1993',
+                            '1994', '1995', '1996', '1997',
+                            '1998', '1999', '2000', '2001',
+                            '2002', '2003', '2004', '2005',
+                            '2006', '2007', '2008', '2009',
+                            '2010', '2011', '2012', '2013',
+                            '2014', '2015', '2016', '2017',
+                            '2018', '2019', '2020', '2021',
+                            '2022', '2023'
                         ],
                         'secondary_vegetation_age': [
-                            '1986', '1987',
-                            '1988', '1989', '1990', '1991',
-                            '1992', '1993', '1994', '1995',
-                            '1996', '1997', '1998', '1999',
-                            '2000', '2001', '2002', '2003',
-                            '2004', '2005', '2006', '2007',
-                            '2008', '2009', '2010', '2011',
-                            '2012', '2013', '2014', '2015',
-                            '2016', '2017', '2018', '2019',
-                            '2020', '2021', '2022', '2023'
+                            '1986', '1987', '1988', '1989',
+                            '1990', '1991', '1992', '1993',
+                            '1994', '1995', '1996', '1997',
+                            '1998', '1999', '2000', '2001',
+                            '2002', '2003', '2004', '2005',
+                            '2006', '2007', '2008', '2009',
+                            '2010', '2011', '2012', '2013',
+                            '2014', '2015', '2016', '2017',
+                            '2018', '2019', '2020', '2021',
+                            '2022', '2023'
                         ],
                         'deforestation_sv': [
                             '1988', '1989', '1990', '1991',
@@ -904,51 +1096,53 @@ var App = {
                             '2020', '2021', '2022', '2023'
                         ],
                         'deforestation_pv': [
-                            'deforestation_pv_year'
+                            'deforestation_pv_year',
                         ],
                     },
+                    'encoding': 'x100',
                 },
             },
             'mapbiomas-peru': {
                 'collection-2.0': {
-                    'assets': { //TODO: Inserir os assets públicos
+                    'assets': {
                         'deforestation_sec_vegetation': 'projects/mapbiomas-public/assets/peru/collection2/mapbiomas_collection2_deforestation_secondary_vegetation_v1',
-                        // 'deforestation_pv': ''
-                        // 'deforestation_sv': '',
-                        // 'secondary_vegetation': '',
-                        //'secondary_vegetation_age': 'projects/mapbiomas-public/assets/colombia/collection2/mapbiomas_colombia_collection2_secondary_vegetation_age_v1',
                     },
-
                     'periods': {
                         'deforestation_sec_vegetation': [
-                            '1999',
-                            '2000', '2001', '2002', '2003',
-                            '2004', '2005', '2006', '2007',
-                            '2008', '2009', '2010', '2011',
-                            '2012', '2013', '2014', '2015',
-                            '2016', '2017', '2018', '2019',
-                            '2020', '2021', '2022'
+                            '1986', '1987', '1988', '1989',
+                            '1990', '1991', '1992', '1993',
+                            '1994', '1995', '1996', '1997',
+                            '1998', '1999', '2000', '2001',
+                            '2002', '2003', '2004', '2005',
+                            '2006', '2007', '2008', '2009',
+                            '2010', '2011', '2012', '2013',
+                            '2014', '2015', '2016', '2017',
+                            '2018', '2019', '2020', '2021',
+                            '2022'
                         ],
                         'secondary_vegetation': [
-                            '1999',
-                            '2000', '2001', '2002', '2003',
-                            '2004', '2005', '2006', '2007',
-                            '2008', '2009', '2010', '2011',
-                            '2012', '2013', '2014', '2015',
-                            '2016', '2017', '2018', '2019',
-                            '2020', '2021', '2022'
+                            '1986', '1987', '1988', '1989',
+                            '1990', '1991', '1992', '1993',
+                            '1994', '1995', '1996', '1997',
+                            '1998', '1999', '2000', '2001',
+                            '2002', '2003', '2004', '2005',
+                            '2006', '2007', '2008', '2009',
+                            '2010', '2011', '2012', '2013',
+                            '2014', '2015', '2016', '2017',
+                            '2018', '2019', '2020', '2021',
+                            '2022'
                         ],
                         'secondary_vegetation_age': [
-                            '1986', '1987',
-                            '1988', '1989', '1990', '1991',
-                            '1992', '1993', '1994', '1995',
-                            '1996', '1997', '1998', '1999',
-                            '2000', '2001', '2002', '2003',
-                            '2004', '2005', '2006', '2007',
-                            '2008', '2009', '2010', '2011',
-                            '2012', '2013', '2014', '2015',
-                            '2016', '2017', '2018', '2019',
-                            '2020', '2021', '2022', '2023'
+                            '1986', '1987', '1988', '1989',
+                            '1990', '1991', '1992', '1993',
+                            '1994', '1995', '1996', '1997',
+                            '1998', '1999', '2000', '2001',
+                            '2002', '2003', '2004', '2005',
+                            '2006', '2007', '2008', '2009',
+                            '2010', '2011', '2012', '2013',
+                            '2014', '2015', '2016', '2017',
+                            '2018', '2019', '2020', '2021',
+                            '2022', '2023'
                         ],
                         'deforestation_sv': [
                             '1988', '1989', '1990', '1991',
@@ -962,49 +1156,44 @@ var App = {
                             '2020', '2021', '2022', '2023'
                         ],
                         'deforestation_pv': [
-                            'deforestation_pv_year'
+                            'deforestation_pv_year',
                         ],
                     },
+                    'encoding': 'x100',
                 },
                 'collection-3.0': {
-                    'assets': { //TODO: Inserir os assets públicos
+                    'assets': {
                         'deforestation_sec_vegetation': 'projects/mapbiomas-public/assets/peru/collection3/mapbiomas_peru_collection3_deforestation_secondary_vegetation_v4',
-                        // 'deforestation_pv': ''
-                        // 'deforestation_sv': '',
-                        // 'secondary_vegetation': '',
-                        //'secondary_vegetation_age': 'projects/mapbiomas-public/assets/colombia/collection2/mapbiomas_colombia_collection2_secondary_vegetation_age_v1',
+                        'secondary_vegetation_age': 'projects/mapbiomas-public/assets/peru/collection3/mapbiomas_peru_collection3_secondary_vegetation_age_v3',
                     },
-
+                    'encoding': 'raw',
                     'periods': {
                         'deforestation_sec_vegetation': [
-                            '1999',
-                            '2000', '2001', '2002', '2003',
-                            '2004', '2005', '2006', '2007',
-                            '2008', '2009', '2010', '2011',
-                            '2012', '2013', '2014', '2015',
-                            '2016', '2017', '2018', '2019',
-                            '2020', '2021', '2022', '2023', '2024'
+                            '1999', '2000', '2001', '2002',
+                            '2003', '2004', '2005', '2006',
+                            '2007', '2008', '2009', '2010',
+                            '2011', '2012', '2013', '2014',
+                            '2015', '2016', '2017', '2018',
+                            '2019', '2020', '2021', '2022',
+                            '2023', '2024'
                         ],
                         'secondary_vegetation': [
-                            '1999',
-                            '2000', '2001', '2002', '2003',
-                            '2004', '2005', '2006', '2007',
-                            '2008', '2009', '2010', '2011',
-                            '2012', '2013', '2014', '2015',
-                            '2016', '2017', '2018', '2019',
-                            '2020', '2021', '2022', '2023', '2024'
+                            '1999', '2000', '2001', '2002',
+                            '2003', '2004', '2005', '2006',
+                            '2007', '2008', '2009', '2010',
+                            '2011', '2012', '2013', '2014',
+                            '2015', '2016', '2017', '2018',
+                            '2019', '2020', '2021', '2022',
+                            '2023', '2024'
                         ],
                         'secondary_vegetation_age': [
-                            '1986', '1987',
-                            '1988', '1989', '1990', '1991',
-                            '1992', '1993', '1994', '1995',
-                            '1996', '1997', '1998', '1999',
-                            '2000', '2001', '2002', '2003',
-                            '2004', '2005', '2006', '2007',
-                            '2008', '2009', '2010', '2011',
-                            '2012', '2013', '2014', '2015',
-                            '2016', '2017', '2018', '2019',
-                            '2020', '2021', '2022', '2023'
+                            '1999', '2000', '2001', '2002',
+                            '2003', '2004', '2005', '2006',
+                            '2007', '2008', '2009', '2010',
+                            '2011', '2012', '2013', '2014',
+                            '2015', '2016', '2017', '2018',
+                            '2019', '2020', '2021', '2022',
+                            '2023', '2024'
                         ],
                         'deforestation_sv': [
                             '1988', '1989', '1990', '1991',
@@ -1018,13 +1207,205 @@ var App = {
                             '2020', '2021', '2022', '2023'
                         ],
                         'deforestation_pv': [
-                            'deforestation_pv_year'
+                            'deforestation_pv_year',
                         ],
                     },
                 },
-
+                'collection-4.0': {
+                    'assets': {
+                        'deforestation_sec_vegetation': 'projects/mapbiomas-public/assets/peru/collection4/mapbiomas_peru_collection4_deforestation_secondary_vegetation_v2',
+                    },
+                    'encoding': 'raw',
+                    'periods': {
+                        'deforestation_sec_vegetation': [
+                            '1990', '1991', '1992', '1993',
+                            '1994', '1995', '1996', '1997',
+                            '1998', '1999', '2000', '2001',
+                            '2002', '2003', '2004', '2005',
+                            '2006', '2007', '2008', '2009',
+                            '2010', '2011', '2012', '2013',
+                            '2014', '2015', '2016', '2017',
+                            '2018', '2019', '2020', '2021',
+                            '2022', '2023', '2024', '2025'
+                        ],
+                        'secondary_vegetation': [
+                            '1990', '1991', '1992', '1993',
+                            '1994', '1995', '1996', '1997',
+                            '1998', '1999', '2000', '2001',
+                            '2002', '2003', '2004', '2005',
+                            '2006', '2007', '2008', '2009',
+                            '2010', '2011', '2012', '2013',
+                            '2014', '2015', '2016', '2017',
+                            '2018', '2019', '2020', '2021',
+                            '2022', '2023', '2024', '2025'
+                        ],
+                    },
+                },
             },
-     
+            'mapbiomas-bolivia': {
+                'collection-3.0': {
+                    'assets': {
+                        'deforestation_sec_vegetation': 'projects/mapbiomas-public/assets/bolivia/lulc/collection3/mapbiomas_bolivia_collection3_deforestation_secondary_vegetation_v1',
+                        'secondary_vegetation_age': 'projects/mapbiomas-public/assets/bolivia/lulc/collection3/mapbiomas_bolivia_collection3_secondary_vegetation_age_v1',
+                    },
+                    'encoding': 'raw',
+                    'periods': {
+                        'deforestation_sec_vegetation': [
+                            '1985', '1986', '1987', '1988',
+                            '1989', '1990', '1991', '1992',
+                            '1993', '1994', '1995', '1996',
+                            '1997', '1998', '1999', '2000',
+                            '2001', '2002', '2003', '2004',
+                            '2005', '2006', '2007', '2008',
+                            '2009', '2010', '2011', '2012',
+                            '2013', '2014', '2015', '2016',
+                            '2017', '2018', '2019', '2020',
+                            '2021', '2022', '2023', '2024'
+                        ],
+                        'secondary_vegetation': [
+                            '1985', '1986', '1987', '1988',
+                            '1989', '1990', '1991', '1992',
+                            '1993', '1994', '1995', '1996',
+                            '1997', '1998', '1999', '2000',
+                            '2001', '2002', '2003', '2004',
+                            '2005', '2006', '2007', '2008',
+                            '2009', '2010', '2011', '2012',
+                            '2013', '2014', '2015', '2016',
+                            '2017', '2018', '2019', '2020',
+                            '2021', '2022', '2023', '2024'
+                        ],
+                        'secondary_vegetation_age': [
+                            '1985', '1986', '1987', '1988',
+                            '1989', '1990', '1991', '1992',
+                            '1993', '1994', '1995', '1996',
+                            '1997', '1998', '1999', '2000',
+                            '2001', '2002', '2003', '2004',
+                            '2005', '2006', '2007', '2008',
+                            '2009', '2010', '2011', '2012',
+                            '2013', '2014', '2015', '2016',
+                            '2017', '2018', '2019', '2020',
+                            '2021', '2022', '2023', '2024'
+                        ],
+                    },
+                },
+            },
+            'mapbiomas-uruguay': {
+                'collection-3.0': {
+                    'assets': {
+                        'deforestation_sec_vegetation': 'projects/mapbiomas-public/assets/uruguay/lulc/collection3/mapbiomas_uruguay_collection3_deforestation_secondary_vegetation_v1',
+                        'secondary_vegetation_age': 'projects/mapbiomas-public/assets/uruguay/lulc/collection3/mapbiomas_uruguay_collection3_secondary_vegetation_age_v1',
+                    },
+                    'encoding': 'raw',
+                    'periods': {
+                        'deforestation_sec_vegetation': [
+                            '1987', '1988', '1989', '1990',
+                            '1991', '1992', '1993', '1994',
+                            '1995', '1996', '1997', '1998',
+                            '1999', '2000', '2001', '2002',
+                            '2003', '2004', '2005', '2006',
+                            '2007', '2008', '2009', '2010',
+                            '2011', '2012', '2013', '2014',
+                            '2015', '2016', '2017', '2018',
+                            '2019', '2020', '2021', '2022',
+                            '2023', '2024'
+                        ],
+                        'secondary_vegetation': [
+                            '1987', '1988', '1989', '1990',
+                            '1991', '1992', '1993', '1994',
+                            '1995', '1996', '1997', '1998',
+                            '1999', '2000', '2001', '2002',
+                            '2003', '2004', '2005', '2006',
+                            '2007', '2008', '2009', '2010',
+                            '2011', '2012', '2013', '2014',
+                            '2015', '2016', '2017', '2018',
+                            '2019', '2020', '2021', '2022',
+                            '2023', '2024'
+                        ],
+                        'secondary_vegetation_age': [
+                            '1985', '1986', '1987', '1988',
+                            '1989', '1990', '1991', '1992',
+                            '1993', '1994', '1995', '1996',
+                            '1997', '1998', '1999', '2000',
+                            '2001', '2002', '2003', '2004',
+                            '2005', '2006', '2007', '2008',
+                            '2009', '2010', '2011', '2012',
+                            '2013', '2014', '2015', '2016',
+                            '2017', '2018', '2019', '2020',
+                            '2021', '2022', '2023', '2024'
+                        ],
+                    },
+                },
+            },
+            'mapbiomas-paraguay': {
+                'collection-3.0': {
+                    'assets': {
+                        'deforestation_sec_vegetation': 'projects/mapbiomas-public/assets/paraguay/lulc/collection3/mapbiomas_paraguay_collection3_deforestation_secondary_vegetation_v1',
+                    },
+                    'encoding': 'raw',
+                    'periods': {
+                        'deforestation_sec_vegetation': [
+                            '1985', '1986', '1987', '1988',
+                            '1989', '1990', '1991', '1992',
+                            '1993', '1994', '1995', '1996',
+                            '1997', '1998', '1999', '2000',
+                            '2001', '2002', '2003', '2004',
+                            '2005', '2006', '2007', '2008',
+                            '2009', '2010', '2011', '2012',
+                            '2013', '2014', '2015', '2016',
+                            '2017', '2018', '2019', '2020',
+                            '2021', '2022', '2023', '2024',
+                            '2025'
+                        ],
+                        'secondary_vegetation': [
+                            '1985', '1986', '1987', '1988',
+                            '1989', '1990', '1991', '1992',
+                            '1993', '1994', '1995', '1996',
+                            '1997', '1998', '1999', '2000',
+                            '2001', '2002', '2003', '2004',
+                            '2005', '2006', '2007', '2008',
+                            '2009', '2010', '2011', '2012',
+                            '2013', '2014', '2015', '2016',
+                            '2017', '2018', '2019', '2020',
+                            '2021', '2022', '2023', '2024',
+                            '2025'
+                        ],
+                    },
+                },
+            },
+            'mapbiomas-argentina': {
+                'collection-2.0': {
+                    'assets': {
+                        'deforestation_sec_vegetation': 'projects/mapbiomas-public/assets/argentina/lulc/collection2/mapbiomas_argentina_collection2_deforestation_secondary_vegetation_v1',
+                    },
+                    'encoding': 'raw',
+                    'periods': {
+                        'deforestation_sec_vegetation': [
+                            '1985', '1986', '1987', '1988',
+                            '1989', '1990', '1991', '1992',
+                            '1993', '1994', '1995', '1996',
+                            '1997', '1998', '1999', '2000',
+                            '2001', '2002', '2003', '2004',
+                            '2005', '2006', '2007', '2008',
+                            '2009', '2010', '2011', '2012',
+                            '2013', '2014', '2015', '2016',
+                            '2017', '2018', '2019', '2020',
+                            '2021', '2022', '2023', '2024'
+                        ],
+                        'secondary_vegetation': [
+                            '1985', '1986', '1987', '1988',
+                            '1989', '1990', '1991', '1992',
+                            '1993', '1994', '1995', '1996',
+                            '1997', '1998', '1999', '2000',
+                            '2001', '2002', '2003', '2004',
+                            '2005', '2006', '2007', '2008',
+                            '2009', '2010', '2011', '2012',
+                            '2013', '2014', '2015', '2016',
+                            '2017', '2018', '2019', '2020',
+                            '2021', '2022', '2023', '2024'
+                        ],
+                    },
+                },
+            },
         },
 
         bandsNames: { //TODO: ajustar o nome das bandas no asset publico
@@ -1229,6 +1610,33 @@ var App = {
 
     },
 
+    /**
+     * Nome curto do território ativo para camadas e arquivos exportados. Os vetores
+     * ingeridos pela plataforma terminam num UUID, então usamos o rótulo da tabela.
+     */
+    tableShortName: function () {
+        var path = App.options.activeName;
+        var label = null;
+
+        Object.keys(App.options.tables).forEach(function (region) {
+            App.options.tables[region].forEach(function (table) {
+                if (table.value === path) {
+                    label = table.label;
+                }
+            });
+        });
+
+        if (label === null) {
+            return path.split('/').slice(-1)[0];
+        }
+
+        // o Code Editor não tem String.prototype.normalize (ES5)
+        return label.toLowerCase()
+            .replace(/[áàâãä]/g, 'a').replace(/[éèêë]/g, 'e').replace(/[íìîï]/g, 'i')
+            .replace(/[óòôõö]/g, 'o').replace(/[úùûü]/g, 'u').replace(/ç/g, 'c').replace(/ñ/g, 'n')
+            .replace(/[^a-z0-9]+/g, '_').replace(/^_+|_+$/g, '');
+    },
+
     setVersion: function () {
 
         App.ui.form.labelTitle.setValue('MapBiomas User Toolkit ' + App.options.version);
@@ -1239,44 +1647,37 @@ var App = {
 
         Map.centerObject(App.options.data.deforestation_sec_vegetation, 5);
 
-        if (App.options.selectedCollection == 'collection-3.0') {
-
-          var imageLayer = ui.Map.Layer({
-              'eeObject': App.options.data.deforestation_sec_vegetation,//.divide(100).byte(),
-              'visParams': {
-                  'bands': ['classification_' + year],
-                  'palette': App.options.palette.deforestation_sec_vegetation,
-                  'min': App.options.ranges.deforestation_sec_vegetation.min,
-                  'max': App.options.ranges.deforestation_sec_vegetation.max,
-                  'format': 'png'
-              },
-              'name': 'Deforestation and Regeneration',
-              'shown': true,
-              'opacity': 1.0
-          });
-        
-        } else {
-
-          var imageLayer = ui.Map.Layer({
-              'eeObject': App.options.data.deforestation_sec_vegetation.divide(100).byte(),
-              'visParams': {
-                  'bands': ['classification_' + year],
-                  'palette': App.options.palette.deforestation_sec_vegetation,
-                  'min': App.options.ranges.deforestation_sec_vegetation.min,
-                  'max': App.options.ranges.deforestation_sec_vegetation.max,
-                  'format': 'png'
-              },
-              'name': 'Deforestation and Regeneration',
-              'shown': true,
-              'opacity': 1.0
-          });
-
-        }
+        var imageLayer = ui.Map.Layer({
+            'eeObject': App.decodeDeforestation(App.options.data.deforestation_sec_vegetation),
+            'visParams': {
+                'bands': ['classification_' + year],
+                'palette': App.options.palette.deforestation_sec_vegetation,
+                'min': App.options.ranges.deforestation_sec_vegetation.min,
+                'max': App.options.ranges.deforestation_sec_vegetation.max,
+                'format': 'png'
+            },
+            'name': 'Deforestation and Regeneration',
+            'shown': true,
+            'opacity': 1.0
+        });
 
         App.ui.clear();
 
         Map.add(imageLayer);
 
+    },
+
+    isRawEncoding: function () {
+        var collection = App.options.collections[App.options.selectedRegion][App.options.selectedCollection];
+        return collection.encoding === 'raw';
+    },
+
+    /**
+     * Assets antigos ('x100') guardam classe * 100 + cobertura; os novos ('raw') já
+     * trazem a classe (0-7). Ver `encoding` em cada coleção.
+     */
+    decodeDeforestation: function (image) {
+        return App.isRawEncoding() ? image : image.divide(100).byte();
     },
 
     formatName: function (name) {
@@ -1362,19 +1763,8 @@ var App = {
                             App.options.data.deforestation_sec_vegetation = ee.Image(
                                 App.options.collections[regionName][collectioName].assets.deforestation_sec_vegetation);
                                 
-                            if (collectioName == 'collection-7.1') {
-                                App.options.data.secondary_vegetation_age = ee.Image(
-                                    App.options.collections[regionName][collectioName].assets.secondary_vegetation_age);
-                            }
-
-                            if (collectioName == 'collection-8.0') {
-                                App.options.data.secondary_vegetation_age = ee.Image(
-                                    App.options.collections[regionName][collectioName].assets.secondary_vegetation_age);
-                            }
-                            if (collectioName == 'collection-9.0') {
-                                App.options.data.secondary_vegetation_age = ee.Image(
-                                    App.options.collections[regionName][collectioName].assets.secondary_vegetation_age);
-                            }
+                            var ageAsset = App.options.collections[regionName][collectioName].assets.secondary_vegetation_age;
+                            App.options.data.secondary_vegetation_age = ageAsset ? ee.Image(ageAsset) : null;
 
                             //
                             var bandNames = App.options.data.deforestation_sec_vegetation.bandNames()
@@ -1456,7 +1846,7 @@ var App = {
                                 App.ui.loadTable(tableName);
 
                                 App.ui.makeLayersList(
-                                    tableName.split('/').slice(-1)[0],
+                                    App.tableShortName(),
                                     App.options.activeFeature,
                                     App.options.collections[regionName][collectioName]
                                         .periods[App.options.dataType]
@@ -1499,7 +1889,7 @@ var App = {
                 width: 1,
                 fillColor: 'ff000033',
             }), {},
-                tableName.split('/')[3],
+                App.tableShortName(),
                 true);
 
         },
@@ -1519,7 +1909,7 @@ var App = {
                 width: 1,
                 fillColor: 'ff000033',
             }), {},
-                tableName.split('/')[3],
+                App.tableShortName(),
                 true);
 
         },
@@ -1647,7 +2037,7 @@ var App = {
                     App.ui.setDataType(dataType);
 
                     App.ui.makeLayersList(
-                        App.options.activeName.split('/').slice(-1)[0],
+                        App.tableShortName(),
                         App.options.activeFeature,
                         App.options.collections[regionName][collectionName].periods[dataType]);
 
@@ -1666,22 +2056,12 @@ var App = {
         addImageLayer: function (period, label, region) {
 
 
-            if (App.options.selectedDataType == 'deforestation_sec_vegetation'){
-                if (App.options.selectedCollection == 'collection-3.0') {
-                  var image = App.options.data[App.options.dataType]
-                      .select([App.options.bandsNames[App.options.dataType] + period])
-  //                    .divide(100).byte()
-                      .clip(region);
-                } else {
-                  var image = App.options.data[App.options.dataType]
-                      .select([App.options.bandsNames[App.options.dataType] + period])
-                      .divide(100).byte()
-                      .clip(region);
-                }
-            } else {
-                var image = App.options.data[App.options.dataType]
-                    .select([App.options.bandsNames[App.options.dataType] + period])
-                    .clip(region);
+            var image = App.options.data[App.options.dataType]
+                .select([App.options.bandsNames[App.options.dataType] + period])
+                .clip(region);
+
+            if (App.options.selectedDataType == 'deforestation_sec_vegetation') {
+                image = App.decodeDeforestation(image);
             }
 
             var imageLayer = ui.Map.Layer({
@@ -1845,13 +2225,16 @@ var App = {
                     area = ee.FeatureCollection(area).map(
                         function (feature) {
 
-                            var defRegClass = ee.Number(feature.get('class')).divide(100).int16();
-                            var lulcClass = ee.Number(feature.get('class')).mod(100).int16();
+                            // assets 'x100' guardam classe * 100 + cobertura; os 'raw' só a classe (0-7)
+                            var raw = App.isRawEncoding();
+                            var defRegClass = raw ? ee.Number(feature.get('class')).int16() :
+                                ee.Number(feature.get('class')).divide(100).int16();
+                            var lulcClass = raw ? null : ee.Number(feature.get('class')).mod(100).int16();
 
                             var defRegClassName = ee.Dictionary(App.options.className[App.options.dataType])
                                 .get(defRegClass);
 
-                            var lulcClassName = ee.Dictionary(App.options.className.classification)
+                            var lulcClassName = raw ? '' : ee.Dictionary(App.options.className.classification)
                                 .get(lulcClass);
 
                             return feature
@@ -2134,11 +2517,15 @@ var App = {
             selectRegion: ui.Select({
                 'items': [
                     // 'mapbiomas-amazon',
+                    'mapbiomas-argentina',
                     // 'mapbiomas-atlantic-forest',
+                    'mapbiomas-bolivia',
                     'mapbiomas-brazil',
                     'mapbiomas-colombia',
+                    'mapbiomas-paraguay',
                     'mapbiomas-peru',
                     // 'mapbiomas-pampa',
+                    'mapbiomas-uruguay',
                 ],
                 'placeholder': 'None',
                 'style': {
@@ -2201,7 +2588,7 @@ var App = {
                     App.ui.setDataType(dataType);
 
                     App.ui.makeLayersList(
-                        App.options.activeName.split('/').slice(-1)[0],
+                        App.tableShortName(),
                         App.options.activeFeature,
                         App.options.collections[regionName][collectionName].periods[dataType]);
 
@@ -2251,7 +2638,7 @@ var App = {
                         ee.Number(1).evaluate(
                             function (a) {
                                 App.ui.loadTableStates(App.options.activeName);
-                                App.ui.makeLayersList(App.options.activeName.split('/')[3], App.options.activeFeature, App.options.periods[App.options.dataType]);
+                                App.ui.makeLayersList(App.tableShortName(), App.options.activeFeature, App.options.periods[App.options.dataType]);
                                 App.ui.loadPropertiesNames();
                                 App.ui.form.selectDataType.setDisabled(false);
                             }

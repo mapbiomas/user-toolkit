@@ -65,6 +65,12 @@
  *    1.34.0 - Loads mapbiomas-pampa collection 4.0
  *           - Loads mapbiomas-uruguay collection 2.0
  *    1.35.0 - Loads mapbiomas-brasil collection 10.1
+ *    1.36.0 - Loads mapbiomas-brazil collection 11.0
+ *           - Loads atlantic-forest 4.0, colombia 3.0, venezuela 3.0, ecuador 3.0, peru 4.0,
+ *             uruguay 3.0, paraguay 3.0, chile 2.0, argentina 2.0 and 3.0, indonesia 3.0 and 4.1
+ *           - Loads mapbiomas-mexico and mapbiomas-drc collection 1.0
+ *           - Palettes and class names from the MapBiomas platform legends
+ *           - Periods read from the asset bands; territories from the MapBiomas platform
  * 
  * @see
  *      Get the MapBiomas exported data in your "Google Drive/MAPBIOMAS-EXPORT" folder
@@ -152,7 +158,7 @@ var App = {
 
     options: {
 
-        version: '1.34.0',
+        version: '1.36.0',
 
         logo: {
             uri: 'gs://mapbiomas-public/mapbiomas-logos/mapbiomas-logo-horizontal.b64',
@@ -193,784 +199,949 @@ var App = {
         tables: {
             'mapbiomas-brazil': [
                 {
-                    'label': 'Amacro',
-                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/AMACRO',
+                    'label': 'AMACRO (IBGE, 2026)',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-STAGING/BRAZIL/WORKSPACE/AMACRO/AMACRO_v3',
                 },
                 {
-                    'label': 'Ministry of the Environment priority areas 2018',
-                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/AREAS_PRIORITARIAS_DO_MMA_2018',
+                    'label': 'Amazônia Legal (IBGE, 2024)',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-STAGING/BRAZIL/WORKSPACE/LEGAL_AMAZON/LEGAL_AMAZON_v3',
                 },
                 {
-                    'label': 'Atlantic Forest Law',
-                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/ATLANTIC_FOREST_LAW',
+                    'label': 'Atlantic Forest Law 1:1.000.000 (SOS Mata Atlântica, 2015)',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-STAGING/BRAZIL/WORKSPACE/ATLANTIC_FOREST_LAW/ATLANTIC_FOREST_LAW_v3',
                 },
                 {
-                    'label': 'Basin Level 1 DNAEE',
-                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/BASIN_LEVEL_1_DNAEE',
-                },
-                {
-                    'label': 'Basin Level 1 PNRH',
-                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/BASIN_LEVEL_1_PNRH',
-                },
-                {
-                    'label': 'Basin Level 2 DNAEE',
-                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/BASIN_LEVEL_2_DNAEE',
-                },
-                {
-                    'label': 'Basin Level 2 PNRH',
-                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/BASIN_LEVEL_2_PNRH',
-                },
-                {
-                    'label': 'Biomes',
-                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/BIOMES',
-                },
-                {
-                    'label': 'Coastal Marine Zone',
-                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/COASTAL_MARINE_ZONE',
-                },
-                {
-                    'label': 'Forest Concessions',
-                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/CONCESSOES_FLORESTAIS',
-                },
-                {
-                    'label': 'DHN250 Level 1',
-                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/DHN250_LEVEL_1',
-                },
-                {
-                    'label': 'DHN250 Level 2',
-                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/DHN250_LEVEL_2',
-                },
-                {
-                    'label': 'DHN250 Level 3',
-                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/DHN250_LEVEL_3',
-                },
-                {
-                    'label': 'Non-Designated Public Forests',
-                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/FLORESTAS_PUBLICAS_NAO_DESTINADAS',
-                },
-                {
-                    'label': 'Geoparques',
-                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/GEOPARQUES',
-                },
-                {
-                    'label': 'Indigenous Territories',
-                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/INDIGENOUS_TERRITORIES',
-                },
-                {
-                    'label': 'Legal Amazon',
-                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/LEGAL_AMAZON',
-                },
-                {
-                    'label': 'Matopiba',
-                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/MATOPIBA',
-                },
-                {
-                    'label': 'Political Level 1',
-                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/POLITICAL_LEVEL_1',
-                },
-                {
-                    'label': 'Political Level 2',
-                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/POLITICAL_LEVEL_2',
-                },
-                {
-                    'label': 'Political Level 3',
-                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/POLITICAL_LEVEL_3',
-                },
-                {
-                    'label': 'Protected Area',
-                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/PROTECTED_AREA',
-                },
-                {
-                    'label': 'Quilombos',
-                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/QUILOMBOS',
+                    'label': 'Biome (IBGE, 2025)',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/BRAZIL/WORKSPACE/BIOMES/BIOMES_v4',
                 },
                 {
                     'label': 'Biosphere Reserve',
-                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/RESERVA_DA_BIOSFERA',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-STAGING/BRAZIL/WORKSPACE/RESERVA_DA_BIOSFERA/RESERVA_DA_BIOSFERA_v3',
                 },
                 {
-                    'label': 'Semiarid',
-                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/SEMIARID',
+                    'label': 'Biosphere Reserve (RBMA, 2026)',
+                    'value': 'projects/mapbiomas-territories/assets/PLATFORM/demo/mapbiomas/brazil/territories/RESERVA_DA_BIOSFERA_RBMA_2026_A597F0B9/a1cce443-608c-4a32-b313-9918e04e11dd',
                 },
                 {
-                    'label': 'Settlements',
-                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/SETTLEMENTS',
+                    'label': 'Bolsa Verde Territories (MMA, 2026)',
+                    'value': 'projects/mapbiomas-territories/assets/PLATFORM/demo/mapbiomas/brazil/territories/TERRITORIOS_DO_BOLSA_VERDE_MMA_2026_4FCCFE72/ac604980-6a99-4770-a64b-41ab84a10585',
                 },
                 {
-                    'label': 'UGRHS',
-                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/UGRHS',
-                }
+                    'label': 'Brasil (IBGE, 2025)',
+                    'value': 'projects/mapbiomas-territories/assets/PLATFORM/demo/mapbiomas/brazil/territories/BRASIL_IBGE_2025_D71F57FE/cc8a1562-88be-4106-8701-34da9e3a3a40',
+                },
+                {
+                    'label': 'Census Tracts',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/BRAZIL/WORKSPACE/CENSUS_TRACTS/CENSUS_TRACTS_v1',
+                },
+                {
+                    'label': 'Coastal and Marine System (IBGE, 2025)',
+                    'value': 'projects/mapbiomas-territories/assets/PLATFORM/demo/mapbiomas/brazil/territories/SISTEMA_COSTEIRO_E_MARINHO_IBGE_2025_DB52694B/b545395d-1b7c-4f1a-bec1-0c438526c179',
+                },
+                {
+                    'label': 'Concessões Florestais (MMA, 2026)',
+                    'value': 'projects/mapbiomas-territories/assets/PLATFORM/demo/mapbiomas/brazil/territories/CONCESSOES_FLORESTAIS_MMA_2026_61E001B1/5fd69700-34cf-42a5-a563-d290eaec7839',
+                },
+                {
+                    'label': 'Conservation Units (CNUC, 2026)',
+                    'value': 'projects/mapbiomas-territories/assets/PLATFORM/demo/mapbiomas/brazil/territories/UNIDADES_DE_CONSERVACAO_XNUC_2026_8DCD0C0B/ea04ccaf-0ff1-445a-9a29-a551015b0868',
+                },
+                {
+                    'label': 'DHN250 - Level 1 - National Hydrographic Division (ANA, 2017)',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-STAGING/BRAZIL/WORKSPACE/DHN250_LEVEL_1/DHN250_LEVEL_1_v2',
+                },
+                {
+                    'label': 'DHN250 - Level 2 - National Hydrographic Division (ANA, 2017)',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-STAGING/BRAZIL/WORKSPACE/DHN250_LEVEL_2/DHN250_LEVEL_2_v3',
+                },
+                {
+                    'label': 'DHN250 - Level 3 - National Hydrographic Division (ANA, 2017)',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-STAGING/BRAZIL/WORKSPACE/DHN250_LEVEL_3/DHN250_LEVEL_3_v4',
+                },
+                {
+                    'label': 'Estados (IBGE, 2025)',
+                    'value': 'projects/mapbiomas-territories/assets/PLATFORM/demo/mapbiomas/brazil/territories/ESTADOS_IBGE_2025_F7EAF953/3f95fd9d-4b26-4243-8612-37b9d5b12a55',
+                },
+                {
+                    'label': 'Federal watershed Committee',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/BRAZIL/WORKSPACE/FEDERAL_COMMITTEE/FEDERAL_COMMITTEE_v1',
+                },
+                {
+                    'label': 'Florestas Públicas não Destinadas (tipo B) (MMA, 2026)',
+                    'value': 'projects/mapbiomas-territories/assets/PLATFORM/demo/mapbiomas/brazil/territories/FLORESTAS_PUBLICAS_NAO_DESTINADAS_TIPO_B_MMA_2026_FA7D29E9/1f8935c8-0c73-42e2-a3d9-ceb8e063da2d',
+                },
+                {
+                    'label': 'Hydrographic Regions',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/BRAZIL/WORKSPACE/HYDROGRAPHIC_REGIONS/HYDROGRAPHIC_REGIONS_v1',
+                },
+                {
+                    'label': 'Marine Conservation Unit',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/BRAZIL/WORKSPACE/MARINE_CONSERVATION_UNIT/MARINE_CONSERVATION_UNIT_v2',
+                },
+                {
+                    'label': 'MATOPIBA (EMBRAPA, 2025)',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-STAGING/BRAZIL/WORKSPACE/MATOPIBA/MATOPIBA_v3',
+                },
+                {
+                    'label': 'Metropolitan Areas',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/BRAZIL/WORKSPACE/METROPOLITAN_REGIONS/METROPOLITAN_REGIONS_v2',
+                },
+                {
+                    'label': 'Municipal Districts',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/BRAZIL/WORKSPACE/MUNICIPAL_DISTRICTS/MUNICIPAL_DISTRICTS_v2',
+                },
+                {
+                    'label': 'Municipalities .(IBGE, 2025)',
+                    'value': 'projects/mapbiomas-territories/assets/PLATFORM/demo/mapbiomas/brazil/territories/MUNICIPIOS_IBGE_2025_637F97E6/0afdffeb-2a5b-4b93-8163-d52f92f555e5',
+                },
+                {
+                    'label': 'Municipios Prioritários da Amazônia (MMA, 2026)',
+                    'value': 'projects/mapbiomas-territories/assets/PLATFORM/demo/mapbiomas/brazil/territories/MUNICIPIOS_PRIORITARIOS_DA_AMAZONIA_MMA_2026_26694C97/a2f415d9-1408-4c4b-9d02-8e6b6455d202',
+                },
+                {
+                    'label': 'Municípios Costeiros com extensão de 5km na costa (Solved, 2026)',
+                    'value': 'projects/mapbiomas-territories/assets/PLATFORM/demo/mapbiomas/brazil/territories/MUNICIPIOS_COSTEIROS_COM_EXTENSAO_DE_5KM_NA_COSTA_SOLVED_2026_F94FBCCB/82cd7d4f-15d0-4961-a6d8-1a699fb77314',
+                },
+                {
+                    'label': 'Planalto da BAP (ANA, 2021)',
+                    'value': 'projects/mapbiomas-territories/assets/PLATFORM/demo/mapbiomas/brazil/territories/PLANALTO_DA_BAP_ANA_2021_D4F5966E/9cfd02e1-f425-41e1-8364-240a8dbf1b68',
+                },
+                {
+                    'label': 'Priority Area (MMA 2018)',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-STAGING/BRAZIL/WORKSPACE/AREAS_PRIORITARIAS_DO_MMA_2018/AREAS_PRIORITARIAS_DO_MMA_2018_v2',
+                },
+                {
+                    'label': 'Quilombos (INCRA, 2026)',
+                    'value': 'projects/mapbiomas-territories/assets/PLATFORM/demo/mapbiomas/brazil/territories/QUILOMBOS_INCRA_2026_C57B5884/ff433ee4-7137-4845-aa3d-42f66d2b7823',
+                },
+                {
+                    'label': 'Regiões (IBGE, 2025)',
+                    'value': 'projects/mapbiomas-territories/assets/PLATFORM/demo/mapbiomas/brazil/territories/REGIOES_IBGE_2025_2CDBB85D/97f303cb-f543-400c-9c8f-47cc6b9b3a66',
+                },
+                {
+                    'label': 'Risk Sectors IBGE',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/BRAZIL/WORKSPACE/RISK_SECTORS_BATER_IBGE/RISK_SECTORS_BATER_IBGE_v2',
+                },
+                {
+                    'label': 'Rural Census Tracts',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/BRAZIL/WORKSPACE/RURAL_CENSUS_TRACTS/RURAL_CENSUS_TRACTS_v1',
+                },
+                {
+                    'label': 'Slums and Poor Urban Communities',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/BRAZIL/WORKSPACE/SLUMS_AND_POOR_URBAN_COMMUNITIES/SLUMS_AND_POOR_URBAN_COMMUNITIES_v1',
+                },
+                {
+                    'label': 'State Units for Planning and Management of Water Resources',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/BRAZIL/WORKSPACE/STATE_UNITS_PLANNING_MANAGEMENT_WATER_RESOURCES/STATE_UNITS_PLANNING_MANAGEMENT_WATER_RESOURCES_v1',
+                },
+                {
+                    'label': 'State watershed Committee',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/BRAZIL/WORKSPACE/STATE_COMMITTEE/STATE_COMMITTEE_v1',
+                },
+                {
+                    'label': 'Terras Indígenas (FUNAI, 2026)',
+                    'value': 'projects/mapbiomas-territories/assets/PLATFORM/demo/mapbiomas/brazil/territories/TERRAS_INDIGENAS_FUNAI_2026_F7F13F79/8b94c232-c551-4dd1-ac0c-2b40145db021',
+                },
+                {
+                    'label': 'Urban Census Tracts',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/BRAZIL/WORKSPACE/URBAN_CENSUS_TRACTS/URBAN_CENSUS_TRACTS_v1',
+                },
+                {
+                    'label': 'Urban Concentrations',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/BRAZIL/WORKSPACE/URBAN_CONCENTRATION/URBAN_CONCENTRATION_v2',
+                },
+                {
+                    'label': 'Water Resources Management Unit',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-STAGING/BRAZIL/WORKSPACE/UGRHS/UGRHS_v3',
+                },
             ],
             'mapbiomas-amazon': [
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/PAN-AMAZONIA/COLLECTION6/WORKSPACE/BIOMES_ALL",
-                    "label": "Biomes"
+                    'label': 'Biome',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/PAN-AMAZONIA/WORKSPACE/BIOMES_ALL/BIOMES_ALL_v5',
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/PAN-AMAZONIA/COLLECTION6/WORKSPACE/CUENCAS_NIVEL_1_ALL",
-                    "label": "Level 1 Watersheds"
+                    'label': 'Departmental Protected Areas',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/PAN-AMAZONIA/WORKSPACE/PROTECTED_AREAS_DEPTALES/PROTECTED_AREAS_DEPTALES_v2',
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/PAN-AMAZONIA/COLLECTION6/WORKSPACE/INDIGENOUS_TERRITORIES",
-                    "label": "Indigenous Territories"
+                    'label': 'Indigenous Territories',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/PAN-AMAZONIA/WORKSPACE/INDIGENOUS_TERRITORIES/INDIGENOUS_TERRITORIES_v2',
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/PAN-AMAZONIA/COLLECTION6/WORKSPACE/LIMITERAISG",
-                    "label": "Raisg Boundaries"
+                    'label': 'Level 1 Watershed',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/PAN-AMAZONIA/WORKSPACE/CUENCAS_NIVEL_1_ALL/CUENCAS_NIVEL_1_ALL_v3',
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/PAN-AMAZONIA/COLLECTION6/WORKSPACE/PROTECTED_AREAS_DEPTALES",
-                    "label": "Departmental Protected Areas"
+                    'label': 'National Protected Area',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/PAN-AMAZONIA/WORKSPACE/PROTECTED_AREAS_NACIONALES/PROTECTED_AREAS_NACIONALES_v2',
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/PAN-AMAZONIA/COLLECTION6/WORKSPACE/PROTECTED_AREAS_NACIONALES",
-                    "label": "National Protected Areas"
-                }
+                    'label': 'RAISG',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/PAN-AMAZONIA/WORKSPACE/LIMITERAISG/LIMITERAISG_v4',
+                },
             ],
             'mapbiomas-chaco': [
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/CHACO/COLLECTION5/WORKSPACE/BIOMES",
-                    "label": "Biomas"
+                    'label': 'Biome',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/CHACO/WORKSPACE/BIOMES/BIOMES_v3',
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/CHACO/COLLECTION5/WORKSPACE/POLITICAL_LEVEL_1",
-                    "label": "Nível Político 1"
+                    'label': 'Country',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/CHACO/WORKSPACE/POLITICAL_LEVEL_1/POLITICAL_LEVEL_1_v2',
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/CHACO/COLLECTION5/WORKSPACE/POLITICAL_LEVEL_2",
-                    "label": "Nível Político 2"
+                    'label': 'Political level 2',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/CHACO/WORKSPACE/POLITICAL_LEVEL_2/POLITICAL_LEVEL_2_v2',
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/CHACO/COLLECTION5/WORKSPACE/POLITICAL_LEVEL_3",
-                    "label": "Nível Político 3"
+                    'label': 'Political level 3',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/CHACO/WORKSPACE/POLITICAL_LEVEL_3/POLITICAL_LEVEL_3_v1',
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/CHACO/COLLECTION5/WORKSPACE/PROTECTED_AREA",
-                    "label": "Área Protegida"
+                    'label': 'Protected Areas',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/CHACO/WORKSPACE/PROTECTED_AREA/PROTECTED_AREA_v1',
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/CHACO/COLLECTION5/WORKSPACE/RAMSAR_SITES",
-                    "label": "Sítios Ramsar"
-                }
+                    'label': 'Ramsar sites',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/CHACO/WORKSPACE/RAMSAR_SITES/RAMSAR_SITES_v1',
+                },
             ],
             'mapbiomas-atlantic-forest': [
                 {
-                    'value': "projects/mapbiomas_af_trinacional/ANCILLARY_DATA/STATISTICS/COLLECTION2/atlantic_forest_limit",
-                    'label': 'atlantic_forest_limit'
+                    'label': 'Basin Level 2',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/ATLANTIC-FOREST/WORKSPACE/BASIN_LEVEL_2/BASIN_LEVEL_2_v1',
                 },
                 {
-                    'value': "projects/mapbiomas_af_trinacional/ANCILLARY_DATA/STATISTICS/COLLECTION2/city",
-                    'label': 'city'
+                    'label': 'Biome',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/ATLANTIC-FOREST/WORKSPACE/BIOMES/BIOMES_v1',
                 },
                 {
-                    'value': "projects/mapbiomas_af_trinacional/ANCILLARY_DATA/STATISTICS/COLLECTION2/country",
-                    'label': 'country'
+                    'label': 'Biosphere Reserve',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/ATLANTIC-FOREST/WORKSPACE/RESERVA_DA_BIOSFERA/RESERVA_DA_BIOSFERA_v1',
                 },
                 {
-                    'value': "projects/mapbiomas_af_trinacional/ANCILLARY_DATA/STATISTICS/COLLECTION2/indigenous_land",
-                    'label': 'indigenous_land'
+                    'label': 'Indigenous Territory',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/ATLANTIC-FOREST/WORKSPACE/INDIGENOUS_TERRITORIES/INDIGENOUS_TERRITORIES_v1',
                 },
                 {
-                    'value': "projects/mapbiomas_af_trinacional/ANCILLARY_DATA/STATISTICS/COLLECTION2/international_protected_areas",
-                    'label': 'international_protected_areas'
+                    'label': 'National Protected Areas',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/ATLANTIC-FOREST/WORKSPACE/NATIONAL_PROTECTED_AREAS/NATIONAL_PROTECTED_AREAS_v1',
                 },
                 {
-                    'value': "projects/mapbiomas_af_trinacional/ANCILLARY_DATA/STATISTICS/COLLECTION2/national_protected_areas",
-                    'label': 'national_protected_areas'
+                    'label': 'Political Level 1',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/ATLANTIC-FOREST/WORKSPACE/POLITICAL_LEVEL_1/POLITICAL_LEVEL_1_v1',
                 },
                 {
-                    'value': "projects/mapbiomas_af_trinacional/ANCILLARY_DATA/STATISTICS/COLLECTION2/level_2_drainage_basin",
-                    'label': 'level_2_drainage_basin'
+                    'label': 'Political Level 2',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/ATLANTIC-FOREST/WORKSPACE/POLITICAL_LEVEL_2/POLITICAL_LEVEL_2_v1',
                 },
                 {
-                    'value': "projects/mapbiomas_af_trinacional/ANCILLARY_DATA/STATISTICS/COLLECTION2/state",
-                    'label': 'state'
+                    'label': 'Political Level 3',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/ATLANTIC-FOREST/WORKSPACE/POLITICAL_LEVEL_3/POLITICAL_LEVEL_3_v1',
                 },
             ],
             'mapbiomas-pampa': [
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/PAMPA/COLLECTION4/WORKSPACE/BASIN_LEVEL_1",
-                    "label": "Basin Level 1"
+                    'label': 'Biome',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/PAMPA/WORKSPACE/BIOMES/BIOMES_v1',
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/PAMPA/COLLECTION4/WORKSPACE/INDIGENOUS_TERRITORIES",
-                    "label": "Indigenous Territories"
+                    'label': 'Country',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/PAMPA/WORKSPACE/POLITICAL_LEVEL_1/POLITICAL_LEVEL_1_v1',
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/PAMPA/COLLECTION4/WORKSPACE/PAMPA_TRINACIONAL_LIMIT",
-                    "label": "Pampa Trinational Limit"
+                    'label': 'Ecorregion',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/PAMPA/WORKSPACE/ECORREGION/ECORREGION_v1',
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/PAMPA/COLLECTION4/WORKSPACE/PHYTOGEOGRAPHIC_PROVINCES",
-                    "label": "Phytogeographic Provinces"
+                    'label': 'Indigenous Territories',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/PAMPA/WORKSPACE/INDIGENOUS_TERRITORIES/INDIGENOUS_TERRITORIES_v1',
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/PAMPA/COLLECTION4/WORKSPACE/POLITICAL_LEVEL_1",
-                    "label": "Political Level 1"
+                    'label': 'Political Level 2',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/PAMPA/WORKSPACE/POLITICAL_LEVEL_2/POLITICAL_LEVEL_2_v1',
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/PAMPA/COLLECTION4/WORKSPACE/POLITICAL_LEVEL_2",
-                    "label": "Political Level 2"
+                    'label': 'Political Level 3',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/PAMPA/WORKSPACE/POLITICAL_LEVEL_3/POLITICAL_LEVEL_3_v1',
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/PAMPA/COLLECTION4/WORKSPACE/POLITICAL_LEVEL_3",
-                    "label": "Political Level 3"
+                    'label': 'Protected Areas',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/PAMPA/WORKSPACE/PROTECTED_AREAS/PROTECTED_AREAS_v1',
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/PAMPA/COLLECTION4/WORKSPACE/PROTECTED_AREA",
-                    "label": "Protected Area"
+                    'label': 'Quilombo',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/PAMPA/WORKSPACE/QUILOMBOS/QUILOMBOS_v1',
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/PAMPA/COLLECTION4/WORKSPACE/QUILOMBOS",
-                    "label": "Quilombos"
-                }
+                    'label': 'Watershed',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/PAMPA/WORKSPACE/WATERSHED/WATERSHED_v1',
+                },
             ],
             'mapbiomas-indonesia': [
                 {
-                    'label': 'coastal_line',
-                    'value': 'projects/mapbiomas-indonesia/ANCILLARY_DATA/STATISTICS/COLLECTION2/VERSION-2/coastal_line'
+                    'label': 'Country Limit',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-STAGING/INDONESIA/WORKSPACE/POLITICAL_LEVEL_1/POLITICAL_LEVEL_1_v4',
                 },
                 {
-                    'label': 'island_group',
-                    'value': 'projects/mapbiomas-indonesia/ANCILLARY_DATA/STATISTICS/COLLECTION2/VERSION-2/island_group'
+                    'label': 'District',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-STAGING/INDONESIA/WORKSPACE/POLITICAL_LEVEL_4/POLITICAL_LEVEL_4_v2',
                 },
                 {
-                    'label': 'district',
-                    'value': 'projects/mapbiomas-indonesia/ANCILLARY_DATA/STATISTICS/COLLECTION2/VERSION-2/district'
+                    'label': 'Forestry Concession',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-STAGING/INDONESIA/WORKSPACE/FOREST_CONCESSION/FOREST_CONCESSION_v1',
                 },
                 {
-                    'label': 'province',
-                    'value': 'projects/mapbiomas-indonesia/ANCILLARY_DATA/STATISTICS/COLLECTION2/VERSION-2/province'
+                    'label': 'Indigenous Forest',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-STAGING/INDONESIA/WORKSPACE/INDIGENOUS_FOREST/INDIGENOUS_FOREST_v1',
                 },
                 {
-                    'label': 'sub_district',
-                    'value': 'projects/mapbiomas-indonesia/ANCILLARY_DATA/STATISTICS/COLLECTION2/VERSION-2/sub_district'
+                    'label': 'Island Group',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-STAGING/INDONESIA/WORKSPACE/POLITICAL_LEVEL_2/POLITICAL_LEVEL_2_v3',
                 },
                 {
-                    'label': 'village',
-                    'value': 'projects/mapbiomas-indonesia/ANCILLARY_DATA/STATISTICS/COLLECTION2/VERSION-2/village'
+                    'label': 'Key Biodiversity Area',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-STAGING/INDONESIA/WORKSPACE/KEY_BIODIVERSITY_AREA/KEY_BIODIVERSITY_AREA_v1',
+                },
+                {
+                    'label': 'Mining Concession',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-STAGING/INDONESIA/WORKSPACE/MINING_CONCESSION/MINING_CONCESSION_v3',
+                },
+                {
+                    'label': 'Moratorium Area',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-STAGING/INDONESIA/WORKSPACE/FOREST_MORATORIUM/FOREST_MORATORIUM_v2',
+                },
+                {
+                    'label': 'National Park',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-STAGING/INDONESIA/WORKSPACE/NATIONAL_PARK/NATIONAL_PARK_v1',
+                },
+                {
+                    'label': 'New National Capital',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-STAGING/INDONESIA/WORKSPACE/NEW_NATIONAL_CAPITAL/NEW_NATIONAL_CAPITAL_v2',
+                },
+                {
+                    'label': 'Oil Palm Concession',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-STAGING/INDONESIA/WORKSPACE/OIL_PALM_CONCESSION/OIL_PALM_CONCESSION_v2',
+                },
+                {
+                    'label': 'Orangutan Habitat',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-STAGING/INDONESIA/WORKSPACE/ORANGUTAN_HABITAT/ORANGUTAN_HABITAT_v3',
+                },
+                {
+                    'label': 'Other Conservation Area',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-STAGING/INDONESIA/WORKSPACE/OTHER_CONSERVATION_AREA/OTHER_CONSERVATION_AREA_v1',
+                },
+                {
+                    'label': 'Peatland Area',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-STAGING/INDONESIA/WORKSPACE/PEATLAND_ECOLOGICAL_ZONE/PEATLAND_ECOLOGICAL_ZONE_v2',
+                },
+                {
+                    'label': 'Province',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-STAGING/INDONESIA/WORKSPACE/POLITICAL_LEVEL_3/POLITICAL_LEVEL_3_v2',
+                },
+                {
+                    'label': 'Restoration Area',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-STAGING/INDONESIA/WORKSPACE/RESTORATION_AREA/RESTORATION_AREA_v1',
+                },
+                {
+                    'label': 'Rhino Habitat',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-STAGING/INDONESIA/WORKSPACE/RHINOCEROS_HABITAT/RHINOCEROS_HABITAT_v2',
+                },
+                {
+                    'label': 'Social Forestry Area',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-STAGING/INDONESIA/WORKSPACE/SOCIAL_FORESTRY_AREA/SOCIAL_FORESTRY_AREA_v2',
+                },
+                {
+                    'label': 'Sub-District',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-STAGING/INDONESIA/WORKSPACE/POLITICAL_LEVEL_5/POLITICAL_LEVEL_5_v3',
+                },
+                {
+                    'label': 'Sumatran Elephant Habitat',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-STAGING/INDONESIA/WORKSPACE/SUMATRAN_ELEPHANT_HABITAT/SUMATRAN_ELEPHANT_HABITAT_v1',
+                },
+                {
+                    'label': 'Sumatran Tiger Habitat',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-STAGING/INDONESIA/WORKSPACE/SUMATRAN_TIGER_HABITAT/SUMATRAN_TIGER_HABITAT_v3',
+                },
+                {
+                    'label': 'Village',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-STAGING/INDONESIA/WORKSPACE/POLITICAL_LEVEL_6/POLITICAL_LEVEL_6_v3',
+                },
+                {
+                    'label': 'Wallacea',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/INDONESIA/WORKSPACE/WALLACEA/WALLACEA_v2',
+                },
+                {
+                    'label': 'Watershed',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-STAGING/INDONESIA/WORKSPACE/WATERSHED/WATERSHED_v1',
                 },
             ],
             'mapbiomas-peru': [
                 {
-                    "value": "projects/mapbiomas-raisg/PERU/DATOS_AUXILIARES/ESTADISTICAS/COLECCION1/nivel-politico-1",
-                    "label": "nivel-politico-1"
+                    'label': 'Afforestation and Reforestation Concession',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-STAGING/PERU/WORKSPACE/AFFORESTATION_AND_REFORESTATION_CONCESSION/AFFORESTATION_AND_REFORESTATION_CONCESSION_v1',
                 },
                 {
-                    "value": "projects/mapbiomas-raisg/PERU/DATOS_AUXILIARES/ESTADISTICAS/COLECCION1/nivel-politico-2",
-                    "label": "nivel-politico-2"
+                    'label': 'Biome',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-STAGING/PERU/WORKSPACE/BIOMES/BIOMES_v1',
                 },
                 {
-                    "value": "projects/mapbiomas-raisg/PERU/DATOS_AUXILIARES/ESTADISTICAS/COLECCION1/nivel-politico-3",
-                    "label": "nivel-politico-3"
+                    'label': 'Biosphere Reserve',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-STAGING/PERU/WORKSPACE/RESERVA_DA_BIOSFERA/RESERVA_DA_BIOSFERA_v1',
                 },
                 {
-                    "value": "projects/mapbiomas-raisg/PERU/DATOS_AUXILIARES/ESTADISTICAS/COLECCION1/nivel-politico-4",
-                    "label": "nivel-politico-4"
+                    'label': 'Conservation Concession',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-STAGING/PERU/WORKSPACE/CONSERVATION_CONCESSION/CONSERVATION_CONCESSION_v1',
                 },
                 {
-                    "value": "projects/mapbiomas-raisg/PERU/DATOS_AUXILIARES/ESTADISTICAS/COLECCION1/bioma-pais",
-                    "label": "bioma-pais"
+                    'label': 'Country',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-STAGING/PERU/WORKSPACE/POLITICAL_LEVEL_1/POLITICAL_LEVEL_1_v1',
                 },
                 {
-                    "value": "projects/mapbiomas-raisg/PERU/DATOS_AUXILIARES/ESTADISTICAS/COLECCION1/area-conservacion-privada",
-                    "label": "area-conservacion-privada"
+                    'label': 'District',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-STAGING/PERU/WORKSPACE/POLITICAL_LEVEL_4/POLITICAL_LEVEL_4_v1',
                 },
                 {
-                    "value": "projects/mapbiomas-raisg/PERU/DATOS_AUXILIARES/ESTADISTICAS/COLECCION1/area-conservacion-regional",
-                    "label": "area-conservacion-regional"
+                    'label': 'Ecoregion',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-STAGING/PERU/WORKSPACE/ECORREGION/ECORREGION_v1',
                 },
                 {
-                    "value": "projects/mapbiomas-raisg/PERU/DATOS_AUXILIARES/ESTADISTICAS/COLECCION1/area-natural-protegida",
-                    "label": "area-natural-protegida"
+                    'label': 'Ecotourism Concession',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-STAGING/PERU/WORKSPACE/ECOTOURISM_CONCESSION/ECOTOURISM_CONCESSION_v1',
                 },
                 {
-                    "value": "projects/mapbiomas-raisg/PERU/DATOS_AUXILIARES/ESTADISTICAS/COLECCION1/comunidad-campesina-reconocida",
-                    "label": "comunidad-campesina-reconocida"
+                    'label': 'Ecozone',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-STAGING/PERU/WORKSPACE/ECOZONE/ECOZONE_v1',
                 },
                 {
-                    "value": "projects/mapbiomas-raisg/PERU/DATOS_AUXILIARES/ESTADISTICAS/COLECCION1/comunidad-campesina-titulada",
-                    "label": "comunidad-campesina-titulada"
+                    'label': 'Forest Concession for Timber Production',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-STAGING/PERU/WORKSPACE/TIMBER_CONCESSION/TIMBER_CONCESSION_v1',
                 },
                 {
-                    "value": "projects/mapbiomas-raisg/PERU/DATOS_AUXILIARES/ESTADISTICAS/COLECCION1/comunidad-nativa-solicitud",
-                    "label": "comunidad-nativa-solicitud"
+                    'label': 'Fragile ecosystem',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-STAGING/PERU/WORKSPACE/FRAGILE_ECOSYSTEM/FRAGILE_ECOSYSTEM_v1',
                 },
                 {
-                    "value": "projects/mapbiomas-raisg/PERU/DATOS_AUXILIARES/ESTADISTICAS/COLECCION1/comunidad-nativa-titulada",
-                    "label": "comunidad-nativa-titulada"
+                    'label': 'Geographical region',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-STAGING/PERU/WORKSPACE/REGION_GEOGRAFICA/REGION_GEOGRAFICA_v1',
                 },
                 {
-                    "value": "projects/mapbiomas-raisg/PERU/DATOS_AUXILIARES/ESTADISTICAS/COLECCION1/ecozona",
-                    "label": "ecozona"
+                    'label': 'Local Forest',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-STAGING/PERU/WORKSPACE/LOCAL_FOREST/LOCAL_FOREST_v1',
                 },
                 {
-                    "value": "projects/mapbiomas-raisg/PERU/DATOS_AUXILIARES/ESTADISTICAS/COLECCION1/region-geografica",
-                    "label": "region-geografica"
+                    'label': 'Mountain Ranges',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-STAGING/PERU/WORKSPACE/MOUNTAIN_RANGES/MOUNTAIN_RANGES_v1',
                 },
                 {
-                    "value": "projects/mapbiomas-raisg/PERU/DATOS_AUXILIARES/ESTADISTICAS/COLECCION1/reserva-indigena",
-                    "label": "reserva-indigena"
+                    'label': 'Permanent Production Forest',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-STAGING/PERU/WORKSPACE/PERMANENT_PRODUCTION_FOREST/PERMANENT_PRODUCTION_FOREST_v1',
                 },
                 {
-                    "value": "projects/mapbiomas-raisg/PERU/DATOS_AUXILIARES/ESTADISTICAS/COLECCION1/reserva-territorial",
-                    "label": "reserva-territorial"
+                    'label': 'Private Conservation Area',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-STAGING/PERU/WORKSPACE/PRIVATE_CONSERVATION_AREAS/PRIVATE_CONSERVATION_AREAS_v1',
                 },
                 {
-                    "value": "projects/mapbiomas-raisg/PERU/DATOS_AUXILIARES/ESTADISTICAS/COLECCION1/unidad-hidrografica",
-                    "label": "unidad-hidrografica"
-                }
-
+                    'label': 'Province',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/PERU/WORKSPACE/POLITICAL_LEVEL_3/POLITICAL_LEVEL_3_v2',
+                },
+                {
+                    'label': 'Recognized Peasant Community',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-STAGING/PERU/WORKSPACE/RECOGNIZED_PEASANT_COMMUNITY/RECOGNIZED_PEASANT_COMMUNITY_v1',
+                },
+                {
+                    'label': 'Region',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-STAGING/PERU/WORKSPACE/POLITICAL_LEVEL_2/POLITICAL_LEVEL_2_v1',
+                },
+                {
+                    'label': 'Regional Conservation Area',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-STAGING/PERU/WORKSPACE/REGIONAL_CONSERVATION_AREAS/REGIONAL_CONSERVATION_AREAS_v1',
+                },
+                {
+                    'label': 'Reserva Indígena',
+                    'value': 'projects/mapbiomas-territories/assets/PLATFORM/demo/mapbiomas/peru/territories/RESERVA_INDIGENA_6E4F75E5/faf9488e-579f-484b-93d6-25bfdff3b107',
+                },
+                {
+                    'label': 'Solicitud de titulación',
+                    'value': 'projects/mapbiomas-territories/assets/PLATFORM/demo/mapbiomas/peru/territories/SOLICITUD_DE_TITULACION_4ACD554F/675c0402-f60a-4325-9ebb-456fc6783311',
+                },
+                {
+                    'label': 'Territorial reserve',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-STAGING/PERU/WORKSPACE/LAND_RESERVE/LAND_RESERVE_v1',
+                },
+                {
+                    'label': 'Titled Native Community',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-STAGING/PERU/WORKSPACE/TITLED_NATIVE_COMMUNITY/TITLED_NATIVE_COMMUNITY_v1',
+                },
+                {
+                    'label': 'Watershed level 1',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-STAGING/PERU/WORKSPACE/BASIN_LEVEL_1/BASIN_LEVEL_1_v1',
+                },
+                {
+                    'label': 'Watershed level 2',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-STAGING/PERU/WORKSPACE/BASIN_LEVEL_2/BASIN_LEVEL_2_v1',
+                },
+                {
+                    'label': 'Watershed level 3',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-STAGING/PERU/WORKSPACE/BASIN_LEVEL_3/BASIN_LEVEL_3_v1',
+                },
+                {
+                    'label': 'Watershed level 4',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-STAGING/PERU/WORKSPACE/BASIN_LEVEL_4/BASIN_LEVEL_4_v1',
+                },
+                {
+                    'label': 'Wildlife Management Area Concession',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-STAGING/PERU/WORKSPACE/WILDLIFE_MANAGEMENT_AREA_CONCESSION/WILDLIFE_MANAGEMENT_AREA_CONCESSION_v1',
+                },
+                {
+                    'label': 'Zona de amortiguamiento',
+                    'value': 'projects/mapbiomas-territories/assets/PLATFORM/demo/mapbiomas/peru/territories/ZONA_DE_AMORTIGUAMIENTO_7FAB1B05/e378dcab-fca7-4bdc-95fd-07ec69cb3d17',
+                },
+                {
+                    'label': 'Área natural protegida',
+                    'value': 'projects/mapbiomas-territories/assets/PLATFORM/demo/mapbiomas/peru/territories/AREA_NATURAL_PROTEGIDA_76E84300/a3d27bcf-5e0b-4321-8ce9-91e369030435',
+                },
             ],
             'mapbiomas-bolivia': [
                 {
-                    'value': 'projects/mapbiomas-raisg/BOLIVIA/DATOS_AUXILIARES/ESTADISTICAS/COLECCION1/area-protegida-nacional',
-                    'label': 'area-protegida-nacional'
+                    'label': 'Basin Level 1',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/BOLIVIA/WORKSPACE/CH_LEVEL_1/CH_LEVEL_1_v2',
                 },
                 {
-                    'value': 'projects/mapbiomas-raisg/BOLIVIA/DATOS_AUXILIARES/ESTADISTICAS/COLECCION1/area-protegida-subnacional',
-                    'label': 'area-protegida-subnacional'
+                    'label': 'Basin Level 2',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/BOLIVIA/WORKSPACE/CH_LEVEL_2/CH_LEVEL_2_v2',
                 },
                 {
-                    'value': 'projects/mapbiomas-raisg/BOLIVIA/DATOS_AUXILIARES/ESTADISTICAS/COLECCION1/bioma-pais',
-                    'label': 'bioma-pais'
+                    'label': 'Biome',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/BOLIVIA/WORKSPACE/BIOMES/BIOMES_v1',
                 },
                 {
-                    'value': 'projects/mapbiomas-raisg/BOLIVIA/DATOS_AUXILIARES/ESTADISTICAS/COLECCION1/cuenca-hidrografica-nivel1',
-                    'label': 'cuenca-hidrografica-nivel1'
+                    'label': 'Country',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/BOLIVIA/WORKSPACE/POLITICAL_LEVEL_1/POLITICAL_LEVEL_1_v1',
                 },
                 {
-                    'value': 'projects/mapbiomas-raisg/BOLIVIA/DATOS_AUXILIARES/ESTADISTICAS/COLECCION1/cuenca-hidrografica-nivel2',
-                    'label': 'cuenca-hidrografica-nivel2'
+                    'label': 'Department',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/BOLIVIA/WORKSPACE/POLITICAL_LEVEL_2/POLITICAL_LEVEL_2_v2',
                 },
                 {
-                    'value': 'projects/mapbiomas-raisg/BOLIVIA/DATOS_AUXILIARES/ESTADISTICAS/COLECCION1/departamento',
-                    'label': 'departamento'
+                    'label': 'Ecoregion',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/BOLIVIA/WORKSPACE/ECORREGION/ECORREGION_v1',
                 },
                 {
-                    'value': 'projects/mapbiomas-raisg/BOLIVIA/DATOS_AUXILIARES/ESTADISTICAS/COLECCION1/ecorregion',
-                    'label': 'ecorregion'
+                    'label': 'Indigenous Territory',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/BOLIVIA/WORKSPACE/INDIGENOUS_TERRITORIES/INDIGENOUS_TERRITORIES_v2',
                 },
                 {
-                    'value': 'projects/mapbiomas-raisg/BOLIVIA/DATOS_AUXILIARES/ESTADISTICAS/COLECCION1/municipio',
-                    'label': 'municipio'
+                    'label': 'Municipality',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/BOLIVIA/WORKSPACE/POLITICAL_LEVEL_3/POLITICAL_LEVEL_3_v2',
                 },
                 {
-                    'value': 'projects/mapbiomas-raisg/BOLIVIA/DATOS_AUXILIARES/ESTADISTICAS/COLECCION1/pais',
-                    'label': 'pais'
+                    'label': 'National Protected Area',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/BOLIVIA/WORKSPACE/PROTECTED_AREAS_NACIONALES/PROTECTED_AREAS_NACIONALES_v2',
                 },
                 {
-                    'value': 'projects/mapbiomas-raisg/BOLIVIA/DATOS_AUXILIARES/ESTADISTICAS/COLECCION1/sitios-ramsar',
-                    'label': 'sitios-ramsar'
+                    'label': 'Ramsar Sites',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/BOLIVIA/WORKSPACE/RAMSAR_SITES/RAMSAR_SITES_v2',
                 },
                 {
-                    'value': 'projects/mapbiomas-raisg/BOLIVIA/DATOS_AUXILIARES/ESTADISTICAS/COLECCION1/territorio-indigena-titulado',
-                    'label': 'territorio-indigena-titulado'
-                }
+                    'label': 'Subnational Protected Area',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/BOLIVIA/WORKSPACE/PROTECTED_AREA_SUBNATIONAL/PROTECTED_AREA_SUBNATIONAL_v2',
+                },
             ],
             'mapbiomas-colombia': [
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/COLOMBIA/COLLECTION2/WORKSPACE/BASIN_LEVEL_1",
-                    "label": "Basin Level 1"
+                    'label': 'Biomes',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/COLOMBIA/WORKSPACE/BIOMES/BIOMES_v1',
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/COLOMBIA/COLLECTION2/WORKSPACE/BASIN_LEVEL_2",
-                    "label": "Basin Level 2"
+                    'label': 'Country',
+                    'value': 'projects/mapbiomas-territories/assets/PLATFORM/demo/mapbiomas/colombia/territories/NIVEL_POLITICO_1_702287F6/a8e40af2-14e4-4286-8ba2-498ebbd6213f',
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/COLOMBIA/COLLECTION2/WORKSPACE/BASIN_LEVEL_3",
-                    "label": "Basin Level 3"
+                    'label': 'Departmental Protected Areas',
+                    'value': 'projects/mapbiomas-territories/assets/PLATFORM/demo/mapbiomas/colombia/territories/AREA_NATURAL_PROTEGIDA_DEPARTAMENTAL_3A57466D/d7d6e181-fa6e-4195-b05a-d0f040b579f6',
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/COLOMBIA/COLLECTION2/WORKSPACE/BIOMES_PAIS",
-                    "label": "Country Biomes"
+                    'label': 'Indigenous Reserve',
+                    'value': 'projects/mapbiomas-territories/assets/PLATFORM/demo/mapbiomas/colombia/territories/RESGUARDO_INDIGENA_20EEC6ED/3b6a3676-3ccc-4890-bc95-48d3d0f65dad',
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/COLOMBIA/COLLECTION2/WORKSPACE/BOSQUE_SECO_TROPICAL",
-                    "label": "Tropical Dry Forest"
+                    'label': 'National Protected Areas',
+                    'value': 'projects/mapbiomas-territories/assets/PLATFORM/demo/mapbiomas/colombia/territories/AREA_NATURAL_PROTEGIDA_NACIONAL_82D4B280/e122952e-631e-4a22-bc00-dc4a1822ec42',
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/COLOMBIA/COLLECTION2/WORKSPACE/CHOCO_BIOGEOGRAFICO",
-                    "label": "Choco Biogeographic Region"
+                    'label': 'Political Level - 1',
+                    'value': 'projects/mapbiomas-territories/assets/PLATFORM/demo/mapbiomas/colombia/territories/NIVEL_POLITICO_1_0C5BADC9/a8e40af2-14e4-4286-8ba2-498ebbd6213f',
                 },
-                {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/COLOMBIA/COLLECTION2/WORKSPACE/COMPLEJO_GLACIARES",
-                    "label": "Glacier Complex"
-                },
-                {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/COLOMBIA/COLLECTION2/WORKSPACE/CONSEJOS_COMUNITARIOS",
-                    "label": "Community Councils"
-                },
-                {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/COLOMBIA/COLLECTION2/WORKSPACE/COUNTRY_REGIONS",
-                    "label": "Country Regions"
-                },
-                {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/COLOMBIA/COLLECTION2/WORKSPACE/GLACIARES",
-                    "label": "Glaciers"
-                },
-                {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/COLOMBIA/COLLECTION2/WORKSPACE/LIMITES_CAR",
-                    "label": "CAR Limits"
-                },
-                {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/COLOMBIA/COLLECTION2/WORKSPACE/PARAMOS",
-                    "label": "Páramos"
-                },
-                {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/COLOMBIA/COLLECTION2/WORKSPACE/POLITICAL_LEVEL_1",
-                    "label": "Political Level 1"
-                },
-                {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/COLOMBIA/COLLECTION2/WORKSPACE/POLITICAL_LEVEL_2",
-                    "label": "Political Level 2"
-                },
-                {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/COLOMBIA/COLLECTION2/WORKSPACE/POLITICAL_LEVEL_3",
-                    "label": "Political Level 3"
-                },
-                {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/COLOMBIA/COLLECTION2/WORKSPACE/PROTECTED_AREAS_DEPTALES",
-                    "label": "Departmental Protected Areas"
-                },
-                {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/COLOMBIA/COLLECTION2/WORKSPACE/PROTECTED_AREAS_NACIONALES",
-                    "label": "National Protected Areas"
-                },
-                {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/COLOMBIA/COLLECTION2/WORKSPACE/RAISG_AMAZON_COUNTRY",
-                    "label": "Amazon RAISG Country"
-                },
-                {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/COLOMBIA/COLLECTION2/WORKSPACE/RAMSAR_SITES",
-                    "label": "Ramsar Sites"
-                },
-                {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/COLOMBIA/COLLECTION2/WORKSPACE/RESERVAS_FORESTALES_LEY_2",
-                    "label": "Forest Reserves (Law 2)"
-                },
-                {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/COLOMBIA/COLLECTION2/WORKSPACE/RESGUARDOS_INDIGENAS",
-                    "label": "Indigenous Reserves"
-                },
-                {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/COLOMBIA/COLLECTION2/WORKSPACE/ZONAS_DE_RESERVA_CAMPESINA",
-                    "label": "Peasant Reserve Zones"
-                }
             ],
             'mapbiomas-venezuela': [
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/VENEZUELA/COLLECTION2/WORKSPACE/BASIN_LEVEL_1_PNRH",
-                    "label": "Basin Level 1"
+                    'label': 'Administrative Regions',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/VENEZUELA/WORKSPACE/ADMINISTRATIVE_REGIONS/ADMINISTRATIVE_REGIONS_v1',
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/VENEZUELA/COLLECTION2/WORKSPACE/BIOMES",
-                    "label": "Biomes"
+                    'label': 'Biome',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/VENEZUELA/WORKSPACE/BIOMES/BIOMES_v2',
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/VENEZUELA/COLLECTION2/WORKSPACE/INDIGENOUS_TERRITORIES",
-                    "label": "Indigenous Territories"
+                    'label': 'Country',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/VENEZUELA/WORKSPACE/POLITICAL_LEVEL_1/POLITICAL_LEVEL_1_v4',
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/VENEZUELA/COLLECTION2/WORKSPACE/PHYSIOGRAPHIC_REGIONS",
-                    "label": "Physiographic Regions"
+                    'label': 'Indigenous Territory',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/VENEZUELA/WORKSPACE/INDIGENOUS_TERRITORIES/INDIGENOUS_TERRITORIES_v2',
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/VENEZUELA/COLLECTION2/WORKSPACE/POLITICAL_LEVEL_1",
-                    "label": "Political Level 1"
+                    'label': 'Municipality',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/VENEZUELA/WORKSPACE/POLITICAL_LEVEL_3/POLITICAL_LEVEL_3_v4',
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/VENEZUELA/COLLECTION2/WORKSPACE/POLITICAL_LEVEL_2",
-                    "label": "Political Level 2"
+                    'label': 'National Protected Areas',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/VENEZUELA/WORKSPACE/PROTECTED_AREA/PROTECTED_AREA_v5',
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/VENEZUELA/COLLECTION2/WORKSPACE/POLITICAL_LEVEL_3",
-                    "label": "Political Level 3"
+                    'label': 'Physiographic Regions',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/VENEZUELA/WORKSPACE/PHYSIOGRAPHIC_REGIONS/PHYSIOGRAPHIC_REGIONS_v2',
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/VENEZUELA/COLLECTION2/WORKSPACE/PROTECTED_AREA",
-                    "label": "Protected Area"
-                }
+                    'label': 'State',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/VENEZUELA/WORKSPACE/POLITICAL_LEVEL_2/POLITICAL_LEVEL_2_v5',
+                },
+                {
+                    'label': 'Venezuela and marine areas',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/VENEZUELA/WORKSPACE/VENEZUELA_AND_MARINE_AREAS/VENEZUELA_AND_MARINE_AREAS_v2',
+                },
+                {
+                    'label': 'Watershed',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/VENEZUELA/WORKSPACE/BASIN_LEVEL_1_PNRH/BASIN_LEVEL_1_PNRH_v3',
+                },
             ],
             'mapbiomas-uruguay': [
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/URUGUAY/COLLECTION2/WORKSPACE/BASIN_LEVEL_1",
-                    "label": "Basin Level 1"
+                    'label': 'Country',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/URUGUAY/WORKSPACE/POLITICAL_LEVEL_1/POLITICAL_LEVEL_1_v4',
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/URUGUAY/COLLECTION2/WORKSPACE/BASIN_LEVEL_2",
-                    "label": "Basin Level 2"
+                    'label': 'Department',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/URUGUAY/WORKSPACE/POLITICAL_LEVEL_2/POLITICAL_LEVEL_2_v4',
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/URUGUAY/COLLECTION2/WORKSPACE/ECORREGION",
-                    "label": "Ecoregion"
+                    'label': 'Ecoregion',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/URUGUAY/WORKSPACE/ECORREGION/ECORREGION_v2',
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/URUGUAY/COLLECTION2/WORKSPACE/POLITICAL_LEVEL_1",
-                    "label": "Political Level 1"
+                    'label': 'Level 1 Watershed',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/URUGUAY/WORKSPACE/BASIN_LEVEL_1/BASIN_LEVEL_1_v1',
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/URUGUAY/COLLECTION2/WORKSPACE/POLITICAL_LEVEL_2",
-                    "label": "Political Level 2"
-                }
+                    'label': 'Level 2 Watershed',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/URUGUAY/WORKSPACE/BASIN_LEVEL_2/BASIN_LEVEL_2_v3',
+                },
+                {
+                    'label': 'Municipality',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/URUGUAY/WORKSPACE/POLITICAL_LEVEL_3/POLITICAL_LEVEL_3_v2',
+                },
             ],
             'mapbiomas-ecuador': [
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/ECUADOR/COLLECTION2/WORKSPACE/ACUS",
-                    "label": "ACUS"
+                    'label': 'Bosque Protectores (MAE, 2026)',
+                    'value': 'projects/mapbiomas-territories/assets/PLATFORM/demo/mapbiomas/ecuador/territories/BOSQUE_PROTECTORES_MAE_2026_B077057C/ee1b57fb-7883-4ddb-b5f1-6869964f0b18',
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/ECUADOR/COLLECTION2/WORKSPACE/ACUS_PRIVADAS",
-                    "label": "Private ACUS"
+                    'label': 'Cantón (CONALI, 2024)',
+                    'value': 'projects/mapbiomas-territories/assets/PLATFORM/demo/mapbiomas/ecuador/territories/CANTON_CONALI_2024_C9AC2C60/9b670ed0-5c97-4c6e-8d9b-8825e8bdff41',
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/ECUADOR/COLLECTION2/WORKSPACE/AREAS_PROTEGIDAS_COMUNITARIAS",
-                    "label": "Community Protected Areas"
+                    'label': 'Corredor de Conectividad (MAE, 2026)',
+                    'value': 'projects/mapbiomas-territories/assets/PLATFORM/demo/mapbiomas/ecuador/territories/CORREDOR_DE_CONECTIVIDAD_MAE_2026_95D544CD/aafa307f-9254-4ab3-8e64-b43085c6046a',
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/ECUADOR/COLLECTION2/WORKSPACE/AREAS_PROTEGIDAS_PRIVADAS",
-                    "label": "Private Protected Areas"
+                    'label': 'Demarcación Hidrográfica (MAE, 2026)',
+                    'value': 'projects/mapbiomas-territories/assets/PLATFORM/demo/mapbiomas/ecuador/territories/DEMARCACION_HIDROGRAFICA_MAE_2026_0ED02A8A/c3397dc7-a5a8-46a7-91c9-6c08276c60f8',
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/ECUADOR/COLLECTION2/WORKSPACE/BASIN_LEVEL_1",
-                    "label": "Basin Level 1"
+                    'label': 'Glaciares (EcoCiencia, 2026)',
+                    'value': 'projects/mapbiomas-territories/assets/PLATFORM/demo/mapbiomas/ecuador/territories/GLACIARES_ECOCIENCIA_2026_9955AE63/d6bb6f20-1645-4c38-a1e7-45af02236cf2',
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/ECUADOR/COLLECTION2/WORKSPACE/BASIN_LEVEL_2",
-                    "label": "Basin Level 2"
+                    'label': 'Límite del Biocorredor Amazónico (TNC, 2026)',
+                    'value': 'projects/mapbiomas-territories/assets/PLATFORM/demo/mapbiomas/ecuador/territories/LIMITE_DEL_BIOCORREDOR_AMAZONICO_TNC_2026_B7C6E76C/5c81818f-55ae-4335-8e17-5c64ce64b72c',
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/ECUADOR/COLLECTION2/WORKSPACE/BASIN_LEVEL_3",
-                    "label": "Basin Level 3"
+                    'label': 'Límite RAISG (EcoCiencia, 2026)',
+                    'value': 'projects/mapbiomas-territories/assets/PLATFORM/demo/mapbiomas/ecuador/territories/LIMITE_RAISG_ECOCIENCIA_2026_A4F3560D/68995b92-fd7f-4417-a269-773bc15acb7f',
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/ECUADOR/COLLECTION2/WORKSPACE/BASIN_LEVEL_4",
-                    "label": "Basin Level 4"
+                    'label': 'OMEC (MAE, 2026)',
+                    'value': 'projects/mapbiomas-territories/assets/PLATFORM/demo/mapbiomas/ecuador/territories/OMEC_MAE_2026_0321683C/d8266a90-17b7-4d2a-ab5b-483e9d96107c',
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/ECUADOR/COLLECTION2/WORKSPACE/BIOMES_PAIS",
-                    "label": "Country vs Biomes"
+                    'label': 'Pais (CONALI, 2024)',
+                    'value': 'projects/mapbiomas-territories/assets/PLATFORM/demo/mapbiomas/ecuador/territories/PAIS_CONALI_2024_FAF4EE04/871e971c-59d4-4eb7-9af1-c4f1fb7d660b',
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/ECUADOR/COLLECTION2/WORKSPACE/BOSQUE",
-                    "label": "Forest"
+                    'label': 'Parroquia (CONALI, 2024)',
+                    'value': 'projects/mapbiomas-territories/assets/PLATFORM/demo/mapbiomas/ecuador/territories/PARROQUIA_CONALI_2024_16528A13/e11f1da6-00f0-48c1-8169-53c0aa261b60',
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/ECUADOR/COLLECTION2/WORKSPACE/CONNECTIVITY_CORRIDOR",
-                    "label": "Connectivity Corridor"
+                    'label': 'Provincia (CONALI, 2024)',
+                    'value': 'projects/mapbiomas-territories/assets/PLATFORM/demo/mapbiomas/ecuador/territories/PROVINCIA_CONALI_2024_E47848F9/6c1e7dab-556d-43b6-a760-28db1153f87a',
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/ECUADOR/COLLECTION2/WORKSPACE/DEMARCACION_HIDROGRAFICA",
-                    "label": "Hydrographic Demarcation"
+                    'label': 'Región Geográfica (EcoCiencia, 2026)',
+                    'value': 'projects/mapbiomas-territories/assets/PLATFORM/demo/mapbiomas/ecuador/territories/REGION_GEOGRAFICA_ECOCIENCIA_2026_DF0CF7B1/f5099b75-65fa-4bb7-b5d4-dc2031e3cb4d',
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/ECUADOR/COLLECTION2/WORKSPACE/ECOSISTEMAS",
-                    "label": "Ecosystems"
+                    'label': 'Reserva de la Biosfera (MAE, 2026)',
+                    'value': 'projects/mapbiomas-territories/assets/PLATFORM/demo/mapbiomas/ecuador/territories/RESERVA_DE_LA_BIOSFERA_MAE_2026_16D2A0C7/490cabb0-5ce2-454d-b199-3d7c79822d1f',
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/ECUADOR/COLLECTION2/WORKSPACE/ESTRATO_POTENCIAL",
-                    "label": "Potential Stratum"
+                    'label': 'Sistema Nacional de Áreas Protegidas (MAE, 2026)',
+                    'value': 'projects/mapbiomas-territories/assets/PLATFORM/demo/mapbiomas/ecuador/territories/SISTEMA_NACIONAL_DE_AREAS_PROTEGIDAS_MAE_2026_234E88B5/833e9c0a-e0c7-453f-adac-617735f6c434',
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/ECUADOR/COLLECTION2/WORKSPACE/GLACIARES",
-                    "label": "Glaciers"
+                    'label': 'Sitios Ramsar (MAE, 2026)',
+                    'value': 'projects/mapbiomas-territories/assets/PLATFORM/demo/mapbiomas/ecuador/territories/SITIOS_RAMSAR_MAE_2026_CAE05452/29b95d96-5a61-499a-9589-4169bf3298e1',
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/ECUADOR/COLLECTION2/WORKSPACE/INDIGENOUS_TERRITORIES",
-                    "label": "Indigenous Territories"
+                    'label': 'Territorios Indígenas (EcoCiencia, 2026)',
+                    'value': 'projects/mapbiomas-territories/assets/PLATFORM/demo/mapbiomas/ecuador/territories/TERRITORIOS_INDIGENAS_ECOCIENCIA_2026_8CFAA0EC/647ebbfa-f6cc-4e15-8f36-1fdf30944363',
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/ECUADOR/COLLECTION2/WORKSPACE/PATRIMONIO_FORESTAL",
-                    "label": "Forestry Heritage"
+                    'label': 'Unidad Hodrográfica 1 (MAE, 2026)',
+                    'value': 'projects/mapbiomas-territories/assets/PLATFORM/demo/mapbiomas/ecuador/territories/UNIDAD_HODROGRAFICA_1_MAE_2026_B8FBE324/ebfe31f0-6216-491a-9a93-a73e62be17c4',
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/ECUADOR/COLLECTION2/WORKSPACE/POLITICAL_LEVEL_1",
-                    "label": "Political Level 1"
+                    'label': 'Unidad Hodrográfica 2 (MAE, 2026)',
+                    'value': 'projects/mapbiomas-territories/assets/PLATFORM/demo/mapbiomas/ecuador/territories/UNIDAD_HODROGRAFICA_2_MAE_2026_2BC487D5/5353231c-691c-4e69-86a7-b15f412e1834',
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/ECUADOR/COLLECTION2/WORKSPACE/POLITICAL_LEVEL_2",
-                    "label": "Political Level 2"
+                    'label': 'Unidad Hodrográfica 3 (MAE, 2026)',
+                    'value': 'projects/mapbiomas-territories/assets/PLATFORM/demo/mapbiomas/ecuador/territories/UNIDAD_HODROGRAFICA_3_MAE_2026_AD92BA80/c493a6f2-ee44-4b74-913c-2a06dd7f6ea1',
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/ECUADOR/COLLECTION2/WORKSPACE/POLITICAL_LEVEL_3",
-                    "label": "Political Level 3"
+                    'label': 'Unidad Hodrográfica 4 (MAE, 2026)',
+                    'value': 'projects/mapbiomas-territories/assets/PLATFORM/demo/mapbiomas/ecuador/territories/UNIDAD_HODROGRAFICA_4_MAE_2026_9C10B7CB/e58a34e0-4888-4c52-b24c-3370345e1902',
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/ECUADOR/COLLECTION2/WORKSPACE/POLITICAL_LEVEL_4",
-                    "label": "Political Level 4"
+                    'label': 'Zona de Recarga Hídrica (MAE, 2026)',
+                    'value': 'projects/mapbiomas-territories/assets/PLATFORM/demo/mapbiomas/ecuador/territories/ZONA_DE_RECARGA_HIDRICA_MAE_2026_1BB0281F/7b44a9cd-2ba5-41d1-8a2c-cafc2f3555a4',
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/ECUADOR/COLLECTION2/WORKSPACE/PROTECCION_HIDRICA",
-                    "label": "Water Protection"
+                    'label': 'Zonas de Protección Amazónica (EcoCiencia, 2026)',
+                    'value': 'projects/mapbiomas-territories/assets/PLATFORM/demo/mapbiomas/ecuador/territories/ZONAS_DE_PROTECCION_AMAZONICA_ECOCIENCIA_2026_A39314DE/1ef84470-65da-452d-bdd7-41fe1e51911a',
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/ECUADOR/COLLECTION2/WORKSPACE/PROTECTED_AREAS_NACIONALES",
-                    "label": "National Protected Areas"
+                    'label': 'Área de Conservacióin y Uso Sostenible (NCI, 2024)',
+                    'value': 'projects/mapbiomas-territories/assets/PLATFORM/demo/mapbiomas/ecuador/territories/AREA_DE_CONSERVACIOIN_Y_USO_SOSTENIBLE_NCI_2024_32D02A52/4995c385-72a6-4025-90ab-3f37d817bae3',
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/ECUADOR/COLLECTION2/WORKSPACE/PROTECTED_AREA_SUBNATIONAL",
-                    "label": "Subnational Protected Areas"
+                    'label': 'Área de Conservacióin y Uso Sostenible Privadas (EcoCiencia, 2026)',
+                    'value': 'projects/mapbiomas-territories/assets/PLATFORM/demo/mapbiomas/ecuador/territories/AREA_DE_CONSERVACIOIN_Y_USO_SOSTENIBLE_PRIVADAS_ECOCIENCIA_2026_1F76723C/9ae6bdec-5b30-4558-9598-8ad7cbeb1c0b',
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/ECUADOR/COLLECTION2/WORKSPACE/RAMSAR_SITES",
-                    "label": "Ramsar Sites"
+                    'label': 'Área Natural Protegida Provincial (MAE, 2026)',
+                    'value': 'projects/mapbiomas-territories/assets/PLATFORM/demo/mapbiomas/ecuador/territories/AREA_NATURAL_PROTEGIDA_PROVINCIAL_MAE_2026_66FF5A2E/faa3cd39-771c-496f-bfe4-8dd0f449decf',
                 },
                 {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/ECUADOR/COLLECTION2/WORKSPACE/RECARGA_HIDRICA",
-                    "label": "Water Recharge"
+                    'label': 'Áreas de Protección Hídrica (MAE, 2026)',
+                    'value': 'projects/mapbiomas-territories/assets/PLATFORM/demo/mapbiomas/ecuador/territories/AREAS_DE_PROTECCION_HIDRICA_MAE_2026_047EE9CE/2ac301b3-352c-4075-91b0-a374673d2959',
                 },
-                {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/ECUADOR/COLLECTION2/WORKSPACE/REGION_GEOGRAFICA",
-                    "label": "Geographic Region"
-                },
-                {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/ECUADOR/COLLECTION2/WORKSPACE/RESERVA_DA_BIOSFERA",
-                    "label": "Biosphere Reserve"
-                },
-                {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/ECUADOR/COLLECTION2/WORKSPACE/RESERVA_MARINA",
-                    "label": "Marine Reserve"
-                },
-                {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/ECUADOR/COLLECTION2/WORKSPACE/SOCIO_BOSQUE",
-                    "label": "Socio Bosque Program"
-                },
-                {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/ECUADOR/COLLECTION2/WORKSPACE/UNIDAD_BIOGEOGRAFICA",
-                    "label": "Biogeographic Unit"
-                },
-                {
-                    "value": "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/ECUADOR/COLLECTION2/WORKSPACE/ZONAS_PROTECCION_AMAZONICA",
-                    "label": "Amazon Protection Zones"
-                }
             ],
             'mapbiomas-paraguay': [
                 {
-                    "value": "projects/mapbiomas-chaco/MAPBIOMAS-PARAGUAY/DATOS-AUXILIARES/ESTADISTICAS/COLECCION1/VERSION-1/nivel_politico_1",
-                    "label": "Nível Político 1"
+                    'label': 'Ecorregiones Dinerstein (DINERTTEIN, 1995)',
+                    'value': 'projects/mapbiomas-territories/assets/PLATFORM/demo/mapbiomas/paraguay/territories/ECORREGIONES_DINERSTEIN_DINERTTEIN_1995_5BDBA83B/1f599108-9da4-4b94-adc4-4f5746d7889a',
                 },
                 {
-                    "value": "projects/mapbiomas-chaco/MAPBIOMAS-PARAGUAY/DATOS-AUXILIARES/ESTADISTICAS/COLECCION1/VERSION-1/nivel_politico_2",
-                    "label": "Nível Político 2"
+                    'label': 'Ecorregiones Paraguay (SEAM, 2013)',
+                    'value': 'projects/mapbiomas-territories/assets/PLATFORM/demo/mapbiomas/paraguay/territories/ECORREGIONES_PARAGUAY_SEAM_2013_576969F6/02c84b77-2754-42fc-a847-8127997ba4b0',
                 },
                 {
-                    "value": "projects/mapbiomas-chaco/MAPBIOMAS-PARAGUAY/DATOS-AUXILIARES/ESTADISTICAS/COLECCION1/VERSION-1/nivel_politico_3",
-                    "label": "Nível Político 3"
+                    'label': 'Nivel Politico 1 (Servicio Nacional de Catastro, 2024)',
+                    'value': 'projects/mapbiomas-territories/assets/PLATFORM/demo/mapbiomas/paraguay/territories/NIVEL_POLITICO_1_SERVICIO_NACIONAL_DE_CATASTRO_2024_1C3C87EF/1b0759e9-76c6-4b3d-9127-db1772da0683',
                 },
                 {
-                    "value": "projects/mapbiomas-chaco/MAPBIOMAS-PARAGUAY/DATOS-AUXILIARES/ESTADISTICAS/COLECCION1/VERSION-1/regiones",
-                    "label": "Regiões"
+                    'label': 'Nivel Politico 2 (Servicio Nacional de Catastro, 2024)',
+                    'value': 'projects/mapbiomas-territories/assets/PLATFORM/demo/mapbiomas/paraguay/territories/NIVEL_POLITICO_2_SERVICIO_NACIONAL_DE_CATASTRO_2024_BF678EE7/968a3bcd-e17a-4dc1-9fdc-a95a39c3e770',
                 },
                 {
-                    "value": "projects/mapbiomas-chaco/MAPBIOMAS-PARAGUAY/DATOS-AUXILIARES/ESTADISTICAS/COLECCION1/VERSION-1/ecorregiones_dinerstein",
-                    "label": "Ecorregiões Dinerstein"
+                    'label': 'Nivel Politico 3 (Servicio Nacional de Catastro, 2024)',
+                    'value': 'projects/mapbiomas-territories/assets/PLATFORM/demo/mapbiomas/paraguay/territories/NIVEL_POLITICO_3_SERVICIO_NACIONAL_DE_CATASTRO_2024_F0C8BC32/002a36c2-4bba-498a-bbd1-a7945d730651',
                 },
                 {
-                    "value": "projects/mapbiomas-chaco/MAPBIOMAS-PARAGUAY/DATOS-AUXILIARES/ESTADISTICAS/COLECCION1/VERSION-1/ecorregiones_seam",
-                    "label": "Ecorregiões SEAM"
+                    'label': 'Reserva de la Biosfera (Ministerio del Ambiente y Desarrollo Sostenible, 2022)',
+                    'value': 'projects/mapbiomas-territories/assets/PLATFORM/demo/mapbiomas/paraguay/territories/RESERVA_DE_LA_BIOSFERA_MINISTERIO_DEL_AMBIENTE_Y_DESARROLLO_SOSTENIBLE_2022_FC4291BD/d7f52f57-d24c-4113-9e6e-09903433d45f',
                 },
                 {
-                    "value": "projects/mapbiomas-chaco/MAPBIOMAS-PARAGUAY/DATOS-AUXILIARES/ESTADISTICAS/COLECCION1/VERSION-1/areas_silvestres_protegidas",
-                    "label": "Áreas Silvestres Protegidas"
+                    'label': 'Sitios Ramsar (WWF, 2013)',
+                    'value': 'projects/mapbiomas-territories/assets/PLATFORM/demo/mapbiomas/paraguay/territories/SITIOS_RAMSAR_WWF_2013_A5FE46D6/3aff578c-ff21-4963-9a69-be4d93b81ab1',
                 },
                 {
-                    "value": "projects/mapbiomas-chaco/MAPBIOMAS-PARAGUAY/DATOS-AUXILIARES/ESTADISTICAS/COLECCION1/VERSION-1/reserva_de_la_biosfera",
-                    "label": "Reserva da Biosfera"
+                    'label': 'Territorios Indígenas (Federación por la Autodeterminación de los Pueblos Indígenas, 2017)',
+                    'value': 'projects/mapbiomas-territories/assets/PLATFORM/demo/mapbiomas/paraguay/territories/TERRITORIOS_INDIGENAS_FEDERACION_POR_LA_AUTODETERMINACION_DE_LOS_PUEBLOS_INDIGENAS_2017_812392F7/0e281a13-900f-4d1c-ad64-cf572f14a326',
                 },
                 {
-                    "value": "projects/mapbiomas-chaco/MAPBIOMAS-PARAGUAY/DATOS-AUXILIARES/ESTADISTICAS/COLECCION1/VERSION-1/sitios_ramsar",
-                    "label": "Sitios Ramsar"
+                    'label': 'Área Silvestre Protegida (Ministerio del Ambiente y Desarrollo Sostenible, 2022)',
+                    'value': 'projects/mapbiomas-territories/assets/PLATFORM/demo/mapbiomas/paraguay/territories/AREA_SILVESTRE_PROTEGIDA_MINISTERIO_DEL_AMBIENTE_Y_DESARROLLO_SOSTENIBLE_2022_7DDE49F3/e16a8ee9-24c4-44c8-88b0-4b6b2dc86d1d',
                 },
-                {
-                    "value": "projects/mapbiomas-chaco/MAPBIOMAS-PARAGUAY/DATOS-AUXILIARES/ESTADISTICAS/COLECCION1/VERSION-1/comunidades_indigenas",
-                    "label": "Comunidades Indígenas"
-                }
-
             ],
             'mapbiomas-chile': [
                 {
-                    "value": "projects/mapbiomas-chile/assets/ANCILLARY_DATA/STATISTICS/COLLECTION1/VERSION-1/nivel-politico-1",
-                    "label": "Nível Político 1"
+                    'label': 'Basins',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/CHILE/WORKSPACE/BASIN_LEVEL_1/BASIN_LEVEL_1_v2',
                 },
                 {
-                    "value": "projects/mapbiomas-chile/assets/ANCILLARY_DATA/STATISTICS/COLLECTION1/VERSION-1/nivel-politico-2",
-                    "label": "Nível Político 2"
+                    'label': 'Commune',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/CHILE/WORKSPACE/POLITICAL_LEVEL_4/POLITICAL_LEVEL_4_v2',
                 },
                 {
-                    "value": "projects/mapbiomas-chile/assets/ANCILLARY_DATA/STATISTICS/COLLECTION1/VERSION-1/nivel-politico-3",
-                    "label": "Nível Político 3"
+                    'label': 'Country',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/CHILE/WORKSPACE/POLITICAL_LEVEL_1/POLITICAL_LEVEL_1_v4',
                 },
                 {
-                    "value": "projects/mapbiomas-chile/assets/ANCILLARY_DATA/STATISTICS/COLLECTION1/VERSION-1/nivel-politico-4",
-                    "label": "Nível Político 4"
+                    'label': 'Ecoregion',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/CHILE/WORKSPACE/ECORREGION/ECORREGION_v5',
                 },
                 {
-                    "value": "projects/mapbiomas-chile/assets/ANCILLARY_DATA/STATISTICS/COLLECTION1/VERSION-1/cuencas",
-                    "label": "Cuencas"
+                    'label': 'Glaciological Macro-zones',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/CHILE/WORKSPACE/GLACIER_MACROZONES/GLACIER_MACROZONES_v9',
                 },
                 {
-                    "value": "projects/mapbiomas-chile/assets/ANCILLARY_DATA/STATISTICS/COLLECTION1/VERSION-1/sub-cuencas",
-                    "label": "Sub-cuencas"
+                    'label': 'National Protected Area',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/CHILE/WORKSPACE/NATIONAL_PROTECTED_AREAS/NATIONAL_PROTECTED_AREAS_v3',
                 },
                 {
-                    "value": "projects/mapbiomas-chile/assets/ANCILLARY_DATA/STATISTICS/COLLECTION1/VERSION-1/areas-silvestres-protegidas",
-                    "label": "Areas Silvestres Protegidas"
+                    'label': 'Province',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/CHILE/WORKSPACE/POLITICAL_LEVEL_3/POLITICAL_LEVEL_3_v6',
                 },
                 {
-                    "value": "projects/mapbiomas-chile/assets/ANCILLARY_DATA/STATISTICS/COLLECTION1/VERSION-1/ecoregiones",
-                    "label": "Ecoregiones"
+                    'label': 'Region',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/CHILE/WORKSPACE/POLITICAL_LEVEL_2/POLITICAL_LEVEL_2_v6',
                 },
-
+                {
+                    'label': 'Sub-basins',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/CHILE/WORKSPACE/BASIN_LEVEL_2/BASIN_LEVEL_2_v6',
+                },
             ],
             'mapbiomas-argentina': [
                 {
-                    "value": "projects/mapbiomas-argentina/assets/ANCILLARY_DATA/STATISTICS/COLLECTION1/VERSION-1/area-protegida-internacional",
-                    "label": "Área Protegida Internacional"
+                    'label': 'Country',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/ARGENTINA/WORKSPACE/POLITICAL_LEVEL_1/POLITICAL_LEVEL_1_v3',
                 },
                 {
-                    "value": "projects/mapbiomas-argentina/assets/ANCILLARY_DATA/STATISTICS/COLLECTION1/VERSION-1/area-protegida-nacional",
-                    "label": "Área Protegida Nacional"
+                    'label': 'Department',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/ARGENTINA/WORKSPACE/POLITICAL_LEVEL_3/POLITICAL_LEVEL_3_v4',
                 },
                 {
-                    "value": "projects/mapbiomas-argentina/assets/ANCILLARY_DATA/STATISTICS/COLLECTION1/VERSION-1/area-protegida-subnacional",
-                    "label": "Área Protegida Subnacional"
+                    'label': 'Ecoregions',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/ARGENTINA/WORKSPACE/ECORREGION/ECORREGION_v5',
                 },
                 {
-                    "value": "projects/mapbiomas-argentina/assets/ANCILLARY_DATA/STATISTICS/COLLECTION1/VERSION-1/areas-claves-para-la-biodiversidad",
-                    "label": "Áreas Claves para la Biodiversidad"
+                    'label': 'Important Bird Areas',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/ARGENTINA/WORKSPACE/IMPORTANT_BIRD_AREAS/IMPORTANT_BIRD_AREAS_v5',
                 },
                 {
-                    "value": "projects/mapbiomas-argentina/assets/ANCILLARY_DATA/STATISTICS/COLLECTION1/VERSION-1/areas-importantes-para-la-consevacion-de-las-aves",
-                    "label": "Áreas Importantes para la Conservación de las Aves"
+                    'label': 'International Protected Areas',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/ARGENTINA/WORKSPACE/INTERNATIONAL_PROTECTED_AREAS/INTERNATIONAL_PROTECTED_AREAS_v5',
                 },
                 {
-                    "value": "projects/mapbiomas-argentina/assets/ANCILLARY_DATA/STATISTICS/COLLECTION1/VERSION-1/cuencas-hidrograficas",
-                    "label": "Cuencas Hidrográficas"
+                    'label': 'Key Biodiversity Areas',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/ARGENTINA/WORKSPACE/KEY_BIODIVERSITY_AREAS/KEY_BIODIVERSITY_AREAS_v5',
                 },
                 {
-                    "value": "projects/mapbiomas-argentina/assets/ANCILLARY_DATA/STATISTICS/COLLECTION1/VERSION-1/ecorregion",
-                    "label": "Ecorregión"
+                    'label': 'National Protected Areas',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/ARGENTINA/WORKSPACE/PROTECTED_AREAS_NACIONALES/PROTECTED_AREAS_NACIONALES_v5',
                 },
                 {
-                    "value": "projects/mapbiomas-argentina/assets/ANCILLARY_DATA/STATISTICS/COLLECTION1/VERSION-1/nivel-politico-1",
-                    "label": "Nível Político 1"
+                    'label': 'Province',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/ARGENTINA/WORKSPACE/POLITICAL_LEVEL_2/POLITICAL_LEVEL_2_v3',
                 },
                 {
-                    "value": "projects/mapbiomas-argentina/assets/ANCILLARY_DATA/STATISTICS/COLLECTION1/VERSION-1/nivel-politico-2",
-                    "label": "Nível Político 2"
+                    'label': 'River Basins (Level 1)',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/ARGENTINA/WORKSPACE/BASIN_LEVEL_1/BASIN_LEVEL_1_v5',
                 },
                 {
-                    "value": "projects/mapbiomas-argentina/assets/ANCILLARY_DATA/STATISTICS/COLLECTION1/VERSION-1/nivel-politico-3",
-                    "label": "Nível Político 3"
+                    'label': 'Subnational Protected Areas',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/ARGENTINA/WORKSPACE/PROTECTED_AREA_SUBNATIONAL/PROTECTED_AREA_SUBNATIONAL_v5',
+                },
+            ],
+            'mapbiomas-mexico': [
+                {
+                    'label': 'Aquifers',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/MEXICO/WORKSPACE/AQUIFERS/AQUIFERS_v1',
                 },
                 {
-                    "value": "projects/mapbiomas-argentina/assets/ANCILLARY_DATA/STATISTICS/COLLECTION1/VERSION-1/regiones-forestales",
-                    "label": "Regiones Forestales"
+                    'label': 'Country',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/MEXICO/WORKSPACE/POLITICAL_LEVEL_1/POLITICAL_LEVEL_1_v1',
                 },
                 {
-                    "value": "projects/mapbiomas-argentina/assets/ANCILLARY_DATA/STATISTICS/COLLECTION1/VERSION-1/unidades-de-vegetacion",
-                    "label": "Unidades de Vegetación"
-                }
+                    'label': 'Ecorregion',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/MEXICO/WORKSPACE/ECORREGION/ECORREGION_v1',
+                },
+                {
+                    'label': 'Federal Protected Areas',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/MEXICO/WORKSPACE/PROTECTED_AREA_SUBNATIONAL/PROTECTED_AREA_SUBNATIONAL_v1',
+                },
+                {
+                    'label': 'Hydrological regions',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/MEXICO/WORKSPACE/HYDROGRAPHIC_REGIONS/HYDROGRAPHIC_REGIONS_v1',
+                },
+                {
+                    'label': 'Key Biodiversity Areas',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/MEXICO/WORKSPACE/KEY_BIODIVERSITY_AREAS/KEY_BIODIVERSITY_AREAS_v1',
+                },
+                {
+                    'label': 'Metropolitan regions',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/MEXICO/WORKSPACE/METROPOLITAN_REGIONS/METROPOLITAN_REGIONS_v1',
+                },
+                {
+                    'label': 'Municipality',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/MEXICO/WORKSPACE/POLITICAL_LEVEL_3/POLITICAL_LEVEL_3_v1',
+                },
+                {
+                    'label': 'Priority Conservation Sites',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/MEXICO/WORKSPACE/PRIORITY_CONSERVATION_SITES/PRIORITY_CONSERVATION_SITES_v1',
+                },
+                {
+                    'label': 'RAMSAR sites',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/MEXICO/WORKSPACE/RAMSAR_SITES/RAMSAR_SITES_v1',
+                },
+                {
+                    'label': 'State',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/MEXICO/WORKSPACE/POLITICAL_LEVEL_2/POLITICAL_LEVEL_2_v1',
+                },
+                {
+                    'label': 'Watersheds level 1',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/MEXICO/WORKSPACE/BASIN_LEVEL_1/BASIN_LEVEL_1_v1',
+                },
+                {
+                    'label': 'Watersheds level 2',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/MEXICO/WORKSPACE/BASIN_LEVEL_2/BASIN_LEVEL_2_v1',
+                },
+            ],
+            'mapbiomas-drc': [
+                {
+                    'label': 'Biomes',
+                    'value': 'projects/mapbiomas-territories/assets/PLATFORM/demo/mapbiomas/democratic-republic-of-congo/territories/BIOMES_4EF31B8F/0506d11e-1522-4f5b-8843-52d1539240e5',
+                },
+                {
+                    'label': 'Country',
+                    'value': 'projects/mapbiomas-territories/assets/PLATFORM/demo/mapbiomas/democratic-republic-of-congo/territories/COUNTRY_2C5ABC07/063b9848-f8cb-404c-9eb9-58916a987b89',
+                },
+                {
+                    'label': 'Protected Areas',
+                    'value': 'projects/mapbiomas-territories/assets/PLATFORM/demo/mapbiomas/democratic-republic-of-congo/territories/PROTECTED_AREAS_B927CC0E/519be2f6-dcf1-47ae-b060-f4a80b822c4e',
+                },
+                {
+                    'label': 'Provinces',
+                    'value': 'projects/mapbiomas-territories/assets/PLATFORM/demo/mapbiomas/democratic-republic-of-congo/territories/PROVINCES_623FAE22/26315f1c-6b67-4f28-916e-f9aa4f91d588',
+                },
+                {
+                    'label': 'Regions',
+                    'value': 'projects/mapbiomas-territories/assets/PLATFORM/demo/mapbiomas/democratic-republic-of-congo/territories/REGIONS_CD19FFD4/99bd1ab9-c381-4454-804d-3d43aea295d4',
+                },
             ],
         },
 
@@ -994,19 +1165,19 @@ var App = {
                             '2017'
                         ],
                         'Transitions': [
-                            "1985_1986", "1986_1987", "1987_1988", "1988_1989",
-                            "1989_1990", "1990_1991", "1991_1992", "1992_1993",
-                            "1993_1994", "1994_1995", "1995_1996", "1996_1997",
-                            "1997_1998", "1998_1999", "1999_2000", "2000_2001",
-                            "2001_2002", "2002_2003", "2003_2004", "2004_2005",
-                            "2005_2006", "2006_2007", "2007_2008", "2008_2009",
-                            "2009_2010", "2010_2011", "2011_2012", "2012_2013",
-                            "2013_2014", "2014_2015", "2015_2016", "2016_2017",
-                            "1985_1990", "1990_1995", "1995_2000", "2000_2005",
-                            "2005_2010", "2010_2015", "2015_2017", "1990_2000",
-                            "2000_2010", "2010_2017", "1985_2017", "2008_2017",
-                            "2012_2017", "1994_2002", "2002_2010", "2010_2016"
-                        ]
+                            '1985_1986', '1986_1987', '1987_1988', '1988_1989',
+                            '1989_1990', '1990_1991', '1991_1992', '1992_1993',
+                            '1993_1994', '1994_1995', '1995_1996', '1996_1997',
+                            '1997_1998', '1998_1999', '1999_2000', '2000_2001',
+                            '2001_2002', '2002_2003', '2003_2004', '2004_2005',
+                            '2005_2006', '2006_2007', '2007_2008', '2008_2009',
+                            '2009_2010', '2010_2011', '2011_2012', '2012_2013',
+                            '2013_2014', '2014_2015', '2015_2016', '2016_2017',
+                            '1985_1990', '1990_1995', '1995_2000', '2000_2005',
+                            '2005_2010', '2010_2015', '2015_2017', '1990_2000',
+                            '2000_2010', '2010_2017', '1985_2017', '2008_2017',
+                            '2012_2017', '1994_2002', '2002_2010', '2010_2016'
+                        ],
                     },
                 },
                 'collection-4.0': {
@@ -1027,20 +1198,21 @@ var App = {
                             '2017', '2018'
                         ],
                         'Transitions': [
-                            "1985_1986", "1986_1987", "1987_1988", "1988_1989",
-                            "1989_1990", "1990_1991", "1991_1992", "1992_1993",
-                            "1993_1994", "1994_1995", "1995_1996", "1996_1997",
-                            "1997_1998", "1998_1999", "1999_2000", "2000_2001",
-                            "2001_2002", "2002_2003", "2003_2004", "2004_2005",
-                            "2005_2006", "2006_2007", "2007_2008", "2008_2009",
-                            "2009_2010", "2010_2011", "2011_2012", "2012_2013",
-                            "2013_2014", "2014_2015", "2015_2016", "2016_2017",
-                            "2017_2018", "1985_1990", "1990_1995", "1995_2000",
-                            "2000_2005", "2005_2010", "2010_2015", "2015_2018",
-                            "1990_2000", "2000_2010", "2010_2018", "1985_2018",
-                            "2008_2017", "2012_2018", "1994_2002", "2002_2010",
-                            "2010_2016", "2008_2018", "1986_2015", "2001_2016"
-                        ]
+                            '1985_1986', '1986_1987', '1987_1988', '1988_1989',
+                            '1989_1990', '1990_1991', '1991_1992', '1992_1993',
+                            '1993_1994', '1994_1995', '1995_1996', '1996_1997',
+                            '1997_1998', '1998_1999', '1999_2000', '2000_2001',
+                            '2001_2002', '2002_2003', '2003_2004', '2004_2005',
+                            '2005_2006', '2006_2007', '2007_2008', '2008_2009',
+                            '2009_2010', '2010_2011', '2011_2012', '2012_2013',
+                            '2013_2014', '2014_2015', '2015_2016', '2016_2017',
+                            '2017_2018', '1985_1990', '1990_1995', '1995_2000',
+                            '2000_2005', '2005_2010', '2010_2015', '2015_2018',
+                            '1990_2000', '2000_2010', '2010_2018', '1985_2018',
+                            '2008_2017', '2012_2018', '1994_2002', '2002_2010',
+                            '2010_2016', '2008_2018', '1986_2015', '2001_2016',
+                            '1996_2015'
+                        ],
                     },
                 },
                 'collection-4.1': {
@@ -1061,29 +1233,28 @@ var App = {
                             '2017', '2018'
                         ],
                         'Transitions': [
-                            "1985_1986", "1986_1987", "1987_1988", "1988_1989",
-                            "1989_1990", "1990_1991", "1991_1992", "1992_1993",
-                            "1993_1994", "1994_1995", "1995_1996", "1996_1997",
-                            "1997_1998", "1998_1999", "1999_2000", "2000_2001",
-                            "2001_2002", "2002_2003", "2003_2004", "2004_2005",
-                            "2005_2006", "2006_2007", "2007_2008", "2008_2009",
-                            "2009_2010", "2010_2011", "2011_2012", "2012_2013",
-                            "2013_2014", "2014_2015", "2015_2016", "2016_2017",
-                            "2017_2018", "1985_1990", "1990_1995", "1995_2000",
-                            "2000_2005", "2005_2010", "2010_2015", "2015_2018",
-                            "1990_2000", "2000_2010", "2010_2018", "1985_2018",
-                            "2008_2017", "2012_2018", "1994_2002", "2002_2010",
-                            "2010_2016", "2008_2018", "1986_2015", "2001_2016"
-                        ]
+                            '1985_1986', '1986_1987', '1987_1988', '1988_1989',
+                            '1989_1990', '1990_1991', '1991_1992', '1992_1993',
+                            '1993_1994', '1994_1995', '1995_1996', '1996_1997',
+                            '1997_1998', '1998_1999', '1999_2000', '2000_2001',
+                            '2001_2002', '2002_2003', '2003_2004', '2004_2005',
+                            '2005_2006', '2006_2007', '2007_2008', '2008_2009',
+                            '2009_2010', '2010_2011', '2011_2012', '2012_2013',
+                            '2013_2014', '2014_2015', '2015_2016', '2016_2017',
+                            '2017_2018', '1985_1990', '1990_1995', '1995_2000',
+                            '2000_2005', '2005_2010', '2010_2015', '2015_2018',
+                            '1990_2000', '2000_2010', '2010_2018', '1985_2018',
+                            '2008_2017', '2012_2018', '1994_2002', '2002_2010',
+                            '2010_2016', '2008_2018', '1986_2015', '2001_2016',
+                            '1996_2015'
+                        ],
                     },
                 },
                 'collection-5.0': {
                     'assets': {
                         'integration': 'projects/mapbiomas-public/assets/brazil/lulc/collection5/mapbiomas_collection50_integration_v1',
-                        'transitions': 'projects/mapbiomas-public/assets/brazil/lulc/collection5/mapbiomas_collection50_transitions_v1',
                         'quality': 'projects/mapbiomas-public/assets/brazil/lulc/collection5/mapbiomas_collection50_quality_v1',
                     },
-
                     'periods': {
                         'Coverage': [
                             '1985', '1986', '1987', '1988',
@@ -1096,23 +1267,6 @@ var App = {
                             '2013', '2014', '2015', '2016',
                             '2017', '2018', '2019'
                         ],
-                        'Transitions': [
-                            "1985_1986", "1986_1987", "1987_1988", "1988_1989",
-                            "1989_1990", "1990_1991", "1991_1992", "1992_1993",
-                            "1993_1994", "1994_1995", "1995_1996", "1996_1997",
-                            "1997_1998", "1998_1999", "1999_2000", "2000_2001",
-                            "2001_2002", "2002_2003", "2003_2004", "2004_2005",
-                            "2005_2006", "2006_2007", "2007_2008", "2008_2009",
-                            "2009_2010", "2010_2011", "2011_2012", "2012_2013",
-                            "2013_2014", "2014_2015", "2015_2016", "2016_2017",
-                            "2017_2018", "2018_2019", "1985_1990", "1990_1995",
-                            "1995_2000", "2000_2005", "2005_2010", "2010_2015",
-                            "2015_2019", "1990_2000", "2000_2010", "2010_2019",
-                            "1985_2019", "2008_2019", "2012_2019", "1994_2002",
-                            "2002_2010", "2010_2016", "1990_2008", "1990_2019",
-                            "2000_2019", "2008_2018", "1986_2015", "2001_2016",
-                            "1996_2015"
-                        ],
                         'Quality': [
                             '1985', '1986', '1987', '1988',
                             '1989', '1990', '1991', '1992',
@@ -1122,17 +1276,16 @@ var App = {
                             '2005', '2006', '2007', '2008',
                             '2009', '2010', '2011', '2012',
                             '2013', '2014', '2015', '2016',
-                            '2017', '2018', '2019'
-                        ]
+                            '2017', '2018', '2019', '2020'
+                        ],
                     },
                 },
                 'collection-6.0': {
                     'assets': {
                         'integration': 'projects/mapbiomas-public/assets/brazil/lulc/collection6/mapbiomas_collection60_integration_v1',
                         'transitions': 'projects/mapbiomas-public/assets/brazil/lulc/collection6/mapbiomas_collection60_transitions_v1',
-                        'quality': 'projects/mapbiomas-public/assets/brazil/lulc/collection5/mapbiomas_collection50_quality_v1', // the same collection 5
+                        'quality': 'projects/mapbiomas-public/assets/brazil/lulc/collection5/mapbiomas_collection50_quality_v1',
                     },
-
                     'periods': {
                         'Coverage': [
                             '1985', '1986', '1987', '1988',
@@ -1146,21 +1299,21 @@ var App = {
                             '2017', '2018', '2019', '2020'
                         ],
                         'Transitions': [
-                            "1985_1986", "1986_1987", "1987_1988", "1988_1989",
-                            "1989_1990", "1990_1991", "1991_1992", "1992_1993",
-                            "1993_1994", "1994_1995", "1995_1996", "1996_1997",
-                            "1997_1998", "1998_1999", "1999_2000", "2000_2001",
-                            "2001_2002", "2002_2003", "2003_2004", "2004_2005",
-                            "2005_2006", "2006_2007", "2007_2008", "2008_2009",
-                            "2009_2010", "2010_2011", "2011_2012", "2012_2013",
-                            "2013_2014", "2014_2015", "2015_2016", "2016_2017",
-                            "2017_2018", "2018_2019", "2019_2020", "1985_1990",
-                            "1990_1995", "1995_2000", "2000_2005", "2005_2010",
-                            "2010_2015", "2015_2020", "1990_2000", "2000_2010",
-                            "2010_2020", "1985_2020", "2008_2020", "2012_2020",
-                            "1994_2002", "2002_2010", "2010_2016", "1990_2008",
-                            "1990_2020", "2000_2020", "2008_2018", "1986_2015",
-                            "2001_2016", "1996_2015",
+                            '1985_1986', '1986_1987', '1987_1988', '1988_1989',
+                            '1989_1990', '1990_1991', '1991_1992', '1992_1993',
+                            '1993_1994', '1994_1995', '1995_1996', '1996_1997',
+                            '1997_1998', '1998_1999', '1999_2000', '2000_2001',
+                            '2001_2002', '2002_2003', '2003_2004', '2004_2005',
+                            '2005_2006', '2006_2007', '2007_2008', '2008_2009',
+                            '2009_2010', '2010_2011', '2011_2012', '2012_2013',
+                            '2013_2014', '2014_2015', '2015_2016', '2016_2017',
+                            '2017_2018', '2018_2019', '2019_2020', '1985_1990',
+                            '1990_1995', '1995_2000', '2000_2005', '2005_2010',
+                            '2010_2015', '2015_2020', '1990_2000', '2000_2010',
+                            '2010_2020', '1985_2020', '2008_2020', '2012_2020',
+                            '1994_2002', '2002_2010', '2010_2016', '1990_2008',
+                            '1990_2020', '2000_2020', '2008_2018', '1986_2015',
+                            '2001_2016', '1996_2015'
                         ],
                         'Quality': [
                             '1985', '1986', '1987', '1988',
@@ -1172,16 +1325,14 @@ var App = {
                             '2009', '2010', '2011', '2012',
                             '2013', '2014', '2015', '2016',
                             '2017', '2018', '2019', '2020'
-                        ]
+                        ],
                     },
                 },
                 'collection-7.0': {
                     'assets': {
                         'integration': 'projects/mapbiomas-public/assets/brazil/lulc/collection7/mapbiomas_collection70_integration_v2',
                         'transitions': 'projects/mapbiomas-public/assets/brazil/lulc/collection7/mapbiomas_collection70_transitions_v3',
-                        'quality': 'projects/mapbiomas-public/assets/brazil/lulc/collection6/mapbiomas_collection60_quality_v1', // the same collection 5
                     },
-
                     'periods': {
                         'Coverage': [
                             '1985', '1986', '1987', '1988',
@@ -1196,43 +1347,30 @@ var App = {
                             '2021'
                         ],
                         'Transitions': [
-                            "1985_1986", "1986_1987", "1987_1988", "1988_1989",
-                            "1989_1990", "1990_1991", "1991_1992", "1992_1993",
-                            "1993_1994", "1994_1995", "1995_1996", "1996_1997",
-                            "1997_1998", "1998_1999", "1999_2000", "2000_2001",
-                            "2001_2002", "2002_2003", "2003_2004", "2004_2005",
-                            "2005_2006", "2006_2007", "2007_2008", "2008_2009",
-                            "2009_2010", "2010_2011", "2011_2012", "2012_2013",
-                            "2013_2014", "2014_2015", "2015_2016", "2016_2017",
-                            "2017_2018", "2018_2019", "2019_2020", "2020_2021",
-                            "1985_1990", "1990_1995", "1995_2000", "2000_2005",
-                            "2005_2010", "2010_2015", "2015_2020", "1990_2000",
-                            "2000_2010", "2010_2020", "1985_2021", "2008_2021",
-                            "2012_2021", "1994_2002", "2002_2010", "2010_2016",
-                            "2016_2021", "1993_2008", "1990_2008", "1990_2021",
-                            "2000_2021", "2008_2018", "1986_2015", "2001_2016",
-                            "1996_2015",
+                            '1985_1986', '1986_1987', '1987_1988', '1988_1989',
+                            '1989_1990', '1990_1991', '1991_1992', '1992_1993',
+                            '1993_1994', '1994_1995', '1995_1996', '1996_1997',
+                            '1997_1998', '1998_1999', '1999_2000', '2000_2001',
+                            '2001_2002', '2002_2003', '2003_2004', '2004_2005',
+                            '2005_2006', '2006_2007', '2007_2008', '2008_2009',
+                            '2009_2010', '2010_2011', '2011_2012', '2012_2013',
+                            '2013_2014', '2014_2015', '2015_2016', '2016_2017',
+                            '2017_2018', '2018_2019', '2019_2020', '2020_2021',
+                            '1985_1990', '1990_1995', '1995_2000', '2000_2005',
+                            '2005_2010', '2010_2015', '2015_2020', '1990_2000',
+                            '2000_2010', '2010_2020', '1985_2021', '2008_2021',
+                            '2012_2021', '1994_2002', '2002_2010', '2010_2016',
+                            '2016_2021', '1993_2008', '1990_2008', '1990_2021',
+                            '2000_2021', '2008_2018', '1986_2015', '2001_2016',
+                            '1996_2015'
                         ],
-                        'Quality': [
-                            '1985', '1986', '1987', '1988',
-                            '1989', '1990', '1991', '1992',
-                            '1993', '1994', '1995', '1996',
-                            '1997', '1998', '1999', '2000',
-                            '2001', '2002', '2003', '2004',
-                            '2005', '2006', '2007', '2008',
-                            '2009', '2010', '2011', '2012',
-                            '2013', '2014', '2015', '2016',
-                            '2017', '2018', '2019', '2020'
-                        ]
                     },
                 },
                 'collection-7.1': {
                     'assets': {
                         'integration': 'projects/mapbiomas-public/assets/brazil/lulc/collection7_1/mapbiomas_collection71_integration_v1',
                         'transitions': 'projects/mapbiomas-public/assets/brazil/lulc/collection7_1/mapbiomas_collection71_transitions_v1',
-                        'quality': 'projects/mapbiomas-public/assets/brazil/lulc/collection6/mapbiomas_collection60_quality_v1', // the same collection 7
                     },
-
                     'periods': {
                         'Coverage': [
                             '1985', '1986', '1987', '1988',
@@ -1247,34 +1385,23 @@ var App = {
                             '2021'
                         ],
                         'Transitions': [
-                            "1985_1986", "1986_1987", "1987_1988", "1988_1989",
-                            "1989_1990", "1990_1991", "1991_1992", "1992_1993",
-                            "1993_1994", "1994_1995", "1995_1996", "1996_1997",
-                            "1997_1998", "1998_1999", "1999_2000", "2000_2001",
-                            "2001_2002", "2002_2003", "2003_2004", "2004_2005",
-                            "2005_2006", "2006_2007", "2007_2008", "2008_2009",
-                            "2009_2010", "2010_2011", "2011_2012", "2012_2013",
-                            "2013_2014", "2014_2015", "2015_2016", "2016_2017",
-                            "2017_2018", "2018_2019", "2019_2020", "2020_2021",
-                            "1985_1990", "1990_1995", "1995_2000", "2000_2005",
-                            "2005_2010", "2010_2015", "2015_2020", "1990_2000",
-                            "2000_2010", "2010_2020", "1985_2021", "2008_2021",
-                            "2012_2021", "1994_2002", "2002_2010", "2010_2016",
-                            "2016_2021", "1993_2008", "1990_2008", "1990_2021",
-                            "2000_2021", "2008_2018", "1986_2015", "2001_2016",
-                            "1996_2015",
+                            '1985_1986', '1986_1987', '1987_1988', '1988_1989',
+                            '1989_1990', '1990_1991', '1991_1992', '1992_1993',
+                            '1993_1994', '1994_1995', '1995_1996', '1996_1997',
+                            '1997_1998', '1998_1999', '1999_2000', '2000_2001',
+                            '2001_2002', '2002_2003', '2003_2004', '2004_2005',
+                            '2005_2006', '2006_2007', '2007_2008', '2008_2009',
+                            '2009_2010', '2010_2011', '2011_2012', '2012_2013',
+                            '2013_2014', '2014_2015', '2015_2016', '2016_2017',
+                            '2017_2018', '2018_2019', '2019_2020', '2020_2021',
+                            '1985_1990', '1990_1995', '1995_2000', '2000_2005',
+                            '2005_2010', '2010_2015', '2015_2020', '1990_2000',
+                            '2000_2010', '2010_2020', '1985_2021', '2008_2021',
+                            '2012_2021', '1994_2002', '2002_2010', '2010_2016',
+                            '2016_2021', '2000_2019', '2002_2021', '2018_2021',
+                            '1993_2008', '1990_2008', '1990_2021', '2000_2021',
+                            '2008_2018', '1986_2015', '2001_2016', '1996_2015'
                         ],
-                        'Quality': [
-                            '1985', '1986', '1987', '1988',
-                            '1989', '1990', '1991', '1992',
-                            '1993', '1994', '1995', '1996',
-                            '1997', '1998', '1999', '2000',
-                            '2001', '2002', '2003', '2004',
-                            '2005', '2006', '2007', '2008',
-                            '2009', '2010', '2011', '2012',
-                            '2013', '2014', '2015', '2016',
-                            '2017', '2018', '2019', '2020'
-                        ]
                     },
                 },
                 'collection-8.0': {
@@ -1283,7 +1410,6 @@ var App = {
                         'transitions': 'projects/mapbiomas-public/assets/brazil/lulc/collection8/mapbiomas_collection80_transitions_v1',
                         'quality': 'projects/mapbiomas-public/assets/brazil/lulc/collection6/mapbiomas_collection80_quality_v1',
                     },
-
                     'periods': {
                         'Coverage': [
                             '1985', '1986', '1987', '1988',
@@ -1298,23 +1424,23 @@ var App = {
                             '2021', '2022'
                         ],
                         'Transitions': [
-                            "1985_1986", "1986_1987", "1987_1988", "1988_1989",
-                            "1989_1990", "1990_1991", "1991_1992", "1992_1993",
-                            "1993_1994", "1994_1995", "1995_1996", "1996_1997",
-                            "1997_1998", "1998_1999", "1999_2000", "2000_2001",
-                            "2001_2002", "2002_2003", "2003_2004", "2004_2005",
-                            "2005_2006", "2006_2007", "2007_2008", "2008_2009",
-                            "2009_2010", "2010_2011", "2011_2012", "2012_2013",
-                            "2013_2014", "2014_2015", "2015_2016", "2016_2017",
-                            "2017_2018", "2018_2019", "2019_2020", "2020_2021",
-                            "2021_2022", "1985_1990", "1990_1995", "1995_2000",
-                            "2000_2005", "2005_2010", "2010_2015", "2015_2020",
-                            "1990_2000", "2000_2010", "2010_2020", "1985_2022",
-                            "2008_2022", "2012_2022", "1994_2002", "2002_2010",
-                            "2010_2016", "2016_2022", "2000_2019", "2002_2022",
-                            "2018_2022", "1993_2008", "1990_2008", "1990_2022",
-                            "2000_2022", "2008_2018", "1986_2015", "2001_2016",
-                            "1996_2015", "1992_2002", "2002_2012"
+                            '1985_1986', '1986_1987', '1987_1988', '1988_1989',
+                            '1989_1990', '1990_1991', '1991_1992', '1992_1993',
+                            '1993_1994', '1994_1995', '1995_1996', '1996_1997',
+                            '1997_1998', '1998_1999', '1999_2000', '2000_2001',
+                            '2001_2002', '2002_2003', '2003_2004', '2004_2005',
+                            '2005_2006', '2006_2007', '2007_2008', '2008_2009',
+                            '2009_2010', '2010_2011', '2011_2012', '2012_2013',
+                            '2013_2014', '2014_2015', '2015_2016', '2016_2017',
+                            '2017_2018', '2018_2019', '2019_2020', '2020_2021',
+                            '2021_2022', '1985_1990', '1990_1995', '1995_2000',
+                            '2000_2005', '2005_2010', '2010_2015', '2015_2020',
+                            '1990_2000', '2000_2010', '2010_2020', '1985_2022',
+                            '2008_2022', '2012_2022', '1994_2002', '2002_2010',
+                            '2010_2016', '2016_2022', '2000_2019', '2002_2022',
+                            '2018_2022', '1993_2008', '1990_2008', '1990_2022',
+                            '2000_2022', '2008_2018', '1986_2015', '2001_2016',
+                            '1996_2015', '1992_2002', '2002_2012'
                         ],
                         'Quality': [
                             '1985', '1986', '1987', '1988',
@@ -1327,7 +1453,7 @@ var App = {
                             '2013', '2014', '2015', '2016',
                             '2017', '2018', '2019', '2020',
                             '2021', '2022'
-                        ]
+                        ],
                     },
                 },
                 'collection-9.0': {
@@ -1336,7 +1462,6 @@ var App = {
                         'transitions': 'projects/mapbiomas-public/assets/brazil/lulc/collection9/mapbiomas_collection90_transitions_v1',
                         'quality': 'projects/mapbiomas-public/assets/brazil/lulc/collection9/mapbiomas_collection90_quality_v1',
                     },
-
                     'periods': {
                         'Coverage': [
                             '1985', '1986', '1987', '1988',
@@ -1351,23 +1476,24 @@ var App = {
                             '2021', '2022', '2023'
                         ],
                         'Transitions': [
-                            "1985_1986", "1986_1987", "1987_1988", "1988_1989",
-                            "1989_1990", "1990_1991", "1991_1992", "1992_1993",
-                            "1993_1994", "1994_1995", "1995_1996", "1996_1997",
-                            "1997_1998", "1998_1999", "1999_2000", "2000_2001",
-                            "2001_2002", "2002_2003", "2003_2004", "2004_2005",
-                            "2005_2006", "2006_2007", "2007_2008", "2008_2009",
-                            "2009_2010", "2010_2011", "2011_2012", "2012_2013",
-                            "2013_2014", "2014_2015", "2015_2016", "2016_2017",
-                            "2017_2018", "2018_2019", "2019_2020", "2020_2021",
-                            "2021_2023", "1985_1990", "1990_1995", "1995_2000",
-                            "2000_2005", "2005_2010", "2010_2015", "2015_2020",
-                            "1990_2000", "2000_2010", "2010_2020", "1985_2023",
-                            "2008_2023", "2012_2023", "1994_2002", "2002_2010",
-                            "2010_2016", "2016_2023", "2000_2019", "2002_2023",
-                            "2018_2023", "1993_2008", "1990_2008", "1990_2023",
-                            "2000_2023", "2008_2018", "1986_2015", "2001_2016",
-                            "1996_2015", "1992_2002", "2002_2012"
+                            '1985_1986', '1986_1987', '1987_1988', '1988_1989',
+                            '1989_1990', '1990_1991', '1991_1992', '1992_1993',
+                            '1993_1994', '1994_1995', '1995_1996', '1996_1997',
+                            '1997_1998', '1998_1999', '1999_2000', '2000_2001',
+                            '2001_2002', '2002_2003', '2003_2004', '2004_2005',
+                            '2005_2006', '2006_2007', '2007_2008', '2008_2009',
+                            '2009_2010', '2010_2011', '2011_2012', '2012_2013',
+                            '2013_2014', '2014_2015', '2015_2016', '2016_2017',
+                            '2017_2018', '2018_2019', '2019_2020', '2020_2021',
+                            '2021_2022', '2022_2023', '1985_1990', '1990_1995',
+                            '1995_2000', '2000_2005', '2005_2010', '2010_2015',
+                            '2015_2020', '1990_2000', '2000_2010', '2010_2020',
+                            '1985_2023', '2008_2023', '2012_2023', '1994_2002',
+                            '2002_2010', '2010_2016', '2016_2023', '2000_2019',
+                            '2002_2023', '2018_2023', '1993_2008', '1990_2008',
+                            '1990_2023', '2000_2023', '2008_2018', '1986_2015',
+                            '2001_2016', '1996_2015', '1992_2002', '2002_2012',
+                            '2007_2023'
                         ],
                         'Quality': [
                             '1985', '1986', '1987', '1988',
@@ -1380,15 +1506,13 @@ var App = {
                             '2013', '2014', '2015', '2016',
                             '2017', '2018', '2019', '2020',
                             '2021', '2022', '2023'
-                        ]
+                        ],
                     },
                 },
                 'collection-10.1': {
                     'assets': {
                         'integration': 'projects/mapbiomas-public/assets/brazil/lulc/collection10_1/mapbiomas_brazil_collection10_1_coverage_v1',
-//                        'transitions': 'projects/mapbiomas-public/assets/brazil/lulc/collection9/mapbiomas_collection90_transitions_v1',
                     },
-
                     'periods': {
                         'Coverage': [
                             '1985', '1986', '1987', '1988',
@@ -1402,54 +1526,50 @@ var App = {
                             '2017', '2018', '2019', '2020',
                             '2021', '2022', '2023', '2024'
                         ],
-//                        'Transitions': [
-//                            "1985_1986", "1986_1987", "1987_1988", "1988_1989",
-//                            "1989_1990", "1990_1991", "1991_1992", "1992_1993",
-//                            "1993_1994", "1994_1995", "1995_1996", "1996_1997",
-//                            "1997_1998", "1998_1999", "1999_2000", "2000_2001",
-//                            "2001_2002", "2002_2003", "2003_2004", "2004_2005",
-//                            "2005_2006", "2006_2007", "2007_2008", "2008_2009",
-//                            "2009_2010", "2010_2011", "2011_2012", "2012_2013",
-//                            "2013_2014", "2014_2015", "2015_2016", "2016_2017",
-//                            "2017_2018", "2018_2019", "2019_2020", "2020_2021",
-//                            "2021_2022", "2022_2023", "2023_2024",
-//                            "1985_1990", "1990_1995", "1995_2000",
-//                            "2000_2005", "2005_2010", "2010_2015", "2015_2020",
-//                            "1990_2000", "2000_2010", "2010_2020", "1985_2024",
-//                            "2008_2024", "2012_2024", "1994_2002", "2002_2010",
-//                            "2010_2016", "2016_2024", "2000_2019", "2002_2024",
-//                            "2018_2024", "1993_2008", "1990_2008", "1990_2024",
-//                            "2000_2024", "2008_2018", "1986_2015", "2001_2016",
-//                            "1996_2015", "1992_2002", "2002_2012"
-//                        ],
                     },
                 },
-
                 'collection-1-10m-Beta': {
                     'assets': {
                         'integration': 'projects/mapbiomas-public/assets/brazil/lulc/collection_S2_beta/collection_LULC_S2_beta',
                     },
-
                     'periods': {
                         'Coverage': [
-                            '2016', '2017', '2018', '2019', '2020',
-                            '2021', '2022'
+                            '2016', '2017', '2018', '2019',
+                            '2020', '2021', '2022'
                         ],
-                   },
+                    },
                 },
                 'collection-2-10m-Beta': {
                     'assets': {
                         'integration': 'projects/mapbiomas-public/assets/brazil/lulc_10m/collection2/mapbiomas_10m_collection2_integration_v1',
                     },
-
                     'periods': {
                         'Coverage': [
-                            '2016', '2017', '2018', '2019', '2020',
-                            '2021', '2022', '2023'
+                            '2016', '2017', '2018', '2019',
+                            '2020', '2021', '2022', '2023'
                         ],
-                   },
+                    },
                 },
-
+                'collection-11.0': {
+                    'assets': {
+                        'integration': 'projects/mapbiomas-public/assets/brazil/lulc/collection11/mapbiomas_brazil_collection11_coverage_v3',
+                    },
+                    'periods': {
+                        'Coverage': [
+                            '1985', '1986', '1987', '1988',
+                            '1989', '1990', '1991', '1992',
+                            '1993', '1994', '1995', '1996',
+                            '1997', '1998', '1999', '2000',
+                            '2001', '2002', '2003', '2004',
+                            '2005', '2006', '2007', '2008',
+                            '2009', '2010', '2011', '2012',
+                            '2013', '2014', '2015', '2016',
+                            '2017', '2018', '2019', '2020',
+                            '2021', '2022', '2023', '2024',
+                            '2025'
+                        ],
+                    },
+                },
             },
             'mapbiomas-amazon': {
                 'collection-1.0': {
@@ -1466,13 +1586,13 @@ var App = {
                             '2016', '2017'
                         ],
                         'Transitions': [
-                            "2000_2001", "2001_2002", "2002_2003", "2003_2004",
-                            "2004_2005", "2005_2006", "2006_2007", "2007_2008",
-                            "2008_2009", "2009_2010", "2010_2011", "2011_2012",
-                            "2012_2013", "2013_2014", "2014_2015", "2015_2016",
-                            "2016_2017", "2000_2005", "2005_2010", "2010_2015",
-                            "2015_2017", "2000_2010", "2010_2017", "2000_2017"
-                        ]
+                            '2000_2001', '2001_2002', '2002_2003', '2003_2004',
+                            '2004_2005', '2005_2006', '2006_2007', '2007_2008',
+                            '2008_2009', '2009_2010', '2010_2011', '2011_2012',
+                            '2012_2013', '2013_2014', '2014_2015', '2015_2016',
+                            '2016_2017', '2000_2005', '2005_2010', '2010_2015',
+                            '2015_2017', '2000_2010', '2010_2017', '2000_2017'
+                        ],
                     },
                 },
                 'collection-2.0': {
@@ -1493,20 +1613,20 @@ var App = {
                             '2017', '2018'
                         ],
                         'Transitions': [
-                            "1985_1986", "1986_1987", "1987_1988", "1988_1989",
-                            "1989_1990", "1990_1991", "1991_1992", "1992_1993",
-                            "1993_1994", "1994_1995", "1995_1996", "1996_1997",
-                            "1997_1998", "1998_1999", "1999_2000", "2000_2001",
-                            "2001_2002", "2002_2003", "2003_2004", "2004_2005",
-                            "2005_2006", "2006_2007", "2007_2008", "2008_2009",
-                            "2009_2010", "2010_2011", "2011_2012", "2012_2013",
-                            "2013_2014", "2014_2015", "2015_2016", "2016_2017",
-                            "2017_2018", "1985_1990", "1990_1995", "1995_2000",
-                            "2000_2005", "2005_2010", "2010_2015", "2015_2018",
-                            "1990_2000", "2000_2010", "2010_2018", "1985_2018",
-                            "2008_2017", "2012_2018", "1994_2002", "2002_2010",
-                            "2010_2016", "2008_2018", "1986_2015", "2000_2018"
-                        ]
+                            '1985_1986', '1986_1987', '1987_1988', '1988_1989',
+                            '1989_1990', '1990_1991', '1991_1992', '1992_1993',
+                            '1993_1994', '1994_1995', '1995_1996', '1996_1997',
+                            '1997_1998', '1998_1999', '1999_2000', '2000_2001',
+                            '2001_2002', '2002_2003', '2003_2004', '2004_2005',
+                            '2005_2006', '2006_2007', '2007_2008', '2008_2009',
+                            '2009_2010', '2010_2011', '2011_2012', '2012_2013',
+                            '2013_2014', '2014_2015', '2015_2016', '2016_2017',
+                            '2017_2018', '1985_1990', '1990_1995', '1995_2000',
+                            '2000_2005', '2005_2010', '2010_2015', '2015_2018',
+                            '1990_2000', '2000_2010', '2010_2018', '1985_2018',
+                            '2008_2017', '2012_2018', '1994_2002', '2002_2010',
+                            '2010_2016', '2008_2018', '1986_2015', '2000_2018'
+                        ],
                     },
                 },
                 'collection-3.0': {
@@ -1540,8 +1660,8 @@ var App = {
                             '2010_2015', '2015_2020', '1990_2000', '2000_2010',
                             '2010_2020', '1985_2020', '2008_2017', '1994_2002',
                             '2002_2010', '2010_2016', '1986_2015', '1990_2020',
-                            '2000_2020', '2008_2020', '2012_2020',
-                        ]
+                            '2000_2020', '2008_2020', '2012_2020'
+                        ],
                     },
                 },
                 'collection-4.0': {
@@ -1577,8 +1697,8 @@ var App = {
                             '2000_2010', '2010_2020', '1985_2021', '2008_2017',
                             '1994_2002', '2002_2010', '2010_2016', '1986_2015',
                             '1990_2021', '2000_2021', '2008_2021', '2010_2021',
-                            '2012_2021',
-                        ]
+                            '2012_2021'
+                        ],
                     },
                 },
                 'collection-5.0': {
@@ -1615,7 +1735,7 @@ var App = {
                             '2008_2017', '1994_2002', '2002_2010', '2010_2016',
                             '1986_2015', '1990_2022', '2000_2022', '2008_2022',
                             '2010_2022', '2012_2022'
-                        ]
+                        ],
                     },
                 },
                 'collection-6.0': {
@@ -1637,22 +1757,22 @@ var App = {
                             '2021', '2022', '2023'
                         ],
                         'Transitions': [
-                            "1985_1986","1986_1987","1987_1988","1988_1989",
-                            "1989_1990","1990_1991","1991_1992","1992_1993",
-                            "1993_1994","1994_1995","1995_1996","1996_1997",
-                            "1997_1998","1998_1999","1999_2000","2000_2001",
-                            "2001_2002","2002_2003","2003_2004","2004_2005",
-                            "2005_2006","2006_2007","2007_2008","2008_2009",
-                            "2009_2010","2010_2011","2011_2012","2012_2013",
-                            "2013_2014","2014_2015","2015_2016","2016_2017",
-                            "2017_2018","2018_2019","2019_2020","2020_2021",
-                            "2021_2022","2022_2023","1985_1990","1990_1995",
-                            "1995_2000","2000_2005","2005_2010","2010_2015",
-                            "2015_2020","1990_2000","2000_2010","2010_2020",
-                            "1985_2023","2008_2017","1994_2002","2002_2010",
-                            "2010_2016","1986_2015","1990_2023","2000_2023",
-                            "2008_2023","2010_2023","2012_2023"
-                        ]
+                            '1985_1986', '1986_1987', '1987_1988', '1988_1989',
+                            '1989_1990', '1990_1991', '1991_1992', '1992_1993',
+                            '1993_1994', '1994_1995', '1995_1996', '1996_1997',
+                            '1997_1998', '1998_1999', '1999_2000', '2000_2001',
+                            '2001_2002', '2002_2003', '2003_2004', '2004_2005',
+                            '2005_2006', '2006_2007', '2007_2008', '2008_2009',
+                            '2009_2010', '2010_2011', '2011_2012', '2012_2013',
+                            '2013_2014', '2014_2015', '2015_2016', '2016_2017',
+                            '2017_2018', '2018_2019', '2019_2020', '2020_2021',
+                            '2021_2022', '2022_2023', '1985_1990', '1990_1995',
+                            '1995_2000', '2000_2005', '2005_2010', '2010_2015',
+                            '2015_2020', '1990_2000', '2000_2010', '2010_2020',
+                            '1985_2023', '2008_2017', '1994_2002', '2002_2010',
+                            '2010_2016', '1986_2015', '1990_2023', '2000_2023',
+                            '2008_2023', '2010_2023', '2012_2023'
+                        ],
                     },
                 },
             },
@@ -1665,13 +1785,13 @@ var App = {
                     'periods': {
                         'Coverage': [
                             '2010', '2011', '2012', '2013',
-                            '2014', '2015', '2016', '2017',
+                            '2014', '2015', '2016', '2017'
                         ],
                         'Transitions': [
-                            "2010_2011", "2011_2012", "2012_2013", "2013_2014",
-                            "2014_2015", "2015_2016", "2016_2017", "2010_2017",
-                            "2013_2017"
-                        ]
+                            '2010_2011', '2011_2012', '2012_2013', '2013_2014',
+                            '2014_2015', '2015_2016', '2016_2017', '2010_2017',
+                            '2013_2017'
+                        ],
                     },
                 },
                 'collection-2.0': {
@@ -1685,17 +1805,17 @@ var App = {
                             '2004', '2005', '2006', '2007',
                             '2008', '2009', '2010', '2011',
                             '2012', '2013', '2014', '2015',
-                            '2016', '2017', '2018', '2019',
+                            '2016', '2017', '2018', '2019'
                         ],
                         'Transitions': [
-                            "2000_2001", "2001_2002", "2002_2003", "2003_2004",
-                            "2004_2005", "2005_2006", "2006_2007", "2007_2008",
-                            "2008_2009", "2009_2010", "2010_2011", "2011_2012",
-                            "2012_2013", "2013_2014", "2014_2015", "2015_2016",
-                            "2016_2017", "2017_2018", "2018_2019", "2000_2005",
-                            "2005_2010", "2010_2015", "2015_2019", "2000_2010",
-                            "2010_2019", "2000_2019",
-                        ]
+                            '2000_2001', '2001_2002', '2002_2003', '2003_2004',
+                            '2004_2005', '2005_2006', '2006_2007', '2007_2008',
+                            '2008_2009', '2009_2010', '2010_2011', '2011_2012',
+                            '2012_2013', '2013_2014', '2014_2015', '2015_2016',
+                            '2016_2017', '2017_2018', '2018_2019', '2000_2005',
+                            '2005_2010', '2010_2015', '2015_2019', '2000_2010',
+                            '2010_2019', '2000_2019'
+                        ],
                     },
                 },
                 'collection-3.0': {
@@ -1713,14 +1833,14 @@ var App = {
                             '2020', '2021'
                         ],
                         'Transitions': [
-                            "2000_2001", "2001_2002", "2002_2003", "2003_2004",
-                            "2004_2005", "2005_2006", "2006_2007", "2007_2008",
-                            "2008_2009", "2009_2010", "2010_2011", "2011_2012",
-                            "2012_2013", "2013_2014", "2014_2015", "2015_2016",
-                            "2016_2017", "2017_2018", "2018_2019", "2019_2020",
-                            "2020_2021", "2000_2005", "2005_2010", "2010_2015",
-                            "2015_2020", "2000_2010", "2010_2020", //"2000_2021",
-                        ]
+                            '2000_2001', '2001_2002', '2002_2003', '2003_2004',
+                            '2004_2005', '2005_2006', '2006_2007', '2007_2008',
+                            '2008_2009', '2009_2010', '2010_2011', '2011_2012',
+                            '2012_2013', '2013_2014', '2014_2015', '2015_2016',
+                            '2016_2017', '2017_2018', '2018_2019', '2019_2020',
+                            '2020_2021', '2000_2005', '2005_2010', '2010_2015',
+                            '2015_2020', '2000_2010', '2010_2020'
+                        ],
                     },
                 },
                 'collection-4.0': {
@@ -1754,14 +1874,15 @@ var App = {
                             '2021_2022', '1985_1990', '1990_1995', '1995_2000',
                             '2000_2005', '2005_2010', '2010_2015', '2015_2020',
                             '1990_2000', '2000_2010', '2010_2020', '1985_2022',
-                            '2000_2022',
-                        ]
+                            '2000_2022'
+                        ],
                     },
                 },
                 'collection-5.0': {
                     'assets': {
                         'integration': 'projects/mapbiomas-public/assets/chaco/lulc/collection5/mapbiomas_chaco_collection5_integration_v2',
                         'transitions': 'projects/mapbiomas-public/assets/chaco/lulc/collection5/mapbiomas_chaco_collection5_transitions_v2',
+                        'quality': 'projects/mapbiomas-public/assets/chaco/lulc/collection5/mapbiomas_chaco_collection5_quality_v1',
                     },
                     'periods': {
                         'Coverage': [
@@ -1789,8 +1910,20 @@ var App = {
                             '2021_2022', '2022_2023', '1985_1990', '1990_1995',
                             '1995_2000', '2000_2005', '2005_2010', '2010_2015',
                             '2015_2020', '1990_2000', '2000_2010', '2010_2020',
-                            '1985_2023', '2000_2023',
-                        ]
+                            '1985_2023', '2000_2023'
+                        ],
+                        'Quality': [
+                            '1985', '1986', '1987', '1988',
+                            '1989', '1990', '1991', '1992',
+                            '1993', '1994', '1995', '1996',
+                            '1997', '1998', '1999', '2000',
+                            '2001', '2002', '2003', '2004',
+                            '2005', '2006', '2007', '2008',
+                            '2009', '2010', '2011', '2012',
+                            '2013', '2014', '2015', '2016',
+                            '2017', '2018', '2019', '2020',
+                            '2021', '2022', '2023'
+                        ],
                     },
                 },
             },
@@ -1807,25 +1940,25 @@ var App = {
                             '2004', '2005', '2006', '2007',
                             '2008', '2009', '2010', '2011',
                             '2012', '2013', '2014', '2015',
-                            '2016', '2017', '2018', '2019',
+                            '2016', '2017', '2018', '2019'
                         ],
                         'Transitions': [
-                            "2000_2001", "2001_2002", "2002_2003", "2003_2004",
-                            "2004_2005", "2005_2006", "2006_2007", "2007_2008",
-                            "2008_2009", "2009_2010", "2010_2011", "2011_2012",
-                            "2012_2013", "2013_2014", "2014_2015", "2015_2016",
-                            "2016_2017", "2017_2018", "2018_2019", "2000_2005",
-                            "2005_2010", "2010_2015", "2015_2019", "2000_2010",
-                            "2010_2019", "2008_2019", "2012_2019", "2002_2010",
-                            "2010_2016", "2000_2019"
+                            '2000_2001', '2001_2002', '2002_2003', '2003_2004',
+                            '2004_2005', '2005_2006', '2006_2007', '2007_2008',
+                            '2008_2009', '2009_2010', '2010_2011', '2011_2012',
+                            '2012_2013', '2013_2014', '2014_2015', '2015_2016',
+                            '2016_2017', '2017_2018', '2018_2019', '2000_2005',
+                            '2005_2010', '2010_2015', '2015_2019', '2000_2010',
+                            '2010_2019', '2008_2019', '2012_2019', '2002_2010',
+                            '2010_2016', '2000_2019'
                         ],
                         'Quality': [
                             '2000', '2001', '2002', '2003',
                             '2004', '2005', '2006', '2007',
                             '2008', '2009', '2010', '2011',
                             '2012', '2013', '2014', '2015',
-                            '2016', '2017', '2018', '2019',
-                        ]
+                            '2016', '2017', '2018', '2019'
+                        ],
                     },
                 },
                 'collection-2.0': {
@@ -1848,20 +1981,20 @@ var App = {
                             '2021'
                         ],
                         'Transitions': [
-                            "1985_1986", "1986_1987", "1987_1988", "1988_1989",
-                            "1989_1990", "1990_1991", "1991_1992", "1992_1993",
-                            "1993_1994", "1994_1995", "1995_1996", "1996_1997",
-                            "1997_1998", "1998_1999", "1999_2000", "2000_2001",
-                            "2001_2002", "2002_2003", "2003_2004", "2004_2005",
-                            "2005_2006", "2006_2007", "2007_2008", "2008_2009",
-                            "2009_2010", "2010_2011", "2011_2012", "2012_2013",
-                            "2013_2014", "2014_2015", "2015_2016", "2016_2017",
-                            "2017_2018", "2018_2019", "2019_2020", "2020_2021",
-                            "1985_1990", "1990_1995", "1995_2000", "2000_2005",
-                            "2005_2010", "2010_2015", "2015_2020", "1990_2000",
-                            "2000_2010", "2010_2020", "1985_2021", "2008_2021",
-                            "2012_2021", "1994_2002", "2002_2010", "2010_2016",
-                            "2016_2021", "1993_2008"
+                            '1985_1986', '1986_1987', '1987_1988', '1988_1989',
+                            '1989_1990', '1990_1991', '1991_1992', '1992_1993',
+                            '1993_1994', '1994_1995', '1995_1996', '1996_1997',
+                            '1997_1998', '1998_1999', '1999_2000', '2000_2001',
+                            '2001_2002', '2002_2003', '2003_2004', '2004_2005',
+                            '2005_2006', '2006_2007', '2007_2008', '2008_2009',
+                            '2009_2010', '2010_2011', '2011_2012', '2012_2013',
+                            '2013_2014', '2014_2015', '2015_2016', '2016_2017',
+                            '2017_2018', '2018_2019', '2019_2020', '2020_2021',
+                            '1985_1990', '1990_1995', '1995_2000', '2000_2005',
+                            '2005_2010', '2010_2015', '2015_2020', '1990_2000',
+                            '2000_2010', '2010_2020', '1985_2021', '2008_2021',
+                            '2012_2021', '1994_2002', '2002_2010', '2010_2016',
+                            '2016_2021', '1993_2008'
                         ],
                         'Quality': [
                             '1985', '1986', '1987', '1988',
@@ -1874,7 +2007,7 @@ var App = {
                             '2013', '2014', '2015', '2016',
                             '2017', '2018', '2019', '2020',
                             '2021'
-                        ]
+                        ],
                     },
                 },
                 'collection-3.0': {
@@ -1923,7 +2056,56 @@ var App = {
                             '2013', '2014', '2015', '2016',
                             '2017', '2018', '2019', '2020',
                             '2021', '2022'
-                        ]
+                        ],
+                    },
+                },
+                'collection-4.0': {
+                    'assets': {
+                        'integration': 'projects/mapbiomas-public/assets/atlantic_forest/lulc/collection4/mapbiomas_atlantic_forest_collection4_coverage_v1',
+                        'transitions': 'projects/mapbiomas-public/assets/atlantic_forest/lulc/collection4/mapbiomas_atlantic_forest_collection4_transitions_v1',
+                        'quality': 'projects/mapbiomas-public/assets/atlantic_forest/lulc/collection4/mapbiomas_atlantic_forest_collection4_quality_v1',
+                    },
+                    'periods': {
+                        'Coverage': [
+                            '1985', '1986', '1987', '1988',
+                            '1989', '1990', '1991', '1992',
+                            '1993', '1994', '1995', '1996',
+                            '1997', '1998', '1999', '2000',
+                            '2001', '2002', '2003', '2004',
+                            '2005', '2006', '2007', '2008',
+                            '2009', '2010', '2011', '2012',
+                            '2013', '2014', '2015', '2016',
+                            '2017', '2018', '2019', '2020',
+                            '2021', '2022', '2023'
+                        ],
+                        'Transitions': [
+                            '1985_1986', '1986_1987', '1987_1988', '1988_1989',
+                            '1989_1990', '1990_1991', '1991_1992', '1992_1993',
+                            '1993_1994', '1994_1995', '1995_1996', '1996_1997',
+                            '1997_1998', '1998_1999', '1999_2000', '2000_2001',
+                            '2001_2002', '2002_2003', '2003_2004', '2004_2005',
+                            '2005_2006', '2006_2007', '2007_2008', '2008_2009',
+                            '2009_2010', '2010_2011', '2011_2012', '2012_2013',
+                            '2013_2014', '2014_2015', '2015_2016', '2016_2017',
+                            '2017_2018', '2018_2019', '2019_2020', '2020_2021',
+                            '2021_2022', '2022_2023', '1985_1990', '1990_1995',
+                            '1995_2000', '2000_2005', '2005_2010', '2010_2015',
+                            '2015_2020', '1990_2000', '2000_2010', '2010_2020',
+                            '1985_2023', '2008_2023', '2012_2023', '2002_2010',
+                            '2010_2016', '1993_2008'
+                        ],
+                        'Quality': [
+                            '1985', '1986', '1987', '1988',
+                            '1989', '1990', '1991', '1992',
+                            '1993', '1994', '1995', '1996',
+                            '1997', '1998', '1999', '2000',
+                            '2001', '2002', '2003', '2004',
+                            '2005', '2006', '2007', '2008',
+                            '2009', '2010', '2011', '2012',
+                            '2013', '2014', '2015', '2016',
+                            '2017', '2018', '2019', '2020',
+                            '2021', '2022', '2023'
+                        ],
                     },
                 },
             },
@@ -1940,25 +2122,25 @@ var App = {
                             '2004', '2005', '2006', '2007',
                             '2008', '2009', '2010', '2011',
                             '2012', '2013', '2014', '2015',
-                            '2016', '2017', '2018', '2019',
+                            '2016', '2017', '2018', '2019'
                         ],
                         'Transitions': [
-                            "2000_2001", "2001_2002", "2002_2003", "2003_2004",
-                            "2004_2005", "2005_2006", "2006_2007", "2007_2008",
-                            "2008_2009", "2009_2010", "2010_2011", "2011_2012",
-                            "2012_2013", "2013_2014", "2014_2015", "2015_2016",
-                            "2016_2017", "2017_2018", "2018_2019", "2000_2005",
-                            "2005_2010", "2010_2015", "2015_2019", "2000_2010",
-                            "2010_2019", "2008_2019", "2012_2019", "2002_2010",
-                            "2000_2019"
+                            '2000_2001', '2001_2002', '2002_2003', '2003_2004',
+                            '2004_2005', '2005_2006', '2006_2007', '2007_2008',
+                            '2008_2009', '2009_2010', '2010_2011', '2011_2012',
+                            '2012_2013', '2013_2014', '2014_2015', '2015_2016',
+                            '2016_2017', '2017_2018', '2018_2019', '2000_2005',
+                            '2005_2010', '2010_2015', '2015_2019', '2000_2010',
+                            '2010_2019', '2008_2019', '2012_2019', '2002_2010',
+                            '2000_2019'
                         ],
                         'Quality': [
                             '2000', '2001', '2002', '2003',
                             '2004', '2005', '2006', '2007',
                             '2008', '2009', '2010', '2011',
                             '2012', '2013', '2014', '2015',
-                            '2016', '2017', '2018', '2019',
-                        ]
+                            '2016', '2017', '2018', '2019'
+                        ],
                     },
                 },
                 'collection-2.0': {
@@ -1995,7 +2177,7 @@ var App = {
                             '2000_2010', '2010_2020', '1985_2021', '2008_2017',
                             '1994_2002', '2002_2010', '2010_2016', '1986_2015',
                             '1990_2021', '2000_2021', '2008_2021', '2010_2021',
-                            '2012_2021',
+                            '2012_2021'
                         ],
                         'Quality': [
                             '1985', '1986', '1987', '1988',
@@ -2008,7 +2190,7 @@ var App = {
                             '2013', '2014', '2015', '2016',
                             '2017', '2018', '2019', '2020',
                             '2021'
-                        ]
+                        ],
                     },
                 },
                 'collection-3.0': {
@@ -2058,7 +2240,7 @@ var App = {
                             '2013', '2014', '2015', '2016',
                             '2017', '2018', '2019', '2020',
                             '2021', '2022'
-                        ]
+                        ],
                     },
                 },
                 'collection-4.0': {
@@ -2081,21 +2263,21 @@ var App = {
                             '2021', '2022', '2023'
                         ],
                         'Transitions': [
-                        "1985_1986", "1986_1987", "1987_1988",
-                        "1988_1989", "1989_1990", "1990_1991","1991_1992",
-                        "1992_1993", "1993_1994", "1994_1995","1995_1996",
-                        "1996_1997", "1997_1998", "1998_1999","1999_2000",
-                        "2000_2001", "2001_2002", "2002_2003","2003_2004",
-                        "2004_2005", "2005_2006", "2006_2007","2007_2008",
-                        "2008_2009", "2009_2010", "2010_2011","2011_2012",
-                        "2012_2013", "2013_2014", "2014_2015","2015_2016",
-                        "2016_2017", "2017_2018", "2018_2019","2019_2020",
-                        "2020_2021", "2021_2022", "2022_2023","1985_1990",
-                        "1990_1995", "1995_2000", "2000_2005","2005_2010",
-                        "2010_2015", "2015_2020", "1990_2000","2000_2010",
-                        "2010_2020", "1985_2023", "2008_2017","1994_2002",
-                        "2002_2010", "2010_2016", "1986_2015","1990_2023",
-                        "2000_2023", "2008_2023", "2010_2023","2012_2023",
+                            '1985_1986', '1986_1987', '1987_1988', '1988_1989',
+                            '1989_1990', '1990_1991', '1991_1992', '1992_1993',
+                            '1993_1994', '1994_1995', '1995_1996', '1996_1997',
+                            '1997_1998', '1998_1999', '1999_2000', '2000_2001',
+                            '2001_2002', '2002_2003', '2003_2004', '2004_2005',
+                            '2005_2006', '2006_2007', '2007_2008', '2008_2009',
+                            '2009_2010', '2010_2011', '2011_2012', '2012_2013',
+                            '2013_2014', '2014_2015', '2015_2016', '2016_2017',
+                            '2017_2018', '2018_2019', '2019_2020', '2020_2021',
+                            '2021_2022', '2022_2023', '1985_1990', '1990_1995',
+                            '1995_2000', '2000_2005', '2005_2010', '2010_2015',
+                            '2015_2020', '1990_2000', '2000_2010', '2010_2020',
+                            '1985_2023', '2008_2017', '1994_2002', '2002_2010',
+                            '2010_2016', '1986_2015', '1990_2023', '2000_2023',
+                            '2008_2023', '2010_2023', '2012_2023'
                         ],
                         'Quality': [
                             '1985', '1986', '1987', '1988',
@@ -2108,7 +2290,7 @@ var App = {
                             '2013', '2014', '2015', '2016',
                             '2017', '2018', '2019', '2020',
                             '2021', '2022', '2023'
-                        ]
+                        ],
                     },
                 },
             },
@@ -2125,25 +2307,25 @@ var App = {
                             '2004', '2005', '2006', '2007',
                             '2008', '2009', '2010', '2011',
                             '2012', '2013', '2014', '2015',
-                            '2016', '2017', '2018', '2019',
+                            '2016', '2017', '2018', '2019'
                         ],
                         'Transitions': [
-                            "2000_2001", "2001_2002", "2002_2003", "2003_2004",
-                            "2004_2005", "2005_2006", "2006_2007", "2007_2008",
-                            "2008_2009", "2009_2010", "2010_2011", "2011_2012",
-                            "2012_2013", "2013_2014", "2014_2015", "2015_2016",
-                            "2016_2017", "2017_2018", "2018_2019", "2000_2005",
-                            "2005_2010", "2010_2015", "2015_2019", "2000_2010",
-                            "2010_2019", "2000_2019", "2011_2019", "2013_2019",
-                            "2014_2019", "2004_2019",
+                            '2000_2001', '2001_2002', '2002_2003', '2003_2004',
+                            '2004_2005', '2005_2006', '2006_2007', '2007_2008',
+                            '2008_2009', '2009_2010', '2010_2011', '2011_2012',
+                            '2012_2013', '2013_2014', '2014_2015', '2015_2016',
+                            '2016_2017', '2017_2018', '2018_2019', '2000_2005',
+                            '2005_2010', '2010_2015', '2015_2019', '2000_2010',
+                            '2010_2019', '2000_2019', '2011_2019', '2013_2019',
+                            '2014_2019', '2004_2019'
                         ],
                         'Quality': [
                             '2000', '2001', '2002', '2003',
                             '2004', '2005', '2006', '2007',
                             '2008', '2009', '2010', '2011',
                             '2012', '2013', '2014', '2015',
-                            '2016', '2017', '2018', '2019',
-                        ]
+                            '2016', '2017', '2018', '2019'
+                        ],
                     },
                 },
                 'collection-2.0': {
@@ -2162,15 +2344,15 @@ var App = {
                             '2020', '2021', '2022'
                         ],
                         'Transitions': [
-                            "2000_2001", "2001_2002", "2002_2003", "2003_2004",
-                            "2004_2005", "2005_2006", "2006_2007", "2007_2008",
-                            "2008_2009", "2009_2010", "2010_2011", "2011_2012",
-                            "2012_2013", "2013_2014", "2014_2015", "2015_2016",
-                            "2016_2017", "2017_2018", "2018_2019", "2019_2020",
-                            "2020_2021", "2021_2022", "2000_2005", "2005_2010",
-                            "2010_2015", "2015_2020", "2000_2010", "2010_2020",
-                            "2000_2022", "2011_2022", "2013_2022", "2014_2022",
-                            "2015_2022", "2004_2022",
+                            '2000_2001', '2001_2002', '2002_2003', '2003_2004',
+                            '2004_2005', '2005_2006', '2006_2007', '2007_2008',
+                            '2008_2009', '2009_2010', '2010_2011', '2011_2012',
+                            '2012_2013', '2013_2014', '2014_2015', '2015_2016',
+                            '2016_2017', '2017_2018', '2018_2019', '2019_2020',
+                            '2020_2021', '2021_2022', '2000_2005', '2005_2010',
+                            '2010_2015', '2015_2020', '2000_2010', '2010_2020',
+                            '2000_2022', '2011_2022', '2013_2022', '2014_2022',
+                            '2015_2022', '2004_2022'
                         ],
                         'Quality': [
                             '2000', '2001', '2002', '2003',
@@ -2179,7 +2361,64 @@ var App = {
                             '2012', '2013', '2014', '2015',
                             '2016', '2017', '2018', '2019',
                             '2020', '2021', '2022'
-                        ]
+                        ],
+                    },
+                },
+                'collection-3.0': {
+                    'assets': {
+                        'integration': 'projects/mapbiomas-public/assets/indonesia/lulc/collection3/mapbiomas_indonesia_collection3_integration_v1',
+                        'transitions': 'projects/mapbiomas-public/assets/indonesia/lulc/collection3/mapbiomas_indonesia_collection3_transitions_v1',
+                        'quality': 'projects/mapbiomas-public/assets/indonesia/lulc/collection3/mapbiomas_indonesia_collection3_quality_v1',
+                    },
+                    'periods': {
+                        'Coverage': [
+                            '2000', '2001', '2002', '2003',
+                            '2004', '2005', '2006', '2007',
+                            '2008', '2009', '2010', '2011',
+                            '2012', '2013', '2014', '2015',
+                            '2016', '2017', '2018', '2019',
+                            '2020', '2021', '2022', '2023',
+                            '2024'
+                        ],
+                        'Transitions': [
+                            '2000_2001', '2001_2002', '2002_2003', '2003_2004',
+                            '2004_2005', '2005_2006', '2006_2007', '2007_2008',
+                            '2008_2009', '2009_2010', '2010_2011', '2011_2012',
+                            '2012_2013', '2013_2014', '2014_2015', '2015_2016',
+                            '2016_2017', '2017_2018', '2018_2019', '2019_2020',
+                            '2020_2021', '2021_2022', '2022_2023', '2023_2024',
+                            '2000_2005', '2005_2010', '2010_2015', '2015_2020',
+                            '2000_2010', '2010_2020', '2000_2024', '2011_2024',
+                            '2013_2024', '2014_2024', '2015_2024', '2004_2024'
+                        ],
+                        'Quality': [
+                            '2000', '2001', '2002', '2003',
+                            '2004', '2005', '2006', '2007',
+                            '2008', '2009', '2010', '2011',
+                            '2012', '2013', '2014', '2015',
+                            '2016', '2017', '2018', '2019',
+                            '2020', '2021', '2022', '2023',
+                            '2024'
+                        ],
+                    },
+                },
+                'collection-4.1': {
+                    'assets': {
+                        'integration': 'projects/mapbiomas-public/assets/indonesia/lulc/collection4_1/mapbiomas_indonesia_collection41_coverage_v1',
+                    },
+                    'periods': {
+                        'Coverage': [
+                            '1988', '1989', '1990', '1991',
+                            '1992', '1993', '1994', '1995',
+                            '1996', '1997', '1998', '1999',
+                            '2000', '2001', '2002', '2003',
+                            '2004', '2005', '2006', '2007',
+                            '2008', '2009', '2010', '2011',
+                            '2012', '2013', '2014', '2015',
+                            '2016', '2017', '2018', '2019',
+                            '2020', '2021', '2022', '2023',
+                            '2024'
+                        ],
                     },
                 },
             },
@@ -2218,7 +2457,7 @@ var App = {
                             '2000_2010', '2010_2020', '1985_2021', '2008_2017',
                             '1994_2002', '2002_2010', '2010_2016', '1986_2015',
                             '1990_2021', '2000_2021', '2008_2021', '2010_2021',
-                            '2012_2021',
+                            '2012_2021'
                         ],
                         'Quality': [
                             '1985', '1986', '1987', '1988',
@@ -2231,14 +2470,13 @@ var App = {
                             '2013', '2014', '2015', '2016',
                             '2017', '2018', '2019', '2020',
                             '2021'
-                        ]
+                        ],
                     },
                 },
                 'collection-2.0': {
                     'assets': {
                         'integration': 'projects/mapbiomas-public/assets/peru/collection2/mapbiomas_peru_collection2_integration_v1',
                         'transitions': 'projects/mapbiomas-public/assets/peru/collection2/mapbiomas_peru_collection2_transitions_v1',
-                        'quality': 'projects/mapbiomas-public/assets/peru/collection2/mapbiomas_peru_collection2_quality_v2',
                     },
                     'periods': {
                         'Coverage': [
@@ -2268,20 +2506,8 @@ var App = {
                             '1990_2000', '2000_2010', '2010_2020', '1985_2022',
                             '2008_2017', '1994_2002', '2002_2010', '2010_2016',
                             '1986_2015', '1990_2022', '2000_2022', '2008_2022',
-                            '2010_2022', '2012_2022',
+                            '2010_2022', '2012_2022'
                         ],
-                        'Quality': [
-                            '1985', '1986', '1987', '1988',
-                            '1989', '1990', '1991', '1992',
-                            '1993', '1994', '1995', '1996',
-                            '1997', '1998', '1999', '2000',
-                            '2001', '2002', '2003', '2004',
-                            '2005', '2006', '2007', '2008',
-                            '2009', '2010', '2011', '2012',
-                            '2013', '2014', '2015', '2016',
-                            '2017', '2018', '2019', '2020',
-                            '2021', '2022'
-                        ]
                     },
                 },
                 'collection-3.0': {
@@ -2313,12 +2539,12 @@ var App = {
                             '2009_2010', '2010_2011', '2011_2012', '2012_2013',
                             '2013_2014', '2014_2015', '2015_2016', '2016_2017',
                             '2017_2018', '2018_2019', '2019_2020', '2020_2021',
-                            '2021_2022', '1985_1990', '1990_1995', '1995_2000',
-                            '2000_2005', '2005_2010', '2010_2015', '2015_2020',
-                            '1990_2000', '2000_2010', '2010_2020', '1985_2024',
-                            '2008_2017', '1994_2002', '2002_2010', '2010_2016',
-                            '1986_2015', '1990_2024', '2000_2024', '2008_2024',
-                            '2010_2024', '2012_2024',
+                            '2021_2022', '2022_2023', '2023_2024', '2012_2024',
+                            '1985_1990', '1990_1995', '1995_2000', '2000_2005',
+                            '2005_2010', '2010_2015', '2015_2020', '1990_2000',
+                            '2000_2010', '2010_2020', '1985_2024', '2008_2017',
+                            '1994_2002', '2002_2010', '2010_2016', '1986_2015',
+                            '1990_2024', '2000_2024', '2008_2024', '2010_2024'
                         ],
                         'Quality': [
                             '1985', '1986', '1987', '1988',
@@ -2331,7 +2557,27 @@ var App = {
                             '2013', '2014', '2015', '2016',
                             '2017', '2018', '2019', '2020',
                             '2021', '2022', '2023', '2024'
-                        ]
+                        ],
+                    },
+                },
+                'collection-4.0': {
+                    'assets': {
+                        'integration': 'projects/mapbiomas-public/assets/peru/collection4/mapbiomas_peru_collection4_coverage_v1',
+                    },
+                    'periods': {
+                        'Coverage': [
+                            '1985', '1986', '1987', '1988',
+                            '1989', '1990', '1991', '1992',
+                            '1993', '1994', '1995', '1996',
+                            '1997', '1998', '1999', '2000',
+                            '2001', '2002', '2003', '2004',
+                            '2005', '2006', '2007', '2008',
+                            '2009', '2010', '2011', '2012',
+                            '2013', '2014', '2015', '2016',
+                            '2017', '2018', '2019', '2020',
+                            '2021', '2022', '2023', '2024',
+                            '2025'
+                        ],
                     },
                 },
             },
@@ -2340,7 +2586,6 @@ var App = {
                     'assets': {
                         'integration': 'projects/mapbiomas-public/assets/bolivia/collection1/mapbiomas_bolivia_collection1_integration_v1',
                         'transitions': 'projects/mapbiomas-public/assets/bolivia/collection1/mapbiomas_bolivia_collection1_transitions_v1',
-                        'quality': 'projects/mapbiomas-public/assets/peru/collection1/mapbiomas_bolivia_collection1_quality_v1',
                     },
                     'periods': {
                         'Coverage': [
@@ -2370,27 +2615,15 @@ var App = {
                             '2000_2010', '2010_2020', '1985_2021', '2008_2017',
                             '1994_2002', '2002_2010', '2010_2016', '1986_2015',
                             '1990_2021', '2000_2021', '2008_2021', '2010_2021',
-                            '2012_2021',
+                            '2012_2021'
                         ],
-                        'Quality': [
-                            '1985', '1986', '1987', '1988',
-                            '1989', '1990', '1991', '1992',
-                            '1993', '1994', '1995', '1996',
-                            '1997', '1998', '1999', '2000',
-                            '2001', '2002', '2003', '2004',
-                            '2005', '2006', '2007', '2008',
-                            '2009', '2010', '2011', '2012',
-                            '2013', '2014', '2015', '2016',
-                            '2017', '2018', '2019', '2020',
-                            '2021'
-                        ]
                     },
                 },
                 'collection-2.0': {
                     'assets': {
                         'integration': 'projects/mapbiomas-public/assets/bolivia/collection2/mapbiomas_bolivia_collection2_integration_v1',
                         'transitions': 'projects/mapbiomas-public/assets/bolivia/collection2/mapbiomas_bolivia_collection2_transitions_v1',
-                        'quality': 'projects/mapbiomas-public/assets/bolivia/collection2/mapbiomas_bolivia_collection2_quality_v1',
+                        'quality': 'projects/mapbiomas-public/assets/bolivia/collection2/mapbiomas_collection2_quality_v1',
                     },
                     'periods': {
                         'Coverage': [
@@ -2415,12 +2648,12 @@ var App = {
                             '2009_2010', '2010_2011', '2011_2012', '2012_2013',
                             '2013_2014', '2014_2015', '2015_2016', '2016_2017',
                             '2017_2018', '2018_2019', '2019_2020', '2020_2021',
-                            '1985_1990', '1990_1995', '1995_2000', '2000_2005',
-                            '2005_2010', '2010_2015', '2015_2020', '1990_2000',
-                            '2000_2010', '2010_2020', '1985_2021', '2008_2017',
-                            '1994_2002', '2002_2010', '2010_2016', '1986_2015',
-                            '1990_2021', '2000_2021', '2008_2021', '2010_2021',
-                            '2012_2021',
+                            '2021_2022', '2022_2023', '1985_1990', '1990_1995',
+                            '1995_2000', '2000_2005', '2005_2010', '2010_2015',
+                            '2015_2020', '1990_2000', '2000_2010', '2010_2020',
+                            '1985_2023', '2008_2017', '1994_2002', '2002_2010',
+                            '2010_2016', '1986_2015', '1990_2023', '2000_2023',
+                            '2008_2023', '2010_2023', '2012_2023'
                         ],
                         'Quality': [
                             '1985', '1986', '1987', '1988',
@@ -2433,7 +2666,7 @@ var App = {
                             '2013', '2014', '2015', '2016',
                             '2017', '2018', '2019', '2020',
                             '2021', '2022', '2023'
-                        ]
+                        ],
                     },
                 },
                 'collection-3.0': {
@@ -2465,13 +2698,10 @@ var App = {
                             '2009_2010', '2010_2011', '2011_2012', '2012_2013',
                             '2013_2014', '2014_2015', '2015_2016', '2016_2017',
                             '2017_2018', '2018_2019', '2019_2020', '2020_2021',
-                            '2021_2022', '2023_2024',
-                            '1985_1990', '1990_1995', '1995_2000', '2000_2005',
-                            '2005_2010', '2010_2015', '2015_2020', '1990_2000',
-                            '2000_2010', '2010_2020', '1985_2021', '2008_2017',
-                            '1994_2002', '2002_2010', '2010_2016', '1986_2015',
-                            '1990_2024', '2000_2024', '2008_2024', '2010_2024',
-                            '2012_2024',
+                            '2021_2022', '2022_2023', '2023_2024', '1985_2024',
+                            '2008_2017', '1994_2002', '2002_2010', '2010_2016',
+                            '1986_2015', '1990_2024', '2000_2024', '2008_2024',
+                            '2010_2024', '2012_2024'
                         ],
                         'Quality': [
                             '1985', '1986', '1987', '1988',
@@ -2484,10 +2714,10 @@ var App = {
                             '2013', '2014', '2015', '2016',
                             '2017', '2018', '2019', '2020',
                             '2021', '2022', '2023', '2024'
-                        ]
+                        ],
                     },
                 },
-             },
+            },
             'mapbiomas-colombia': {
                 'collection-1.0': {
                     'assets': {
@@ -2520,7 +2750,7 @@ var App = {
                             '2017_2018', '2018_2019', '2019_2020', '2020_2021',
                             '2021_2022', '1985_1990', '1990_1995', '1995_2000',
                             '2000_2005', '2005_2010', '2010_2015', '2015_2020',
-                            '1990_2000', '2000_2010', '2010_2020', '1985_2022',
+                            '1990_2000', '2000_2010', '2010_2020', '1985_2022'
                         ],
                         'Quality': [
                             '1985', '1986', '1987', '1988',
@@ -2533,7 +2763,7 @@ var App = {
                             '2013', '2014', '2015', '2016',
                             '2017', '2018', '2019', '2020',
                             '2021', '2022'
-                        ]
+                        ],
                     },
                 },
                 'collection-2.0': {
@@ -2556,20 +2786,20 @@ var App = {
                             '2021', '2022', '2023'
                         ],
                         'Transitions': [
-                            '1985_1986','1986_1987','1987_1988','1988_1989',
-                            '1989_1990','1990_1991','1991_1992','1992_1993',
-                            '1993_1994','1994_1995','1995_1996','1996_1997',
-                            '1997_1998','1998_1999','1999_2000','2000_2001',
-                            '2001_2002','2002_2003','2003_2004','2004_2005',
-                            '2005_2006','2006_2007','2007_2008','2008_2009',
-                            '2009_2010','2010_2011','2011_2012','2012_2013',
-                            '2013_2014','2014_2015','2015_2016','2016_2017',
-                            '2017_2018','2018_2019','2019_2020','2020_2021',
-                            '2021_2022','2022_2023','1985_1990','1990_1995',
-                            '1995_2000','2000_2005','2005_2010','2010_2015',
-                            '2015_2020','1990_2000','2000_2010','2010_2020',
-                            '1985_2023','1991_2001','2002_2012','2013_2023',
-                            '2006_2011','2012_2017','2018_2023','2019_2023',
+                            '1985_1986', '1986_1987', '1987_1988', '1988_1989',
+                            '1989_1990', '1990_1991', '1991_1992', '1992_1993',
+                            '1993_1994', '1994_1995', '1995_1996', '1996_1997',
+                            '1997_1998', '1998_1999', '1999_2000', '2000_2001',
+                            '2001_2002', '2002_2003', '2003_2004', '2004_2005',
+                            '2005_2006', '2006_2007', '2007_2008', '2008_2009',
+                            '2009_2010', '2010_2011', '2011_2012', '2012_2013',
+                            '2013_2014', '2014_2015', '2015_2016', '2016_2017',
+                            '2017_2018', '2018_2019', '2019_2020', '2020_2021',
+                            '2021_2022', '2022_2023', '1985_1990', '1990_1995',
+                            '1995_2000', '2000_2005', '2005_2010', '2010_2015',
+                            '2015_2020', '1990_2000', '2000_2010', '2010_2020',
+                            '1985_2023', '1991_2001', '2002_2012', '2013_2023',
+                            '2006_2011', '2012_2017', '2018_2023', '2019_2023'
                         ],
                         'Quality': [
                             '1985', '1986', '1987', '1988',
@@ -2582,7 +2812,26 @@ var App = {
                             '2013', '2014', '2015', '2016',
                             '2017', '2018', '2019', '2020',
                             '2021', '2022', '2023'
-                        ]
+                        ],
+                    },
+                },
+                'collection-3.0': {
+                    'assets': {
+                        'integration': 'projects/mapbiomas-public/assets/colombia/lulc/collection3/mapbiomas_colombia_collection3_coverage_v2',
+                    },
+                    'periods': {
+                        'Coverage': [
+                            '1985', '1986', '1987', '1988',
+                            '1989', '1990', '1991', '1992',
+                            '1993', '1994', '1995', '1996',
+                            '1997', '1998', '1999', '2000',
+                            '2001', '2002', '2003', '2004',
+                            '2005', '2006', '2007', '2008',
+                            '2009', '2010', '2011', '2012',
+                            '2013', '2014', '2015', '2016',
+                            '2017', '2018', '2019', '2020',
+                            '2021', '2022', '2023', '2024'
+                        ],
                     },
                 },
             },
@@ -2618,7 +2867,7 @@ var App = {
                             '2017_2018', '2018_2019', '2019_2020', '2020_2021',
                             '2021_2022', '1985_1990', '1990_1995', '1995_2000',
                             '2000_2005', '2005_2010', '2010_2015', '2015_2020',
-                            '1990_2000', '2000_2010', '2010_2020', '1985_2022',
+                            '1990_2000', '2000_2010', '2010_2020', '1985_2022'
                         ],
                         'Quality': [
                             '1985', '1986', '1987', '1988',
@@ -2631,7 +2880,7 @@ var App = {
                             '2013', '2014', '2015', '2016',
                             '2017', '2018', '2019', '2020',
                             '2021', '2022'
-                        ]
+                        ],
                     },
                 },
                 'collection-2.0': {
@@ -2679,7 +2928,26 @@ var App = {
                             '2013', '2014', '2015', '2016',
                             '2017', '2018', '2019', '2020',
                             '2021', '2022', '2023'
-                        ]
+                        ],
+                    },
+                },
+                'collection-3.0': {
+                    'assets': {
+                        'integration': 'projects/mapbiomas-public/assets/venezuela/lulc/collection3/mapbiomas_venezuela_collection3_coverage_v1',
+                    },
+                    'periods': {
+                        'Coverage': [
+                            '1985', '1986', '1987', '1988',
+                            '1989', '1990', '1991', '1992',
+                            '1993', '1994', '1995', '1996',
+                            '1997', '1998', '1999', '2000',
+                            '2001', '2002', '2003', '2004',
+                            '2005', '2006', '2007', '2008',
+                            '2009', '2010', '2011', '2012',
+                            '2013', '2014', '2015', '2016',
+                            '2017', '2018', '2019', '2020',
+                            '2021', '2022', '2023', '2024'
+                        ],
                     },
                 },
             },
@@ -2731,14 +2999,14 @@ var App = {
                             '2013', '2014', '2015', '2016',
                             '2017', '2018', '2019', '2020',
                             '2021', '2022'
-                        ]
+                        ],
                     },
                 },
                 'collection-2.0': {
                     'assets': {
                         'integration': 'projects/mapbiomas-public/assets/uruguay/collection2/mapbiomas_uruguay_collection2_integration_v1',
                         'transitions': 'projects/mapbiomas-public/assets/uruguay/collection2/mapbiomas_uruguay_collection2_transitions_v1',
-                        'quality':     'projects/mapbiomas-public/assets/uruguay/collection2/mapbiomas_uruguay_collection2_quality_v1',
+                        'quality': 'projects/mapbiomas-public/assets/uruguay/collection2/mapbiomas_uruguay_collection2_quality_v1',
                     },
                     'periods': {
                         'Coverage': [
@@ -2754,19 +3022,19 @@ var App = {
                             '2021', '2022', '2023'
                         ],
                         'Transitions': [
-                            "1985_1986", "1986_1987", "1987_1988", "1988_1989",
-                            "1989_1990", "1990_1991", "1991_1992", "1992_1993",
-                            "1993_1994", "1994_1995", "1995_1996", "1996_1997",
-                            "1997_1998", "1998_1999", "1999_2000", "2000_2001",
-                            "2001_2002", "2002_2003", "2003_2004", "2004_2005",
-                            "2005_2006", "2006_2007", "2007_2008", "2008_2009",
-                            "2009_2010", "2010_2011", "2011_2012", "2012_2013",
-                            "2013_2014", "2014_2015", "2015_2016", "2016_2017",
-                            "2017_2018", "2018_2019", "2019_2020", "2020_2021",
-                            "2021_2022", "2022_2023", "1985_1990", "1990_1995",
-                            "1995_2000", "2000_2005", "2005_2010", "2010_2015",
-                            "2015_2020", "1990_2000", "2000_2010", "2010_2020",
-                            "2010_2023", "1985_2023",
+                            '1985_1986', '1986_1987', '1987_1988', '1988_1989',
+                            '1989_1990', '1990_1991', '1991_1992', '1992_1993',
+                            '1993_1994', '1994_1995', '1995_1996', '1996_1997',
+                            '1997_1998', '1998_1999', '1999_2000', '2000_2001',
+                            '2001_2002', '2002_2003', '2003_2004', '2004_2005',
+                            '2005_2006', '2006_2007', '2007_2008', '2008_2009',
+                            '2009_2010', '2010_2011', '2011_2012', '2012_2013',
+                            '2013_2014', '2014_2015', '2015_2016', '2016_2017',
+                            '2017_2018', '2018_2019', '2019_2020', '2020_2021',
+                            '2021_2022', '2022_2023', '1985_1990', '1990_1995',
+                            '1995_2000', '2000_2005', '2005_2010', '2010_2015',
+                            '2015_2020', '1990_2000', '2000_2010', '2010_2020',
+                            '2010_2023', '1985_2023'
                         ],
                         'Quality': [
                             '1985', '1986', '1987', '1988',
@@ -2779,7 +3047,26 @@ var App = {
                             '2013', '2014', '2015', '2016',
                             '2017', '2018', '2019', '2020',
                             '2021', '2022', '2023'
-                        ]
+                        ],
+                    },
+                },
+                'collection-3.0': {
+                    'assets': {
+                        'integration': 'projects/mapbiomas-public/assets/uruguay/lulc/collection3/mapbiomas_uruguay_collection3_coverage_v1',
+                    },
+                    'periods': {
+                        'Coverage': [
+                            '1985', '1986', '1987', '1988',
+                            '1989', '1990', '1991', '1992',
+                            '1993', '1994', '1995', '1996',
+                            '1997', '1998', '1999', '2000',
+                            '2001', '2002', '2003', '2004',
+                            '2005', '2006', '2007', '2008',
+                            '2009', '2010', '2011', '2012',
+                            '2013', '2014', '2015', '2016',
+                            '2017', '2018', '2019', '2020',
+                            '2021', '2022', '2023', '2024'
+                        ],
                     },
                 },
             },
@@ -2816,8 +3103,7 @@ var App = {
                             '2021_2022', '1985_1990', '1990_1995', '1995_2000',
                             '2000_2005', '2005_2010', '2010_2015', '2015_2020',
                             '1990_2000', '2000_2010', '2010_2020', '1985_2022'
-                        ]
-                        ,
+                        ],
                         'Quality': [
                             '1985', '1986', '1987', '1988',
                             '1989', '1990', '1991', '1992',
@@ -2829,7 +3115,7 @@ var App = {
                             '2013', '2014', '2015', '2016',
                             '2017', '2018', '2019', '2020',
                             '2021', '2022'
-                        ]
+                        ],
                     },
                 },
                 'collection-2.0': {
@@ -2852,20 +3138,20 @@ var App = {
                             '2021', '2022', '2023'
                         ],
                         'Transitions': [
-                            '1985_1986', '1986_1987', '1987_1988', '1988_1989', 
-                            '1989_1990', '1990_1991', '1991_1992', '1992_1993', 
-                            '1993_1994', '1994_1995', '1995_1996', '1996_1997', 
-                            '1997_1998', '1998_1999', '1999_2000', '2000_2001', 
-                            '2001_2002', '2002_2003', '2003_2004', '2004_2005', 
-                            '2005_2006', '2006_2007', '2007_2008', '2008_2009', 
-                            '2009_2010', '2010_2011', '2011_2012', '2012_2013', 
-                            '2013_2014', '2014_2015', '2015_2016', '2016_2017', 
-                            '2017_2018', '2018_2019', '2019_2020', '2020_2021', 
-                            '2021_2022', '2022_2023', '1985_1990', '1990_1995', 
-                            '1995_2000', '2000_2005', '2005_2010', '2010_2015', 
-                            '2015_2020', '1990_2000', '2000_2010', '2010_2020', 
-                            '1985_2023', '1985_2007', '2008_2023', '2000_2023', 
-                            '2013_2023',
+                            '1985_1986', '1986_1987', '1987_1988', '1988_1989',
+                            '1989_1990', '1990_1991', '1991_1992', '1992_1993',
+                            '1993_1994', '1994_1995', '1995_1996', '1996_1997',
+                            '1997_1998', '1998_1999', '1999_2000', '2000_2001',
+                            '2001_2002', '2002_2003', '2003_2004', '2004_2005',
+                            '2005_2006', '2006_2007', '2007_2008', '2008_2009',
+                            '2009_2010', '2010_2011', '2011_2012', '2012_2013',
+                            '2013_2014', '2014_2015', '2015_2016', '2016_2017',
+                            '2017_2018', '2018_2019', '2019_2020', '2020_2021',
+                            '2021_2022', '2022_2023', '1985_1990', '1990_1995',
+                            '1995_2000', '2000_2005', '2005_2010', '2010_2015',
+                            '2015_2020', '1990_2000', '2000_2010', '2010_2020',
+                            '1985_2023', '1985_2007', '2008_2023', '2000_2023',
+                            '2013_2023'
                         ],
                         'Quality': [
                             '1985', '1986', '1987', '1988',
@@ -2878,7 +3164,26 @@ var App = {
                             '2013', '2014', '2015', '2016',
                             '2017', '2018', '2019', '2020',
                             '2021', '2022', '2023'
-                        ]
+                        ],
+                    },
+                },
+                'collection-3.0': {
+                    'assets': {
+                        'integration': 'projects/mapbiomas-public/assets/ecuador/lulc/collection3/mapbiomas_ecuador_collection3_coverage_v3',
+                    },
+                    'periods': {
+                        'Coverage': [
+                            '1985', '1986', '1987', '1988',
+                            '1989', '1990', '1991', '1992',
+                            '1993', '1994', '1995', '1996',
+                            '1997', '1998', '1999', '2000',
+                            '2001', '2002', '2003', '2004',
+                            '2005', '2006', '2007', '2008',
+                            '2009', '2010', '2011', '2012',
+                            '2013', '2014', '2015', '2016',
+                            '2017', '2018', '2019', '2020',
+                            '2021', '2022', '2023', '2024'
+                        ],
                     },
                 },
             },
@@ -2887,7 +3192,6 @@ var App = {
                     'assets': {
                         'integration': 'projects/mapbiomas-public/assets/paraguay/collection1/mapbiomas_paraguay_collection1_integration_v1',
                         'transitions': 'projects/mapbiomas-public/assets/paraguay/collection1/mapbiomas_paraguay_collection1_transitions_v1',
-                        'quality': 'projects/mapbiomas-public/assets/paraguay/collection1/mapbiomas_paraguay_collection1_quality_v1',
                     },
                     'periods': {
                         'Coverage': [
@@ -2915,20 +3219,8 @@ var App = {
                             '2021_2022', '1985_1990', '1990_1995', '1995_2000',
                             '2000_2005', '2005_2010', '2010_2015', '2015_2020',
                             '1990_2000', '2000_2010', '2010_2020', '1985_2022',
-                            '1985_2005', '2005_2022',
+                            '1985_2005', '2005_2022'
                         ],
-                        'Quality': [
-                            '1985', '1986', '1987', '1988',
-                            '1989', '1990', '1991', '1992',
-                            '1993', '1994', '1995', '1996',
-                            '1997', '1998', '1999', '2000',
-                            '2001', '2002', '2003', '2004',
-                            '2005', '2006', '2007', '2008',
-                            '2009', '2010', '2011', '2012',
-                            '2013', '2014', '2015', '2016',
-                            '2017', '2018', '2019', '2020',
-                            '2021', '2022'
-                        ]
                     },
                 },
                 'collection-2.0': {
@@ -2960,10 +3252,10 @@ var App = {
                             '2009_2010', '2010_2011', '2011_2012', '2012_2013',
                             '2013_2014', '2014_2015', '2015_2016', '2016_2017',
                             '2017_2018', '2018_2019', '2019_2020', '2020_2021',
-                            '2021_2022', '2022-2023', '1985_1990', '1990_1995', '1995_2000',
-                            '2000_2005', '2005_2010', '2010_2015', '2015_2020',
-                            '1990_2000', '2000_2010', '2010_2020', '1985_2023',
-                            '1985_2005', '2005_2023',
+                            '2021_2022', '2022_2023', '1985_1990', '1990_1995',
+                            '1995_2000', '2000_2005', '2005_2010', '2010_2015',
+                            '2015_2020', '1990_2000', '2000_2010', '2010_2020',
+                            '1985_2023'
                         ],
                         'Quality': [
                             '1985', '1986', '1987', '1988',
@@ -2976,17 +3268,35 @@ var App = {
                             '2013', '2014', '2015', '2016',
                             '2017', '2018', '2019', '2020',
                             '2021', '2022', '2023'
-                        ]
+                        ],
                     },
                 },
-
+                'collection-3.0': {
+                    'assets': {
+                        'integration': 'projects/mapbiomas-public/assets/paraguay/lulc/collection3/mapbiomas_paraguay_collection3_coverage_v1',
+                    },
+                    'periods': {
+                        'Coverage': [
+                            '1985', '1986', '1987', '1988',
+                            '1989', '1990', '1991', '1992',
+                            '1993', '1994', '1995', '1996',
+                            '1997', '1998', '1999', '2000',
+                            '2001', '2002', '2003', '2004',
+                            '2005', '2006', '2007', '2008',
+                            '2009', '2010', '2011', '2012',
+                            '2013', '2014', '2015', '2016',
+                            '2017', '2018', '2019', '2020',
+                            '2021', '2022', '2023', '2024',
+                            '2025'
+                        ],
+                    },
+                },
             },
             'mapbiomas-chile': {
                 'collection-1.0': {
                     'assets': {
                         'integration': 'projects/mapbiomas-public/assets/chile/collection1/mapbiomas_chile_collection1_integration_v1',
                         'transitions': 'projects/mapbiomas-public/assets/chile/collection1/mapbiomas_chile_collection1_transitions_v1',
-                        'quality': '',
                     },
                     'periods': {
                         'Coverage': [
@@ -3005,16 +3315,24 @@ var App = {
                             '2016_2017', '2017_2018', '2018_2019', '2019_2020',
                             '2020_2021', '2021_2022', '2000_2005', '2005_2010',
                             '2010_2015', '2015_2020', '2000_2010', '2010_2020',
-                            '2000_2022',
+                            '2000_2022'
                         ],
-                        'Quality': [
-                            '2000', '2001', '2002', '2003',
-                            '2004', '2005', '2006', '2007',
-                            '2008', '2009', '2010', '2011',
-                            '2012', '2013', '2014', '2015',
-                            '2016', '2017', '2018', '2019',
-                            '2020', '2021', '2022'
-                        ]
+                    },
+                },
+                'collection-2.0': {
+                    'assets': {
+                        'integration': 'projects/mapbiomas-public/assets/chile/lulc/collection2/mapbiomas_chile_collection2_coverage_v2',
+                    },
+                    'periods': {
+                        'Coverage': [
+                            '1999', '2000', '2001', '2002',
+                            '2003', '2004', '2005', '2006',
+                            '2007', '2008', '2009', '2010',
+                            '2011', '2012', '2013', '2014',
+                            '2015', '2016', '2017', '2018',
+                            '2019', '2020', '2021', '2022',
+                            '2023', '2024'
+                        ],
                     },
                 },
             },
@@ -3023,7 +3341,6 @@ var App = {
                     'assets': {
                         'integration': 'projects/mapbiomas-public/assets/argentina/collection1/mapbiomas_argentina_collection1_integration_v1',
                         'transitions': 'projects/mapbiomas-public/assets/argentina/collection1/mapbiomas_argentina_collection1_transitions_v1',
-                        'quality': '',
                     },
                     'periods': {
                         'Coverage': [
@@ -3044,17 +3361,87 @@ var App = {
                             '2018_2019', '2019_2020', '2020_2021', '2021_2022',
                             '2000_2005', '2005_2010', '2010_2015', '2015_2020',
                             '2000_2010', '2010_2020', '1998_2022', '1998_2005',
-                            '1998_2010', '1998_2020',
+                            '1998_2010', '1998_2020'
                         ],
-                        'Quality': [
-                            '1998', '1999', '2000', '2001',
-                            '2002', '2003', '2004', '2005',
-                            '2006', '2007', '2008', '2009',
-                            '2010', '2011', '2012', '2013',
-                            '2014', '2015', '2016', '2017',
-                            '2018', '2019', '2020', '2021',
-                            '2022'
-                        ]
+                    },
+                },
+                'collection-2.0': {
+                    'assets': {
+                        'integration': 'projects/mapbiomas-public/assets/argentina/lulc/collection2/mapbiomas_argentina_collection2_integration_v3',
+                    },
+                    'periods': {
+                        'Coverage': [
+                            '1985', '1986', '1987', '1988',
+                            '1989', '1990', '1991', '1992',
+                            '1993', '1994', '1995', '1996',
+                            '1997', '1998', '1999', '2000',
+                            '2001', '2002', '2003', '2004',
+                            '2005', '2006', '2007', '2008',
+                            '2009', '2010', '2011', '2012',
+                            '2013', '2014', '2015', '2016',
+                            '2017', '2018', '2019', '2020',
+                            '2021', '2022', '2023', '2024'
+                        ],
+                    },
+                },
+                'collection-3.0': {
+                    'assets': {
+                        'integration': 'projects/mapbiomas-public/assets/argentina/lulc/collection3/mapbiomas_argentina_collection3_coverage_v1',
+                    },
+                    'periods': {
+                        'Coverage': [
+                            '1985', '1986', '1987', '1988',
+                            '1989', '1990', '1991', '1992',
+                            '1993', '1994', '1995', '1996',
+                            '1997', '1998', '1999', '2000',
+                            '2001', '2002', '2003', '2004',
+                            '2005', '2006', '2007', '2008',
+                            '2009', '2010', '2011', '2012',
+                            '2013', '2014', '2015', '2016',
+                            '2017', '2018', '2019', '2020',
+                            '2021', '2022', '2023', '2024',
+                            '2025'
+                        ],
+                    },
+                },
+            },
+            'mapbiomas-mexico': {
+                'collection-1.0': {
+                    'assets': {
+                        'integration': 'projects/mapbiomas-public/assets/mexico/lulc/collection1/mapbiomas_mexico_collection1_coverage_v1',
+                    },
+                    'periods': {
+                        'Coverage': [
+                            '1985', '1986', '1987', '1988',
+                            '1989', '1990', '1991', '1992',
+                            '1993', '1994', '1995', '1996',
+                            '1997', '1998', '1999', '2000',
+                            '2001', '2002', '2003', '2004',
+                            '2005', '2006', '2007', '2008',
+                            '2009', '2010', '2011', '2012',
+                            '2013', '2014', '2015', '2016',
+                            '2017', '2018', '2019', '2020',
+                            '2021', '2022', '2023', '2024',
+                            '2025'
+                        ],
+                    },
+                },
+            },
+            'mapbiomas-drc': {
+                'collection-1.0': {
+                    'assets': {
+                        'integration': 'projects/mapbiomas-public/assets/drc/lulc/collection1/mapbiomas_drc_collection1_coverage_v1',
+                    },
+                    'periods': {
+                        'Coverage': [
+                            '2000', '2001', '2002', '2003',
+                            '2004', '2005', '2006', '2007',
+                            '2008', '2009', '2010', '2011',
+                            '2012', '2013', '2014', '2015',
+                            '2016', '2017', '2018', '2019',
+                            '2020', '2021', '2022', '2023',
+                            '2024', '2025'
+                        ],
                     },
                 },
             },
@@ -3124,21 +3511,448 @@ var App = {
         ],
 
         palettes: {
-            'mapbiomas-amazon': 'chile1',
-            'mapbiomas-atlantic-forest': 'chile1',
-            'mapbiomas-brazil': 'classification9',
-            'mapbiomas-bolivia': 'chile1',
-            'mapbiomas-chaco': 'chile1',
-            'mapbiomas-chile': 'chile1',
-            'mapbiomas-colombia': 'chile1',
-            'mapbiomas-ecuador': 'chile1',
-            'mapbiomas-indonesia': 'chile1',
-            'mapbiomas-pampa': 'chile1',
-            'mapbiomas-paraguay': 'chile1',
-            'mapbiomas-peru': 'chile1',
-            'mapbiomas-uruguay': 'chile1',
-            'mapbiomas-venezuela': 'chile1',
-            'mapbiomas-argentina': 'chile1',
+            'mapbiomas-brazil': [
+                '#ffffff', '#1f8d49', '#000000', '#1f8d49',
+                '#7dc975', '#04381d', '#007785', '#228c70',
+                '#000000', '#7a5900', '#d6bc74', '#519799',
+                '#d6bc74', '#d89f5c', '#ffefc3', '#edde8e',
+                '#000000', '#000000', '#e974ed', '#c27ba0',
+                '#db7093', '#ffefc3', '#d4271e', '#ffa07a',
+                '#d4271e', '#db4d4f', '#2532e4', '#ffffff',
+                '#000000', '#ffaa5f', '#9c0027', '#091077',
+                '#fc8114', '#2532e4', '#93dfe6', '#9065d0',
+                '#d082de', '#000000', '#000000', '#f5b3c8',
+                '#c71585', '#f54ca9', '#a5b35b', '#c2d26b',
+                '#cbe286', '#807a40', '#d68fe2', '#9932cc',
+                '#e6ccff', '#02d659', '#ad5100', '#5faf92',
+                '#f0b4a8', '#000000', '#000000', '#000000',
+                '#000000', '#f99fff', '#d84690', '#1f8d49',
+                '#5cb85d', '#f5d5d5', '#ff69b4', '#c7e0ab',
+                '#000000', '#b9158a', '#a89358', '#c8ffb4',
+                '#e97a7a', '#000000', '#be9e00', '#000000',
+                '#c1799c', '#6fc179', '#be83f7', '#c12100',
+                '#2f7360', '#c49a5a', '#000000', '#67671c',
+                '#886827', '#c8c099', '#66b2a3', '#ab8231',
+                '#6fa8a3', '#000000', '#000000', '#000000',
+                '#329c5a', '#6bd46c', '#000000', '#8b1a1a',
+                '#d98a45'
+            ],
+            'mapbiomas-amazon': [
+                '#ffffff', '#1f8d49', '#000000', '#1f8d49',
+                '#7dc975', '#04381d', '#026975', '#228c70',
+                '#000000', '#7a5900', '#d6bc74', '#519799',
+                '#d6bc74', '#d89f5c', '#ffefc3', '#edde8e',
+                '#000000', '#000000', '#e974ed', '#c27ba0',
+                '#db7093', '#ffefc3', '#d4271e', '#ffa07a',
+                '#d4271e', '#db4d4f', '#2532e4', '#ffffff',
+                '#000000', '#ffaa5f', '#9c0027', '#091077',
+                '#fc8114', '#2532e4', '#93dfe6', '#9065d0',
+                '#d082de', '#000000', '#000000', '#f5b3c8',
+                '#c71585', '#f54ca9', '#a5b35b', '#c2d26b',
+                '#cbe286', '#807a40', '#d68fe2', '#9932cc',
+                '#e6ccff', '#02d659', '#ad5100', '#5faf92',
+                '#f0b4a8', '#000000', '#000000', '#000000',
+                '#000000', '#f99fff', '#d84690', '#1f8d49',
+                '#5cb85d', '#f5d5d5', '#ff69b4', '#c7e0ab',
+                '#000000', '#b9158a', '#a89358', '#c8ffb4',
+                '#e97a7a', '#000000', '#be9e00', '#000000',
+                '#c1799c', '#6fc179', '#be83f7', '#c12100',
+                '#2f7360', '#c49a5a', '#000000', '#67671c',
+                '#886827', '#c8c099', '#66b2a3', '#ab8231',
+                '#6fa8a3', '#000000', '#000000', '#000000',
+                '#329c5a', '#6bd46c', '#000000', '#8b1a1a',
+                '#d98a45'
+            ],
+            'mapbiomas-chaco': [
+                '#ffffff', '#1f8d49', '#000000', '#1f8d49',
+                '#7dc975', '#04381d', '#026975', '#228c70',
+                '#000000', '#7a5900', '#d6bc74', '#519799',
+                '#d6bc74', '#d89f5c', '#ffefc3', '#edde8e',
+                '#000000', '#000000', '#e974ed', '#c27ba0',
+                '#db7093', '#ffefc3', '#d4271e', '#ffa07a',
+                '#d4271e', '#db4d4f', '#2532e4', '#ffffff',
+                '#000000', '#ffaa5f', '#9c0027', '#091077',
+                '#fc8114', '#2532e4', '#93dfe6', '#9065d0',
+                '#d082de', '#000000', '#000000', '#f5b3c8',
+                '#c71585', '#f54ca9', '#a5b35b', '#c2d26b',
+                '#cbe286', '#807a40', '#d68fe2', '#9932cc',
+                '#e6ccff', '#02d659', '#ad5100', '#5faf92',
+                '#f0b4a8', '#000000', '#000000', '#000000',
+                '#000000', '#f99fff', '#d84690', '#1f8d49',
+                '#5cb85d', '#f5d5d5', '#ff69b4', '#c7e0ab',
+                '#000000', '#b9158a', '#a89358', '#c8ffb4',
+                '#e97a7a', '#000000', '#be9e00', '#000000',
+                '#c1799c', '#6fc179', '#be83f7', '#c12100',
+                '#2f7360', '#c49a5a', '#000000', '#67671c',
+                '#886827', '#c8c099', '#66b2a3', '#ab8231',
+                '#6fa8a3', '#000000', '#000000', '#000000',
+                '#329c5a', '#6bd46c', '#000000', '#8b1a1a',
+                '#d98a45'
+            ],
+            'mapbiomas-atlantic-forest': [
+                '#ffffff', '#1f8d49', '#000000', '#1f8d49',
+                '#7dc975', '#04381d', '#007785', '#228c70',
+                '#000000', '#7a5900', '#d6bc74', '#519799',
+                '#d6bc74', '#d89f5c', '#ffefc3', '#edde8e',
+                '#000000', '#000000', '#e974ed', '#c27ba0',
+                '#db7093', '#ffefc3', '#d4271e', '#ffa07a',
+                '#d4271e', '#db4d4f', '#2532e4', '#ffffff',
+                '#000000', '#ffaa5f', '#9c0027', '#091077',
+                '#fc8114', '#2532e4', '#93dfe6', '#9065d0',
+                '#d082de', '#000000', '#000000', '#f5b3c8',
+                '#c71585', '#f54ca9', '#a5b35b', '#c2d26b',
+                '#cbe286', '#807a40', '#d68fe2', '#9932cc',
+                '#e6ccff', '#02d659', '#ad5100', '#5faf92',
+                '#f0b4a8', '#000000', '#000000', '#000000',
+                '#000000', '#f99fff', '#d84690', '#1f8d49',
+                '#5cb85d', '#f5d5d5', '#ff69b4', '#c7e0ab',
+                '#000000', '#b9158a', '#a89358', '#c8ffb4',
+                '#e97a7a', '#000000', '#be9e00', '#000000',
+                '#c1799c', '#6fc179', '#be83f7', '#c12100',
+                '#2f7360', '#c49a5a', '#000000', '#67671c',
+                '#886827', '#c8c099', '#66b2a3', '#ab8231',
+                '#6fa8a3', '#000000', '#000000', '#000000',
+                '#329c5a', '#6bd46c', '#000000', '#8b1a1a',
+                '#d98a45'
+            ],
+            'mapbiomas-pampa': [
+                '#ffffff', '#1f8d49', '#000000', '#1f8d49',
+                '#7dc975', '#04381d', '#007785', '#228c70',
+                '#000000', '#7a6c00', '#d6bc74', '#519799',
+                '#d6bc74', '#d89f5c', '#ffefc3', '#edde8e',
+                '#000000', '#000000', '#c27ba0', '#c27ba0',
+                '#db7093', '#ffefc3', '#d4271e', '#ffa07a',
+                '#d4271e', '#db4d4f', '#2532e4', '#ffffff',
+                '#000000', '#ffaa5f', '#9c0027', '#091077',
+                '#fc8114', '#2532e4', '#93dfe6', '#9065d0',
+                '#d082de', '#000000', '#000000', '#f5b3c8',
+                '#c71585', '#f54ca9', '#a5b35b', '#c2d26b',
+                '#cbe286', '#807a40', '#d68fe2', '#9932cc',
+                '#e6ccff', '#02d659', '#ad5100', '#5faf92',
+                '#f0b4a8', '#000000', '#000000', '#000000',
+                '#000000', '#f99fff', '#d84690', '#1f8d49',
+                '#5cb85d', '#f5d5d5', '#ff69b4', '#c7e0ab',
+                '#000000', '#b9158a', '#a89358', '#c8ffb4',
+                '#e97a7a', '#000000', '#be9e00', '#000000',
+                '#c1799c', '#6fc179', '#be83f7', '#c12100',
+                '#2f7360', '#c49a5a', '#000000', '#67671c',
+                '#886827', '#c8c099', '#66b2a3', '#ab8231',
+                '#6fa8a3', '#000000', '#000000', '#000000',
+                '#329c5a', '#6bd46c', '#000000', '#8b1a1a',
+                '#d98a45'
+            ],
+            'mapbiomas-indonesia': [
+                '#ffffff', '#1f8d49', '#000000', '#1f8d49',
+                '#7dc975', '#04381d', '#007785', '#228c70',
+                '#000000', '#7a5900', '#d6bc74', '#519799',
+                '#d6bc74', '#d89f5c', '#ffefc3', '#edde8e',
+                '#000000', '#000000', '#e974ed', '#c27ba0',
+                '#db7093', '#ffefc3', '#d4271e', '#ffa07a',
+                '#d4271e', '#db4d4f', '#2532e4', '#ffffff',
+                '#000000', '#ffaa5f', '#9c0027', '#091077',
+                '#fc8114', '#2532e4', '#93dfe6', '#9065d0',
+                '#d082de', '#000000', '#000000', '#f5b3c8',
+                '#f272c2', '#f54ca9', '#a5b35b', '#c2d26b',
+                '#cbe286', '#807a40', '#d68fe2', '#9932cc',
+                '#e6ccff', '#02d659', '#ad5100', '#5faf92',
+                '#f0b4a8', '#000000', '#000000', '#000000',
+                '#000000', '#f99fff', '#d84690', '#1f8d49',
+                '#5cb85d', '#f5d5d5', '#ff69b4', '#c7e0ab',
+                '#000000', '#b9158a', '#a89358', '#c8ffb4',
+                '#e97a7a', '#000000', '#be9e00', '#000000',
+                '#c1799c', '#6fc179', '#be83f7', '#c12100',
+                '#2f7360', '#c49a5a', '#000000', '#67671c',
+                '#886827', '#c8c099', '#66b2a3', '#ab8231',
+                '#6fa8a3', '#000000', '#000000', '#000000',
+                '#329c5a', '#6bd46c', '#000000', '#8b1a1a',
+                '#d98a45'
+            ],
+            'mapbiomas-peru': [
+                '#ffffff', '#1f8d49', '#000000', '#1f8d49',
+                '#7dc975', '#04381d', '#026975', '#228c70',
+                '#000000', '#7a5900', '#d6bc74', '#519799',
+                '#d6bc74', '#d89f5c', '#ffefc3', '#edde8e',
+                '#000000', '#000000', '#e974ed', '#c27ba0',
+                '#db7093', '#ffefc3', '#d4271e', '#ffa07a',
+                '#d4271e', '#db4d4f', '#2532e4', '#ffffff',
+                '#000000', '#ffaa5f', '#9c0027', '#091077',
+                '#fc8114', '#2532e4', '#93dfe6', '#9065d0',
+                '#d082de', '#000000', '#000000', '#f5b3c8',
+                '#c71585', '#f54ca9', '#a5b35b', '#c2d26b',
+                '#cbe286', '#807a40', '#d68fe2', '#9932cc',
+                '#e6ccff', '#02d659', '#ad5100', '#5faf92',
+                '#f0b4a8', '#000000', '#000000', '#000000',
+                '#000000', '#f99fff', '#d84690', '#1f8d49',
+                '#5cb85d', '#f5d5d5', '#ff69b4', '#c7e0ab',
+                '#000000', '#b9158a', '#a89358', '#c8ffb4',
+                '#e97a7a', '#000000', '#be9e00', '#000000',
+                '#c1799c', '#6fc179', '#be83f7', '#c12100',
+                '#2f7360', '#c49a5a', '#000000', '#67671c',
+                '#886827', '#c8c099', '#26abab', '#ab8231',
+                '#6fa8a3', '#000000', '#000000', '#000000',
+                '#329c5a', '#6bd46c', '#000000', '#8b1a1a',
+                '#d98a45'
+            ],
+            'mapbiomas-bolivia': [
+                '#ffffff', '#1f8d49', '#000000', '#1f8d49',
+                '#7dc975', '#04381d', '#026975', '#228c70',
+                '#000000', '#7a5900', '#d6bc74', '#519799',
+                '#d6bc74', '#d89f5c', '#ffefc3', '#edde8e',
+                '#000000', '#000000', '#e974ed', '#c27ba0',
+                '#db7093', '#ffefc3', '#d4271e', '#ffa07a',
+                '#d4271e', '#db4d4f', '#2532e4', '#ffffff',
+                '#000000', '#ffaa5f', '#9c0027', '#091077',
+                '#fc8114', '#2532e4', '#93dfe6', '#9065d0',
+                '#d082de', '#000000', '#000000', '#f5b3c8',
+                '#c71585', '#f54ca9', '#a5b35b', '#c2d26b',
+                '#cbe286', '#807a40', '#d68fe2', '#9932cc',
+                '#e6ccff', '#02d659', '#ad5100', '#5faf92',
+                '#f0b4a8', '#000000', '#000000', '#000000',
+                '#000000', '#f99fff', '#d84690', '#1f8d49',
+                '#5cb85d', '#f5d5d5', '#ff69b4', '#c7e0ab',
+                '#000000', '#b9158a', '#a89358', '#c8ffb4',
+                '#e97a7a', '#000000', '#be9e00', '#000000',
+                '#c1799c', '#6fc179', '#be83f7', '#c12100',
+                '#2f7360', '#c49a5a', '#000000', '#67671c',
+                '#886827', '#c8c099', '#66b2a3', '#ab8231',
+                '#6fa8a3', '#000000', '#000000', '#000000',
+                '#329c5a', '#6bd46c', '#000000', '#8b1a1a',
+                '#d98a45'
+            ],
+            'mapbiomas-colombia': [
+                '#ffffff', '#1f8d49', '#000000', '#1f8d49',
+                '#7dc975', '#04381d', '#026975', '#228c70',
+                '#000000', '#7a5900', '#d6bc74', '#519799',
+                '#d6bc74', '#d89f5c', '#ffefc3', '#edde8e',
+                '#000000', '#000000', '#e974ed', '#c27ba0',
+                '#db7093', '#ffefc3', '#d4271e', '#ffa07a',
+                '#d4271e', '#db4d4f', '#2532e4', '#ffffff',
+                '#000000', '#ffaa5f', '#9c0027', '#091077',
+                '#fc8114', '#2532e4', '#93dfe6', '#9065d0',
+                '#d082de', '#000000', '#000000', '#f5b3c8',
+                '#c71585', '#f54ca9', '#a5b35b', '#c2d26b',
+                '#cbe286', '#807a40', '#d68fe2', '#9932cc',
+                '#e6ccff', '#02d659', '#ad5100', '#5faf92',
+                '#f0b4a8', '#000000', '#000000', '#000000',
+                '#000000', '#f99fff', '#d84690', '#1f8d49',
+                '#5cb85d', '#f5d5d5', '#ff69b4', '#c7e0ab',
+                '#000000', '#b9158a', '#a89358', '#c8ffb4',
+                '#e97a7a', '#000000', '#be9e00', '#000000',
+                '#c1799c', '#6fc179', '#be83f7', '#c12100',
+                '#2f7360', '#c49a5a', '#000000', '#67671c',
+                '#886827', '#dfeb62', '#6fc179', '#ab8231',
+                '#6fa8a3', '#000000', '#000000', '#000000',
+                '#329c5a', '#6bd46c', '#000000', '#8b1a1a',
+                '#d98a45'
+            ],
+            'mapbiomas-venezuela': [
+                '#ffffff', '#1f8d49', '#000000', '#1f8d49',
+                '#7dc975', '#04381d', '#026975', '#228c70',
+                '#000000', '#7a6c00', '#d6bc74', '#519799',
+                '#d6bc74', '#d89f5c', '#ffefc3', '#edde8e',
+                '#000000', '#000000', '#e974ed', '#c27ba0',
+                '#db7093', '#ffefc3', '#d4271e', '#ffa07a',
+                '#d4271e', '#db4d4f', '#2532e4', '#ffffff',
+                '#000000', '#ffaa5f', '#9c0027', '#091077',
+                '#fc8114', '#2532e4', '#93dfe6', '#9065d0',
+                '#d082de', '#000000', '#000000', '#f5b3c8',
+                '#c71585', '#f54ca9', '#a5b35b', '#c2d26b',
+                '#cbe286', '#807a40', '#d68fe2', '#9932cc',
+                '#e6ccff', '#02d659', '#ad5100', '#5faf92',
+                '#f0b4a8', '#000000', '#000000', '#000000',
+                '#000000', '#f99fff', '#d84690', '#1f8d49',
+                '#5cb85d', '#f5d5d5', '#ff69b4', '#c7e0ab',
+                '#000000', '#b9158a', '#a89358', '#c8ffb4',
+                '#e97a7a', '#000000', '#be9e00', '#000000',
+                '#c1799c', '#6fc179', '#be83f7', '#c12100',
+                '#2f7360', '#c49a5a', '#000000', '#67671c',
+                '#886827', '#dfeb62', '#6fc179', '#ab8231',
+                '#6fa8a3', '#000000', '#000000', '#000000',
+                '#329c5a', '#6bd46c', '#000000', '#8b1a1a',
+                '#d98a45'
+            ],
+            'mapbiomas-uruguay': [
+                '#ffffff', '#1f8d49', '#000000', '#1f8d49',
+                '#7dc975', '#04381d', '#007785', '#228c70',
+                '#000000', '#7a5900', '#ccc87e', '#519799',
+                '#ccc87e', '#ffefc3', '#ffefc3', '#fbf0ab',
+                '#000000', '#000000', '#c27ba0', '#c27ba0',
+                '#db7093', '#ffefc3', '#d4271e', '#ffa07a',
+                '#d4271e', '#db4d4f', '#2532e4', '#ffffff',
+                '#000000', '#ffaa5f', '#9c0027', '#091077',
+                '#fc8114', '#2532e4', '#93dfe6', '#9065d0',
+                '#d082de', '#000000', '#000000', '#f5b3c8',
+                '#c71585', '#f54ca9', '#a5b35b', '#c2d26b',
+                '#cbe286', '#807a40', '#d68fe2', '#9932cc',
+                '#e6ccff', '#02d659', '#ad5100', '#5faf92',
+                '#f0b4a8', '#000000', '#000000', '#000000',
+                '#000000', '#f99fff', '#d84690', '#1f8d49',
+                '#5cb85d', '#f5d5d5', '#ff69b4', '#c7e0ab',
+                '#000000', '#b9158a', '#a89358', '#c8ffb4',
+                '#e97a7a', '#000000', '#be9e00', '#000000',
+                '#c1799c', '#6fc179', '#be83f7', '#c12100',
+                '#2f7360', '#c49a5a', '#000000', '#67671c',
+                '#886827', '#c8c099', '#66b2a3', '#ab8231',
+                '#6fa8a3', '#000000', '#000000', '#000000',
+                '#329c5a', '#6bd46c', '#000000', '#8b1a1a',
+                '#d98a45'
+            ],
+            'mapbiomas-ecuador': [
+                '#ffffff', '#1f8d49', '#000000', '#1f8d49',
+                '#7dc975', '#04381d', '#007785', '#228c70',
+                '#000000', '#7a5900', '#d6bc74', '#519799',
+                '#d6bc74', '#d89f5c', '#ffefc3', '#edde8e',
+                '#000000', '#000000', '#e974ed', '#c27ba0',
+                '#db7093', '#ffefc3', '#d4271e', '#ffa07a',
+                '#d4271e', '#db4d4f', '#2532e4', '#ffffff',
+                '#000000', '#ffaa5f', '#9c0027', '#091077',
+                '#fc8114', '#2532e4', '#93dfe6', '#9065d0',
+                '#d082de', '#000000', '#000000', '#f5b3c8',
+                '#c71585', '#f54ca9', '#a5b35b', '#c2d26b',
+                '#cbe286', '#807a40', '#d68fe2', '#9932cc',
+                '#e6ccff', '#02d659', '#ad5100', '#5faf92',
+                '#f0b4a8', '#000000', '#000000', '#000000',
+                '#000000', '#f99fff', '#d84690', '#1f8d49',
+                '#5cb85d', '#f5d5d5', '#ff69b4', '#c7e0ab',
+                '#000000', '#b9158a', '#a89358', '#c8ffb4',
+                '#e97a7a', '#000000', '#be9e00', '#000000',
+                '#c1799c', '#6fc179', '#be83f7', '#c12100',
+                '#2f7360', '#c49a5a', '#000000', '#67671c',
+                '#886827', '#c8c099', '#66b2a3', '#ab8231',
+                '#6fa8a3', '#000000', '#000000', '#000000',
+                '#329c5a', '#6bd46c', '#000000', '#8b1a1a',
+                '#d98a45'
+            ],
+            'mapbiomas-paraguay': [
+                '#ffffff', '#1f8d49', '#000000', '#1f8d49',
+                '#7dc975', '#04381d', '#007785', '#228c70',
+                '#000000', '#7a6c00', '#d6bc74', '#519799',
+                '#d6bc74', '#d89f5c', '#ffefc3', '#edde8e',
+                '#000000', '#000000', '#e974ed', '#c27ba0',
+                '#db7093', '#ffefc3', '#d4271e', '#ffa07a',
+                '#d4271e', '#db4d4f', '#2532e4', '#ffffff',
+                '#000000', '#ffaa5f', '#9c0027', '#091077',
+                '#fc8114', '#2532e4', '#93dfe6', '#9065d0',
+                '#d082de', '#000000', '#000000', '#f5b3c8',
+                '#c71585', '#f54ca9', '#a5b35b', '#c2d26b',
+                '#cbe286', '#807a40', '#d68fe2', '#9932cc',
+                '#e6ccff', '#02d659', '#ad5100', '#5faf92',
+                '#f0b4a8', '#000000', '#000000', '#000000',
+                '#000000', '#f99fff', '#d84690', '#1f8d49',
+                '#5cb85d', '#f5d5d5', '#ff69b4', '#c7e0ab',
+                '#000000', '#b9158a', '#a89358', '#c8ffb4',
+                '#e97a7a', '#000000', '#be9e00', '#000000',
+                '#c1799c', '#6fc179', '#be83f7', '#c12100',
+                '#2f7360', '#c49a5a', '#000000', '#67671c',
+                '#886827', '#c8c099', '#66b2a3', '#ab8231',
+                '#6fa8a3', '#000000', '#000000', '#000000',
+                '#329c5a', '#6bd46c', '#000000', '#8b1a1a',
+                '#d98a45'
+            ],
+            'mapbiomas-chile': [
+                '#ffffff', '#1f8d49', '#000000', '#1f8d49',
+                '#7dc975', '#04381d', '#007785', '#228c70',
+                '#000000', '#7a5900', '#d6bc74', '#519799',
+                '#d6bc74', '#d89f5c', '#ffefc3', '#edde8e',
+                '#000000', '#000000', '#e974ed', '#c27ba0',
+                '#db7093', '#ffefc3', '#d4271e', '#ffa07a',
+                '#d4271e', '#db4d4f', '#2532e4', '#ffffff',
+                '#000000', '#ffaa5f', '#9c0027', '#091077',
+                '#fc8114', '#2532e4', '#93dfe6', '#9065d0',
+                '#d082de', '#000000', '#000000', '#f5b3c8',
+                '#c71585', '#f54ca9', '#a5b35b', '#c2d26b',
+                '#cbe286', '#807a40', '#d68fe2', '#9932cc',
+                '#e6ccff', '#02d659', '#ad5100', '#5faf92',
+                '#f0b4a8', '#000000', '#000000', '#000000',
+                '#000000', '#f99fff', '#d84690', '#1f8d49',
+                '#5cb85d', '#f5d5d5', '#ff69b4', '#c7e0ab',
+                '#000000', '#b9158a', '#a89358', '#c8ffb4',
+                '#e97a7a', '#000000', '#be9e00', '#000000',
+                '#c1799c', '#6fc179', '#be83f7', '#c12100',
+                '#2f7360', '#c49a5a', '#000000', '#67671c',
+                '#886827', '#c8c099', '#66b2a3', '#ab8231',
+                '#6fa8a3', '#000000', '#000000', '#000000',
+                '#329c5a', '#6bd46c', '#000000', '#8b1a1a',
+                '#d98a45'
+            ],
+            'mapbiomas-argentina': [
+                '#ffffff', '#1f8d49', '#000000', '#1f8d49',
+                '#7dc975', '#04381d', '#026975', '#228c70',
+                '#000000', '#7a5900', '#d6bc74', '#519799',
+                '#d6bc74', '#d89f5c', '#ffefc3', '#edde8e',
+                '#000000', '#000000', '#e974ed', '#c27ba0',
+                '#db7093', '#ffefc3', '#d4271e', '#ffa07a',
+                '#d4271e', '#db4d4f', '#2532e4', '#ffffff',
+                '#000000', '#ffaa5f', '#9c0027', '#091077',
+                '#fc8114', '#2532e4', '#93dfe6', '#9065d0',
+                '#d082de', '#000000', '#000000', '#f5b3c8',
+                '#c71585', '#f54ca9', '#a5b35b', '#c2d26b',
+                '#cbe286', '#807a40', '#d68fe2', '#9932cc',
+                '#e6ccff', '#02d659', '#ad5100', '#5faf92',
+                '#f0b4a8', '#000000', '#000000', '#000000',
+                '#000000', '#f99fff', '#d84690', '#1f8d49',
+                '#5cb85d', '#f5d5d5', '#ff69b4', '#c7e0ab',
+                '#000000', '#b9158a', '#a89358', '#c8ffb4',
+                '#e97a7a', '#000000', '#be9e00', '#000000',
+                '#c1799c', '#6fc179', '#be83f7', '#c12100',
+                '#2f7360', '#86b074', '#000000', '#67671c',
+                '#886827', '#c8c099', '#66b2a3', '#ab8231',
+                '#6fa8a3', '#000000', '#000000', '#000000',
+                '#329c5a', '#6bd46c', '#000000', '#8b1a1a',
+                '#d98a45'
+            ],
+            'mapbiomas-mexico': [
+                '#ffffff', '#1f8d49', '#000000', '#1f8d49',
+                '#7dc975', '#04381d', '#007785', '#228c70',
+                '#000000', '#7a5900', '#d6bc74', '#519799',
+                '#d6bc74', '#d89f5c', '#ffefc3', '#edde8e',
+                '#000000', '#000000', '#e974ed', '#c27ba0',
+                '#db7093', '#ffefc3', '#d4271e', '#ffa07a',
+                '#d4271e', '#db4d4f', '#2532e4', '#ffffff',
+                '#000000', '#ffaa5f', '#9c0027', '#091077',
+                '#fc8114', '#2532e4', '#93dfe6', '#9065d0',
+                '#d082de', '#000000', '#000000', '#f5b3c8',
+                '#c71585', '#f54ca9', '#a5b35b', '#c2d26b',
+                '#cbe286', '#807a40', '#d68fe2', '#9932cc',
+                '#e6ccff', '#02d659', '#ad5100', '#5faf92',
+                '#f0b4a8', '#000000', '#000000', '#000000',
+                '#000000', '#f99fff', '#d84690', '#1f8d49',
+                '#5cb85d', '#f5d5d5', '#ff69b4', '#c7e0ab',
+                '#000000', '#b9158a', '#a89358', '#c8ffb4',
+                '#e97a7a', '#000000', '#be9e00', '#000000',
+                '#c1799c', '#6fc179', '#be83f7', '#c12100',
+                '#2f7360', '#c49a5a', '#000000', '#67671c',
+                '#886827', '#c8c099', '#66b2a3', '#ab8231',
+                '#6fa8a3', '#000000', '#000000', '#000000',
+                '#329c5a', '#6bd46c', '#000000', '#8b1a1a',
+                '#d98a45'
+            ],
+            'mapbiomas-drc': [
+                '#ffffff', '#1f8d49', '#000000', '#1f8d49',
+                '#7dc975', '#04381d', '#007785', '#228c70',
+                '#000000', '#7a5900', '#d6bc74', '#519799',
+                '#d6bc74', '#d89f5c', '#ffefc3', '#edde8e',
+                '#000000', '#000000', '#e974ed', '#c27ba0',
+                '#db7093', '#ffefc3', '#d4271e', '#ffa07a',
+                '#d4271e', '#db4d4f', '#2532e4', '#ffffff',
+                '#000000', '#ffaa5f', '#9c0027', '#091077',
+                '#fc8114', '#2532e4', '#93dfe6', '#9065d0',
+                '#d082de', '#000000', '#000000', '#f5b3c8',
+                '#c71585', '#f54ca9', '#a5b35b', '#c2d26b',
+                '#cbe286', '#807a40', '#d68fe2', '#9932cc',
+                '#e6ccff', '#02d659', '#ad5100', '#5faf92',
+                '#f0b4a8', '#000000', '#000000', '#000000',
+                '#000000', '#f99fff', '#d84690', '#1f8d49',
+                '#5cb85d', '#f5d5d5', '#ff69b4', '#c7e0ab',
+                '#000000', '#b9158a', '#a89358', '#c8ffb4',
+                '#e97a7a', '#000000', '#be9e00', '#000000',
+                '#c1799c', '#6fc179', '#be83f7', '#c12100',
+                '#2f7360', '#c49a5a', '#000000', '#67671c',
+                '#886827', '#c8c099', '#66b2a3', '#ab8231',
+                '#6fa8a3', '#000000', '#000000', '#000000',
+                '#329c5a', '#6bd46c', '#000000', '#8b1a1a',
+                '#d98a45'
+            ],
         },
 
         bandsNames: {
@@ -3277,59 +4091,83 @@ var App = {
         ],
 
         className: {
-            1: "Forest",
-            2: "Natural Forest",
-            3: "Forest Formation",
-            4: "Savanna Formation",
-            5: "Magrove",
-            6: "Áreas Naturales Inundables - Leñosas (Bosque Inundable)",
-            9: "Forest Plantation",
-            10: "Non Forest Natural Formation",
-            11: "Wetland",
-            12: "Grassland (Pastizal, Formación Herbácea)",
-            13: "Other Non Forest Natural Formation",
-            14: "Farming",
-            15: "Pasture",
-            18: "Agriculture",
-            19: "Temporary Crops (Herbaceas - Agricultura)",
-            20: "Sugar Cane",
-            21: "Mosaic of Agriculture and Pasture",
-            22: "Non vegetated area",
-            23: "Beach and Dune",
-            24: "Urban Infrastructure",
-            25: "Other Non Vegetated Area",
-            26: "Water",
-            27: "Non Observed",
-            29: "Rocky outcrop",
-            30: "Mining",
-            31: "Aquaculture",
-            32: "Salt flat",
-            33: "River, Lake and Ocean",
-            34: "Glacier",
-            35: "Oil Palm",
-            36: "Perennial Crops",
-            37: "Artificial Water Body",
-            38: "Water Reservoirs",
-            39: "Soy Beans",
-            40: "Rice",
-            41: "Mosaic of Crops",
-            42: "Pastizal abierto", // Only for Chaco
-            43: "Pastizal cerrado", // Only for Chaco
-            44: "Pastizal disperso", // Only for Chaco
-            45: "Leñosas dispersas", // Only for Chaco
-            46: 'Coffe',
-            47: 'Citrus',
-            48: 'Other Perennial Crops',
-            49: 'Wooded Sandbank Vegetation',
-            50: 'Herbaceous Sandbank Vegetation',
-            57: 'Cultivo Simples', // Only for Chaco
-            58: 'Cultivo Múltiple', // Only for Chaco
-            61: "Salares",
-            62: "Cotton",
-            63: "Steppe",
-            68: "Other natural non-vegetated area",
-            0: "Non Observed",
-
+            '0': 'Non Observed',
+            '1': 'Forest',
+            '2': 'Natural Forest',
+            '3': 'Forest Formation',
+            '4': 'Savanna Formation',
+            '5': 'Magrove',
+            '6': 'Áreas Naturales Inundables - Leñosas (Bosque Inundable)',
+            '7': 'Flooded Savanna',
+            '9': 'Forest Plantation',
+            '10': 'Non Forest Natural Formation',
+            '11': 'Wetland',
+            '12': 'Grassland (Pastizal, Formación Herbácea)',
+            '13': 'Other Non Forest Natural Formation',
+            '14': 'Farming',
+            '15': 'Pasture',
+            '18': 'Agriculture',
+            '19': 'Temporary Crops (Herbaceas - Agricultura)',
+            '20': 'Sugar Cane',
+            '21': 'Mosaic of Agriculture and Pasture',
+            '22': 'Non vegetated area',
+            '23': 'Beach and Dune',
+            '24': 'Urban Infrastructure',
+            '25': 'Other Non Vegetated Area',
+            '26': 'Water',
+            '27': 'Non Observed',
+            '29': 'Rocky outcrop',
+            '30': 'Mining',
+            '31': 'Aquaculture',
+            '32': 'Salt flat',
+            '33': 'River, Lake and Ocean',
+            '34': 'Glacier',
+            '35': 'Oil Palm',
+            '36': 'Perennial Crops',
+            '37': 'Artificial Water Body',
+            '38': 'Water Reservoirs',
+            '39': 'Soy Beans',
+            '40': 'Rice',
+            '41': 'Mosaic of Crops',
+            '42': 'Pastizal abierto',
+            '43': 'Pastizal cerrado',
+            '44': 'Pastizal disperso',
+            '45': 'Leñosas dispersas',
+            '46': 'Coffe',
+            '47': 'Citrus',
+            '48': 'Other Perennial Crops',
+            '49': 'Wooded Sandbank Vegetation',
+            '50': 'Herbaceous Sandbank Vegetation',
+            '51': 'Lowland Flooded Grassland',
+            '52': 'Coastal salt flat surface',
+            '57': 'Cultivo Simples',
+            '58': 'Cultivo Múltiple',
+            '59': 'Primary Forest',
+            '60': 'Secondary Forest',
+            '61': 'Salares',
+            '62': 'Cotton',
+            '63': 'Steppe',
+            '65': 'Tea',
+            '66': 'Closed shrublands',
+            '67': 'Dwarf Forest',
+            '68': 'Other natural non-vegetated area',
+            '70': 'Coastal Lomas (beta)',
+            '72': 'Other crops',
+            '73': 'Peatlands',
+            '74': 'Banana',
+            '75': 'Photovoltaic Power Plant (beta)',
+            '76': 'Peat Swamp Forest',
+            '77': 'Herbaceous-Shrub Mosaic',
+            '79': 'Pinus plantation',
+            '80': 'Eucalyptus plantation',
+            '81': 'Andean grassland and shrubland',
+            '82': 'Flooded Andean grassland and shrubland',
+            '83': 'Other forestry uses',
+            '84': 'Marisma',
+            '88': 'Temperate forest',
+            '89': 'Tropical dry forest',
+            '91': 'Wind Farm',
+            '92': 'Rocky surface',
         },
     },
 
@@ -3337,6 +4175,33 @@ var App = {
 
         this.ui.init();
 
+    },
+
+    /**
+     * Nome curto do território ativo para camadas e arquivos exportados. Os vetores
+     * ingeridos pela plataforma terminam num UUID, então usamos o rótulo da tabela.
+     */
+    tableShortName: function () {
+        var path = App.options.activeName;
+        var label = null;
+
+        Object.keys(App.options.tables).forEach(function (region) {
+            App.options.tables[region].forEach(function (table) {
+                if (table.value === path) {
+                    label = table.label;
+                }
+            });
+        });
+
+        if (label === null) {
+            return path.split('/').slice(-1)[0];
+        }
+
+        // o Code Editor não tem String.prototype.normalize (ES5)
+        return label.toLowerCase()
+            .replace(/[áàâãä]/g, 'a').replace(/[éèêë]/g, 'e').replace(/[íìîï]/g, 'i')
+            .replace(/[óòôõö]/g, 'o').replace(/[úùûü]/g, 'u').replace(/ç/g, 'c').replace(/ñ/g, 'n')
+            .replace(/[^a-z0-9]+/g, '_').replace(/^_+|_+$/g, '');
     },
 
     setVersion: function () {
@@ -3434,7 +4299,9 @@ var App = {
 
     setPalette: function (region) {
 
-        App.options.palette.Coverage = palettes.get(App.options.palettes[region]);
+        // paleta embutida (lista indexada pela classe) ou nome de uma paleta do módulo Palettes.js
+        var palette = App.options.palettes[region];
+        App.options.palette.Coverage = typeof palette === 'string' ? palettes.get(palette) : palette;
         App.options.ranges.Coverage.max = App.options.palette.Coverage.length - 1;
 
         print(region, App.options.ranges.Coverage.max, App.options.palette.Coverage);
@@ -3498,55 +4365,13 @@ var App = {
                         function (a) {
 
 
-                            App.options.data.Coverage = ee.Image(
-                                App.options.collections[regionName][collectioName].assets.integration);
+                            var assets = App.options.collections[regionName][collectioName].assets;
 
-                            App.options.data.Transitions = ee.Image(
-                                App.options.collections[regionName][collectioName].assets.transitions);
+                            App.options.data.Coverage = ee.Image(assets.integration);
 
-                            if (regionName == 'mapbiomas-brazil' & collectioName == 'collection-5.0') {
-
-                                App.options.data.Quality = ee.Image(
-                                    App.options.collections[regionName][collectioName].assets.quality);
-
-                            }
-                            if (regionName == 'mapbiomas-brazil' & collectioName == 'collection-6.0') {
-
-                                App.options.data.Quality = ee.Image(
-                                    App.options.collections[regionName][collectioName].assets.quality);
-
-                            }
-                            if (regionName == 'mapbiomas-brazil' & collectioName == 'collection-7.0') {
-
-                                App.options.data.Quality = ee.Image(
-                                    App.options.collections[regionName][collectioName].assets.quality);
-
-                            }
-                            if (regionName == 'mapbiomas-brazil' & collectioName == 'collection-8.0') {
-
-                                App.options.data.Quality = ee.Image(
-                                    App.options.collections[regionName][collectioName].assets.quality);
-
-                            }
-                            // TODO: improve this logic
-                            if (regionName == 'mapbiomas-atlantic-forest' & collectioName == 'collection-1.0') {
-
-                                App.options.data.Quality = ee.Image(
-                                    App.options.collections[regionName][collectioName].assets.quality);
-
-                            }
-                            if (regionName == 'mapbiomas-atlantic-forest' & collectioName == 'collection-2.0') {
-
-                                App.options.data.Quality = ee.Image(
-                                    App.options.collections[regionName][collectioName].assets.quality);
-
-                            }
-                            if (regionName == 'mapbiomas-pampa' & collectioName == 'collection-1.0') {
-
-                                App.options.data.Quality = ee.Image(
-                                    App.options.collections[regionName][collectioName].assets.quality);
-
-                            }
+                            // transições e qualidade só existem em parte das coleções
+                            App.options.data.Transitions = assets.transitions ? ee.Image(assets.transitions) : null;
+                            App.options.data.Quality = assets.quality ? ee.Image(assets.quality) : null;
 
                             var year = App.options.collections[regionName][collectioName].periods.Coverage.slice(-1)[0];
 
@@ -3617,7 +4442,7 @@ var App = {
                                 App.ui.loadTable(tableName);
 
                                 App.ui.makeLayersList(
-                                    tableName.split('/').slice(-1)[0],
+                                    App.tableShortName(),
                                     App.options.activeFeature,
                                     App.options.collections[regionName][collectioName]
                                         .periods[App.options.dataType]
@@ -3660,7 +4485,7 @@ var App = {
                 width: 1,
                 fillColor: 'ff000033',
             }), {},
-                tableName.split('/')[3],
+                App.tableShortName(),
                 true);
 
         },
@@ -3678,7 +4503,7 @@ var App = {
                 width: 1,
                 fillColor: 'ff000033',
             }), {},
-                tableName.split('/').reverse()[0],
+                App.tableShortName(),
                 true);
 
         },
@@ -3789,7 +4614,7 @@ var App = {
                             App.ui.setDataType(dataType);
 
                             App.ui.makeLayersList(
-                                App.options.activeName.split('/').slice(-1)[0],
+                                App.tableShortName(),
                                 App.options.activeFeature,
                                 App.options.collections[regionName][collectionName].periods[dataType]);
 
@@ -4399,8 +5224,10 @@ var App = {
                     'mapbiomas-chaco',
                     'mapbiomas-chile',
                     'mapbiomas-colombia',
+                    'mapbiomas-drc',
                     'mapbiomas-ecuador',
                     'mapbiomas-indonesia',
+                    'mapbiomas-mexico',
                     'mapbiomas-pampa',
                     'mapbiomas-paraguay',
                     'mapbiomas-peru',
@@ -4501,7 +5328,7 @@ var App = {
                             function (a) {
                                 App.ui.loadTableStates(App.options.activeName);
                                 App.ui.makeLayersList(
-                                    App.options.activeName.split('/')[3],
+                                    App.tableShortName(),
                                     App.options.activeFeature,
                                     App.options.periods[App.options.dataType]
                                 );

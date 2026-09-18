@@ -13,16 +13,24 @@ User Toolkit to download MapBiomas data with Google Earth Engine. This tutorial 
 * 1.0.0
     * Access and download data using user's vector
 * 1.1.0
-    * Updated for collection 4.0
+    * Updated to collection 4.0
 * 1.1.1
     * Updated assets
 * 1.1.2
-    * New transitions periods
+    * Fix minor issues
 * 1.1.3
-    * Updated for collection 4.1
+    * Update transitions data
+* 1.1.4
+    * Update transitions data to collection 4.1
+* 1.2.0
+    * Loads mapbiomas-brazil collection 3.1
+    * Loads mapbiomas-brazil collection 4.0
+    * Loads mapbiomas-chaco collection 1.0
+    * Loads mapbiomas-amazon collection 1.0
+    * Updated mapbiomas-amazon collection 2.0
 * 1.3.0
-    * Updated for collection 5.0
-    * Export a csv file with areas per classe and year
+    * Loads mapbiomas-brazil collection 5.0
+    * Export a csv file containing areas per classe and year
 * 1.3.1
     * Loads mapbiomas-chaco collection 2.0
 * 1.3.2
@@ -35,6 +43,73 @@ User Toolkit to download MapBiomas data with Google Earth Engine. This tutorial 
     * Loads mapbiomas-brazil collection 6.0
 * 1.7.0
     * Loads mapbiomas-amazon collection 3.0
+* 1.8.0
+    * Loads mapbiomas-indonesia collection 1.0
+* 1.9.0
+    * New tabs and download entire Brazilian maps from storage
+* 1.10.0
+    * Loads mapbiomas-brazil collection 7.0
+* 1.11.0
+    * Loads mapbiomas-chaco collection 3.0
+* 1.12.0
+    * Loads mapbiomas-atlantic-forest collection 2.0
+* 1.13.0
+    * Loads mapbiomas-amazon collection 4.0
+* 1.14.0
+    * Loads mapbiomas-pampa collection 2.0
+* 1.15.0
+    * Loads mapbiomas-peru collection 1.0
+* 1.16.0
+    * Loads mapbiomas-brazil collection 7.1
+* 1.17.0
+    * Loads mapbiomas-chaco collection 4.0
+* 1.18.0
+    * Loads mapbiomas-bolivia collection 1.0
+* 1.19.0
+    * Loads mapbiomas-brazil collection 8.0
+* 1.20.0
+    * Loads mapbiomas-indonesia collection 2.0
+* 1.21.0
+    * Loads mapbiomas-colombia collection 1.0
+* 1.22.0
+    * Loads mapbiomas-venezuela collection 1.0
+* 1.23.0
+    * Loads mapbiomas-pampa collection 3.0
+    * Loads mapbiomas-atlantic-forest collection 3.0
+    * Loads mapbiomas-amazon collection 5.0
+    * Loads mapbiomas-uruguay collection 1.0
+* 1.24.0
+    * Loads mapbiomas-ecuador collection 1.0
+* 1.25.0
+    * Loads mapbiomas-paraguay collection 1.0
+* 1.26.0
+    * Loads mapbiomas-peru collection 2.0
+* 1.27.0
+    * Loads mapbiomas-chile collection 1.0
+* 1.28.0
+    * Loads mapbiomas-argentina collection 1.0
+* 1.29.0
+    * Loads mapbiomas-bolivia collection 2.0
+* 1.30.0
+    * Loads mapbiomas-brasil collection 9.0
+* 1.31.0
+    * Loads mapbiomas-amazon collection 6.0
+* 1.32.0
+    * Loads mapbiomas-venezuela collection 2.0
+* 1.33.0
+    * Loads mapbiomas-ecuador collection 2.0
+    * Loads mapbiomas-colombia collection 2.0
+* 1.34.0
+    * Loads mapbiomas-pampa collection 4.0
+    * Loads mapbiomas-uruguay collection 2.0
+* 1.35.0
+    * Loads mapbiomas-brasil collection 10.1
+* 1.36.0
+    * Loads mapbiomas-brazil collection 11.0
+    * Loads atlantic-forest 4.0, colombia 3.0, venezuela 3.0, ecuador 3.0, peru 4.0, uruguay 3.0, paraguay 3.0, chile 2.0, argentina 2.0 and 3.0, indonesia 3.0 and 4.1
+    * Loads mapbiomas-mexico and mapbiomas-drc collection 1.0
+    * Palettes and class names from the MapBiomas platform legends
+    * Periods read from the asset bands; territories from the MapBiomas platform
 
 <div class="fluid-row" id="header">
   <h1 class="title toc-ignore">Video tutorial (pt-br)</h1>

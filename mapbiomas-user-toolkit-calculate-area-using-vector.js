@@ -8,25 +8,30 @@
  */
 
 // Asset mapbiomas
-var asset = 'projects/mapbiomas-public/assets/brazil/lulc/collection10/mapbiomas_brazil_collection10_coverage_v2';
+var asset = 'projects/mapbiomas-public/assets/brazil/lulc/collection11/mapbiomas_brazil_collection11_coverage_v3';
 
 // Asset of regions for which you want to calculate statistics
-var assetTerritories = "projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/INDIGENOUS_TERRITORIES";
+// Terras Indígenas (FUNAI, 2026) — lista completa de territórios na plataforma MapBiomas
+var assetTerritories = "projects/mapbiomas-territories/assets/PLATFORM/demo/mapbiomas/brazil/territories/TERRAS_INDIGENAS_FUNAI_2026_F7F13F79/8b94c232-c551-4dd1-ac0c-2b40145db021";
 
 // Numeric attribute to index the shapefile
-var attribute = "CATEG_ID";
+var attribute = "FEATURE_ID";
 
 // A list of class ids you are interested
 var classIds = [
     3, // Formação Florestal
     4, // Formação Savânica
     5, // Mangue
+    6, // Floresta Alagável
+    7, // Savana Alagável
     49, // Restinga Florestal
     11, // Área Úmida Natural não Florestal
     12, // Formação Campestre
     32, // Apicum
     29, // Afloramento Rochoso
-    13, // Outra Formação não Florestal
+    77, // Mosaico Herbáceo-Arbustivo (era a classe 13 até a coleção 10)
+    84, // Marisma
+    50, // Restinga Herbácea
     18, // Agricultura
     39, // Soja
     20, // Cana
@@ -34,6 +39,8 @@ var classIds = [
     41, // Outras Lavouras Temporárias
     46, // Café
     47, // Citrus
+    35, // Dendê
+    62, // Algodão
     48, // Outras Lavaouras Perenes
     9, // Silvicultura
     15, // Pastagem
@@ -42,6 +49,7 @@ var classIds = [
     23, // Praia e Duna
     24, // Infraestrutura Urbana
     30, // Mineração
+    75, // Usina Fotovoltaica
     25, // Outra Área não Vegetada
     33, // Rio, Lago e Oceano
     31 // 'Aquicultura
@@ -59,7 +67,8 @@ var years = [
     '1993', '1994', '1995', '1996', '1997', '1998', '1999', '2000',
     '2001', '2002', '2003', '2004', '2005', '2006', '2007', '2008',
     '2009', '2010', '2011', '2012', '2013', '2014', '2015', '2016',
-    '2017', '2018', '2019', '2020', '2021', '2022', '2023', '2023'
+    '2017', '2018', '2019', '2020', '2021', '2022', '2023', '2024',
+    '2025'
 ];
 
 // Define a Google Drive output folder 

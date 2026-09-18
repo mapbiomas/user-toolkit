@@ -16,6 +16,8 @@
  *    1.3.0 - Irrigated Agriculture - Collection 8.0
  *    1.3.1 - Minor issues
  *    1.4.0 - Irrigated Agriculture - Collection 9.0
+ *    1.5.0 - Irrigation systems - Collection 11.0
+ *          - Territories from the MapBiomas platform
  * 
  * @see
  *      Get the MapBiomas exported data in your "Google Drive/MAPBIOMAS-EXPORT" folder
@@ -110,7 +112,7 @@ var App = {
 
     options: {
 
-        version: '1.4.0',
+        version: '1.5.0',
 
         logo: {
             uri: 'gs://mapbiomas-public/mapbiomas-logos/mapbiomas-logo-horizontal.b64',
@@ -151,113 +153,161 @@ var App = {
         tables: {
             'mapbiomas-brazil': [
                 {
-                    'label': 'Amacro',
-                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/AMACRO',
+                    'label': 'AMACRO (IBGE, 2026)',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-STAGING/BRAZIL/WORKSPACE/AMACRO/AMACRO_v3',
                 },
                 {
-                    'label': 'Ministry of the Environment priority areas 2018',
-                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/AREAS_PRIORITARIAS_DO_MMA_2018',
+                    'label': 'Amazônia Legal (IBGE, 2024)',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-STAGING/BRAZIL/WORKSPACE/LEGAL_AMAZON/LEGAL_AMAZON_v3',
                 },
                 {
-                    'label': 'Atlantic Forest Law',
-                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/ATLANTIC_FOREST_LAW',
+                    'label': 'Atlantic Forest Law 1:1.000.000 (SOS Mata Atlântica, 2015)',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-STAGING/BRAZIL/WORKSPACE/ATLANTIC_FOREST_LAW/ATLANTIC_FOREST_LAW_v3',
                 },
                 {
-                    'label': 'Basin Level 1 DNAEE',
-                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/BASIN_LEVEL_1_DNAEE',
-                },
-                {
-                    'label': 'Basin Level 1 PNRH',
-                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/BASIN_LEVEL_1_PNRH',
-                },
-                {
-                    'label': 'Basin Level 2 DNAEE',
-                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/BASIN_LEVEL_2_DNAEE',
-                },
-                {
-                    'label': 'Basin Level 2 PNRH',
-                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/BASIN_LEVEL_2_PNRH',
-                },
-                {
-                    'label': 'Biomes',
-                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/BIOMES',
-                },
-                {
-                    'label': 'Coastal Marine Zone',
-                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/COASTAL_MARINE_ZONE',
-                },
-                {
-                    'label': 'Forest Concessions',
-                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/CONCESSOES_FLORESTAIS',
-                },
-                {
-                    'label': 'DHN250 Level 1',
-                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/DHN250_LEVEL_1',
-                },
-                {
-                    'label': 'DHN250 Level 2',
-                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/DHN250_LEVEL_2',
-                },
-                {
-                    'label': 'DHN250 Level 3',
-                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/DHN250_LEVEL_3',
-                },
-                {
-                    'label': 'Non-Designated Public Forests',
-                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/FLORESTAS_PUBLICAS_NAO_DESTINADAS',
-                },
-                {
-                    'label': 'Geoparques',
-                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/GEOPARQUES',
-                },
-                {
-                    'label': 'Indigenous Territories',
-                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/INDIGENOUS_TERRITORIES',
-                },
-                {
-                    'label': 'Legal Amazon',
-                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/LEGAL_AMAZON',
-                },
-                {
-                    'label': 'Matopiba',
-                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/MATOPIBA',
-                },
-                {
-                    'label': 'Political Level 1',
-                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/POLITICAL_LEVEL_1',
-                },
-                {
-                    'label': 'Political Level 2',
-                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/POLITICAL_LEVEL_2',
-                },
-                {
-                    'label': 'Political Level 3',
-                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/POLITICAL_LEVEL_3',
-                },
-                {
-                    'label': 'Protected Area',
-                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/PROTECTED_AREA',
-                },
-                {
-                    'label': 'Quilombos',
-                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/QUILOMBOS',
+                    'label': 'Biome (IBGE, 2025)',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/BRAZIL/WORKSPACE/BIOMES/BIOMES_v4',
                 },
                 {
                     'label': 'Biosphere Reserve',
-                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/RESERVA_DA_BIOSFERA',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-STAGING/BRAZIL/WORKSPACE/RESERVA_DA_BIOSFERA/RESERVA_DA_BIOSFERA_v3',
                 },
                 {
-                    'label': 'Semiarid',
-                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/SEMIARID',
+                    'label': 'Biosphere Reserve (RBMA, 2026)',
+                    'value': 'projects/mapbiomas-territories/assets/PLATFORM/demo/mapbiomas/brazil/territories/RESERVA_DA_BIOSFERA_RBMA_2026_A597F0B9/a1cce443-608c-4a32-b313-9918e04e11dd',
                 },
                 {
-                    'label': 'Settlements',
-                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/SETTLEMENTS',
+                    'label': 'Bolsa Verde Territories (MMA, 2026)',
+                    'value': 'projects/mapbiomas-territories/assets/PLATFORM/demo/mapbiomas/brazil/territories/TERRITORIOS_DO_BOLSA_VERDE_MMA_2026_4FCCFE72/ac604980-6a99-4770-a64b-41ab84a10585',
                 },
                 {
-                    'label': 'UGRHS',
-                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/UGRHS',
-                }
+                    'label': 'Brasil (IBGE, 2025)',
+                    'value': 'projects/mapbiomas-territories/assets/PLATFORM/demo/mapbiomas/brazil/territories/BRASIL_IBGE_2025_D71F57FE/cc8a1562-88be-4106-8701-34da9e3a3a40',
+                },
+                {
+                    'label': 'Census Tracts',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/BRAZIL/WORKSPACE/CENSUS_TRACTS/CENSUS_TRACTS_v1',
+                },
+                {
+                    'label': 'Coastal and Marine System (IBGE, 2025)',
+                    'value': 'projects/mapbiomas-territories/assets/PLATFORM/demo/mapbiomas/brazil/territories/SISTEMA_COSTEIRO_E_MARINHO_IBGE_2025_DB52694B/b545395d-1b7c-4f1a-bec1-0c438526c179',
+                },
+                {
+                    'label': 'Concessões Florestais (MMA, 2026)',
+                    'value': 'projects/mapbiomas-territories/assets/PLATFORM/demo/mapbiomas/brazil/territories/CONCESSOES_FLORESTAIS_MMA_2026_61E001B1/5fd69700-34cf-42a5-a563-d290eaec7839',
+                },
+                {
+                    'label': 'Conservation Units (CNUC, 2026)',
+                    'value': 'projects/mapbiomas-territories/assets/PLATFORM/demo/mapbiomas/brazil/territories/UNIDADES_DE_CONSERVACAO_XNUC_2026_8DCD0C0B/ea04ccaf-0ff1-445a-9a29-a551015b0868',
+                },
+                {
+                    'label': 'DHN250 - Level 1 - National Hydrographic Division (ANA, 2017)',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-STAGING/BRAZIL/WORKSPACE/DHN250_LEVEL_1/DHN250_LEVEL_1_v2',
+                },
+                {
+                    'label': 'DHN250 - Level 2 - National Hydrographic Division (ANA, 2017)',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-STAGING/BRAZIL/WORKSPACE/DHN250_LEVEL_2/DHN250_LEVEL_2_v3',
+                },
+                {
+                    'label': 'DHN250 - Level 3 - National Hydrographic Division (ANA, 2017)',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-STAGING/BRAZIL/WORKSPACE/DHN250_LEVEL_3/DHN250_LEVEL_3_v4',
+                },
+                {
+                    'label': 'Estados (IBGE, 2025)',
+                    'value': 'projects/mapbiomas-territories/assets/PLATFORM/demo/mapbiomas/brazil/territories/ESTADOS_IBGE_2025_F7EAF953/3f95fd9d-4b26-4243-8612-37b9d5b12a55',
+                },
+                {
+                    'label': 'Federal watershed Committee',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/BRAZIL/WORKSPACE/FEDERAL_COMMITTEE/FEDERAL_COMMITTEE_v1',
+                },
+                {
+                    'label': 'Florestas Públicas não Destinadas (tipo B) (MMA, 2026)',
+                    'value': 'projects/mapbiomas-territories/assets/PLATFORM/demo/mapbiomas/brazil/territories/FLORESTAS_PUBLICAS_NAO_DESTINADAS_TIPO_B_MMA_2026_FA7D29E9/1f8935c8-0c73-42e2-a3d9-ceb8e063da2d',
+                },
+                {
+                    'label': 'Hydrographic Regions',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/BRAZIL/WORKSPACE/HYDROGRAPHIC_REGIONS/HYDROGRAPHIC_REGIONS_v1',
+                },
+                {
+                    'label': 'Marine Conservation Unit',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/BRAZIL/WORKSPACE/MARINE_CONSERVATION_UNIT/MARINE_CONSERVATION_UNIT_v2',
+                },
+                {
+                    'label': 'MATOPIBA (EMBRAPA, 2025)',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-STAGING/BRAZIL/WORKSPACE/MATOPIBA/MATOPIBA_v3',
+                },
+                {
+                    'label': 'Metropolitan Areas',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/BRAZIL/WORKSPACE/METROPOLITAN_REGIONS/METROPOLITAN_REGIONS_v2',
+                },
+                {
+                    'label': 'Municipal Districts',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/BRAZIL/WORKSPACE/MUNICIPAL_DISTRICTS/MUNICIPAL_DISTRICTS_v2',
+                },
+                {
+                    'label': 'Municipalities .(IBGE, 2025)',
+                    'value': 'projects/mapbiomas-territories/assets/PLATFORM/demo/mapbiomas/brazil/territories/MUNICIPIOS_IBGE_2025_637F97E6/0afdffeb-2a5b-4b93-8163-d52f92f555e5',
+                },
+                {
+                    'label': 'Municipios Prioritários da Amazônia (MMA, 2026)',
+                    'value': 'projects/mapbiomas-territories/assets/PLATFORM/demo/mapbiomas/brazil/territories/MUNICIPIOS_PRIORITARIOS_DA_AMAZONIA_MMA_2026_26694C97/a2f415d9-1408-4c4b-9d02-8e6b6455d202',
+                },
+                {
+                    'label': 'Municípios Costeiros com extensão de 5km na costa (Solved, 2026)',
+                    'value': 'projects/mapbiomas-territories/assets/PLATFORM/demo/mapbiomas/brazil/territories/MUNICIPIOS_COSTEIROS_COM_EXTENSAO_DE_5KM_NA_COSTA_SOLVED_2026_F94FBCCB/82cd7d4f-15d0-4961-a6d8-1a699fb77314',
+                },
+                {
+                    'label': 'Planalto da BAP (ANA, 2021)',
+                    'value': 'projects/mapbiomas-territories/assets/PLATFORM/demo/mapbiomas/brazil/territories/PLANALTO_DA_BAP_ANA_2021_D4F5966E/9cfd02e1-f425-41e1-8364-240a8dbf1b68',
+                },
+                {
+                    'label': 'Priority Area (MMA 2018)',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-STAGING/BRAZIL/WORKSPACE/AREAS_PRIORITARIAS_DO_MMA_2018/AREAS_PRIORITARIAS_DO_MMA_2018_v2',
+                },
+                {
+                    'label': 'Quilombos (INCRA, 2026)',
+                    'value': 'projects/mapbiomas-territories/assets/PLATFORM/demo/mapbiomas/brazil/territories/QUILOMBOS_INCRA_2026_C57B5884/ff433ee4-7137-4845-aa3d-42f66d2b7823',
+                },
+                {
+                    'label': 'Regiões (IBGE, 2025)',
+                    'value': 'projects/mapbiomas-territories/assets/PLATFORM/demo/mapbiomas/brazil/territories/REGIOES_IBGE_2025_2CDBB85D/97f303cb-f543-400c-9c8f-47cc6b9b3a66',
+                },
+                {
+                    'label': 'Risk Sectors IBGE',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/BRAZIL/WORKSPACE/RISK_SECTORS_BATER_IBGE/RISK_SECTORS_BATER_IBGE_v2',
+                },
+                {
+                    'label': 'Rural Census Tracts',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/BRAZIL/WORKSPACE/RURAL_CENSUS_TRACTS/RURAL_CENSUS_TRACTS_v1',
+                },
+                {
+                    'label': 'Slums and Poor Urban Communities',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/BRAZIL/WORKSPACE/SLUMS_AND_POOR_URBAN_COMMUNITIES/SLUMS_AND_POOR_URBAN_COMMUNITIES_v1',
+                },
+                {
+                    'label': 'State Units for Planning and Management of Water Resources',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/BRAZIL/WORKSPACE/STATE_UNITS_PLANNING_MANAGEMENT_WATER_RESOURCES/STATE_UNITS_PLANNING_MANAGEMENT_WATER_RESOURCES_v1',
+                },
+                {
+                    'label': 'State watershed Committee',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/BRAZIL/WORKSPACE/STATE_COMMITTEE/STATE_COMMITTEE_v1',
+                },
+                {
+                    'label': 'Terras Indígenas (FUNAI, 2026)',
+                    'value': 'projects/mapbiomas-territories/assets/PLATFORM/demo/mapbiomas/brazil/territories/TERRAS_INDIGENAS_FUNAI_2026_F7F13F79/8b94c232-c551-4dd1-ac0c-2b40145db021',
+                },
+                {
+                    'label': 'Urban Census Tracts',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/BRAZIL/WORKSPACE/URBAN_CENSUS_TRACTS/URBAN_CENSUS_TRACTS_v1',
+                },
+                {
+                    'label': 'Urban Concentrations',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/BRAZIL/WORKSPACE/URBAN_CONCENTRATION/URBAN_CONCENTRATION_v2',
+                },
+                {
+                    'label': 'Water Resources Management Unit',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-STAGING/BRAZIL/WORKSPACE/UGRHS/UGRHS_v3',
+                },
             ],
         },
 
@@ -266,9 +316,7 @@ var App = {
                 'collection-6.0': {
                     'assets': {
                         'irrigated_agriculture': 'projects/mapbiomas-public/assets/brazil/lulc/collection6/mapbiomas_collection60_irrigated_agriculture_v1',
-                        // 'agriculture': '',
                     },
-
                     'periods': {
                         'irrigated_agriculture': [
                             '1985', '1986', '1987', '1988',
@@ -292,15 +340,12 @@ var App = {
                             '2013', '2014', '2015', '2016',
                             '2017', '2018', '2019', '2020'
                         ],
-
                     },
                 },
                 'collection-7.0': {
                     'assets': {
                         'irrigated_agriculture': 'projects/mapbiomas-public/assets/brazil/lulc/collection7/mapbiomas_collection70_irrigated_agriculture_v3',
-                        // 'agriculture': '',
                     },
-
                     'periods': {
                         'irrigated_agriculture': [
                             '1985', '1986', '1987', '1988',
@@ -326,15 +371,12 @@ var App = {
                             '2017', '2018', '2019', '2020',
                             '2021'
                         ],
-
                     },
                 },
                 'collection-8.0': {
                     'assets': {
                         'irrigated_agriculture': 'projects/mapbiomas-public/assets/brazil/lulc/collection8/mapbiomas_collection80_irrigated_agriculture_v1',
-                        // 'agriculture': '',
                     },
-
                     'periods': {
                         'irrigated_agriculture': [
                             '1985', '1986', '1987', '1988',
@@ -360,15 +402,12 @@ var App = {
                             '2017', '2018', '2019', '2020',
                             '2021', '2022'
                         ],
-
                     },
                 },
                 'collection-9.0': {
                     'assets': {
                         'irrigated_agriculture': 'projects/mapbiomas-public/assets/brazil/lulc/collection9/mapbiomas_collection90_irrigated_agriculture_v1',
-                        // 'agriculture': '',
                     },
-
                     'periods': {
                         'irrigated_agriculture': [
                             '1985', '1986', '1987', '1988',
@@ -394,11 +433,30 @@ var App = {
                             '2017', '2018', '2019', '2020',
                             '2021', '2022', '2023'
                         ],
-
+                    },
+                },
+                'collection-11.0': {
+                    'assets': {
+                        'irrigated_agriculture': 'projects/mapbiomas-public/assets/brazil/lulc/collection11/mapbiomas_brazil_collection11_agriculture_irrigation_systems_v1',
+                    },
+                    'encoding': 'raw',
+                    'periods': {
+                        'irrigated_agriculture': [
+                            '1985', '1986', '1987', '1988',
+                            '1989', '1990', '1991', '1992',
+                            '1993', '1994', '1995', '1996',
+                            '1997', '1998', '1999', '2000',
+                            '2001', '2002', '2003', '2004',
+                            '2005', '2006', '2007', '2008',
+                            '2009', '2010', '2011', '2012',
+                            '2013', '2014', '2015', '2016',
+                            '2017', '2018', '2019', '2020',
+                            '2021', '2022', '2023', '2024',
+                            '2025'
+                        ],
                     },
                 },
             },
-
         },
 
         bandsNames: { //TODO: ajustar o nome das bandas no asset publico
@@ -482,6 +540,33 @@ var App = {
 
         this.ui.init();
 
+    },
+
+    /**
+     * Nome curto do território ativo para camadas e arquivos exportados. Os vetores
+     * ingeridos pela plataforma terminam num UUID, então usamos o rótulo da tabela.
+     */
+    tableShortName: function () {
+        var path = App.options.activeName;
+        var label = null;
+
+        Object.keys(App.options.tables).forEach(function (region) {
+            App.options.tables[region].forEach(function (table) {
+                if (table.value === path) {
+                    label = table.label;
+                }
+            });
+        });
+
+        if (label === null) {
+            return path.split('/').slice(-1)[0];
+        }
+
+        // o Code Editor não tem String.prototype.normalize (ES5)
+        return label.toLowerCase()
+            .replace(/[áàâãä]/g, 'a').replace(/[éèêë]/g, 'e').replace(/[íìîï]/g, 'i')
+            .replace(/[óòôõö]/g, 'o').replace(/[úùûü]/g, 'u').replace(/ç/g, 'c').replace(/ñ/g, 'n')
+            .replace(/[^a-z0-9]+/g, '_').replace(/^_+|_+$/g, '');
     },
 
     setVersion: function () {
@@ -585,9 +670,15 @@ var App = {
                     ee.Number(1).evaluate(
                         function (a) {
 
-                            App.options.data.irrigated_agriculture = ee.Image(
-                                App.options.collections[regionName][collectioName].assets.irrigated_agriculture)
-                                .divide(100).byte();
+                            var collection = App.options.collections[regionName][collectioName];
+
+                            // a C11 publica as bandas como classification_YYYY e já traz a classe (1-3);
+                            // as anteriores guardam classe * 100 + cobertura
+                            var image = ee.Image(collection.assets.irrigated_agriculture)
+                                .regexpRename('^classification', 'irrigated_agriculture');
+
+                            App.options.data.irrigated_agriculture = collection.encoding === 'raw' ?
+                                image : image.divide(100).byte();
 
                             var year = App.options.collections[regionName][collectioName]
                                 .periods.irrigated_agriculture.slice(-1)[0];
@@ -657,7 +748,7 @@ var App = {
                                 App.ui.loadTable(tableName);
 
                                 App.ui.makeLayersList(
-                                    tableName.split('/').slice(-1)[0],
+                                    App.tableShortName(),
                                     App.options.activeFeature,
                                     App.options.collections[regionName][collectioName]
                                         .periods[App.options.dataType]
@@ -700,7 +791,7 @@ var App = {
                 width: 1,
                 fillColor: 'ff000033',
             }), {},
-                tableName.split('/')[3],
+                App.tableShortName(),
                 true);
 
         },
@@ -720,7 +811,7 @@ var App = {
                 width: 1,
                 fillColor: 'ff000033',
             }), {},
-                tableName.split('/')[3],
+                App.tableShortName(),
                 true);
 
         },
@@ -1344,7 +1435,7 @@ var App = {
                     App.ui.setDataType(dataType);
 
                     App.ui.makeLayersList(
-                        App.options.activeName.split('/').slice(-1)[0],
+                        App.tableShortName(),
                         App.options.activeFeature,
                         App.options.collections[regionName][collectionName].periods[dataType]);
 
@@ -1394,7 +1485,7 @@ var App = {
                         ee.Number(1).evaluate(
                             function (a) {
                                 App.ui.loadTableStates(App.options.activeName);
-                                App.ui.makeLayersList(App.options.activeName.split('/')[3], App.options.activeFeature, App.options.periods[App.options.dataType]);
+                                App.ui.makeLayersList(App.tableShortName(), App.options.activeFeature, App.options.periods[App.options.dataType]);
                                 App.ui.loadPropertiesNames();
                                 App.ui.form.selectDataType.setDisabled(false);
                             }

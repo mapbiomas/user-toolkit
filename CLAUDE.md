@@ -8,7 +8,7 @@ MapBiomas User Toolkit: standalone Google Earth Engine (GEE) Code Editor scripts
 
 ## Running / testing
 
-There is no build, lint, test suite, or package manager. The `.js` files are **GEE Code Editor scripts, not Node modules**: they use the injected globals `ee`, `ui`, `Map`, `Export`, `print`, and load shared modules with GEE's `require('users/<account>/<repo>:<path>')`. They can't run locally. To test a change, paste the script into https://code.earthengine.google.com and run it there. Check syntax locally with `node --check <file>.js`.
+There is no build, lint, test suite, or package manager. The `.js` files are **GEE Code Editor scripts, not Node modules**: they use the injected globals `ee`, `ui`, `Map`, `Export`, `print`, and load shared modules with GEE's `require('users/<account>/<repo>:<path>')`. They can't run locally. To test a change, paste the script into https://code.earthengine.google.com and run it there. Check syntax locally with `node --check <file>.js`, and check data references with `node tools/check_options.js`. That script verifies that every asset exists and is public and that `periods` match the real bands. It needs `tools/output/inventory.json`, which you create with `tools/crawl_public_assets.py` (see `tools/README.md`).
 
 Keep the code ES5-compatible (use `var` and `function`, no arrow functions, `let`/`const`, or template literals). That's the style every script uses, and the GEE Code Editor has traditionally required it.
 
@@ -25,21 +25,24 @@ Each `mapbiomas-user-toolkit-<theme>.js` is self-contained. The large ones (lulc
 - **Header JSDoc** with `@version` history. Each release adds a line here.
 - **`Area`** object: area-per-class calculation using `reduceRegion` with a grouped `ee.Reducer.sum()`, for the CSV export.
 - **`App`** object:
-  - `App.options`: all configuration as data. `version` is shown in the UI title. `tables[region]` holds the default territory vectors (`{label, value: assetId}`). `collections[region]['collection-X.Y']` holds `assets` (integration / transitions / quality image IDs) and `periods` (`Coverage` years and `Transitions` `"YYYY_YYYY"` pairs). The remaining keys are `palettes[region]` (the palette name passed to `Palettes.js`), `bandsNames`, `ranges`, `palette`, and `className`.
+  - `App.options`: all configuration as data. `version` is shown in the UI title. `tables[region]` holds the default territory vectors (`{label, value: assetId}`). `collections[region]['collection-X.Y']` holds `assets` (integration / transitions / quality image IDs) and `periods` (`Coverage` years and `Transitions` `"YYYY_YYYY"` pairs). An entry can also carry per-collection flags: `encoding: 'x100'|'raw'` in deforestation-regeneration (older assets store class×100+coverage, newer ones store the class 0–7 directly), `encoding: 'raw'` in irrigation, and `legend: 'c11'` in mining (the C11 substance codes use a different style set, `App.options.c11`). The remaining keys are `palettes[region]`, `bandsNames`, `ranges`, `palette`, and `className`. In lulc, `palettes[region]` is an embedded color list indexed by class value. A string is still accepted as a `Palettes.js` palette name, but those palettes stop before the newer classes (77, 84, 92…).
   - `App.ui.form`: builds the side panel (region → collection → table → property → feature → buffer → layers), then zooms, adds layers, and exports.
 - **User vectors** are found through `ee.data.getAssetRoots()` by looking for a root folder named `MAPBIOMAS` in the user's assets.
 - **Exports** use `Export.image.toDrive` / `Export.table.toDrive` into the Drive folder `MAPBIOMAS-EXPORT`.
 
-## Typical change: adding or updating a regional collection (lulc)
+## Typical change: adding or updating collections and territories
 
-Most commits look like this (e.g. "update to pampa collection 4 and uruguay collection 2"). In `mapbiomas-user-toolkit-lulc.js`:
-1. Add `collections['mapbiomas-<region>']['collection-N.M']` with the asset IDs (usually `projects/mapbiomas-public/assets/<region>/...`) and the `periods` lists.
-2. Update `tables['mapbiomas-<region>']` if the territories changed (currently `projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/<REGION>/COLLECTION<N>/WORKSPACE/...`; the `TERRITORIES` → `TERRITORIES-OLD` rename was applied across all scripts).
-3. For a brand-new region, also add it to `palettes`, and add it to the region select list in `App.ui.form` (search for the list of `'mapbiomas-...'` strings).
-4. Bump `App.options.version` and add a line to the header `@version` history.
+Don't hand-write asset IDs, periods, or territory lists. Generate them with `tools/` (full workflow in `tools/README.md`). The tools import `utils/platform_api.py` from the sibling `mapbiomas-pipeline` repo and use the GEE Python API.
+1. Add the new public asset IDs to `tools/catalog_candidates.py` (`LULC`, `DEFORESTATION`, `THEMATIC`). Check them first against `tools/output/inventory.json`. The docs don't reliably say which assets are public; the ACL does.
+2. Run `tools/build_patches.py`. It refreshes `periods` from the real band names, fixes renamed IDs (`ASSET_FIXES`), and rewrites `collections`, `tables`, and `palettes` in each script through `tools/apply_options.js`. Running it again on a script that is already up to date changes nothing.
+3. For a brand-new region, also add it to `tools/regions.py` and to the region select list in `App.ui.form` (search for the list of `'mapbiomas-...'` strings).
+4. Bump `App.options.version` and add a line to the header `@version` history. Keep the two in sync. For lulc, also regenerate the README "Release History" section from the header.
+
+Territories come from the MapBiomas platform API (`build_territories.py`). Their paths are either `projects/mapbiomas-territories/assets/TERRITORIES[-STAGING]/<REGION>/WORKSPACE/...` or platform-ingested `.../PLATFORM/demo/mapbiomas/<project>/territories/<KEY>/<uuid>`. Toolkit users can only open FeatureCollections with public read ACL. `build_territories.py` flags any that aren't public.
 
 ## Other files
 
+- `tools/`: data-maintenance scripts (Python + Node). Their generated output goes to `tools/output/`, which is gitignored.
 - `ancillary/`: one-off helper scripts, such as water-data exports and `asset_acl_public.sh`.
 - `set-asset-public.sh`: makes every asset in a GEE folder public with the `earthengine` CLI (`earthengine ls` + `earthengine acl set public`). Edit `folder_path` before running it, and run `earthengine authenticate` first.
 - `legend-colors/`: MapBiomas legend files for ArcMap, QGIS, and Excel.

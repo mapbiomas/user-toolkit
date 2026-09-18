@@ -14,6 +14,8 @@
  *    1.1.0 - Loads mapbiomas-brazil collection 7.0 mining data
  *    1.2.0 - Loads mapbiomas-brazil collection 8.0 mining data
  *    1.3.0 - Loads mapbiomas-brazil collection 9.0 mining data
+ *    1.4.0 - Loads mapbiomas-brazil collection 11.0 mining substances (new legend)
+ *          - Territories from the MapBiomas platform
  * 
  * @see
  *      Get the MapBiomas exported data in your "Google Drive/MAPBIOMAS-EXPORT" folder
@@ -108,7 +110,7 @@ var App = {
 
     options: {
 
-        version: '1.3.0',
+        version: '1.4.0',
 
         logo: {
             uri: 'gs://mapbiomas-public/mapbiomas-logos/mapbiomas-logo-horizontal.b64',
@@ -149,113 +151,161 @@ var App = {
         tables: {
             'mapbiomas-brazil': [
                 {
-                    'label': 'Amacro',
-                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/AMACRO',
+                    'label': 'AMACRO (IBGE, 2026)',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-STAGING/BRAZIL/WORKSPACE/AMACRO/AMACRO_v3',
                 },
                 {
-                    'label': 'Ministry of the Environment priority areas 2018',
-                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/AREAS_PRIORITARIAS_DO_MMA_2018',
+                    'label': 'Amazônia Legal (IBGE, 2024)',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-STAGING/BRAZIL/WORKSPACE/LEGAL_AMAZON/LEGAL_AMAZON_v3',
                 },
                 {
-                    'label': 'Atlantic Forest Law',
-                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/ATLANTIC_FOREST_LAW',
+                    'label': 'Atlantic Forest Law 1:1.000.000 (SOS Mata Atlântica, 2015)',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-STAGING/BRAZIL/WORKSPACE/ATLANTIC_FOREST_LAW/ATLANTIC_FOREST_LAW_v3',
                 },
                 {
-                    'label': 'Basin Level 1 DNAEE',
-                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/BASIN_LEVEL_1_DNAEE',
-                },
-                {
-                    'label': 'Basin Level 1 PNRH',
-                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/BASIN_LEVEL_1_PNRH',
-                },
-                {
-                    'label': 'Basin Level 2 DNAEE',
-                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/BASIN_LEVEL_2_DNAEE',
-                },
-                {
-                    'label': 'Basin Level 2 PNRH',
-                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/BASIN_LEVEL_2_PNRH',
-                },
-                {
-                    'label': 'Biomes',
-                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/BIOMES',
-                },
-                {
-                    'label': 'Coastal Marine Zone',
-                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/COASTAL_MARINE_ZONE',
-                },
-                {
-                    'label': 'Forest Concessions',
-                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/CONCESSOES_FLORESTAIS',
-                },
-                {
-                    'label': 'DHN250 Level 1',
-                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/DHN250_LEVEL_1',
-                },
-                {
-                    'label': 'DHN250 Level 2',
-                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/DHN250_LEVEL_2',
-                },
-                {
-                    'label': 'DHN250 Level 3',
-                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/DHN250_LEVEL_3',
-                },
-                {
-                    'label': 'Non-Designated Public Forests',
-                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/FLORESTAS_PUBLICAS_NAO_DESTINADAS',
-                },
-                {
-                    'label': 'Geoparques',
-                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/GEOPARQUES',
-                },
-                {
-                    'label': 'Indigenous Territories',
-                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/INDIGENOUS_TERRITORIES',
-                },
-                {
-                    'label': 'Legal Amazon',
-                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/LEGAL_AMAZON',
-                },
-                {
-                    'label': 'Matopiba',
-                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/MATOPIBA',
-                },
-                {
-                    'label': 'Political Level 1',
-                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/POLITICAL_LEVEL_1',
-                },
-                {
-                    'label': 'Political Level 2',
-                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/POLITICAL_LEVEL_2',
-                },
-                {
-                    'label': 'Political Level 3',
-                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/POLITICAL_LEVEL_3',
-                },
-                {
-                    'label': 'Protected Area',
-                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/PROTECTED_AREA',
-                },
-                {
-                    'label': 'Quilombos',
-                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/QUILOMBOS',
+                    'label': 'Biome (IBGE, 2025)',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/BRAZIL/WORKSPACE/BIOMES/BIOMES_v4',
                 },
                 {
                     'label': 'Biosphere Reserve',
-                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/RESERVA_DA_BIOSFERA',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-STAGING/BRAZIL/WORKSPACE/RESERVA_DA_BIOSFERA/RESERVA_DA_BIOSFERA_v3',
                 },
                 {
-                    'label': 'Semiarid',
-                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/SEMIARID',
+                    'label': 'Biosphere Reserve (RBMA, 2026)',
+                    'value': 'projects/mapbiomas-territories/assets/PLATFORM/demo/mapbiomas/brazil/territories/RESERVA_DA_BIOSFERA_RBMA_2026_A597F0B9/a1cce443-608c-4a32-b313-9918e04e11dd',
                 },
                 {
-                    'label': 'Settlements',
-                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/SETTLEMENTS',
+                    'label': 'Bolsa Verde Territories (MMA, 2026)',
+                    'value': 'projects/mapbiomas-territories/assets/PLATFORM/demo/mapbiomas/brazil/territories/TERRITORIOS_DO_BOLSA_VERDE_MMA_2026_4FCCFE72/ac604980-6a99-4770-a64b-41ab84a10585',
                 },
                 {
-                    'label': 'UGRHS',
-                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-OLD/LULC/BRAZIL/COLLECTION9/WORKSPACE/UGRHS',
-                }
+                    'label': 'Brasil (IBGE, 2025)',
+                    'value': 'projects/mapbiomas-territories/assets/PLATFORM/demo/mapbiomas/brazil/territories/BRASIL_IBGE_2025_D71F57FE/cc8a1562-88be-4106-8701-34da9e3a3a40',
+                },
+                {
+                    'label': 'Census Tracts',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/BRAZIL/WORKSPACE/CENSUS_TRACTS/CENSUS_TRACTS_v1',
+                },
+                {
+                    'label': 'Coastal and Marine System (IBGE, 2025)',
+                    'value': 'projects/mapbiomas-territories/assets/PLATFORM/demo/mapbiomas/brazil/territories/SISTEMA_COSTEIRO_E_MARINHO_IBGE_2025_DB52694B/b545395d-1b7c-4f1a-bec1-0c438526c179',
+                },
+                {
+                    'label': 'Concessões Florestais (MMA, 2026)',
+                    'value': 'projects/mapbiomas-territories/assets/PLATFORM/demo/mapbiomas/brazil/territories/CONCESSOES_FLORESTAIS_MMA_2026_61E001B1/5fd69700-34cf-42a5-a563-d290eaec7839',
+                },
+                {
+                    'label': 'Conservation Units (CNUC, 2026)',
+                    'value': 'projects/mapbiomas-territories/assets/PLATFORM/demo/mapbiomas/brazil/territories/UNIDADES_DE_CONSERVACAO_XNUC_2026_8DCD0C0B/ea04ccaf-0ff1-445a-9a29-a551015b0868',
+                },
+                {
+                    'label': 'DHN250 - Level 1 - National Hydrographic Division (ANA, 2017)',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-STAGING/BRAZIL/WORKSPACE/DHN250_LEVEL_1/DHN250_LEVEL_1_v2',
+                },
+                {
+                    'label': 'DHN250 - Level 2 - National Hydrographic Division (ANA, 2017)',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-STAGING/BRAZIL/WORKSPACE/DHN250_LEVEL_2/DHN250_LEVEL_2_v3',
+                },
+                {
+                    'label': 'DHN250 - Level 3 - National Hydrographic Division (ANA, 2017)',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-STAGING/BRAZIL/WORKSPACE/DHN250_LEVEL_3/DHN250_LEVEL_3_v4',
+                },
+                {
+                    'label': 'Estados (IBGE, 2025)',
+                    'value': 'projects/mapbiomas-territories/assets/PLATFORM/demo/mapbiomas/brazil/territories/ESTADOS_IBGE_2025_F7EAF953/3f95fd9d-4b26-4243-8612-37b9d5b12a55',
+                },
+                {
+                    'label': 'Federal watershed Committee',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/BRAZIL/WORKSPACE/FEDERAL_COMMITTEE/FEDERAL_COMMITTEE_v1',
+                },
+                {
+                    'label': 'Florestas Públicas não Destinadas (tipo B) (MMA, 2026)',
+                    'value': 'projects/mapbiomas-territories/assets/PLATFORM/demo/mapbiomas/brazil/territories/FLORESTAS_PUBLICAS_NAO_DESTINADAS_TIPO_B_MMA_2026_FA7D29E9/1f8935c8-0c73-42e2-a3d9-ceb8e063da2d',
+                },
+                {
+                    'label': 'Hydrographic Regions',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/BRAZIL/WORKSPACE/HYDROGRAPHIC_REGIONS/HYDROGRAPHIC_REGIONS_v1',
+                },
+                {
+                    'label': 'Marine Conservation Unit',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/BRAZIL/WORKSPACE/MARINE_CONSERVATION_UNIT/MARINE_CONSERVATION_UNIT_v2',
+                },
+                {
+                    'label': 'MATOPIBA (EMBRAPA, 2025)',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-STAGING/BRAZIL/WORKSPACE/MATOPIBA/MATOPIBA_v3',
+                },
+                {
+                    'label': 'Metropolitan Areas',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/BRAZIL/WORKSPACE/METROPOLITAN_REGIONS/METROPOLITAN_REGIONS_v2',
+                },
+                {
+                    'label': 'Municipal Districts',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/BRAZIL/WORKSPACE/MUNICIPAL_DISTRICTS/MUNICIPAL_DISTRICTS_v2',
+                },
+                {
+                    'label': 'Municipalities .(IBGE, 2025)',
+                    'value': 'projects/mapbiomas-territories/assets/PLATFORM/demo/mapbiomas/brazil/territories/MUNICIPIOS_IBGE_2025_637F97E6/0afdffeb-2a5b-4b93-8163-d52f92f555e5',
+                },
+                {
+                    'label': 'Municipios Prioritários da Amazônia (MMA, 2026)',
+                    'value': 'projects/mapbiomas-territories/assets/PLATFORM/demo/mapbiomas/brazil/territories/MUNICIPIOS_PRIORITARIOS_DA_AMAZONIA_MMA_2026_26694C97/a2f415d9-1408-4c4b-9d02-8e6b6455d202',
+                },
+                {
+                    'label': 'Municípios Costeiros com extensão de 5km na costa (Solved, 2026)',
+                    'value': 'projects/mapbiomas-territories/assets/PLATFORM/demo/mapbiomas/brazil/territories/MUNICIPIOS_COSTEIROS_COM_EXTENSAO_DE_5KM_NA_COSTA_SOLVED_2026_F94FBCCB/82cd7d4f-15d0-4961-a6d8-1a699fb77314',
+                },
+                {
+                    'label': 'Planalto da BAP (ANA, 2021)',
+                    'value': 'projects/mapbiomas-territories/assets/PLATFORM/demo/mapbiomas/brazil/territories/PLANALTO_DA_BAP_ANA_2021_D4F5966E/9cfd02e1-f425-41e1-8364-240a8dbf1b68',
+                },
+                {
+                    'label': 'Priority Area (MMA 2018)',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-STAGING/BRAZIL/WORKSPACE/AREAS_PRIORITARIAS_DO_MMA_2018/AREAS_PRIORITARIAS_DO_MMA_2018_v2',
+                },
+                {
+                    'label': 'Quilombos (INCRA, 2026)',
+                    'value': 'projects/mapbiomas-territories/assets/PLATFORM/demo/mapbiomas/brazil/territories/QUILOMBOS_INCRA_2026_C57B5884/ff433ee4-7137-4845-aa3d-42f66d2b7823',
+                },
+                {
+                    'label': 'Regiões (IBGE, 2025)',
+                    'value': 'projects/mapbiomas-territories/assets/PLATFORM/demo/mapbiomas/brazil/territories/REGIOES_IBGE_2025_2CDBB85D/97f303cb-f543-400c-9c8f-47cc6b9b3a66',
+                },
+                {
+                    'label': 'Risk Sectors IBGE',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/BRAZIL/WORKSPACE/RISK_SECTORS_BATER_IBGE/RISK_SECTORS_BATER_IBGE_v2',
+                },
+                {
+                    'label': 'Rural Census Tracts',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/BRAZIL/WORKSPACE/RURAL_CENSUS_TRACTS/RURAL_CENSUS_TRACTS_v1',
+                },
+                {
+                    'label': 'Slums and Poor Urban Communities',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/BRAZIL/WORKSPACE/SLUMS_AND_POOR_URBAN_COMMUNITIES/SLUMS_AND_POOR_URBAN_COMMUNITIES_v1',
+                },
+                {
+                    'label': 'State Units for Planning and Management of Water Resources',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/BRAZIL/WORKSPACE/STATE_UNITS_PLANNING_MANAGEMENT_WATER_RESOURCES/STATE_UNITS_PLANNING_MANAGEMENT_WATER_RESOURCES_v1',
+                },
+                {
+                    'label': 'State watershed Committee',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/BRAZIL/WORKSPACE/STATE_COMMITTEE/STATE_COMMITTEE_v1',
+                },
+                {
+                    'label': 'Terras Indígenas (FUNAI, 2026)',
+                    'value': 'projects/mapbiomas-territories/assets/PLATFORM/demo/mapbiomas/brazil/territories/TERRAS_INDIGENAS_FUNAI_2026_F7F13F79/8b94c232-c551-4dd1-ac0c-2b40145db021',
+                },
+                {
+                    'label': 'Urban Census Tracts',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/BRAZIL/WORKSPACE/URBAN_CENSUS_TRACTS/URBAN_CENSUS_TRACTS_v1',
+                },
+                {
+                    'label': 'Urban Concentrations',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES/BRAZIL/WORKSPACE/URBAN_CONCENTRATION/URBAN_CONCENTRATION_v2',
+                },
+                {
+                    'label': 'Water Resources Management Unit',
+                    'value': 'projects/mapbiomas-territories/assets/TERRITORIES-STAGING/BRAZIL/WORKSPACE/UGRHS/UGRHS_v3',
+                },
             ],
         },
 
@@ -265,7 +315,6 @@ var App = {
                     'assets': {
                         'mined_substance': 'projects/mapbiomas-public/assets/brazil/lulc/collection6/mapbiomas_collection60_mined_substance_v1',
                     },
-
                     'periods': {
                         'mined_substance': [
                             '1985', '1986', '1987', '1988',
@@ -284,7 +333,6 @@ var App = {
                     'assets': {
                         'mined_substance': 'projects/mapbiomas-public/assets/brazil/lulc/collection7/mapbiomas_collection70_mined_substance_v1',
                     },
-
                     'periods': {
                         'mined_substance': [
                             '1985', '1986', '1987', '1988',
@@ -304,7 +352,6 @@ var App = {
                     'assets': {
                         'mined_substance': 'projects/mapbiomas-public/assets/brazil/lulc/collection8/mapbiomas_collection80_mined_substance_v1',
                     },
-
                     'periods': {
                         'mined_substance': [
                             '1985', '1986', '1987', '1988',
@@ -324,7 +371,6 @@ var App = {
                     'assets': {
                         'mined_substance': 'projects/mapbiomas-public/assets/brazil/lulc/collection9/mapbiomas_collection90_mined_substance_v1',
                     },
-
                     'periods': {
                         'mined_substance': [
                             '1985', '1986', '1987', '1988',
@@ -340,8 +386,28 @@ var App = {
                         ],
                     },
                 },
+                'collection-11.0': {
+                    'assets': {
+                        'mined_substance': 'projects/mapbiomas-public/assets/brazil/lulc/collection11/mapbiomas_brazil_collection11_mining_substances_v1',
+                    },
+                    'legend': 'c11',
+                    'periods': {
+                        'mined_substance': [
+                            '1985', '1986', '1987', '1988',
+                            '1989', '1990', '1991', '1992',
+                            '1993', '1994', '1995', '1996',
+                            '1997', '1998', '1999', '2000',
+                            '2001', '2002', '2003', '2004',
+                            '2005', '2006', '2007', '2008',
+                            '2009', '2010', '2011', '2012',
+                            '2013', '2014', '2015', '2016',
+                            '2017', '2018', '2019', '2020',
+                            '2021', '2022', '2023', '2024',
+                            '2025'
+                        ],
+                    },
+                },
             },
-
         },
 
         bandsNames: {
@@ -563,13 +629,326 @@ var App = {
                     "orientation": "vertical"
                 },
             ]
-        }
+        },
+
+        // Coleção 11: novo esquema de códigos (1xxx garimpo, 2xxx industrial).
+        // Gerado por tools/build_mining_legend.py; usado quando a coleção tem legend: 'c11'.
+        c11: {
+            sldStyle: "<RasterSymbolizer><ColorMap type=\"values\" extended=\"false\"><ColorMapEntry color=\"#ff4500\" quantity=\"1109\" label=\"\" /><ColorMapEntry color=\"#ff4500\" quantity=\"1114\" label=\"\" /><ColorMapEntry color=\"#ff4500\" quantity=\"1115\" label=\"\" /><ColorMapEntry color=\"#cd853f\" quantity=\"1117\" label=\"\" /><ColorMapEntry color=\"#8a2be2\" quantity=\"1124\" label=\"\" /><ColorMapEntry color=\"#8a2be2\" quantity=\"1125\" label=\"\" /><ColorMapEntry color=\"#ff4500\" quantity=\"1138\" label=\"\" /><ColorMapEntry color=\"#778899\" quantity=\"1158\" label=\"\" /><ColorMapEntry color=\"#a9a9a9\" quantity=\"1159\" label=\"\" /><ColorMapEntry color=\"#ff4500\" quantity=\"1209\" label=\"\" /><ColorMapEntry color=\"#ff4500\" quantity=\"1214\" label=\"\" /><ColorMapEntry color=\"#ff4500\" quantity=\"1215\" label=\"\" /><ColorMapEntry color=\"#cd853f\" quantity=\"1217\" label=\"\" /><ColorMapEntry color=\"#8a2be2\" quantity=\"1224\" label=\"\" /><ColorMapEntry color=\"#8a2be2\" quantity=\"1225\" label=\"\" /><ColorMapEntry color=\"#ff4500\" quantity=\"1238\" label=\"\" /><ColorMapEntry color=\"#778899\" quantity=\"1258\" label=\"\" /><ColorMapEntry color=\"#a9a9a9\" quantity=\"1259\" label=\"\" /><ColorMapEntry color=\"#ff8c00\" quantity=\"2102\" label=\"\" /><ColorMapEntry color=\"#ff8c00\" quantity=\"2103\" label=\"\" /><ColorMapEntry color=\"#ff8c00\" quantity=\"2104\" label=\"\" /><ColorMapEntry color=\"#daa520\" quantity=\"2105\" label=\"\" /><ColorMapEntry color=\"#ff8c00\" quantity=\"2106\" label=\"\" /><ColorMapEntry color=\"#ff8c00\" quantity=\"2107\" label=\"\" /><ColorMapEntry color=\"#ff8c00\" quantity=\"2108\" label=\"\" /><ColorMapEntry color=\"#ff8c00\" quantity=\"2109\" label=\"\" /><ColorMapEntry color=\"#ff8c00\" quantity=\"2110\" label=\"\" /><ColorMapEntry color=\"#ff8c00\" quantity=\"2111\" label=\"\" /><ColorMapEntry color=\"#ff8c00\" quantity=\"2112\" label=\"\" /><ColorMapEntry color=\"#ff8c00\" quantity=\"2113\" label=\"\" /><ColorMapEntry color=\"#ff8c00\" quantity=\"2114\" label=\"\" /><ColorMapEntry color=\"#ff8c00\" quantity=\"2115\" label=\"\" /><ColorMapEntry color=\"#daa520\" quantity=\"2117\" label=\"\" /><ColorMapEntry color=\"#daa520\" quantity=\"2118\" label=\"\" /><ColorMapEntry color=\"#daa520\" quantity=\"2119\" label=\"\" /><ColorMapEntry color=\"#daa520\" quantity=\"2120\" label=\"\" /><ColorMapEntry color=\"#daa520\" quantity=\"2121\" label=\"\" /><ColorMapEntry color=\"#daa520\" quantity=\"2122\" label=\"\" /><ColorMapEntry color=\"#9932cc\" quantity=\"2124\" label=\"\" /><ColorMapEntry color=\"#9932cc\" quantity=\"2125\" label=\"\" /><ColorMapEntry color=\"#b22222\" quantity=\"2127\" label=\"\" /><ColorMapEntry color=\"#b22222\" quantity=\"2128\" label=\"\" /><ColorMapEntry color=\"#b22222\" quantity=\"2129\" label=\"\" /><ColorMapEntry color=\"#ff8c00\" quantity=\"2130\" label=\"\" /><ColorMapEntry color=\"#ff8c00\" quantity=\"2131\" label=\"\" /><ColorMapEntry color=\"#ff8c00\" quantity=\"2132\" label=\"\" /><ColorMapEntry color=\"#ff8c00\" quantity=\"2133\" label=\"\" /><ColorMapEntry color=\"#ff8c00\" quantity=\"2134\" label=\"\" /><ColorMapEntry color=\"#ff8c00\" quantity=\"2135\" label=\"\" /><ColorMapEntry color=\"#ff8c00\" quantity=\"2136\" label=\"\" /><ColorMapEntry color=\"#ff8c00\" quantity=\"2137\" label=\"\" /><ColorMapEntry color=\"#ff8c00\" quantity=\"2138\" label=\"\" /><ColorMapEntry color=\"#ff8c00\" quantity=\"2139\" label=\"\" /><ColorMapEntry color=\"#ff8c00\" quantity=\"2142\" label=\"\" /><ColorMapEntry color=\"#ff8c00\" quantity=\"2143\" label=\"\" /><ColorMapEntry color=\"#ff8c00\" quantity=\"2144\" label=\"\" /><ColorMapEntry color=\"#ff8c00\" quantity=\"2145\" label=\"\" /><ColorMapEntry color=\"#ff8c00\" quantity=\"2147\" label=\"\" /><ColorMapEntry color=\"#ff8c00\" quantity=\"2148\" label=\"\" /><ColorMapEntry color=\"#ff8c00\" quantity=\"2149\" label=\"\" /><ColorMapEntry color=\"#ff8c00\" quantity=\"2150\" label=\"\" /><ColorMapEntry color=\"#ff8c00\" quantity=\"2151\" label=\"\" /><ColorMapEntry color=\"#ff8c00\" quantity=\"2152\" label=\"\" /><ColorMapEntry color=\"#daa520\" quantity=\"2153\" label=\"\" /><ColorMapEntry color=\"#daa520\" quantity=\"2154\" label=\"\" /><ColorMapEntry color=\"#daa520\" quantity=\"2155\" label=\"\" /><ColorMapEntry color=\"#daa520\" quantity=\"2156\" label=\"\" /><ColorMapEntry color=\"#daa520\" quantity=\"2157\" label=\"\" /><ColorMapEntry color=\"#708090\" quantity=\"2159\" label=\"\" /><ColorMapEntry color=\"#ff8c00\" quantity=\"2202\" label=\"\" /><ColorMapEntry color=\"#ff8c00\" quantity=\"2203\" label=\"\" /><ColorMapEntry color=\"#ff8c00\" quantity=\"2204\" label=\"\" /><ColorMapEntry color=\"#daa520\" quantity=\"2205\" label=\"\" /><ColorMapEntry color=\"#ff8c00\" quantity=\"2206\" label=\"\" /><ColorMapEntry color=\"#ff8c00\" quantity=\"2208\" label=\"\" /><ColorMapEntry color=\"#ff8c00\" quantity=\"2209\" label=\"\" /><ColorMapEntry color=\"#ff8c00\" quantity=\"2210\" label=\"\" /><ColorMapEntry color=\"#ff8c00\" quantity=\"2211\" label=\"\" /><ColorMapEntry color=\"#ff8c00\" quantity=\"2212\" label=\"\" /><ColorMapEntry color=\"#ff8c00\" quantity=\"2213\" label=\"\" /><ColorMapEntry color=\"#ff8c00\" quantity=\"2214\" label=\"\" /><ColorMapEntry color=\"#ff8c00\" quantity=\"2215\" label=\"\" /><ColorMapEntry color=\"#daa520\" quantity=\"2217\" label=\"\" /><ColorMapEntry color=\"#daa520\" quantity=\"2218\" label=\"\" /><ColorMapEntry color=\"#daa520\" quantity=\"2219\" label=\"\" /><ColorMapEntry color=\"#daa520\" quantity=\"2220\" label=\"\" /><ColorMapEntry color=\"#daa520\" quantity=\"2221\" label=\"\" /><ColorMapEntry color=\"#daa520\" quantity=\"2222\" label=\"\" /><ColorMapEntry color=\"#9932cc\" quantity=\"2224\" label=\"\" /><ColorMapEntry color=\"#9932cc\" quantity=\"2225\" label=\"\" /><ColorMapEntry color=\"#b22222\" quantity=\"2227\" label=\"\" /><ColorMapEntry color=\"#b22222\" quantity=\"2228\" label=\"\" /><ColorMapEntry color=\"#b22222\" quantity=\"2229\" label=\"\" /><ColorMapEntry color=\"#ff8c00\" quantity=\"2230\" label=\"\" /><ColorMapEntry color=\"#ff8c00\" quantity=\"2231\" label=\"\" /><ColorMapEntry color=\"#ff8c00\" quantity=\"2232\" label=\"\" /><ColorMapEntry color=\"#ff8c00\" quantity=\"2233\" label=\"\" /><ColorMapEntry color=\"#ff8c00\" quantity=\"2234\" label=\"\" /><ColorMapEntry color=\"#ff8c00\" quantity=\"2235\" label=\"\" /><ColorMapEntry color=\"#ff8c00\" quantity=\"2236\" label=\"\" /><ColorMapEntry color=\"#ff8c00\" quantity=\"2237\" label=\"\" /><ColorMapEntry color=\"#ff8c00\" quantity=\"2238\" label=\"\" /><ColorMapEntry color=\"#ff8c00\" quantity=\"2239\" label=\"\" /><ColorMapEntry color=\"#ff8c00\" quantity=\"2242\" label=\"\" /><ColorMapEntry color=\"#ff8c00\" quantity=\"2243\" label=\"\" /><ColorMapEntry color=\"#ff8c00\" quantity=\"2244\" label=\"\" /><ColorMapEntry color=\"#ff8c00\" quantity=\"2245\" label=\"\" /><ColorMapEntry color=\"#ff8c00\" quantity=\"2246\" label=\"\" /><ColorMapEntry color=\"#ff8c00\" quantity=\"2247\" label=\"\" /><ColorMapEntry color=\"#ff8c00\" quantity=\"2248\" label=\"\" /><ColorMapEntry color=\"#ff8c00\" quantity=\"2249\" label=\"\" /><ColorMapEntry color=\"#ff8c00\" quantity=\"2250\" label=\"\" /><ColorMapEntry color=\"#ff8c00\" quantity=\"2251\" label=\"\" /><ColorMapEntry color=\"#ff8c00\" quantity=\"2252\" label=\"\" /><ColorMapEntry color=\"#daa520\" quantity=\"2253\" label=\"\" /><ColorMapEntry color=\"#daa520\" quantity=\"2254\" label=\"\" /><ColorMapEntry color=\"#daa520\" quantity=\"2255\" label=\"\" /><ColorMapEntry color=\"#daa520\" quantity=\"2256\" label=\"\" /><ColorMapEntry color=\"#daa520\" quantity=\"2257\" label=\"\" /><ColorMapEntry color=\"#708090\" quantity=\"2259\" label=\"\" /></ColorMap></RasterSymbolizer>",
+            className: {
+                "1109": "Garimpo/Área Garimpada com Solo Exposto/Metálicos/Cobre",
+                "1114": "Garimpo/Área Garimpada com Solo Exposto/Metálicos/Estanho",
+                "1115": "Garimpo/Área Garimpada com Solo Exposto/Metálicos/Ouro",
+                "1138": "Garimpo/Área Garimpada com Solo Exposto/Metálicos/Elementos Terras Raras",
+                "1117": "Garimpo/Área Garimpada com Solo Exposto/Não metálicos/Minerais classe 2",
+                "1124": "Garimpo/Área Garimpada com Solo Exposto/Pedras preciosas e rochas ornamentais/Pedras Preciosas",
+                "1125": "Garimpo/Área Garimpada com Solo Exposto/Pedras preciosas e rochas ornamentais/Rochas Ornamentais",
+                "1159": "Garimpo/Área Garimpada com Solo Exposto/Sem Substância/Sem Substância",
+                "1158": "Garimpo/Área Garimpada com Solo Exposto/Atípica/Atípica",
+                "1209": "Garimpo/Área Garimpada com Revegetação/Metálicos/Cobre",
+                "1214": "Garimpo/Área Garimpada com Revegetação/Metálicos/Estanho",
+                "1215": "Garimpo/Área Garimpada com Revegetação/Metálicos/Ouro",
+                "1238": "Garimpo/Área Garimpada com Revegetação/Metálicos/Elementos Terras Raras",
+                "1217": "Garimpo/Área Garimpada com Revegetação/Não metálicos/Minerais classe 2",
+                "1224": "Garimpo/Área Garimpada com Revegetação/Pedras preciosas e rochas ornamentais/Pedras Preciosas",
+                "1225": "Garimpo/Área Garimpada com Revegetação/Pedras preciosas e rochas ornamentais/Rochas Ornamentais",
+                "1259": "Garimpo/Área Garimpada com Revegetação/Sem Substância/Sem Substância",
+                "1258": "Garimpo/Área Garimpada com Revegetação/Atípica/Atípica",
+                "2127": "Industrial/Mineração Industrial com Solo Exposto/Energéticos/Carvão Mineral",
+                "2128": "Industrial/Mineração Industrial com Solo Exposto/Energéticos/Urânio",
+                "2129": "Industrial/Mineração Industrial com Solo Exposto/Energéticos/Gás Natural e Petróleo",
+                "2102": "Industrial/Mineração Industrial com Solo Exposto/Metálicos/Ferro",
+                "2103": "Industrial/Mineração Industrial com Solo Exposto/Metálicos/Manganês",
+                "2104": "Industrial/Mineração Industrial com Solo Exposto/Metálicos/Níquel",
+                "2106": "Industrial/Mineração Industrial com Solo Exposto/Metálicos/Molibdênio",
+                "2107": "Industrial/Mineração Industrial com Solo Exposto/Metálicos/Titânio",
+                "2108": "Industrial/Mineração Industrial com Solo Exposto/Metálicos/Cromo",
+                "2109": "Industrial/Mineração Industrial com Solo Exposto/Metálicos/Cobre",
+                "2110": "Industrial/Mineração Industrial com Solo Exposto/Metálicos/Alumínio",
+                "2111": "Industrial/Mineração Industrial com Solo Exposto/Metálicos/Magnésio",
+                "2112": "Industrial/Mineração Industrial com Solo Exposto/Metálicos/Bário",
+                "2113": "Industrial/Mineração Industrial com Solo Exposto/Metálicos/Ni",
+                "2114": "Industrial/Mineração Industrial com Solo Exposto/Metálicos/Estanho",
+                "2115": "Industrial/Mineração Industrial com Solo Exposto/Metálicos/Ouro",
+                "2130": "Industrial/Mineração Industrial com Solo Exposto/Metálicos/Zinco",
+                "2131": "Industrial/Mineração Industrial com Solo Exposto/Metálicos/Antimônio",
+                "2132": "Industrial/Mineração Industrial com Solo Exposto/Metálicos/Arsênio",
+                "2133": "Industrial/Mineração Industrial com Solo Exposto/Metálicos/Berílio",
+                "2134": "Industrial/Mineração Industrial com Solo Exposto/Metálicos/Bismuto",
+                "2135": "Industrial/Mineração Industrial com Solo Exposto/Metálicos/Césio",
+                "2136": "Industrial/Mineração Industrial com Solo Exposto/Metálicos/Chumbo",
+                "2137": "Industrial/Mineração Industrial com Solo Exposto/Metálicos/Cobalto",
+                "2138": "Industrial/Mineração Industrial com Solo Exposto/Metálicos/Elementos Terras Raras",
+                "2139": "Industrial/Mineração Industrial com Solo Exposto/Metálicos/Estrôncio",
+                "2142": "Industrial/Mineração Industrial com Solo Exposto/Metálicos/Lítio",
+                "2143": "Industrial/Mineração Industrial com Solo Exposto/Metálicos/Mercúrio",
+                "2144": "Industrial/Mineração Industrial com Solo Exposto/Metálicos/Paládio",
+                "2145": "Industrial/Mineração Industrial com Solo Exposto/Metálicos/Platina",
+                "2147": "Industrial/Mineração Industrial com Solo Exposto/Metálicos/Prata",
+                "2148": "Industrial/Mineração Industrial com Solo Exposto/Metálicos/Rubídio",
+                "2149": "Industrial/Mineração Industrial com Solo Exposto/Metálicos/Sódio",
+                "2150": "Industrial/Mineração Industrial com Solo Exposto/Metálicos/Tungstênio",
+                "2151": "Industrial/Mineração Industrial com Solo Exposto/Metálicos/Vanádio",
+                "2152": "Industrial/Mineração Industrial com Solo Exposto/Metálicos/Zircônio",
+                "2117": "Industrial/Mineração Industrial com Solo Exposto/Não metálicos/Minerais classe 2",
+                "2118": "Industrial/Mineração Industrial com Solo Exposto/Não metálicos/Flúor",
+                "2119": "Industrial/Mineração Industrial com Solo Exposto/Não metálicos/Fósforo",
+                "2120": "Industrial/Mineração Industrial com Solo Exposto/Não metálicos/Grafita",
+                "2121": "Industrial/Mineração Industrial com Solo Exposto/Não metálicos/Silício",
+                "2122": "Industrial/Mineração Industrial com Solo Exposto/Não metálicos/Calcário",
+                "2154": "Industrial/Mineração Industrial com Solo Exposto/Não metálicos/Bromo",
+                "2155": "Industrial/Mineração Industrial com Solo Exposto/Não metálicos/Caulim",
+                "2156": "Industrial/Mineração Industrial com Solo Exposto/Não metálicos/Enxofre",
+                "2157": "Industrial/Mineração Industrial com Solo Exposto/Não metálicos/Fosfato",
+                "2105": "Industrial/Mineração Industrial com Solo Exposto/Não metálicos/Amianto",
+                "2153": "Industrial/Mineração Industrial com Solo Exposto/Não metálicos/Água",
+                "2124": "Industrial/Mineração Industrial com Solo Exposto/Pedras preciosas e rochas ornamentais/Pedras Preciosas",
+                "2125": "Industrial/Mineração Industrial com Solo Exposto/Pedras preciosas e rochas ornamentais/Rochas Ornamentais",
+                "2159": "Industrial/Mineração Industrial com Solo Exposto/Sem Substância/Sem Substância",
+                "2227": "Industrial/Mineração Industrial com Revegetação/Energéticos/Carvão Mineral",
+                "2228": "Industrial/Mineração Industrial com Revegetação/Energéticos/Urânio",
+                "2229": "Industrial/Mineração Industrial com Revegetação/Energéticos/Gás Natural e Petróleo",
+                "2202": "Industrial/Mineração Industrial com Revegetação/Metálicos/Ferro",
+                "2203": "Industrial/Mineração Industrial com Revegetação/Metálicos/Manganês",
+                "2204": "Industrial/Mineração Industrial com Revegetação/Metálicos/Níquel",
+                "2206": "Industrial/Mineração Industrial com Revegetação/Metálicos/Titânio",
+                "2208": "Industrial/Mineração Industrial com Revegetação/Metálicos/Cromo",
+                "2209": "Industrial/Mineração Industrial com Revegetação/Metálicos/Cobre",
+                "2210": "Industrial/Mineração Industrial com Revegetação/Metálicos/Alumínio",
+                "2211": "Industrial/Mineração Industrial com Revegetação/Metálicos/Magnésio",
+                "2212": "Industrial/Mineração Industrial com Revegetação/Metálicos/Bário",
+                "2213": "Industrial/Mineração Industrial com Revegetação/Metálicos/Nióbio",
+                "2214": "Industrial/Mineração Industrial com Revegetação/Metálicos/Estanho",
+                "2215": "Industrial/Mineração Industrial com Revegetação/Metálicos/Ouro",
+                "2230": "Industrial/Mineração Industrial com Revegetação/Metálicos/Zinco",
+                "2231": "Industrial/Mineração Industrial com Revegetação/Metálicos/Antimônio",
+                "2232": "Industrial/Mineração Industrial com Revegetação/Metálicos/Arsênio",
+                "2233": "Industrial/Mineração Industrial com Revegetação/Metálicos/Berílio",
+                "2234": "Industrial/Mineração Industrial com Revegetação/Metálicos/Bismuto",
+                "2235": "Industrial/Mineração Industrial com Revegetação/Metálicos/Césio",
+                "2236": "Industrial/Mineração Industrial com Revegetação/Metálicos/Chumbo",
+                "2237": "Industrial/Mineração Industrial com Revegetação/Metálicos/Cobalto",
+                "2238": "Industrial/Mineração Industrial com Revegetação/Metálicos/Elementos Terras Raras",
+                "2239": "Industrial/Mineração Industrial com Revegetação/Metálicos/Estrôncio",
+                "2242": "Industrial/Mineração Industrial com Revegetação/Metálicos/Lítio",
+                "2243": "Industrial/Mineração Industrial com Revegetação/Metálicos/Mercúrio",
+                "2244": "Industrial/Mineração Industrial com Revegetação/Metálicos/Paládio",
+                "2245": "Industrial/Mineração Industrial com Revegetação/Metálicos/Platina",
+                "2246": "Industrial/Mineração Industrial com Revegetação/Metálicos/Potássio",
+                "2247": "Industrial/Mineração Industrial com Revegetação/Metálicos/Prata",
+                "2248": "Industrial/Mineração Industrial com Revegetação/Metálicos/Rubídio",
+                "2249": "Industrial/Mineração Industrial com Revegetação/Metálicos/Sódio",
+                "2250": "Industrial/Mineração Industrial com Revegetação/Metálicos/Tungstênio",
+                "2251": "Industrial/Mineração Industrial com Revegetação/Metálicos/Vanádio",
+                "2252": "Industrial/Mineração Industrial com Revegetação/Metálicos/Zircônio",
+                "2217": "Industrial/Mineração Industrial com Revegetação/Não metálicos/Minerais classe 2",
+                "2218": "Industrial/Mineração Industrial com Revegetação/Não metálicos/Flúor",
+                "2219": "Industrial/Mineração Industrial com Revegetação/Não metálicos/Fósforo",
+                "2220": "Industrial/Mineração Industrial com Revegetação/Não metálicos/Grafita",
+                "2221": "Industrial/Mineração Industrial com Revegetação/Não metálicos/Silício",
+                "2222": "Industrial/Mineração Industrial com Revegetação/Não metálicos/Calcário",
+                "2254": "Industrial/Mineração Industrial com Revegetação/Não metálicos/Bromo",
+                "2255": "Industrial/Mineração Industrial com Revegetação/Não metálicos/Caulim",
+                "2256": "Industrial/Mineração Industrial com Revegetação/Não metálicos/Enxofre",
+                "2257": "Industrial/Mineração Industrial com Revegetação/Não metálicos/Fosfato",
+                "2205": "Industrial/Mineração Industrial com Revegetação/Não metálicos/Amianto",
+                "2253": "Industrial/Mineração Industrial com Revegetação/Não metálicos/Água",
+                "2224": "Industrial/Mineração Industrial com Revegetação/Pedras preciosas e rochas ornamentais/Pedras Preciosas",
+                "2225": "Industrial/Mineração Industrial com Revegetação/Pedras preciosas e rochas ornamentais/Rochas Ornamentais",
+                "2259": "Industrial/Mineração Industrial com Revegetação/Sem Substância/Sem Substância"
+            },
+            legend: [
+                {
+                    "title": "Garimpo — Área Garimpada com Solo Exposto",
+                    "layers": [
+                        [
+                            "#ff4500",
+                            null,
+                            "Metálicos"
+                        ],
+                        [
+                            "#cd853f",
+                            null,
+                            "Não metálicos"
+                        ],
+                        [
+                            "#8a2be2",
+                            null,
+                            "Pedras preciosas e rochas ornamentais"
+                        ],
+                        [
+                            "#a9a9a9",
+                            null,
+                            "Sem Substância"
+                        ],
+                        [
+                            "#778899",
+                            null,
+                            "Atípica"
+                        ]
+                    ],
+                    "style": {
+                        "backgroundColor": "#ffffff",
+                        "color": "#212121"
+                    },
+                    "orientation": "vertical"
+                },
+                {
+                    "title": "Garimpo — Área Garimpada com Revegetação",
+                    "layers": [
+                        [
+                            "#ff4500",
+                            null,
+                            "Metálicos"
+                        ],
+                        [
+                            "#cd853f",
+                            null,
+                            "Não metálicos"
+                        ],
+                        [
+                            "#8a2be2",
+                            null,
+                            "Pedras preciosas e rochas ornamentais"
+                        ],
+                        [
+                            "#a9a9a9",
+                            null,
+                            "Sem Substância"
+                        ],
+                        [
+                            "#778899",
+                            null,
+                            "Atípica"
+                        ]
+                    ],
+                    "style": {
+                        "backgroundColor": "#ffffff",
+                        "color": "#212121"
+                    },
+                    "orientation": "vertical"
+                },
+                {
+                    "title": "Industrial — Mineração Industrial com Solo Exposto",
+                    "layers": [
+                        [
+                            "#b22222",
+                            null,
+                            "Energéticos"
+                        ],
+                        [
+                            "#ff8c00",
+                            null,
+                            "Metálicos"
+                        ],
+                        [
+                            "#daa520",
+                            null,
+                            "Não metálicos"
+                        ],
+                        [
+                            "#9932cc",
+                            null,
+                            "Pedras preciosas e rochas ornamentais"
+                        ],
+                        [
+                            "#708090",
+                            null,
+                            "Sem Substância"
+                        ]
+                    ],
+                    "style": {
+                        "backgroundColor": "#ffffff",
+                        "color": "#212121"
+                    },
+                    "orientation": "vertical"
+                },
+                {
+                    "title": "Industrial — Mineração Industrial com Revegetação",
+                    "layers": [
+                        [
+                            "#b22222",
+                            null,
+                            "Energéticos"
+                        ],
+                        [
+                            "#ff8c00",
+                            null,
+                            "Metálicos"
+                        ],
+                        [
+                            "#daa520",
+                            null,
+                            "Não metálicos"
+                        ],
+                        [
+                            "#9932cc",
+                            null,
+                            "Pedras preciosas e rochas ornamentais"
+                        ],
+                        [
+                            "#708090",
+                            null,
+                            "Sem Substância"
+                        ]
+                    ],
+                    "style": {
+                        "backgroundColor": "#ffffff",
+                        "color": "#212121"
+                    },
+                    "orientation": "vertical"
+                }
+            ]
+        },
     },
 
     init: function () {
 
         this.ui.init();
 
+    },
+
+    /**
+     * Estilo, nomes de classe e legenda da coleção selecionada: a C11 usa o
+     * conjunto `c11` (códigos de 4 dígitos), as anteriores os originais.
+     */
+    styleSet: function () {
+        var collection = App.options.collections[App.options.selectedRegion || 'mapbiomas-brazil'][App.options.selectedCollection];
+        if (collection && collection.legend === 'c11') {
+            return App.options.c11;
+        }
+        return {
+            'sldStyle': App.options.sldStyle,
+            'className': App.options.className.mined_substance,
+            'legend': App.options.legend.params
+        };
+    },
+
+    /**
+     * Nome curto do território ativo para camadas e arquivos exportados. Os vetores
+     * ingeridos pela plataforma terminam num UUID, então usamos o rótulo da tabela.
+     */
+    tableShortName: function () {
+        var path = App.options.activeName;
+        var label = null;
+
+        Object.keys(App.options.tables).forEach(function (region) {
+            App.options.tables[region].forEach(function (table) {
+                if (table.value === path) {
+                    label = table.label;
+                }
+            });
+        });
+
+        if (label === null) {
+            return path.split('/').slice(-1)[0];
+        }
+
+        // o Code Editor não tem String.prototype.normalize (ES5)
+        return label.toLowerCase()
+            .replace(/[áàâãä]/g, 'a').replace(/[éèêë]/g, 'e').replace(/[íìîï]/g, 'i')
+            .replace(/[óòôõö]/g, 'o').replace(/[úùûü]/g, 'u').replace(/ç/g, 'c').replace(/ñ/g, 'n')
+            .replace(/[^a-z0-9]+/g, '_').replace(/^_+|_+$/g, '');
     },
 
     setVersion: function () {
@@ -585,7 +964,7 @@ var App = {
         var imageLayer = ui.Map.Layer({
             'eeObject': App.options.data.mined_substance
                 .select('mined_substance_' + year)
-                .sldStyle(App.options.sldStyle),
+                .sldStyle(App.styleSet().sldStyle),
             'visParams': {
                 // 'bands': ['mined_substance_' + year],
                 // 'palette': App.options.palette.mined_substance,
@@ -670,6 +1049,17 @@ var App = {
 
         },
 
+        loadLegend: function () {
+
+            App.ui.form.panelLegend.clear();
+
+            App.styleSet().legend.forEach(
+                function (params) {
+                    App.ui.form.panelLegend.add(legend.getLegend(params));
+                }
+            );
+        },
+
         loadCollectionList: function (regionName) {
 
             App.ui.form.selectCollection.setPlaceholder('loading collections...');
@@ -681,8 +1071,16 @@ var App = {
                     ee.Number(1).evaluate(
                         function (a) {
 
-                            App.options.data.mined_substance = ee.Image(
-                                App.options.collections[regionName][collectioName].assets.mined_substance);
+                            var collection = App.options.collections[regionName][collectioName];
+
+                            App.options.selectedRegion = regionName;
+                            App.options.selectedCollection = collectioName;
+
+                            // a C11 publica as bandas como classification_YYYY
+                            App.options.data.mined_substance = ee.Image(collection.assets.mined_substance)
+                                .regexpRename('^classification', 'mined_substance');
+
+                            App.ui.loadLegend();
 
                             var year = App.options.collections[regionName][collectioName]
                                 .periods.mined_substance.slice(-1)[0];
@@ -752,7 +1150,7 @@ var App = {
                                 App.ui.loadTable(tableName);
 
                                 App.ui.makeLayersList(
-                                    tableName.split('/').slice(-1)[0],
+                                    App.tableShortName(),
                                     App.options.activeFeature,
                                     App.options.collections[regionName][collectioName]
                                         .periods[App.options.dataType]
@@ -795,7 +1193,7 @@ var App = {
                 width: 1,
                 fillColor: 'ff000033',
             }), {},
-                tableName.split('/')[3],
+                App.tableShortName(),
                 true);
 
         },
@@ -815,7 +1213,7 @@ var App = {
                 width: 1,
                 fillColor: 'ff000033',
             }), {},
-                tableName.split('/')[3],
+                App.tableShortName(),
                 true);
 
         },
@@ -934,7 +1332,7 @@ var App = {
                 .clip(region);
 
             var imageLayer = ui.Map.Layer({
-                'eeObject': image.selfMask().sldStyle(App.options.sldStyle),
+                'eeObject': image.selfMask().sldStyle(App.styleSet().sldStyle),
                 'visParams': {
                     // 'palette': App.options.palette[App.options.dataType],
                     // 'min': App.options.ranges[App.options.dataType].min,
@@ -1094,7 +1492,7 @@ var App = {
                     area = ee.FeatureCollection(area).map(
                         function (feature) {
 
-                            var className = ee.Dictionary(App.options.className[App.options.dataType])
+                            var className = ee.Dictionary(App.styleSet().className)
                                 .get(ee.Number(feature.get('class')));
 
                             return feature
@@ -1184,9 +1582,7 @@ var App = {
                 App.ui.form.panelBuffer.add(App.ui.form.labelBuffer);
                 App.ui.form.panelBuffer.add(App.ui.form.selectBuffer);
 
-                App.ui.form.panelLegend.add(legend.getLegend(App.options.legend.params[0]));
-                App.ui.form.panelLegend.add(legend.getLegend(App.options.legend.params[1]));
-                App.ui.form.panelLegend.add(legend.getLegend(App.options.legend.params[2]));
+                App.ui.loadLegend();
 
                 // this.panelMain.add(this.panelType);
                 App.ui.form.panel1.add(App.ui.form.panelRegion);
@@ -1457,7 +1853,7 @@ var App = {
                     App.ui.setDataType(dataType);
 
                     App.ui.makeLayersList(
-                        App.options.activeName.split('/').slice(-1)[0],
+                        App.tableShortName(),
                         App.options.activeFeature,
                         App.options.collections[regionName][collectionName].periods[dataType]);
 
@@ -1507,7 +1903,7 @@ var App = {
                         ee.Number(1).evaluate(
                             function (a) {
                                 App.ui.loadTableStates(App.options.activeName);
-                                App.ui.makeLayersList(App.options.activeName.split('/')[3], App.options.activeFeature, App.options.periods[App.options.dataType]);
+                                App.ui.makeLayersList(App.tableShortName(), App.options.activeFeature, App.options.periods[App.options.dataType]);
                                 App.ui.loadPropertiesNames();
                                 App.ui.form.selectDataType.setDisabled(false);
                             }
