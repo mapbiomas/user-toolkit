@@ -51,6 +51,7 @@
  *             fixes download links (brazil col5 monthly, paraguay accumulated coverage)
  *             link to legend files (QGIS, ArcGIS Pro, SLD, CSV)
  *    1.4.13 - single link to the legend files on GitHub
+ *    1.4.14 - Scar size classes drawn with their own colors (range 0-10); official legend files
  * 
  */
 
@@ -62,7 +63,7 @@ var App = {
 
     options: {
 
-        version: '1.4.13',
+        version: '1.4.14',
 
         logo: {
             uri: 'gs://mapbiomas-public/mapbiomas-logos/mapbiomas-logo-horizontal.b64',
@@ -1733,7 +1734,7 @@ var App = {
           'annual_burned_coverage':{'min':0,'max':69},
           'monthly_burned':{'min':1,'max':12},
           'monthly_burned_coverage':{'min':1,'max':12},
-          'annual_burned_scar_size_range':{'min':1,'max':10},
+          'annual_burned_scar_size_range':{'min':0,'max':10},
           'accumulated_burned':{'min':1,'max':1},
           'accumulated_burned_coverage':{'min':0,'max':69},
           'year_last_fire':{'min':1985,'max':2023},

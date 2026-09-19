@@ -52,6 +52,7 @@
               <sld:ColorMapEntry color="#f3b5df" quantity="38" label="38 years" opacity="1"/>
               <sld:ColorMapEntry color="#d9d9d9" quantity="39" label="39 years" opacity="1"/>
               <sld:ColorMapEntry color="#8c8c8c" quantity="40" label="40 years" opacity="1"/>
+              <sld:ColorMapEntry color="#8c8c8c" quantity="41" label="41 years" opacity="1"/>
             </sld:ColorMap>
           </sld:RasterSymbolizer>
         </sld:Rule>

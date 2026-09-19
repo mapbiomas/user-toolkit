@@ -44,6 +44,7 @@
         <paletteEntry value="38" color="#f3b5df" label="38 years" alpha="255"/>
         <paletteEntry value="39" color="#d9d9d9" label="39 years" alpha="255"/>
         <paletteEntry value="40" color="#8c8c8c" label="40 years" alpha="255"/>
+        <paletteEntry value="41" color="#8c8c8c" label="41 years" alpha="255"/>
       </colorPalette>
     </rasterrenderer>
   </pipe>

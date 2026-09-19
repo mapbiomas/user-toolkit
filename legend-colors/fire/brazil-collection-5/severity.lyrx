@@ -1,0 +1,156 @@
+{
+  "type": "CIMLayerDocument",
+  "version": "2.9.0",
+  "build": 32739,
+  "layers": [
+    "CIMPATH=map/mapbiomas_legend.xml"
+  ],
+  "layerDefinitions": [
+    {
+      "type": "CIMRasterLayer",
+      "name": "MapBiomas Fire brazil C5 - potential severity (beta)",
+      "uRI": "CIMPATH=map/mapbiomas_legend.xml",
+      "sourceModifiedTime": {
+        "type": "TimeInstant"
+      },
+      "useSourceMetadata": true,
+      "layerType": "Operational",
+      "showLegends": true,
+      "visibility": true,
+      "displayCacheType": "Permanent",
+      "maxDisplayCacheAge": 5,
+      "showPopups": true,
+      "serviceLayerID": -1,
+      "refreshRate": -1,
+      "refreshRateUnit": "esriTimeUnitsSeconds",
+      "blendingMode": "Alpha",
+      "colorizer": {
+        "type": "CIMRasterUniqueValueColorizer",
+        "resamplingType": "NearestNeighbor",
+        "noDataColor": {
+          "type": "CIMRGBColor",
+          "values": [
+            255,
+            255,
+            255,
+            0
+          ]
+        },
+        "defaultColor": {
+          "type": "CIMRGBColor",
+          "values": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "fieldName": "Value",
+        "groups": [
+          {
+            "type": "CIMRasterUniqueValueGroup",
+            "heading": "Value",
+            "classes": [
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "1"
+                ],
+                "label": "Very low",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    0,
+                    63,
+                    27,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "2"
+                ],
+                "label": "Low",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    142,
+                    230,
+                    55,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "3"
+                ],
+                "label": "Moderate",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    242,
+                    242,
+                    34,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "4"
+                ],
+                "label": "High",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    255,
+                    165,
+                    0,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "5"
+                ],
+                "label": "Very high",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    255,
+                    0,
+                    0,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "6"
+                ],
+                "label": "Extreme",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    139,
+                    0,
+                    0,
+                    100
+                  ]
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

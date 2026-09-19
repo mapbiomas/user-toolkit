@@ -12,6 +12,7 @@
         <sld:Rule>
           <sld:RasterSymbolizer>
             <sld:ColorMap type="values">
+              <sld:ColorMapEntry color="#ae2012" quantity="2013" label="2013" opacity="1"/>
               <sld:ColorMapEntry color="#aa2016" quantity="2014" label="2014" opacity="1"/>
               <sld:ColorMapEntry color="#a6211a" quantity="2015" label="2015" opacity="1"/>
               <sld:ColorMapEntry color="#a3211e" quantity="2016" label="2016" opacity="1"/>
@@ -23,7 +24,6 @@
               <sld:ColorMapEntry color="#850708" quantity="2022" label="2022" opacity="1"/>
               <sld:ColorMapEntry color="#800000" quantity="2023" label="2023" opacity="1"/>
               <sld:ColorMapEntry color="#800000" quantity="2024" label="2024" opacity="1"/>
-              <sld:ColorMapEntry color="#750000" quantity="2025" label="2025" opacity="1"/>
             </sld:ColorMap>
           </sld:RasterSymbolizer>
         </sld:Rule>

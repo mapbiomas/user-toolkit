@@ -4,6 +4,7 @@
     <rasterrenderer type="paletted" band="1" opacity="1" alphaBand="-1" nodataColor="">
       <rasterTransparency/>
       <colorPalette>
+        <paletteEntry value="2013" color="#ae2012" label="2013" alpha="255"/>
         <paletteEntry value="2014" color="#aa2016" label="2014" alpha="255"/>
         <paletteEntry value="2015" color="#a6211a" label="2015" alpha="255"/>
         <paletteEntry value="2016" color="#a3211e" label="2016" alpha="255"/>
@@ -15,7 +16,6 @@
         <paletteEntry value="2022" color="#850708" label="2022" alpha="255"/>
         <paletteEntry value="2023" color="#800000" label="2023" alpha="255"/>
         <paletteEntry value="2024" color="#800000" label="2024" alpha="255"/>
-        <paletteEntry value="2025" color="#750000" label="2025" alpha="255"/>
       </colorPalette>
     </rasterrenderer>
   </pipe>

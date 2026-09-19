@@ -8,7 +8,7 @@
   "layerDefinitions": [
     {
       "type": "CIMRasterLayer",
-      "name": "MapBiomas Fire peru C1 - year of last fire",
+      "name": "MapBiomas Fire peru C1 - burned area by scar size",
       "uRI": "CIMPATH=map/mapbiomas_legend.xml",
       "sourceModifiedTime": {
         "type": "TimeInstant"
@@ -54,15 +54,15 @@
               {
                 "type": "CIMRasterUniqueValueClass",
                 "values": [
-                  "2013"
+                  "1"
                 ],
-                "label": "2013",
+                "label": "< 5 ha",
                 "color": {
                   "type": "CIMRGBColor",
                   "values": [
+                    208,
                     174,
-                    32,
-                    18,
+                    53,
                     100
                   ]
                 }
@@ -70,15 +70,15 @@
               {
                 "type": "CIMRasterUniqueValueClass",
                 "values": [
-                  "2014"
+                  "2"
                 ],
-                "label": "2014",
+                "label": "5 - 25 ha",
                 "color": {
                   "type": "CIMRGBColor",
                   "values": [
-                    170,
-                    32,
-                    22,
+                    208,
+                    141,
+                    41,
                     100
                   ]
                 }
@@ -86,159 +86,95 @@
               {
                 "type": "CIMRasterUniqueValueClass",
                 "values": [
-                  "2015"
+                  "3"
                 ],
-                "label": "2015",
+                "label": "25 - 50 ha",
                 "color": {
                   "type": "CIMRGBColor",
                   "values": [
-                    166,
-                    33,
+                    204,
+                    108,
+                    40,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "4"
+                ],
+                "label": "50 - 250 ha",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    194,
+                    72,
+                    46,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "5"
+                ],
+                "label": "250 - 500 ha",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    179,
+                    30,
+                    53,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "6"
+                ],
+                "label": "500 - 1,000 ha",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    147,
+                    31,
+                    40,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "7"
+                ],
+                "label": "1,000 - 5,000 ha",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    116,
+                    30,
+                    29,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "8"
+                ],
+                "label": ">= 5,000 ha",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    87,
                     26,
-                    100
-                  ]
-                }
-              },
-              {
-                "type": "CIMRasterUniqueValueClass",
-                "values": [
-                  "2016"
-                ],
-                "label": "2016",
-                "color": {
-                  "type": "CIMRGBColor",
-                  "values": [
-                    163,
-                    33,
-                    30,
-                    100
-                  ]
-                }
-              },
-              {
-                "type": "CIMRasterUniqueValueClass",
-                "values": [
-                  "2017"
-                ],
-                "label": "2017",
-                "color": {
-                  "type": "CIMRGBColor",
-                  "values": [
-                    159,
-                    34,
-                    34,
-                    100
-                  ]
-                }
-              },
-              {
-                "type": "CIMRasterUniqueValueClass",
-                "values": [
-                  "2018"
-                ],
-                "label": "2018",
-                "color": {
-                  "type": "CIMRGBColor",
-                  "values": [
-                    155,
-                    34,
-                    38,
-                    100
-                  ]
-                }
-              },
-              {
-                "type": "CIMRasterUniqueValueClass",
-                "values": [
-                  "2019"
-                ],
-                "label": "2019",
-                "color": {
-                  "type": "CIMRGBColor",
-                  "values": [
-                    150,
-                    27,
-                    30,
-                    100
-                  ]
-                }
-              },
-              {
-                "type": "CIMRasterUniqueValueClass",
-                "values": [
-                  "2020"
-                ],
-                "label": "2020",
-                "color": {
-                  "type": "CIMRGBColor",
-                  "values": [
-                    144,
                     20,
-                    23,
-                    100
-                  ]
-                }
-              },
-              {
-                "type": "CIMRasterUniqueValueClass",
-                "values": [
-                  "2021"
-                ],
-                "label": "2021",
-                "color": {
-                  "type": "CIMRGBColor",
-                  "values": [
-                    139,
-                    14,
-                    15,
-                    100
-                  ]
-                }
-              },
-              {
-                "type": "CIMRasterUniqueValueClass",
-                "values": [
-                  "2022"
-                ],
-                "label": "2022",
-                "color": {
-                  "type": "CIMRGBColor",
-                  "values": [
-                    133,
-                    7,
-                    8,
-                    100
-                  ]
-                }
-              },
-              {
-                "type": "CIMRasterUniqueValueClass",
-                "values": [
-                  "2023"
-                ],
-                "label": "2023",
-                "color": {
-                  "type": "CIMRGBColor",
-                  "values": [
-                    128,
-                    0,
-                    0,
-                    100
-                  ]
-                }
-              },
-              {
-                "type": "CIMRasterUniqueValueClass",
-                "values": [
-                  "2024"
-                ],
-                "label": "2024",
-                "color": {
-                  "type": "CIMRGBColor",
-                  "values": [
-                    128,
-                    0,
-                    0,
                     100
                   ]
                 }

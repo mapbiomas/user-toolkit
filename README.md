@@ -108,7 +108,7 @@ Legend files for the latest public collection of each dataset are in [`legend-co
 - **LYRX**: ArcGIS Pro layer (*Apply Symbology From Layer*);
 - **SLD**: Styled Layer Descriptor (GeoServer, QGIS, GEE `sldStyle`).
 
-Coverage legends are listed with each region [above](#land-use-and-land-cover-latest-collection-per-region). The toolkits also link to these files from their panel. Fire severity and scar-size classes have no published labels yet, so they have no legend files.
+Coverage legends are listed with each region [above](#land-use-and-land-cover-latest-collection-per-region). The toolkits also link to these files from their panel. Fire labels (scar size, severity, return interval) follow the official MapBiomas Fire legend-code documents.
 
 | Dataset | Legend files |
 |---|---|
@@ -117,11 +117,14 @@ Coverage legends are listed with each region [above](#land-use-and-land-cover-la
 | Brazil C11 — pasture vigor | [CSV](legend-colors/brazil-collection-11/pasture-vigor.csv) · [QML](legend-colors/brazil-collection-11/pasture-vigor.qml) · [LYRX](legend-colors/brazil-collection-11/pasture-vigor.lyrx) · [SLD](legend-colors/brazil-collection-11/pasture-vigor.sld) |
 | Brazil C11 — mining substances | [CSV](legend-colors/brazil-collection-11/mining-substances.csv) · [QML](legend-colors/brazil-collection-11/mining-substances.qml) · [LYRX](legend-colors/brazil-collection-11/mining-substances.lyrx) · [SLD](legend-colors/brazil-collection-11/mining-substances.sld) |
 | Fire Brazil C5 — annual burned area | [CSV](legend-colors/fire/brazil-collection-5/annual-burned.csv) · [QML](legend-colors/fire/brazil-collection-5/annual-burned.qml) · [LYRX](legend-colors/fire/brazil-collection-5/annual-burned.lyrx) · [SLD](legend-colors/fire/brazil-collection-5/annual-burned.sld) |
+| Fire Brazil C5 — burned coverage (land cover classes) | [CSV](legend-colors/fire/brazil-collection-5/burned-coverage.csv) · [QML](legend-colors/fire/brazil-collection-5/burned-coverage.qml) · [LYRX](legend-colors/fire/brazil-collection-5/burned-coverage.lyrx) · [SLD](legend-colors/fire/brazil-collection-5/burned-coverage.sld) |
 | Fire Brazil C5 — accumulated burned area | [CSV](legend-colors/fire/brazil-collection-5/accumulated-burned.csv) · [QML](legend-colors/fire/brazil-collection-5/accumulated-burned.qml) · [LYRX](legend-colors/fire/brazil-collection-5/accumulated-burned.lyrx) · [SLD](legend-colors/fire/brazil-collection-5/accumulated-burned.sld) |
 | Fire Brazil C5 — month of burn | [CSV](legend-colors/fire/brazil-collection-5/monthly-burned.csv) · [QML](legend-colors/fire/brazil-collection-5/monthly-burned.qml) · [LYRX](legend-colors/fire/brazil-collection-5/monthly-burned.lyrx) · [SLD](legend-colors/fire/brazil-collection-5/monthly-burned.sld) |
 | Fire Brazil C5 — fire frequency | [CSV](legend-colors/fire/brazil-collection-5/fire-frequency.csv) · [QML](legend-colors/fire/brazil-collection-5/fire-frequency.qml) · [LYRX](legend-colors/fire/brazil-collection-5/fire-frequency.lyrx) · [SLD](legend-colors/fire/brazil-collection-5/fire-frequency.sld) |
 | Fire Brazil C5 — year of last fire | [CSV](legend-colors/fire/brazil-collection-5/year-last-fire.csv) · [QML](legend-colors/fire/brazil-collection-5/year-last-fire.qml) · [LYRX](legend-colors/fire/brazil-collection-5/year-last-fire.lyrx) · [SLD](legend-colors/fire/brazil-collection-5/year-last-fire.sld) |
-| Fire Brazil C5 — years since last fire | [CSV](legend-colors/fire/brazil-collection-5/interval-since-fire.csv) · [QML](legend-colors/fire/brazil-collection-5/interval-since-fire.qml) · [LYRX](legend-colors/fire/brazil-collection-5/interval-since-fire.lyrx) · [SLD](legend-colors/fire/brazil-collection-5/interval-since-fire.sld) |
+| Fire Brazil C5 — fire return interval | [CSV](legend-colors/fire/brazil-collection-5/interval-since-fire.csv) · [QML](legend-colors/fire/brazil-collection-5/interval-since-fire.qml) · [LYRX](legend-colors/fire/brazil-collection-5/interval-since-fire.lyrx) · [SLD](legend-colors/fire/brazil-collection-5/interval-since-fire.sld) |
+| Fire Brazil C5 — burned area by scar size | [CSV](legend-colors/fire/brazil-collection-5/scar-size.csv) · [QML](legend-colors/fire/brazil-collection-5/scar-size.qml) · [LYRX](legend-colors/fire/brazil-collection-5/scar-size.lyrx) · [SLD](legend-colors/fire/brazil-collection-5/scar-size.sld) |
+| Fire Brazil C5 — potential severity (beta) | [CSV](legend-colors/fire/brazil-collection-5/severity.csv) · [QML](legend-colors/fire/brazil-collection-5/severity.qml) · [LYRX](legend-colors/fire/brazil-collection-5/severity.lyrx) · [SLD](legend-colors/fire/brazil-collection-5/severity.sld) |
 | Fire Indonesia C1 — annual burned area | [CSV](legend-colors/fire/indonesia-collection-1/annual-burned.csv) · [QML](legend-colors/fire/indonesia-collection-1/annual-burned.qml) · [LYRX](legend-colors/fire/indonesia-collection-1/annual-burned.lyrx) · [SLD](legend-colors/fire/indonesia-collection-1/annual-burned.sld) |
 | Fire Indonesia C1 — accumulated burned area | [CSV](legend-colors/fire/indonesia-collection-1/accumulated-burned.csv) · [QML](legend-colors/fire/indonesia-collection-1/accumulated-burned.qml) · [LYRX](legend-colors/fire/indonesia-collection-1/accumulated-burned.lyrx) · [SLD](legend-colors/fire/indonesia-collection-1/accumulated-burned.sld) |
 | Fire Indonesia C1 — month of burn | [CSV](legend-colors/fire/indonesia-collection-1/monthly-burned.csv) · [QML](legend-colors/fire/indonesia-collection-1/monthly-burned.qml) · [LYRX](legend-colors/fire/indonesia-collection-1/monthly-burned.lyrx) · [SLD](legend-colors/fire/indonesia-collection-1/monthly-burned.sld) |
@@ -135,6 +138,7 @@ Coverage legends are listed with each region [above](#land-use-and-land-cover-la
 | Fire Peru C1 — month of burn | [CSV](legend-colors/fire/peru-collection-1/monthly-burned.csv) · [QML](legend-colors/fire/peru-collection-1/monthly-burned.qml) · [LYRX](legend-colors/fire/peru-collection-1/monthly-burned.lyrx) · [SLD](legend-colors/fire/peru-collection-1/monthly-burned.sld) |
 | Fire Peru C1 — fire frequency | [CSV](legend-colors/fire/peru-collection-1/fire-frequency.csv) · [QML](legend-colors/fire/peru-collection-1/fire-frequency.qml) · [LYRX](legend-colors/fire/peru-collection-1/fire-frequency.lyrx) · [SLD](legend-colors/fire/peru-collection-1/fire-frequency.sld) |
 | Fire Peru C1 — year of last fire | [CSV](legend-colors/fire/peru-collection-1/year-last-fire.csv) · [QML](legend-colors/fire/peru-collection-1/year-last-fire.qml) · [LYRX](legend-colors/fire/peru-collection-1/year-last-fire.lyrx) · [SLD](legend-colors/fire/peru-collection-1/year-last-fire.sld) |
+| Fire Peru C1 — burned area by scar size | [CSV](legend-colors/fire/peru-collection-1/scar-size.csv) · [QML](legend-colors/fire/peru-collection-1/scar-size.qml) · [LYRX](legend-colors/fire/peru-collection-1/scar-size.lyrx) · [SLD](legend-colors/fire/peru-collection-1/scar-size.sld) |
 | Water Pan-Amazon C1 — annual water surface | [CSV](legend-colors/water/amazon-collection-1/annual-water.csv) · [QML](legend-colors/water/amazon-collection-1/annual-water.qml) · [LYRX](legend-colors/water/amazon-collection-1/annual-water.lyrx) · [SLD](legend-colors/water/amazon-collection-1/annual-water.sld) |
 | Water Pan-Amazon C1 — water frequency | [CSV](legend-colors/water/amazon-collection-1/water-frequency.csv) · [QML](legend-colors/water/amazon-collection-1/water-frequency.qml) · [LYRX](legend-colors/water/amazon-collection-1/water-frequency.lyrx) · [SLD](legend-colors/water/amazon-collection-1/water-frequency.sld) |
 | Water Bolivia C1 — annual water surface | [CSV](legend-colors/water/bolivia-collection-1/annual-water.csv) · [QML](legend-colors/water/bolivia-collection-1/annual-water.qml) · [LYRX](legend-colors/water/bolivia-collection-1/annual-water.lyrx) · [SLD](legend-colors/water/bolivia-collection-1/annual-water.sld) |
@@ -159,7 +163,7 @@ Land use and land cover toolkit (`mapbiomas-user-toolkit-lulc.js`). Each script 
 |---|---|
 | lulc | 1.36.2 |
 | deforestation-regeneration | 1.7.2 |
-| fire | 1.4.13 |
+| fire | 1.4.14 |
 | water | 1.6.2 |
 | irrigation | 1.5.2 |
 | mining | 1.4.2 |
