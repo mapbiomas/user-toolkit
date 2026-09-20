@@ -1,0 +1,240 @@
+{
+ "toolkit": "deforestation-regeneration",
+ "version": "1.7.3",
+ "regions": {
+  "mapbiomas-argentina": {
+   "collections": {
+    "collection-2.0": null
+   },
+   "flow": {
+    "collection": "collection-2.0",
+    "tables": 10,
+    "table": "Country",
+    "dataType": "deforestation_sec_vegetation",
+    "layer": "country 2024",
+    "mapLayers": [
+     "country 2024"
+    ],
+    "exports": [
+     {
+      "kind": "image.toDrive",
+      "description": "mapbiomas-argentina-collection-20-featurea-2024",
+      "fileNamePrefix": "mapbiomas-argentina-collection-20-featurea-2024",
+      "folder": "MAPBIOMAS-EXPORT",
+      "scale": 30,
+      "fileFormat": "GeoTIFF"
+     },
+     {
+      "kind": "table.toDrive",
+      "description": "mapbiomas-argentina-collection-20-featurea-area",
+      "fileNamePrefix": "mapbiomas-argentina-collection-20-featurea-area",
+      "folder": "MAPBIOMAS-EXPORT",
+      "fileFormat": "CSV"
+     }
+    ]
+   }
+  },
+  "mapbiomas-bolivia": {
+   "collections": {
+    "collection-3.0": null
+   },
+   "flow": {
+    "collection": "collection-3.0",
+    "tables": 11,
+    "table": "Basin Level 1",
+    "dataType": "deforestation_sec_vegetation",
+    "layer": "basin_level_1 2024",
+    "mapLayers": [
+     "basin_level_1 2024"
+    ],
+    "exports": [
+     {
+      "kind": "image.toDrive",
+      "description": "mapbiomas-bolivia-collection-30-featurea-2024",
+      "fileNamePrefix": "mapbiomas-bolivia-collection-30-featurea-2024",
+      "folder": "MAPBIOMAS-EXPORT",
+      "scale": 30,
+      "fileFormat": "GeoTIFF"
+     },
+     {
+      "kind": "table.toDrive",
+      "description": "mapbiomas-bolivia-collection-30-featurea-area",
+      "fileNamePrefix": "mapbiomas-bolivia-collection-30-featurea-area",
+      "folder": "MAPBIOMAS-EXPORT",
+      "fileFormat": "CSV"
+     }
+    ]
+   }
+  },
+  "mapbiomas-brazil": {
+   "collections": {
+    "collection-11.0": null,
+    "collection-10.1": null,
+    "collection-9.0": null,
+    "collection-8.0": null,
+    "collection-7.1": null,
+    "collection-7.0": null,
+    "collection-6.0": null,
+    "collection-5.0": null
+   },
+   "flow": {
+    "collection": "collection-11.0",
+    "tables": 39,
+    "table": "AMACRO (IBGE, 2026)",
+    "dataType": "deforestation_sec_vegetation",
+    "layer": "amacro_ibge_2026 2025",
+    "mapLayers": [
+     "amacro_ibge_2026 2025"
+    ],
+    "exports": [
+     {
+      "kind": "image.toDrive",
+      "description": "mapbiomas-brazil-collection-110-featurea-2025",
+      "fileNamePrefix": "mapbiomas-brazil-collection-110-featurea-2025",
+      "folder": "MAPBIOMAS-EXPORT",
+      "scale": 30,
+      "fileFormat": "GeoTIFF"
+     },
+     {
+      "kind": "table.toDrive",
+      "description": "mapbiomas-brazil-collection-110-featurea-area",
+      "fileNamePrefix": "mapbiomas-brazil-collection-110-featurea-area",
+      "folder": "MAPBIOMAS-EXPORT",
+      "fileFormat": "CSV"
+     }
+    ]
+   }
+  },
+  "mapbiomas-colombia": {
+   "collections": {
+    "collection-2.0": null
+   },
+   "flow": {
+    "collection": "collection-2.0",
+    "tables": 6,
+    "table": "Biomes",
+    "dataType": "deforestation_sec_vegetation",
+    "layer": "biomes 2023",
+    "mapLayers": [
+     "biomes 2023"
+    ],
+    "exports": [
+     {
+      "kind": "image.toDrive",
+      "description": "mapbiomas-colombia-collection-20-featurea-2023",
+      "fileNamePrefix": "mapbiomas-colombia-collection-20-featurea-2023",
+      "folder": "MAPBIOMAS-EXPORT",
+      "scale": 30,
+      "fileFormat": "GeoTIFF"
+     },
+     {
+      "kind": "table.toDrive",
+      "description": "mapbiomas-colombia-collection-20-featurea-area",
+      "fileNamePrefix": "mapbiomas-colombia-collection-20-featurea-area",
+      "folder": "MAPBIOMAS-EXPORT",
+      "fileFormat": "CSV"
+     }
+    ]
+   }
+  },
+  "mapbiomas-paraguay": {
+   "collections": {
+    "collection-3.0": null
+   },
+   "flow": {
+    "collection": "collection-3.0",
+    "tables": 9,
+    "table": "Ecorregiones Dinerstein (DINERTTEIN, 1995)",
+    "dataType": "deforestation_sec_vegetation",
+    "layer": "ecorregiones_dinerstein_dinerttein_1995 2025",
+    "mapLayers": [
+     "ecorregiones_dinerstein_dinerttein_1995 2025"
+    ],
+    "exports": [
+     {
+      "kind": "image.toDrive",
+      "description": "mapbiomas-paraguay-collection-30-featurea-2025",
+      "fileNamePrefix": "mapbiomas-paraguay-collection-30-featurea-2025",
+      "folder": "MAPBIOMAS-EXPORT",
+      "scale": 30,
+      "fileFormat": "GeoTIFF"
+     },
+     {
+      "kind": "table.toDrive",
+      "description": "mapbiomas-paraguay-collection-30-featurea-area",
+      "fileNamePrefix": "mapbiomas-paraguay-collection-30-featurea-area",
+      "folder": "MAPBIOMAS-EXPORT",
+      "fileFormat": "CSV"
+     }
+    ]
+   }
+  },
+  "mapbiomas-peru": {
+   "collections": {
+    "collection-4.0": null,
+    "collection-3.0": null,
+    "collection-2.0": null
+   },
+   "flow": {
+    "collection": "collection-4.0",
+    "tables": 31,
+    "table": "Afforestation and Reforestation Concession",
+    "dataType": "deforestation_sec_vegetation",
+    "layer": "afforestation_and_reforestation_concession 2025",
+    "mapLayers": [
+     "afforestation_and_reforestation_concession 2025"
+    ],
+    "exports": [
+     {
+      "kind": "image.toDrive",
+      "description": "mapbiomas-peru-collection-40-featurea-2025",
+      "fileNamePrefix": "mapbiomas-peru-collection-40-featurea-2025",
+      "folder": "MAPBIOMAS-EXPORT",
+      "scale": 30,
+      "fileFormat": "GeoTIFF"
+     },
+     {
+      "kind": "table.toDrive",
+      "description": "mapbiomas-peru-collection-40-featurea-area",
+      "fileNamePrefix": "mapbiomas-peru-collection-40-featurea-area",
+      "folder": "MAPBIOMAS-EXPORT",
+      "fileFormat": "CSV"
+     }
+    ]
+   }
+  },
+  "mapbiomas-uruguay": {
+   "collections": {
+    "collection-3.0": null
+   },
+   "flow": {
+    "collection": "collection-3.0",
+    "tables": 6,
+    "table": "Country",
+    "dataType": "deforestation_sec_vegetation",
+    "layer": "country 2024",
+    "mapLayers": [
+     "country 2024"
+    ],
+    "exports": [
+     {
+      "kind": "image.toDrive",
+      "description": "mapbiomas-uruguay-collection-30-featurea-2024",
+      "fileNamePrefix": "mapbiomas-uruguay-collection-30-featurea-2024",
+      "folder": "MAPBIOMAS-EXPORT",
+      "scale": 30,
+      "fileFormat": "GeoTIFF"
+     },
+     {
+      "kind": "table.toDrive",
+      "description": "mapbiomas-uruguay-collection-30-featurea-area",
+      "fileNamePrefix": "mapbiomas-uruguay-collection-30-featurea-area",
+      "folder": "MAPBIOMAS-EXPORT",
+      "fileFormat": "CSV"
+     }
+    ]
+   }
+  }
+ },
+ "errors": []
+}

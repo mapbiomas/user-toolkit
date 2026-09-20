@@ -22,6 +22,7 @@
  *          - Class encoding per collection; territories from the MapBiomas platform
  *    1.7.1 - Link to legend files (QGIS, ArcGIS Pro, SLD, CSV)
  *    1.7.2 - New toolkit logo; single link to the legend files on GitHub
+ *    1.7.3 - Fixes selecting a territory in collections without the deforestation_pv data type
  * 
  * @see
  *      Get the MapBiomas exported data in your "Google Drive/MAPBIOMAS-EXPORT" folder
@@ -115,7 +116,7 @@ var App = {
 
     options: {
 
-        version: '1.7.2',
+        version: '1.7.3',
 
         logo: {
             uri: 'gs://mapbiomas-public/mapbiomas-logos/mapbiomas-toolkit-logo.b64',
@@ -1783,6 +1784,12 @@ var App = {
                                 .periods.secondary_vegetation.slice(-1)[0];
 
                             App.options.selectedCollection = collectioName
+
+                            // o tipo de dado padrão (deforestation_pv) não existe nas coleções novas:
+                            // começa pelo primeiro tipo que a coleção oferece
+                            App.options.dataType = Object.keys(
+                                App.options.collections[regionName][collectioName].assets)[0];
+
                             App.startMap(year);
                         }
                     );
@@ -2110,6 +2117,7 @@ var App = {
         },
 
         makeLayersList: function (regionName, region, periods) {
+            periods = periods || [];
             // print(regionName, region, periods)
             App.ui.form.panelLayersList.clear();
 

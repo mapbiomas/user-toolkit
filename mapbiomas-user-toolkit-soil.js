@@ -26,6 +26,7 @@
  *            Collection 3.0 soil
  *    1.1.3 - Territories from the MapBiomas platform
  *    1.1.4 - single link to the legend files on GitHub
+ *    1.1.5 - Removes leftover debug prints from the console
  * 
  */
 
@@ -105,7 +106,6 @@ textural_subgroup_3 = textural_subgroup_3
 var stoniness_3 = ee.ImageCollection('projects/mapbiomas-public/assets/brazil/soil/collection3/mapbiomas_brazil_collection3_soil_stoniness_v1').toBands();
 stoniness_3 = stoniness_3
     .rename(stoniness_3.bandNames().map(function(str) {return ee.String(str).replace('_v1_soil_depth_stoniness', 'vol', 'g')}));
-print('stoniness_3',stoniness_3);
 
 // stoniness_deph_50vol
 // stoniness_deph_90vol
@@ -265,7 +265,7 @@ var App = {
 
     options: {
 
-        version: '1.1.4',
+        version: '1.1.5',
 
         logo: {
             uri: 'gs://mapbiomas-public/mapbiomas-logos/mapbiomas-logo-horizontal.b64',
@@ -1167,7 +1167,6 @@ var App = {
                 .select([App.options.bandsNames[App.options.dataType] + period])
                 .multiply(ee.Image().paint(region).eq(0));
                 
-                print('App.options.dataType',App.options.dataType);
 
 
 
@@ -1359,7 +1358,6 @@ var App = {
             );
 
             areas = ee.FeatureCollection(areas).flatten();
-            print(areas);
 
             var tableName = [
               App.formatName(regionName), 

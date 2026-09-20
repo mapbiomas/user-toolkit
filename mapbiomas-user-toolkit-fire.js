@@ -52,6 +52,7 @@
  *             link to legend files (QGIS, ArcGIS Pro, SLD, CSV)
  *    1.4.13 - single link to the legend files on GitHub
  *    1.4.14 - Scar size classes drawn with their own colors (range 0-10); official legend files
+ *    1.4.15 - Removes a leftover debug print from the console
  * 
  */
 
@@ -63,7 +64,7 @@ var App = {
 
     options: {
 
-        version: '1.4.14',
+        version: '1.4.15',
 
         logo: {
             uri: 'gs://mapbiomas-public/mapbiomas-logos/mapbiomas-logo-horizontal.b64',
@@ -2377,7 +2378,6 @@ var App = {
                 .select([App.options.bandsNames[App.options.dataType] + period])
                 .multiply(ee.Image().paint(region).eq(0));
                 
-                print('App.options.dataType',App.options.dataType);
 
 
 

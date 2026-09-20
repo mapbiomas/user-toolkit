@@ -1,0 +1,223 @@
+{
+ "toolkit": "fire",
+ "version": "1.4.15",
+ "regions": {
+  "mapbiomas-brazil": {
+   "collections": {
+    "fire_monitor": [
+     "fire_monitor"
+    ],
+    "collection-5": [
+     "annual_burned",
+     "annual_burned_coverage",
+     "monthly_burned",
+     "annual_burned_scar_size_range",
+     "accumulated_burned",
+     "accumulated_burned_coverage",
+     "fire_frequency",
+     "year_last_fire",
+     "severity",
+     "interval_since_fire"
+    ],
+    "collection-4.1": [
+     "annual_burned",
+     "annual_burned_coverage",
+     "monthly_burned",
+     "annual_burned_scar_size_range",
+     "accumulated_burned",
+     "accumulated_burned_coverage",
+     "fire_frequency",
+     "year_last_fire"
+    ],
+    "collection-4.0": [
+     "annual_burned",
+     "annual_burned_coverage",
+     "monthly_burned",
+     "annual_burned_scar_size_range",
+     "accumulated_burned",
+     "accumulated_burned_coverage",
+     "fire_frequency",
+     "year_last_fire"
+    ],
+    "collection-3.1": [
+     "annual_burned",
+     "annual_burned_coverage",
+     "monthly_burned",
+     "annual_burned_scar_size_range",
+     "accumulated_burned",
+     "accumulated_burned_coverage",
+     "fire_frequency",
+     "year_last_fire",
+     "time_after_fire"
+    ],
+    "collection-3.0": [
+     "annual_burned",
+     "annual_burned_coverage",
+     "monthly_burned",
+     "annual_burned_scar_size_range",
+     "accumulated_burned",
+     "accumulated_burned_coverage",
+     "fire_frequency",
+     "year_last_fire"
+    ],
+    "collection-2.1": [
+     "annual_burned",
+     "annual_burned_coverage",
+     "monthly_burned_coverage",
+     "accumulated_burned_coverage",
+     "fire_frequency_coverage"
+    ],
+    "collection-2.0": [
+     "annual_burned_coverage",
+     "monthly_burned_coverage",
+     "fire_frequency_coverage"
+    ],
+    "collection-1.1": [
+     "annual_burned_coverage",
+     "monthly_burned_coverage",
+     "fire_frequency_coverage"
+    ],
+    "collection-1.0": [
+     "annual_burned_coverage",
+     "monthly_burned_coverage",
+     "fire_frequency_coverage"
+    ]
+   },
+   "flow": {
+    "collection": "fire_monitor",
+    "tables": 39,
+    "table": "AMACRO (IBGE, 2026)",
+    "dataType": "fire_monitor",
+    "exports": [
+     {
+      "kind": "table.toDrive",
+      "description": "mapbiomas_brazil-fire_monitor-fire_monitor-feature_a-area",
+      "fileNamePrefix": "mapbiomas_brazil-fire_monitor-fire_monitor-feature_a-area",
+      "folder": "MAPBIOMAS-EXPORT",
+      "fileFormat": "CSV"
+     }
+    ]
+   }
+  },
+  "mapbiomas-indonesia": {
+   "collections": {
+    "collection-1.0": [
+     "annual_burned",
+     "annual_burned_coverage",
+     "monthly_burned",
+     "accumulated_burned",
+     "accumulated_burned_coverage",
+     "fire_frequency"
+    ]
+   },
+   "flow": {
+    "collection": "collection-1.0",
+    "tables": 24,
+    "table": "Country Limit",
+    "dataType": "annual_burned",
+    "layer": "Feature A 2023",
+    "mapLayers": [
+     "Feature A 2023"
+    ],
+    "exports": [
+     {
+      "kind": "image.toDrive",
+      "description": "mapbiomas_indonesia-collection_10-annual_burned-feature_a-2023",
+      "fileNamePrefix": "mapbiomas_indonesia-collection_10-annual_burned-feature_a-2023",
+      "folder": "MAPBIOMAS-EXPORT",
+      "scale": 30,
+      "fileFormat": "GeoTIFF"
+     },
+     {
+      "kind": "table.toDrive",
+      "description": "mapbiomas_indonesia-collection_10-annual_burned-feature_a-area",
+      "fileNamePrefix": "mapbiomas_indonesia-collection_10-annual_burned-feature_a-area",
+      "folder": "MAPBIOMAS-EXPORT",
+      "fileFormat": "CSV"
+     }
+    ]
+   }
+  },
+  "mapbiomas-paraguay": {
+   "collections": {
+    "collection-1.0": [
+     "annual_burned",
+     "annual_burned_coverage",
+     "monthly_burned",
+     "accumulated_burned",
+     "accumulated_burned_coverage",
+     "fire_frequency"
+    ]
+   },
+   "flow": {
+    "collection": "collection-1.0",
+    "tables": 9,
+    "table": "Ecorregiones Dinerstein (DINERTTEIN, 1995)",
+    "dataType": "annual_burned",
+    "layer": "Feature A 2024",
+    "mapLayers": [
+     "Feature A 2024"
+    ],
+    "exports": [
+     {
+      "kind": "image.toDrive",
+      "description": "mapbiomas_paraguay-collection_10-annual_burned-feature_a-2024",
+      "fileNamePrefix": "mapbiomas_paraguay-collection_10-annual_burned-feature_a-2024",
+      "folder": "MAPBIOMAS-EXPORT",
+      "scale": 30,
+      "fileFormat": "GeoTIFF"
+     },
+     {
+      "kind": "table.toDrive",
+      "description": "mapbiomas_paraguay-collection_10-annual_burned-feature_a-area",
+      "fileNamePrefix": "mapbiomas_paraguay-collection_10-annual_burned-feature_a-area",
+      "folder": "MAPBIOMAS-EXPORT",
+      "fileFormat": "CSV"
+     }
+    ]
+   }
+  },
+  "mapbiomas-peru": {
+   "collections": {
+    "collection-1.0": [
+     "annual_burned",
+     "annual_burned_coverage",
+     "monthly_burned",
+     "annual_burned_scar_size_range",
+     "accumulated_burned",
+     "accumulated_burned_coverage",
+     "fire_frequency",
+     "year_last_fire"
+    ]
+   },
+   "flow": {
+    "collection": "collection-1.0",
+    "tables": 31,
+    "table": "Afforestation and Reforestation Concession",
+    "dataType": "annual_burned",
+    "layer": "Feature A 2024",
+    "mapLayers": [
+     "Feature A 2024"
+    ],
+    "exports": [
+     {
+      "kind": "image.toDrive",
+      "description": "mapbiomas_peru-collection_10-annual_burned-feature_a-2024",
+      "fileNamePrefix": "mapbiomas_peru-collection_10-annual_burned-feature_a-2024",
+      "folder": "MAPBIOMAS-EXPORT",
+      "scale": 30,
+      "fileFormat": "GeoTIFF"
+     },
+     {
+      "kind": "table.toDrive",
+      "description": "mapbiomas_peru-collection_10-annual_burned-feature_a-area",
+      "fileNamePrefix": "mapbiomas_peru-collection_10-annual_burned-feature_a-area",
+      "folder": "MAPBIOMAS-EXPORT",
+      "fileFormat": "CSV"
+     }
+    ]
+   }
+  }
+ },
+ "errors": []
+}

@@ -1,0 +1,42 @@
+{
+ "toolkit": "pasture",
+ "version": "1.5.2",
+ "regions": {
+  "mapbiomas-brazil": {
+   "collections": {
+    "collection-11.0": null,
+    "collection-9.0": null,
+    "collection-8.0": null,
+    "collection-7.0": null,
+    "collection-6.0": null
+   },
+   "flow": {
+    "collection": "collection-11.0",
+    "tables": 39,
+    "table": "AMACRO (IBGE, 2026)",
+    "layer": "Feature A 2025",
+    "mapLayers": [
+     "Feature A 2025"
+    ],
+    "exports": [
+     {
+      "kind": "image.toDrive",
+      "description": "mapbiomas-brazil-collection-110-pasture-quality-featurea-2025",
+      "fileNamePrefix": "mapbiomas-brazil-collection-110-pasture-quality-featurea-2025",
+      "folder": "MAPBIOMAS-EXPORT",
+      "scale": 30,
+      "fileFormat": "GeoTIFF"
+     },
+     {
+      "kind": "table.toDrive",
+      "description": "mapbiomas-brazil-collection-110-pasture-quality-featurea-area",
+      "fileNamePrefix": "mapbiomas-brazil-collection-110-pasture-quality-featurea-area",
+      "folder": "MAPBIOMAS-EXPORT",
+      "fileFormat": "CSV"
+     }
+    ]
+   }
+  }
+ },
+ "errors": []
+}

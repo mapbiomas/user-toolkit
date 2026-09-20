@@ -1,0 +1,263 @@
+{
+ "toolkit": "water",
+ "version": "1.6.2",
+ "regions": {
+  "mapbiomas-amazon": {
+   "collections": {
+    "collection-1.0": [
+     "annual_water_coverage",
+     "water_frequency"
+    ]
+   },
+   "flow": {
+    "collection": "collection-1.0",
+    "tables": 6,
+    "table": "Biome",
+    "dataType": "annual_water_coverage",
+    "layer": "Feature A 2022",
+    "mapLayers": [
+     "Feature A 2022"
+    ],
+    "exports": [
+     {
+      "kind": "image.toDrive",
+      "description": "mapbiomas-amazon-collection-10-featurea-2022",
+      "fileNamePrefix": "mapbiomas-amazon-collection-10-featurea-2022",
+      "folder": "MAPBIOMAS-EXPORT",
+      "scale": 30,
+      "fileFormat": "GeoTIFF"
+     },
+     {
+      "kind": "table.toDrive",
+      "description": "mapbiomas-amazon-collection-10-featurea-area",
+      "fileNamePrefix": "mapbiomas-amazon-collection-10-featurea-area",
+      "folder": "MAPBIOMAS-EXPORT",
+      "fileFormat": "CSV"
+     }
+    ]
+   }
+  },
+  "mapbiomas-brazil": {
+   "collections": {
+    "collection-5.0": [
+     "annual_water_coverage"
+    ],
+    "collection-3.0": [
+     "annual_water_coverage",
+     "water_frequency"
+    ],
+    "collection-2.0": [
+     "annual_water_coverage",
+     "water_frequency"
+    ],
+    "collection-1.0": [
+     "annual_water_coverage",
+     "water_frequency"
+    ]
+   },
+   "flow": {
+    "collection": "collection-5.0",
+    "tables": 39,
+    "table": "AMACRO (IBGE, 2026)",
+    "dataType": "annual_water_coverage",
+    "layer": "Feature A 2025",
+    "mapLayers": [
+     "Feature A 2025"
+    ],
+    "exports": [
+     {
+      "kind": "image.toDrive",
+      "description": "mapbiomas-brazil-collection-50-featurea-2025",
+      "fileNamePrefix": "mapbiomas-brazil-collection-50-featurea-2025",
+      "folder": "MAPBIOMAS-EXPORT",
+      "scale": 30,
+      "fileFormat": "GeoTIFF"
+     },
+     {
+      "kind": "table.toDrive",
+      "description": "mapbiomas-brazil-collection-50-featurea-area",
+      "fileNamePrefix": "mapbiomas-brazil-collection-50-featurea-area",
+      "folder": "MAPBIOMAS-EXPORT",
+      "fileFormat": "CSV"
+     }
+    ]
+   }
+  },
+  "mapbiomas-bolivia": {
+   "collections": {
+    "collection-1.0": [
+     "annual_water_coverage",
+     "water_frequency"
+    ]
+   },
+   "flow": {
+    "collection": "collection-1.0",
+    "tables": 11,
+    "table": "Basin Level 1",
+    "dataType": "annual_water_coverage",
+    "layer": "Feature A 2022",
+    "mapLayers": [
+     "Feature A 2022"
+    ],
+    "exports": [
+     {
+      "kind": "image.toDrive",
+      "description": "mapbiomas-bolivia-collection-10-featurea-2022",
+      "fileNamePrefix": "mapbiomas-bolivia-collection-10-featurea-2022",
+      "folder": "MAPBIOMAS-EXPORT",
+      "scale": 30,
+      "fileFormat": "GeoTIFF"
+     },
+     {
+      "kind": "table.toDrive",
+      "description": "mapbiomas-bolivia-collection-10-featurea-area",
+      "fileNamePrefix": "mapbiomas-bolivia-collection-10-featurea-area",
+      "folder": "MAPBIOMAS-EXPORT",
+      "fileFormat": "CSV"
+     }
+    ]
+   }
+  },
+  "mapbiomas-colombia": {
+   "collections": {
+    "collection-1.0": [
+     "annual_water_coverage",
+     "water_frequency"
+    ]
+   },
+   "flow": {
+    "collection": "collection-1.0",
+    "tables": 6,
+    "table": "Biomes",
+    "dataType": "annual_water_coverage",
+    "layer": "Feature A 2022",
+    "mapLayers": [
+     "Feature A 2022"
+    ],
+    "exports": [
+     {
+      "kind": "image.toDrive",
+      "description": "mapbiomas-colombia-collection-10-featurea-2022",
+      "fileNamePrefix": "mapbiomas-colombia-collection-10-featurea-2022",
+      "folder": "MAPBIOMAS-EXPORT",
+      "scale": 30,
+      "fileFormat": "GeoTIFF"
+     },
+     {
+      "kind": "table.toDrive",
+      "description": "mapbiomas-colombia-collection-10-featurea-area",
+      "fileNamePrefix": "mapbiomas-colombia-collection-10-featurea-area",
+      "folder": "MAPBIOMAS-EXPORT",
+      "fileFormat": "CSV"
+     }
+    ]
+   }
+  },
+  "mapbiomas-ecuador": {
+   "collections": {
+    "collection-1.0": [
+     "annual_water_coverage",
+     "water_frequency"
+    ]
+   },
+   "flow": {
+    "collection": "collection-1.0",
+    "tables": 26,
+    "table": "Bosque Protectores (MAE, 2026)",
+    "dataType": "annual_water_coverage",
+    "layer": "Feature A 2022",
+    "mapLayers": [
+     "Feature A 2022"
+    ],
+    "exports": [
+     {
+      "kind": "image.toDrive",
+      "description": "mapbiomas-ecuador-collection-10-featurea-2022",
+      "fileNamePrefix": "mapbiomas-ecuador-collection-10-featurea-2022",
+      "folder": "MAPBIOMAS-EXPORT",
+      "scale": 30,
+      "fileFormat": "GeoTIFF"
+     },
+     {
+      "kind": "table.toDrive",
+      "description": "mapbiomas-ecuador-collection-10-featurea-area",
+      "fileNamePrefix": "mapbiomas-ecuador-collection-10-featurea-area",
+      "folder": "MAPBIOMAS-EXPORT",
+      "fileFormat": "CSV"
+     }
+    ]
+   }
+  },
+  "mapbiomas-peru": {
+   "collections": {
+    "collection-1.0": [
+     "annual_water_coverage",
+     "water_frequency"
+    ]
+   },
+   "flow": {
+    "collection": "collection-1.0",
+    "tables": 31,
+    "table": "Afforestation and Reforestation Concession",
+    "dataType": "annual_water_coverage",
+    "layer": "Feature A 2022",
+    "mapLayers": [
+     "Feature A 2022"
+    ],
+    "exports": [
+     {
+      "kind": "image.toDrive",
+      "description": "mapbiomas-peru-collection-10-featurea-2022",
+      "fileNamePrefix": "mapbiomas-peru-collection-10-featurea-2022",
+      "folder": "MAPBIOMAS-EXPORT",
+      "scale": 30,
+      "fileFormat": "GeoTIFF"
+     },
+     {
+      "kind": "table.toDrive",
+      "description": "mapbiomas-peru-collection-10-featurea-area",
+      "fileNamePrefix": "mapbiomas-peru-collection-10-featurea-area",
+      "folder": "MAPBIOMAS-EXPORT",
+      "fileFormat": "CSV"
+     }
+    ]
+   }
+  },
+  "mapbiomas-venezuela": {
+   "collections": {
+    "collection-1.0": [
+     "annual_water_coverage",
+     "water_frequency"
+    ]
+   },
+   "flow": {
+    "collection": "collection-1.0",
+    "tables": 10,
+    "table": "Administrative Regions",
+    "dataType": "annual_water_coverage",
+    "layer": "Feature A 2022",
+    "mapLayers": [
+     "Feature A 2022"
+    ],
+    "exports": [
+     {
+      "kind": "image.toDrive",
+      "description": "mapbiomas-venezuela-collection-10-featurea-2022",
+      "fileNamePrefix": "mapbiomas-venezuela-collection-10-featurea-2022",
+      "folder": "MAPBIOMAS-EXPORT",
+      "scale": 30,
+      "fileFormat": "GeoTIFF"
+     },
+     {
+      "kind": "table.toDrive",
+      "description": "mapbiomas-venezuela-collection-10-featurea-area",
+      "fileNamePrefix": "mapbiomas-venezuela-collection-10-featurea-area",
+      "folder": "MAPBIOMAS-EXPORT",
+      "fileFormat": "CSV"
+     }
+    ]
+   }
+  }
+ },
+ "errors": []
+}

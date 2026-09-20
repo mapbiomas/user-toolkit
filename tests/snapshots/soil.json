@@ -1,0 +1,71 @@
+{
+ "toolkit": "soil",
+ "version": "1.1.5",
+ "regions": {
+  "mapbiomas-brazil": {
+   "collections": {
+    "collection3-beta": [
+     "soc_t_ha_000_030cm",
+     "granulometry_clay_percent",
+     "granulometry_sand_percent",
+     "granulometry_silt_percent",
+     "textural_classes",
+     "textural_subgroups",
+     "textural_groups",
+     "stoniness"
+    ],
+    "collection2_1-beta": [
+     "soc_t_ha_000_030cm",
+     "granulometry_clay_percent",
+     "granulometry_sand_percent",
+     "granulometry_silt_percent",
+     "textural_classes",
+     "textural_subgroups",
+     "textural_groups"
+    ],
+    "collection2-beta": [
+     "soc_t_ha_000_030cm",
+     "soc_kg_m2_000_030cm",
+     "granulometry_clay_percent",
+     "granulometry_sand_percent",
+     "granulometry_silt_percent",
+     "textural_classes",
+     "textural_subgroups",
+     "textural_groups"
+    ],
+    "collection1-beta": [
+     "soc_t_ha_000_030cm",
+     "soc_kg_m2_000_030cm"
+    ]
+   },
+   "flow": {
+    "collection": "collection3-beta",
+    "tables": 39,
+    "table": "AMACRO (IBGE, 2026)",
+    "dataType": "soc_t_ha_000_030cm",
+    "layer": "Feature A 2024",
+    "mapLayers": [
+     "Feature A 2024"
+    ],
+    "exports": [
+     {
+      "kind": "image.toDrive",
+      "description": "mapbiomas_brazil-collection3_beta-soc_t_ha_000_030cm-feature_a-2024",
+      "fileNamePrefix": "mapbiomas_brazil-collection3_beta-soc_t_ha_000_030cm-feature_a-2024",
+      "folder": "MAPBIOMAS-EXPORT",
+      "scale": 30,
+      "fileFormat": "GeoTIFF"
+     },
+     {
+      "kind": "table.toDrive",
+      "description": "mapbiomas_brazil-collection3_beta-soc_t_ha_000_030cm-feature_a-area",
+      "fileNamePrefix": "mapbiomas_brazil-collection3_beta-soc_t_ha_000_030cm-feature_a-area",
+      "folder": "MAPBIOMAS-EXPORT",
+      "fileFormat": "CSV"
+     }
+    ]
+   }
+  }
+ },
+ "errors": []
+}
