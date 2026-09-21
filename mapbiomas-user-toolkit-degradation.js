@@ -28,6 +28,7 @@
  *    0.1.2 - Property and feature selects come from core/v1/panel.js; the feature list no
  *    0.1.3 - Export plumbing comes from core/v1/export.js; the Buffer setting is honoured
  *    0.1.4 - Removes the leftover widgets of the States dropdown, which had no select
+ *    0.2.0 - Shows the Buffer control, which now applies to the exported raster
  *            if it is ever shown on the panel, where it is commented out
  *            longer repeats a name that several polygons share
  *            and centred in every toolkit
@@ -299,7 +300,7 @@ var App = {
 
     options: {
 
-        version: '0.1.4',
+        version: '0.2.0',
 
         logo: {
             uri: 'gs://mapbiomas-public/mapbiomas-logos/mapbiomas-logo-horizontal.b64',
@@ -1242,7 +1243,7 @@ var App = {
                 App.ui.form.panel1.add(App.ui.form.panelProperties);
                 App.ui.form.panel1.add(App.ui.form.panelFeature);
                 App.ui.form.panel1.add(App.ui.form.panelDataType);
-                // App.ui.form.panel1.add(App.ui.form.panelBuffer);
+                App.ui.form.panel1.add(App.ui.form.panelBuffer);
 
                 App.ui.form.panel1.add(App.ui.form.labelLayers);
                 App.ui.form.panel1.add(App.ui.form.panelLayersList);

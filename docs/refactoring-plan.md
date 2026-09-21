@@ -110,7 +110,9 @@ It also settles a difference that was not cosmetic. Seven toolkits listed the fe
 
 **`export2Drive`.** The boilerplate around each export — the Drive folder, the GeoTIFF settings, the area CSV columns, and working out the region — moved to `core/v1/export.js`. What each theme does with its bands and its class names stays in the toolkit, because that is genuinely per theme.
 
-The region is now `Exports.regionOf(feature, bufferDistance)` everywhere. Six toolkits already read the buffer; fire, soil and degradation did not, and now do. **Their buffer control is commented out of the panel**, so nothing was visibly wrong before and nothing changes for the user now — but if you want the control shown in those three it is a one-line change, and the export will do the right thing. That is a product decision, so it is left as it is.
+The region is now `Exports.regionOf(feature, bufferDistance)` everywhere. Six toolkits already read the buffer; fire, soil and degradation did not, and now do.
+
+**Their buffer control is back on the panel.** It was commented out on 2024-07-02, in an auto-generated Code Editor commit that also reordered the panel, with no reason recorded — most likely because the export ignored the value, which would have made the control lie. That reason is gone. Checked end to end in the Code Editor: the same fire export of Distrito Federal for 1985 is 177,032 bytes without a buffer and 296,679 bytes with 10 km, which matches the ratio of the two bounding boxes.
 
 Two shapes remain on purpose: six toolkits `clip()` the image to the territory, which leaves the outside as nodata; fire, soil and degradation multiply by a painted mask, which leaves it as 0. Both are defensible and the choice changes what is inside the exported GeoTIFF, so it should be made deliberately rather than as a side effect of tidying.
 

@@ -61,6 +61,7 @@
  *    2.0.3 - Export plumbing comes from core/v1/export.js; the Buffer setting is honoured
  *    2.0.4 - Collections come from data/collections-<theme>.js
  *    2.0.5 - Removes the leftover widgets of the States dropdown, which had no select
+ *    2.1.0 - Shows the Buffer control, which now applies to the exported raster
  *            if it is ever shown on the panel, where it is commented out
  *            and centred in every toolkit
  * 
@@ -85,7 +86,7 @@ var App = {
 
     options: {
 
-        version: '2.0.5',
+        version: '2.1.0',
 
         logo: {
             uri: 'gs://mapbiomas-public/mapbiomas-logos/mapbiomas-logo-horizontal.b64',
@@ -1218,7 +1219,7 @@ var App = {
                 App.ui.form.panel1.add(App.ui.form.panelFeatureCollections);
                 App.ui.form.panel1.add(App.ui.form.panelProperties);
                 App.ui.form.panel1.add(App.ui.form.panelFeature);
-                // App.ui.form.panel1.add(App.ui.form.panelBuffer);
+                App.ui.form.panel1.add(App.ui.form.panelBuffer);
                 App.ui.form.panel1.add(App.ui.form.panelDataType);
 
                 App.ui.form.panel1.add(App.ui.form.labelLayers);

@@ -208,13 +208,13 @@ Land use and land cover toolkit (`mapbiomas-user-toolkit-lulc.js`). Each script 
 |---|---|
 | lulc | 2.2.0 |
 | deforestation-regeneration | 2.1.0 |
-| fire | 2.0.5 |
+| fire | 2.1.0 |
 | water | 2.1.0 |
 | irrigation | 2.1.0 |
 | mining | 2.1.0 |
 | pasture | 2.1.0 |
-| soil | 2.0.5 |
-| degradation | 0.1.4 |
+| soil | 2.1.0 |
+| degradation | 0.2.0 |
 
 <details>
 <summary>Land use and land cover release history</summary>
