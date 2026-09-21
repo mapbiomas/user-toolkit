@@ -58,6 +58,8 @@
  *    2.0.0 - Breaking: export names and CSV columns standardized; territory drawn in red
  *    2.0.1 - Removes the legend links that were built at startup and never shown
  *    2.0.2 - Property and feature selects come from core/v1/panel.js
+ *    2.0.3 - Export plumbing comes from core/v1/export.js; the Buffer setting is honoured
+ *            if it is ever shown on the panel, where it is commented out
  *            and centred in every toolkit
  * 
  */
@@ -80,7 +82,7 @@ var App = {
 
     options: {
 
-        version: '2.0.2',
+        version: '2.0.3',
 
         logo: {
             uri: 'gs://mapbiomas-public/mapbiomas-logos/mapbiomas-logo-horizontal.b64',
@@ -1925,22 +1927,17 @@ var App = {
                     var data = App.options.data[App.options.dataType]
                         .select([App.options.bandsNames[App.options.dataType] + period]);
 
-                    var region = App.options.activeFeature.geometry();
+                    // o buffer escolhido pelo usuário era ignorado aqui
+                    var region = Exports.regionOf(
+                        App.options.activeFeature, App.options.bufferDistance);
 
-                    data = data.multiply(ee.Image().paint(App.options.activeFeature.geometry()).eq(0));
+                    data = data.multiply(ee.Image().paint(region).eq(0));
 
-                    region = region.bounds();
-
-                    Export.image.toDrive({
-                        image: data,
-                        description: fileName,
-                        folder: 'MAPBIOMAS-EXPORT',
-                        fileNamePrefix: fileName,
-                        region: region.bounds(),
-                        scale: 30,
-                        maxPixels: 1e13,
-                        fileFormat: 'GeoTIFF',
-                        fileDimensions: 256 * 124,
+                    Exports.image({
+                        'image': data,
+                        'name': fileName,
+                        'region': region.bounds(),
+                        'fileDimensions': 256 * 124
                     });
 
                     bandIds.push(App.options.bandsNames[App.options.dataType] + period);
@@ -1989,19 +1986,7 @@ var App = {
             var tableName = Exports.fileName(
                 [regionName, collectionName, App.options.dataType, featureName, 'area']);
 
-            Export.table.toDrive({
-                'collection': areas,
-                'description': tableName,
-                'folder': 'MAPBIOMAS-EXPORT',
-                'fileNamePrefix': tableName,
-                'fileFormat': 'CSV',
-                'selectors': [
-                    'class',
-                    'class_name',
-                    'band',
-                    'area_km2'
-                ]
-            });
+            Exports.table(areas, tableName);
 
         },
         

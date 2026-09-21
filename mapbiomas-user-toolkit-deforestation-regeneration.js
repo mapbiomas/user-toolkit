@@ -27,6 +27,7 @@
  *    1.7.5 - Base map styles and legend come from core/v1, not from a personal account
  *    2.0.0 - Breaking: export names and CSV columns standardized; territory drawn in red
  *    2.0.1 - Property and feature selects come from core/v1/panel.js; the feature list no
+ *    2.0.2 - Export plumbing comes from core/v1/export.js
  *            longer repeats a name that several polygons share
  *            and centred in every toolkit
  * 
@@ -57,7 +58,7 @@ var App = {
 
     options: {
 
-        version: '2.0.1',
+        version: '2.0.2',
 
         logo: {
             uri: 'gs://mapbiomas-public/mapbiomas-logos/mapbiomas-toolkit-logo.b64',
@@ -1510,27 +1511,16 @@ var App = {
                     var data = App.options.data[App.options.dataType]
                         .select([App.options.bandsNames[App.options.dataType] + period]);
 
-                    var region = App.options.activeFeature.geometry();
+                    var region = Exports.regionOf(
+                        App.options.activeFeature, App.options.bufferDistance);
 
-                    if (App.options.bufferDistance !== 0) {
-                        data = data.clip(App.options.activeFeature.geometry().buffer(App.options.bufferDistance));
-                        region = region.buffer(App.options.bufferDistance);
-                    } else {
-                        data = data.clip(App.options.activeFeature.geometry());
-                    }
+                    data = data.clip(region);
 
-                    region = region.bounds();
-
-                    Export.image.toDrive({
-                        image: data,
-                        description: fileName,
-                        folder: 'MAPBIOMAS-EXPORT',
-                        fileNamePrefix: fileName,
-                        region: region,
-                        scale: 30,
-                        maxPixels: 1e13,
-                        fileFormat: 'GeoTIFF',
-                        fileDimensions: App.options.fileDimensions[App.options.dataType],
+                    Exports.image({
+                        'image': data,
+                        'name': fileName,
+                        'region': region.bounds(),
+                        'fileDimensions': App.options.fileDimensions[App.options.dataType]
                     });
 
                     bandIds.push(App.options.bandsNames[App.options.dataType] + period);
@@ -1591,19 +1581,7 @@ var App = {
             var tableName = Exports.fileName(
                 [regionName, collectionName, App.options.dataType, featureName, 'area']);
 
-            Export.table.toDrive({
-                'collection': areas,
-                'description': tableName,
-                'folder': 'MAPBIOMAS-EXPORT',
-                'fileNamePrefix': tableName,
-                'fileFormat': 'CSV',
-                'selectors': [
-                    'class',
-                    'class_name',
-                    'band',
-                    'area_km2'
-                ]
-            });
+            Exports.table(areas, tableName);
 
         },
 

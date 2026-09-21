@@ -106,7 +106,13 @@ The harness got two matching additions: `ee.data.getAssetRoots`/`getList` now mo
 
 It also settles a difference that was not cosmetic. Seven toolkits listed the feature names with `sort(property).reduceColumns(toList)`, which returns one entry per polygon, while fire and soil used `aggregate_array(property).distinct().sort()`, which does not repeat. On the Brazilian municipalities table that is **287 repeated entries**: `Alto Alegre` appeared three times, `Alagoinha` twice, 245 names in all. Picking any of the copies filtered by the name and returned all of them anyway, so the repeats were noise. All nine now deduplicate.
 
-`loadTable` and `loadFeature` were unified in phase 4, when the highlight was standardized. `export2Drive` is still nine variants; it is the function that produces what the user takes away, so it deserves its own pass.
+`loadTable` and `loadFeature` were unified in phase 4, when the highlight was standardized.
+
+**`export2Drive`.** The boilerplate around each export — the Drive folder, the GeoTIFF settings, the area CSV columns, and working out the region — moved to `core/v1/export.js`. What each theme does with its bands and its class names stays in the toolkit, because that is genuinely per theme.
+
+The region is now `Exports.regionOf(feature, bufferDistance)` everywhere. Six toolkits already read the buffer; fire, soil and degradation did not, and now do. **Their buffer control is commented out of the panel**, so nothing was visibly wrong before and nothing changes for the user now — but if you want the control shown in those three it is a one-line change, and the export will do the right thing. That is a product decision, so it is left as it is.
+
+Two shapes remain on purpose: six toolkits `clip()` the image to the territory, which leaves the outside as nodata; fire, soil and degradation multiply by a painted mask, which leaves it as 0. Both are defensible and the choice changes what is inside the exported GeoTIFF, so it should be made deliberately rather than as a side effect of tidying.
 
 ### Phase 2: data out of the code
 - The maintenance tools generate `data/<theme>.js` instead of patching `App.options`.

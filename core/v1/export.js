@@ -77,5 +77,85 @@ var fileName = function (parts) {
         .join('-');
 };
 
+/** Where every toolkit writes, in the user's Drive. */
+var FOLDER = 'MAPBIOMAS-EXPORT';
+
+/** The columns of the area CSV, in this order, in every toolkit. */
+var AREA_COLUMNS = ['class', 'class_name', 'band', 'area_km2'];
+
+/**
+ * The region an export covers: the selected territory, grown by the buffer the
+ * user picked.
+ *
+ * Six of the nine toolkits read the buffer; fire, soil and degradation did not.
+ * Their buffer control is commented out of the panel, so nothing was visibly
+ * wrong, but the value was ignored either way. Now they all honour it, and
+ * showing the control in those three is a one-line change whenever that is
+ * wanted.
+ *
+ * @param {ee.Feature|ee.FeatureCollection} feature
+ * @param {number} bufferDistance  metres; 0 or undefined for none
+ * @returns {ee.Geometry}
+ */
+var regionOf = function (feature, bufferDistance) {
+
+    var region = feature.geometry();
+
+    if (bufferDistance) {
+        region = region.buffer(bufferDistance);
+    }
+
+    return region;
+};
+
+/**
+ * A GeoTIFF to Drive, with the settings every toolkit uses.
+ *
+ * @param {Object}   params
+ * @param {ee.Image} params.image
+ * @param {string}   params.name            file name and task description
+ * @param {ee.Geometry} params.region
+ * @param {number}  [params.scale]          30 by default
+ * @param {number}  [params.fileDimensions] tile size, when the toolkit sets one
+ */
+var image = function (params) {
+
+    Export.image.toDrive({
+        'image': params.image,
+        'description': params.name,
+        'folder': FOLDER,
+        'fileNamePrefix': params.name,
+        'region': params.region,
+        'scale': params.scale || 30,
+        'maxPixels': 1e13,
+        'fileFormat': 'GeoTIFF',
+        'fileDimensions': params.fileDimensions
+    });
+};
+
+/**
+ * The area table to Drive, with the standard columns.
+ *
+ * @param {ee.FeatureCollection} collection
+ * @param {string} name
+ * @param {Array} [columns]  only when a toolkit really needs other ones
+ */
+var table = function (collection, name, columns) {
+
+    Export.table.toDrive({
+        'collection': collection,
+        'description': name,
+        'folder': FOLDER,
+        'fileNamePrefix': name,
+        'fileFormat': 'CSV',
+        'selectors': columns || AREA_COLUMNS
+    });
+};
+
+exports.FOLDER = FOLDER;
+exports.AREA_COLUMNS = AREA_COLUMNS;
 exports.slug = slug;
 exports.fileName = fileName;
+exports.regionOf = regionOf;
+exports.image = image;
+exports.table = table;
