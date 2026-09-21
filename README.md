@@ -155,6 +155,51 @@ Coverage legends are listed with each region [above](#land-use-and-land-cover-la
 
 Older legend files (ArcMap `.lyr`, Excel, and QGIS for collection 5) are kept in [`legend-colors/legacy/`](legend-colors/legacy). Transition periods are described in [`misc/transitions.md`](misc/transitions.md).
 
+## Version 2.0.0 — what changes for you
+
+Every toolkit went to 2.0.0 on 2026-09-21. If you only download files and open
+them, nothing changes for you. If you have a script that reads the exports, read
+this.
+
+**Export file names.** Each toolkit used to build them differently, so the same
+territory came out as `distritofederal` in one and `distrito_federal` in
+another, and three of them left the data type out, which let a Coverage export
+and a Transitions export of the same year overwrite each other. One shape now:
+
+```
+mapbiomas_brazil-collection_11_0-coverage-distrito_federal-2025.tif
+mapbiomas_brazil-collection_11_0-coverage-distrito_federal-area.csv
+```
+
+`<region>-<collection>-<data type>-<territory>-<period>`. Words inside a field
+join with `_`, fields with `-`.
+
+**Area CSV.** Four columns in every toolkit, in this order:
+
+| Column | What it is |
+|---|---|
+| `class` | the pixel value |
+| `class_name` | its name in the legend |
+| `band` | the band the area came from, e.g. `classification_2025` |
+| `area_km2` | the area, in square kilometres |
+
+`system:index`, the empty `.geo` column and the old `unit` column are gone, and
+so are the old names `area` and `area_km2`/`area ha` depending on the toolkit.
+**The fire toolkit used to report hectares** — its numbers are now 100 times
+smaller and are km², like everywhere else.
+
+**On the map.** The selected territory is drawn centred and outlined in red in
+every toolkit. It used to be yellow in water and a solid red patch in fire, soil
+and degradation, and half of them did not centre on it.
+
+**The hard-coded download links are gone.** They pointed at old collections and
+broke whenever a new one was published. Each toolkit now links to the download
+page of the region you picked, which its own initiative keeps current.
+
+If you need the old behaviour while you adapt, the last 1.x of every script is
+tagged [`v1-last`](https://github.com/mapbiomas/user-toolkit/tree/v1-last), in
+this repository and in the Earth Engine one.
+
 ## Release history
 
 Land use and land cover toolkit (`mapbiomas-user-toolkit-lulc.js`). Each script keeps its own history in its header.

@@ -1,6 +1,17 @@
 # Toolkit refactoring plan
 
-Status: approved on 2026-09-19. Phase 0 is done: the harness and the baseline snapshots are in `tests/`, and the Code Editor round is in [code-editor-checklist.md](code-editor-checklist.md).
+Status: approved on 2026-09-19, carried out between 2026-09-19 and 2026-09-21.
+
+Phases 0, 4 and 5 are done. Phases 1, 2 and 3 are done except for the parts noted under each. The nine toolkits went from about 26,000 lines to about 15,700, with 7 shared modules in `core/v1/` and 2 generated data files in `data/`.
+
+| Phase | State |
+|---|---|
+| 0 safety net | done — `tests/`, [code-editor-checklist.md](code-editor-checklist.md) |
+| 1 extract the core | done for everything that was already identical |
+| 2 data out of the code | territories done; the `collections` blocks and the per-collection flags are not |
+| 3 dependencies and cleanup | download tabs and the personal account done; the IPAM package and `getAssetRoots()` are not |
+| 4 standardization | done — breaking, all nine at 2.0.0 |
+| 5 release | done — README migration notice, `v1-last` tag |
 
 ## Why
 
@@ -155,6 +166,23 @@ Still open in this phase:
 
 ### Phase 5: release
 - Publish toolkit by toolkit, keep the previous scripts in `legacy/` for a transition period, and add a changelog to the README.
+
+**Done**
+
+All nine published together rather than one at a time: the change is the same
+in all of them, and a user who opens two toolkits in the same afternoon would
+otherwise meet two conventions.
+
+**`legacy/` was not created, on purpose.** Nine near-duplicate scripts in the
+repository are exactly the kind of clutter that got the `tools/` folder moved
+out, and a reader would not be able to tell which copy is current. The last 1.x
+of every script is tagged `v1-last` in both repositories instead, which gives
+the same escape hatch without the confusion. Say so if you would rather have the
+folder.
+
+The README has a *What changes for you* section: the new name shape, the four
+CSV columns, the fire unit change from hectares to km², the highlight, and the
+download links.
 
 ## Findings so far
 
