@@ -28,6 +28,7 @@
  *    1.1.4 - single link to the legend files on GitHub
  *    1.1.5 - Removes leftover debug prints from the console
  *    1.1.6 - Link to the region's download page, in place of the hard-coded download links
+ *    1.1.7 - Base map styles and legend come from core/v1, not from a personal account
  * 
  */
 
@@ -273,7 +274,7 @@ var App = {
 
     options: {
 
-        version: '1.1.6',
+        version: '1.1.7',
 
         logo: {
             uri: 'gs://mapbiomas-public/mapbiomas-logos/mapbiomas-logo-horizontal.b64',
@@ -1498,7 +1499,7 @@ var App = {
                 
                 App.ui.showDisclaimer();
                 
-                var Mapp = require('users/joaovsiqueira1/packages:Mapp.js');
+                var Mapp = require('users/mapbiomas/user-toolkit:core/v1/basemaps.js');
         
                 Map.setOptions({
                   'styles': {

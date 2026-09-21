@@ -22,6 +22,7 @@
  *    0.0.5 - single link to the legend files on GitHub
  *    0.0.6 - Territories come from data/territories.js; removes a debug print
  *    0.0.7 - Link to the region's download page, in place of the hard-coded download links
+ *    0.0.8 - Base map styles and legend come from core/v1, not from a personal account
  * 
  * @see
  *      Get the MapBiomas exported data in your "Google Drive/MAPBIOMAS-EXPORT" folder
@@ -288,7 +289,7 @@ var App = {
 
     options: {
 
-        version: '0.0.7',
+        version: '0.0.8',
 
         logo: {
             uri: 'gs://mapbiomas-public/mapbiomas-logos/mapbiomas-logo-horizontal.b64',
@@ -1340,7 +1341,7 @@ var App = {
 
                 App.ui.showDisclaimer();
                 
-                var Mapp = require('users/joaovsiqueira1/packages:Mapp.js');
+                var Mapp = require('users/mapbiomas/user-toolkit:core/v1/basemaps.js');
         
                 Map.setOptions({
                   'styles': {

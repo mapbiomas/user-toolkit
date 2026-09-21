@@ -12,7 +12,7 @@ There is no build, lint, or package manager. The only tests are the Node snapsho
 
 Keep the code ES5-compatible (use `var` and `function`, no arrow functions, `let`/`const`, or template literals). That's the style every script uses, and the GEE Code Editor has traditionally required it.
 
-External modules the scripts depend on (these live in GEE, not in this repo): `users/mapbiomas/modules:Palettes.js`, `users/mapbiomas/modules:Logos.js`, `users/joaovsiqueira1/packages:Mapp.js` / `Legend.js`, and `users/workspaceipam/packages:mapbiomas-toolkit/...` (used by the fire and degradation scripts).
+External modules the scripts depend on (these live in GEE, not in this repo): `users/mapbiomas/modules:Palettes.js`, `users/mapbiomas/modules:Logos.js`, and `users/workspaceipam/packages:mapbiomas-toolkit/...` (fire palettes and logos, used by fire, soil and degradation). The map styles and the legend panel used to come from the personal account `users/joaovsiqueira1/packages`; they are now `core/v1/basemaps.js` and `core/v1/legend.js`.
 
 ## Source of truth
 

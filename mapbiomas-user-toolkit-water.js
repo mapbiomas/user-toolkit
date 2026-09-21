@@ -25,6 +25,7 @@
  *    1.6.1 - Link to legend files (QGIS, ArcGIS Pro, SLD, CSV)
  *    1.6.2 - single link to the legend files on GitHub
  *    1.6.3 - Link to the region's download page, in place of the hard-coded download links
+ *    1.6.4 - Base map styles and legend come from core/v1, not from a personal account
  * 
  * @see
  *      Get the MapBiomas exported data in your "Google Drive/MAPBIOMAS-EXPORT" folder
@@ -33,7 +34,7 @@
 
 var palettes = require('users/mapbiomas/modules:Palettes.js');
 var logos = require('users/mapbiomas/modules:Logos.js');
-var mapp = require('users/joaovsiqueira1/packages:Mapp.js');
+var mapp = require('users/mapbiomas/user-toolkit:core/v1/basemaps.js');
 
 var Area = require('users/mapbiomas/user-toolkit:core/v1/area.js');
 var Naming = require('users/mapbiomas/user-toolkit:core/v1/naming.js');
@@ -51,7 +52,7 @@ var App = {
 
     options: {
 
-        version: '1.6.3',
+        version: '1.6.4',
 
 
         logo: {

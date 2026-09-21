@@ -54,6 +54,7 @@
  *    1.4.14 - Scar size classes drawn with their own colors (range 0-10); official legend files
  *    1.4.15 - Removes a leftover debug print from the console
  *    1.4.16 - Link to the region's download page, in place of the hard-coded download links
+ *    1.4.17 - Base map styles and legend come from core/v1, not from a personal account
  * 
  */
 
@@ -73,7 +74,7 @@ var App = {
 
     options: {
 
-        version: '1.4.16',
+        version: '1.4.17',
 
         logo: {
             uri: 'gs://mapbiomas-public/mapbiomas-logos/mapbiomas-logo-horizontal.b64',
@@ -2537,7 +2538,7 @@ var App = {
                 
                 App.ui.showDisclaimer();
                 
-                var Mapp = require('users/joaovsiqueira1/packages:Mapp.js');
+                var Mapp = require('users/mapbiomas/user-toolkit:core/v1/basemaps.js');
         
                 Map.setOptions({
                   'styles': {

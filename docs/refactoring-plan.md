@@ -140,7 +140,14 @@ That also settles the empty second tab that the Code Editor round found in degra
 
 All 18 pages were checked for a 200 before publishing. Suriname has no page of its own, so it and any unknown region fall back to the MapBiomas home page.
 
-Everything else in this phase is still open: the personal-account packages and the deprecated `getAssetRoots()`.
+**The personal account is out of the dependency list.** `Mapp.js` (base map styles) and `Legend.js` (the swatch-and-label panel) came from `users/joaovsiqueira1/packages`, a personal account that eight of the nine toolkits loaded at startup. The same code is now `core/v1/basemaps.js` and `core/v1/legend.js`. Of `Mapp`'s 925 lines only the styles were kept, since the toolkits never called anything but `getStyle`.
+
+Checked in the Code Editor with irrigation: the legend draws its swatches — they are server-rendered thumbnails, so this exercises the module end to end — and the Dark style registers on the map.
+
+Still open in this phase:
+
+- `users/workspaceipam/packages` (IPAM), which fire, soil and degradation use for their logos and the fire palettes. The palettes are 63 lines and easy to bring over; the logos are 113 KB of base64 and would be better uploaded to `gs://mapbiomas-public/mapbiomas-logos/`, like the five generic toolkits already do.
+- `ee.data.getAssetRoots()`. It is deprecated but still works, and it now sits in one place (`core/v1/territory.js`), so replacing it is a one-file change whenever it has to happen.
 
 ### Phase 4: special themes and standardization
 - Move fire (monthly monitor, disclaimers), soil and degradation (beta modules) onto the core.

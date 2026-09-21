@@ -24,6 +24,7 @@
  *    1.7.2 - New toolkit logo; single link to the legend files on GitHub
  *    1.7.3 - Fixes selecting a territory in collections without the deforestation_pv data type
  *    1.7.4 - Link to the region's download page, in place of the hard-coded download links
+ *    1.7.5 - Base map styles and legend come from core/v1, not from a personal account
  * 
  * @see
  *      Get the MapBiomas exported data in your "Google Drive/MAPBIOMAS-EXPORT" folder
@@ -31,8 +32,8 @@
  */
 
 var palettes = require('users/mapbiomas/modules:Palettes.js');
-var mapp = require('users/joaovsiqueira1/packages:Mapp.js');
-var legend = require('users/joaovsiqueira1/packages:Legend.js');
+var mapp = require('users/mapbiomas/user-toolkit:core/v1/basemaps.js');
+var legend = require('users/mapbiomas/user-toolkit:core/v1/legend.js');
 
 var Area = require('users/mapbiomas/user-toolkit:core/v1/area.js');
 var Naming = require('users/mapbiomas/user-toolkit:core/v1/naming.js');
@@ -50,7 +51,7 @@ var App = {
 
     options: {
 
-        version: '1.7.4',
+        version: '1.7.5',
 
         logo: {
             uri: 'gs://mapbiomas-public/mapbiomas-logos/mapbiomas-toolkit-logo.b64',
