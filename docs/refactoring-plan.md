@@ -127,6 +127,33 @@ Verified by dumping `App.options.tables` from all nine toolkits before and after
 
 Also removed the last leftover debug prints, in lulc (1.36.3) and degradation (0.0.6).
 
+**`data/legends.js`: the colours and class names the panel shows.**
+
+The scripts carried one global list of class names, but the names are per
+region — class 12 is *Grassland Formation* in Brazil and *Herbaceous Formation*
+in Peru. A single list cannot be right for both, and it wasn't: comparing the
+panel against the legend files published in `legend-colors/`, **213 of 312 class
+names disagreed**, across all 17 regions. The colours agreed everywhere, which
+is the signature of someone updating the palette and not the names.
+
+So the fix is not to move the data but to give it one source. `build_legends.py`
+now writes `data/legends.js` from the same `palettes.json` it writes the `.csv`,
+`.qml`, `.sld` and `.lyrx` from. The panel, the area CSV and a QGIS layer file
+cannot drift again. After the change the same comparison reports 0 names and 0
+colours different.
+
+The palette keeps every value a region's collections can hold, not only the ones
+the newest collection uses, so older collections still render.
+
+Checked in the Code Editor: lulc exported Distrito Federal and the area CSV came
+back with `Grassland Formation`, `Urban Area`, `Mosaic of Uses`, `Soybean` — and
+`Coffee`, which the script had spelled `Coffe`.
+
+**The legend links were dead.** `legendLinks` and `makeLegendLinksList` built a
+panel of per-region links that has not been added to the interface since the
+single legend-files link replaced it. lulc, fire, soil and degradation were
+still building it at startup. Removed.
+
 Still to do in this phase: the `collections` blocks, which are per theme and much less repetitive, and turning the collection-specific branches into flags.
 
 ### Phase 3: dependencies and cleanup

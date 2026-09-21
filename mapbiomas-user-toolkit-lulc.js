@@ -76,6 +76,8 @@
  *    1.36.3 - Territories come from data/territories.js; removes debug prints
  *    1.36.4 - Link to the region's download page, in place of the hard-coded download links
  *    2.0.0 - Breaking: export names and CSV columns standardized; territory drawn in red
+ *    2.1.0 - Class names and colours come from data/legends.js, the same source as the
+ *            legend files, fixing 213 wrong class names across the 17 regions
  *            and centred in every toolkit
  * 
  * @see
@@ -93,6 +95,7 @@ var Territory = require('users/mapbiomas/user-toolkit:core/v1/territory.js');
 
 var Territories = require('users/mapbiomas/user-toolkit:data/territories.js');
 var Downloads = require('users/mapbiomas/user-toolkit:data/downloads.js');
+var Legends = require('users/mapbiomas/user-toolkit:data/legends.js');
 var Exports = require('users/mapbiomas/user-toolkit:core/v1/export.js');
 
 
@@ -103,7 +106,7 @@ var App = {
 
     options: {
 
-        version: '2.0.0',
+        version: '2.1.0',
 
         logo: {
             uri: 'gs://mapbiomas-public/mapbiomas-logos/mapbiomas-toolkit-logo.b64',
@@ -2463,514 +2466,6 @@ var App = {
             },
         },
 
-        legendLinks: [
-            {
-                'name': 'Amazon',
-                'url': 'https://amazonia.mapbiomas.org/codigos-de-la-leyenda/'
-            },
-            {
-                'name': 'Argentina',
-                'url': 'https://argentina.mapbiomas.org/codigos-de-la-leyenda/'
-            },
-            {
-                'name': 'Atlantic Forest',
-                'url': 'https://bosqueatlantico.mapbiomas.org/en/legend-codes/'
-            },
-            {
-                'name': 'Bolivia',
-                'url': 'https://bolivia.mapbiomas.org/en/codigos-de-la-leyenda/'
-            },
-            {
-                'name': 'Brazil',
-                'url': 'https://brasil.mapbiomas.org/en/codigos-de-legenda/'
-            },
-            {
-                'name': 'Colombia',
-                'url': 'https://colombia.mapbiomas.org/en/codigos-de-la-leyenda/'
-            },
-            {
-                'name': 'Chaco',
-                'url': 'https://chaco.mapbiomas.org/en/legend-codes/'
-            },
-            {
-                'name': 'Chile',
-                'url': 'https://chile.mapbiomas.org/codigos-de-la-leyenda/'
-            },
-            {
-                'name': 'Ecuador',
-                'url': 'https://ecuador.mapbiomas.org/en/codigos-de-la-leyenda/'
-            },
-            {
-                'name': 'Indonesia',
-                'url': 'https://mapbiomas.nusantara.earth/legendcode'
-            },
-            {
-                'name': 'Pampa',
-                'url': 'https://pampa.mapbiomas.org/en/legend-codes/'
-            },
-            {
-                'name': 'Paraguay',
-                'url': 'https://paraguay.mapbiomas.org/en/codigos-de-la-leyenda/'
-            },
-            {
-                'name': 'Peru',
-                'url': 'https://peru.mapbiomas.org/en/codigos-de-la-leyenda/'
-            },
-            {
-                'name': 'Uruguay',
-                'url': 'https://uruguay.mapbiomas.org/en/codigos-de-la-leyenda/'
-            },
-            {
-                'name': 'Venezuela',
-                'url': 'https://venezuela.mapbiomas.org/en/codigos-de-la-leyenda/'
-            },
-        ],
-
-        palettes: {
-            'mapbiomas-brazil': [
-                '#ffffff', '#1f8d49', '#000000', '#1f8d49',
-                '#7dc975', '#04381d', '#007785', '#228c70',
-                '#000000', '#7a5900', '#d6bc74', '#519799',
-                '#d6bc74', '#d89f5c', '#ffefc3', '#edde8e',
-                '#000000', '#000000', '#e974ed', '#c27ba0',
-                '#db7093', '#ffefc3', '#d4271e', '#ffa07a',
-                '#d4271e', '#db4d4f', '#2532e4', '#ffffff',
-                '#000000', '#ffaa5f', '#9c0027', '#091077',
-                '#fc8114', '#2532e4', '#93dfe6', '#9065d0',
-                '#d082de', '#000000', '#000000', '#f5b3c8',
-                '#c71585', '#f54ca9', '#a5b35b', '#c2d26b',
-                '#cbe286', '#807a40', '#d68fe2', '#9932cc',
-                '#e6ccff', '#02d659', '#ad5100', '#5faf92',
-                '#f0b4a8', '#000000', '#000000', '#000000',
-                '#000000', '#f99fff', '#d84690', '#1f8d49',
-                '#5cb85d', '#f5d5d5', '#ff69b4', '#c7e0ab',
-                '#000000', '#b9158a', '#a89358', '#c8ffb4',
-                '#e97a7a', '#000000', '#be9e00', '#000000',
-                '#c1799c', '#6fc179', '#be83f7', '#c12100',
-                '#2f7360', '#c49a5a', '#000000', '#67671c',
-                '#886827', '#c8c099', '#66b2a3', '#ab8231',
-                '#6fa8a3', '#000000', '#000000', '#000000',
-                '#329c5a', '#6bd46c', '#000000', '#8b1a1a',
-                '#d98a45'
-            ],
-            'mapbiomas-amazon': [
-                '#ffffff', '#1f8d49', '#000000', '#1f8d49',
-                '#7dc975', '#04381d', '#026975', '#228c70',
-                '#000000', '#7a5900', '#d6bc74', '#519799',
-                '#d6bc74', '#d89f5c', '#ffefc3', '#edde8e',
-                '#000000', '#000000', '#e974ed', '#c27ba0',
-                '#db7093', '#ffefc3', '#d4271e', '#ffa07a',
-                '#d4271e', '#db4d4f', '#2532e4', '#ffffff',
-                '#000000', '#ffaa5f', '#9c0027', '#091077',
-                '#fc8114', '#2532e4', '#93dfe6', '#9065d0',
-                '#d082de', '#000000', '#000000', '#f5b3c8',
-                '#c71585', '#f54ca9', '#a5b35b', '#c2d26b',
-                '#cbe286', '#807a40', '#d68fe2', '#9932cc',
-                '#e6ccff', '#02d659', '#ad5100', '#5faf92',
-                '#f0b4a8', '#000000', '#000000', '#000000',
-                '#000000', '#f99fff', '#d84690', '#1f8d49',
-                '#5cb85d', '#f5d5d5', '#ff69b4', '#c7e0ab',
-                '#000000', '#b9158a', '#a89358', '#c8ffb4',
-                '#e97a7a', '#000000', '#be9e00', '#000000',
-                '#c1799c', '#6fc179', '#be83f7', '#c12100',
-                '#2f7360', '#c49a5a', '#000000', '#67671c',
-                '#886827', '#c8c099', '#66b2a3', '#ab8231',
-                '#6fa8a3', '#000000', '#000000', '#000000',
-                '#329c5a', '#6bd46c', '#000000', '#8b1a1a',
-                '#d98a45'
-            ],
-            'mapbiomas-chaco': [
-                '#ffffff', '#1f8d49', '#000000', '#1f8d49',
-                '#7dc975', '#04381d', '#026975', '#228c70',
-                '#000000', '#7a5900', '#d6bc74', '#519799',
-                '#d6bc74', '#d89f5c', '#ffefc3', '#edde8e',
-                '#000000', '#000000', '#e974ed', '#c27ba0',
-                '#db7093', '#ffefc3', '#d4271e', '#ffa07a',
-                '#d4271e', '#db4d4f', '#2532e4', '#ffffff',
-                '#000000', '#ffaa5f', '#9c0027', '#091077',
-                '#fc8114', '#2532e4', '#93dfe6', '#9065d0',
-                '#d082de', '#000000', '#000000', '#f5b3c8',
-                '#c71585', '#f54ca9', '#a5b35b', '#c2d26b',
-                '#cbe286', '#807a40', '#d68fe2', '#9932cc',
-                '#e6ccff', '#02d659', '#ad5100', '#5faf92',
-                '#f0b4a8', '#000000', '#000000', '#000000',
-                '#000000', '#f99fff', '#d84690', '#1f8d49',
-                '#5cb85d', '#f5d5d5', '#ff69b4', '#c7e0ab',
-                '#000000', '#b9158a', '#a89358', '#c8ffb4',
-                '#e97a7a', '#000000', '#be9e00', '#000000',
-                '#c1799c', '#6fc179', '#be83f7', '#c12100',
-                '#2f7360', '#c49a5a', '#000000', '#67671c',
-                '#886827', '#c8c099', '#66b2a3', '#ab8231',
-                '#6fa8a3', '#000000', '#000000', '#000000',
-                '#329c5a', '#6bd46c', '#000000', '#8b1a1a',
-                '#d98a45'
-            ],
-            'mapbiomas-atlantic-forest': [
-                '#ffffff', '#1f8d49', '#000000', '#1f8d49',
-                '#7dc975', '#04381d', '#007785', '#228c70',
-                '#000000', '#7a5900', '#d6bc74', '#519799',
-                '#d6bc74', '#d89f5c', '#ffefc3', '#edde8e',
-                '#000000', '#000000', '#e974ed', '#c27ba0',
-                '#db7093', '#ffefc3', '#d4271e', '#ffa07a',
-                '#d4271e', '#db4d4f', '#2532e4', '#ffffff',
-                '#000000', '#ffaa5f', '#9c0027', '#091077',
-                '#fc8114', '#2532e4', '#93dfe6', '#9065d0',
-                '#d082de', '#000000', '#000000', '#f5b3c8',
-                '#c71585', '#f54ca9', '#a5b35b', '#c2d26b',
-                '#cbe286', '#807a40', '#d68fe2', '#9932cc',
-                '#e6ccff', '#02d659', '#ad5100', '#5faf92',
-                '#f0b4a8', '#000000', '#000000', '#000000',
-                '#000000', '#f99fff', '#d84690', '#1f8d49',
-                '#5cb85d', '#f5d5d5', '#ff69b4', '#c7e0ab',
-                '#000000', '#b9158a', '#a89358', '#c8ffb4',
-                '#e97a7a', '#000000', '#be9e00', '#000000',
-                '#c1799c', '#6fc179', '#be83f7', '#c12100',
-                '#2f7360', '#c49a5a', '#000000', '#67671c',
-                '#886827', '#c8c099', '#66b2a3', '#ab8231',
-                '#6fa8a3', '#000000', '#000000', '#000000',
-                '#329c5a', '#6bd46c', '#000000', '#8b1a1a',
-                '#d98a45'
-            ],
-            'mapbiomas-pampa': [
-                '#ffffff', '#1f8d49', '#000000', '#1f8d49',
-                '#7dc975', '#04381d', '#007785', '#228c70',
-                '#000000', '#7a6c00', '#d6bc74', '#519799',
-                '#d6bc74', '#d89f5c', '#ffefc3', '#edde8e',
-                '#000000', '#000000', '#c27ba0', '#c27ba0',
-                '#db7093', '#ffefc3', '#d4271e', '#ffa07a',
-                '#d4271e', '#db4d4f', '#2532e4', '#ffffff',
-                '#000000', '#ffaa5f', '#9c0027', '#091077',
-                '#fc8114', '#2532e4', '#93dfe6', '#9065d0',
-                '#d082de', '#000000', '#000000', '#f5b3c8',
-                '#c71585', '#f54ca9', '#a5b35b', '#c2d26b',
-                '#cbe286', '#807a40', '#d68fe2', '#9932cc',
-                '#e6ccff', '#02d659', '#ad5100', '#5faf92',
-                '#f0b4a8', '#000000', '#000000', '#000000',
-                '#000000', '#f99fff', '#d84690', '#1f8d49',
-                '#5cb85d', '#f5d5d5', '#ff69b4', '#c7e0ab',
-                '#000000', '#b9158a', '#a89358', '#c8ffb4',
-                '#e97a7a', '#000000', '#be9e00', '#000000',
-                '#c1799c', '#6fc179', '#be83f7', '#c12100',
-                '#2f7360', '#c49a5a', '#000000', '#67671c',
-                '#886827', '#c8c099', '#66b2a3', '#ab8231',
-                '#6fa8a3', '#000000', '#000000', '#000000',
-                '#329c5a', '#6bd46c', '#000000', '#8b1a1a',
-                '#d98a45'
-            ],
-            'mapbiomas-indonesia': [
-                '#ffffff', '#1f8d49', '#000000', '#1f8d49',
-                '#7dc975', '#04381d', '#007785', '#228c70',
-                '#000000', '#7a5900', '#d6bc74', '#519799',
-                '#d6bc74', '#d89f5c', '#ffefc3', '#edde8e',
-                '#000000', '#000000', '#e974ed', '#c27ba0',
-                '#db7093', '#ffefc3', '#d4271e', '#ffa07a',
-                '#d4271e', '#db4d4f', '#2532e4', '#ffffff',
-                '#000000', '#ffaa5f', '#9c0027', '#091077',
-                '#fc8114', '#2532e4', '#93dfe6', '#9065d0',
-                '#d082de', '#000000', '#000000', '#f5b3c8',
-                '#f272c2', '#f54ca9', '#a5b35b', '#c2d26b',
-                '#cbe286', '#807a40', '#d68fe2', '#9932cc',
-                '#e6ccff', '#02d659', '#ad5100', '#5faf92',
-                '#f0b4a8', '#000000', '#000000', '#000000',
-                '#000000', '#f99fff', '#d84690', '#1f8d49',
-                '#5cb85d', '#f5d5d5', '#ff69b4', '#c7e0ab',
-                '#000000', '#b9158a', '#a89358', '#c8ffb4',
-                '#e97a7a', '#000000', '#be9e00', '#000000',
-                '#c1799c', '#6fc179', '#be83f7', '#c12100',
-                '#2f7360', '#c49a5a', '#000000', '#67671c',
-                '#886827', '#c8c099', '#66b2a3', '#ab8231',
-                '#6fa8a3', '#000000', '#000000', '#000000',
-                '#329c5a', '#6bd46c', '#000000', '#8b1a1a',
-                '#d98a45'
-            ],
-            'mapbiomas-peru': [
-                '#ffffff', '#1f8d49', '#000000', '#1f8d49',
-                '#7dc975', '#04381d', '#026975', '#228c70',
-                '#000000', '#7a5900', '#d6bc74', '#519799',
-                '#d6bc74', '#d89f5c', '#ffefc3', '#edde8e',
-                '#000000', '#000000', '#e974ed', '#c27ba0',
-                '#db7093', '#ffefc3', '#d4271e', '#ffa07a',
-                '#d4271e', '#db4d4f', '#2532e4', '#ffffff',
-                '#000000', '#ffaa5f', '#9c0027', '#091077',
-                '#fc8114', '#2532e4', '#93dfe6', '#9065d0',
-                '#d082de', '#000000', '#000000', '#f5b3c8',
-                '#c71585', '#f54ca9', '#a5b35b', '#c2d26b',
-                '#cbe286', '#807a40', '#d68fe2', '#9932cc',
-                '#e6ccff', '#02d659', '#ad5100', '#5faf92',
-                '#f0b4a8', '#000000', '#000000', '#000000',
-                '#000000', '#f99fff', '#d84690', '#1f8d49',
-                '#5cb85d', '#f5d5d5', '#ff69b4', '#c7e0ab',
-                '#000000', '#b9158a', '#a89358', '#c8ffb4',
-                '#e97a7a', '#000000', '#be9e00', '#000000',
-                '#c1799c', '#6fc179', '#be83f7', '#c12100',
-                '#2f7360', '#c49a5a', '#000000', '#67671c',
-                '#886827', '#c8c099', '#26abab', '#ab8231',
-                '#6fa8a3', '#000000', '#000000', '#000000',
-                '#329c5a', '#6bd46c', '#000000', '#8b1a1a',
-                '#d98a45'
-            ],
-            'mapbiomas-bolivia': [
-                '#ffffff', '#1f8d49', '#000000', '#1f8d49',
-                '#7dc975', '#04381d', '#026975', '#228c70',
-                '#000000', '#7a5900', '#d6bc74', '#519799',
-                '#d6bc74', '#d89f5c', '#ffefc3', '#edde8e',
-                '#000000', '#000000', '#e974ed', '#c27ba0',
-                '#db7093', '#ffefc3', '#d4271e', '#ffa07a',
-                '#d4271e', '#db4d4f', '#2532e4', '#ffffff',
-                '#000000', '#ffaa5f', '#9c0027', '#091077',
-                '#fc8114', '#2532e4', '#93dfe6', '#9065d0',
-                '#d082de', '#000000', '#000000', '#f5b3c8',
-                '#c71585', '#f54ca9', '#a5b35b', '#c2d26b',
-                '#cbe286', '#807a40', '#d68fe2', '#9932cc',
-                '#e6ccff', '#02d659', '#ad5100', '#5faf92',
-                '#f0b4a8', '#000000', '#000000', '#000000',
-                '#000000', '#f99fff', '#d84690', '#1f8d49',
-                '#5cb85d', '#f5d5d5', '#ff69b4', '#c7e0ab',
-                '#000000', '#b9158a', '#a89358', '#c8ffb4',
-                '#e97a7a', '#000000', '#be9e00', '#000000',
-                '#c1799c', '#6fc179', '#be83f7', '#c12100',
-                '#2f7360', '#c49a5a', '#000000', '#67671c',
-                '#886827', '#c8c099', '#66b2a3', '#ab8231',
-                '#6fa8a3', '#000000', '#000000', '#000000',
-                '#329c5a', '#6bd46c', '#000000', '#8b1a1a',
-                '#d98a45'
-            ],
-            'mapbiomas-colombia': [
-                '#ffffff', '#1f8d49', '#000000', '#1f8d49',
-                '#7dc975', '#04381d', '#026975', '#228c70',
-                '#000000', '#7a5900', '#d6bc74', '#519799',
-                '#d6bc74', '#d89f5c', '#ffefc3', '#edde8e',
-                '#000000', '#000000', '#e974ed', '#c27ba0',
-                '#db7093', '#ffefc3', '#d4271e', '#ffa07a',
-                '#d4271e', '#db4d4f', '#2532e4', '#ffffff',
-                '#000000', '#ffaa5f', '#9c0027', '#091077',
-                '#fc8114', '#2532e4', '#93dfe6', '#9065d0',
-                '#d082de', '#000000', '#000000', '#f5b3c8',
-                '#c71585', '#f54ca9', '#a5b35b', '#c2d26b',
-                '#cbe286', '#807a40', '#d68fe2', '#9932cc',
-                '#e6ccff', '#02d659', '#ad5100', '#5faf92',
-                '#f0b4a8', '#000000', '#000000', '#000000',
-                '#000000', '#f99fff', '#d84690', '#1f8d49',
-                '#5cb85d', '#f5d5d5', '#ff69b4', '#c7e0ab',
-                '#000000', '#b9158a', '#a89358', '#c8ffb4',
-                '#e97a7a', '#000000', '#be9e00', '#000000',
-                '#c1799c', '#6fc179', '#be83f7', '#c12100',
-                '#2f7360', '#c49a5a', '#000000', '#67671c',
-                '#886827', '#dfeb62', '#6fc179', '#ab8231',
-                '#6fa8a3', '#000000', '#000000', '#000000',
-                '#329c5a', '#6bd46c', '#000000', '#8b1a1a',
-                '#d98a45'
-            ],
-            'mapbiomas-venezuela': [
-                '#ffffff', '#1f8d49', '#000000', '#1f8d49',
-                '#7dc975', '#04381d', '#026975', '#228c70',
-                '#000000', '#7a6c00', '#d6bc74', '#519799',
-                '#d6bc74', '#d89f5c', '#ffefc3', '#edde8e',
-                '#000000', '#000000', '#e974ed', '#c27ba0',
-                '#db7093', '#ffefc3', '#d4271e', '#ffa07a',
-                '#d4271e', '#db4d4f', '#2532e4', '#ffffff',
-                '#000000', '#ffaa5f', '#9c0027', '#091077',
-                '#fc8114', '#2532e4', '#93dfe6', '#9065d0',
-                '#d082de', '#000000', '#000000', '#f5b3c8',
-                '#c71585', '#f54ca9', '#a5b35b', '#c2d26b',
-                '#cbe286', '#807a40', '#d68fe2', '#9932cc',
-                '#e6ccff', '#02d659', '#ad5100', '#5faf92',
-                '#f0b4a8', '#000000', '#000000', '#000000',
-                '#000000', '#f99fff', '#d84690', '#1f8d49',
-                '#5cb85d', '#f5d5d5', '#ff69b4', '#c7e0ab',
-                '#000000', '#b9158a', '#a89358', '#c8ffb4',
-                '#e97a7a', '#000000', '#be9e00', '#000000',
-                '#c1799c', '#6fc179', '#be83f7', '#c12100',
-                '#2f7360', '#c49a5a', '#000000', '#67671c',
-                '#886827', '#dfeb62', '#6fc179', '#ab8231',
-                '#6fa8a3', '#000000', '#000000', '#000000',
-                '#329c5a', '#6bd46c', '#000000', '#8b1a1a',
-                '#d98a45'
-            ],
-            'mapbiomas-uruguay': [
-                '#ffffff', '#1f8d49', '#000000', '#1f8d49',
-                '#7dc975', '#04381d', '#007785', '#228c70',
-                '#000000', '#7a5900', '#ccc87e', '#519799',
-                '#ccc87e', '#ffefc3', '#ffefc3', '#fbf0ab',
-                '#000000', '#000000', '#c27ba0', '#c27ba0',
-                '#db7093', '#ffefc3', '#d4271e', '#ffa07a',
-                '#d4271e', '#db4d4f', '#2532e4', '#ffffff',
-                '#000000', '#ffaa5f', '#9c0027', '#091077',
-                '#fc8114', '#2532e4', '#93dfe6', '#9065d0',
-                '#d082de', '#000000', '#000000', '#f5b3c8',
-                '#c71585', '#f54ca9', '#a5b35b', '#c2d26b',
-                '#cbe286', '#807a40', '#d68fe2', '#9932cc',
-                '#e6ccff', '#02d659', '#ad5100', '#5faf92',
-                '#f0b4a8', '#000000', '#000000', '#000000',
-                '#000000', '#f99fff', '#d84690', '#1f8d49',
-                '#5cb85d', '#f5d5d5', '#ff69b4', '#c7e0ab',
-                '#000000', '#b9158a', '#a89358', '#c8ffb4',
-                '#e97a7a', '#000000', '#be9e00', '#000000',
-                '#c1799c', '#6fc179', '#be83f7', '#c12100',
-                '#2f7360', '#c49a5a', '#000000', '#67671c',
-                '#886827', '#c8c099', '#66b2a3', '#ab8231',
-                '#6fa8a3', '#000000', '#000000', '#000000',
-                '#329c5a', '#6bd46c', '#000000', '#8b1a1a',
-                '#d98a45'
-            ],
-            'mapbiomas-ecuador': [
-                '#ffffff', '#1f8d49', '#000000', '#1f8d49',
-                '#7dc975', '#04381d', '#007785', '#228c70',
-                '#000000', '#7a5900', '#d6bc74', '#519799',
-                '#d6bc74', '#d89f5c', '#ffefc3', '#edde8e',
-                '#000000', '#000000', '#e974ed', '#c27ba0',
-                '#db7093', '#ffefc3', '#d4271e', '#ffa07a',
-                '#d4271e', '#db4d4f', '#2532e4', '#ffffff',
-                '#000000', '#ffaa5f', '#9c0027', '#091077',
-                '#fc8114', '#2532e4', '#93dfe6', '#9065d0',
-                '#d082de', '#000000', '#000000', '#f5b3c8',
-                '#c71585', '#f54ca9', '#a5b35b', '#c2d26b',
-                '#cbe286', '#807a40', '#d68fe2', '#9932cc',
-                '#e6ccff', '#02d659', '#ad5100', '#5faf92',
-                '#f0b4a8', '#000000', '#000000', '#000000',
-                '#000000', '#f99fff', '#d84690', '#1f8d49',
-                '#5cb85d', '#f5d5d5', '#ff69b4', '#c7e0ab',
-                '#000000', '#b9158a', '#a89358', '#c8ffb4',
-                '#e97a7a', '#000000', '#be9e00', '#000000',
-                '#c1799c', '#6fc179', '#be83f7', '#c12100',
-                '#2f7360', '#c49a5a', '#000000', '#67671c',
-                '#886827', '#c8c099', '#66b2a3', '#ab8231',
-                '#6fa8a3', '#000000', '#000000', '#000000',
-                '#329c5a', '#6bd46c', '#000000', '#8b1a1a',
-                '#d98a45'
-            ],
-            'mapbiomas-paraguay': [
-                '#ffffff', '#1f8d49', '#000000', '#1f8d49',
-                '#7dc975', '#04381d', '#007785', '#228c70',
-                '#000000', '#7a6c00', '#d6bc74', '#519799',
-                '#d6bc74', '#d89f5c', '#ffefc3', '#edde8e',
-                '#000000', '#000000', '#e974ed', '#c27ba0',
-                '#db7093', '#ffefc3', '#d4271e', '#ffa07a',
-                '#d4271e', '#db4d4f', '#2532e4', '#ffffff',
-                '#000000', '#ffaa5f', '#9c0027', '#091077',
-                '#fc8114', '#2532e4', '#93dfe6', '#9065d0',
-                '#d082de', '#000000', '#000000', '#f5b3c8',
-                '#c71585', '#f54ca9', '#a5b35b', '#c2d26b',
-                '#cbe286', '#807a40', '#d68fe2', '#9932cc',
-                '#e6ccff', '#02d659', '#ad5100', '#5faf92',
-                '#f0b4a8', '#000000', '#000000', '#000000',
-                '#000000', '#f99fff', '#d84690', '#1f8d49',
-                '#5cb85d', '#f5d5d5', '#ff69b4', '#c7e0ab',
-                '#000000', '#b9158a', '#a89358', '#c8ffb4',
-                '#e97a7a', '#000000', '#be9e00', '#000000',
-                '#c1799c', '#6fc179', '#be83f7', '#c12100',
-                '#2f7360', '#c49a5a', '#000000', '#67671c',
-                '#886827', '#c8c099', '#66b2a3', '#ab8231',
-                '#6fa8a3', '#000000', '#000000', '#000000',
-                '#329c5a', '#6bd46c', '#000000', '#8b1a1a',
-                '#d98a45'
-            ],
-            'mapbiomas-chile': [
-                '#ffffff', '#1f8d49', '#000000', '#1f8d49',
-                '#7dc975', '#04381d', '#007785', '#228c70',
-                '#000000', '#7a5900', '#d6bc74', '#519799',
-                '#d6bc74', '#d89f5c', '#ffefc3', '#edde8e',
-                '#000000', '#000000', '#e974ed', '#c27ba0',
-                '#db7093', '#ffefc3', '#d4271e', '#ffa07a',
-                '#d4271e', '#db4d4f', '#2532e4', '#ffffff',
-                '#000000', '#ffaa5f', '#9c0027', '#091077',
-                '#fc8114', '#2532e4', '#93dfe6', '#9065d0',
-                '#d082de', '#000000', '#000000', '#f5b3c8',
-                '#c71585', '#f54ca9', '#a5b35b', '#c2d26b',
-                '#cbe286', '#807a40', '#d68fe2', '#9932cc',
-                '#e6ccff', '#02d659', '#ad5100', '#5faf92',
-                '#f0b4a8', '#000000', '#000000', '#000000',
-                '#000000', '#f99fff', '#d84690', '#1f8d49',
-                '#5cb85d', '#f5d5d5', '#ff69b4', '#c7e0ab',
-                '#000000', '#b9158a', '#a89358', '#c8ffb4',
-                '#e97a7a', '#000000', '#be9e00', '#000000',
-                '#c1799c', '#6fc179', '#be83f7', '#c12100',
-                '#2f7360', '#c49a5a', '#000000', '#67671c',
-                '#886827', '#c8c099', '#66b2a3', '#ab8231',
-                '#6fa8a3', '#000000', '#000000', '#000000',
-                '#329c5a', '#6bd46c', '#000000', '#8b1a1a',
-                '#d98a45'
-            ],
-            'mapbiomas-argentina': [
-                '#ffffff', '#1f8d49', '#000000', '#1f8d49',
-                '#7dc975', '#04381d', '#026975', '#228c70',
-                '#000000', '#7a5900', '#d6bc74', '#519799',
-                '#d6bc74', '#d89f5c', '#ffefc3', '#edde8e',
-                '#000000', '#000000', '#e974ed', '#c27ba0',
-                '#db7093', '#ffefc3', '#d4271e', '#ffa07a',
-                '#d4271e', '#db4d4f', '#2532e4', '#ffffff',
-                '#000000', '#ffaa5f', '#9c0027', '#091077',
-                '#fc8114', '#2532e4', '#93dfe6', '#9065d0',
-                '#d082de', '#000000', '#000000', '#f5b3c8',
-                '#c71585', '#f54ca9', '#a5b35b', '#c2d26b',
-                '#cbe286', '#807a40', '#d68fe2', '#9932cc',
-                '#e6ccff', '#02d659', '#ad5100', '#5faf92',
-                '#f0b4a8', '#000000', '#000000', '#000000',
-                '#000000', '#f99fff', '#d84690', '#1f8d49',
-                '#5cb85d', '#f5d5d5', '#ff69b4', '#c7e0ab',
-                '#000000', '#b9158a', '#a89358', '#c8ffb4',
-                '#e97a7a', '#000000', '#be9e00', '#000000',
-                '#c1799c', '#6fc179', '#be83f7', '#c12100',
-                '#2f7360', '#86b074', '#000000', '#67671c',
-                '#886827', '#c8c099', '#66b2a3', '#ab8231',
-                '#6fa8a3', '#000000', '#000000', '#000000',
-                '#329c5a', '#6bd46c', '#000000', '#8b1a1a',
-                '#d98a45'
-            ],
-            'mapbiomas-mexico': [
-                '#ffffff', '#1f8d49', '#000000', '#1f8d49',
-                '#7dc975', '#04381d', '#007785', '#228c70',
-                '#000000', '#7a5900', '#d6bc74', '#519799',
-                '#d6bc74', '#d89f5c', '#ffefc3', '#edde8e',
-                '#000000', '#000000', '#e974ed', '#c27ba0',
-                '#db7093', '#ffefc3', '#d4271e', '#ffa07a',
-                '#d4271e', '#db4d4f', '#2532e4', '#ffffff',
-                '#000000', '#ffaa5f', '#9c0027', '#091077',
-                '#fc8114', '#2532e4', '#93dfe6', '#9065d0',
-                '#d082de', '#000000', '#000000', '#f5b3c8',
-                '#c71585', '#f54ca9', '#a5b35b', '#c2d26b',
-                '#cbe286', '#807a40', '#d68fe2', '#9932cc',
-                '#e6ccff', '#02d659', '#ad5100', '#5faf92',
-                '#f0b4a8', '#000000', '#000000', '#000000',
-                '#000000', '#f99fff', '#d84690', '#1f8d49',
-                '#5cb85d', '#f5d5d5', '#ff69b4', '#c7e0ab',
-                '#000000', '#b9158a', '#a89358', '#c8ffb4',
-                '#e97a7a', '#000000', '#be9e00', '#000000',
-                '#c1799c', '#6fc179', '#be83f7', '#c12100',
-                '#2f7360', '#c49a5a', '#000000', '#67671c',
-                '#886827', '#c8c099', '#66b2a3', '#ab8231',
-                '#6fa8a3', '#000000', '#000000', '#000000',
-                '#329c5a', '#6bd46c', '#000000', '#8b1a1a',
-                '#d98a45'
-            ],
-            'mapbiomas-drc': [
-                '#ffffff', '#1f8d49', '#000000', '#1f8d49',
-                '#7dc975', '#04381d', '#007785', '#228c70',
-                '#000000', '#7a5900', '#d6bc74', '#519799',
-                '#d6bc74', '#d89f5c', '#ffefc3', '#edde8e',
-                '#000000', '#000000', '#e974ed', '#c27ba0',
-                '#db7093', '#ffefc3', '#d4271e', '#ffa07a',
-                '#d4271e', '#db4d4f', '#2532e4', '#ffffff',
-                '#000000', '#ffaa5f', '#9c0027', '#091077',
-                '#fc8114', '#2532e4', '#93dfe6', '#9065d0',
-                '#d082de', '#000000', '#000000', '#f5b3c8',
-                '#c71585', '#f54ca9', '#a5b35b', '#c2d26b',
-                '#cbe286', '#807a40', '#d68fe2', '#9932cc',
-                '#e6ccff', '#02d659', '#ad5100', '#5faf92',
-                '#f0b4a8', '#000000', '#000000', '#000000',
-                '#000000', '#f99fff', '#d84690', '#1f8d49',
-                '#5cb85d', '#f5d5d5', '#ff69b4', '#c7e0ab',
-                '#000000', '#b9158a', '#a89358', '#c8ffb4',
-                '#e97a7a', '#000000', '#be9e00', '#000000',
-                '#c1799c', '#6fc179', '#be83f7', '#c12100',
-                '#2f7360', '#c49a5a', '#000000', '#67671c',
-                '#886827', '#c8c099', '#66b2a3', '#ab8231',
-                '#6fa8a3', '#000000', '#000000', '#000000',
-                '#329c5a', '#6bd46c', '#000000', '#8b1a1a',
-                '#d98a45'
-            ],
-        },
-
         bandsNames: {
             'Coverage': 'classification_',
             'Transitions': 'transition(s)?_',
@@ -3106,85 +2601,6 @@ var App = {
         }
         ],
 
-        className: {
-            '0': 'Non Observed',
-            '1': 'Forest',
-            '2': 'Natural Forest',
-            '3': 'Forest Formation',
-            '4': 'Savanna Formation',
-            '5': 'Magrove',
-            '6': 'Áreas Naturales Inundables - Leñosas (Bosque Inundable)',
-            '7': 'Flooded Savanna',
-            '9': 'Forest Plantation',
-            '10': 'Non Forest Natural Formation',
-            '11': 'Wetland',
-            '12': 'Grassland (Pastizal, Formación Herbácea)',
-            '13': 'Other Non Forest Natural Formation',
-            '14': 'Farming',
-            '15': 'Pasture',
-            '18': 'Agriculture',
-            '19': 'Temporary Crops (Herbaceas - Agricultura)',
-            '20': 'Sugar Cane',
-            '21': 'Mosaic of Agriculture and Pasture',
-            '22': 'Non vegetated area',
-            '23': 'Beach and Dune',
-            '24': 'Urban Infrastructure',
-            '25': 'Other Non Vegetated Area',
-            '26': 'Water',
-            '27': 'Non Observed',
-            '29': 'Rocky outcrop',
-            '30': 'Mining',
-            '31': 'Aquaculture',
-            '32': 'Salt flat',
-            '33': 'River, Lake and Ocean',
-            '34': 'Glacier',
-            '35': 'Oil Palm',
-            '36': 'Perennial Crops',
-            '37': 'Artificial Water Body',
-            '38': 'Water Reservoirs',
-            '39': 'Soy Beans',
-            '40': 'Rice',
-            '41': 'Mosaic of Crops',
-            '42': 'Pastizal abierto',
-            '43': 'Pastizal cerrado',
-            '44': 'Pastizal disperso',
-            '45': 'Leñosas dispersas',
-            '46': 'Coffe',
-            '47': 'Citrus',
-            '48': 'Other Perennial Crops',
-            '49': 'Wooded Sandbank Vegetation',
-            '50': 'Herbaceous Sandbank Vegetation',
-            '51': 'Lowland Flooded Grassland',
-            '52': 'Coastal salt flat surface',
-            '57': 'Cultivo Simples',
-            '58': 'Cultivo Múltiple',
-            '59': 'Primary Forest',
-            '60': 'Secondary Forest',
-            '61': 'Salares',
-            '62': 'Cotton',
-            '63': 'Steppe',
-            '65': 'Tea',
-            '66': 'Closed shrublands',
-            '67': 'Dwarf Forest',
-            '68': 'Other natural non-vegetated area',
-            '70': 'Coastal Lomas (beta)',
-            '72': 'Other crops',
-            '73': 'Peatlands',
-            '74': 'Banana',
-            '75': 'Photovoltaic Power Plant (beta)',
-            '76': 'Peat Swamp Forest',
-            '77': 'Herbaceous-Shrub Mosaic',
-            '79': 'Pinus plantation',
-            '80': 'Eucalyptus plantation',
-            '81': 'Andean grassland and shrubland',
-            '82': 'Flooded Andean grassland and shrubland',
-            '83': 'Other forestry uses',
-            '84': 'Marisma',
-            '88': 'Temperate forest',
-            '89': 'Tropical dry forest',
-            '91': 'Wind Farm',
-            '92': 'Rocky surface',
-        },
     },
 
     init: function () {
@@ -3266,11 +2682,19 @@ var App = {
         return image.remap(oldValues, newValues).rename(image.bandNames());
     },
 
+    /**
+     * Cores e nomes de classe da região, de data/legends.js — a mesma fonte dos
+     * arquivos em legend-colors/, para o painel e o .qml não divergirem.
+     */
     setPalette: function (region) {
 
-        // paleta embutida (lista indexada pela classe) ou nome de uma paleta do módulo Palettes.js
-        var palette = App.options.palettes[region];
-        App.options.palette.Coverage = typeof palette === 'string' ? palettes.get(palette) : palette;
+        var palette = Legends.paletteOf(region);
+
+        if (palette) {
+            App.options.palette.Coverage = palette;
+            App.options.className = Legends.namesOf(region);
+        }
+
         App.options.ranges.Coverage.max = App.options.palette.Coverage.length - 1;
 
     },
@@ -3283,26 +2707,6 @@ var App = {
 
         },
 
-        makeLegendLinksList: function () {
-            var labelLinks = App.options.legendLinks.map(
-                function (initiative) {
-                    return ui.Label(initiative.name, {
-                        'fontSize': '10px'
-                    },
-                        initiative.url
-                    );
-                }
-            );
-
-            App.ui.form.panelLink1 = ui.Panel({
-                'layout': ui.Panel.Layout.flow('horizontal', true),
-                'style': {
-                    'stretch': 'horizontal'
-                },
-                'widgets': labelLinks
-            })
-
-        },
 
         setMapbiomasRegion: function (regionName) {
 
@@ -3786,31 +3190,16 @@ var App = {
                     }
                 );
 
-                App.ui.makeLegendLinksList();
 
                 App.ui.form.panelMain.add(App.ui.form.panelLogo);
                 App.ui.form.panelMain.add(App.ui.form.labelTitle);
                 App.ui.form.panelMain.add(App.ui.form.labelSubtitle);
                 // App.ui.form.panelMain.add(App.ui.form.labelLink);  // substituído pelo link único para os arquivos de legenda
-                // App.ui.form.panelMain.add(App.ui.form.panelLink1);  // substituído pelo link único para os arquivos de legenda
-                // App.ui.form.panelMain.add(App.ui.form.panelLink2);  // substituído pelo link único para os arquivos de legenda
                 App.ui.form.panelMain.add(App.ui.form.labelLegendFiles);
                 App.ui.form.panelMain.add(App.ui.form.labelDownloads);
 
                 App.ui.form.panelMain.add(App.ui.form.panel1);
 
-                // App.ui.form.panelLink1.add(App.ui.form.labelLink1);
-                // App.ui.form.panelLink1.add(App.ui.form.labelLink2);
-                // App.ui.form.panelLink1.add(App.ui.form.labelLink3);
-                // App.ui.form.panelLink1.add(App.ui.form.labelLink4);
-                // App.ui.form.panelLink1.add(App.ui.form.labelLink5);
-                // App.ui.form.panelLink1.add(App.ui.form.labelLink6);
-                // App.ui.form.panelLink2.add(App.ui.form.labelLink7); // ecuador
-                // App.ui.form.panelLink2.add(App.ui.form.labelLink8);
-                // App.ui.form.panelLink2.add(App.ui.form.labelLink9);
-                // App.ui.form.panelLink2.add(App.ui.form.labelLink10);
-                // App.ui.form.panelLink2.add(App.ui.form.labelLink11);
-                // App.ui.form.panelLink2.add(App.ui.form.labelLink12);
 
                 App.ui.form.panelRegion.add(App.ui.form.labelRegion);
                 App.ui.form.panelRegion.add(App.ui.form.selectRegion);
@@ -3866,20 +3255,6 @@ var App = {
                 'style': {
                     'stretch': 'horizontal',
                     'margin': '10px 0px 5px 15px',
-                },
-            }),
-
-            panelLink1: ui.Panel({
-                'layout': ui.Panel.Layout.flow('horizontal'),
-                'style': {
-                    'stretch': 'horizontal'
-                },
-            }),
-
-            panelLink2: ui.Panel({
-                'layout': ui.Panel.Layout.flow('horizontal'),
-                'style': {
-                    'stretch': 'horizontal'
                 },
             }),
 

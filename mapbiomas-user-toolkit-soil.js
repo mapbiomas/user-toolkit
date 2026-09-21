@@ -30,10 +30,10 @@
  *    1.1.6 - Link to the region's download page, in place of the hard-coded download links
  *    1.1.7 - Base map styles and legend come from core/v1, not from a personal account
  *    2.0.0 - Breaking: export names and CSV columns standardized; territory drawn in red
+ *    2.0.1 - Removes the legend links that were built at startup and never shown
  *            and centred in every toolkit
  * 
  */
-
 
 // collection 2_1
 var carbon_2_1 = ee.Image('projects/mapbiomas-public/assets/brazil/soil/collection2_1/mapbiomas_brazil_collection21_soil_carbon_v2');
@@ -70,7 +70,6 @@ textural_subgroup_2_1 = textural_subgroup_2_1
     .rename(textural_subgroup_2_1.bandNames().map(function(str) {return ee.String('textural_subgroups').cat(ee.String(str).replace('textural_subgroup', '', 'g')).replace('_v2_', 'cm', 'g');}));
 // print('textural_subgroup_2_1',textural_subgroup_2_1);
 
-
 // collection 3
 var carbon_3 = ee.Image('projects/mapbiomas-public/assets/brazil/soil/collection3/mapbiomas_brazil_collection3_soil_carbon_v1');
 carbon_3 = carbon_3.rename(carbon_3.bandNames().map(function(str) {return ee.String(str).replace('carbon', 'prediction')}));
@@ -106,14 +105,12 @@ textural_subgroup_3 = textural_subgroup_3
     .rename(textural_subgroup_3.bandNames().map(function(str) {return ee.String('textural_subgroups').cat(ee.String(str).replace('textural_subgroup', '', 'g')).replace('_v1_', 'cm', 'g');}));
 // print('textural_subgroup_3',textural_subgroup_3);
 
-
 var stoniness_3 = ee.ImageCollection('projects/mapbiomas-public/assets/brazil/soil/collection3/mapbiomas_brazil_collection3_soil_stoniness_v1').toBands();
 stoniness_3 = stoniness_3
     .rename(stoniness_3.bandNames().map(function(str) {return ee.String(str).replace('_v1_soil_depth_stoniness', 'vol', 'g')}));
 
 // stoniness_deph_50vol
 // stoniness_deph_90vol
-
 
 /**
  * @description
@@ -176,7 +173,6 @@ var Area = {
                     // .set('index',ee.String(classId).cat(obj.get('territory')))
                     // .set('Área ha', area)
                     .set('Gt COS', gt_cos);
-
 
                 return tableColumns;
             }
@@ -277,7 +273,7 @@ var App = {
 
     options: {
 
-        version: '2.0.0',
+        version: '2.0.1',
 
         logo: {
             uri: 'gs://mapbiomas-public/mapbiomas-logos/mapbiomas-logo-horizontal.b64',
@@ -691,26 +687,6 @@ var App = {
 
         },
 
-        makeLegendLinksList: function () {
-          
-            App.ui.form.panelLink1 = ui.Panel({
-              'layout': ui.Panel.Layout.flow('horizontal', true),
-              'style': {'stretch': 'horizontal'},
-                'widgets': [
-                  ui.Label({
-                    value:'Brazil',
-                    style:{'fontSize': '10px'},
-                    targetUrl:'https://brasil.mapbiomas.org/codigos-de-legenda',
-                  }),
-                  // ui.Label({
-                  //   value:'Indonesia',
-                  //   style:{'fontSize': '10px'},
-                  //   targetUrl:'https://drive.google.com/file/d/1DACRQlH_1k8IxRc75SkKz0d89JB25cEt/view',
-                  // }),
-                ]
-            });
-        },
-
         setMapbiomasRegion: function (regionName) {
 
             App.ui.form.labelDownloads.setUrl(Downloads.pageOf(regionName));
@@ -943,7 +919,6 @@ var App = {
                                       .periods[App.options.dataType]);
                             }
 
-
                         },
                         'style': {
                             'stretch': 'horizontal'
@@ -970,14 +945,10 @@ var App = {
 
         addImageLayer: function (period, label, region) {
 
-
             var image = App.options.data[App.options.dataType]
                 .select([App.options.bandsNames[App.options.dataType] + period])
                 .multiply(ee.Image().paint(region).eq(0));
                 
-
-
-
 
             var imageLayer = ui.Map.Layer({
                 'eeObject': image,
@@ -1046,7 +1017,6 @@ var App = {
                         .select([App.options.bandsNames[App.options.dataType] + period]);
 
                     var region = App.options.activeFeature.geometry();
-
 
                     data = data.multiply(ee.Image().paint(App.options.activeFeature.geometry()).eq(0));
 
@@ -1428,22 +1398,16 @@ var App = {
                     }
                 );
 
-                App.ui.makeLegendLinksList();
-
                 App.ui.form.panelMain.add(App.ui.form.panelLogo);
                 App.ui.form.panelMain.add(App.ui.form.labelTitle);
                 App.ui.form.panelMain.add(App.ui.form.labelSubtitle);
                 App.ui.form.panelMain.add(App.ui.form.labelLegendFiles);
                 App.ui.form.panelMain.add(App.ui.form.labelDownloads);
                 // App.ui.form.panelMain.add(App.ui.form.labelLink);  // substituído pelo link único para os arquivos de legenda
-                // App.ui.form.panelMain.add(App.ui.form.panelLink1);  // substituído pelo link único para os arquivos de legenda
-                // App.ui.form.panelMain.add(App.ui.form.panelLink2);
 
                 App.ui.form.panelMain.add(App.ui.form.panel1);
 
                 
-
-
 
                 
 
@@ -1520,20 +1484,6 @@ var App = {
                 },
             }),
 
-            panelLink1: ui.Panel({
-                'layout': ui.Panel.Layout.flow('horizontal'),
-                'style': {
-                    'stretch': 'horizontal'
-                },
-            }),
-
-            panelLink2: ui.Panel({
-                'layout': ui.Panel.Layout.flow('horizontal'),
-                'style': {
-                    'stretch': 'horizontal'
-                },
-            }),
-
             panelStates: ui.Panel({
                 'layout': ui.Panel.Layout.flow('vertical'),
                 'style': {
@@ -1606,7 +1556,6 @@ var App = {
                     'maxHeight': '90%',
                 },
             }),
-
 
             labelRegion: ui.Label('Region', {
                 // 'fontWeight': 'bold',

@@ -24,6 +24,7 @@
  *    0.0.7 - Link to the region's download page, in place of the hard-coded download links
  *    0.0.8 - Base map styles and legend come from core/v1, not from a personal account
  *    0.1.0 - Breaking: export names and CSV columns standardized; territory drawn in red
+ *    0.1.1 - Removes the legend links that were built at startup and never shown
  *            and centred in every toolkit
  * 
  * @see
@@ -292,7 +293,7 @@ var App = {
 
     options: {
 
-        version: '0.1.0',
+        version: '0.1.1',
 
         logo: {
             uri: 'gs://mapbiomas-public/mapbiomas-logos/mapbiomas-logo-horizontal.b64',
@@ -442,13 +443,6 @@ var App = {
             },
             /*'mapbiomas-indonesia': {},*/
         },
-
-        legendLinks: [
-            {
-              'name': 'Brazil',
-              'url': 'https://brasil.mapbiomas.org/wp-content/uploads/sites/4/2024/06/CODIGO-DE-LEGENDA-FOGO-COLECAO-3.pdf'
-            },
-        ],
 
         bandsNames: {
           'edge_classes':assetsConfig.bordasArea.bandName,
@@ -748,26 +742,6 @@ var App = {
 
         },
 
-        makeLegendLinksList: function () {
-            var labelLinks = App.options.legendLinks.map(
-                function (initiative) {
-                    return ui.Label(initiative.name, {
-                        'fontSize': '10px'
-                    },
-                        initiative.url
-                    );
-                }
-            );
-
-            App.ui.form.panelLink1 = ui.Panel({
-                'layout': ui.Panel.Layout.flow('horizontal', true),
-                'style': {
-                    'stretch': 'horizontal'
-                },
-                'widgets': labelLinks
-            });
-
-        },
 
         setMapbiomasRegion: function (regionName) {
 
@@ -1282,7 +1256,6 @@ var App = {
                     }
                 );
 
-                // App.ui.makeLegendLinksList();
 
                 App.ui.form.panelMain.add(App.ui.form.panelLogo);
                 App.ui.form.panelMain.add(App.ui.form.labelTitle);
@@ -1290,8 +1263,6 @@ var App = {
                 App.ui.form.panelMain.add(App.ui.form.labelLegendFiles);
                 App.ui.form.panelMain.add(App.ui.form.labelDownloads);
                 // App.ui.form.panelMain.add(App.ui.form.labelLink);  // substituído pelo link único para os arquivos de legenda
-                // App.ui.form.panelMain.add(App.ui.form.panelLink1);  // substituído pelo link único para os arquivos de legenda
-                // App.ui.form.panelMain.add(App.ui.form.panelLink2);  // substituído pelo link único para os arquivos de legenda
 
                 App.ui.form.panelMain.add(App.ui.form.panel1);
 
@@ -1367,20 +1338,6 @@ var App = {
                 'style': {
                     'stretch': 'horizontal',
                     'margin': '10px 0px 5px 15px',
-                },
-            }),
-
-            panelLink1: ui.Panel({
-                'layout': ui.Panel.Layout.flow('horizontal'),
-                'style': {
-                    'stretch': 'horizontal'
-                },
-            }),
-
-            panelLink2: ui.Panel({
-                'layout': ui.Panel.Layout.flow('horizontal'),
-                'style': {
-                    'stretch': 'horizontal'
                 },
             }),
 

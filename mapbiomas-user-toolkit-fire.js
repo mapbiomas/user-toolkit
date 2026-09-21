@@ -56,6 +56,7 @@
  *    1.4.16 - Link to the region's download page, in place of the hard-coded download links
  *    1.4.17 - Base map styles and legend come from core/v1, not from a personal account
  *    2.0.0 - Breaking: export names and CSV columns standardized; territory drawn in red
+ *    2.0.1 - Removes the legend links that were built at startup and never shown
  *            and centred in every toolkit
  * 
  */
@@ -77,7 +78,7 @@ var App = {
 
     options: {
 
-        version: '2.0.0',
+        version: '2.0.1',
 
         logo: {
             uri: 'gs://mapbiomas-public/mapbiomas-logos/mapbiomas-logo-horizontal.b64',
@@ -1579,36 +1580,6 @@ var App = {
 
         },
 
-        makeLegendLinksList: function () {
-          
-            App.ui.form.panelLink1 = ui.Panel({
-              'layout': ui.Panel.Layout.flow('horizontal', true),
-              'style': {'stretch': 'horizontal'},
-                'widgets': [
-                  ui.Label({
-                    value:'Brazil',
-                    style:{'fontSize': '10px'},
-                    targetUrl:'https://brasil.mapbiomas.org/wp-content/uploads/sites/4/2026/07/CODIGO-DE-LEGENDA-FOGO-COLECAO-5.pdf',
-                  }),
-                  ui.Label({
-                    value:'Indonesia',
-                    style:{'fontSize': '10px'},
-                    targetUrl:'https://drive.google.com/file/d/1DACRQlH_1k8IxRc75SkKz0d89JB25cEt/view',
-                  }),
-                  ui.Label({
-                    value:'Paraguay',
-                    style:{'fontSize': '10px'},
-                    targetUrl:'https://drive.google.com/file/d/1Ir7pdYf61_x-NRQH-mkodpXvOiiibwSU/view',
-                  }),
-                  ui.Label({
-                    value:'Peru',
-                    style:{'fontSize': '10px'},
-                    targetUrl:'https://drive.google.com/file/d/16IXvJXiZniJh7AQROJqALnIz-QBdgizf/view',
-                  }),
-                ]
-            });
-        },
-
         setMapbiomasRegion: function (regionName) {
 
             App.ui.form.labelDownloads.setUrl(Downloads.pageOf(regionName));
@@ -1690,7 +1661,6 @@ var App = {
   
                               return ; 
                             }
-
 
                               // a coleção 3.1 publica a frequência como fire_recurrence_YYYY_YYYY
                               App.options.data[key] = ee.Image(App.options.collections[regionName][collectioName].assets[key])
@@ -1896,7 +1866,6 @@ var App = {
                                       .periods[App.options.dataType]);
                             }
 
-
                         },
                         'style': {
                             'stretch': 'horizontal'
@@ -1923,14 +1892,10 @@ var App = {
 
         addImageLayer: function (period, label, region) {
 
-
             var image = App.options.data[App.options.dataType]
                 .select([App.options.bandsNames[App.options.dataType] + period])
                 .multiply(ee.Image().paint(region).eq(0));
                 
-
-
-
 
             var imageLayer = ui.Map.Layer({
                 'eeObject': image,
@@ -1999,7 +1964,6 @@ var App = {
                         .select([App.options.bandsNames[App.options.dataType] + period]);
 
                     var region = App.options.activeFeature.geometry();
-
 
                     data = data.multiply(ee.Image().paint(App.options.activeFeature.geometry()).eq(0));
 
@@ -2473,16 +2437,12 @@ var App = {
                     }
                 );
 
-                App.ui.makeLegendLinksList();
-
                 App.ui.form.panelMain.add(App.ui.form.panelLogo);
                 App.ui.form.panelMain.add(App.ui.form.labelTitle);
                 App.ui.form.panelMain.add(App.ui.form.labelSubtitle);
                 // App.ui.form.panelMain.add(App.ui.form.labelLink);  // substituído pelo link único para os arquivos de legenda
-                // App.ui.form.panelMain.add(App.ui.form.panelLink1);  // substituído pelo link único para os arquivos de legenda
                 App.ui.form.panelMain.add(App.ui.form.labelLegendFiles);
                 App.ui.form.panelMain.add(App.ui.form.labelDownloads);
-                // App.ui.form.panelMain.add(App.ui.form.panelLink2);
 
                 App.ui.form.panelMain.add(App.ui.form.panel1);
 
@@ -2565,20 +2525,6 @@ var App = {
                 },
             }),
 
-            panelLink1: ui.Panel({
-                'layout': ui.Panel.Layout.flow('horizontal'),
-                'style': {
-                    'stretch': 'horizontal'
-                },
-            }),
-
-            panelLink2: ui.Panel({
-                'layout': ui.Panel.Layout.flow('horizontal'),
-                'style': {
-                    'stretch': 'horizontal'
-                },
-            }),
-
             panelStates: ui.Panel({
                 'layout': ui.Panel.Layout.flow('vertical'),
                 'style': {
@@ -2651,7 +2597,6 @@ var App = {
                     'maxHeight': '90%',
                 },
             }),
-
 
             labelRegion: ui.Label('Region', {
                 // 'fontWeight': 'bold',
@@ -2886,8 +2831,6 @@ var App = {
         },
     }
 };
-
-
 
  
 
