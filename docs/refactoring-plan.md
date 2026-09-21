@@ -170,6 +170,8 @@ still building it at startup. Removed.
 
 **The tools had gone quietly blind.** `apply_options.js` and `check_options.js` stubbed every `require`, so once the scripts started loading territories and legends that way, `App.options.tables` became a stub and the check "every region has tables" passed on its own. Both now resolve this repository's own modules. Negative test: remove a region from water's `pick()` and the checker reports `mapbiomas-peru: sem tables`.
 
+**The States dropdown is gone.** It sat above the table select in six toolkits, offered the 27 Brazilian states, and filtered the chosen table by a `UF` field. Choosing a state **threw an error** in all six — it reads `App.options.periods`, which no toolkit defines; the periods live under `collections[region][collection]`. The property and feature selects do the same filtering, on any table, with whatever field that table has. Removing it takes ~100 lines out of each of the six, plus the leftover panel and label in fire, soil and degradation, which had the widgets but no select at all.
+
 Still to do in this phase: turning the collection-specific branches into flags.
 
 ### Phase 3: dependencies and cleanup

@@ -80,6 +80,8 @@
  *    2.1.1 - Property and feature selects come from core/v1/panel.js; the feature list no
  *    2.1.2 - Export plumbing comes from core/v1/export.js
  *    2.1.3 - Collections come from data/collections-<theme>.js
+ *    2.2.0 - Removes the States dropdown: it threw an error when used, and the property
+ *            and feature selects do the same filtering on any table
  *            longer repeats a name that several polygons share
  *            legend files, fixing 213 wrong class names across the 17 regions
  *            and centred in every toolkit
@@ -112,42 +114,11 @@ var App = {
 
     options: {
 
-        version: '2.1.3',
+        version: '2.2.0',
 
         logo: {
             uri: 'gs://mapbiomas-public/mapbiomas-logos/mapbiomas-toolkit-logo.b64',
             base64: null
-        },
-
-        statesNames: {
-            'None': 'None',
-            'Acre': '12',
-            'Alagoas': '27',
-            'Amazonas': '13',
-            'Amapá': '16',
-            'Bahia': '29',
-            'Ceará': '23',
-            'Distrito Federal': '53',
-            'Espírito Santo': '32',
-            'Goiás': '52',
-            'Maranhão': '21',
-            'Minas Gerais': '31',
-            'Mato Grosso do Sul': '50',
-            'Mato Grosso': '51',
-            'Pará': '15',
-            'Paraíba': '25',
-            'Pernambuco': '26',
-            'Piauí': '22',
-            'Paraná': '41',
-            'Rio de Janeiro': '33',
-            'Rio Grande do Norte': '24',
-            'Rondônia': '11',
-            'Roraima': '14',
-            'Rio Grande do Sul': '43',
-            'Santa Catarina': '42',
-            'Sergipe': '28',
-            'São Paulo': '35',
-            'Tocantins': '17'
         },
 
         tables: Territories.pick([
@@ -504,8 +475,6 @@ var App = {
                 'onChange': function (tableName) {
                     if (tableName != 'None') {
                         App.options.activeName = tableName;
-                        App.ui.form.panelStates.remove(App.ui.form.labelStates);
-                        App.ui.form.panelStates.remove(App.ui.form.selectStates);
                         ee.Number(1).evaluate(
                             function (a) {
                                 var collectioName = App.ui.form.selectCollection.getValue();
@@ -542,28 +511,6 @@ var App = {
 
         },
 
-        loadTableStates: function (tableName) {
-
-            var state = App.ui.form.selectStates.getValue();
-
-            App.options.table = ee.FeatureCollection(tableName)
-                .filterMetadata('UF', 'equals', parseInt(App.options.statesNames[state], 10));
-
-            App.options.activeFeature = App.options.table;
-
-            Map.centerObject(App.options.activeFeature);
-
-            Map.clear();
-
-            Map.addLayer(App.options.activeFeature.style({
-                color: 'ff0000',
-                width: 1,
-                fillColor: 'ff000033',
-            }), {},
-                App.tableShortName(),
-                true);
-
-        },
 
         loadTable: function (tableName) {
 
@@ -886,7 +833,6 @@ var App = {
                 App.ui.form.panel1.add(App.ui.form.panelRegion);
                 App.ui.form.panel1.add(App.ui.form.panelCollection);
                 App.ui.form.panel1.add(App.ui.form.panelFeatureCollections);
-                App.ui.form.panel1.add(App.ui.form.panelStates);
                 App.ui.form.panel1.add(App.ui.form.panelProperties);
                 App.ui.form.panel1.add(App.ui.form.panelFeature);
                 App.ui.form.panel1.add(App.ui.form.panelDataType);
@@ -916,13 +862,6 @@ var App = {
                 'style': {
                     'stretch': 'horizontal',
                     'margin': '10px 0px 5px 15px',
-                },
-            }),
-
-            panelStates: ui.Panel({
-                'layout': ui.Panel.Layout.flow('vertical'),
-                'style': {
-                    'stretch': 'horizontal'
                 },
             }),
 
@@ -1138,11 +1077,6 @@ var App = {
                 'fontSize': '16px'
             }),
 
-            labelStates: ui.Label('States:', {
-                // 'padding': '1px',
-                'fontSize': '16px'
-            }),
-
             selectName: ui.Select({
                 'items': ['None'],
                 'placeholder': 'None',
@@ -1254,40 +1188,6 @@ var App = {
 
                     App.options.bufferDistance = distances[distance];
                 },
-            }),
-
-            selectStates: ui.Select({
-                'items': [
-                    'None', 'Acre', 'Alagoas', 'Amazonas', 'Amapá', 'Bahia',
-                    'Ceará', 'Distrito Federal', 'Espírito Santo', 'Goiás', 'Maranhão',
-                    'Minas Gerais', 'Mato Grosso do Sul', 'Mato Grosso', 'Pará', 'Paraíba',
-                    'Pernambuco', 'Piauí', 'Paraná', 'Rio de Janeiro', 'Rio Grande do Norte',
-                    'Rondônia', 'Roraima', 'Rio Grande do Sul', 'Santa Catarina', 'Sergipe',
-                    'São Paulo', 'Tocantins'
-                ],
-                'placeholder': 'select state',
-                'onChange': function (state) {
-                    if (state != 'None') {
-
-                        ee.Number(1).evaluate(
-                            function (a) {
-                                App.ui.loadTableStates(App.options.activeName);
-                                App.ui.makeLayersList(
-                                    App.tableShortName(),
-                                    App.options.activeFeature,
-                                    App.options.periods[App.options.dataType]
-                                );
-                                App.ui.loadPropertiesNames();
-                                App.ui.form.selectDataType.setDisabled(false);
-                            }
-                        );
-
-                        App.ui.loadingBox();
-                    }
-                },
-                'style': {
-                    'stretch': 'horizontal'
-                }
             }),
 
             buttonExport2Drive: ui.Button({

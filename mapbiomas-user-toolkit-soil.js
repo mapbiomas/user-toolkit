@@ -34,6 +34,7 @@
  *    2.0.2 - Property and feature selects come from core/v1/panel.js
  *    2.0.3 - Export plumbing comes from core/v1/export.js; the Buffer setting is honoured
  *    2.0.4 - Collections come from data/collections-<theme>.js
+ *    2.0.5 - Removes the leftover widgets of the States dropdown, which had no select
  *            if it is ever shown on the panel, where it is commented out
  *            and centred in every toolkit
  * 
@@ -279,7 +280,7 @@ var App = {
 
     options: {
 
-        version: '2.0.4',
+        version: '2.0.5',
 
         logo: {
             uri: 'gs://mapbiomas-public/mapbiomas-logos/mapbiomas-logo-horizontal.b64',
@@ -587,8 +588,6 @@ var App = {
                 'onChange': function (tableName) {
                     if (tableName != 'None') {
                         App.options.activeName = tableName;
-                        App.ui.form.panelStates.remove(App.ui.form.labelStates);
-                        App.ui.form.panelStates.remove(App.ui.form.selectStates);
                         ee.Number(1).evaluate(
                             function (a) {
                                 var collectioName = App.ui.form.selectCollection.getValue();
@@ -1215,7 +1214,6 @@ var App = {
                 App.ui.form.panel1.add(App.ui.form.panelRegion);
                 App.ui.form.panel1.add(App.ui.form.panelCollection);
                 App.ui.form.panel1.add(App.ui.form.panelFeatureCollections);
-                App.ui.form.panel1.add(App.ui.form.panelStates);
                 App.ui.form.panel1.add(App.ui.form.panelProperties);
                 App.ui.form.panel1.add(App.ui.form.panelFeature);
                 // App.ui.form.panel1.add(App.ui.form.panelBuffer);
@@ -1261,13 +1259,6 @@ var App = {
                 'style': {
                     'stretch': 'horizontal',
                     'margin': '10px 0px 5px 15px',
-                },
-            }),
-
-            panelStates: ui.Panel({
-                'layout': ui.Panel.Layout.flow('vertical'),
-                'style': {
-                    'stretch': 'horizontal'
                 },
             }),
 
@@ -1415,11 +1406,6 @@ var App = {
             }),
 
             labelNotes: ui.Label('Click the RUN button in the TASK tab at the upper-right corner.', {
-                // 'padding': '1px',
-                'fontSize': '16px'
-            }),
-
-            labelStates: ui.Label('States:', {
                 // 'padding': '1px',
                 'fontSize': '16px'
             }),
