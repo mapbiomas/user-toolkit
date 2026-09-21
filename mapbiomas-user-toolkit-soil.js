@@ -261,6 +261,8 @@ var palettes = require('users/mapbiomas/modules:Palettes.js');
 // var fire_palettes = require('users/workspaceipam/packages:mapbiomas-toolkit/utils/palettes');
 var logos = require('users/workspaceipam/packages:mapbiomas-toolkit/utils/b64');
 
+var Naming = require('users/mapbiomas/user-toolkit:core/v1/naming.js');
+
 var App = {
 
     options: {
@@ -691,30 +693,10 @@ var App = {
     },
 
     /**
-     * Nome curto do território ativo para camadas e arquivos exportados. Os vetores
-     * ingeridos pela plataforma terminam num UUID, então usamos o rótulo da tabela.
+     * Short name of the active territory, for layers and exported files.
      */
     tableShortName: function () {
-        var path = App.options.activeName;
-        var label = null;
-
-        Object.keys(App.options.tables).forEach(function (region) {
-            App.options.tables[region].forEach(function (table) {
-                if (table.value === path) {
-                    label = table.label;
-                }
-            });
-        });
-
-        if (label === null) {
-            return path.split('/').slice(-1)[0];
-        }
-
-        // o Code Editor não tem String.prototype.normalize (ES5)
-        return label.toLowerCase()
-            .replace(/[áàâãä]/g, 'a').replace(/[éèêë]/g, 'e').replace(/[íìîï]/g, 'i')
-            .replace(/[óòôõö]/g, 'o').replace(/[úùûü]/g, 'u').replace(/ç/g, 'c').replace(/ñ/g, 'n')
-            .replace(/[^a-z0-9]+/g, '_').replace(/^_+|_+$/g, '');
+        return Naming.tableShortName(App.options.tables, App.options.activeName);
     },
 
     setVersion: function () {

@@ -72,6 +72,19 @@ data/<theme>.js                     generated: collections, territories, palette
 - Start with pure helpers (area table, class decoding, naming), then the panel flow.
 - Migrate from the simplest toolkit to the most complex: pasture → irrigation → mining → water → deforestation-regeneration → lulc.
 
+**Done so far**
+
+| Module | What it holds | Who uses it |
+|---|---|---|
+| `core/v1/area.js` | area per class for the CSV, with `areaColumn` and an optional `unit` | every toolkit but soil, which averages a continuous value |
+| `core/v1/naming.js` | `formatName` (file names) and `tableShortName` (layers and files) | all nine |
+
+The scripts require them as `require('users/mapbiomas/user-toolkit:core/v1/<file>.js')`, which is why `core/` is published to the GEE repository too. It removed 869 lines with no change in behavior: the snapshots are identical, and in the Code Editor pasture, lulc and fire rendered and exported, with all six tasks reaching `SUCCEEDED`. The area CSVs of fire (`area ha`) and pasture (`area` + `unit`) came out byte-identical to the runs from before the move.
+
+The only deliberate difference: `formatName` now also strips `[` and `]`, which only lulc did.
+
+Next: the panel flow (`loadTablesNames`, `loadFeature`, `makeLayersList`, `export2Drive`), starting with pasture.
+
 ### Phase 2: data out of the code
 - The maintenance tools generate `data/<theme>.js` instead of patching `App.options`.
 - Collection-specific branches become flags in the data: `encoding`, `legend`, `bandPrefix`.

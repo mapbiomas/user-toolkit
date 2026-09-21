@@ -82,76 +82,9 @@
 var palettes = require('users/mapbiomas/modules:Palettes.js');
 var logos = require('users/mapbiomas/modules:Logos.js');
 
-/**
- * @description
- *    calculate area for mapbiomas map
- * 
- * @author
- *    João Siqueira
- * 
- */
-var Area = {
+var Area = require('users/mapbiomas/user-toolkit:core/v1/area.js');
+var Naming = require('users/mapbiomas/user-toolkit:core/v1/naming.js');
 
-    /**
-     * Convert a complex obj to feature collection
-     * @param obj 
-     */
-    convert2table: function (obj) {
-
-        obj = ee.Dictionary(obj);
-
-        var classesAndAreas = ee.List(obj.get('groups'));
-
-        var tableRows = classesAndAreas.map(
-            function (classAndArea) {
-                classAndArea = ee.Dictionary(classAndArea);
-
-                var classId = classAndArea.get('class');
-                var area = classAndArea.get('sum');
-
-                var tableColumns = ee.Feature(null)
-                    .set('class', classId)
-                    .set('area_km2', area);
-
-                return tableColumns;
-            }
-        );
-
-        return ee.FeatureCollection(ee.List(tableRows));
-    },
-
-    /**
-     * Calculate area crossing a cover map (deforestation, mapbiomas)
-     * and a region map (states, biomes, municipalites)
-     * @param image 
-     * @param territory 
-     * @param geometry
-     * @param scale
-     * @param factor
-     */
-    calculate: function (object) {
-
-        var reducer = ee.Reducer.sum().group(1, 'class').group(1, 'territory');
-        var pixelArea = ee.Image.pixelArea().divide(object.factor);
-
-        var territotiesData = pixelArea.addBands(object.territory).addBands(object.image)
-            .reduceRegion({
-                reducer: reducer,
-                geometry: object.geometry,
-                scale: object.scale,
-                maxPixels: 1e13
-            });
-
-        territotiesData = ee.List(territotiesData.get('groups'));
-        // print(territotiesData);
-        var areas = territotiesData.map(Area.convert2table);
-
-        areas = ee.FeatureCollection(areas).flatten();
-
-        return areas;
-    }
-
-};
 
 /**
  * 
@@ -4180,30 +4113,10 @@ var App = {
     },
 
     /**
-     * Nome curto do território ativo para camadas e arquivos exportados. Os vetores
-     * ingeridos pela plataforma terminam num UUID, então usamos o rótulo da tabela.
+     * Short name of the active territory, for layers and exported files.
      */
     tableShortName: function () {
-        var path = App.options.activeName;
-        var label = null;
-
-        Object.keys(App.options.tables).forEach(function (region) {
-            App.options.tables[region].forEach(function (table) {
-                if (table.value === path) {
-                    label = table.label;
-                }
-            });
-        });
-
-        if (label === null) {
-            return path.split('/').slice(-1)[0];
-        }
-
-        // o Code Editor não tem String.prototype.normalize (ES5)
-        return label.toLowerCase()
-            .replace(/[áàâãä]/g, 'a').replace(/[éèêë]/g, 'e').replace(/[íìîï]/g, 'i')
-            .replace(/[óòôõö]/g, 'o').replace(/[úùûü]/g, 'u').replace(/ç/g, 'c').replace(/ñ/g, 'n')
-            .replace(/[^a-z0-9]+/g, '_').replace(/^_+|_+$/g, '');
+        return Naming.tableShortName(App.options.tables, App.options.activeName);
     },
 
     setVersion: function () {
@@ -4222,34 +4135,7 @@ var App = {
     },
 
     formatName: function (name) {
-
-        var formated = name
-            .toLowerCase()
-            .replace(/á/g, 'a')
-            .replace(/à/g, 'a')
-            .replace(/â/g, 'a')
-            .replace(/ã/g, 'a')
-            .replace(/ä/g, 'a')
-            .replace(/ª/g, 'a')
-            .replace(/é/g, 'e')
-            .replace(/ê/g, 'e')
-            .replace(/í/g, 'i')
-            .replace(/ó/g, 'o')
-            .replace(/ô/g, 'o')
-            .replace(/õ/g, 'o')
-            .replace(/ú/g, 'u')
-            .replace(/û/g, 'u')
-            .replace(/ũ/g, 'u')
-            .replace(/ç/g, 'c')
-            .replace(/ñ/g, 'n')
-            .replace(/&/g, '')
-            .replace(/@/g, '')
-            .replace(/ /g, '')
-            .replace(/\[/g, '') // Nova substituição para o caractere '['
-            .replace(/\]/g, '') // Nova substituição para o caractere ']'
-            .replace(/["'()\/]/g, '');
-
-        return formated;
+        return Naming.formatName(name);
     },
 
     remapTransitions: function (image) {
@@ -4818,6 +4704,7 @@ var App = {
                         "geometry": geometry,
                         "scale": 30,
                         "factor": 1000000,
+                        "areaColumn": 'area_km2',
                     });
 
                     area = ee.FeatureCollection(area).map(

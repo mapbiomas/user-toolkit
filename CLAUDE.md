@@ -23,12 +23,20 @@ A clone of the GEE repo is kept next to this one, in `../user-toolkit-gee`. Git 
 - **Before editing here:** run `git fetch` in `../user-toolkit-gee` and compare its `.js` files with this repo's. If someone edited a script in the Code Editor, bring that change over first.
 - **To publish:** commit and push here (GitHub). Then, in `../user-toolkit-gee`, `git fetch` and confirm `HEAD == origin/master`, so no Code Editor edits get overwritten. Copy over the `.js` files that already exist there (don't add `mosaics.js`), commit with a message that cites the GitHub commit hash, and `git -c credential.helper= push origin master`.
 
+## Shared code: `core/`
+
+The refactoring is moving the duplicated engine into `core/v1/`, which the scripts load with GEE's require: `require('users/mapbiomas/user-toolkit:core/v1/area.js')`. So `core/` has to be pushed to the GEE repository too, and **before** the scripts that require it, or they break for everyone. `core/` is versioned by folder: a breaking change goes to `core/v2/` and each toolkit moves over once tested.
+
+So far: `core/v1/area.js` (area per class for the CSV; `areaColumn` and optional `unit` keep each toolkit's current columns) and `core/v1/naming.js` (`formatName`, `tableShortName`). The soil toolkit keeps its own `Area`, because it averages a continuous value instead of summing areas.
+
+`tests/harness.js` resolves these requires to the local files, so the snapshots keep covering them.
+
 ## Architecture of a toolkit script
 
-Each `mapbiomas-user-toolkit-<theme>.js` is self-contained. The large ones (lulc, fire, water, etc.) share the same shape:
+Each `mapbiomas-user-toolkit-<theme>.js` is still mostly self-contained. The large ones (lulc, fire, water, etc.) share the same shape:
 
 - **Header JSDoc** with `@version` history. Each release adds a line here.
-- **`Area`** object: area-per-class calculation using `reduceRegion` with a grouped `ee.Reducer.sum()`, for the CSV export.
+- **`Area`**: area-per-class calculation using `reduceRegion` with a grouped `ee.Reducer.sum()`, for the CSV export. Now `core/v1/area.js`, except in soil.
 - **`App`** object:
   - `App.options`: all configuration as data. `version` is shown in the UI title. `tables[region]` holds the default territory vectors (`{label, value: assetId}`). `collections[region]['collection-X.Y']` holds `assets` (integration / transitions / quality image IDs) and `periods` (`Coverage` years and `Transitions` `"YYYY_YYYY"` pairs). An entry can also carry per-collection flags: `encoding: 'x100'|'raw'` in deforestation-regeneration (older assets store class×100+coverage, newer ones store the class 0–7 directly), `encoding: 'raw'` in irrigation, and `legend: 'c11'` in mining (the C11 substance codes use a different style set, `App.options.c11`). The remaining keys are `palettes[region]`, `bandsNames`, `ranges`, `palette`, and `className`. In lulc, `palettes[region]` is an embedded color list indexed by class value. A string is still accepted as a `Palettes.js` palette name, but those palettes stop before the newer classes (77, 84, 92…).
   - `App.ui.form`: builds the side panel (region → collection → table → property → feature → buffer → layers), then zooms, adds layers, and exports.

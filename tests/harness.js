@@ -232,6 +232,32 @@ function makeExport(log) {
     };
 }
 
+// ------------------------------------------------------------------ require
+
+var path = require('path');
+
+// this repository, as the Code Editor addresses it
+var THIS_REPO = 'users/mapbiomas/user-toolkit:';
+var ROOT = path.join(__dirname, '..');
+
+// `require('users/mapbiomas/user-toolkit:core/v1/area.js')` loads the real file,
+// in the same mocked context. Any other module (Mapp, Legend, Palettes…) lives in
+// GEE and stays a stand-in.
+function makeRequire(ctx) {
+    var cache = {};
+    return function (id) {
+        if (String(id).indexOf(THIS_REPO) !== 0) { return eeObject(['require']); }
+        var rel = String(id).slice(THIS_REPO.length);
+        if (!cache[rel]) {
+            var exported = {};
+            var src = fs.readFileSync(path.join(ROOT, rel), 'utf8');
+            vm.runInContext('(function (exports) {\n' + src + '\n})', ctx, { timeout: 20000 })(exported);
+            cache[rel] = exported;
+        }
+        return cache[rel];
+    };
+}
+
 // ------------------------------------------------------------------ load
 
 function load(file) {
@@ -244,11 +270,12 @@ function load(file) {
         Export: makeExport(log),
         Chart: made.ui.Chart,
         print: function () { log.prints++; },
-        require: function () { return eeObject(['require']); },
         console: console
     };
+    vm.createContext(ctx);
+    ctx.require = makeRequire(ctx);
     var src = fs.readFileSync(file, 'utf8');
-    vm.runInNewContext(src + '\n;this.__App = (typeof App !== "undefined") ? App : null;', ctx, { timeout: 20000 });
+    vm.runInContext(src + '\n;this.__App = (typeof App !== "undefined") ? App : null;', ctx, { timeout: 20000 });
     return { App: ctx.__App, log: log, widgets: made.widgets };
 }
 
