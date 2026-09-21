@@ -97,6 +97,27 @@ Next: the rest of the panel flow (`loadTable`, `loadFeature`, `loadPropertiesNam
 - The maintenance tools generate `data/<theme>.js` instead of patching `App.options`.
 - Collection-specific branches become flags in the data: `encoding`, `legend`, `bandPrefix`.
 
+**Done so far**
+
+`data/territories.js` holds the 238 official territories of 18 regions. Every region's list was byte-identical in every toolkit that carried it, so this was the same data written out nine times: 3,426 lines of it. Each script now declares only the regions it covers:
+
+```js
+tables: Territories.pick([
+    'mapbiomas-brazil',
+    'mapbiomas-peru'
+])
+```
+
+`pick` returns `[]` for a region that isn't in the data, so a toolkit whose region list and table list disagree ends up with an empty select instead of an error.
+
+`toolkit/build_territories.py` in the private repository now writes this whole file, instead of a block to paste into nine scripts. Its output is what is committed, so the next refresh is a clean diff. Regenerating it added Suriname, which the tools had already collected and no toolkit offers yet; it costs nothing to carry and is there when a toolkit wants it.
+
+Verified by dumping `App.options.tables` from all nine toolkits before and after: identical. In the Code Editor, lulc loaded and Ecuador listed its 26 territories.
+
+Also removed the last leftover debug prints, in lulc (1.36.3) and degradation (0.0.6).
+
+Still to do in this phase: the `collections` blocks, which are per theme and much less repetitive, and turning the collection-specific branches into flags.
+
 ### Phase 3: dependencies and cleanup
 - Bring `Mapp`, `Legend` and the fire palettes and logos into `core/`.
 - Replace `ee.data.getAssetRoots()` with a listing of the `MAPBIOMAS` folder in the user's Cloud project, and allow pasting a table path.

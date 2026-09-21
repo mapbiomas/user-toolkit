@@ -1,6 +1,6 @@
 {
  "toolkit": "lulc",
- "version": "1.36.2",
+ "version": "1.36.3",
  "regions": {
   "mapbiomas-amazon": {
    "collections": {
