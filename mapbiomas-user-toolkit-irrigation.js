@@ -25,6 +25,7 @@
  *    2.0.0 - Breaking: export names and CSV columns standardized; territory drawn in red
  *    2.0.1 - Property and feature selects come from core/v1/panel.js; the feature list no
  *    2.0.2 - Export plumbing comes from core/v1/export.js
+ *    2.0.3 - Collections come from data/collections-<theme>.js
  *            longer repeats a name that several polygons share
  *            and centred in every toolkit
  * 
@@ -45,6 +46,7 @@ var Territory = require('users/mapbiomas/user-toolkit:core/v1/territory.js');
 
 var Territories = require('users/mapbiomas/user-toolkit:data/territories.js');
 var Downloads = require('users/mapbiomas/user-toolkit:data/downloads.js');
+var Collections = require('users/mapbiomas/user-toolkit:data/collections-irrigation.js');
 var Panel = require('users/mapbiomas/user-toolkit:core/v1/panel.js');
 var Exports = require('users/mapbiomas/user-toolkit:core/v1/export.js');
 
@@ -56,7 +58,7 @@ var App = {
 
     options: {
 
-        version: '2.0.2',
+        version: '2.0.3',
 
         logo: {
             uri: 'gs://mapbiomas-public/mapbiomas-logos/mapbiomas-toolkit-logo.b64',
@@ -98,154 +100,9 @@ var App = {
             'mapbiomas-brazil'
         ]),
 
-        collections: {
-            'mapbiomas-brazil': {
-                'collection-6.0': {
-                    'assets': {
-                        'irrigated_agriculture': 'projects/mapbiomas-public/assets/brazil/lulc/collection6/mapbiomas_collection60_irrigated_agriculture_v1',
-                    },
-                    'periods': {
-                        'irrigated_agriculture': [
-                            '1985', '1986', '1987', '1988',
-                            '1989', '1990', '1991', '1992',
-                            '1993', '1994', '1995', '1996',
-                            '1997', '1998', '1999', '2000',
-                            '2001', '2002', '2003', '2004',
-                            '2005', '2006', '2007', '2008',
-                            '2009', '2010', '2011', '2012',
-                            '2013', '2014', '2015', '2016',
-                            '2017', '2018', '2019', '2020'
-                        ],
-                        'agriculture': [
-                            '1985', '1986', '1987', '1988',
-                            '1989', '1990', '1991', '1992',
-                            '1993', '1994', '1995', '1996',
-                            '1997', '1998', '1999', '2000',
-                            '2001', '2002', '2003', '2004',
-                            '2005', '2006', '2007', '2008',
-                            '2009', '2010', '2011', '2012',
-                            '2013', '2014', '2015', '2016',
-                            '2017', '2018', '2019', '2020'
-                        ],
-                    },
-                },
-                'collection-7.0': {
-                    'assets': {
-                        'irrigated_agriculture': 'projects/mapbiomas-public/assets/brazil/lulc/collection7/mapbiomas_collection70_irrigated_agriculture_v3',
-                    },
-                    'periods': {
-                        'irrigated_agriculture': [
-                            '1985', '1986', '1987', '1988',
-                            '1989', '1990', '1991', '1992',
-                            '1993', '1994', '1995', '1996',
-                            '1997', '1998', '1999', '2000',
-                            '2001', '2002', '2003', '2004',
-                            '2005', '2006', '2007', '2008',
-                            '2009', '2010', '2011', '2012',
-                            '2013', '2014', '2015', '2016',
-                            '2017', '2018', '2019', '2020',
-                            '2021'
-                        ],
-                        'agriculture': [
-                            '1985', '1986', '1987', '1988',
-                            '1989', '1990', '1991', '1992',
-                            '1993', '1994', '1995', '1996',
-                            '1997', '1998', '1999', '2000',
-                            '2001', '2002', '2003', '2004',
-                            '2005', '2006', '2007', '2008',
-                            '2009', '2010', '2011', '2012',
-                            '2013', '2014', '2015', '2016',
-                            '2017', '2018', '2019', '2020',
-                            '2021'
-                        ],
-                    },
-                },
-                'collection-8.0': {
-                    'assets': {
-                        'irrigated_agriculture': 'projects/mapbiomas-public/assets/brazil/lulc/collection8/mapbiomas_collection80_irrigated_agriculture_v1',
-                    },
-                    'periods': {
-                        'irrigated_agriculture': [
-                            '1985', '1986', '1987', '1988',
-                            '1989', '1990', '1991', '1992',
-                            '1993', '1994', '1995', '1996',
-                            '1997', '1998', '1999', '2000',
-                            '2001', '2002', '2003', '2004',
-                            '2005', '2006', '2007', '2008',
-                            '2009', '2010', '2011', '2012',
-                            '2013', '2014', '2015', '2016',
-                            '2017', '2018', '2019', '2020',
-                            '2021', '2022'
-                        ],
-                        'agriculture': [
-                            '1985', '1986', '1987', '1988',
-                            '1989', '1990', '1991', '1992',
-                            '1993', '1994', '1995', '1996',
-                            '1997', '1998', '1999', '2000',
-                            '2001', '2002', '2003', '2004',
-                            '2005', '2006', '2007', '2008',
-                            '2009', '2010', '2011', '2012',
-                            '2013', '2014', '2015', '2016',
-                            '2017', '2018', '2019', '2020',
-                            '2021', '2022'
-                        ],
-                    },
-                },
-                'collection-9.0': {
-                    'assets': {
-                        'irrigated_agriculture': 'projects/mapbiomas-public/assets/brazil/lulc/collection9/mapbiomas_collection90_irrigated_agriculture_v1',
-                    },
-                    'periods': {
-                        'irrigated_agriculture': [
-                            '1985', '1986', '1987', '1988',
-                            '1989', '1990', '1991', '1992',
-                            '1993', '1994', '1995', '1996',
-                            '1997', '1998', '1999', '2000',
-                            '2001', '2002', '2003', '2004',
-                            '2005', '2006', '2007', '2008',
-                            '2009', '2010', '2011', '2012',
-                            '2013', '2014', '2015', '2016',
-                            '2017', '2018', '2019', '2020',
-                            '2021', '2022', '2023'
-                        ],
-                        'agriculture': [
-                            '1985', '1986', '1987', '1988',
-                            '1989', '1990', '1991', '1992',
-                            '1993', '1994', '1995', '1996',
-                            '1997', '1998', '1999', '2000',
-                            '2001', '2002', '2003', '2004',
-                            '2005', '2006', '2007', '2008',
-                            '2009', '2010', '2011', '2012',
-                            '2013', '2014', '2015', '2016',
-                            '2017', '2018', '2019', '2020',
-                            '2021', '2022', '2023'
-                        ],
-                    },
-                },
-                'collection-11.0': {
-                    'assets': {
-                        'irrigated_agriculture': 'projects/mapbiomas-public/assets/brazil/lulc/collection11/mapbiomas_brazil_collection11_agriculture_irrigation_systems_v1',
-                    },
-                    'encoding': 'raw',
-                    'legend': 'c11',
-                    'periods': {
-                        'irrigated_agriculture': [
-                            '1985', '1986', '1987', '1988',
-                            '1989', '1990', '1991', '1992',
-                            '1993', '1994', '1995', '1996',
-                            '1997', '1998', '1999', '2000',
-                            '2001', '2002', '2003', '2004',
-                            '2005', '2006', '2007', '2008',
-                            '2009', '2010', '2011', '2012',
-                            '2013', '2014', '2015', '2016',
-                            '2017', '2018', '2019', '2020',
-                            '2021', '2022', '2023', '2024',
-                            '2025'
-                        ],
-                    },
-                },
-            },
-        },
+        collections: Collections.pick([
+            'mapbiomas-brazil'
+        ]),
 
         bandsNames: { //TODO: ajustar o nome das bandas no asset publico
             'irrigated_agriculture': 'irrigated_agriculture',

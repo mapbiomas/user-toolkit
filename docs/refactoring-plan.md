@@ -164,7 +164,13 @@ panel of per-region links that has not been added to the interface since the
 single legend-files link replaced it. lulc, fire, soil and degradation were
 still building it at startup. Removed.
 
-Still to do in this phase: the `collections` blocks, which are per theme and much less repetitive, and turning the collection-specific branches into flags.
+**`data/collections-<theme>.js`: the assets and periods.** 5,080 lines left the scripts. Unlike the territories this is not duplication — each theme has its own collections — so the win is elsewhere: the maintenance tools now write a file instead of patching a block inside a script, which is far less fragile. Verified by dumping `App.options.collections` from all nine before and after (identical) and by running `build_patches.py pasture` for real: it reported `collections-pasture.js` and the file came out byte-identical.
+
+**Degradation keeps its collections inline, on purpose.** Its block is not data: it references `assetsConfig`, a theme configuration object built earlier in the script, and holds live `ee.Image` objects. Moving it would drag unrelated UI configuration along or mean restructuring how that beta toolkit is configured, which is more than this slice is worth.
+
+**The tools had gone quietly blind.** `apply_options.js` and `check_options.js` stubbed every `require`, so once the scripts started loading territories and legends that way, `App.options.tables` became a stub and the check "every region has tables" passed on its own. Both now resolve this repository's own modules. Negative test: remove a region from water's `pick()` and the checker reports `mapbiomas-peru: sem tables`.
+
+Still to do in this phase: turning the collection-specific branches into flags.
 
 ### Phase 3: dependencies and cleanup
 - Bring `Mapp`, `Legend` and the fire palettes and logos into `core/`.

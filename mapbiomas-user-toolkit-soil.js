@@ -33,6 +33,7 @@
  *    2.0.1 - Removes the legend links that were built at startup and never shown
  *    2.0.2 - Property and feature selects come from core/v1/panel.js
  *    2.0.3 - Export plumbing comes from core/v1/export.js; the Buffer setting is honoured
+ *    2.0.4 - Collections come from data/collections-<theme>.js
  *            if it is ever shown on the panel, where it is commented out
  *            and centred in every toolkit
  * 
@@ -270,6 +271,7 @@ var Territory = require('users/mapbiomas/user-toolkit:core/v1/territory.js');
 
 var Territories = require('users/mapbiomas/user-toolkit:data/territories.js');
 var Downloads = require('users/mapbiomas/user-toolkit:data/downloads.js');
+var Collections = require('users/mapbiomas/user-toolkit:data/collections-soil.js');
 var Panel = require('users/mapbiomas/user-toolkit:core/v1/panel.js');
 var Exports = require('users/mapbiomas/user-toolkit:core/v1/export.js');
 
@@ -277,7 +279,7 @@ var App = {
 
     options: {
 
-        version: '2.0.3',
+        version: '2.0.4',
 
         logo: {
             uri: 'gs://mapbiomas-public/mapbiomas-logos/mapbiomas-logo-horizontal.b64',
@@ -288,184 +290,9 @@ var App = {
             'mapbiomas-brazil'
         ]),
 
-        collections: {
-            'mapbiomas-brazil': {
-                'collection1-beta': {
-                    'assets': {
-                        'soc_t_ha_000_030cm': 'projects/mapbiomas-public/assets/brazil/soil/collection1/mapbiomas_soil_collection1_soil_organic_carbon_0_30cm_t_ha_v1',
-                        // 'soc_kg_m2_000_030cm': 'projects/mapbiomas-public/assets/brazil/soil/collection1/mapbiomas_soil_collection1_soil_organic_carbon_0_30cm_kg_m2_v1',
-                    },
-                    'periods': {
-                        'soc_t_ha_000_030cm': [
-                            '1985', '1986', '1987', '1988', '1989', '1990',
-                            '1991', '1992', '1993', '1994', '1995', '1996',
-                            '1997', '1998', '1999', '2000', '2001', '2002',
-                            '2003', '2004', '2005', '2006', '2007', '2008',
-                            '2009', '2010', '2011', '2012', '2013', '2014',
-                            '2015', '2016', '2017', '2018', '2019', '2020',
-                            '2021',
-                        ],
-                        'soc_kg_m2_000_030cm': [
-                            '1985', '1986', '1987', '1988', '1989', '1990',
-                            '1991', '1992', '1993', '1994', '1995', '1996',
-                            '1997', '1998', '1999', '2000', '2001', '2002',
-                            '2003', '2004', '2005', '2006', '2007', '2008',
-                            '2009', '2010', '2011', '2012', '2013', '2014',
-                            '2015', '2016', '2017', '2018', '2019', '2020',
-                            '2021'
-                        ],
-                    },
-                    'coverage_reference':ee.Image('projects/mapbiomas-public/assets/brazil/lulc/collection7_1/mapbiomas_collection71_integration_v1')
-                },
-                'collection2-beta': {
-                    'assets': {
-                        'soc_t_ha_000_030cm':'projects/mapbiomas-public/assets/brazil/soil/collection2/mapbiomas_soil_collection2_soc_t_ha_000_030cm',
-                        // 'soc_kg_m2_000_030cm':'projects/mapbiomas-public/assets/brazil/soil/collection2/mapbiomas_soil_collection2_soc_kg_m2_000_030cm',
-                        'granulometry_clay_percent':'projects/mapbiomas-public/assets/brazil/soil/collection2/mapbiomas_soil_collection2_granulometry_clay_percentage',
-                        'granulometry_sand_percent':'projects/mapbiomas-public/assets/brazil/soil/collection2/mapbiomas_soil_collection2_granulometry_sand_percentage',
-                        'granulometry_silt_percent':'projects/mapbiomas-public/assets/brazil/soil/collection2/mapbiomas_soil_collection2_granulometry_silt_percentage',
-                        'textural_classes':'projects/mapbiomas-public/assets/brazil/soil/collection2/mapbiomas_soil_collection2_textural_classes',
-                        'textural_subgroups':'projects/mapbiomas-public/assets/brazil/soil/collection2/mapbiomas_soil_collection2_textural_subgroups',
-                        'textural_groups':'projects/mapbiomas-public/assets/brazil/soil/collection2/mapbiomas_soil_collection2_textural_groups',
-                    },
-                    'periods': {
-                        'soc_t_ha_000_030cm': [
-                          '1985','1986','1987','1988','1989','1990','1991','1992','1993','1994',
-                          '1995','1996','1997','1998','1999','2000','2001','2002','2003','2004',
-                          '2005','2006','2007','2008','2009','2010','2011','2012','2013','2014',
-                          '2015','2016','2017','2018','2019','2020','2021','2022','2023',
-                        ],
-                        'soc_kg_m2_000_030cm':[
-                          '1985','1986','1987','1988','1989','1990','1991','1992','1993','1994',
-                          '1995','1996','1997','1998','1999','2000','2001','2002','2003','2004',
-                          '2005','2006','2007','2008','2009','2010','2011','2012','2013','2014',
-                          '2015','2016','2017','2018','2019','2020','2021','2022','2023',
-                        ],                        
-                        'granulometry_clay_percent': [
-                          '000_010cm',
-                          '010_020cm',
-                          '020_030cm',
-                          '000_020cm',
-                          '000_030cm',
-                        ],
-                        'granulometry_sand_percent':[
-                          '000_010cm',
-                          '010_020cm',
-                          '020_030cm',
-                          '000_020cm',
-                          '000_030cm',
-                        ],
-                        'granulometry_silt_percent':[
-                          '000_010cm',
-                          '010_020cm',
-                          '020_030cm',
-                          '000_020cm',
-                          '000_030cm',
-                        ],
-                        'textural_classes':[
-                          '000_010cm',
-                          '000_020cm',
-                          '000_030cm',
-                        ],
-                        'textural_subgroups':[
-                          '000_010cm',
-                          '000_020cm',
-                          '000_030cm',
-                        ],
-                        'textural_groups':[
-                          '000_010cm',
-                          '000_020cm',
-                          '000_030cm',
-                        ],
-                    },
-                    'coverage_reference':ee.Image('projects/mapbiomas-public/assets/brazil/lulc/collection9/mapbiomas_collection90_integration_v1'),
-                },
-                'collection2_1-beta': {
-                    'assets': {
-                        'soc_t_ha_000_030cm':carbon_2_1,
-                        'granulometry_clay_percent':clay_fraction_2_1,
-                        'granulometry_sand_percent':sand_fraction_2_1,
-                        'granulometry_silt_percent':silt_fraction_2_1,
-                        'textural_classes':textural_class_2_1,
-                        'textural_subgroups':textural_subgroup_2_1,
-                        'textural_groups':textural_group_2_1,
-                    },
-                    'periods': {
-                        'soc_t_ha_000_030cm': [
-                          '1985','1986','1987','1988','1989','1990','1991','1992','1993','1994',
-                          '1995','1996','1997','1998','1999','2000','2001','2002','2003','2004',
-                          '2005','2006','2007','2008','2009','2010','2011','2012','2013','2014',
-                          '2015','2016','2017','2018','2019','2020','2021','2022','2023','2024'
-                        ],
-                        'granulometry_clay_percent': [
-                          '000_010cm',
-                          '010_020cm',
-                          '020_030cm',
-                          '000_020cm',
-                          '000_030cm',
-                        ],
-                        'granulometry_sand_percent':[
-                          '000_010cm',
-                          '010_020cm',
-                          '020_030cm',
-                          '000_020cm',
-                          '000_030cm',
-                        ],
-                        'granulometry_silt_percent':[
-                          '000_010cm',
-                          '010_020cm',
-                          '020_030cm',
-                          '000_020cm',
-                          '000_030cm',
-                        ],
-                        'textural_classes':[
-                          '000_010cm',
-                          '000_020cm',
-                          '000_030cm',
-                        ],
-                        'textural_subgroups':[
-                          '000_010cm',
-                          '000_020cm',
-                          '000_030cm',
-                        ],
-                        'textural_groups':[
-                          '000_010cm',
-                          '000_020cm',
-                          '000_030cm',
-                        ],
-                    },
-                    'coverage_reference':ee.Image('projects/mapbiomas-public/assets/brazil/lulc/collection10/mapbiomas_brazil_collection10_integration_v1').slice(0,-1),
-                },
-                'collection3-beta': {
-                    'assets': {
-                        'soc_t_ha_000_030cm':carbon_3,
-                        'granulometry_clay_percent':clay_fraction_3,
-                        'granulometry_sand_percent':sand_fraction_3,
-                        'granulometry_silt_percent':silt_fraction_3,
-                        'textural_classes':textural_class_3,
-                        'textural_subgroups':textural_subgroup_3,
-                        'textural_groups':textural_group_3,
-                        'stoniness':stoniness_3,
-                    },
-                    'periods': {
-                        'soc_t_ha_000_030cm': [
-                          '1985','1986','1987','1988','1989','1990','1991','1992','1993','1994',
-                          '1995','1996','1997','1998','1999','2000','2001','2002','2003','2004',
-                          '2005','2006','2007','2008','2009','2010','2011','2012','2013','2014',
-                          '2015','2016','2017','2018','2019','2020','2021','2022','2023','2024'
-                        ],
-                        'granulometry_clay_percent': ['000_010cm', '010_020cm', '020_030cm', '030_040cm', '040_050cm', '050_060cm', '060_070cm', '070_080cm', '080_090cm', '090_100cm'],
-                        'granulometry_sand_percent': ['000_010cm', '010_020cm', '020_030cm', '030_040cm', '040_050cm', '050_060cm', '060_070cm', '070_080cm', '080_090cm', '090_100cm'],
-                        'granulometry_silt_percent': ['000_010cm', '010_020cm', '020_030cm', '030_040cm', '040_050cm', '050_060cm', '060_070cm', '070_080cm', '080_090cm', '090_100cm'],
-                        'textural_classes': ['000_010cm','000_020cm','000_030cm','020_040cm','030_060cm','060_100cm'],
-                        'textural_subgroups': ['000_010cm','000_020cm','000_030cm','020_040cm','030_060cm','060_100cm'],
-                        'textural_groups': ['000_010cm','000_020cm','000_030cm','020_040cm','030_060cm','060_100cm'],
-                        'stoniness': ['50vol','90vol'],
-                    },
-                    'coverage_reference':ee.Image('projects/mapbiomas-public/assets/brazil/lulc/collection10/mapbiomas_brazil_collection10_integration_v1').slice(0,-1),
-                },
-            },
-        },
+        collections: Collections.pick([
+            'mapbiomas-brazil'
+        ]),
 
         bandsNames: {
             'soc_t_ha_000_030cm':'prediction_',

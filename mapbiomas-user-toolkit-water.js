@@ -29,6 +29,7 @@
  *    2.0.0 - Breaking: export names and CSV columns standardized; territory drawn in red
  *    2.0.1 - Property and feature selects come from core/v1/panel.js; the feature list no
  *    2.0.2 - Export plumbing comes from core/v1/export.js
+ *    2.0.3 - Collections come from data/collections-<theme>.js
  *            longer repeats a name that several polygons share
  *            and centred in every toolkit
  * 
@@ -48,6 +49,7 @@ var Territory = require('users/mapbiomas/user-toolkit:core/v1/territory.js');
 
 var Territories = require('users/mapbiomas/user-toolkit:data/territories.js');
 var Downloads = require('users/mapbiomas/user-toolkit:data/downloads.js');
+var Collections = require('users/mapbiomas/user-toolkit:data/collections-water.js');
 var Panel = require('users/mapbiomas/user-toolkit:core/v1/panel.js');
 var Exports = require('users/mapbiomas/user-toolkit:core/v1/export.js');
 
@@ -59,7 +61,7 @@ var App = {
 
     options: {
 
-        version: '2.0.2',
+        version: '2.0.3',
 
 
         logo: {
@@ -115,244 +117,15 @@ var App = {
             'mapbiomas-paraguay'
         ]),
 
-        collections: {
-            'mapbiomas-brazil': {
-                'collection-1.0': {
-                    'assets': {
-                        'annual_water_coverage': 'projects/mapbiomas-public/assets/brazil/lulc/collection6/mapbiomas_water_collection1_annual_water_coverage_v2',
-                        'water_frequency': 'projects/mapbiomas-public/assets/brazil/lulc/collection6/mapbiomas_water_collection1_water_frequency_v1',
-                    },
-                    'periods': {
-                        'annual_water_coverage': [
-                            '1985', '1986', '1987', '1988',
-                            '1989', '1990', '1991', '1992',
-                            '1993', '1994', '1995', '1996',
-                            '1997', '1998', '1999', '2000',
-                            '2001', '2002', '2003', '2004',
-                            '2005', '2006', '2007', '2008',
-                            '2009', '2010', '2011', '2012',
-                            '2013', '2014', '2015', '2016',
-                            '2017', '2018', '2019', '2020'
-                        ],
-                        'water_frequency': [
-                            '1985_2020'
-                        ],
-                    },
-                },
-                'collection-2.0': {
-                    'assets': {
-                        'annual_water_coverage': 'projects/mapbiomas-public/assets/brazil/lulc/collection8/mapbiomas_water_collection2_annual_water_coverage_v1',
-                        'water_frequency': 'projects/mapbiomas-public/assets/brazil/lulc/collection8/mapbiomas_water_collection2_water_frequency_v1',
-                    },
-                    'periods': {
-                        'annual_water_coverage': [
-                            '1985', '1986', '1987', '1988',
-                            '1989', '1990', '1991', '1992',
-                            '1993', '1994', '1995', '1996',
-                            '1997', '1998', '1999', '2000',
-                            '2001', '2002', '2003', '2004',
-                            '2005', '2006', '2007', '2008',
-                            '2009', '2010', '2011', '2012',
-                            '2013', '2014', '2015', '2016',
-                            '2017', '2018', '2019', '2020',
-                            '2021', '2022'
-                        ],
-                        'water_frequency': [
-                            '1985_2022'
-                        ],
-                    },
-                },
-                'collection-3.0': {
-                    'assets': {
-                        'annual_water_coverage': 'projects/mapbiomas-public/assets/brazil/water/collection3/mapbiomas_water_annual_water_coverage_v1',
-                        'water_frequency': 'projects/mapbiomas-public/assets/brazil/water/collection3/mapbiomas_water_frequency_v1',
-                    },
-                    'periods': {
-                        'annual_water_coverage': [
-                            '1985', '1986', '1987', '1988',
-                            '1989', '1990', '1991', '1992',
-                            '1993', '1994', '1995', '1996',
-                            '1997', '1998', '1999', '2000',
-                            '2001', '2002', '2003', '2004',
-                            '2005', '2006', '2007', '2008',
-                            '2009', '2010', '2011', '2012',
-                            '2013', '2014', '2015', '2016',
-                            '2017', '2018', '2019', '2020',
-                            '2021', '2022', '2023'
-                        ],
-                        'water_frequency': [
-                            '1985_2023'
-                        ],
-                    },
-                },
-                'collection-5.0': {
-                    'assets': {
-                        'annual_water_coverage': 'projects/mapbiomas-public/assets/brazil/water/collection5/mapbiomas_brazil_collection5_water_annual_v4',
-                    },
-                    'periods': {
-                        'annual_water_coverage': [
-                            '1985', '1986', '1987', '1988',
-                            '1989', '1990', '1991', '1992',
-                            '1993', '1994', '1995', '1996',
-                            '1997', '1998', '1999', '2000',
-                            '2001', '2002', '2003', '2004',
-                            '2005', '2006', '2007', '2008',
-                            '2009', '2010', '2011', '2012',
-                            '2013', '2014', '2015', '2016',
-                            '2017', '2018', '2019', '2020',
-                            '2021', '2022', '2023', '2024',
-                            '2025'
-                        ],
-                    },
-                },
-            },
-            'mapbiomas-amazon': {
-                'collection-1.0': {
-                    'assets': {
-                        'annual_water_coverage': 'projects/mapbiomas-raisg/public/collection5/mapbiomas_raisg_panamazonia_collection1_annual_water_coverage_v2',
-                        'water_frequency': 'projects/mapbiomas-raisg/public/collection5/mapbiomas_raisg_panamazonia_collection1_water_frequency_v2',
-                    },
-                    'periods': {
-                        'annual_water_coverage': [
-                            '2000', '2001', '2002', '2003',
-                            '2004', '2005', '2006', '2007',
-                            '2008', '2009', '2010', '2011',
-                            '2012', '2013', '2014', '2015',
-                            '2016', '2017', '2018', '2019',
-                            '2020', '2021', '2022'
-                        ],
-                        'water_frequency': [
-                            '2000_2022'
-                        ],
-                    },
-                },
-            },
-            'mapbiomas-venezuela': {
-                'collection-1.0': {
-                    'assets': {
-                        'annual_water_coverage': 'projects/mapbiomas-public/assets/venezuela/collection1/mapbiomas_venezuela_collection1_water_v1',
-                        'water_frequency': 'projects/mapbiomas-public/assets/venezuela/collection1/mapbiomas_venezuela_collection1_water_frequency_v1',
-                    },
-                    'periods': {
-                        'annual_water_coverage': [
-                            '1985', '1986', '1987', '1988',
-                            '1989', '1990', '1991', '1992',
-                            '1993', '1994', '1995', '1996',
-                            '1997', '1998', '1999', '2000',
-                            '2001', '2002', '2003', '2004',
-                            '2005', '2006', '2007', '2008',
-                            '2009', '2010', '2011', '2012',
-                            '2013', '2014', '2015', '2016',
-                            '2017', '2018', '2019', '2020',
-                            '2021', '2022'
-                        ],
-                        'water_frequency': [
-                            '1985_2022'
-                        ],
-                    },
-                },
-            },
-            'mapbiomas-bolivia': {
-                'collection-1.0': {
-                    'assets': {
-                        'annual_water_coverage': 'projects/mapbiomas-public/assets/bolivia/collection1/mapbiomas_bolivia_collection1_water_v1',
-                        'water_frequency': 'projects/mapbiomas-public/assets/bolivia/collection1/mapbiomas_bolivia_collection1_water_frequency_v1',
-                    },
-                    'periods': {
-                        'annual_water_coverage': [
-                            '1985', '1986', '1987', '1988',
-                            '1989', '1990', '1991', '1992',
-                            '1993', '1994', '1995', '1996',
-                            '1997', '1998', '1999', '2000',
-                            '2001', '2002', '2003', '2004',
-                            '2005', '2006', '2007', '2008',
-                            '2009', '2010', '2011', '2012',
-                            '2013', '2014', '2015', '2016',
-                            '2017', '2018', '2019', '2020',
-                            '2021', '2022'
-                        ],
-                        'water_frequency': [
-                            '1985_2022'
-                        ],
-                    },
-                },
-            },
-            'mapbiomas-peru': {
-                'collection-1.0': {
-                    'assets': {
-                        'annual_water_coverage': 'projects/mapbiomas-public/assets/peru/collection1/mapbiomas_peru_collection1_water_v1',
-                        'water_frequency': 'projects/mapbiomas-public/assets/peru/collection1/mapbiomas_peru_collection1_water_frequency_v1',
-                    },
-                    'periods': {
-                        'annual_water_coverage': [
-                            '1985', '1986', '1987', '1988',
-                            '1989', '1990', '1991', '1992',
-                            '1993', '1994', '1995', '1996',
-                            '1997', '1998', '1999', '2000',
-                            '2001', '2002', '2003', '2004',
-                            '2005', '2006', '2007', '2008',
-                            '2009', '2010', '2011', '2012',
-                            '2013', '2014', '2015', '2016',
-                            '2017', '2018', '2019', '2020',
-                            '2021', '2022'
-                        ],
-                        'water_frequency': [
-                            '1985_2022'
-                        ],
-                    },
-                },
-            },
-            'mapbiomas-colombia': {
-                'collection-1.0': {
-                    'assets': {
-                        'annual_water_coverage': 'projects/mapbiomas-public/assets/colombia/collection1/mapbiomas_colombia_collection1_water_v1',
-                        'water_frequency': 'projects/mapbiomas-public/assets/colombia/collection1/mapbiomas_colombia_collection1_water_frequency_v1',
-                    },
-                    'periods': {
-                        'annual_water_coverage': [
-                            '1985', '1986', '1987', '1988',
-                            '1989', '1990', '1991', '1992',
-                            '1993', '1994', '1995', '1996',
-                            '1997', '1998', '1999', '2000',
-                            '2001', '2002', '2003', '2004',
-                            '2005', '2006', '2007', '2008',
-                            '2009', '2010', '2011', '2012',
-                            '2013', '2014', '2015', '2016',
-                            '2017', '2018', '2019', '2020',
-                            '2021', '2022'
-                        ],
-                        'water_frequency': [
-                            '1985_2022'
-                        ],
-                    },
-                },
-            },
-            'mapbiomas-ecuador': {
-                'collection-1.0': {
-                    'assets': {
-                        'annual_water_coverage': 'projects/mapbiomas-public/assets/ecuador/collection1/mapbiomas_ecuador_collection1_water_v1',
-                        'water_frequency': 'projects/mapbiomas-public/assets/ecuador/collection1/mapbiomas_ecuador_collection1_water_frequency_v1',
-                    },
-                    'periods': {
-                        'annual_water_coverage': [
-                            '1985', '1986', '1987', '1988',
-                            '1989', '1990', '1991', '1992',
-                            '1993', '1994', '1995', '1996',
-                            '1997', '1998', '1999', '2000',
-                            '2001', '2002', '2003', '2004',
-                            '2005', '2006', '2007', '2008',
-                            '2009', '2010', '2011', '2012',
-                            '2013', '2014', '2015', '2016',
-                            '2017', '2018', '2019', '2020',
-                            '2021', '2022'
-                        ],
-                        'water_frequency': [
-                            '1985_2022'
-                        ],
-                    },
-                },
-            },
-        },
+        collections: Collections.pick([
+            'mapbiomas-brazil',
+            'mapbiomas-amazon',
+            'mapbiomas-venezuela',
+            'mapbiomas-bolivia',
+            'mapbiomas-peru',
+            'mapbiomas-colombia',
+            'mapbiomas-ecuador'
+        ]),
 
         bandsNames: {
             'annual_water_coverage': 'annual_water_coverage_',
