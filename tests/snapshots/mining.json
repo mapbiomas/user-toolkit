@@ -1,6 +1,6 @@
 {
  "toolkit": "mining",
- "version": "1.4.4",
+ "version": "2.0.0",
  "regions": {
   "mapbiomas-brazil": {
    "collections": {
@@ -21,16 +21,16 @@
     "exports": [
      {
       "kind": "image.toDrive",
-      "description": "mapbiomas-brazil-collection-110-mined-substance-featurea-2025",
-      "fileNamePrefix": "mapbiomas-brazil-collection-110-mined-substance-featurea-2025",
+      "description": "mapbiomas_brazil-collection_11_0-mined_substance-feature_a-2025",
+      "fileNamePrefix": "mapbiomas_brazil-collection_11_0-mined_substance-feature_a-2025",
       "folder": "MAPBIOMAS-EXPORT",
       "scale": 30,
       "fileFormat": "GeoTIFF"
      },
      {
       "kind": "table.toDrive",
-      "description": "mapbiomas-brazil-collection-110-mined-substance-featurea-area",
-      "fileNamePrefix": "mapbiomas-brazil-collection-110-mined-substance-featurea-area",
+      "description": "mapbiomas_brazil-collection_11_0-mined_substance-feature_a-area",
+      "fileNamePrefix": "mapbiomas_brazil-collection_11_0-mined_substance-feature_a-area",
       "folder": "MAPBIOMAS-EXPORT",
       "fileFormat": "CSV"
      }

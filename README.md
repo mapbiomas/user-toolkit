@@ -161,15 +161,15 @@ Land use and land cover toolkit (`mapbiomas-user-toolkit-lulc.js`). Each script 
 
 | Toolkit | Current version |
 |---|---|
-| lulc | 1.36.4 |
-| deforestation-regeneration | 1.7.5 |
-| fire | 1.4.17 |
-| water | 1.6.4 |
-| irrigation | 1.5.4 |
-| mining | 1.4.4 |
-| pasture | 1.5.4 |
-| soil | 1.1.7 |
-| degradation | 0.0.8 |
+| lulc | 2.0.0 |
+| deforestation-regeneration | 2.0.0 |
+| fire | 2.0.0 |
+| water | 2.0.0 |
+| irrigation | 2.0.0 |
+| mining | 2.0.0 |
+| pasture | 2.0.0 |
+| soil | 2.0.0 |
+| degradation | 0.1.0 |
 
 <details>
 <summary>Land use and land cover release history</summary>

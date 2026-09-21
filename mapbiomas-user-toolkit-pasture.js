@@ -21,14 +21,16 @@
  *    1.5.2 - New toolkit logo; single link to the legend files on GitHub
  *    1.5.3 - Link to the region's download page, in place of the hard-coded download links
  *    1.5.4 - Base map styles and legend come from core/v1, not from a personal account
+ *    2.0.0 - Breaking: export names and CSV columns standardized; territory drawn in red
+ *            and centred in every toolkit
  * 
  * @see
  *      Get the MapBiomas exported data in your "Google Drive/MAPBIOMAS-EXPORT" folder
  *      Code and Tutorial - https://github.com/mapbiomas-brazil/user-toolkit
  */
 
-var mapp = require('users/mapbiomas/user-toolkit:core/v1/basemaps.js');
-var legend = require('users/mapbiomas/user-toolkit:core/v1/legend.js');
+var Basemaps = require('users/mapbiomas/user-toolkit:core/v1/basemaps.js');
+var Legend = require('users/mapbiomas/user-toolkit:core/v1/legend.js');
 
 var Area = require('users/mapbiomas/user-toolkit:core/v1/area.js');
 var Naming = require('users/mapbiomas/user-toolkit:core/v1/naming.js');
@@ -37,6 +39,7 @@ var Territory = require('users/mapbiomas/user-toolkit:core/v1/territory.js');
 
 var Territories = require('users/mapbiomas/user-toolkit:data/territories.js');
 var Downloads = require('users/mapbiomas/user-toolkit:data/downloads.js');
+var Exports = require('users/mapbiomas/user-toolkit:core/v1/export.js');
 
 /**
  * 
@@ -45,7 +48,7 @@ var App = {
 
     options: {
 
-        version: '1.5.4',
+        version: '2.0.0',
 
         logo: {
             uri: 'gs://mapbiomas-public/mapbiomas-logos/mapbiomas-toolkit-logo.b64',
@@ -339,7 +342,7 @@ var App = {
 
             Map.setOptions({
                 'styles': {
-                    'Dark': mapp.getStyle('Dark')
+                    'Dark': Basemaps.getStyle('Dark')
                 }
             });
         },
@@ -474,17 +477,9 @@ var App = {
 
             App.options.activeFeature = App.options.table;
 
-            // Map.centerObject(App.options.activeFeature);
-
             App.ui.clear();
 
-            Map.addLayer(App.options.activeFeature.style({
-                color: 'ff0000',
-                width: 1,
-                fillColor: 'ff000033',
-            }), {},
-                App.tableShortName(),
-                true);
+            Territory.highlight(App.options.activeFeature, App.tableShortName());
 
         },
 
@@ -580,17 +575,9 @@ var App = {
             App.options.activeFeature = App.options.table
                 .filterMetadata(App.options.propertyName, 'equals', name);
 
-            Map.centerObject(App.options.activeFeature);
-
             App.ui.clear();
 
-            Map.addLayer(App.options.activeFeature.style({
-                color: 'ff0000',
-                width: 1,
-                fillColor: 'ff000033',
-            }), {},
-                name,
-                true);
+            Territory.highlight(App.options.activeFeature, name);
 
         },
 
@@ -654,7 +641,8 @@ var App = {
             var regionName = App.ui.form.selectRegion.getValue();
             var collectionName = App.ui.form.selectCollection.getValue();
 
-            var featureName = App.formatName(App.ui.form.selectFeature.getValue() || '');
+            // Exports.fileName normaliza; aqui vai o rótulo cru
+            var featureName = App.ui.form.selectFeature.getValue() || '';
 
             var bandIds = [];
 
@@ -667,10 +655,8 @@ var App = {
                     var period = App.options.collections[regionName][collectionName]
                         .periods[App.options.dataType][i];
 
-                    var fileName = [regionName, collectionName, App.options.dataType, featureName, period].join('-');
-
-                    fileName = fileName.replace(/--/g, '-').replace(/--/g, '-').replace('.', '').replace('_', '-');
-                    fileName = App.formatName(fileName);
+                    var fileName = Exports.fileName(
+                        [regionName, collectionName, App.options.dataType, featureName, period]);
 
                     var data = App.options.data[App.options.dataType]
                         .select([App.options.bandsNames[App.options.dataType] + '_' + period]);
@@ -721,7 +707,7 @@ var App = {
                         "geometry": geometry,
                         "scale": 30,
                         "factor": 1000000,
-                        "unit": 'kilometers^2'
+                        "areaColumn": 'area_km2'
                     });
 
                     area = ee.FeatureCollection(area).map(
@@ -743,17 +729,21 @@ var App = {
             areas = ee.FeatureCollection(areas).flatten();
             // print(areas);
 
-            var tableName = [regionName, collectionName, App.options.dataType, featureName, 'area'].join('-');
-
-            tableName = tableName.replace(/--/g, '-').replace(/--/g, '-').replace('.', '').replace('_', '-');
-            tableName = App.formatName(tableName);
+            var tableName = Exports.fileName(
+                [regionName, collectionName, App.options.dataType, featureName, 'area']);
 
             Export.table.toDrive({
                 'collection': areas,
                 'description': tableName,
                 'folder': 'MAPBIOMAS-EXPORT',
                 'fileNamePrefix': tableName,
-                'fileFormat': 'CSV'
+                'fileFormat': 'CSV',
+                'selectors': [
+                    'class',
+                    'class_name',
+                    'band',
+                    'area_km2'
+                ]
             });
 
         },
@@ -802,7 +792,7 @@ var App = {
                 App.ui.form.panelBuffer.add(App.ui.form.labelBuffer);
                 App.ui.form.panelBuffer.add(App.ui.form.selectBuffer);
 
-                App.ui.form.panelLegend.add(legend.getLegend(App.options.legend.params));
+                App.ui.form.panelLegend.add(Legend.getLegend(App.options.legend.params));
 
                 // this.panelMain.add(this.panelType);
                 App.ui.form.panelMain.add(App.ui.form.panelRegion);

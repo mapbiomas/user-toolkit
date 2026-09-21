@@ -1,6 +1,6 @@
 {
  "toolkit": "degradation",
- "version": "0.0.8",
+ "version": "0.1.0",
  "regions": {
   "mapbiomas-brazil": {
    "collections": {
@@ -75,16 +75,16 @@
     "exports": [
      {
       "kind": "image.toDrive",
-      "description": "secondary_vegetation-secondary_age-feature_a-2022",
-      "fileNamePrefix": "secondary_vegetation-secondary_age-feature_a-2022",
+      "description": "mapbiomas_brazil-secondary_vegetation-secondary_age-feature_a-2022",
+      "fileNamePrefix": "mapbiomas_brazil-secondary_vegetation-secondary_age-feature_a-2022",
       "folder": "MAPBIOMAS-EXPORT",
       "scale": 30,
       "fileFormat": "GeoTIFF"
      },
      {
       "kind": "table.toDrive",
-      "description": "secondary_vegetation-secondary_age-feature_a-area",
-      "fileNamePrefix": "secondary_vegetation-secondary_age-feature_a-area",
+      "description": "mapbiomas_brazil-secondary_vegetation-secondary_age-feature_a-area",
+      "fileNamePrefix": "mapbiomas_brazil-secondary_vegetation-secondary_age-feature_a-area",
       "folder": "MAPBIOMAS-EXPORT",
       "fileFormat": "CSV"
      }

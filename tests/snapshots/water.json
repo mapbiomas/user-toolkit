@@ -1,6 +1,6 @@
 {
  "toolkit": "water",
- "version": "1.6.4",
+ "version": "2.0.0",
  "regions": {
   "mapbiomas-amazon": {
    "collections": {
@@ -21,16 +21,16 @@
     "exports": [
      {
       "kind": "image.toDrive",
-      "description": "mapbiomas-amazon-collection-10-featurea-2022",
-      "fileNamePrefix": "mapbiomas-amazon-collection-10-featurea-2022",
+      "description": "mapbiomas_amazon-collection_1_0-annual_water_coverage-feature_a-2022",
+      "fileNamePrefix": "mapbiomas_amazon-collection_1_0-annual_water_coverage-feature_a-2022",
       "folder": "MAPBIOMAS-EXPORT",
       "scale": 30,
       "fileFormat": "GeoTIFF"
      },
      {
       "kind": "table.toDrive",
-      "description": "mapbiomas-amazon-collection-10-featurea-area",
-      "fileNamePrefix": "mapbiomas-amazon-collection-10-featurea-area",
+      "description": "mapbiomas_amazon-collection_1_0-annual_water_coverage-feature_a-area",
+      "fileNamePrefix": "mapbiomas_amazon-collection_1_0-annual_water_coverage-feature_a-area",
       "folder": "MAPBIOMAS-EXPORT",
       "fileFormat": "CSV"
      }
@@ -67,16 +67,16 @@
     "exports": [
      {
       "kind": "image.toDrive",
-      "description": "mapbiomas-brazil-collection-50-featurea-2025",
-      "fileNamePrefix": "mapbiomas-brazil-collection-50-featurea-2025",
+      "description": "mapbiomas_brazil-collection_5_0-annual_water_coverage-feature_a-2025",
+      "fileNamePrefix": "mapbiomas_brazil-collection_5_0-annual_water_coverage-feature_a-2025",
       "folder": "MAPBIOMAS-EXPORT",
       "scale": 30,
       "fileFormat": "GeoTIFF"
      },
      {
       "kind": "table.toDrive",
-      "description": "mapbiomas-brazil-collection-50-featurea-area",
-      "fileNamePrefix": "mapbiomas-brazil-collection-50-featurea-area",
+      "description": "mapbiomas_brazil-collection_5_0-annual_water_coverage-feature_a-area",
+      "fileNamePrefix": "mapbiomas_brazil-collection_5_0-annual_water_coverage-feature_a-area",
       "folder": "MAPBIOMAS-EXPORT",
       "fileFormat": "CSV"
      }
@@ -102,16 +102,16 @@
     "exports": [
      {
       "kind": "image.toDrive",
-      "description": "mapbiomas-bolivia-collection-10-featurea-2022",
-      "fileNamePrefix": "mapbiomas-bolivia-collection-10-featurea-2022",
+      "description": "mapbiomas_bolivia-collection_1_0-annual_water_coverage-feature_a-2022",
+      "fileNamePrefix": "mapbiomas_bolivia-collection_1_0-annual_water_coverage-feature_a-2022",
       "folder": "MAPBIOMAS-EXPORT",
       "scale": 30,
       "fileFormat": "GeoTIFF"
      },
      {
       "kind": "table.toDrive",
-      "description": "mapbiomas-bolivia-collection-10-featurea-area",
-      "fileNamePrefix": "mapbiomas-bolivia-collection-10-featurea-area",
+      "description": "mapbiomas_bolivia-collection_1_0-annual_water_coverage-feature_a-area",
+      "fileNamePrefix": "mapbiomas_bolivia-collection_1_0-annual_water_coverage-feature_a-area",
       "folder": "MAPBIOMAS-EXPORT",
       "fileFormat": "CSV"
      }
@@ -137,16 +137,16 @@
     "exports": [
      {
       "kind": "image.toDrive",
-      "description": "mapbiomas-colombia-collection-10-featurea-2022",
-      "fileNamePrefix": "mapbiomas-colombia-collection-10-featurea-2022",
+      "description": "mapbiomas_colombia-collection_1_0-annual_water_coverage-feature_a-2022",
+      "fileNamePrefix": "mapbiomas_colombia-collection_1_0-annual_water_coverage-feature_a-2022",
       "folder": "MAPBIOMAS-EXPORT",
       "scale": 30,
       "fileFormat": "GeoTIFF"
      },
      {
       "kind": "table.toDrive",
-      "description": "mapbiomas-colombia-collection-10-featurea-area",
-      "fileNamePrefix": "mapbiomas-colombia-collection-10-featurea-area",
+      "description": "mapbiomas_colombia-collection_1_0-annual_water_coverage-feature_a-area",
+      "fileNamePrefix": "mapbiomas_colombia-collection_1_0-annual_water_coverage-feature_a-area",
       "folder": "MAPBIOMAS-EXPORT",
       "fileFormat": "CSV"
      }
@@ -172,16 +172,16 @@
     "exports": [
      {
       "kind": "image.toDrive",
-      "description": "mapbiomas-ecuador-collection-10-featurea-2022",
-      "fileNamePrefix": "mapbiomas-ecuador-collection-10-featurea-2022",
+      "description": "mapbiomas_ecuador-collection_1_0-annual_water_coverage-feature_a-2022",
+      "fileNamePrefix": "mapbiomas_ecuador-collection_1_0-annual_water_coverage-feature_a-2022",
       "folder": "MAPBIOMAS-EXPORT",
       "scale": 30,
       "fileFormat": "GeoTIFF"
      },
      {
       "kind": "table.toDrive",
-      "description": "mapbiomas-ecuador-collection-10-featurea-area",
-      "fileNamePrefix": "mapbiomas-ecuador-collection-10-featurea-area",
+      "description": "mapbiomas_ecuador-collection_1_0-annual_water_coverage-feature_a-area",
+      "fileNamePrefix": "mapbiomas_ecuador-collection_1_0-annual_water_coverage-feature_a-area",
       "folder": "MAPBIOMAS-EXPORT",
       "fileFormat": "CSV"
      }
@@ -207,16 +207,16 @@
     "exports": [
      {
       "kind": "image.toDrive",
-      "description": "mapbiomas-peru-collection-10-featurea-2022",
-      "fileNamePrefix": "mapbiomas-peru-collection-10-featurea-2022",
+      "description": "mapbiomas_peru-collection_1_0-annual_water_coverage-feature_a-2022",
+      "fileNamePrefix": "mapbiomas_peru-collection_1_0-annual_water_coverage-feature_a-2022",
       "folder": "MAPBIOMAS-EXPORT",
       "scale": 30,
       "fileFormat": "GeoTIFF"
      },
      {
       "kind": "table.toDrive",
-      "description": "mapbiomas-peru-collection-10-featurea-area",
-      "fileNamePrefix": "mapbiomas-peru-collection-10-featurea-area",
+      "description": "mapbiomas_peru-collection_1_0-annual_water_coverage-feature_a-area",
+      "fileNamePrefix": "mapbiomas_peru-collection_1_0-annual_water_coverage-feature_a-area",
       "folder": "MAPBIOMAS-EXPORT",
       "fileFormat": "CSV"
      }
@@ -242,16 +242,16 @@
     "exports": [
      {
       "kind": "image.toDrive",
-      "description": "mapbiomas-venezuela-collection-10-featurea-2022",
-      "fileNamePrefix": "mapbiomas-venezuela-collection-10-featurea-2022",
+      "description": "mapbiomas_venezuela-collection_1_0-annual_water_coverage-feature_a-2022",
+      "fileNamePrefix": "mapbiomas_venezuela-collection_1_0-annual_water_coverage-feature_a-2022",
       "folder": "MAPBIOMAS-EXPORT",
       "scale": 30,
       "fileFormat": "GeoTIFF"
      },
      {
       "kind": "table.toDrive",
-      "description": "mapbiomas-venezuela-collection-10-featurea-area",
-      "fileNamePrefix": "mapbiomas-venezuela-collection-10-featurea-area",
+      "description": "mapbiomas_venezuela-collection_1_0-annual_water_coverage-feature_a-area",
+      "fileNamePrefix": "mapbiomas_venezuela-collection_1_0-annual_water_coverage-feature_a-area",
       "folder": "MAPBIOMAS-EXPORT",
       "fileFormat": "CSV"
      }

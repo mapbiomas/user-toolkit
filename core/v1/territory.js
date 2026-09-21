@@ -67,4 +67,36 @@ var userTables = function () {
     }
 };
 
+/**
+ * Draws the selected territory on the map: centred, outlined in red over a
+ * translucent fill.
+ *
+ * Every toolkit used to do this its own way — the water one in yellow, three of
+ * them as a solid red patch, and half of them without centring — so the same
+ * click looked different depending on which toolkit you were in.
+ *
+ * Clearing what was on the map stays with the caller, because the toolkits
+ * differ in what they need to keep: some re-register their base map styles,
+ * others have widgets on the map that must not go.
+ *
+ * @param {ee.FeatureCollection} featureCollection
+ * @param {string} name  the layer name
+ */
+var highlight = function (featureCollection, name) {
+
+    Map.centerObject(featureCollection);
+
+    Map.addLayer(
+        featureCollection.style({
+            'color': 'ff0000',
+            'width': 1,
+            'fillColor': 'ff000033'
+        }),
+        {},
+        name,
+        true
+    );
+};
+
 exports.userTables = userTables;
+exports.highlight = highlight;

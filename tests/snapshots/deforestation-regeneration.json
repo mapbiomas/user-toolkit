@@ -1,6 +1,6 @@
 {
  "toolkit": "deforestation-regeneration",
- "version": "1.7.5",
+ "version": "2.0.0",
  "regions": {
   "mapbiomas-argentina": {
    "collections": {
@@ -18,16 +18,16 @@
     "exports": [
      {
       "kind": "image.toDrive",
-      "description": "mapbiomas-argentina-collection-20-featurea-2024",
-      "fileNamePrefix": "mapbiomas-argentina-collection-20-featurea-2024",
+      "description": "mapbiomas_argentina-collection_2_0-deforestation_sec_vegetation-feature_a-2024",
+      "fileNamePrefix": "mapbiomas_argentina-collection_2_0-deforestation_sec_vegetation-feature_a-2024",
       "folder": "MAPBIOMAS-EXPORT",
       "scale": 30,
       "fileFormat": "GeoTIFF"
      },
      {
       "kind": "table.toDrive",
-      "description": "mapbiomas-argentina-collection-20-featurea-area",
-      "fileNamePrefix": "mapbiomas-argentina-collection-20-featurea-area",
+      "description": "mapbiomas_argentina-collection_2_0-deforestation_sec_vegetation-feature_a-area",
+      "fileNamePrefix": "mapbiomas_argentina-collection_2_0-deforestation_sec_vegetation-feature_a-area",
       "folder": "MAPBIOMAS-EXPORT",
       "fileFormat": "CSV"
      }
@@ -50,16 +50,16 @@
     "exports": [
      {
       "kind": "image.toDrive",
-      "description": "mapbiomas-bolivia-collection-30-featurea-2024",
-      "fileNamePrefix": "mapbiomas-bolivia-collection-30-featurea-2024",
+      "description": "mapbiomas_bolivia-collection_3_0-deforestation_sec_vegetation-feature_a-2024",
+      "fileNamePrefix": "mapbiomas_bolivia-collection_3_0-deforestation_sec_vegetation-feature_a-2024",
       "folder": "MAPBIOMAS-EXPORT",
       "scale": 30,
       "fileFormat": "GeoTIFF"
      },
      {
       "kind": "table.toDrive",
-      "description": "mapbiomas-bolivia-collection-30-featurea-area",
-      "fileNamePrefix": "mapbiomas-bolivia-collection-30-featurea-area",
+      "description": "mapbiomas_bolivia-collection_3_0-deforestation_sec_vegetation-feature_a-area",
+      "fileNamePrefix": "mapbiomas_bolivia-collection_3_0-deforestation_sec_vegetation-feature_a-area",
       "folder": "MAPBIOMAS-EXPORT",
       "fileFormat": "CSV"
      }
@@ -89,16 +89,16 @@
     "exports": [
      {
       "kind": "image.toDrive",
-      "description": "mapbiomas-brazil-collection-110-featurea-2025",
-      "fileNamePrefix": "mapbiomas-brazil-collection-110-featurea-2025",
+      "description": "mapbiomas_brazil-collection_11_0-deforestation_sec_vegetation-feature_a-2025",
+      "fileNamePrefix": "mapbiomas_brazil-collection_11_0-deforestation_sec_vegetation-feature_a-2025",
       "folder": "MAPBIOMAS-EXPORT",
       "scale": 30,
       "fileFormat": "GeoTIFF"
      },
      {
       "kind": "table.toDrive",
-      "description": "mapbiomas-brazil-collection-110-featurea-area",
-      "fileNamePrefix": "mapbiomas-brazil-collection-110-featurea-area",
+      "description": "mapbiomas_brazil-collection_11_0-deforestation_sec_vegetation-feature_a-area",
+      "fileNamePrefix": "mapbiomas_brazil-collection_11_0-deforestation_sec_vegetation-feature_a-area",
       "folder": "MAPBIOMAS-EXPORT",
       "fileFormat": "CSV"
      }
@@ -121,16 +121,16 @@
     "exports": [
      {
       "kind": "image.toDrive",
-      "description": "mapbiomas-colombia-collection-20-featurea-2023",
-      "fileNamePrefix": "mapbiomas-colombia-collection-20-featurea-2023",
+      "description": "mapbiomas_colombia-collection_2_0-deforestation_sec_vegetation-feature_a-2023",
+      "fileNamePrefix": "mapbiomas_colombia-collection_2_0-deforestation_sec_vegetation-feature_a-2023",
       "folder": "MAPBIOMAS-EXPORT",
       "scale": 30,
       "fileFormat": "GeoTIFF"
      },
      {
       "kind": "table.toDrive",
-      "description": "mapbiomas-colombia-collection-20-featurea-area",
-      "fileNamePrefix": "mapbiomas-colombia-collection-20-featurea-area",
+      "description": "mapbiomas_colombia-collection_2_0-deforestation_sec_vegetation-feature_a-area",
+      "fileNamePrefix": "mapbiomas_colombia-collection_2_0-deforestation_sec_vegetation-feature_a-area",
       "folder": "MAPBIOMAS-EXPORT",
       "fileFormat": "CSV"
      }
@@ -153,16 +153,16 @@
     "exports": [
      {
       "kind": "image.toDrive",
-      "description": "mapbiomas-paraguay-collection-30-featurea-2025",
-      "fileNamePrefix": "mapbiomas-paraguay-collection-30-featurea-2025",
+      "description": "mapbiomas_paraguay-collection_3_0-deforestation_sec_vegetation-feature_a-2025",
+      "fileNamePrefix": "mapbiomas_paraguay-collection_3_0-deforestation_sec_vegetation-feature_a-2025",
       "folder": "MAPBIOMAS-EXPORT",
       "scale": 30,
       "fileFormat": "GeoTIFF"
      },
      {
       "kind": "table.toDrive",
-      "description": "mapbiomas-paraguay-collection-30-featurea-area",
-      "fileNamePrefix": "mapbiomas-paraguay-collection-30-featurea-area",
+      "description": "mapbiomas_paraguay-collection_3_0-deforestation_sec_vegetation-feature_a-area",
+      "fileNamePrefix": "mapbiomas_paraguay-collection_3_0-deforestation_sec_vegetation-feature_a-area",
       "folder": "MAPBIOMAS-EXPORT",
       "fileFormat": "CSV"
      }
@@ -187,16 +187,16 @@
     "exports": [
      {
       "kind": "image.toDrive",
-      "description": "mapbiomas-peru-collection-40-featurea-2025",
-      "fileNamePrefix": "mapbiomas-peru-collection-40-featurea-2025",
+      "description": "mapbiomas_peru-collection_4_0-deforestation_sec_vegetation-feature_a-2025",
+      "fileNamePrefix": "mapbiomas_peru-collection_4_0-deforestation_sec_vegetation-feature_a-2025",
       "folder": "MAPBIOMAS-EXPORT",
       "scale": 30,
       "fileFormat": "GeoTIFF"
      },
      {
       "kind": "table.toDrive",
-      "description": "mapbiomas-peru-collection-40-featurea-area",
-      "fileNamePrefix": "mapbiomas-peru-collection-40-featurea-area",
+      "description": "mapbiomas_peru-collection_4_0-deforestation_sec_vegetation-feature_a-area",
+      "fileNamePrefix": "mapbiomas_peru-collection_4_0-deforestation_sec_vegetation-feature_a-area",
       "folder": "MAPBIOMAS-EXPORT",
       "fileFormat": "CSV"
      }
@@ -219,16 +219,16 @@
     "exports": [
      {
       "kind": "image.toDrive",
-      "description": "mapbiomas-uruguay-collection-30-featurea-2024",
-      "fileNamePrefix": "mapbiomas-uruguay-collection-30-featurea-2024",
+      "description": "mapbiomas_uruguay-collection_3_0-deforestation_sec_vegetation-feature_a-2024",
+      "fileNamePrefix": "mapbiomas_uruguay-collection_3_0-deforestation_sec_vegetation-feature_a-2024",
       "folder": "MAPBIOMAS-EXPORT",
       "scale": 30,
       "fileFormat": "GeoTIFF"
      },
      {
       "kind": "table.toDrive",
-      "description": "mapbiomas-uruguay-collection-30-featurea-area",
-      "fileNamePrefix": "mapbiomas-uruguay-collection-30-featurea-area",
+      "description": "mapbiomas_uruguay-collection_3_0-deforestation_sec_vegetation-feature_a-area",
+      "fileNamePrefix": "mapbiomas_uruguay-collection_3_0-deforestation_sec_vegetation-feature_a-area",
       "folder": "MAPBIOMAS-EXPORT",
       "fileFormat": "CSV"
      }

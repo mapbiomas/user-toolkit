@@ -1,6 +1,6 @@
 {
  "toolkit": "fire",
- "version": "1.4.17",
+ "version": "2.0.0",
  "regions": {
   "mapbiomas-brazil": {
    "collections": {
@@ -122,16 +122,16 @@
     "exports": [
      {
       "kind": "image.toDrive",
-      "description": "mapbiomas_indonesia-collection_10-annual_burned-feature_a-2023",
-      "fileNamePrefix": "mapbiomas_indonesia-collection_10-annual_burned-feature_a-2023",
+      "description": "mapbiomas_indonesia-collection_1_0-annual_burned-feature_a-2023",
+      "fileNamePrefix": "mapbiomas_indonesia-collection_1_0-annual_burned-feature_a-2023",
       "folder": "MAPBIOMAS-EXPORT",
       "scale": 30,
       "fileFormat": "GeoTIFF"
      },
      {
       "kind": "table.toDrive",
-      "description": "mapbiomas_indonesia-collection_10-annual_burned-feature_a-area",
-      "fileNamePrefix": "mapbiomas_indonesia-collection_10-annual_burned-feature_a-area",
+      "description": "mapbiomas_indonesia-collection_1_0-annual_burned-feature_a-area",
+      "fileNamePrefix": "mapbiomas_indonesia-collection_1_0-annual_burned-feature_a-area",
       "folder": "MAPBIOMAS-EXPORT",
       "fileFormat": "CSV"
      }
@@ -161,16 +161,16 @@
     "exports": [
      {
       "kind": "image.toDrive",
-      "description": "mapbiomas_paraguay-collection_10-annual_burned-feature_a-2024",
-      "fileNamePrefix": "mapbiomas_paraguay-collection_10-annual_burned-feature_a-2024",
+      "description": "mapbiomas_paraguay-collection_1_0-annual_burned-feature_a-2024",
+      "fileNamePrefix": "mapbiomas_paraguay-collection_1_0-annual_burned-feature_a-2024",
       "folder": "MAPBIOMAS-EXPORT",
       "scale": 30,
       "fileFormat": "GeoTIFF"
      },
      {
       "kind": "table.toDrive",
-      "description": "mapbiomas_paraguay-collection_10-annual_burned-feature_a-area",
-      "fileNamePrefix": "mapbiomas_paraguay-collection_10-annual_burned-feature_a-area",
+      "description": "mapbiomas_paraguay-collection_1_0-annual_burned-feature_a-area",
+      "fileNamePrefix": "mapbiomas_paraguay-collection_1_0-annual_burned-feature_a-area",
       "folder": "MAPBIOMAS-EXPORT",
       "fileFormat": "CSV"
      }
@@ -202,16 +202,16 @@
     "exports": [
      {
       "kind": "image.toDrive",
-      "description": "mapbiomas_peru-collection_10-annual_burned-feature_a-2024",
-      "fileNamePrefix": "mapbiomas_peru-collection_10-annual_burned-feature_a-2024",
+      "description": "mapbiomas_peru-collection_1_0-annual_burned-feature_a-2024",
+      "fileNamePrefix": "mapbiomas_peru-collection_1_0-annual_burned-feature_a-2024",
       "folder": "MAPBIOMAS-EXPORT",
       "scale": 30,
       "fileFormat": "GeoTIFF"
      },
      {
       "kind": "table.toDrive",
-      "description": "mapbiomas_peru-collection_10-annual_burned-feature_a-area",
-      "fileNamePrefix": "mapbiomas_peru-collection_10-annual_burned-feature_a-area",
+      "description": "mapbiomas_peru-collection_1_0-annual_burned-feature_a-area",
+      "fileNamePrefix": "mapbiomas_peru-collection_1_0-annual_burned-feature_a-area",
       "folder": "MAPBIOMAS-EXPORT",
       "fileFormat": "CSV"
      }
