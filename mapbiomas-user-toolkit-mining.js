@@ -18,6 +18,7 @@
  *          - Territories from the MapBiomas platform
  *    1.4.1 - Link to legend files (QGIS, ArcGIS Pro, SLD, CSV)
  *    1.4.2 - New toolkit logo; single link to the legend files on GitHub
+ *    1.4.3 - Link to the region's download page, in place of the hard-coded download links
  * 
  * @see
  *      Get the MapBiomas exported data in your "Google Drive/MAPBIOMAS-EXPORT" folder
@@ -35,6 +36,7 @@ var Layers = require('users/mapbiomas/user-toolkit:core/v1/layers.js');
 var Territory = require('users/mapbiomas/user-toolkit:core/v1/territory.js');
 
 var Territories = require('users/mapbiomas/user-toolkit:data/territories.js');
+var Downloads = require('users/mapbiomas/user-toolkit:data/downloads.js');
 
 
 /**
@@ -44,7 +46,7 @@ var App = {
 
     options: {
 
-        version: '1.4.2',
+        version: '1.4.3',
 
         logo: {
             uri: 'gs://mapbiomas-public/mapbiomas-logos/mapbiomas-toolkit-logo.b64',
@@ -770,6 +772,8 @@ var App = {
 
         setMapbiomasRegion: function (regionName) {
 
+            App.ui.form.labelDownloads.setUrl(Downloads.pageOf(regionName));
+
             App.ui.loadCollectionList(regionName);
             App.ui.loadTablesNames(regionName);
 
@@ -1226,15 +1230,11 @@ var App = {
                 App.ui.form.panelMain.add(App.ui.form.labelSubtitle);
                 // App.ui.form.panelMain.add(App.ui.form.labelLink);  // substituído pelo link único para os arquivos de legenda
                 App.ui.form.panelMain.add(App.ui.form.labelLegendFiles);
+                App.ui.form.panelMain.add(App.ui.form.labelDownloads);
 
-                App.ui.form.panelMain.add(App.ui.form.tabs);
                 App.ui.form.panelMain.add(App.ui.form.panel1);
 
-                App.ui.form.tab1.add(App.ui.form.checkboxTab1);
-                App.ui.form.tab2.add(App.ui.form.checkboxTab2);
 
-                App.ui.form.tabs.add(App.ui.form.tab1);
-                App.ui.form.tabs.add(App.ui.form.tab2);
 
                 App.ui.form.panelRegion.add(App.ui.form.labelRegion);
                 App.ui.form.panelRegion.add(App.ui.form.selectRegion);
@@ -1399,6 +1399,12 @@ var App = {
                 'fontSize': '10px'
             },
                 'https://github.com/mapbiomas/user-toolkit/tree/master/legend-colors/brazil-collection-11'
+            ),
+
+            labelDownloads: ui.Label('Download full maps', {
+                'fontSize': '10px'
+            },
+                Downloads.DEFAULT_PAGE
             ),
 
             labelLink: ui.Label('Legend codes', {
@@ -1611,90 +1617,7 @@ var App = {
                 }
             }),
 
-            // panels and tabs
-            tabs: ui.Panel({
-                layout: ui.Panel.Layout.flow('horizontal')
-            }),
-
-            checkboxTab1: ui.Checkbox({
-                'label': '  Toolkit ',
-                'style': {
-                    'margin': '5px 0px 5px -16px',
-                    'stretch': 'horizontal',
-                    'backgroundColor': '#00000000',
-                },
-                'onChange': function (checked) {
-                    if (checked) {
-                        App.ui.form.checkboxTab2.setValue(false);
-                        App.ui.form.tab1.style().set('border', '1px solid #808080');
-                        App.ui.form.tab2.style().set('border', '1px solid #80808033');
-
-                        App.ui.form.panelMain.remove(App.ui.form.panel2);
-                        App.ui.form.panelMain.add(App.ui.form.panel1);
-                    }
-                }
-            }),
-
-            checkboxTab2: ui.Checkbox({
-                'label': '  Direct Link',
-                'style': {
-                    'margin': '5px 20px 5px -16px',
-                    'stretch': 'horizontal',
-                    'backgroundColor': '#00000000',
-                },
-                'onChange': function (checked) {
-                    if (checked) {
-                        App.ui.form.checkboxTab1.setValue(false);
-                        App.ui.form.tab1.style().set('border', '1px solid #80808033');
-                        App.ui.form.tab2.style().set('border', '1px solid #808080');
-
-                        App.ui.form.panelMain.remove(App.ui.form.panel1);
-                        App.ui.form.panelMain.add(App.ui.form.panel2);
-                    }
-
-                }
-            }),
-
-            tab1: ui.Panel({
-                'style': {
-                    'width': '100px',
-                    'backgroundColor': '#dddddd00',
-                    'stretch': 'horizontal',
-                    'border': '1px solid #808080',
-                    'margin': '0px 0px 0px 6px'
-                },
-            }),
-
-            tab2: ui.Panel({
-                'style': {
-                    'width': '100px',
-                    'backgroundColor': '#dddddd00',
-                    'stretch': 'horizontal',
-                    'border': '1px solid #80808033',
-                }
-            }),
-
             panel1: ui.Panel({
-                style: {
-                    'stretch': 'both'
-                }
-            }),
-
-            panel2: ui.Panel({
-                widgets: [
-                    ui.Label('Brazil'),
-                    ui.Panel({
-                        widgets: [
-                            ui.Label({ value: 'Data will be available soon', targetUrl: '' }),
-                            // ui.Label({ value: '1985-2022 (shp)', targetUrl: '' }),
-                        ],
-                        'layout': ui.Panel.Layout.flow('horizontal', true),
-                        style: {
-                            'border': '1px grey solid',
-                            'margin': '0px 6px 0px 6px'
-                        }
-                    }),
-                ],
                 style: {
                     'stretch': 'both'
                 }

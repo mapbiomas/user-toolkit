@@ -27,6 +27,7 @@
  *    1.1.3 - Territories from the MapBiomas platform
  *    1.1.4 - single link to the legend files on GitHub
  *    1.1.5 - Removes leftover debug prints from the console
+ *    1.1.6 - Link to the region's download page, in place of the hard-coded download links
  * 
  */
 
@@ -266,12 +267,13 @@ var Layers = require('users/mapbiomas/user-toolkit:core/v1/layers.js');
 var Territory = require('users/mapbiomas/user-toolkit:core/v1/territory.js');
 
 var Territories = require('users/mapbiomas/user-toolkit:data/territories.js');
+var Downloads = require('users/mapbiomas/user-toolkit:data/downloads.js');
 
 var App = {
 
     options: {
 
-        version: '1.1.5',
+        version: '1.1.6',
 
         logo: {
             uri: 'gs://mapbiomas-public/mapbiomas-logos/mapbiomas-logo-horizontal.b64',
@@ -706,6 +708,8 @@ var App = {
         },
 
         setMapbiomasRegion: function (regionName) {
+
+            App.ui.form.labelDownloads.setUrl(Downloads.pageOf(regionName));
 
             App.options.mapbiomasRegion = regionName;
 
@@ -1441,28 +1445,18 @@ var App = {
                 App.ui.form.panelMain.add(App.ui.form.labelTitle);
                 App.ui.form.panelMain.add(App.ui.form.labelSubtitle);
                 App.ui.form.panelMain.add(App.ui.form.labelLegendFiles);
+                App.ui.form.panelMain.add(App.ui.form.labelDownloads);
                 // App.ui.form.panelMain.add(App.ui.form.labelLink);  // substituído pelo link único para os arquivos de legenda
                 // App.ui.form.panelMain.add(App.ui.form.panelLink1);  // substituído pelo link único para os arquivos de legenda
                 // App.ui.form.panelMain.add(App.ui.form.panelLink2);
 
-                App.ui.form.panelMain.add(App.ui.form.tabs);
                 App.ui.form.panelMain.add(App.ui.form.panel1);
 
-                App.ui.form.tab1.add(App.ui.form.checkboxTab1);
-                App.ui.form.tab2.add(App.ui.form.checkboxTab2);
                 
-                App.ui.form.tabs.add(App.ui.form.tab1);
-                App.ui.form.tabs.add(App.ui.form.tab2);
 
-                App.ui.form.tabs2.add(App.ui.form.tab3);
-                App.ui.form.tabs2.add(App.ui.form.tab4);
 
-                App.ui.form.tab3.add(App.ui.form.checkboxTab3);
-                // App.ui.form.tab4.add(App.ui.form.checkboxTab4);
 
-                App.ui.form.panel2_head.add(App.ui.form.tabs2);
                 
-                App.ui.form.panel2.add(App.ui.form.panel2_head);
 
                 App.ui.form.panelRegion.add(App.ui.form.labelRegion);
                 App.ui.form.panelRegion.add(App.ui.form.selectRegion);
@@ -1656,6 +1650,12 @@ var App = {
                 'https://github.com/mapbiomas/user-toolkit/tree/master/legend-colors'
             ),
 
+            labelDownloads: ui.Label('Download full maps', {
+                'fontSize': '10px'
+            },
+                Downloads.DEFAULT_PAGE
+            ),
+
             labelLink: ui.Label('Legend codes:', {
                 'fontSize': '10px'
             }
@@ -1828,357 +1828,13 @@ var App = {
                 }
             }),
 
-            // panels and tabs
-            tabs: ui.Panel({
-                layout: ui.Panel.Layout.flow('horizontal')
-            }),
-            tabs2: ui.Panel({
-                layout: ui.Panel.Layout.flow('horizontal'),
-                style:{
-                  'margin': '2px 6px 2px 6px',
-                  // 'stretch': 'horizontal',
-                }
-            }),
-
-            checkboxTab1: ui.Checkbox({
-                'label': '  Toolkit ',
-                'style': {
-                    'margin': '5px 0px 5px -16px',
-                    'stretch': 'horizontal',
-                    'backgroundColor': '#00000000',
-                },
-                'onChange': function (checked) {
-                    if (checked !== false) {
-                        App.ui.form.checkboxTab2.setValue(false);
-                        App.ui.form.tab1.style().set('border', '1px solid #808080');
-                        App.ui.form.tab2.style().set('border', '1px solid #80808033');
-
-                        App.ui.form.panelMain.remove(App.ui.form.panel2);
-                        App.ui.form.panelMain.add(App.ui.form.panel1);
-                    }
-                }
-            }),
-
-            checkboxTab2: ui.Checkbox({
-                'label': '  Direct Link',
-                'style': {
-                    'margin': '5px 20px 5px -16px',
-                    'stretch': 'horizontal',
-                    'backgroundColor': '#00000000',
-                },
-                'onChange': function (checked) {
-                    if (checked !== false) {
-                        App.ui.form.checkboxTab1.setValue(false);
-                        App.ui.form.tab1.style().set('border', '1px solid #80808033');
-                        App.ui.form.tab2.style().set('border', '1px solid #aa8080');
-
-                        App.ui.form.panelMain.remove(App.ui.form.panel1);
-                        App.ui.form.panelMain
-                          .add(App.ui.form.panel2);
-                        
-                        App.ui.form.tab4.style().set('border', '1px solid #80808033');
-                        App.ui.form.tab3.style().set('border', '1px solid #aa8080');
-
-                          
-                        App.ui.form.panel2.remove(App.ui.form.panel4);
-                        App.ui.form.panel2.add(App.ui.form.panel3);
-                        
-                        
-                    }
-
-                }
-            }),
-
-            checkboxTab3: ui.Checkbox({
-                'label': '    Brazil',
-                'style': {
-                    'margin': '0px 0px 0px -16px',
-                    'stretch': 'horizontal',
-                    'backgroundColor': '#00000000',
-                },
-                'onChange': function (checked) {
-                    if (checked !== false) {
-                        App.ui.form.checkboxTab4.setValue(false);
-                        App.ui.form.tab4.style().set('border', '1px solid #80808033');
-                        App.ui.form.tab3.style().set('border', '1px solid #aa8080');
-
-                        App.ui.form.panel2.remove(App.ui.form.panel4);
-  
-                        App.ui.form.panel2
-                          .add(App.ui.form.panel3);
-                    }
-
-                }
-            }),
-            checkboxTab4: ui.Checkbox({
-                'label': '    Indonesia',
-                'style': {
-                    'margin': '0px 0px 0px -16px',
-                    'stretch': 'horizontal',
-                    'backgroundColor': '#00000000',
-                },
-                'onChange': function (checked) {
-                    if (checked !== false) {
-                        // App.ui.form.checkboxTab3.setValue(false);
-                        // App.ui.form.tab3.style().set('border', '1px solid #80808033');
-                        // App.ui.form.tab4.style().set('border', '1px solid #aa8080');
-
-                        // App.ui.form.panel2.remove(App.ui.form.panel3);
-                        // App.ui.form.panel2.add(App.ui.form.panel4)
-                    }
-
-                }
-            }),
-
-            tab1: ui.Panel({
-                'style': {
-                    'width': '100px',
-                    'backgroundColor': '#dddddd00',
-                    'stretch': 'horizontal',
-                    'border': '1px solid #808080',
-                    'margin': '0px 0px 0px 6px'
-                },
-            }),
             
-
-            tab2: ui.Panel({
-                'style': {
-                    'width': '100px',
-                    'backgroundColor': '#dddddd00',
-                    'stretch': 'horizontal',
-                    'border': '1px solid #80808033',
-                }
-            }),
-            tab3: ui.Panel({
-                'style': {
-                    // 'width': '110px',
-                    'backgroundColor': '#dddddd',
-                    // 'stretch': 'horizontal',
-                    'border': '1px solid #80808033',
-                }
-            }),
-            tab4: ui.Panel({
-                'style': {
-                    // 'width': '110px',
-                    'backgroundColor': '#dddddd',
-                    // 'stretch': 'horizontal',
-                    'border': '1px solid #80808033',
-                }
-            }),
 
             panel1: ui.Panel({
                 style: {
                     'stretch': 'both'
                 }
             }),
-            panel2: ui.Panel({
-                style: {
-                    'stretch': 'both'
-                }
-            }),
-            panel2_head: ui.Panel({
-                layout:ui.Panel.Layout.Flow('horizontal'),
-                style: {
-                    'stretch': 'horizontal'
-                }
-            }),
-          // Brasil links
-          panel3: ui.Panel({
-            widgets: [
-          
-              // ----------------------------------------------------------
-              // Série de Carbono (40 anos)
-              // ----------------------------------------------------------
-              ui.Label('Brazil soil col3: carbon (annual series)'),
-              ui.Panel({
-                widgets: [
-          
-                  ui.Label({ value: 'carbon_1985', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_carbon_v1/mbsoil03-carbon_1985_v1.tif' }),
-                  ui.Label({ value: 'carbon_1986', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_carbon_v1/mbsoil03-carbon_1986_v1.tif' }),
-                  ui.Label({ value: 'carbon_1987', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_carbon_v1/mbsoil03-carbon_1987_v1.tif' }),
-                  ui.Label({ value: 'carbon_1988', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_carbon_v1/mbsoil03-carbon_1988_v1.tif' }),
-                  ui.Label({ value: 'carbon_1989', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_carbon_v1/mbsoil03-carbon_1989_v1.tif' }),
-          
-                  ui.Label({ value: 'carbon_1990', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_carbon_v1/mbsoil03-carbon_1990_v1.tif' }),
-                  ui.Label({ value: 'carbon_1991', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_carbon_v1/mbsoil03-carbon_1991_v1.tif' }),
-                  ui.Label({ value: 'carbon_1992', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_carbon_v1/mbsoil03-carbon_1992_v1.tif' }),
-                  ui.Label({ value: 'carbon_1993', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_carbon_v1/mbsoil03-carbon_1993_v1.tif' }),
-                  ui.Label({ value: 'carbon_1994', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_carbon_v1/mbsoil03-carbon_1994_v1.tif' }),
-          
-                  ui.Label({ value: 'carbon_1995', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_carbon_v1/mbsoil03-carbon_1995_v1.tif' }),
-                  ui.Label({ value: 'carbon_1996', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_carbon_v1/mbsoil03-carbon_1996_v1.tif' }),
-                  ui.Label({ value: 'carbon_1997', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_carbon_v1/mbsoil03-carbon_1997_v1.tif' }),
-                  ui.Label({ value: 'carbon_1998', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_carbon_v1/mbsoil03-carbon_1998_v1.tif' }),
-                  ui.Label({ value: 'carbon_1999', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_carbon_v1/mbsoil03-carbon_1999_v1.tif' }),
-          
-                  ui.Label({ value: 'carbon_2000', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_carbon_v1/mbsoil03-carbon_2000_v1.tif' }),
-                  ui.Label({ value: 'carbon_2001', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_carbon_v1/mbsoil03-carbon_2001_v1.tif' }),
-                  ui.Label({ value: 'carbon_2002', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_carbon_v1/mbsoil03-carbon_2002_v1.tif' }),
-                  ui.Label({ value: 'carbon_2003', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_carbon_v1/mbsoil03-carbon_2003_v1.tif' }),
-                  ui.Label({ value: 'carbon_2004', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_carbon_v1/mbsoil03-carbon_2004_v1.tif' }),
-          
-                  ui.Label({ value: 'carbon_2005', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_carbon_v1/mbsoil03-carbon_2005_v1.tif' }),
-                  ui.Label({ value: 'carbon_2006', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_carbon_v1/mbsoil03-carbon_2006_v1.tif' }),
-                  ui.Label({ value: 'carbon_2007', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_carbon_v1/mbsoil03-carbon_2007_v1.tif' }),
-                  ui.Label({ value: 'carbon_2008', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_carbon_v1/mbsoil03-carbon_2008_v1.tif' }),
-                  ui.Label({ value: 'carbon_2009', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_carbon_v1/mbsoil03-carbon_2009_v1.tif' }),
-          
-                  ui.Label({ value: 'carbon_2010', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_carbon_v1/mbsoil03-carbon_2010_v1.tif' }),
-                  ui.Label({ value: 'carbon_2011', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_carbon_v1/mbsoil03-carbon_2011_v1.tif' }),
-                  ui.Label({ value: 'carbon_2012', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_carbon_v1/mbsoil03-carbon_2012_v1.tif' }),
-                  ui.Label({ value: 'carbon_2013', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_carbon_v1/mbsoil03-carbon_2013_v1.tif' }),
-                  ui.Label({ value: 'carbon_2014', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_carbon_v1/mbsoil03-carbon_2014_v1.tif' }),
-          
-                  ui.Label({ value: 'carbon_2015', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_carbon_v1/mbsoil03-carbon_2015_v1.tif' }),
-                  ui.Label({ value: 'carbon_2016', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_carbon_v1/mbsoil03-carbon_2016_v1.tif' }),
-                  ui.Label({ value: 'carbon_2017', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_carbon_v1/mbsoil03-carbon_2017_v1.tif' }),
-                  ui.Label({ value: 'carbon_2018', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_carbon_v1/mbsoil03-carbon_2018_v1.tif' }),
-                  ui.Label({ value: 'carbon_2019', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_carbon_v1/mbsoil03-carbon_2019_v1.tif' }),
-          
-                  ui.Label({ value: 'carbon_2020', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_carbon_v1/mbsoil03-carbon_2020_v1.tif' }),
-                  ui.Label({ value: 'carbon_2021', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_carbon_v1/mbsoil03-carbon_2021_v1.tif' }),
-                  ui.Label({ value: 'carbon_2022', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_carbon_v1/mbsoil03-carbon_2022_v1.tif' }),
-                  ui.Label({ value: 'carbon_2023', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_carbon_v1/mbsoil03-carbon_2023_v1.tif' }),
-                  ui.Label({ value: 'carbon_2024', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_carbon_v1/mbsoil03-carbon_2024_v1.tif' })
-          
-                ],
-                layout: ui.Panel.Layout.flow('horizontal', true),
-                style: { border: '1px grey solid', margin: '0px 6px 0px 6px' }
-              }),
-          
-              // ----------------------------------------------------------
-              // Série de Horizontes de Argila (10 camadas de 10 cm)
-              // ----------------------------------------------------------
-              ui.Label('Brazil soil col3: clay fraction (10 cm horizons)'),
-              ui.Panel({
-                widgets: [
-                  ui.Label({ value: 'clay_000_010cm', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_clay_fraction_v1/mbsoil03-clay_fraction_000_010cm_v1.tif' }),
-                  ui.Label({ value: 'clay_010_020cm', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_clay_fraction_v1/mbsoil03-clay_fraction_010_020cm_v1.tif' }),
-                  ui.Label({ value: 'clay_020_030cm', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_clay_fraction_v1/mbsoil03-clay_fraction_020_030cm_v1.tif' }),
-                  ui.Label({ value: 'clay_030_040cm', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_clay_fraction_v1/mbsoil03-clay_fraction_030_040cm_v1.tif' }),
-                  ui.Label({ value: 'clay_040_050cm', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_clay_fraction_v1/mbsoil03-clay_fraction_040_050cm_v1.tif' }),
-                  ui.Label({ value: 'clay_050_060cm', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_clay_fraction_v1/mbsoil03-clay_fraction_050_060cm_v1.tif' }),
-                  ui.Label({ value: 'clay_060_070cm', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_clay_fraction_v1/mbsoil03-clay_fraction_060_070cm_v1.tif' }),
-                  ui.Label({ value: 'clay_070_080cm', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_clay_fraction_v1/mbsoil03-clay_fraction_070_080cm_v1.tif' }),
-                  ui.Label({ value: 'clay_080_090cm', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_clay_fraction_v1/mbsoil03-clay_fraction_080_090cm_v1.tif' }),
-                  ui.Label({ value: 'clay_090_100cm', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_clay_fraction_v1/mbsoil03-clay_fraction_090_100cm_v1.tif' })
-                ],
-                layout: ui.Panel.Layout.flow('horizontal', true),
-                style: { border: '1px grey solid', margin: '0px 6px 0px 6px' }
-              }),
-          
-              // ----------------------------------------------------------
-              // Série de Horizontes de Areia (10 camadas de 10 cm)
-              // ----------------------------------------------------------
-              ui.Label('Brazil soil col3: sand fraction (10 cm horizons)'),
-              ui.Panel({
-                widgets: [
-                  ui.Label({ value: 'sand_000_010cm', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_sand_fraction_v1/mbsoil03-sand_fraction_000_010cm_v1.tif' }),
-                  ui.Label({ value: 'sand_010_020cm', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_sand_fraction_v1/mbsoil03-sand_fraction_010_020cm_v1.tif' }),
-                  ui.Label({ value: 'sand_020_030cm', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_sand_fraction_v1/mbsoil03-sand_fraction_020_030cm_v1.tif' }),
-                  ui.Label({ value: 'sand_030_040cm', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_sand_fraction_v1/mbsoil03-sand_fraction_030_040cm_v1.tif' }),
-                  ui.Label({ value: 'sand_040_050cm', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_sand_fraction_v1/mbsoil03-sand_fraction_040_050cm_v1.tif' }),
-                  ui.Label({ value: 'sand_050_060cm', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_sand_fraction_v1/mbsoil03-sand_fraction_050_060cm_v1.tif' }),
-                  ui.Label({ value: 'sand_060_070cm', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_sand_fraction_v1/mbsoil03-sand_fraction_060_070cm_v1.tif' }),
-                  ui.Label({ value: 'sand_070_080cm', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_sand_fraction_v1/mbsoil03-sand_fraction_070_080cm_v1.tif' }),
-                  ui.Label({ value: 'sand_080_090cm', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_sand_fraction_v1/mbsoil03-sand_fraction_080_090cm_v1.tif' }),
-                  ui.Label({ value: 'sand_090_100cm', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_sand_fraction_v1/mbsoil03-sand_fraction_090_100cm_v1.tif' })
-                ],
-                layout: ui.Panel.Layout.flow('horizontal', true),
-                style: { border: '1px grey solid', margin: '0px 6px 0px 6px' }
-              }),
-          
-              // ----------------------------------------------------------
-              // Série de Horizontes de Silte (10 camadas de 10 cm)
-              // ----------------------------------------------------------
-              ui.Label('Brazil soil col3: silt fraction (10 cm horizons)'),
-              ui.Panel({
-                widgets: [
-                  ui.Label({ value: 'silt_000_010cm', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_silt_fraction_v1/mbsoil03-silt_fraction_000_010cm_v1.tif' }),
-                  ui.Label({ value: 'silt_010_020cm', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_silt_fraction_v1/mbsoil03-silt_fraction_010_020cm_v1.tif' }),
-                  ui.Label({ value: 'silt_020_030cm', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_silt_fraction_v1/mbsoil03-silt_fraction_020_030cm_v1.tif' }),
-                  ui.Label({ value: 'silt_030_040cm', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_silt_fraction_v1/mbsoil03-silt_fraction_030_040cm_v1.tif' }),
-                  ui.Label({ value: 'silt_040_050cm', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_silt_fraction_v1/mbsoil03-silt_fraction_040_050cm_v1.tif' }),
-                  ui.Label({ value: 'silt_050_060cm', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_silt_fraction_v1/mbsoil03-silt_fraction_050_060cm_v1.tif' }),
-                  ui.Label({ value: 'silt_060_070cm', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_silt_fraction_v1/mbsoil03-silt_fraction_060_070cm_v1.tif' }),
-                  ui.Label({ value: 'silt_070_080cm', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_silt_fraction_v1/mbsoil03-silt_fraction_070_080cm_v1.tif' }),
-                  ui.Label({ value: 'silt_080_090cm', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_silt_fraction_v1/mbsoil03-silt_fraction_080_090cm_v1.tif' }),
-                  ui.Label({ value: 'silt_090_100cm', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_silt_fraction_v1/mbsoil03-silt_fraction_090_100cm_v1.tif' })
-                ],
-                layout: ui.Panel.Layout.flow('horizontal', true),
-                style: { border: '1px grey solid', margin: '0px 6px 0px 6px' }
-              }),
-          
-              // ----------------------------------------------------------
-              // Grupo Textural (6 profundidades)
-              // ----------------------------------------------------------
-              ui.Label('Brazil soil col3: textural group (integrated depths)'),
-              ui.Panel({
-                widgets: [
-                  ui.Label({ value: 'textural_group_000_010cm', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_textural_group_v1/mbsoil03-textural_group_000_010cm_v1.tif' }),
-                  ui.Label({ value: 'textural_group_000_020cm', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_textural_group_v1/mbsoil03-textural_group_000_020cm_v1.tif' }),
-                  ui.Label({ value: 'textural_group_000_030cm', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_textural_group_v1/mbsoil03-textural_group_000_030cm_v1.tif' }),
-                  ui.Label({ value: 'textural_group_020_040cm', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_textural_group_v1/mbsoil03-textural_group_020_040cm_v1.tif' }),
-                  ui.Label({ value: 'textural_group_030_060cm', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_textural_group_v1/mbsoil03-textural_group_030_060cm_v1.tif' }),
-                  ui.Label({ value: 'textural_group_060_100cm', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_textural_group_v1/mbsoil03-textural_group_060_100cm_v1.tif' })
-                ],
-                layout: ui.Panel.Layout.flow('horizontal', true),
-                style: { border: '1px grey solid', margin: '0px 6px 0px 6px' }
-              }),
-          
-              // ----------------------------------------------------------
-              // Subgrupo Textural (6 profundidades)
-              // ----------------------------------------------------------
-              ui.Label('Brazil soil col3: textural subgroup (integrated depths)'),
-              ui.Panel({
-                widgets: [
-                  ui.Label({ value: 'textural_subgroup_000_010cm', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_textural_subgroup_v1/mbsoil03-textural_subgroup_000_010cm_v1.tif' }),
-                  ui.Label({ value: 'textural_subgroup_000_020cm', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_textural_subgroup_v1/mbsoil03-textural_subgroup_000_020cm_v1.tif' }),
-                  ui.Label({ value: 'textural_subgroup_000_030cm', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_textural_subgroup_v1/mbsoil03-textural_subgroup_000_030cm_v1.tif' }),
-                  ui.Label({ value: 'textural_subgroup_020_040cm', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_textural_subgroup_v1/mbsoil03-textural_subgroup_020_040cm_v1.tif' }),
-                  ui.Label({ value: 'textural_subgroup_030_060cm', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_textural_subgroup_v1/mbsoil03-textural_subgroup_030_060cm_v1.tif' }),
-                  ui.Label({ value: 'textural_subgroup_060_100cm', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_textural_subgroup_v1/mbsoil03-textural_subgroup_060_100cm_v1.tif' })
-                ],
-                layout: ui.Panel.Layout.flow('horizontal', true),
-                style: { border: '1px grey solid', margin: '0px 6px 0px 6px' }
-              }),
-          
-              // ----------------------------------------------------------
-              // Classe Textural (6 profundidades)
-              // ----------------------------------------------------------
-              ui.Label('Brazil soil col3: textural class (integrated depths)'),
-              ui.Panel({
-                widgets: [
-                  ui.Label({ value: 'textural_class_000_010cm', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_textural_class_v1/mbsoil03-textural_class_000_010cm_v1.tif' }),
-                  ui.Label({ value: 'textural_class_000_020cm', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_textural_class_v1/mbsoil03-textural_class_000_020cm_v1.tif' }),
-                  ui.Label({ value: 'textural_class_000_030cm', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_textural_class_v1/mbsoil03-textural_class_000_030cm_v1.tif' }),
-                  ui.Label({ value: 'textural_class_020_040cm', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_textural_class_v1/mbsoil03-textural_class_020_040cm_v1.tif' }),
-                  ui.Label({ value: 'textural_class_030_060cm', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_textural_class_v1/mbsoil03-textural_class_030_060cm_v1.tif' }),
-                  ui.Label({ value: 'textural_class_060_100cm', targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_textural_class_v1/mbsoil03-textural_class_060_100cm_v1.tif' })
-                ],
-                layout: ui.Panel.Layout.flow('horizontal', true),
-                style: { border: '1px grey solid', margin: '0px 6px 0px 6px' }
-              }),
-          
-              // ----------------------------------------------------------
-              // Pedregosidade (mapas estáticos)
-              // ----------------------------------------------------------
-              ui.Label('Brazil soil col3: stoniness (static classes)'),
-              ui.Panel({
-                widgets: [
-                  ui.Label({value: 'stoniness_50vol',targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_stoniness_v1/mbsoil03-stoniness_50vol_v1.tif'}),
-                  ui.Label({value: 'stoniness_90vol',targetUrl: 'https://storage.googleapis.com/shared-development-storage/COLLECTIONS/BRASIL/SOLO/COLLECTION3/mbsoil_c03_stoniness_v1/mbsoil03-stoniness_90vol_v1.tif'})
-                ],
-                layout: ui.Panel.Layout.flow('horizontal', true),
-                style: { border: '1px grey solid', margin: '0px 6px 0px 6px' }
-              })
-          
-            ],
-            style: {
-              'stretch': 'both'
-            }
-          }),
-
           // Indonesia links
           // panel4: ui.Panel(),
 

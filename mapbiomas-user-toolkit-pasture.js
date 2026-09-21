@@ -19,6 +19,7 @@
  *          - Territories from the MapBiomas platform
  *    1.5.1 - Link to legend files (QGIS, ArcGIS Pro, SLD, CSV)
  *    1.5.2 - New toolkit logo; single link to the legend files on GitHub
+ *    1.5.3 - Link to the region's download page, in place of the hard-coded download links
  * 
  * @see
  *      Get the MapBiomas exported data in your "Google Drive/MAPBIOMAS-EXPORT" folder
@@ -34,6 +35,7 @@ var Layers = require('users/mapbiomas/user-toolkit:core/v1/layers.js');
 var Territory = require('users/mapbiomas/user-toolkit:core/v1/territory.js');
 
 var Territories = require('users/mapbiomas/user-toolkit:data/territories.js');
+var Downloads = require('users/mapbiomas/user-toolkit:data/downloads.js');
 
 /**
  * 
@@ -42,7 +44,7 @@ var App = {
 
     options: {
 
-        version: '1.5.2',
+        version: '1.5.3',
 
         logo: {
             uri: 'gs://mapbiomas-public/mapbiomas-logos/mapbiomas-toolkit-logo.b64',
@@ -342,6 +344,8 @@ var App = {
         },
 
         setMapbiomasRegion: function (regionName) {
+
+            App.ui.form.labelDownloads.setUrl(Downloads.pageOf(regionName));
 
             App.ui.loadCollectionList(regionName);
             App.ui.loadTablesNames(regionName);
@@ -774,6 +778,7 @@ var App = {
                 App.ui.form.panelMain.add(App.ui.form.labelSubtitle);
                 // App.ui.form.panelMain.add(App.ui.form.labelLink);  // substituído pelo link único para os arquivos de legenda
                 App.ui.form.panelMain.add(App.ui.form.labelLegendFiles);
+                App.ui.form.panelMain.add(App.ui.form.labelDownloads);
 
                 App.ui.form.panelRegion.add(App.ui.form.labelRegion);
                 App.ui.form.panelRegion.add(App.ui.form.selectRegion);
@@ -938,6 +943,12 @@ var App = {
                 'fontSize': '10px'
             },
                 'https://github.com/mapbiomas/user-toolkit/tree/master/legend-colors/brazil-collection-11'
+            ),
+
+            labelDownloads: ui.Label('Download full maps', {
+                'fontSize': '10px'
+            },
+                Downloads.DEFAULT_PAGE
             ),
 
             labelLink: ui.Label('Legend codes', {

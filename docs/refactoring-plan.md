@@ -123,6 +123,25 @@ Still to do in this phase: the `collections` blocks, which are per theme and muc
 - Replace `ee.data.getAssetRoots()` with a listing of the `MAPBIOMAS` folder in the user's Cloud project, and allow pasting a table path.
 - Remove commented-out code and the hard-coded download tabs. Add the link to each region's download page instead.
 
+**Done so far**
+
+The download tabs are gone, and with them 1,494 hard-coded links to single GeoTIFFs in the storage bucket. They pointed at old collections (lulc still linked collection 8), they broke whenever a collection was published — 104 of them had just been repaired by hand — and nobody could keep nine copies current. In their place, `data/downloads.js` maps each region to the download page its own initiative maintains, and every toolkit shows one `Download full maps` link that follows the region:
+
+| Toolkit | What it had |
+|---|---|
+| fire | a live `Direct Link` tab with 908 links |
+| lulc | 456 links behind a tab that was already disabled |
+| soil | a live tab with 90 links |
+| degradation | 39 links behind an empty tab |
+| mining | an empty `Direct Link` tab |
+| the rest | nothing |
+
+That also settles the empty second tab that the Code Editor round found in degradation, and the same defect in mining.
+
+All 18 pages were checked for a 200 before publishing. Suriname has no page of its own, so it and any unknown region fall back to the MapBiomas home page.
+
+Everything else in this phase is still open: the personal-account packages and the deprecated `getAssetRoots()`.
+
 ### Phase 4: special themes and standardization
 - Move fire (monthly monitor, disclaimers), soil and degradation (beta modules) onto the core.
 - Standardize the buffer, the area CSV (same columns everywhere), the export names and the legend panel. Document the changes as breaking.

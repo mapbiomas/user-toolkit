@@ -24,6 +24,7 @@
  *          - Territories from the MapBiomas platform
  *    1.6.1 - Link to legend files (QGIS, ArcGIS Pro, SLD, CSV)
  *    1.6.2 - single link to the legend files on GitHub
+ *    1.6.3 - Link to the region's download page, in place of the hard-coded download links
  * 
  * @see
  *      Get the MapBiomas exported data in your "Google Drive/MAPBIOMAS-EXPORT" folder
@@ -40,6 +41,7 @@ var Layers = require('users/mapbiomas/user-toolkit:core/v1/layers.js');
 var Territory = require('users/mapbiomas/user-toolkit:core/v1/territory.js');
 
 var Territories = require('users/mapbiomas/user-toolkit:data/territories.js');
+var Downloads = require('users/mapbiomas/user-toolkit:data/downloads.js');
 
 
 /**
@@ -49,7 +51,7 @@ var App = {
 
     options: {
 
-        version: '1.6.2',
+        version: '1.6.3',
 
 
         logo: {
@@ -540,6 +542,8 @@ var App = {
         },
 
         setMapbiomasRegion: function (regionName) {
+
+            App.ui.form.labelDownloads.setUrl(Downloads.pageOf(regionName));
 
             App.ui.loadCollectionList(regionName);
             App.ui.loadTablesNames(regionName);
@@ -1044,6 +1048,7 @@ var App = {
                 this.panelMain.add(this.panelLogo);
                 // this.panelMain.add(this.labelLink);  // substituído pelo link único para os arquivos de legenda
                 this.panelMain.add(this.labelLegendFiles);
+                this.panelMain.add(this.labelDownloads);
 
                 this.panelRegion.add(this.labelRegion);
                 this.panelRegion.add(this.selectRegion);
@@ -1216,6 +1221,12 @@ var App = {
                 'fontSize': '10px'
             },
                 'https://github.com/mapbiomas/user-toolkit/tree/master/legend-colors/water'
+            ),
+
+            labelDownloads: ui.Label('Download full maps', {
+                'fontSize': '10px'
+            },
+                Downloads.DEFAULT_PAGE
             ),
 
             labelLink: ui.Label('Legend codes', {
