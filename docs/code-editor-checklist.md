@@ -56,3 +56,33 @@ Still open, for the refactoring:
 - Export names differ between toolkits (fire and soil use `_`, the others `-`).
   Phase 4 standardizes them.
 - In degradation the header has an empty second tab, next to "Toolkit".
+
+## Round of 2026-09-21 — the 2.0.0 release
+
+The refactoring changed what the user sees, so each slice was checked in the
+Code Editor before or right after it went out.
+
+| What changed | Checked with | Result |
+|---|---|---|
+| `core/v1` area and naming | pasture, lulc, fire | layers rendered, 6 tasks `SUCCEEDED`, fire and pasture CSVs byte-identical to the previous run |
+| `core/v1` layers and territory | water | the user's own table shows up, and picking it before a collection no longer errors |
+| territories from `data/` | lulc | Ecuador listed its 26 territories; pasture, opened straight from the GEE repository, listed Brazil's 39 |
+| download pages | fire | the tabs are gone, and picking Indonesia points the link at indonesia.mapbiomas.org |
+| basemaps and legend out of the personal account | irrigation | the legend draws its server-rendered swatches; the Dark style registers |
+| 2.0.0 names, CSV and highlight | water, degradation, fire | see below |
+
+The 2.0.0 checks, in detail:
+
+- **water** — the territory is drawn red and centred where it used to be yellow
+  and static. Both tasks reached `SUCCEEDED`, named
+  `mapbiomas_brazil-collection_5_0-annual_water_coverage-distrito_federal-{1985,area}`,
+  and the CSV came out as `class,class_name,band,area_km2`.
+- **degradation** — the outline-and-fill highlight replaces the solid red patch,
+  and the empty second tab is gone.
+- **fire** — both tasks `SUCCEEDED`, and the area CSV reads `995.5598 km²` where
+  the run from before the change read `99555.98 ha`: exactly a hundredth, so the
+  unit change is doing what it should and nothing else moved.
+
+The nine toolkits are covered by the snapshots for flow and export parameters;
+the Code Editor rounds above cover what the mocks cannot — rendering, the
+`require` of `core/` and `data/` resolving in GEE, and real tasks finishing.
