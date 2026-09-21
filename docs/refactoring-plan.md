@@ -172,7 +172,15 @@ still building it at startup. Removed.
 
 **The States dropdown is gone.** It sat above the table select in six toolkits, offered the 27 Brazilian states, and filtered the chosen table by a `UF` field. Choosing a state **threw an error** in all six — it reads `App.options.periods`, which no toolkit defines; the periods live under `collections[region][collection]`. The property and feature selects do the same filtering, on any table, with whatever field that table has. Removing it takes ~100 lines out of each of the six, plus the leftover panel and label in fire, soil and degradation, which had the widgets but no select at all.
 
-Still to do in this phase: turning the collection-specific branches into flags.
+**The collection-specific branches are already flags, and `bandPrefix` was not added — on purpose.**
+
+The branches the plan wanted to replace are gone: what is left reads `collection.encoding` (`raw` or `x100`, 17 collections) and `collection.legend` (`c11`, 2 collections) straight from the data. No toolkit compares a collection name any more.
+
+The remaining case-by-case bit is renaming the bands: collection 11 publishes `classification_YYYY` while older ones use their own prefix, and each script fixes that up. The plan called for a `bandPrefix` flag in the data. I checked whether it would fix anything: comparing the real band names in the asset inventory against what each toolkit selects, across 25 thematic assets plus the deforestation ones, **every rename lands correctly**. Four collections need it and the rest are no-ops.
+
+So the flag would be documentation, not a fix, and it would add a concept to every collection entry for a benefit that is speculative. I also tried the cheaper version — a check in `check_options.js` that flags an unexpected prefix — and it produced ten false positives, because the scripts use three different rename mechanisms (`regexpRename` on `^classification`, `bandNames().map()` in deforestation, a targeted one for fire's `fire_recurrence`) and soil's bands are keyed by depth, not year. That a one-flag model cannot describe them is the argument against the flag, not for it.
+
+Worth revisiting the day a collection arrives with a prefix none of the three mechanisms handles. Until then the renames are correct and the check would only cry wolf.
 
 ### Phase 3: dependencies and cleanup
 - Bring `Mapp`, `Legend` and the fire palettes and logos into `core/`.
