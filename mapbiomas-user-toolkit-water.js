@@ -36,6 +36,8 @@ var mapp = require('users/joaovsiqueira1/packages:Mapp.js');
 
 var Area = require('users/mapbiomas/user-toolkit:core/v1/area.js');
 var Naming = require('users/mapbiomas/user-toolkit:core/v1/naming.js');
+var Layers = require('users/mapbiomas/user-toolkit:core/v1/layers.js');
+var Territory = require('users/mapbiomas/user-toolkit:core/v1/territory.js');
 
 
 /**
@@ -1369,29 +1371,8 @@ var App = {
 
             App.ui.form.selectRegion.setPlaceholder('loading tables names...');
 
-            var roots = ee.data.getAssetRoots()
-                .map(
-                    function (obj) {
-                        return obj.id;
-                    });
-
-            var allTablesNames;
-
-            /**
-             * Skip the error msg if MAPBIOMAS folder is not found
-             */
-            try {
-                var tablesNames = ee.data.getList({
-                    'id': roots[0] + '/MAPBIOMAS'
-                }).map(
-                    function (obj) {
-                        return obj.id;
-                    });
-                var allTablesNames = App.options.tables[regionName].concat(tablesNames);
-            }
-            catch (e) {
-                var allTablesNames = App.options.tables[regionName];
-            }
+            var allTablesNames = App.options.tables[regionName]
+                .concat(Territory.userTables());
 
             App.ui.form.selectFeatureCollections = ui.Select({
                 'items': allTablesNames,
@@ -1407,11 +1388,15 @@ var App = {
 
                                 App.ui.loadTable(tableName);
 
+                                // a coleção ainda pode não ter sido escolhida: sem
+                                // períodos a lista fica vazia, em vez de dar erro
+                                var collection = App.options
+                                    .collections[regionName][collectioName];
+
                                 App.ui.makeLayersList(
                                     App.tableShortName(),
                                     App.options.activeFeature,
-                                    App.options.collections[regionName][collectioName]
-                                        .periods[App.options.dataType]
+                                    collection && collection.periods[App.options.dataType]
                                 );
 
                                 App.ui.loadPropertiesNames();
@@ -1663,16 +1648,7 @@ var App = {
         },
 
         removeImageLayer: function (label) {
-
-            for (var i = 0; i < Map.layers().length(); i++) {
-
-                var layer = Map.layers().get(i);
-
-                if (label === layer.get('name')) {
-                    Map.remove(layer);
-                }
-            }
-
+            Layers.removeByName(label);
         },
 
         manageLayers: function (checked, period, label, region) {
@@ -1686,34 +1662,8 @@ var App = {
         },
 
         makeLayersList: function (regionName, region, periods) {
-            // print(regionName, region, periods)
-            App.ui.form.panelLayersList.clear();
-
-            periods.forEach(
-
-                function (period, index, array) {
-                    App.ui.form.panelLayersList.add(
-                        ui.Checkbox({
-                            "label": regionName + ' ' + period,
-                            "value": false,
-                            "onChange": function (checked) {
-
-                                App.ui.manageLayers(checked, period, regionName + ' ' + period, region);
-
-                            },
-                            "disabled": false,
-                            "style": {
-                                'padding': '2px',
-                                'stretch': 'horizontal',
-                                'backgroundColor': '#dddddd',
-                                'fontSize': '12px'
-                            }
-                        })
-                    );
-
-                }
-            );
-
+            Layers.makeList(App.ui.form.panelLayersList, regionName, region,
+                periods, App.ui.manageLayers);
         },
 
         loadingBox: function () {

@@ -11,7 +11,7 @@
    },
    "flow": {
     "collection": "collection-1.0",
-    "tables": 6,
+    "tables": 7,
     "table": "Biome",
     "dataType": "annual_water_coverage",
     "layer": "Feature A 2022",
@@ -57,7 +57,7 @@
    },
    "flow": {
     "collection": "collection-5.0",
-    "tables": 39,
+    "tables": 40,
     "table": "AMACRO (IBGE, 2026)",
     "dataType": "annual_water_coverage",
     "layer": "Feature A 2025",
@@ -92,7 +92,7 @@
    },
    "flow": {
     "collection": "collection-1.0",
-    "tables": 11,
+    "tables": 12,
     "table": "Basin Level 1",
     "dataType": "annual_water_coverage",
     "layer": "Feature A 2022",
@@ -127,7 +127,7 @@
    },
    "flow": {
     "collection": "collection-1.0",
-    "tables": 6,
+    "tables": 7,
     "table": "Biomes",
     "dataType": "annual_water_coverage",
     "layer": "Feature A 2022",
@@ -162,7 +162,7 @@
    },
    "flow": {
     "collection": "collection-1.0",
-    "tables": 26,
+    "tables": 27,
     "table": "Bosque Protectores (MAE, 2026)",
     "dataType": "annual_water_coverage",
     "layer": "Feature A 2022",
@@ -197,7 +197,7 @@
    },
    "flow": {
     "collection": "collection-1.0",
-    "tables": 31,
+    "tables": 32,
     "table": "Afforestation and Reforestation Concession",
     "dataType": "annual_water_coverage",
     "layer": "Feature A 2022",
@@ -232,7 +232,7 @@
    },
    "flow": {
     "collection": "collection-1.0",
-    "tables": 10,
+    "tables": 11,
     "table": "Administrative Regions",
     "dataType": "annual_water_coverage",
     "layer": "Feature A 2022",

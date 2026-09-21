@@ -85,7 +85,7 @@
    },
    "flow": {
     "collection": "fire_monitor",
-    "tables": 39,
+    "tables": 40,
     "table": "AMACRO (IBGE, 2026)",
     "dataType": "fire_monitor",
     "exports": [
@@ -112,7 +112,7 @@
    },
    "flow": {
     "collection": "collection-1.0",
-    "tables": 24,
+    "tables": 25,
     "table": "Country Limit",
     "dataType": "annual_burned",
     "layer": "Feature A 2023",
@@ -151,7 +151,7 @@
    },
    "flow": {
     "collection": "collection-1.0",
-    "tables": 9,
+    "tables": 10,
     "table": "Ecorregiones Dinerstein (DINERTTEIN, 1995)",
     "dataType": "annual_burned",
     "layer": "Feature A 2024",
@@ -192,7 +192,7 @@
    },
    "flow": {
     "collection": "collection-1.0",
-    "tables": 31,
+    "tables": 32,
     "table": "Afforestation and Reforestation Concession",
     "dataType": "annual_burned",
     "layer": "Feature A 2024",

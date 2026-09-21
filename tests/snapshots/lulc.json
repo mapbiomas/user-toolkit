@@ -31,7 +31,7 @@
    },
    "flow": {
     "collection": "collection-6.0",
-    "tables": 6,
+    "tables": 7,
     "table": "Biome",
     "dataType": "Coverage",
     "layer": "Feature A 2023",
@@ -72,7 +72,7 @@
    },
    "flow": {
     "collection": "collection-3.0",
-    "tables": 10,
+    "tables": 11,
     "table": "Country",
     "dataType": "Coverage",
     "layer": "Feature A 2025",
@@ -123,7 +123,7 @@
    },
    "flow": {
     "collection": "collection-4.0",
-    "tables": 8,
+    "tables": 9,
     "table": "Basin Level 2",
     "dataType": "Coverage",
     "layer": "Feature A 2023",
@@ -205,7 +205,7 @@
    },
    "flow": {
     "collection": "collection-11.0",
-    "tables": 39,
+    "tables": 40,
     "table": "AMACRO (IBGE, 2026)",
     "dataType": "Coverage",
     "layer": "Feature A 2025",
@@ -250,7 +250,7 @@
    },
    "flow": {
     "collection": "collection-3.0",
-    "tables": 11,
+    "tables": 12,
     "table": "Basin Level 1",
     "dataType": "Coverage",
     "layer": "Feature A 2024",
@@ -302,7 +302,7 @@
    },
    "flow": {
     "collection": "collection-5.0",
-    "tables": 6,
+    "tables": 7,
     "table": "Biome",
     "dataType": "Coverage",
     "layer": "Feature A 2023",
@@ -340,7 +340,7 @@
    },
    "flow": {
     "collection": "collection-2.0",
-    "tables": 9,
+    "tables": 10,
     "table": "Basins",
     "dataType": "Coverage",
     "layer": "Feature A 2024",
@@ -384,7 +384,7 @@
    },
    "flow": {
     "collection": "collection-3.0",
-    "tables": 6,
+    "tables": 7,
     "table": "Biomes",
     "dataType": "Coverage",
     "layer": "Feature A 2024",
@@ -418,7 +418,7 @@
    },
    "flow": {
     "collection": "collection-1.0",
-    "tables": 5,
+    "tables": 6,
     "table": "Biomes",
     "dataType": "Coverage",
     "layer": "Feature A 2025",
@@ -462,7 +462,7 @@
    },
    "flow": {
     "collection": "collection-3.0",
-    "tables": 26,
+    "tables": 27,
     "table": "Bosque Protectores (MAE, 2026)",
     "dataType": "Coverage",
     "layer": "Feature A 2024",
@@ -511,7 +511,7 @@
    },
    "flow": {
     "collection": "collection-4.1",
-    "tables": 24,
+    "tables": 25,
     "table": "Country Limit",
     "dataType": "Coverage",
     "layer": "Feature A 2024",
@@ -545,7 +545,7 @@
    },
    "flow": {
     "collection": "collection-1.0",
-    "tables": 13,
+    "tables": 14,
     "table": "Aquifers",
     "dataType": "Coverage",
     "layer": "Feature A 2025",
@@ -596,7 +596,7 @@
    },
    "flow": {
     "collection": "collection-4.0",
-    "tables": 9,
+    "tables": 10,
     "table": "Biome",
     "dataType": "Coverage",
     "layer": "Feature A 2023",
@@ -639,7 +639,7 @@
    },
    "flow": {
     "collection": "collection-3.0",
-    "tables": 9,
+    "tables": 10,
     "table": "Ecorregiones Dinerstein (DINERTTEIN, 1995)",
     "dataType": "Coverage",
     "layer": "Feature A 2025",
@@ -687,7 +687,7 @@
    },
    "flow": {
     "collection": "collection-4.0",
-    "tables": 31,
+    "tables": 32,
     "table": "Afforestation and Reforestation Concession",
     "dataType": "Coverage",
     "layer": "Feature A 2025",
@@ -731,7 +731,7 @@
    },
    "flow": {
     "collection": "collection-3.0",
-    "tables": 6,
+    "tables": 7,
     "table": "Country",
     "dataType": "Coverage",
     "layer": "Feature A 2024",
@@ -775,7 +775,7 @@
    },
    "flow": {
     "collection": "collection-3.0",
-    "tables": 10,
+    "tables": 11,
     "table": "Administrative Regions",
     "dataType": "Coverage",
     "layer": "Feature A 2024",

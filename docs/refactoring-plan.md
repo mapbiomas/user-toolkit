@@ -78,12 +78,20 @@ data/<theme>.js                     generated: collections, territories, palette
 |---|---|---|
 | `core/v1/area.js` | area per class for the CSV, with `areaColumn` and an optional `unit` | every toolkit but soil, which averages a continuous value |
 | `core/v1/naming.js` | `formatName` (file names) and `tableShortName` (layers and files) | all nine |
+| `core/v1/layers.js` | the period checkbox list and the removal of a layer by name | all nine |
+| `core/v1/territory.js` | the tables in the user's own MAPBIOMAS folder | all nine |
 
-The scripts require them as `require('users/mapbiomas/user-toolkit:core/v1/<file>.js')`, which is why `core/` is published to the GEE repository too. It removed 869 lines with no change in behavior: the snapshots are identical, and in the Code Editor pasture, lulc and fire rendered and exported, with all six tasks reaching `SUCCEEDED`. The area CSVs of fire (`area ha`) and pasture (`area` + `unit`) came out byte-identical to the runs from before the move.
+The scripts require them as `require('users/mapbiomas/user-toolkit:core/v1/<file>.js')`, which is why `core/` is published to the GEE repository, always before the scripts that require it. About 1,450 lines left the nine scripts, with the snapshots unchanged except where noted below. In the Code Editor, pasture, lulc, fire and water rendered and exported; all six tasks of the first round reached `SUCCEEDED`, and the area CSVs of fire (`area ha`) and pasture (`area` + `unit`) came out byte-identical to the runs from before the move.
 
-The only deliberate difference: `formatName` now also strips `[` and `]`, which only lulc did.
+Deliberate differences, all of them fixes:
 
-Next: the panel flow (`loadTablesNames`, `loadFeature`, `makeLayersList`, `export2Drive`), starting with pasture.
+- `formatName` now also strips `[` and `]`, which only lulc did.
+- **The user's own tables now show up in water.** Its copy looked for the MAPBIOMAS folder under `roots[0] + '/MAPBIOMAS'`, which never resolves, so the feature was dead there. The core version looks for a root whose name is MAPBIOMAS and falls back to the old path for legacy accounts, so both kinds of account work.
+- **Picking a table before a collection no longer breaks the panel.** All nine read `collections[region][collection].periods` with no collection selected, and threw `Cannot read property 'periods' of undefined`. The layer list is now simply empty until a collection is picked. Found in the Code Editor while testing this slice; it predates the refactoring.
+
+The harness got two matching additions: `ee.data.getAssetRoots`/`getList` now mock an account that has a MAPBIOMAS folder (which is why every snapshot's table count went up by one), and the snapshot walk now picks a table before a collection in every region. Reverting the guard in one script makes that step fail, so it is a real regression test.
+
+Next: the rest of the panel flow (`loadTable`, `loadFeature`, `loadPropertiesNames`, `loadFeatureNames`, `export2Drive`). These still differ between toolkits in ways the user can see — the highlight color, whether the map recenters, how it is cleared — so unifying them belongs with phase 4, and phase 1 should stop at the parts that are already identical.
 
 ### Phase 2: data out of the code
 - The maintenance tools generate `data/<theme>.js` instead of patching `App.options`.

@@ -71,6 +71,17 @@ function snapshot(name) {
         var selectCollection = newestSelect(widgets, since, /collection/i) || App.ui.form.selectCollection;
         var collections = items(selectCollection);
 
+        // picking a table before a collection: the panel has to cope, not throw
+        var early = newestSelect(widgets, since, /table/i);
+        var earlyTable = early && early._w._items.filter(function (t) {
+            return t && typeof t === 'object';
+        })[0];
+        if (earlyTable) {
+            step(result, region + ' table before collection', function () {
+                choose(early, earlyTable.value);
+            });
+        }
+
         collections.forEach(function (coll) {
             var s = widgets.length;
             step(result, region + ' ' + coll, function () { choose(selectCollection, coll); });

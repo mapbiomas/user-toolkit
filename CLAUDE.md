@@ -27,7 +27,7 @@ A clone of the GEE repo is kept next to this one, in `../user-toolkit-gee`. Git 
 
 The refactoring is moving the duplicated engine into `core/v1/`, which the scripts load with GEE's require: `require('users/mapbiomas/user-toolkit:core/v1/area.js')`. So `core/` has to be pushed to the GEE repository too, and **before** the scripts that require it, or they break for everyone. `core/` is versioned by folder: a breaking change goes to `core/v2/` and each toolkit moves over once tested.
 
-So far: `core/v1/area.js` (area per class for the CSV; `areaColumn` and optional `unit` keep each toolkit's current columns) and `core/v1/naming.js` (`formatName`, `tableShortName`). The soil toolkit keeps its own `Area`, because it averages a continuous value instead of summing areas.
+So far: `core/v1/area.js` (area per class for the CSV; `areaColumn` and optional `unit` keep each toolkit's current columns), `core/v1/naming.js` (`formatName`, `tableShortName`), `core/v1/layers.js` (the period checkbox list, removing a layer by name) and `core/v1/territory.js` (the tables in the user's MAPBIOMAS folder). The soil toolkit keeps its own `Area`, because it averages a continuous value instead of summing areas.
 
 `tests/harness.js` resolves these requires to the local files, so the snapshots keep covering them.
 

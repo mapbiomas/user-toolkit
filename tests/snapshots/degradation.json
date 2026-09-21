@@ -65,7 +65,7 @@
    },
    "flow": {
     "collection": "degradation BETA: secondary vegetation",
-    "tables": 39,
+    "tables": 40,
     "table": "AMACRO (IBGE, 2026)",
     "dataType": "secondary_age",
     "layer": "Feature A 2022",

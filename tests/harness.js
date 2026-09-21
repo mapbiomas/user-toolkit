@@ -53,11 +53,24 @@ function fakeValue(path) {
     return 1;
 }
 
+// an account that has a MAPBIOMAS folder with one table in it, so the "own
+// territory" path is exercised and not just the official tables
+var FAKE_ROOTS = ['projects/fake/assets/OTHER', 'projects/fake/assets/MAPBIOMAS'];
+var FAKE_USER_TABLES = ['projects/fake/assets/MAPBIOMAS/my_farms'];
+
 function makeEE() {
     var ee = eeObject(['ee']);
     var data = {
-        getAssetRoots: function () { return []; },
-        getList: function () { return []; },
+        getAssetRoots: function () {
+            return FAKE_ROOTS.map(function (id) { return { id: id }; });
+        },
+        getList: function (params) {
+            var id = params && params.id;
+            if (id && id.indexOf('/MAPBIOMAS') !== -1) {
+                return FAKE_USER_TABLES.map(function (t) { return { id: t }; });
+            }
+            throw new Error('Asset not found: ' + id);
+        },
         listAssets: function () { return { assets: [] }; },
         getAsset: function () { return {}; }
     };

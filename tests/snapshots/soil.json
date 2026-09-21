@@ -40,7 +40,7 @@
    },
    "flow": {
     "collection": "collection3-beta",
-    "tables": 39,
+    "tables": 40,
     "table": "AMACRO (IBGE, 2026)",
     "dataType": "soc_t_ha_000_030cm",
     "layer": "Feature A 2024",

@@ -12,7 +12,7 @@
    },
    "flow": {
     "collection": "collection-11.0",
-    "tables": 39,
+    "tables": 40,
     "table": "AMACRO (IBGE, 2026)",
     "layer": "Feature A 2025",
     "mapLayers": [

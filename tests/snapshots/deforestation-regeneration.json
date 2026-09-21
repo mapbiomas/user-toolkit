@@ -8,7 +8,7 @@
    },
    "flow": {
     "collection": "collection-2.0",
-    "tables": 10,
+    "tables": 11,
     "table": "Country",
     "dataType": "deforestation_sec_vegetation",
     "layer": "country 2024",
@@ -40,7 +40,7 @@
    },
    "flow": {
     "collection": "collection-3.0",
-    "tables": 11,
+    "tables": 12,
     "table": "Basin Level 1",
     "dataType": "deforestation_sec_vegetation",
     "layer": "basin_level_1 2024",
@@ -79,7 +79,7 @@
    },
    "flow": {
     "collection": "collection-11.0",
-    "tables": 39,
+    "tables": 40,
     "table": "AMACRO (IBGE, 2026)",
     "dataType": "deforestation_sec_vegetation",
     "layer": "amacro_ibge_2026 2025",
@@ -111,7 +111,7 @@
    },
    "flow": {
     "collection": "collection-2.0",
-    "tables": 6,
+    "tables": 7,
     "table": "Biomes",
     "dataType": "deforestation_sec_vegetation",
     "layer": "biomes 2023",
@@ -143,7 +143,7 @@
    },
    "flow": {
     "collection": "collection-3.0",
-    "tables": 9,
+    "tables": 10,
     "table": "Ecorregiones Dinerstein (DINERTTEIN, 1995)",
     "dataType": "deforestation_sec_vegetation",
     "layer": "ecorregiones_dinerstein_dinerttein_1995 2025",
@@ -177,7 +177,7 @@
    },
    "flow": {
     "collection": "collection-4.0",
-    "tables": 31,
+    "tables": 32,
     "table": "Afforestation and Reforestation Concession",
     "dataType": "deforestation_sec_vegetation",
     "layer": "afforestation_and_reforestation_concession 2025",
@@ -209,7 +209,7 @@
    },
    "flow": {
     "collection": "collection-3.0",
-    "tables": 6,
+    "tables": 7,
     "table": "Country",
     "dataType": "deforestation_sec_vegetation",
     "layer": "country 2024",
