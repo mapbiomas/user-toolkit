@@ -21,6 +21,8 @@
  *    1.4.3 - Link to the region's download page, in place of the hard-coded download links
  *    1.4.4 - Base map styles and legend come from core/v1, not from a personal account
  *    2.0.0 - Breaking: export names and CSV columns standardized; territory drawn in red
+ *    2.0.1 - Property and feature selects come from core/v1/panel.js; the feature list no
+ *            longer repeats a name that several polygons share
  *            and centred in every toolkit
  * 
  * @see
@@ -40,6 +42,7 @@ var Territory = require('users/mapbiomas/user-toolkit:core/v1/territory.js');
 
 var Territories = require('users/mapbiomas/user-toolkit:data/territories.js');
 var Downloads = require('users/mapbiomas/user-toolkit:data/downloads.js');
+var Panel = require('users/mapbiomas/user-toolkit:core/v1/panel.js');
 var Exports = require('users/mapbiomas/user-toolkit:core/v1/export.js');
 
 
@@ -50,7 +53,7 @@ var App = {
 
     options: {
 
-        version: '2.0.0',
+        version: '2.0.1',
 
         logo: {
             uri: 'gs://mapbiomas-public/mapbiomas-logos/mapbiomas-toolkit-logo.b64',
@@ -929,88 +932,48 @@ var App = {
 
         loadPropertiesNames: function () {
 
-            App.ui.form.selectProperties.setPlaceholder('loading tables names...');
+            Panel.propertyNames(App.ui.form, 'selectProperties',
+                App.ui.form.panelProperties, App.options.table,
+                function (propertyName) {
 
-            ee.Feature(App.options.table.first())
-                .propertyNames()
-                .evaluate(
-                    function (propertyNames) {
+                    App.options.propertyName = propertyName;
 
-                        // print(propertyNames);
-
-                        App.ui.form.selectProperties = ui.Select({
-                            'items': propertyNames,
-                            'placeholder': 'select property',
-                            'onChange': function (propertyName) {
-                                if (propertyName != 'None') {
-                                    App.options.propertyName = propertyName;
-
-                                    ee.Number(1).evaluate(
-                                        function (a) {
-                                            App.ui.loadFeatureNames(propertyName);
-                                            App.ui.form.selectDataType.setDisabled(false);
-                                        }
-                                    );
-
-                                }
-                            },
-                            'style': {
-                                'stretch': 'horizontal'
-                            }
-                        });
-
-                        App.ui.form.panelProperties.widgets()
-                            .set(1, App.ui.form.selectProperties);
-                    }
-                );
+                    ee.Number(1).evaluate(
+                        function (a) {
+                            App.ui.loadFeatureNames(propertyName);
+                            App.ui.form.selectDataType.setDisabled(false);
+                        }
+                    );
+                });
 
         },
 
         loadFeatureNames: function () {
 
-            App.ui.form.selectFeature.setPlaceholder('loading feature names...');
+            Panel.featureNames(App.ui.form, 'selectFeature',
+                App.ui.form.panelFeature, App.options.table, App.options.propertyName,
+                function (featureName) {
 
-            App.options.table.sort(App.options.propertyName)
-                .reduceColumns(ee.Reducer.toList(), [App.options.propertyName])
-                .get('list')
-                .evaluate(
-                    function (featureNameList) {
+                    App.options.featureName = featureName;
 
-                        App.ui.form.selectFeature = ui.Select({
-                            'items': featureNameList,
-                            'placeholder': 'select feature',
-                            'onChange': function (featureName) {
-                                if (featureName != 'None') {
-                                    App.options.featureName = featureName;
+                    ee.Number(1).evaluate(
+                        function (a) {
+                            var regionName = App.ui.form.selectRegion.getValue();
+                            var collectionName = App.ui.form.selectCollection.getValue();
 
-                                    ee.Number(1).evaluate(
-                                        function (a) {
-                                            var regionName = App.ui.form.selectRegion.getValue();
-                                            var collectionName = App.ui.form.selectCollection.getValue();
+                            App.ui.loadFeature(featureName);
 
-                                            App.ui.loadFeature(featureName);
+                            App.ui.makeLayersList(
+                                featureName,
+                                App.options.activeFeature,
+                                App.options.collections[regionName][collectionName]
+                                    .periods[App.options.dataType]);
+                            App.ui.form.selectDataType.setDisabled(false);
+                        }
+                    );
 
-                                            App.ui.makeLayersList(
-                                                featureName,
-                                                App.options.activeFeature,
-                                                App.options.collections[regionName][collectionName]
-                                                    .periods[App.options.dataType]);
-                                            App.ui.form.selectDataType.setDisabled(false);
-                                        }
-                                    );
-
-                                    App.ui.loadingBox();
-                                }
-                            },
-                            'style': {
-                                'stretch': 'horizontal'
-                            }
-                        });
-
-                        App.ui.form.panelFeature.widgets()
-                            .set(1, App.ui.form.selectFeature);
-                    }
-                );
+                    App.ui.loadingBox();
+                });
 
         },
 

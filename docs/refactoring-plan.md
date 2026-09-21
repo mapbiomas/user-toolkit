@@ -102,7 +102,11 @@ Deliberate differences, all of them fixes:
 
 The harness got two matching additions: `ee.data.getAssetRoots`/`getList` now mock an account that has a MAPBIOMAS folder (which is why every snapshot's table count went up by one), and the snapshot walk now picks a table before a collection in every region. Reverting the guard in one script makes that step fail, so it is a real regression test.
 
-Next: the rest of the panel flow (`loadTable`, `loadFeature`, `loadPropertiesNames`, `loadFeatureNames`, `export2Drive`). These still differ between toolkits in ways the user can see — the highlight color, whether the map recenters, how it is cleared — so unifying them belongs with phase 4, and phase 1 should stop at the parts that are already identical.
+**`core/v1/panel.js`: the selects filled from the server.** `loadPropertiesNames` and `loadFeatureNames` rebuild a `ui.Select` once Earth Engine answers — the same plumbing in all nine, with only the *what to do with the choice* part differing. The plumbing moved; each toolkit keeps its own handler.
+
+It also settles a difference that was not cosmetic. Seven toolkits listed the feature names with `sort(property).reduceColumns(toList)`, which returns one entry per polygon, while fire and soil used `aggregate_array(property).distinct().sort()`, which does not repeat. On the Brazilian municipalities table that is **287 repeated entries**: `Alto Alegre` appeared three times, `Alagoinha` twice, 245 names in all. Picking any of the copies filtered by the name and returned all of them anyway, so the repeats were noise. All nine now deduplicate.
+
+`loadTable` and `loadFeature` were unified in phase 4, when the highlight was standardized. `export2Drive` is still nine variants; it is the function that produces what the user takes away, so it deserves its own pass.
 
 ### Phase 2: data out of the code
 - The maintenance tools generate `data/<theme>.js` instead of patching `App.options`.

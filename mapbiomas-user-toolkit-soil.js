@@ -31,6 +31,7 @@
  *    1.1.7 - Base map styles and legend come from core/v1, not from a personal account
  *    2.0.0 - Breaking: export names and CSV columns standardized; territory drawn in red
  *    2.0.1 - Removes the legend links that were built at startup and never shown
+ *    2.0.2 - Property and feature selects come from core/v1/panel.js
  *            and centred in every toolkit
  * 
  */
@@ -267,13 +268,14 @@ var Territory = require('users/mapbiomas/user-toolkit:core/v1/territory.js');
 
 var Territories = require('users/mapbiomas/user-toolkit:data/territories.js');
 var Downloads = require('users/mapbiomas/user-toolkit:data/downloads.js');
+var Panel = require('users/mapbiomas/user-toolkit:core/v1/panel.js');
 var Exports = require('users/mapbiomas/user-toolkit:core/v1/export.js');
 
 var App = {
 
     options: {
 
-        version: '2.0.1',
+        version: '2.0.2',
 
         logo: {
             uri: 'gs://mapbiomas-public/mapbiomas-logos/mapbiomas-logo-horizontal.b64',
@@ -808,89 +810,49 @@ var App = {
 
         loadPropertiesNames: function () {
 
-            App.ui.form.selectProperties.setPlaceholder('loading tables names...');
+            Panel.propertyNames(App.ui.form, 'selectProperties',
+                App.ui.form.panelProperties, App.options.table,
+                function (propertyName) {
 
-            ee.Feature(App.options.table.first())
-                .propertyNames()
-                .evaluate(
-                    function (propertyNames) {
+                    App.options.propertyName = propertyName;
 
-                        App.ui.form.selectProperties = ui.Select({
-                            'items': propertyNames,
-                            'placeholder': 'select property',
-                            'onChange': function (propertyName) {
-                                if (propertyName != 'None') {
-                                    App.options.propertyName = propertyName;
-
-                                    ee.Number(1).evaluate(
-                                        function (a) {
-                                            App.ui.loadFeatureNames(propertyName);
-                                            App.ui.form.selectDataType.setDisabled(false);
-                                        }
-                                    );
-
-                                }
-                            },
-                            'style': {
-                                'stretch': 'horizontal'
-                            }
-                        });
-
-                        App.ui.form.panelProperties.widgets()
-                            .set(1, App.ui.form.selectProperties);
-                    }
-                );
+                    ee.Number(1).evaluate(
+                        function (a) {
+                            App.ui.loadFeatureNames(propertyName);
+                            App.ui.form.selectDataType.setDisabled(false);
+                        }
+                    );
+                });
 
         },
 
         loadFeatureNames: function () {
 
-            App.ui.form.selectFeature.setPlaceholder('loading feature names...');
+            Panel.featureNames(App.ui.form, 'selectFeature',
+                App.ui.form.panelFeature, App.options.table, App.options.propertyName,
+                function (featureName) {
 
-            App.options.table.sort(App.options.propertyName)
-                .aggregate_array(App.options.propertyName)
-                .distinct()
-                .sort()
-                .evaluate(
-                    function (featureNameList) {
+                    App.options.activeName = featureName;
+                    App.options.featureName = featureName;
 
-                        App.ui.form.selectFeature = ui.Select({
-                            'items': featureNameList,
-                            'placeholder': 'select feature',
-                            'onChange': function (featureName) {
-                                if (featureName != 'None') {
-                                    App.options.activeName = featureName;
-                                    App.options.featureName = featureName;
+                    ee.Number(1).evaluate(
+                        function (a) {
+                            var regionName = App.ui.form.selectRegion.getValue();
+                            var collectionName = App.ui.form.selectCollection.getValue();
 
-                                    ee.Number(1).evaluate(
-                                        function (a) {
-                                            var regionName = App.ui.form.selectRegion.getValue();
-                                            var collectionName = App.ui.form.selectCollection.getValue();
+                            App.ui.loadFeature(featureName);
 
-                                            App.ui.loadFeature(featureName);
-
-                                            if (App.ui.form.selectDataType.getValue() !== null){
-                                              App.ui.makeLayersList(
-                                                  featureName,
-                                                  App.options.activeFeature,
-                                                  App.options.collections[regionName][collectionName]
-                                                      .periods[App.options.dataType]);
-                                            }
-                                            App.ui.form.selectDataType.setDisabled(false);
-                                        }
-                                    );
-
-                                }
-                            },
-                            'style': {
-                                'stretch': 'horizontal'
+                            if (App.ui.form.selectDataType.getValue() !== null){
+                              App.ui.makeLayersList(
+                                  featureName,
+                                  App.options.activeFeature,
+                                  App.options.collections[regionName][collectionName]
+                                      .periods[App.options.dataType]);
                             }
-                        });
-
-                        App.ui.form.panelFeature.widgets()
-                            .set(1, App.ui.form.selectFeature);
-                    }
-                );
+                            App.ui.form.selectDataType.setDisabled(false);
+                        }
+                    );
+                });
 
         },
 
