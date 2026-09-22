@@ -8,7 +8,7 @@ MapBiomas User Toolkit: standalone Google Earth Engine (GEE) Code Editor scripts
 
 ## Running / testing
 
-There is no build, lint, or package manager. The only tests are the Node snapshot tests in `tests/`. The `.js` files are **GEE Code Editor scripts, not Node modules**: they use the injected globals `ee`, `ui`, `Map`, `Export`, `print`, and load shared modules with GEE's `require('users/<account>/<repo>:<path>')`. They can't run locally. To test a change, paste the script into https://code.earthengine.google.com and run it there. Check syntax locally with `node --check <file>.js`. Before publishing, run `node tests/snapshot.js`. It walks the panel flow of every toolkit with mocked `ee`/`ui` and compares the result with `tests/snapshots/` (see `tests/README.md`), and do the Code Editor round in `docs/code-editor-checklist.md`, which the mocks can't cover: rendering, legends and real export tasks. A refactoring is in progress; follow `docs/refactoring-plan.md`. Data maintenance tooling (asset inventory, territory and palette generation, `App.options` patches, `check_options.js`, `check_links.py`) is **not in this public repo**. It lives in the private sibling repo `mapbiomas-pipeline`, under `toolkit/` (see its README). Don't add it back here.
+There is no build, lint, or package manager. The only tests are the Node snapshot tests in `tests/`. The `.js` files are **GEE Code Editor scripts, not Node modules**: they use the injected globals `ee`, `ui`, `Map`, `Export`, `print`, and load shared modules with GEE's `require('users/<account>/<repo>:<path>')`. They can't run locally. To test a change, paste the script into https://code.earthengine.google.com and run it there. Check syntax locally with `node --check <file>.js`. Before publishing, run `node tests/snapshot.js`. It walks the panel flow of every toolkit with mocked `ee`/`ui` and compares the result with `tests/snapshots/` (see `tests/README.md`), and do the Code Editor round in `docs/code-editor-checklist.md`, which the mocks can't cover: rendering, legends and real export tasks. The refactoring of 2026-09 is done; `docs/refactoring-plan.md` records what was decided, what was left out and why. Data maintenance tooling (asset inventory, territory, collection and legend generation, `check_options.js`, `check_links.py`) is **not in this public repo**. It lives in the private sibling repo `mapbiomas-pipeline`, under `toolkit/` (see its README). Don't add it back here.
 
 Keep the code ES5-compatible (use `var` and `function`, no arrow functions, `let`/`const`, or template literals). That's the style every script uses, and the GEE Code Editor has traditionally required it.
 
@@ -25,21 +25,35 @@ A clone of the GEE repo is kept next to this one, in `../user-toolkit-gee`. Git 
 
 ## Shared code: `core/`
 
-The refactoring is moving the duplicated engine into `core/v1/`, which the scripts load with GEE's require: `require('users/mapbiomas/user-toolkit:core/v1/area.js')`. So `core/` has to be pushed to the GEE repository too, and **before** the scripts that require it, or they break for everyone. `core/` is versioned by folder: a breaking change goes to `core/v2/` and each toolkit moves over once tested.
+The engine the nine scripts used to carry a copy of each lives in `core/v1/`, loaded with GEE's require: `require('users/mapbiomas/user-toolkit:core/v1/area.js')`. So `core/` has to be pushed to the GEE repository too, and **before** the scripts that require it, or they break for everyone. `core/` is versioned by folder: a breaking change goes to `core/v2/` and each toolkit moves over once tested.
 
-So far: `core/v1/area.js` (area per class for the CSV; `areaColumn` and optional `unit` keep each toolkit's current columns), `core/v1/naming.js` (`formatName`, `tableShortName`), `core/v1/layers.js` (the period checkbox list, removing a layer by name) and `core/v1/territory.js` (the tables in the user's MAPBIOMAS folder). The soil toolkit keeps its own `Area`, because it averages a continuous value instead of summing areas.
+| Module | What it holds |
+|---|---|
+| `area.js` | area per class for the CSV. `areaColumn` is `area_km2` everywhere; the optional `unit` column is no longer used by any toolkit |
+| `naming.js` | `formatName`, `tableShortName` (layer and file names) |
+| `layers.js` | the period checkbox list, removing a layer by name |
+| `territory.js` | the tables in the user's MAPBIOMAS folder, and `highlight()` |
+| `export.js` | file names, the Drive folder, the GeoTIFF settings, the area CSV columns, and the region with buffer |
+| `panel.js` | the property and feature selects, filled from the server |
+| `basemaps.js`, `legend.js` | map styles and the legend panel, out of a personal account |
 
-`tests/harness.js` resolves these requires to the local files, so the snapshots keep covering them.
+Soil keeps its own `Area`, because it averages a continuous value instead of summing areas.
+
+`tests/harness.js` resolves these requires to the local files, so the snapshots keep covering them. So do `apply_options.js` and `check_options.js` in the pipeline — if you add a tool that loads a script, make it resolve them too, or `App.options` comes back full of stubs and your checks pass on their own.
 
 ## Shared data: `data/`
 
-`data/collections-<theme>.js` holds the assets and periods of each collection, written by `mapbiomas-pipeline/toolkit/build_patches.py`. Degradation is the exception: its collections reference a configuration object and live `ee.Image`s, so they stay in the script.
+All of it is generated. Don't hand-edit any of it, and commit exactly what the tool produces, so the next refresh stays a clean diff.
+
+`data/collections-<theme>.js` holds the assets and periods of each collection, written by `mapbiomas-pipeline/toolkit/build_patches.py`. Each script takes the regions it covers with `collections: Collections.pick([...])`. Degradation is the exception: its collections reference a configuration object and live `ee.Image`s, so they stay in the script.
+
+`data/downloads.js` maps each region to the download page its own initiative maintains. It replaced ~1,500 hard-coded links to single GeoTIFFs, which pointed at old collections and broke on every release.
 
 `data/legends.js` holds the colours and class names of each region, generated by `mapbiomas-pipeline/toolkit/build_legends.py` from the same source as the files in `legend-colors/`. Never hand-edit either side: the panel, the area CSV and the `.qml` have to agree, and they didn't before this file existed.
 
-`data/territories.js` holds the official territories of every region, which used to be copied into all nine scripts. Each script takes the regions it covers with `tables: Territories.pick([...])`. Like `core/`, it must be pushed to the GEE repository before the scripts that require it.
+`data/territories.js` holds the official territories of every region, written by `mapbiomas-pipeline/toolkit/build_territories.py`. Each script takes the regions it covers with `tables: Territories.pick([...])`.
 
-It is generated by `mapbiomas-pipeline/toolkit/build_territories.py`, which now writes the whole file. Don't edit it by hand, and commit exactly what the tool produces, so the next refresh stays a clean diff.
+Like `core/`, all of `data/` must be pushed to the GEE repository **before** the scripts that require it.
 
 ## Architecture of a toolkit script
 
@@ -48,16 +62,18 @@ Each `mapbiomas-user-toolkit-<theme>.js` is still mostly self-contained. The lar
 - **Header JSDoc** with `@version` history. Each release adds a line here.
 - **`Area`**: area-per-class calculation using `reduceRegion` with a grouped `ee.Reducer.sum()`, for the CSV export. Now `core/v1/area.js`, except in soil.
 - **`App`** object:
-  - `App.options`: all configuration as data. `version` is shown in the UI title. `tables[region]` holds the default territory vectors (`{label, value: assetId}`), now taken from `data/territories.js`. `collections[region]['collection-X.Y']` holds `assets` (integration / transitions / quality image IDs) and `periods` (`Coverage` years and `Transitions` `"YYYY_YYYY"` pairs). An entry can also carry per-collection flags: `encoding: 'x100'|'raw'` in deforestation-regeneration (older assets store class×100+coverage, newer ones store the class 0–7 directly), `encoding: 'raw'` in irrigation, and `legend: 'c11'` in mining (the C11 substance codes use a different style set, `App.options.c11`). The remaining keys are `palettes[region]`, `bandsNames`, `ranges`, `palette`, and `className`. In lulc, `palettes[region]` is an embedded color list indexed by class value. A string is still accepted as a `Palettes.js` palette name, but those palettes stop before the newer classes (77, 84, 92…).
+  - `App.options`: what this theme is, as data. `version` is shown in the UI title. `tables` and `collections` are `pick([...])` calls into `data/`. Per-collection behaviour is a flag on the collection entry, never a comparison against its name: `encoding: 'x100'|'raw'` in deforestation-regeneration (older assets store class×100+coverage, newer ones the class 0–7) and irrigation, and `legend: 'c11'` in mining (the C11 substance codes use a different style set). The rest is `bandsNames`, `ranges`, `palette`, `fileDimensions`, `dataType`.
+  - **Class names and colours** come from `data/legends.js`. In lulc, `App.setPalette(region)` fills `palette.Coverage` and `className` from it when the region changes; lulc has no `palettes` or `className` literal any more. Older collections of a region still render because the palette carries every value the region can hold, not only the ones the newest collection uses.
   - `App.ui.form`: builds the side panel (region → collection → table → property → feature → buffer → layers), then zooms, adds layers, and exports.
-- **User vectors** are found through `ee.data.getAssetRoots()` by looking for a root folder named `MAPBIOMAS` in the user's assets.
-- **Exports** use `Export.image.toDrive` / `Export.table.toDrive` into the Drive folder `MAPBIOMAS-EXPORT`.
+- **User vectors** come from `core/v1/territory.js`, which looks for a folder named `MAPBIOMAS` in the user's assets. It still uses `ee.data.getAssetRoots()`, which GEE has deprecated; it now sits in one file, so replacing it is a one-file change.
+- **Exports** go through `core/v1/export.js`. Since 2.0.0 the shape is fixed and **breaking to change**: `<region>-<collection>-<data type>-<territory>-<period>`, words joined with `_` and fields with `-`, into the Drive folder `MAPBIOMAS-EXPORT`; the area CSV always has `class, class_name, band, area_km2`. The README has a migration note for it.
+- **Band names.** Collection 11 publishes `classification_YYYY` and older collections use their own prefix, so each script renames on load — with `regexpRename` in most, `bandNames().map()` in deforestation, and a targeted one for fire's `fire_recurrence`. There is no `bandPrefix` flag: every rename was checked against the real band names and they all land correctly, and a single flag can't describe three mechanisms plus soil's depth-keyed bands. See `docs/refactoring-plan.md`.
 
 ## Typical change: adding or updating collections and territories
 
-Don't hand-write asset IDs, periods, or territory lists. Generate them with `mapbiomas-pipeline/toolkit/`, which rewrites the `App.options` blocks of these scripts. Then:
-1. For a brand-new region, add it to the region select list in `App.ui.form` (search for the list of `'mapbiomas-...'` strings).
-2. Bump `App.options.version` and add a line to the header `@version` history, keeping the two in sync. For lulc, also update the README release table.
+Don't hand-write asset IDs, periods, territory lists, palettes or class names. The tools in `mapbiomas-pipeline/toolkit/` write the files in `data/`: `build_patches.py` the collections, `build_territories.py` the territories, `build_legends.py` the legends **and** the files in `legend-colors/` from the same source. Then:
+1. For a brand-new region, add it to the region select list in `App.ui.form` (search for the list of `'mapbiomas-...'` strings) **and** to the `pick([...])` lists for tables and collections. `node toolkit/check_options.js` in the pipeline catches a region that is offered but has no data.
+2. Bump `App.options.version` and add a line to the header `@version` history, keeping the two in sync. Update the version table in the README.
 3. Keep scripts ES5-only. The Code Editor has no `String.prototype.normalize`, arrow functions, `let`/`const`, or template literals.
 
 Toolkit users can only open territory FeatureCollections that have public read ACL.
