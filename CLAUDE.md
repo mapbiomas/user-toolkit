@@ -45,7 +45,7 @@ Soil keeps its own `Area`, because it averages a continuous value instead of sum
 
 All of it is generated. Don't hand-edit any of it, and commit exactly what the tool produces, so the next refresh stays a clean diff.
 
-`data/collections-<theme>.js` holds the assets and periods of each collection, written by `mapbiomas-pipeline/toolkit/build_patches.py`. Each script takes the regions it covers with `collections: Collections.pick([...])`. Degradation is the exception: its collections reference a configuration object and live `ee.Image`s, so they stay in the script.
+`data/collections-<theme>.js` holds the assets and periods of each collection, written by `mapbiomas-pipeline/toolkit/build_patches.py`. Every script takes the regions it covers with `collections: Collections.pick([...])`, with no exceptions: collections never go back inline. A required module runs in its own scope in GEE and can't see the calling script's variables, so a data file holds plain values only (asset ids, periods, flags); anything built from images stays in the script and the data file points at it. Soil flags collections 2.1 and 3 with `load: 'by-depth'` and `App.loadAsset()` flattens and renames their bands; degradation marks its five composite images with `'composite'` and the script's `composites` supplies them. `tests/harness.js` isolates modules the same way, so a data file that leans on the script's variables fails the snapshots. `build_patches.py` doesn't cover soil and degradation yet, so those two files are kept by hand.
 
 `data/downloads.js` maps each region to the download page its own initiative maintains. It replaced ~1,500 hard-coded links to single GeoTIFFs, which pointed at old collections and broke on every release.
 

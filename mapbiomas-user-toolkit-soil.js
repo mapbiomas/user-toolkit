@@ -38,85 +38,11 @@
  *    2.1.0 - Shows the Buffer control, which now applies to the exported raster
  *            if it is ever shown on the panel, where it is commented out
  *            and centred in every toolkit
+ *    2.1.1 - Fixes "carbon_2_1 is not defined": data/collections-soil.js holds asset
+ *            ids only, and App.loadAsset() builds and renames the images
+ *            Collection 2.1 no longer offers carbon for 2024, which its asset doesn't have
  * 
  */
-
-// collection 2_1
-var carbon_2_1 = ee.Image('projects/mapbiomas-public/assets/brazil/soil/collection2_1/mapbiomas_brazil_collection21_soil_carbon_v2');
-carbon_2_1 = carbon_2_1.rename(carbon_2_1.bandNames().map(function(str) {return ee.String(str).replace('carbon', 'prediction')}));
-// print('carbon_2_1',carbon_2_1);
-
-var clay_fraction_2_1 = ee.ImageCollection('projects/mapbiomas-public/assets/brazil/soil/collection2_1/mapbiomas_brazil_collection21_soil_clay_fraction_v2').toBands();
-clay_fraction_2_1 = clay_fraction_2_1
-  .rename(clay_fraction_2_1.bandNames().map(function(str) {return ee.String('clay').cat(ee.String(str).replace('clay_fraction', '', 'g')).replace('_v2_', 'cm', 'g');}));
-// print('clay_fraction_2_1',clay_fraction_2_1);
-
-var sand_fraction_2_1 = ee.ImageCollection('projects/mapbiomas-public/assets/brazil/soil/collection2_1/mapbiomas_brazil_collection21_soil_sand_fraction_v2').toBands();
-sand_fraction_2_1 = sand_fraction_2_1
-  .rename(sand_fraction_2_1.bandNames().map(function(str) {return ee.String('sand').cat(ee.String(str).replace('sand_fraction', '', 'g')).replace('_v2_', 'cm', 'g');}));
-// print('sand_fraction_2_1',sand_fraction_2_1);
-
-var silt_fraction_2_1 = ee.ImageCollection('projects/mapbiomas-public/assets/brazil/soil/collection2_1/mapbiomas_brazil_collection21_soil_silt_fraction_v2').toBands();
-silt_fraction_2_1 = silt_fraction_2_1
-  .rename(silt_fraction_2_1.bandNames().map(function(str) {return ee.String('silt').cat(ee.String(str).replace('silt_fraction', '', 'g')).replace('_v2_', 'cm', 'g');}));
-// print('silt_fraction_2_1',silt_fraction_2_1);
-
-var textural_class_2_1 = ee.ImageCollection('projects/mapbiomas-public/assets/brazil/soil/collection2_1/mapbiomas_brazil_collection21_soil_textural_class_v2').toBands();
-textural_class_2_1 = textural_class_2_1
-    .rename(textural_class_2_1.bandNames().map(function(str) {return ee.String('textural_classes').cat(ee.String(str).replace('textural_class', '', 'g')).replace('_v2_', 'cm', 'g');}));
-// print('textural_class_2_1',textural_class_2_1);
-
-var textural_group_2_1 = ee.ImageCollection('projects/mapbiomas-public/assets/brazil/soil/collection2_1/mapbiomas_brazil_collection21_soil_textural_group_v2').toBands();
-textural_group_2_1 = textural_group_2_1
-    .rename(textural_group_2_1.bandNames().map(function(str) {return ee.String('textural_groups').cat(ee.String(str).replace('textural_group', '', 'g')).replace('_v2_', 'cm', 'g');}));
-// print('textural_group_2_1',textural_group_2_1);
-
-var textural_subgroup_2_1 = ee.ImageCollection('projects/mapbiomas-public/assets/brazil/soil/collection2_1/mapbiomas_brazil_collection21_soil_textural_subgroup_v2').toBands();
-textural_subgroup_2_1 = textural_subgroup_2_1
-    .rename(textural_subgroup_2_1.bandNames().map(function(str) {return ee.String('textural_subgroups').cat(ee.String(str).replace('textural_subgroup', '', 'g')).replace('_v2_', 'cm', 'g');}));
-// print('textural_subgroup_2_1',textural_subgroup_2_1);
-
-// collection 3
-var carbon_3 = ee.Image('projects/mapbiomas-public/assets/brazil/soil/collection3/mapbiomas_brazil_collection3_soil_carbon_v1');
-carbon_3 = carbon_3.rename(carbon_3.bandNames().map(function(str) {return ee.String(str).replace('carbon', 'prediction')}));
-// print('carbon_3',carbon_3);
-
-var clay_fraction_3 = ee.ImageCollection('projects/mapbiomas-public/assets/brazil/soil/collection3/mapbiomas_brazil_collection3_soil_clay_fraction_v1').toBands();
-clay_fraction_3 = clay_fraction_3
-  .rename(clay_fraction_3.bandNames().map(function(str) {return ee.String('clay').cat(ee.String(str).replace('clay_fraction', '', 'g')).replace('_v1_', 'cm', 'g');}));
-// print('clay_fraction_3',clay_fraction_3);
-
-var sand_fraction_3 = ee.ImageCollection('projects/mapbiomas-public/assets/brazil/soil/collection3/mapbiomas_brazil_collection3_soil_sand_fraction_v1').toBands();
-sand_fraction_3 = sand_fraction_3
-  .rename(sand_fraction_3.bandNames().map(function(str) {return ee.String('sand').cat(ee.String(str).replace('sand_fraction', '', 'g')).replace('_v1_', 'cm', 'g');}));
-// print('sand_fraction_3',sand_fraction_3);
-
-var silt_fraction_3 = ee.ImageCollection('projects/mapbiomas-public/assets/brazil/soil/collection3/mapbiomas_brazil_collection3_soil_silt_fraction_v1').toBands();
-silt_fraction_3 = silt_fraction_3
-  .rename(silt_fraction_3.bandNames().map(function(str) {return ee.String('silt').cat(ee.String(str).replace('silt_fraction', '', 'g')).replace('_v1_', 'cm', 'g');}));
-// print('silt_fraction_3',silt_fraction_3);
-
-var textural_class_3 = ee.ImageCollection('projects/mapbiomas-public/assets/brazil/soil/collection3/mapbiomas_brazil_collection3_soil_textural_class_v1').toBands();
-textural_class_3 = textural_class_3
-    .rename(textural_class_3.bandNames().map(function(str) {return ee.String('textural_classes').cat(ee.String(str).replace('textural_class', '', 'g')).replace('_v1_', 'cm', 'g');}));
-// print('textural_class_3',textural_class_3);
-
-var textural_group_3 = ee.ImageCollection('projects/mapbiomas-public/assets/brazil/soil/collection3/mapbiomas_brazil_collection3_soil_textural_group_v1').toBands();
-textural_group_3 = textural_group_3
-    .rename(textural_group_3.bandNames().map(function(str) {return ee.String('textural_groups').cat(ee.String(str).replace('textural_group', '', 'g')).replace('_v1_', 'cm', 'g');}));
-// print('textural_group_3',textural_group_3);
-
-var textural_subgroup_3 = ee.ImageCollection('projects/mapbiomas-public/assets/brazil/soil/collection3/mapbiomas_brazil_collection3_soil_textural_subgroup_v1').toBands();
-textural_subgroup_3 = textural_subgroup_3
-    .rename(textural_subgroup_3.bandNames().map(function(str) {return ee.String('textural_subgroups').cat(ee.String(str).replace('textural_subgroup', '', 'g')).replace('_v1_', 'cm', 'g');}));
-// print('textural_subgroup_3',textural_subgroup_3);
-
-var stoniness_3 = ee.ImageCollection('projects/mapbiomas-public/assets/brazil/soil/collection3/mapbiomas_brazil_collection3_soil_stoniness_v1').toBands();
-stoniness_3 = stoniness_3
-    .rename(stoniness_3.bandNames().map(function(str) {return ee.String(str).replace('_v1_soil_depth_stoniness', 'vol', 'g')}));
-
-// stoniness_deph_50vol
-// stoniness_deph_90vol
 
 /**
  * @description
@@ -281,7 +207,7 @@ var App = {
 
     options: {
 
-        version: '2.1.0',
+        version: '2.1.1',
 
         logo: {
             uri: 'gs://mapbiomas-public/mapbiomas-logos/mapbiomas-logo-horizontal.b64',
@@ -379,6 +305,54 @@ var App = {
      */
     tableShortName: function () {
         return Naming.tableShortName(App.options.tables, App.options.activeName);
+    },
+
+    /**
+     * Loads one asset of a collection. The ones flagged `load: 'by-depth'`
+     * (collections 2.1 and 3) publish carbon as an image with `carbon_` bands and
+     * every other variable as an ImageCollection, one image per depth. Those are
+     * flattened with toBands() and renamed to the band names the rest of the
+     * script expects (`prediction_YYYY`, `clay_000_010cm`, `stoniness_deph_50vol`...).
+     */
+    loadAsset: function (collection, key) {
+
+        var id = collection.assets[key];
+
+        if (collection.load !== 'by-depth' || id === undefined) {
+            return ee.Image(id);
+        }
+
+        // band names carry the asset version: '_v1_', '_v2_'
+        var version = id.match(/_v\d+$/)[0] + '_';
+
+        if (key === 'soc_t_ha_000_030cm') {
+            var carbon = ee.Image(id);
+            return carbon.rename(carbon.bandNames().map(function (str) {
+                return ee.String(str).replace('carbon', 'prediction');
+            }));
+        }
+
+        var image = ee.ImageCollection(id).toBands();
+
+        if (key === 'stoniness') {
+            return image.rename(image.bandNames().map(function (str) {
+                return ee.String(str).replace(version + 'soil_depth_stoniness', 'vol', 'g');
+            }));
+        }
+
+        // key: [new prefix, word dropped from the band name]
+        var names = {
+            'granulometry_clay_percent': ['clay', 'clay_fraction'],
+            'granulometry_sand_percent': ['sand', 'sand_fraction'],
+            'granulometry_silt_percent': ['silt', 'silt_fraction'],
+            'textural_classes': ['textural_classes', 'textural_class'],
+            'textural_subgroups': ['textural_subgroups', 'textural_subgroup'],
+            'textural_groups': ['textural_groups', 'textural_group'],
+        }[key];
+
+        return image.rename(image.bandNames().map(function (str) {
+            return ee.String(names[0]).cat(ee.String(str).replace(names[1], '', 'g')).replace(version, 'cm', 'g');
+        }));
     },
 
     setVersion: function () {
@@ -551,7 +525,7 @@ var App = {
                         function (a) {
                             
                             Object.keys(App.options.data).forEach(function(key){
-                              App.options.data[key] = ee.Image(App.options.collections[regionName][collectioName].assets[key]);
+                              App.options.data[key] = App.loadAsset(App.options.collections[regionName][collectioName], key);
                             });
                             
                             

@@ -254,8 +254,15 @@ var THIS_REPO = 'users/mapbiomas/user-toolkit:';
 var ROOT = path.join(__dirname, '..');
 
 // `require('users/mapbiomas/user-toolkit:core/v1/area.js')` loads the real file,
-// in the same mocked context. Any other module (Mapp, Legend, Palettes…) lives in
-// GEE and stays a stand-in.
+// with the same mocks. Any other module (Mapp, Legend, Palettes…) lives in GEE and
+// stays a stand-in.
+//
+// Each module runs in a context of its own, as in the Code Editor: it sees the
+// injected globals and nothing the calling script declared. Sharing the script's
+// context once let data/collections-soil.js use the script's variables and pass
+// here while it broke in GEE.
+var GLOBALS = ['ee', 'ui', 'Map', 'Export', 'Chart', 'print', 'console', 'require'];
+
 function makeRequire(ctx) {
     var cache = {};
     return function (id) {
@@ -264,7 +271,10 @@ function makeRequire(ctx) {
         if (!cache[rel]) {
             var exported = {};
             var src = fs.readFileSync(path.join(ROOT, rel), 'utf8');
-            vm.runInContext('(function (exports) {\n' + src + '\n})', ctx, { timeout: 20000 })(exported);
+            var own = {};
+            GLOBALS.forEach(function (name) { own[name] = ctx[name]; });
+            vm.createContext(own);
+            vm.runInContext('(function (exports) {\n' + src + '\n})', own, { timeout: 20000 })(exported);
             cache[rel] = exported;
         }
         return cache[rel];
