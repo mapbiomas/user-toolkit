@@ -37,7 +37,7 @@
  * 
  * @see
  *      Get the MapBiomas exported data in your "Google Drive/MAPBIOMAS-EXPORT" folder
- *      Code and Tutorial - https://github.com/mapbiomas-brazil/user-toolkit
+ *      Code and Tutorial - https://github.com/mapbiomas/user-toolkit
  */
 
 var palettes = require('users/mapbiomas/modules:Palettes.js');

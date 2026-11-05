@@ -32,7 +32,7 @@
  * 
  * @see
  *      Get the MapBiomas exported data in your "Google Drive/MAPBIOMAS-EXPORT" folder
- *      Code and Tutorial - https://github.com/mapbiomas-brazil/user-toolkit
+ *      Code and Tutorial - https://github.com/mapbiomas/user-toolkit
  */
 
 var Basemaps = require('users/mapbiomas/user-toolkit:core/v1/basemaps.js');
