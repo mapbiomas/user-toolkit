@@ -64,6 +64,8 @@
  *    2.1.0 - Shows the Buffer control, which now applies to the exported raster
  *            if it is ever shown on the panel, where it is commented out
  *            and centred in every toolkit
+ *    2.2.0 - Brazil collection 5.1; Argentina, Bolivia, Chile and Colombia collection 1.0;
+ *            Indonesia and Peru collection 2.0; fire monitor for Indonesia and Peru
  * 
  */
 
@@ -86,7 +88,7 @@ var App = {
 
     options: {
 
-        version: '2.1.0',
+        version: '2.2.0',
 
         logo: {
             uri: 'gs://mapbiomas-public/mapbiomas-logos/mapbiomas-logo-horizontal.b64',
@@ -94,14 +96,22 @@ var App = {
         },
 
         tables: Territories.pick([
+            'mapbiomas-argentina',
+            'mapbiomas-bolivia',
             'mapbiomas-brazil',
+            'mapbiomas-chile',
+            'mapbiomas-colombia',
             'mapbiomas-indonesia',
             'mapbiomas-paraguay',
             'mapbiomas-peru'
         ]),
 
         collections: Collections.pick([
+            'mapbiomas-argentina',
+            'mapbiomas-bolivia',
             'mapbiomas-brazil',
+            'mapbiomas-chile',
+            'mapbiomas-colombia',
             'mapbiomas-indonesia',
             'mapbiomas-paraguay',
             'mapbiomas-peru'
@@ -435,26 +445,20 @@ var App = {
                                   App.options.collections[regionName]['fire_monitor'].assets.fire_monitor)
                                   .toBands();
   
+                              // toBands() names each band <region>-<year>-<month>_<band>, with or
+                              // without a zero before the month (brazil-2019-1, peru-2025-07)
                               var oldBands = fireMonitor.bandNames();
-                              var year_month = oldBands.iterate(function (current, previous) {
-                                  var newBand = ee.String(current)
-                                      .replace('brazil-', '')
-                                      .replace('_FireMonth', '')
-                                      .replace('-', '_');
-  
-                                  newBand = ee.Algorithms.If({
-                                      condition: newBand.length().eq(6),
-                                      trueCase: newBand.replace('_', '_0'),
-                                      falseCase: newBand
-                                  });
-  
-                                  return ee.List(previous).add(newBand);
-                              }, []);
-  
-                              var newBands = ee.List(year_month).map(function (str) { return ee.String('burned_coverage_').cat(str) });
-  
-                              App.options.collections['mapbiomas-brazil']['fire_monitor'].periods.fire_monitor = ee.List(year_month).sort().getInfo();
-  
+                              var year_month = oldBands.map(function (band) {
+                                  var parts = ee.String(band).split('_').getString(0).split('-');
+                                  var month = ee.Number.parse(parts.getString(2)).toInt().format('%02d');
+
+                                  return parts.getString(1).cat('_').cat(month);
+                              });
+
+                              var newBands = year_month.map(function (str) { return ee.String('burned_coverage_').cat(str) });
+
+                              App.options.collections[regionName]['fire_monitor'].periods.fire_monitor = year_month.sort().getInfo();
+
                               App.options.data.fire_monitor = fireMonitor
                                   .select(oldBands, newBands)
                                   .gt(0).byte();
@@ -462,9 +466,12 @@ var App = {
                               return ; 
                             }
 
-                              // a coleção 3.1 publica a frequência como fire_recurrence_YYYY_YYYY
+                              // a coleção 3.1 publica a frequência como fire_recurrence_YYYY_YYYY, e as
+                              // coleções novas publicam ano do último fogo, severidade, intervalo e tempo
+                              // após o fogo como <produto>_YYYY, não classification_YYYY
                               App.options.data[key] = ee.Image(App.options.collections[regionName][collectioName].assets[key])
-                                  .regexpRename('^fire_recurrence_', 'fire_frequency_');
+                                  .regexpRename('^fire_recurrence_', 'fire_frequency_')
+                                  .regexpRename('^(year_last_fire|time_after_fire|severity_class|interval_since_fire)_', 'classification_');
                             
                           });
                           
@@ -1431,7 +1438,11 @@ var App = {
 
             selectRegion: ui.Select({
                 'items': [
+                    'mapbiomas-argentina',
+                    'mapbiomas-bolivia',
                     'mapbiomas-brazil',
+                    'mapbiomas-chile',
+                    'mapbiomas-colombia',
                     'mapbiomas-indonesia',
                     'mapbiomas-paraguay',
                     'mapbiomas-peru',

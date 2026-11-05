@@ -1,11 +1,105 @@
 {
  "toolkit": "fire",
- "version": "2.1.0",
+ "version": "2.2.0",
  "regions": {
+  "mapbiomas-argentina": {
+   "collections": {
+    "collection-1.0": [
+     "annual_burned",
+     "annual_burned_coverage",
+     "monthly_burned",
+     "annual_burned_scar_size_range",
+     "accumulated_burned",
+     "accumulated_burned_coverage",
+     "fire_frequency",
+     "year_last_fire"
+    ]
+   },
+   "flow": {
+    "collection": "collection-1.0",
+    "tables": 11,
+    "table": "Country",
+    "dataType": "annual_burned",
+    "layer": "Feature A 2025",
+    "mapLayers": [
+     "Feature A 2025"
+    ],
+    "exports": [
+     {
+      "kind": "image.toDrive",
+      "description": "mapbiomas_argentina-collection_1_0-annual_burned-feature_a-2025",
+      "fileNamePrefix": "mapbiomas_argentina-collection_1_0-annual_burned-feature_a-2025",
+      "folder": "MAPBIOMAS-EXPORT",
+      "scale": 30,
+      "fileFormat": "GeoTIFF"
+     },
+     {
+      "kind": "table.toDrive",
+      "description": "mapbiomas_argentina-collection_1_0-annual_burned-feature_a-area",
+      "fileNamePrefix": "mapbiomas_argentina-collection_1_0-annual_burned-feature_a-area",
+      "folder": "MAPBIOMAS-EXPORT",
+      "fileFormat": "CSV"
+     }
+    ]
+   }
+  },
+  "mapbiomas-bolivia": {
+   "collections": {
+    "collection-1.0": [
+     "annual_burned",
+     "annual_burned_coverage",
+     "monthly_burned",
+     "annual_burned_scar_size_range",
+     "accumulated_burned",
+     "accumulated_burned_coverage",
+     "fire_frequency",
+     "year_last_fire"
+    ]
+   },
+   "flow": {
+    "collection": "collection-1.0",
+    "tables": 12,
+    "table": "Basin Level 1",
+    "dataType": "annual_burned",
+    "layer": "Feature A 2025",
+    "mapLayers": [
+     "Feature A 2025"
+    ],
+    "exports": [
+     {
+      "kind": "image.toDrive",
+      "description": "mapbiomas_bolivia-collection_1_0-annual_burned-feature_a-2025",
+      "fileNamePrefix": "mapbiomas_bolivia-collection_1_0-annual_burned-feature_a-2025",
+      "folder": "MAPBIOMAS-EXPORT",
+      "scale": 30,
+      "fileFormat": "GeoTIFF"
+     },
+     {
+      "kind": "table.toDrive",
+      "description": "mapbiomas_bolivia-collection_1_0-annual_burned-feature_a-area",
+      "fileNamePrefix": "mapbiomas_bolivia-collection_1_0-annual_burned-feature_a-area",
+      "folder": "MAPBIOMAS-EXPORT",
+      "fileFormat": "CSV"
+     }
+    ]
+   }
+  },
   "mapbiomas-brazil": {
    "collections": {
     "fire_monitor": [
      "fire_monitor"
+    ],
+    "collection-5.1": [
+     "annual_burned",
+     "annual_burned_coverage",
+     "monthly_burned",
+     "annual_burned_scar_size_range",
+     "accumulated_burned",
+     "accumulated_burned_coverage",
+     "fire_frequency",
+     "year_last_fire",
+     "severity",
+     "interval_since_fire"
     ],
     "collection-5": [
      "annual_burned",
@@ -99,8 +193,101 @@
     ]
    }
   },
+  "mapbiomas-chile": {
+   "collections": {
+    "collection-1.0": [
+     "annual_burned",
+     "annual_burned_coverage",
+     "monthly_burned",
+     "annual_burned_scar_size_range",
+     "accumulated_burned",
+     "accumulated_burned_coverage",
+     "fire_frequency",
+     "year_last_fire"
+    ]
+   },
+   "flow": {
+    "collection": "collection-1.0",
+    "tables": 10,
+    "table": "Basins",
+    "dataType": "annual_burned",
+    "layer": "Feature A 2025",
+    "mapLayers": [
+     "Feature A 2025"
+    ],
+    "exports": [
+     {
+      "kind": "image.toDrive",
+      "description": "mapbiomas_chile-collection_1_0-annual_burned-feature_a-2025",
+      "fileNamePrefix": "mapbiomas_chile-collection_1_0-annual_burned-feature_a-2025",
+      "folder": "MAPBIOMAS-EXPORT",
+      "scale": 30,
+      "fileFormat": "GeoTIFF"
+     },
+     {
+      "kind": "table.toDrive",
+      "description": "mapbiomas_chile-collection_1_0-annual_burned-feature_a-area",
+      "fileNamePrefix": "mapbiomas_chile-collection_1_0-annual_burned-feature_a-area",
+      "folder": "MAPBIOMAS-EXPORT",
+      "fileFormat": "CSV"
+     }
+    ]
+   }
+  },
+  "mapbiomas-colombia": {
+   "collections": {
+    "collection-1.0": [
+     "annual_burned",
+     "annual_burned_coverage",
+     "monthly_burned",
+     "annual_burned_scar_size_range",
+     "accumulated_burned",
+     "accumulated_burned_coverage",
+     "fire_frequency",
+     "year_last_fire"
+    ]
+   },
+   "flow": {
+    "collection": "collection-1.0",
+    "tables": 7,
+    "table": "Biomes",
+    "dataType": "annual_burned",
+    "layer": "Feature A 2025",
+    "mapLayers": [
+     "Feature A 2025"
+    ],
+    "exports": [
+     {
+      "kind": "image.toDrive",
+      "description": "mapbiomas_colombia-collection_1_0-annual_burned-feature_a-2025",
+      "fileNamePrefix": "mapbiomas_colombia-collection_1_0-annual_burned-feature_a-2025",
+      "folder": "MAPBIOMAS-EXPORT",
+      "scale": 30,
+      "fileFormat": "GeoTIFF"
+     },
+     {
+      "kind": "table.toDrive",
+      "description": "mapbiomas_colombia-collection_1_0-annual_burned-feature_a-area",
+      "fileNamePrefix": "mapbiomas_colombia-collection_1_0-annual_burned-feature_a-area",
+      "folder": "MAPBIOMAS-EXPORT",
+      "fileFormat": "CSV"
+     }
+    ]
+   }
+  },
   "mapbiomas-indonesia": {
    "collections": {
+    "fire_monitor": [
+     "fire_monitor"
+    ],
+    "collection-2.0": [
+     "annual_burned",
+     "annual_burned_coverage",
+     "monthly_burned",
+     "accumulated_burned",
+     "accumulated_burned_coverage",
+     "fire_frequency"
+    ],
     "collection-1.0": [
      "annual_burned",
      "annual_burned_coverage",
@@ -111,27 +298,15 @@
     ]
    },
    "flow": {
-    "collection": "collection-1.0",
+    "collection": "fire_monitor",
     "tables": 25,
     "table": "Country Limit",
-    "dataType": "annual_burned",
-    "layer": "Feature A 2023",
-    "mapLayers": [
-     "Feature A 2023"
-    ],
+    "dataType": "fire_monitor",
     "exports": [
      {
-      "kind": "image.toDrive",
-      "description": "mapbiomas_indonesia-collection_1_0-annual_burned-feature_a-2023",
-      "fileNamePrefix": "mapbiomas_indonesia-collection_1_0-annual_burned-feature_a-2023",
-      "folder": "MAPBIOMAS-EXPORT",
-      "scale": 30,
-      "fileFormat": "GeoTIFF"
-     },
-     {
       "kind": "table.toDrive",
-      "description": "mapbiomas_indonesia-collection_1_0-annual_burned-feature_a-area",
-      "fileNamePrefix": "mapbiomas_indonesia-collection_1_0-annual_burned-feature_a-area",
+      "description": "mapbiomas_indonesia-fire_monitor-fire_monitor-feature_a-area",
+      "fileNamePrefix": "mapbiomas_indonesia-fire_monitor-fire_monitor-feature_a-area",
       "folder": "MAPBIOMAS-EXPORT",
       "fileFormat": "CSV"
      }
@@ -179,6 +354,19 @@
   },
   "mapbiomas-peru": {
    "collections": {
+    "fire_monitor": [
+     "fire_monitor"
+    ],
+    "collection-2.0": [
+     "annual_burned",
+     "annual_burned_coverage",
+     "monthly_burned",
+     "annual_burned_scar_size_range",
+     "accumulated_burned",
+     "accumulated_burned_coverage",
+     "fire_frequency",
+     "year_last_fire"
+    ],
     "collection-1.0": [
      "annual_burned",
      "annual_burned_coverage",
@@ -191,27 +379,15 @@
     ]
    },
    "flow": {
-    "collection": "collection-1.0",
+    "collection": "fire_monitor",
     "tables": 32,
     "table": "Afforestation and Reforestation Concession",
-    "dataType": "annual_burned",
-    "layer": "Feature A 2024",
-    "mapLayers": [
-     "Feature A 2024"
-    ],
+    "dataType": "fire_monitor",
     "exports": [
      {
-      "kind": "image.toDrive",
-      "description": "mapbiomas_peru-collection_1_0-annual_burned-feature_a-2024",
-      "fileNamePrefix": "mapbiomas_peru-collection_1_0-annual_burned-feature_a-2024",
-      "folder": "MAPBIOMAS-EXPORT",
-      "scale": 30,
-      "fileFormat": "GeoTIFF"
-     },
-     {
       "kind": "table.toDrive",
-      "description": "mapbiomas_peru-collection_1_0-annual_burned-feature_a-area",
-      "fileNamePrefix": "mapbiomas_peru-collection_1_0-annual_burned-feature_a-area",
+      "description": "mapbiomas_peru-fire_monitor-fire_monitor-feature_a-area",
+      "fileNamePrefix": "mapbiomas_peru-fire_monitor-fire_monitor-feature_a-area",
       "folder": "MAPBIOMAS-EXPORT",
       "fileFormat": "CSV"
      }
