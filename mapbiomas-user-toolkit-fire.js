@@ -866,10 +866,9 @@ var App = {
                     "onClick": function () {
                         panelDisclaimerText.widgets().reset(App.disclaimerWidgets(note));
                     },
-                    "disabled": false,
-                    "style": {
-                        'stretch': 'horizontal'
-                    }
+                    // no stretch: with eight countries the labels got cut; at their own
+                    // width the buttons wrap onto a second row
+                    "disabled": false
                 });
                 panelButtonsChoiceCollections.add(button);
             });
