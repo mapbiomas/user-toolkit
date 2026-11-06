@@ -66,6 +66,8 @@
  *            and centred in every toolkit
  *    2.2.0 - Brazil collection 5.1; Argentina, Bolivia, Chile and Colombia collection 1.0;
  *            Indonesia and Peru collection 2.0; fire monitor for Indonesia and Peru
+ *    2.3.0 - The disclaimers come from data/disclaimers.js, the same notes the platform
+ *            shows: Argentina, Bolivia, Chile and Colombia added, one language per country
  * 
  */
 
@@ -81,6 +83,7 @@ var Territory = require('users/mapbiomas/user-toolkit:core/v1/territory.js');
 var Territories = require('users/mapbiomas/user-toolkit:data/territories.js');
 var Downloads = require('users/mapbiomas/user-toolkit:data/downloads.js');
 var Collections = require('users/mapbiomas/user-toolkit:data/collections-fire.js');
+var Disclaimers = require('users/mapbiomas/user-toolkit:data/disclaimers.js');
 var Panel = require('users/mapbiomas/user-toolkit:core/v1/panel.js');
 var Exports = require('users/mapbiomas/user-toolkit:core/v1/export.js');
 
@@ -88,7 +91,7 @@ var App = {
 
     options: {
 
-        version: '2.2.0',
+        version: '2.3.0',
 
         logo: {
             uri: 'gs://mapbiomas-public/mapbiomas-logos/mapbiomas-logo-horizontal.b64',
@@ -110,6 +113,18 @@ var App = {
             'mapbiomas-argentina',
             'mapbiomas-bolivia',
             'mapbiomas-brazil',
+            'mapbiomas-chile',
+            'mapbiomas-colombia',
+            'mapbiomas-indonesia',
+            'mapbiomas-paraguay',
+            'mapbiomas-peru'
+        ]),
+
+        // Brazil first: its note is the one shown when the toolkit opens
+        disclaimers: Disclaimers.pick('fire', [
+            'mapbiomas-brazil',
+            'mapbiomas-argentina',
+            'mapbiomas-bolivia',
             'mapbiomas-chile',
             'mapbiomas-colombia',
             'mapbiomas-indonesia',
@@ -380,6 +395,31 @@ var App = {
       links = links || {};
       addPieces(text);
       return panel;
+    },
+
+    /**
+     * The widgets of one note from data/disclaimers.js: a heading in bold, and
+     * each paragraph as a label, or through formatLabelWithLinks when it has links.
+     */
+    disclaimerWidgets: function (note) {
+      return note.paragraphs.map(function (paragraph) {
+        var links = {};
+        var text = paragraph.parts.map(function (part) {
+          if (typeof part === 'string') {
+            return part;
+          }
+          links[part.text] = part.url;
+          return '**' + part.text + '**';
+        }).join('');
+
+        if (Object.keys(links).length > 0) {
+          return App.formatLabelWithLinks(text, links);
+        }
+
+        return ui.Label(text, paragraph.heading ?
+          {'margin': '8px 0px 4px 0px', 'fontWeight': 'bold'} :
+          {'margin': '2px 0px'});
+      });
     },
 
     ui: {
@@ -792,323 +832,17 @@ var App = {
         },
         
         showDisclaimer: function () {
-            var labelDisclaimer = {
-                "Brasil": [
-                  // Versão em português
-                  ui.Label('DISCLAIMER MapBiomas Fogo Coleção 5'),
-                  ui.Label(''),
-                  ui.Label(
-                    'A Coleção 5 do MapBiomas Fogo apresenta o mapeamento de cicatrizes de fogo no Brasil de 1985 a 2025, com dados anuais e mensais para todo o período, incluindo: (a) Ocorrência de fogo anual, (b) Ocorrência de fogo mensal, (c) Frequência, (d) Área queimada acumulada, (e) Tamanho das cicatrizes, e (f) Ano da última ocorrência de fogo. Os dados anuais, acumulados e de frequência estão também disponíveis por classes de uso e cobertura da terra com base na Coleção 10.1 do MapBiomas.',
-                    { 'margin': '0px' }
-                  ),
-                  ui.Label(''),
-                  App.formatLabelWithLinks(
-                    'Para maiores informações sobre o método, acesse a **descrição do método**, disponível na plataforma.',
-                    {
-                      'descrição do método': 'https://brasil.mapbiomas.org/metodo-mapbiomas-fogo/'
-                    }
-                  ),
-                  ui.Label(''),
-                  App.formatLabelWithLinks(
-                    'O acesso principal aos dados ocorre por meio da **plataforma do MapBiomas Fogo**, com visualização de mapas e download de tabelas e gráficos por território selecionado. A obtenção de mapas completos também pode ser feita pelo **Toolkit**, com links diretos, plugin do QGIS e assets no Google Earth Engine, conforme detalhado na **página de downloads das coleções MapBiomas**.',
-                    {
-                      'plataforma do MapBiomas Fogo': 'https://plataforma.brasil.mapbiomas.org/fogo',
-                      'Toolkit': 'https://code.earthengine.google.com/?scriptPath=users%2Fmapbiomas%2Fuser-toolkit%3Amapbiomas-user-toolkit-fire.js',
-                      'página de downloads das coleções MapBiomas': 'https://brasil.mapbiomas.org/colecoes-mapbiomas/'
-                    }
-                  ),
-                  ui.Label(''),
-                  App.formatLabelWithLinks(
-                    'Para análises agregadas, encontram-se disponíveis **estatísticas dos subprodutos de área queimada**, organizadas por bioma, estado e município.',
-                    {
-                      'estatísticas dos subprodutos de área queimada': 'https://brasil.mapbiomas.org/estatisticas/'
-                    }
-                  ),
-                  ui.Label(''),
-                  App.formatLabelWithLinks(
-                    'Para a descrição dos valores de pixel, consulte o **código de legenda**.',
-                    {
-                      'código de legenda': 'https://brasil.mapbiomas.org/wp-content/uploads/sites/4/2026/05/CODIGO-DE-LEGENDA-FOGO-COLECAO-5.pdf'
-                    }
-                  ),
-                  ui.Label(''),
-                  App.formatLabelWithLinks(
-                    'Materiais complementares, como destaques e factsheets, estão reunidos na seção de **downloads gerais do MapBiomas**.',
-                    {
-                      'downloads gerais do MapBiomas': 'https://brasil.mapbiomas.org/downloads/'
-                    }
-                  ),
-                  ui.Label(''),
-                  App.formatLabelWithLinks(
-                    'Caso tenha sugestões, críticas ou ideias para aprimorar o produto, entre em contato pelo e-mail: **contato@mapbiomas.org**.',
-                    {
-                      'contato@mapbiomas.org': 'mailto:contato@mapbiomas.org'
-                    }
-                  ),
-                  ui.Label(''),
-                  App.formatLabelWithLinks(
-                    'DOI: **https://doi.org/10.58053/MapBiomas/8JLX1T**',
-                    {
-                      'https://doi.org/10.58053/MapBiomas/8JLX1T': 'https://doi.org/10.58053/MapBiomas/8JLX1T'
-                    }
-                  ),
-                  ui.Label(''),
-                  ui.Label(
-                    'Os dados do MapBiomas são públicos, abertos e gratuitos sob licença CC-BY e mediante a referência da fonte, observando o seguinte formato: “Projeto MapBiomas – Coleção 5 do MapBiomas Fogo, acessado em [data] através do link: [LINK]”.',
-                    { 'margin': '0px' }
-                  ),
-                
-                  // Versão em inglês
-                  ui.Label(''),
-                  ui.Label('DISCLAIMER MapBiomas Fire Collection 5'),
-                  ui.Label(''),
-                  ui.Label(
-                    'MapBiomas Fire Collection 5 presents the mapping of fire scars in Brazil from 1985 to 2025, with annual and monthly data throughout the entire period, including: (a) Annual fire occurrence, (b) Monthly fire occurrence, (c) Fire frequency, (d) Accumulated burned area, (e) Fire scar size, and (f) Year of the last fire occurrence. Annual, accumulated, and frequency data are also available by land use and land cover classes based on MapBiomas Collection 10.1.',
-                    { 'margin': '0px' }
-                  ),
-                  ui.Label(''),
-                  App.formatLabelWithLinks(
-                    'For more information on the methodology, see the **method description** available on the platform.',
-                    {
-                      'method description': 'https://brasil.mapbiomas.org/metodo-mapbiomas-fogo/'
-                    }
-                  ),
-                  ui.Label(''),
-                  App.formatLabelWithLinks(
-                    'Data can be accessed and downloaded through the **Toolkit**, via direct download links, or through assets available on Google Earth Engine. For the description of pixel values, refer to the **legend code**.',
-                    {
-                      'Toolkit': 'https://code.earthengine.google.com/?scriptPath=users%2Fmapbiomas%2Fuser-toolkit%3Amapbiomas-user-toolkit-fire.js',
-                      'legend code': 'https://brasil.mapbiomas.org/wp-content/uploads/sites/4/2026/05/CODIGO-DE-LEGENDA-FOGO-COLECAO-5.pdf'
-                    }
-                  ),
-                  ui.Label(''),
-                  App.formatLabelWithLinks(
-                    'The main access to the data is through the **MapBiomas Fire platform**, which provides map visualization and downloads of tables and charts by selected territory. Complete maps can also be obtained via the **Toolkit**, with direct download links, QGIS plugin and assets on Google Earth Engine, as detailed on the **MapBiomas collections download page**.',
-                    {
-                      'MapBiomas Fire platform': 'https://plataforma.brasil.mapbiomas.org/fogo',
-                      'Toolkit': 'https://code.earthengine.google.com/?scriptPath=users%2Fmapbiomas%2Fuser-toolkit%3Amapbiomas-user-toolkit-fire.js',
-                      'MapBiomas collections download page': 'https://brasil.mapbiomas.org/colecoes-mapbiomas/'
-                    }
-                  ),
-                  ui.Label(''),
-                  App.formatLabelWithLinks(
-                    'For aggregated analyses, **statistics on burned area sub-products** are available, organized by biome, state, and municipality.',
-                    {
-                      'statistics on burned area sub-products': 'https://brasil.mapbiomas.org/estatisticas/'
-                    }
-                  ),
-                  ui.Label(''),
-                  App.formatLabelWithLinks(
-                    'Additional materials, such as highlights and factsheets, are available in the **general downloads section** of MapBiomas.',
-                    {
-                      'general downloads section': 'https://brasil.mapbiomas.org/downloads/'
-                    }
-                  ),
-                  ui.Label(''),
-                  App.formatLabelWithLinks(
-                    'If you have suggestions, comments, or ideas to improve the product, please contact us at: **contato@mapbiomas.org**.',
-                    {
-                      'contato@mapbiomas.org': 'mailto:contato@mapbiomas.org'
-                    }
-                  ),
-                  ui.Label(''),
-                  App.formatLabelWithLinks(
-                    'DOI: **https://doi.org/10.58053/MapBiomas/XUFVIC**',
-                    {
-                      'https://doi.org/10.58053/MapBiomas/XUFVIC': 'https://doi.org/10.58053/MapBiomas/XUFVIC'
-                    }
-                  ),
-                  ui.Label(''),
-                  ui.Label(
-                    'MapBiomas data is public, open, and free under the CC-BY license, provided that the source is cited in the following format: “MapBiomas Project – Collection [version] of MapBiomas Fire, accessed on [date] through the link: [LINK]”.',
-                    { 'margin': '0px' }
-                  )
-                ],
-                "Indonesia": [
-                    ui.Label('CATATAN INFORMASI - API'),
-                    ui.Label(''),
-                    ui.Label('MapBiomas Fire Koleksi 1 menyajikan peta kebakaran di Indonesia dari tahun 2013 hingga 2023, berupa data kebakaran secara tahunan ' +
-                             'dan bulanan untuk seluruh periode, termasuk: (a) Data kebakaran tahunan, (b) Data kebakaran bulanan, (c) Frekuensi kebakaran, dan ' +
-                             '(d) Akumulasi areal terbakar. Data tahunan, akumulasi, dan frekuensi tersedia dengan masing-masing kelas penutupan dan penggunaan ' +
-                             'lahan berdasarkan MapBiomas Koleksi 2.', {'margin': '0px'}),
-                    ui.Label(''),
-                    // App.formatLabelWithLinks('Untuk mengunduh data, akses ke **Toolkit** dan untuk penjelasan tiap nilai data, akses **kode legenda**.', {
-                    App.formatLabelWithLinks("Anda dapat mengakses data pada **dashboard** dan mengunduhnya menggunakan **Toolkit**  Untuk penjelasan setiap nilai data, lihat pada **kode legenda**.", {
-                        'Toolkit': 'https://code.earthengine.google.com/?scriptPath=users%2Fmapbiomas%2Fuser-toolkit%3Amapbiomas-user-toolkit-fire.js',
-                        'kode legenda': 'https://drive.google.com/file/d/1DACRQlH_1k8IxRc75SkKz0d89JB25cEt/view',
-                    }),
-                    ui.Label(''),
-                    App.formatLabelWithLinks('Untuk informasi lebih lanjut tentang metodologi, akses ke penjelasan **metode** dan **ATBD**.', {
-                        "metode": "https://brasil.mapbiomas.org/metodo-mapbiomas-fogo/",
-                        "ATBD": "https://fire.mapbiomas.id/assets/ATBD-Mapbiomas-fire-koleksi-1.pdf"
-                    }),
-                    ui.Label(''),
-                    ui.Label('Jika anda memiliki saran, kritik, atau ide untuk peningkatan produk, silakan hubungi kami di contato@mapbiomas.org.', {'margin': '0px'}),
-                    ui.Label(''),
-                    ui.Label('DISCLAIMER'),
-                    ui.Label(''),
-                    ui.Label('The MapBiomas Fire Collection 1 presents the mapping of fire scars in Indonesia from 2013 to 2023, with annual and monthly data for the ' +
-                             'entire period, including: (a) Annual fire occurrence, (b) Monthly fire occurrence, (c) Frequency, (d) Accumulated burned area. Annual, ' +
-                             'accumulated, and frequency data are also available with their respective Land Use and Land Cover classes from MapBiomas Collection 2.', 
-                             {'margin': '0px'}),
-                    ui.Label(''),
-                    App.formatLabelWithLinks('For more information on the methodology, access the **method** description and the **ATBD**.', {
-                        "method": "https://brasil.mapbiomas.org/metodo-mapbiomas-fogo/",
-                        "ATBD": "https://fire.mapbiomas.id/assets/ATBD-Mapbiomas-fire-koleksi-1.pdf"
-                    }, {'margin': '0px'}),
-                    ui.Label(''),
-                    // App.formatLabelWithLinks('To download the data, access the **Toolkit** and for the description of the respective data values, access the **legend code**.', {
-                    App.formatLabelWithLinks('You can access the data in the **dashboard** and download it using the **Toolkit** For descriptions of the respective data values, refer to the **legend code**.', {
-                        'Toolkit': 'https://code.earthengine.google.com/?scriptPath=users%2Fmapbiomas%2Fuser-toolkit%3Amapbiomas-user-toolkit-fire.js',
-                        'legend code': 'https://drive.google.com/file/d/1DACRQlH_1k8IxRc75SkKz0d89JB25cEt/view',
-                        'dashboard':'https://fire.mapbiomas.id/id'
-                    }, {'margin': '0px'}),
-                    ui.Label(''),
-                    ui.Label('If you have suggestions, criticisms, or ideas to improve the product, please contact us at contato@mapbiomas.org.', {'margin': '0px'}),
-                    ui.Label(''),
-                    ui.Label('MapBiomas data is public, open, and free under the CC-BY-SA license and by referencing the source in the following format: "MapBiomas Project – Collection [version] of MapBiomas Fire, accessed on [date] through the link: [LINK]".', {'margin': '0px'}),
-                ],
-                "Paraguay": [
-                    // Versão em espanhol
-                    ui.Label('NOTA INFORMATIVA - MapBiomas Fuego Colección 1'),
-                    ui.Label(''),
-                    ui.Label(
-                        'La Colección 1 de MapBiomas Fuego Paraguay presenta el mapeo de cicatrices de fuego en Paraguay para el período de 1999 a 2024. Los datos anuales y mensuales incluyen: (a) área quemada anual, (b) área quemada mensual, (c) frecuencia de fuego y (d) área quemada acumulada.',
-                        { 'margin': '0px' }
-                    ),
-                    ui.Label(''),
-                    ui.Label(
-                        'Los datos anuales, acumulados y de frecuencia también están disponibles por clases de uso y cobertura del suelo, con base en la Colección 2 de MapBiomas.',
-                        { 'margin': '0px' }
-                    ),
-                    ui.Label(''),
-                    App.formatLabelWithLinks(
-                        'Para más información sobre la metodología, consulte el **ATBD**.',
-                        {
-                            'ATBD': 'https://s3.amazonaws.com/mapbiomas-public/ATBD/ATBD_MapBiomas_Fuego_Collection1.pdf'
-                        }
-                    ),
-                    ui.Label(''),
-                    ui.Label(
-                        'Si tiene sugerencias, críticas e ideas para mejorar el trabajo, contáctenos por correo electrónico: contato@mapbiomas.org.',
-                        { 'margin': '0px' }
-                    ),
-                    ui.Label(''),
-                    ui.Label(
-                        'Los datos de MapBiomas son públicos, abiertos y gratuitos bajo licencia Creative Commons CC-BY y con referencia a la fuente, observando el siguiente formato: "Proyecto MapBiomas - Colección [VERSIÓN] de MapBiomas Fuego en Paraguay, accedido en [FECHA] a través del enlace: [ENLACE]".',
-                        { 'margin': '0px' }
-                    ),
-                    ui.Label(''),
-                
-                    // Versão em inglês
-                    ui.Label('DISCLAIMER MapBiomas Fire Collection 1'),
-                    ui.Label(''),
-                    ui.Label(
-                        'The MapBiomas Fire Collection 1 - Paraguay presents the mapping of fire scars in Paraguay for the period from 1999 to 2024. The annual and monthly data includes: (a) annual burned area, (b) monthly burned area, (c) fire frequency, and (d) accumulated burned area.',
-                        { 'margin': '0px' }
-                    ),
-                    ui.Label(''),
-                    ui.Label(
-                        'The annual, accumulated, and frequency data are also available by land use and land cover classes, based on MapBiomas Collection 2.',
-                        { 'margin': '0px' }
-                    ),
-                    ui.Label(''),
-                    App.formatLabelWithLinks(
-                        'For more information about the methodology, please consult the **ATBD**.',
-                        {
-                            'ATBD': 'https://s3.amazonaws.com/mapbiomas-public/ATBD/ATBD_MapBiomas_Fuego_Collection1.pdf'
-                        }
-                    ),
-                    ui.Label(''),
-                    ui.Label(
-                        'If you have suggestions, comments, or ideas to improve this work, please contact us at: contato@mapbiomas.org.',
-                        { 'margin': '0px' }
-                    ),
-                    ui.Label(''),
-                    ui.Label(
-                        'MapBiomas data are public, open, and free under the Creative Commons CC-BY license and must be referenced as follows: "MapBiomas Project - [VERSION] Collection of MapBiomas Fire in Paraguay, accessed on [DATE] through the link: [LINK]".',
-                        { 'margin': '0px' }
-                    )
-                ],
-                "Peru": [
-                    // Versão em espanhol
-                    ui.Label('NOTA INFORMATIVA - MapBiomas Fuego Colección 1'),
-                    ui.Label(''),
-                    ui.Label(
-                        'La Colección 1 de MapBiomas Fuego Perú presenta el mapeo de cicatrices de fuego en Perú para el período de 2013 a 2024, con datos anuales y mensuales que incluyen: (a) área quemada anual, (b) área quemada mensual, (c) frecuencia de fuego, (d) área quemada acumulada, (e) tamaño de cicatriz de fuego, y (f) año de la última ocurrencia de fuego.',
-                        { 'margin': '0px' }
-                    ),
-                    ui.Label(''),
-                    ui.Label(
-                        'Los datos anuales, acumulados y de frecuencia también están disponibles por clases de uso y cobertura del suelo, con base en la Colección 3 de MapBiomas.',
-                        { 'margin': '0px' }
-                    ),
-                    ui.Label(''),
-                    App.formatLabelWithLinks(
-                        'Para más información sobre la metodología, consulte el **ATBD**.',
-                        {
-                            'ATBD': 'https://peru.mapbiomas.org/metodologia-mapbiomas-fuego/'
-                        }
-                    ),
-                    ui.Label(''),
-                    ui.Label(
-                        'Si tiene sugerencias, críticas e ideas para mejorar el trabajo, contáctenos por correo electrónico: contato@mapbiomas.org',
-                        { 'margin': '0px' }
-                    ),
-                    ui.Label(''),
-                    ui.Label(
-                        'Los datos de MapBiomas son públicos, abiertos y gratuitos bajo licencia Creative Commons CC-BY y con referencia a la fuente, observando el siguiente formato: "Proyecto MapBiomas – Colección [VERSIÓN] de MapBiomas Fuego en Perú, accedido en [FECHA] a través del enlace: [ENLACE]".',
-                        { 'margin': '0px' }
-                    ),
-                    ui.Label(''),
-                
-                    // Versão em inglês
-                    ui.Label('INFORMATION NOTE – MapBiomas Fire Collection 1'),
-                    ui.Label(''),
-                    ui.Label(
-                        'The MapBiomas Fire Collection 1 – Peru presents the mapping of fire scars in Peru for the period from 2013 to 2024, with annual and monthly data including: (a) annual burned area, (b) monthly burned area, (c) fire frequency, (d) accumulated burned area, (e) fire scar size, and (f) year of the last fire occurrence.',
-                        { 'margin': '0px' }
-                    ),
-                    ui.Label(''),
-                    ui.Label(
-                        'The annual, accumulated, and frequency data are also available by land use and land cover classes, based on MapBiomas Collection 3.',
-                        { 'margin': '0px' }
-                    ),
-                    ui.Label(''),
-                    App.formatLabelWithLinks(
-                        'For more information about the methodology, please consult the **ATBD**.',
-                        {
-                            'ATBD': 'https://peru.mapbiomas.org/metodologia-mapbiomas-fuego/'
-                        }
-                    ),
-                    ui.Label(''),
-                    ui.Label(
-                        'If you have suggestions, comments, or ideas to improve this work, please contact us at: contato@mapbiomas.org',
-                        { 'margin': '0px' }
-                    ),
-                    ui.Label(''),
-                    ui.Label(
-                        'MapBiomas data are public, open, and free under the Creative Commons CC-BY license and must be referenced as follows: "MapBiomas Project – [VERSION] Collection of MapBiomas Fire in Peru, accessed on [DATE] through the link: [LINK]".',
-                        { 'margin': '0px' }
-                    )
-                ],
-            };
-        
-            var brasil_painel = ui.Panel({
-                'widgets': labelDisclaimer['Brasil'],
-                'layout': ui.Panel.Layout.flow('vertical'),
-                'style': {},
-            });
-        
+            var notes = App.options.disclaimers;
+
             App.ui.form.panelDisclaimer.widgets().reset([]);
         
             var panelDisclaimerText = ui.Panel({
-                'widgets': labelDisclaimer['Brasil'],
+                'widgets': App.disclaimerWidgets(notes[0]),
                 'layout': ui.Panel.Layout.flow('vertical'),
                 'style': {'stretch': 'both'},
             });
         
-            var panelButtonsChoiceCollections = ui.Panel({'layout': ui.Panel.Layout.flow('horizontal')});
+            var panelButtonsChoiceCollections = ui.Panel({'layout': ui.Panel.Layout.flow('horizontal', true)});
   
             var button_close = ui.Button({
                 // "label": '',
@@ -1126,16 +860,11 @@ var App = {
             });
             panelButtonsChoiceCollections.add(button_close);
         
-            [
-                ['MapBiomas Fogo Brasil', 'Brasil'],
-                ['MapBiomas Fire Indonesia', 'Indonesia'],
-                ['MapBiomas Fire Paraguay', 'Paraguay'],
-                ['MapBiomas Fire Peru', 'Peru'],
-            ].forEach(function(list){
+            notes.forEach(function (note) {
                 var button = ui.Button({
-                    "label": list[0],
+                    "label": note.label,
                     "onClick": function () {
-                        panelDisclaimerText.widgets().reset(labelDisclaimer[list[1]]);
+                        panelDisclaimerText.widgets().reset(App.disclaimerWidgets(note));
                     },
                     "disabled": false,
                     "style": {
