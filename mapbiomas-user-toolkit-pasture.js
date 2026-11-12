@@ -29,6 +29,8 @@
  *            and feature selects do the same filtering on any table
  *            longer repeats a name that several polygons share
  *            and centred in every toolkit
+ *    2.1.1 - The logo loads from logos/ on GitHub instead of gs://mapbiomas-public,
+ *            which stopped answering
  * 
  * @see
  *      Get the MapBiomas exported data in your "Google Drive/MAPBIOMAS-EXPORT" folder
@@ -56,11 +58,10 @@ var App = {
 
     options: {
 
-        version: '2.1.0',
+        version: '2.1.1',
 
         logo: {
-            uri: 'gs://mapbiomas-public/mapbiomas-logos/mapbiomas-toolkit-logo.b64',
-            base64: null
+            url: 'https://raw.githubusercontent.com/mapbiomas/user-toolkit/master/logos/mapbiomas-toolkit-logo.png'
         },
 
         tables: Territories.pick([
@@ -531,17 +532,9 @@ var App = {
 
             init: function () {
 
-                var blob = ee.Blob(App.options.logo.uri);
-
-                blob.string().evaluate(
-                    function (str) {
-                        str = str.replace(/\n/g, '');
-                        App.options.logo.base64 = ui.Label({
-                            imageUrl: str,
-                        });
-                        App.ui.form.panelLogo.add(App.options.logo.base64);
-                    }
-                );
+                App.ui.form.panelLogo.add(ui.Label({
+                    imageUrl: App.options.logo.url
+                }));
 
                 App.ui.form.panelMain.add(App.ui.form.panelLogo);
                 App.ui.form.panelMain.add(App.ui.form.labelTitle);

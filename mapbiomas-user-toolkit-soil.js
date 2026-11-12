@@ -41,6 +41,8 @@
  *    2.1.1 - Fixes "carbon_2_1 is not defined": data/collections-soil.js holds asset
  *            ids only, and App.loadAsset() builds and renames the images
  *            Collection 2.1 no longer offers carbon for 2024, which its asset doesn't have
+ *    2.1.2 - The logo loads from logos/ on GitHub instead of gs://mapbiomas-public,
+ *            which stopped answering
  * 
  */
 
@@ -191,7 +193,6 @@ modf * @param factor
  
 var palettes = require('users/mapbiomas/modules:Palettes.js');
 // var fire_palettes = require('users/workspaceipam/packages:mapbiomas-toolkit/utils/palettes');
-var logos = require('users/workspaceipam/packages:mapbiomas-toolkit/utils/b64');
 
 var Naming = require('users/mapbiomas/user-toolkit:core/v1/naming.js');
 var Layers = require('users/mapbiomas/user-toolkit:core/v1/layers.js');
@@ -207,11 +208,10 @@ var App = {
 
     options: {
 
-        version: '2.1.1',
+        version: '2.1.2',
 
         logo: {
-            uri: 'gs://mapbiomas-public/mapbiomas-logos/mapbiomas-logo-horizontal.b64',
-            base64: logos.get('logo_mapbiomas_solo')
+            url: 'https://raw.githubusercontent.com/mapbiomas/user-toolkit/master/logos/mapbiomas-solo-logo.png'
         },
 
         tables: Territories.pick([
@@ -1137,20 +1137,9 @@ var App = {
 
             init: function () {
 
-                var blob = ee.Blob(App.options.logo.uri);
-
-                blob.string().evaluate(
-                    function (str) {
-                        str = str.replace(/\n/g, '');
-                        
-                        str = App.options.logo.base64 === null ? str : App.options.logo.base64;
-                        
-                        App.options.logo.base64 = ui.Label({
-                            imageUrl: str,
-                        });
-                        App.ui.form.panelLogo.add(App.options.logo.base64);
-                    }
-                );
+                App.ui.form.panelLogo.add(ui.Label({
+                    imageUrl: App.options.logo.url
+                }));
 
                 App.ui.form.panelMain.add(App.ui.form.panelLogo);
                 App.ui.form.panelMain.add(App.ui.form.labelTitle);

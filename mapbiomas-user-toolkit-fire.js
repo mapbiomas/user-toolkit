@@ -68,12 +68,13 @@
  *            Indonesia and Peru collection 2.0; fire monitor for Indonesia and Peru
  *    2.3.0 - The disclaimers come from data/disclaimers.js, the same notes the platform
  *            shows: Argentina, Bolivia, Chile and Colombia added, one language per country
+ *    2.3.1 - The logo loads from logos/ on GitHub instead of gs://mapbiomas-public,
+ *            which stopped answering
  * 
  */
 
 var palettes = require('users/mapbiomas/modules:Palettes.js');
 var fire_palettes = require('users/workspaceipam/packages:mapbiomas-toolkit/utils/palettes');
-var logos = require('users/workspaceipam/packages:mapbiomas-toolkit/utils/b64');
 
 var Area = require('users/mapbiomas/user-toolkit:core/v1/area.js');
 var Naming = require('users/mapbiomas/user-toolkit:core/v1/naming.js');
@@ -91,11 +92,10 @@ var App = {
 
     options: {
 
-        version: '2.3.0',
+        version: '2.3.1',
 
         logo: {
-            uri: 'gs://mapbiomas-public/mapbiomas-logos/mapbiomas-logo-horizontal.b64',
-            base64: logos.get('logo_mapbiomas_fire')
+            url: 'https://raw.githubusercontent.com/mapbiomas/user-toolkit/master/logos/mapbiomas-fire-logo.png'
         },
 
         tables: Territories.pick([
@@ -898,20 +898,9 @@ var App = {
 
             init: function () {
 
-                var blob = ee.Blob(App.options.logo.uri);
-
-                blob.string().evaluate(
-                    function (str) {
-                        str = str.replace(/\n/g, '');
-                        
-                        str = App.options.logo.base64 === null ? str : App.options.logo.base64;
-                        
-                        App.options.logo.base64 = ui.Label({
-                            imageUrl: str,
-                        });
-                        App.ui.form.panelLogo.add(App.options.logo.base64);
-                    }
-                );
+                App.ui.form.panelLogo.add(ui.Label({
+                    imageUrl: App.options.logo.url
+                }));
 
                 App.ui.form.panelMain.add(App.ui.form.panelLogo);
                 App.ui.form.panelMain.add(App.ui.form.labelTitle);

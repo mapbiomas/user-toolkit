@@ -34,6 +34,8 @@
  *            and feature selects do the same filtering on any table
  *            longer repeats a name that several polygons share
  *            and centred in every toolkit
+ *    2.1.1 - The logo loads from logos/ on GitHub instead of gs://mapbiomas-public,
+ *            which stopped answering
  * 
  * @see
  *      Get the MapBiomas exported data in your "Google Drive/MAPBIOMAS-EXPORT" folder
@@ -41,7 +43,6 @@
  */
 
 var palettes = require('users/mapbiomas/modules:Palettes.js');
-var logos = require('users/mapbiomas/modules:Logos.js');
 var Basemaps = require('users/mapbiomas/user-toolkit:core/v1/basemaps.js');
 
 var Area = require('users/mapbiomas/user-toolkit:core/v1/area.js');
@@ -63,13 +64,11 @@ var App = {
 
     options: {
 
-        version: '2.1.0',
+        version: '2.1.1',
 
 
         logo: {
-            // uri: 'gs://mapbiomas-public/mapbiomas-logos/mapbiomas-logo-horizontal.b64',
-            uri: 'gs://mapbiomas-public/mapbiomas-logos/mapbiomas-agua-logo.b64',
-            base64: null
+            url: 'https://raw.githubusercontent.com/mapbiomas/user-toolkit/master/logos/mapbiomas-agua-logo.png'
         },
 
         tables: Territories.pick([
@@ -676,21 +675,12 @@ var App = {
 
             init: function () {
 
-                var blob = ee.Blob(App.options.logo.uri);
-
-                blob.string().evaluate(
-                    function (str) {
-                        str = str.replace(/\n/g, '');
-                        App.options.logo.base64 = ui.Label({
-                            imageUrl: str,
-                            style: {
-                                // width: '300px'
-                                stretch: 'both'
-                            }
-                        });
-                        App.ui.form.panelLogo.add(App.options.logo.base64);
+                App.ui.form.panelLogo.add(ui.Label({
+                    imageUrl: App.options.logo.url,
+                    style: {
+                        stretch: 'both'
                     }
-                );
+                }));
 
                 this.panelMain.add(this.panelLogo);
                 // this.panelMain.add(this.labelLink);  // substituído pelo link único para os arquivos de legenda

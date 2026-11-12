@@ -12,11 +12,11 @@ There is no build, lint, or package manager. The only tests are the Node snapsho
 
 Keep the code ES5-compatible (use `var` and `function`, no arrow functions, `let`/`const`, or template literals). That's the style every script uses, and the GEE Code Editor has traditionally required it.
 
-External modules the scripts depend on (these live in GEE, not in this repo): `users/mapbiomas/modules:Palettes.js`, `users/mapbiomas/modules:Logos.js`, and `users/workspaceipam/packages:mapbiomas-toolkit/...` (fire palettes and logos, used by fire, soil and degradation). The map styles and the legend panel used to come from the personal account `users/joaovsiqueira1/packages`; they are now `core/v1/basemaps.js` and `core/v1/legend.js`.
+External modules the scripts depend on (these live in GEE, not in this repo): `users/mapbiomas/modules:Palettes.js` and `users/workspaceipam/packages:mapbiomas-toolkit/utils/palettes` (fire palettes, used by fire and degradation). The panel logos are files in `logos/`, loaded by URL from `raw.githubusercontent.com` with `ui.Label({imageUrl})`; they used to be `.b64` files in `gs://mapbiomas-public/mapbiomas-logos/`, which started returning 403. A new logo has to be pushed to GitHub before the script that points at it. The map styles and the legend panel used to come from the personal account `users/joaovsiqueira1/packages`; they are now `core/v1/basemaps.js` and `core/v1/legend.js`.
 
 ## Source of truth
 
-Users run the scripts from the GEE git repo `https://earthengine.googlesource.com/users/mapbiomas/user-toolkit`. It holds only the `.js` scripts and can also be edited directly in the Code Editor, which makes auto-generated "Updated <file> (added N lines…)" commits. Its history is unrelated to this repo's, so it can't be a remote of this repo. `README.md`, `LICENSE`, `ancillary/`, `legend-colors/`, `misc/`, `prototype/`, and `mapbiomas-user-toolkit-mosaics.js` exist only here.
+Users run the scripts from the GEE git repo `https://earthengine.googlesource.com/users/mapbiomas/user-toolkit`. It holds only the `.js` scripts and can also be edited directly in the Code Editor, which makes auto-generated "Updated <file> (added N lines…)" commits. Its history is unrelated to this repo's, so it can't be a remote of this repo. `README.md`, `LICENSE`, `ancillary/`, `legend-colors/`, `logos/`, `misc/`, `prototype/`, and `mapbiomas-user-toolkit-mosaics.js` exist only here.
 
 A clone of the GEE repo is kept next to this one, in `../user-toolkit-gee`. Git authenticates with `~/.gitcookies` (generate it at https://earthengine.googlesource.com/new-password). Pass `-c credential.helper=` so git doesn't hang waiting for a password prompt.
 

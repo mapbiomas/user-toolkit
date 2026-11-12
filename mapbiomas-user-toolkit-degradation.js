@@ -33,6 +33,8 @@
  *            longer repeats a name that several polygons share
  *            and centred in every toolkit
  *    0.2.1 - Collections come from data/collections-degradation.js
+ *    0.2.2 - The logo loads from logos/ on GitHub instead of gs://mapbiomas-public,
+ *            which stopped answering
  * 
  * @see
  *      Get the MapBiomas exported data in your "Google Drive/MAPBIOMAS-EXPORT" folder
@@ -41,7 +43,6 @@
 
 var palettes = require('users/mapbiomas/modules:Palettes.js');
 var fire_palettes = require('users/workspaceipam/packages:mapbiomas-toolkit/utils/palettes');
-var logos = require('users/workspaceipam/packages:mapbiomas-toolkit/utils/b64');
 
 var Area = require('users/mapbiomas/user-toolkit:core/v1/area.js');
 var Naming = require('users/mapbiomas/user-toolkit:core/v1/naming.js');
@@ -307,11 +308,10 @@ var App = {
 
     options: {
 
-        version: '0.2.1',
+        version: '0.2.2',
 
         logo: {
-            uri: 'gs://mapbiomas-public/mapbiomas-logos/mapbiomas-logo-horizontal.b64',
-            base64: logos.get('logo_mapbiomas_degradacao')
+            url: 'https://raw.githubusercontent.com/mapbiomas/user-toolkit/master/logos/mapbiomas-degradacao-logo.jpg'
         },
 
         tables: Territories.pick([
@@ -1061,20 +1061,9 @@ var App = {
 
             init: function () {
 
-                var blob = ee.Blob(App.options.logo.uri);
-
-                blob.string().evaluate(
-                    function (str) {
-                        str = str.replace(/\n/g, '');
-                        
-                        str = App.options.logo.base64 === null ? str : App.options.logo.base64;
-                        
-                        App.options.logo.base64 = ui.Label({
-                            imageUrl: str,
-                        });
-                        App.ui.form.panelLogo.add(App.options.logo.base64);
-                    }
-                );
+                App.ui.form.panelLogo.add(ui.Label({
+                    imageUrl: App.options.logo.url
+                }));
 
 
                 App.ui.form.panelMain.add(App.ui.form.panelLogo);
