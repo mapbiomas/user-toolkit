@@ -32,6 +32,8 @@
  *            and centred in every toolkit
  *    2.1.1 - The logo loads from logos/ on GitHub instead of gs://mapbiomas-public,
  *            which stopped answering
+ *    2.1.2 - The logo comes from core/v1/logos.js as a data URI: the Code Editor
+ *            shows a blank label for an image URL on another site
  * 
  * @see
  *      Get the MapBiomas exported data in your "Google Drive/MAPBIOMAS-EXPORT" folder
@@ -39,6 +41,7 @@
  */
 
 var palettes = require('users/mapbiomas/modules:Palettes.js');
+var Logos = require('users/mapbiomas/user-toolkit:core/v1/logos.js');
 var Basemaps = require('users/mapbiomas/user-toolkit:core/v1/basemaps.js');
 var Legend = require('users/mapbiomas/user-toolkit:core/v1/legend.js');
 
@@ -61,10 +64,10 @@ var App = {
 
     options: {
 
-        version: '2.1.1',
+        version: '2.1.2',
 
         logo: {
-            url: 'https://raw.githubusercontent.com/mapbiomas/user-toolkit/master/logos/mapbiomas-toolkit-logo.png'
+            image: Logos.toolkit
         },
 
         tables: Territories.pick([
@@ -586,7 +589,7 @@ var App = {
             init: function () {
 
                 App.ui.form.panelLogo.add(ui.Label({
-                    imageUrl: App.options.logo.url
+                    imageUrl: App.options.logo.image
                 }));
                 
                 this.panelMain.add(this.panelLogo);

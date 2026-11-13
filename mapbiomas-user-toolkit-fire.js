@@ -70,12 +70,15 @@
  *            shows: Argentina, Bolivia, Chile and Colombia added, one language per country
  *    2.3.1 - The logo loads from logos/ on GitHub instead of gs://mapbiomas-public,
  *            which stopped answering
+ *    2.3.2 - The logo comes from core/v1/logos.js as a data URI: the Code Editor
+ *            shows a blank label for an image URL on another site
  * 
  */
 
 var palettes = require('users/mapbiomas/modules:Palettes.js');
 var fire_palettes = require('users/workspaceipam/packages:mapbiomas-toolkit/utils/palettes');
 
+var Logos = require('users/mapbiomas/user-toolkit:core/v1/logos.js');
 var Area = require('users/mapbiomas/user-toolkit:core/v1/area.js');
 var Naming = require('users/mapbiomas/user-toolkit:core/v1/naming.js');
 var Layers = require('users/mapbiomas/user-toolkit:core/v1/layers.js');
@@ -92,10 +95,10 @@ var App = {
 
     options: {
 
-        version: '2.3.1',
+        version: '2.3.2',
 
         logo: {
-            url: 'https://raw.githubusercontent.com/mapbiomas/user-toolkit/master/logos/mapbiomas-fire-logo.png'
+            image: Logos.fire
         },
 
         tables: Territories.pick([
@@ -899,7 +902,7 @@ var App = {
             init: function () {
 
                 App.ui.form.panelLogo.add(ui.Label({
-                    imageUrl: App.options.logo.url
+                    imageUrl: App.options.logo.image
                 }));
 
                 App.ui.form.panelMain.add(App.ui.form.panelLogo);

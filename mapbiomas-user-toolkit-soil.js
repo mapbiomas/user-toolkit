@@ -43,6 +43,8 @@
  *            Collection 2.1 no longer offers carbon for 2024, which its asset doesn't have
  *    2.1.2 - The logo loads from logos/ on GitHub instead of gs://mapbiomas-public,
  *            which stopped answering
+ *    2.1.3 - The logo comes from core/v1/logos.js as a data URI: the Code Editor
+ *            shows a blank label for an image URL on another site
  * 
  */
 
@@ -194,6 +196,7 @@ modf * @param factor
 var palettes = require('users/mapbiomas/modules:Palettes.js');
 // var fire_palettes = require('users/workspaceipam/packages:mapbiomas-toolkit/utils/palettes');
 
+var Logos = require('users/mapbiomas/user-toolkit:core/v1/logos.js');
 var Naming = require('users/mapbiomas/user-toolkit:core/v1/naming.js');
 var Layers = require('users/mapbiomas/user-toolkit:core/v1/layers.js');
 var Territory = require('users/mapbiomas/user-toolkit:core/v1/territory.js');
@@ -208,10 +211,10 @@ var App = {
 
     options: {
 
-        version: '2.1.2',
+        version: '2.1.3',
 
         logo: {
-            url: 'https://raw.githubusercontent.com/mapbiomas/user-toolkit/master/logos/mapbiomas-solo-logo.png'
+            image: Logos.solo
         },
 
         tables: Territories.pick([
@@ -1138,7 +1141,7 @@ var App = {
             init: function () {
 
                 App.ui.form.panelLogo.add(ui.Label({
-                    imageUrl: App.options.logo.url
+                    imageUrl: App.options.logo.image
                 }));
 
                 App.ui.form.panelMain.add(App.ui.form.panelLogo);
