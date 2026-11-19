@@ -37,6 +37,8 @@
  *            which stopped answering
  *    2.1.2 - The logo comes from core/v1/logos.js as a data URI: the Code Editor
  *            shows a blank label for an image URL on another site
+ *    2.2.0 - Loads argentina 3.0 and uruguay 4.0
+ *          - Loads mapbiomas-indonesia collection 5.0
  * 
  * @see
  *      Get the MapBiomas exported data in your "Google Drive/MAPBIOMAS-EXPORT" folder
@@ -67,7 +69,7 @@ var App = {
 
     options: {
 
-        version: '2.1.2',
+        version: '2.2.0',
 
         logo: {
             image: Logos.toolkit
@@ -80,7 +82,8 @@ var App = {
             'mapbiomas-bolivia',
             'mapbiomas-uruguay',
             'mapbiomas-paraguay',
-            'mapbiomas-argentina'
+            'mapbiomas-argentina',
+            'mapbiomas-indonesia'
         ]),
 
         selectedRegion: null,
@@ -94,7 +97,8 @@ var App = {
             'mapbiomas-bolivia',
             'mapbiomas-uruguay',
             'mapbiomas-paraguay',
-            'mapbiomas-argentina'
+            'mapbiomas-argentina',
+            'mapbiomas-indonesia'
         ]),
 
         bandsNames: { //TODO: ajustar o nome das bandas no asset publico
@@ -1010,6 +1014,7 @@ var App = {
                     'mapbiomas-bolivia',
                     'mapbiomas-brazil',
                     'mapbiomas-colombia',
+                    'mapbiomas-indonesia',
                     'mapbiomas-paraguay',
                     'mapbiomas-peru',
                     // 'mapbiomas-pampa',

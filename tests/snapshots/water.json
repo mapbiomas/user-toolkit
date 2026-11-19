@@ -1,6 +1,6 @@
 {
  "toolkit": "water",
- "version": "2.1.2",
+ "version": "2.2.0",
  "regions": {
   "mapbiomas-amazon": {
    "collections": {
@@ -85,33 +85,36 @@
   },
   "mapbiomas-bolivia": {
    "collections": {
+    "collection-4.0": [
+     "annual_water_coverage"
+    ],
     "collection-1.0": [
      "annual_water_coverage",
      "water_frequency"
     ]
    },
    "flow": {
-    "collection": "collection-1.0",
+    "collection": "collection-4.0",
     "tables": 12,
     "table": "Basin Level 1",
     "dataType": "annual_water_coverage",
-    "layer": "Feature A 2022",
+    "layer": "Feature A 2025",
     "mapLayers": [
-     "Feature A 2022"
+     "Feature A 2025"
     ],
     "exports": [
      {
       "kind": "image.toDrive",
-      "description": "mapbiomas_bolivia-collection_1_0-annual_water_coverage-feature_a-2022",
-      "fileNamePrefix": "mapbiomas_bolivia-collection_1_0-annual_water_coverage-feature_a-2022",
+      "description": "mapbiomas_bolivia-collection_4_0-annual_water_coverage-feature_a-2025",
+      "fileNamePrefix": "mapbiomas_bolivia-collection_4_0-annual_water_coverage-feature_a-2025",
       "folder": "MAPBIOMAS-EXPORT",
       "scale": 30,
       "fileFormat": "GeoTIFF"
      },
      {
       "kind": "table.toDrive",
-      "description": "mapbiomas_bolivia-collection_1_0-annual_water_coverage-feature_a-area",
-      "fileNamePrefix": "mapbiomas_bolivia-collection_1_0-annual_water_coverage-feature_a-area",
+      "description": "mapbiomas_bolivia-collection_4_0-annual_water_coverage-feature_a-area",
+      "fileNamePrefix": "mapbiomas_bolivia-collection_4_0-annual_water_coverage-feature_a-area",
       "folder": "MAPBIOMAS-EXPORT",
       "fileFormat": "CSV"
      }
@@ -155,33 +158,70 @@
   },
   "mapbiomas-ecuador": {
    "collections": {
+    "collection-4.0": [
+     "annual_water_coverage"
+    ],
     "collection-1.0": [
      "annual_water_coverage",
      "water_frequency"
     ]
    },
    "flow": {
-    "collection": "collection-1.0",
+    "collection": "collection-4.0",
     "tables": 27,
     "table": "Bosque Protectores (MAE, 2026)",
     "dataType": "annual_water_coverage",
-    "layer": "Feature A 2022",
+    "layer": "Feature A 2025",
     "mapLayers": [
-     "Feature A 2022"
+     "Feature A 2025"
     ],
     "exports": [
      {
       "kind": "image.toDrive",
-      "description": "mapbiomas_ecuador-collection_1_0-annual_water_coverage-feature_a-2022",
-      "fileNamePrefix": "mapbiomas_ecuador-collection_1_0-annual_water_coverage-feature_a-2022",
+      "description": "mapbiomas_ecuador-collection_4_0-annual_water_coverage-feature_a-2025",
+      "fileNamePrefix": "mapbiomas_ecuador-collection_4_0-annual_water_coverage-feature_a-2025",
       "folder": "MAPBIOMAS-EXPORT",
       "scale": 30,
       "fileFormat": "GeoTIFF"
      },
      {
       "kind": "table.toDrive",
-      "description": "mapbiomas_ecuador-collection_1_0-annual_water_coverage-feature_a-area",
-      "fileNamePrefix": "mapbiomas_ecuador-collection_1_0-annual_water_coverage-feature_a-area",
+      "description": "mapbiomas_ecuador-collection_4_0-annual_water_coverage-feature_a-area",
+      "fileNamePrefix": "mapbiomas_ecuador-collection_4_0-annual_water_coverage-feature_a-area",
+      "folder": "MAPBIOMAS-EXPORT",
+      "fileFormat": "CSV"
+     }
+    ]
+   }
+  },
+  "mapbiomas-paraguay": {
+   "collections": {
+    "collection-1.0": [
+     "annual_water_coverage"
+    ]
+   },
+   "flow": {
+    "collection": "collection-1.0",
+    "tables": 10,
+    "table": "Ecorregiones Dinerstein (DINERTTEIN, 1995)",
+    "dataType": "annual_water_coverage",
+    "layer": "Feature A 2025",
+    "mapLayers": [
+     "Feature A 2025"
+    ],
+    "exports": [
+     {
+      "kind": "image.toDrive",
+      "description": "mapbiomas_paraguay-collection_1_0-annual_water_coverage-feature_a-2025",
+      "fileNamePrefix": "mapbiomas_paraguay-collection_1_0-annual_water_coverage-feature_a-2025",
+      "folder": "MAPBIOMAS-EXPORT",
+      "scale": 30,
+      "fileFormat": "GeoTIFF"
+     },
+     {
+      "kind": "table.toDrive",
+      "description": "mapbiomas_paraguay-collection_1_0-annual_water_coverage-feature_a-area",
+      "fileNamePrefix": "mapbiomas_paraguay-collection_1_0-annual_water_coverage-feature_a-area",
       "folder": "MAPBIOMAS-EXPORT",
       "fileFormat": "CSV"
      }
@@ -217,6 +257,40 @@
       "kind": "table.toDrive",
       "description": "mapbiomas_peru-collection_1_0-annual_water_coverage-feature_a-area",
       "fileNamePrefix": "mapbiomas_peru-collection_1_0-annual_water_coverage-feature_a-area",
+      "folder": "MAPBIOMAS-EXPORT",
+      "fileFormat": "CSV"
+     }
+    ]
+   }
+  },
+  "mapbiomas-uruguay": {
+   "collections": {
+    "collection-1.0": [
+     "annual_water_coverage"
+    ]
+   },
+   "flow": {
+    "collection": "collection-1.0",
+    "tables": 7,
+    "table": "Country",
+    "dataType": "annual_water_coverage",
+    "layer": "Feature A 2025",
+    "mapLayers": [
+     "Feature A 2025"
+    ],
+    "exports": [
+     {
+      "kind": "image.toDrive",
+      "description": "mapbiomas_uruguay-collection_1_0-annual_water_coverage-feature_a-2025",
+      "fileNamePrefix": "mapbiomas_uruguay-collection_1_0-annual_water_coverage-feature_a-2025",
+      "folder": "MAPBIOMAS-EXPORT",
+      "scale": 30,
+      "fileFormat": "GeoTIFF"
+     },
+     {
+      "kind": "table.toDrive",
+      "description": "mapbiomas_uruguay-collection_1_0-annual_water_coverage-feature_a-area",
+      "fileNamePrefix": "mapbiomas_uruguay-collection_1_0-annual_water_coverage-feature_a-area",
       "folder": "MAPBIOMAS-EXPORT",
       "fileFormat": "CSV"
      }

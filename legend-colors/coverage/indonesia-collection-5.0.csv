@@ -1,0 +1,22 @@
+value,label,color
+3,Forest Formation,#1f8d49
+5,Mangrove,#04381d
+9,ForestPlantation,#7a6c00
+11,Wetland,#519799
+12,Savannah,#d6bc74
+13,Other Natural Vegetation,#d89f5c
+21,Other Agriculture,#ffefc3
+24,Urban Area,#d4271e
+25,Other Non-Vegetation,#db4d4f
+30,Mining Pit,#9c0027
+31,Aquaculture,#091077
+33,"River, Lake, Ocean",#2532e4
+35,Oil Palm,#9065d0
+40,Rice Paddy,#f272c2
+46,Coffee,#eb7fa5
+48,Perennial Crops,#e6ccff
+49,Rubber,#b77671
+64,Sago,#089767
+76,Peat Swamp Forest,#2f7360
+80,Timber Plantation,#7a5900
+92,Rocky Surface,#d98a45

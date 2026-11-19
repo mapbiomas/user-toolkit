@@ -1,6 +1,6 @@
 {
  "toolkit": "lulc",
- "version": "2.2.2",
+ "version": "2.3.0",
  "regions": {
   "mapbiomas-amazon": {
    "collections": {
@@ -154,6 +154,12 @@
     "collection-11.0": [
      "Coverage"
     ],
+    "collection-4-10m": [
+     "Coverage"
+    ],
+    "collection-3-10m-Beta": [
+     "Coverage"
+    ],
     "collection-2-10m-Beta": [
      "Coverage"
     ],
@@ -233,6 +239,9 @@
   },
   "mapbiomas-bolivia": {
    "collections": {
+    "collection-4.0": [
+     "Coverage"
+    ],
     "collection-3.0": [
      "Coverage",
      "Transitions",
@@ -249,27 +258,27 @@
     ]
    },
    "flow": {
-    "collection": "collection-3.0",
+    "collection": "collection-4.0",
     "tables": 12,
     "table": "Basin Level 1",
     "dataType": "Coverage",
-    "layer": "Feature A 2024",
+    "layer": "Feature A 2025",
     "mapLayers": [
-     "Feature A 2024"
+     "Feature A 2025"
     ],
     "exports": [
      {
       "kind": "image.toDrive",
-      "description": "mapbiomas_bolivia-collection_3_0-coverage-feature_a-2024",
-      "fileNamePrefix": "mapbiomas_bolivia-collection_3_0-coverage-feature_a-2024",
+      "description": "mapbiomas_bolivia-collection_4_0-coverage-feature_a-2025",
+      "fileNamePrefix": "mapbiomas_bolivia-collection_4_0-coverage-feature_a-2025",
       "folder": "MAPBIOMAS-EXPORT",
       "scale": 30,
       "fileFormat": "GeoTIFF"
      },
      {
       "kind": "table.toDrive",
-      "description": "mapbiomas_bolivia-collection_3_0-coverage-feature_a-area",
-      "fileNamePrefix": "mapbiomas_bolivia-collection_3_0-coverage-feature_a-area",
+      "description": "mapbiomas_bolivia-collection_4_0-coverage-feature_a-area",
+      "fileNamePrefix": "mapbiomas_bolivia-collection_4_0-coverage-feature_a-area",
       "folder": "MAPBIOMAS-EXPORT",
       "fileFormat": "CSV"
      }
@@ -446,6 +455,9 @@
   },
   "mapbiomas-ecuador": {
    "collections": {
+    "collection-4.0": [
+     "Coverage"
+    ],
     "collection-3.0": [
      "Coverage"
     ],
@@ -461,27 +473,27 @@
     ]
    },
    "flow": {
-    "collection": "collection-3.0",
+    "collection": "collection-4.0",
     "tables": 27,
     "table": "Bosque Protectores (MAE, 2026)",
     "dataType": "Coverage",
-    "layer": "Feature A 2024",
+    "layer": "Feature A 2025",
     "mapLayers": [
-     "Feature A 2024"
+     "Feature A 2025"
     ],
     "exports": [
      {
       "kind": "image.toDrive",
-      "description": "mapbiomas_ecuador-collection_3_0-coverage-feature_a-2024",
-      "fileNamePrefix": "mapbiomas_ecuador-collection_3_0-coverage-feature_a-2024",
+      "description": "mapbiomas_ecuador-collection_4_0-coverage-feature_a-2025",
+      "fileNamePrefix": "mapbiomas_ecuador-collection_4_0-coverage-feature_a-2025",
       "folder": "MAPBIOMAS-EXPORT",
       "scale": 30,
       "fileFormat": "GeoTIFF"
      },
      {
       "kind": "table.toDrive",
-      "description": "mapbiomas_ecuador-collection_3_0-coverage-feature_a-area",
-      "fileNamePrefix": "mapbiomas_ecuador-collection_3_0-coverage-feature_a-area",
+      "description": "mapbiomas_ecuador-collection_4_0-coverage-feature_a-area",
+      "fileNamePrefix": "mapbiomas_ecuador-collection_4_0-coverage-feature_a-area",
       "folder": "MAPBIOMAS-EXPORT",
       "fileFormat": "CSV"
      }
@@ -490,6 +502,9 @@
   },
   "mapbiomas-indonesia": {
    "collections": {
+    "collection-5.0": [
+     "Coverage"
+    ],
     "collection-4.1": [
      "Coverage"
     ],
@@ -510,27 +525,27 @@
     ]
    },
    "flow": {
-    "collection": "collection-4.1",
+    "collection": "collection-5.0",
     "tables": 25,
     "table": "Country Limit",
     "dataType": "Coverage",
-    "layer": "Feature A 2024",
+    "layer": "Feature A 2025",
     "mapLayers": [
-     "Feature A 2024"
+     "Feature A 2025"
     ],
     "exports": [
      {
       "kind": "image.toDrive",
-      "description": "mapbiomas_indonesia-collection_4_1-coverage-feature_a-2024",
-      "fileNamePrefix": "mapbiomas_indonesia-collection_4_1-coverage-feature_a-2024",
+      "description": "mapbiomas_indonesia-collection_5_0-coverage-feature_a-2025",
+      "fileNamePrefix": "mapbiomas_indonesia-collection_5_0-coverage-feature_a-2025",
       "folder": "MAPBIOMAS-EXPORT",
       "scale": 30,
       "fileFormat": "GeoTIFF"
      },
      {
       "kind": "table.toDrive",
-      "description": "mapbiomas_indonesia-collection_4_1-coverage-feature_a-area",
-      "fileNamePrefix": "mapbiomas_indonesia-collection_4_1-coverage-feature_a-area",
+      "description": "mapbiomas_indonesia-collection_5_0-coverage-feature_a-area",
+      "fileNamePrefix": "mapbiomas_indonesia-collection_5_0-coverage-feature_a-area",
       "folder": "MAPBIOMAS-EXPORT",
       "fileFormat": "CSV"
      }
@@ -573,6 +588,9 @@
   },
   "mapbiomas-pampa": {
    "collections": {
+    "collection-5.0": [
+     "Coverage"
+    ],
     "collection-4.0": [
      "Coverage",
      "Transitions",
@@ -595,27 +613,27 @@
     ]
    },
    "flow": {
-    "collection": "collection-4.0",
+    "collection": "collection-5.0",
     "tables": 10,
     "table": "Biome",
     "dataType": "Coverage",
-    "layer": "Feature A 2023",
+    "layer": "Feature A 2024",
     "mapLayers": [
-     "Feature A 2023"
+     "Feature A 2024"
     ],
     "exports": [
      {
       "kind": "image.toDrive",
-      "description": "mapbiomas_pampa-collection_4_0-coverage-feature_a-2023",
-      "fileNamePrefix": "mapbiomas_pampa-collection_4_0-coverage-feature_a-2023",
+      "description": "mapbiomas_pampa-collection_5_0-coverage-feature_a-2024",
+      "fileNamePrefix": "mapbiomas_pampa-collection_5_0-coverage-feature_a-2024",
       "folder": "MAPBIOMAS-EXPORT",
       "scale": 30,
       "fileFormat": "GeoTIFF"
      },
      {
       "kind": "table.toDrive",
-      "description": "mapbiomas_pampa-collection_4_0-coverage-feature_a-area",
-      "fileNamePrefix": "mapbiomas_pampa-collection_4_0-coverage-feature_a-area",
+      "description": "mapbiomas_pampa-collection_5_0-coverage-feature_a-area",
+      "fileNamePrefix": "mapbiomas_pampa-collection_5_0-coverage-feature_a-area",
       "folder": "MAPBIOMAS-EXPORT",
       "fileFormat": "CSV"
      }
@@ -713,8 +731,45 @@
     ]
    }
   },
+  "mapbiomas-suriname": {
+   "collections": {
+    "collection-1.0": [
+     "Coverage"
+    ]
+   },
+   "flow": {
+    "collection": "collection-1.0",
+    "tables": 11,
+    "table": "Country",
+    "dataType": "Coverage",
+    "layer": "Feature A 2025",
+    "mapLayers": [
+     "Feature A 2025"
+    ],
+    "exports": [
+     {
+      "kind": "image.toDrive",
+      "description": "mapbiomas_suriname-collection_1_0-coverage-feature_a-2025",
+      "fileNamePrefix": "mapbiomas_suriname-collection_1_0-coverage-feature_a-2025",
+      "folder": "MAPBIOMAS-EXPORT",
+      "scale": 30,
+      "fileFormat": "GeoTIFF"
+     },
+     {
+      "kind": "table.toDrive",
+      "description": "mapbiomas_suriname-collection_1_0-coverage-feature_a-area",
+      "fileNamePrefix": "mapbiomas_suriname-collection_1_0-coverage-feature_a-area",
+      "folder": "MAPBIOMAS-EXPORT",
+      "fileFormat": "CSV"
+     }
+    ]
+   }
+  },
   "mapbiomas-uruguay": {
    "collections": {
+    "collection-4.0": [
+     "Coverage"
+    ],
     "collection-3.0": [
      "Coverage"
     ],
@@ -730,27 +785,27 @@
     ]
    },
    "flow": {
-    "collection": "collection-3.0",
+    "collection": "collection-4.0",
     "tables": 7,
     "table": "Country",
     "dataType": "Coverage",
-    "layer": "Feature A 2024",
+    "layer": "Feature A 2025",
     "mapLayers": [
-     "Feature A 2024"
+     "Feature A 2025"
     ],
     "exports": [
      {
       "kind": "image.toDrive",
-      "description": "mapbiomas_uruguay-collection_3_0-coverage-feature_a-2024",
-      "fileNamePrefix": "mapbiomas_uruguay-collection_3_0-coverage-feature_a-2024",
+      "description": "mapbiomas_uruguay-collection_4_0-coverage-feature_a-2025",
+      "fileNamePrefix": "mapbiomas_uruguay-collection_4_0-coverage-feature_a-2025",
       "folder": "MAPBIOMAS-EXPORT",
       "scale": 30,
       "fileFormat": "GeoTIFF"
      },
      {
       "kind": "table.toDrive",
-      "description": "mapbiomas_uruguay-collection_3_0-coverage-feature_a-area",
-      "fileNamePrefix": "mapbiomas_uruguay-collection_3_0-coverage-feature_a-area",
+      "description": "mapbiomas_uruguay-collection_4_0-coverage-feature_a-area",
+      "fileNamePrefix": "mapbiomas_uruguay-collection_4_0-coverage-feature_a-area",
       "folder": "MAPBIOMAS-EXPORT",
       "fileFormat": "CSV"
      }
@@ -759,6 +814,9 @@
   },
   "mapbiomas-venezuela": {
    "collections": {
+    "collection-4.0": [
+     "Coverage"
+    ],
     "collection-3.0": [
      "Coverage"
     ],
@@ -774,27 +832,27 @@
     ]
    },
    "flow": {
-    "collection": "collection-3.0",
+    "collection": "collection-4.0",
     "tables": 11,
     "table": "Administrative Regions",
     "dataType": "Coverage",
-    "layer": "Feature A 2024",
+    "layer": "Feature A 2025",
     "mapLayers": [
-     "Feature A 2024"
+     "Feature A 2025"
     ],
     "exports": [
      {
       "kind": "image.toDrive",
-      "description": "mapbiomas_venezuela-collection_3_0-coverage-feature_a-2024",
-      "fileNamePrefix": "mapbiomas_venezuela-collection_3_0-coverage-feature_a-2024",
+      "description": "mapbiomas_venezuela-collection_4_0-coverage-feature_a-2025",
+      "fileNamePrefix": "mapbiomas_venezuela-collection_4_0-coverage-feature_a-2025",
       "folder": "MAPBIOMAS-EXPORT",
       "scale": 30,
       "fileFormat": "GeoTIFF"
      },
      {
       "kind": "table.toDrive",
-      "description": "mapbiomas_venezuela-collection_3_0-coverage-feature_a-area",
-      "fileNamePrefix": "mapbiomas_venezuela-collection_3_0-coverage-feature_a-area",
+      "description": "mapbiomas_venezuela-collection_4_0-coverage-feature_a-area",
+      "fileNamePrefix": "mapbiomas_venezuela-collection_4_0-coverage-feature_a-area",
       "folder": "MAPBIOMAS-EXPORT",
       "fileFormat": "CSV"
      }

@@ -183,6 +183,26 @@ var collections = {
                 ],
             },
         },
+        'collection-4.0': {
+            'assets': {
+                'annual_water_coverage': 'projects/mapbiomas-public/assets/bolivia/water/collection4/mapbiomas_bolivia_collection4_water_v1',
+            },
+            'periods': {
+                'annual_water_coverage': [
+                    '1985', '1986', '1987', '1988',
+                    '1989', '1990', '1991', '1992',
+                    '1993', '1994', '1995', '1996',
+                    '1997', '1998', '1999', '2000',
+                    '2001', '2002', '2003', '2004',
+                    '2005', '2006', '2007', '2008',
+                    '2009', '2010', '2011', '2012',
+                    '2013', '2014', '2015', '2016',
+                    '2017', '2018', '2019', '2020',
+                    '2021', '2022', '2023', '2024',
+                    '2025'
+                ],
+            },
+        },
     },
     'mapbiomas-peru': {
         'collection-1.0': {
@@ -255,6 +275,70 @@ var collections = {
                 ],
                 'water_frequency': [
                     '1985_2022'
+                ],
+            },
+        },
+        'collection-4.0': {
+            'assets': {
+                'annual_water_coverage': 'projects/mapbiomas-public/assets/ecuador/water/collection4/mapbiomas_ecuador_collection4_water_surface_v1',
+            },
+            'periods': {
+                'annual_water_coverage': [
+                    '1985', '1986', '1987', '1988',
+                    '1989', '1990', '1991', '1992',
+                    '1993', '1994', '1995', '1996',
+                    '1997', '1998', '1999', '2000',
+                    '2001', '2002', '2003', '2004',
+                    '2005', '2006', '2007', '2008',
+                    '2009', '2010', '2011', '2012',
+                    '2013', '2014', '2015', '2016',
+                    '2017', '2018', '2019', '2020',
+                    '2021', '2022', '2023', '2024',
+                    '2025'
+                ],
+            },
+        },
+    },
+    'mapbiomas-paraguay': {
+        'collection-1.0': {
+            'assets': {
+                'annual_water_coverage': 'projects/mapbiomas-public/assets/paraguay/water/collection1/mapbiomas_paraguay_collection1_water-annual-v1',
+            },
+            'periods': {
+                'annual_water_coverage': [
+                    '1985', '1986', '1987', '1988',
+                    '1989', '1990', '1991', '1992',
+                    '1993', '1994', '1995', '1996',
+                    '1997', '1998', '1999', '2000',
+                    '2001', '2002', '2003', '2004',
+                    '2005', '2006', '2007', '2008',
+                    '2009', '2010', '2011', '2012',
+                    '2013', '2014', '2015', '2016',
+                    '2017', '2018', '2019', '2020',
+                    '2021', '2022', '2023', '2024',
+                    '2025'
+                ],
+            },
+        },
+    },
+    'mapbiomas-uruguay': {
+        'collection-1.0': {
+            'assets': {
+                'annual_water_coverage': 'projects/mapbiomas-public/assets/uruguay/water/collection1/mapbiomas_uruguay_collection1_water_v1',
+            },
+            'periods': {
+                'annual_water_coverage': [
+                    '1985', '1986', '1987', '1988',
+                    '1989', '1990', '1991', '1992',
+                    '1993', '1994', '1995', '1996',
+                    '1997', '1998', '1999', '2000',
+                    '2001', '2002', '2003', '2004',
+                    '2005', '2006', '2007', '2008',
+                    '2009', '2010', '2011', '2012',
+                    '2013', '2014', '2015', '2016',
+                    '2017', '2018', '2019', '2020',
+                    '2021', '2022', '2023', '2024',
+                    '2025'
                 ],
             },
         },

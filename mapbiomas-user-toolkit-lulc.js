@@ -89,6 +89,9 @@
  *            which stopped answering
  *    2.2.2 - The logo comes from core/v1/logos.js as a data URI: the Code Editor
  *            shows a blank label for an image URL on another site
+ *    2.3.0 - Loads bolivia, ecuador, uruguay and venezuela 4.0, indonesia 5.0 and
+ *            pampa 5.0, and the brazil 10 m collections 3 (beta) and 4
+ *          - Loads mapbiomas-suriname collection 1.0
  * 
  * @see
  *      Get the MapBiomas exported data in your "Google Drive/MAPBIOMAS-EXPORT" folder
@@ -118,7 +121,7 @@ var App = {
 
     options: {
 
-        version: '2.2.2',
+        version: '2.3.0',
 
         logo: {
             image: Logos.toolkit
@@ -141,7 +144,8 @@ var App = {
             'mapbiomas-chile',
             'mapbiomas-argentina',
             'mapbiomas-mexico',
-            'mapbiomas-drc'
+            'mapbiomas-drc',
+            'mapbiomas-suriname'
         ]),
 
         collections: Collections.pick([
@@ -161,7 +165,8 @@ var App = {
             'mapbiomas-chile',
             'mapbiomas-argentina',
             'mapbiomas-mexico',
-            'mapbiomas-drc'
+            'mapbiomas-drc',
+            'mapbiomas-suriname'
         ]),
 
         bandsNames: {
@@ -1105,6 +1110,7 @@ var App = {
                     'mapbiomas-pampa',
                     'mapbiomas-paraguay',
                     'mapbiomas-peru',
+                    'mapbiomas-suriname',
                     'mapbiomas-uruguay',
                     'mapbiomas-venezuela',
                 ],

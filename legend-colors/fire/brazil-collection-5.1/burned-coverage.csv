@@ -1,0 +1,41 @@
+value,label,color
+1,Forest,#1f8d49
+3,Forest Formation,#1f8d49
+4,Savanna Formation,#7dc975
+5,Mangrove,#04381d
+6,Floodable Forest,#007785
+9,Forest Plantation,#7a5900
+10,Non Forest Natural Formation,#d6bc74
+11,Wetland,#468991
+12,Grassland,#d6bc74
+13,Other non Forest Formations,#d89f5c
+14,Farming,#ffefc3
+15,Pasture,#edde8e
+18,Agriculture,#e974ed
+19,Temporary Crop,#c27ba0
+20,Sugar cane,#db7093
+21,Mosaic of Uses,#ffefc3
+22,Non vegetated area,#d4271e
+23,"Beach, Dune and Sand Spot",#ffa07a
+24,Urban Area,#d4271e
+25,Other non Vegetated Areas,#db4d4f
+26,Water and Marine Environment,#2532e4
+27,Not Observed,#ffffff
+29,Rocky Outcrop,#ffaa5f
+30,Mining,#9c0027
+31,Aquaculture,#091077
+32,Hypersaline Tidal Flat,#fc8114
+33,"River, Lake and Ocean",#2532e4
+35,Palm Oil,#9065d0
+36,Perennial Crop,#d082de
+39,Soybean,#f5b3c8
+40,Rice,#c71585
+41,Other Temporary Crops,#f54ca9
+46,Coffee,#d68fe2
+47,Citrus,#9932cc
+48,Other Perennial Crops,#e6ccff
+49,Wooded Sandbank Vegetation,#02d659
+50,Herbaceous Sandbank Vegetation,#ad5100
+62,Cotton,#ff69b4
+69,Coral Reef,#0fffe3
+75,Photovoltaic Project,#c12100

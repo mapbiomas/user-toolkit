@@ -1,33 +1,34 @@
 {
  "toolkit": "deforestation-regeneration",
- "version": "2.1.2",
+ "version": "2.2.0",
  "regions": {
   "mapbiomas-argentina": {
    "collections": {
+    "collection-3.0": null,
     "collection-2.0": null
    },
    "flow": {
-    "collection": "collection-2.0",
+    "collection": "collection-3.0",
     "tables": 11,
     "table": "Country",
     "dataType": "deforestation_sec_vegetation",
-    "layer": "country 2024",
+    "layer": "country 2025",
     "mapLayers": [
-     "country 2024"
+     "country 2025"
     ],
     "exports": [
      {
       "kind": "image.toDrive",
-      "description": "mapbiomas_argentina-collection_2_0-deforestation_sec_vegetation-feature_a-2024",
-      "fileNamePrefix": "mapbiomas_argentina-collection_2_0-deforestation_sec_vegetation-feature_a-2024",
+      "description": "mapbiomas_argentina-collection_3_0-deforestation_sec_vegetation-feature_a-2025",
+      "fileNamePrefix": "mapbiomas_argentina-collection_3_0-deforestation_sec_vegetation-feature_a-2025",
       "folder": "MAPBIOMAS-EXPORT",
       "scale": 30,
       "fileFormat": "GeoTIFF"
      },
      {
       "kind": "table.toDrive",
-      "description": "mapbiomas_argentina-collection_2_0-deforestation_sec_vegetation-feature_a-area",
-      "fileNamePrefix": "mapbiomas_argentina-collection_2_0-deforestation_sec_vegetation-feature_a-area",
+      "description": "mapbiomas_argentina-collection_3_0-deforestation_sec_vegetation-feature_a-area",
+      "fileNamePrefix": "mapbiomas_argentina-collection_3_0-deforestation_sec_vegetation-feature_a-area",
       "folder": "MAPBIOMAS-EXPORT",
       "fileFormat": "CSV"
      }
@@ -137,6 +138,38 @@
     ]
    }
   },
+  "mapbiomas-indonesia": {
+   "collections": {
+    "collection-5.0": null
+   },
+   "flow": {
+    "collection": "collection-5.0",
+    "tables": 25,
+    "table": "Country Limit",
+    "dataType": "deforestation_sec_vegetation",
+    "layer": "country_limit 2025",
+    "mapLayers": [
+     "country_limit 2025"
+    ],
+    "exports": [
+     {
+      "kind": "image.toDrive",
+      "description": "mapbiomas_indonesia-collection_5_0-deforestation_sec_vegetation-feature_a-2025",
+      "fileNamePrefix": "mapbiomas_indonesia-collection_5_0-deforestation_sec_vegetation-feature_a-2025",
+      "folder": "MAPBIOMAS-EXPORT",
+      "scale": 30,
+      "fileFormat": "GeoTIFF"
+     },
+     {
+      "kind": "table.toDrive",
+      "description": "mapbiomas_indonesia-collection_5_0-deforestation_sec_vegetation-feature_a-area",
+      "fileNamePrefix": "mapbiomas_indonesia-collection_5_0-deforestation_sec_vegetation-feature_a-area",
+      "folder": "MAPBIOMAS-EXPORT",
+      "fileFormat": "CSV"
+     }
+    ]
+   }
+  },
   "mapbiomas-paraguay": {
    "collections": {
     "collection-3.0": null
@@ -205,30 +238,31 @@
   },
   "mapbiomas-uruguay": {
    "collections": {
+    "collection-4.0": null,
     "collection-3.0": null
    },
    "flow": {
-    "collection": "collection-3.0",
+    "collection": "collection-4.0",
     "tables": 7,
     "table": "Country",
     "dataType": "deforestation_sec_vegetation",
-    "layer": "country 2024",
+    "layer": "country 2025",
     "mapLayers": [
-     "country 2024"
+     "country 2025"
     ],
     "exports": [
      {
       "kind": "image.toDrive",
-      "description": "mapbiomas_uruguay-collection_3_0-deforestation_sec_vegetation-feature_a-2024",
-      "fileNamePrefix": "mapbiomas_uruguay-collection_3_0-deforestation_sec_vegetation-feature_a-2024",
+      "description": "mapbiomas_uruguay-collection_4_0-deforestation_sec_vegetation-feature_a-2025",
+      "fileNamePrefix": "mapbiomas_uruguay-collection_4_0-deforestation_sec_vegetation-feature_a-2025",
       "folder": "MAPBIOMAS-EXPORT",
       "scale": 30,
       "fileFormat": "GeoTIFF"
      },
      {
       "kind": "table.toDrive",
-      "description": "mapbiomas_uruguay-collection_3_0-deforestation_sec_vegetation-feature_a-area",
-      "fileNamePrefix": "mapbiomas_uruguay-collection_3_0-deforestation_sec_vegetation-feature_a-area",
+      "description": "mapbiomas_uruguay-collection_4_0-deforestation_sec_vegetation-feature_a-area",
+      "fileNamePrefix": "mapbiomas_uruguay-collection_4_0-deforestation_sec_vegetation-feature_a-area",
       "folder": "MAPBIOMAS-EXPORT",
       "fileFormat": "CSV"
      }

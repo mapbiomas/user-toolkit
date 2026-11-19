@@ -38,6 +38,8 @@
  *            which stopped answering
  *    2.1.2 - The logo comes from core/v1/logos.js as a data URI: the Code Editor
  *            shows a blank label for an image URL on another site
+ *    2.2.0 - Loads bolivia and ecuador 4.0, and paraguay and uruguay 1.0
+ *            (annual water)
  * 
  * @see
  *      Get the MapBiomas exported data in your "Google Drive/MAPBIOMAS-EXPORT" folder
@@ -67,7 +69,7 @@ var App = {
 
     options: {
 
-        version: '2.1.2',
+        version: '2.2.0',
 
 
         logo: {
@@ -97,7 +99,9 @@ var App = {
             'mapbiomas-bolivia',
             'mapbiomas-peru',
             'mapbiomas-colombia',
-            'mapbiomas-ecuador'
+            'mapbiomas-ecuador',
+            'mapbiomas-paraguay',
+            'mapbiomas-uruguay'
         ]),
 
         bandsNames: {
@@ -323,9 +327,10 @@ var App = {
 
                             var assets = App.options.collections[regionName][collectioName].assets;
 
-                            // a coleção 5 publica as bandas como classification_YYYY e não tem frequência
+                            // as coleções novas publicam as bandas como classification_YYYY (o Equador C4,
+                            // annual_classification_YYYY) e não têm frequência
                             App.options.data.annual_water_coverage = ee.Image(assets.annual_water_coverage)
-                                .regexpRename('^classification', 'annual_water_coverage');
+                                .regexpRename('^(annual_)?classification', 'annual_water_coverage');
 
                             App.options.data.water_frequency = assets.water_frequency ?
                                 ee.Image(assets.water_frequency) : null;
@@ -953,9 +958,9 @@ var App = {
                     'mapbiomas-ecuador',
                     // 'mapbiomas-indonesia',
                     // 'mapbiomas-pampa',
-                    // 'mapbiomas-paraguay',
+                    'mapbiomas-paraguay',
                     'mapbiomas-peru',
-                    // 'mapbiomas-uruguay',
+                    'mapbiomas-uruguay',
                     'mapbiomas-venezuela',
                 ],
                 'placeholder': 'None',

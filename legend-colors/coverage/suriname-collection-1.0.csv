@@ -1,0 +1,11 @@
+value,label,color
+3,Forest Formation,#1f8d49
+5,Mangrove,#04381d
+11,Wetland,#519799
+12,Grassland,#d6bc74
+18,Agriculture,#e974ed
+21,Mosaic of Uses,#ffefc3
+24,Urban Area,#d4271e
+25,Other non Vegetated Area,#db4d4f
+30,Mining,#9c0027
+33,"River, lake and Ocean",#2532e4

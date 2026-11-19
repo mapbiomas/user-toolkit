@@ -1,0 +1,22 @@
+value,label,color
+3,Forest,#1f8d49
+4,Open forest,#7dc975
+5,Mangrove,#04381d
+6,Flooded forest,#026975
+9,Silviculture,#7a5900
+11,Non forest wetland,#519799
+12,Grassland,#d6bc74
+13,Other non-forest natural formation,#d89f5c
+21,Mosaic of uses,#ffefc3
+23,"Beach, dune and sand spot",#ffa07a
+24,Urban infrastructure,#d4271e
+25,Other anthropic non-vegetated area,#db4d4f
+29,Rocky outcrop,#ffaa5f
+30,Mining,#9c0027
+31,Aquaculture,#091077
+33,"River, lake and ocean",#2532e4
+34,Glacier,#93dfe6
+68,Other natural non-vegetated area,#e97a7a
+74,Banana,#be83f7
+81,Andinean Herbaceous and Shrubby Vegetation,#dfeb62
+82,Flooded Andinean Herbaceous,#6fc179
