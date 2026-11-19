@@ -405,6 +405,25 @@ var collections = {
                 ],
             },
         },
+        'collection-11': {
+            'assets': {
+                'integration': 'projects/mapbiomas-public/assets/brazil/lulc/collection11/mapbiomas_brazil_collection11_coverage_v3',
+            },
+            'periods': {
+                'Coverage': [
+                    '1985', '1986', '1987', '1988',
+                    '1989', '1990', '1991', '1992',
+                    '1993', '1994', '1995', '1996',
+                    '1997', '1998', '1999', '2000',
+                    '2001', '2002', '2003', '2004',
+                    '2005', '2006', '2007', '2008',
+                    '2009', '2010', '2011', '2012',
+                    '2013', '2014', '2015', '2016',
+                    '2017', '2018', '2019', '2020',
+                    '2021', '2022', '2023', '2024', '2025'
+                ],
+            },
+        },
         'collection-1-10m-Beta': {
             'assets': {
                 'integration': 'projects/mapbiomas-public/assets/brazil/lulc/collection_S2_beta/collection_LULC_S2_beta',
@@ -427,7 +446,28 @@ var collections = {
                 ],
             },
         },
-        'collection-11.0': {
+        'collection-3-10m-Beta': {
+            'assets': {
+                'integration': 'projects/mapbiomas-public/assets/brazil/lulc_10m/collection3/mapbiomas_10m_collection3_integration_v1',
+            },
+            'periods': {
+                'Coverage': [
+                    '2016', '2017', '2018', '2019',
+                    '2020', '2021', '2022', '2023', '2024'
+                ],
+            },
+        },
+        'collection-4-10m': {
+            'assets': {
+                'integration': 'projects/mapbiomas-public/assets/brazil/lulc_10m/collection4/mapbiomas_10m_collection4_coverage_v1',
+            },
+            'periods': {
+                'Coverage': [
+                    '2016', '2017', '2018', '2019',
+                    '2020', '2021', '2022', '2023', '2024', '2025'
+                ],
+            },
+        },        'collection-11.0': {
             'assets': {
                 'integration': 'projects/mapbiomas-public/assets/brazil/lulc/collection11/mapbiomas_brazil_collection11_coverage_v3',
             },
@@ -1168,6 +1208,25 @@ var collections = {
                     '2017', '2018', '2019', '2020',
                     '2021', '2022', '2023'
                 ],
+             },
+        },
+        'collection-5.0': {
+            'assets': {
+                'integration': 'projects/mapbiomas-public/assets/pampa/lulc/collection5/mapbiomas_pampa_collection5_coverage_v1',
+            },
+            'periods': {
+                'Coverage': [
+                    '1985', '1986', '1987', '1988',
+                    '1989', '1990', '1991', '1992',
+                    '1993', '1994', '1995', '1996',
+                    '1997', '1998', '1999', '2000',
+                    '2001', '2002', '2003', '2004',
+                    '2005', '2006', '2007', '2008',
+                    '2009', '2010', '2011', '2012',
+                    '2013', '2014', '2015', '2016',
+                    '2017', '2018', '2019', '2020',
+                    '2021', '2022', '2023', '2024'
+                ],
             },
         },
     },
@@ -1295,6 +1354,25 @@ var collections = {
                     '2016', '2017', '2018', '2019',
                     '2020', '2021', '2022', '2023',
                     '2024'
+                ],
+            },
+        },
+        'collection-5': {
+            'assets': {
+                'integration': 'projects/mapbiomas-public/assets/indonesia/lulc/collection5/mapbiomas_indonesia_collection5_coverage_v1',
+            },
+            'periods': {
+                'Coverage': [
+                    '1988', '1989', '1990', '1991',
+                    '1992', '1993', '1994', '1995',
+                    '1996', '1997', '1998', '1999',
+                    '2000', '2001', '2002', '2003',
+                    '2004', '2005', '2006', '2007',
+                    '2008', '2009', '2010', '2011',
+                    '2012', '2013', '2014', '2015',
+                    '2016', '2017', '2018', '2019',
+                    '2020', '2021', '2022', '2023',
+                    '2024', '2025'
                 ],
             },
         },
@@ -1594,6 +1672,25 @@ var collections = {
                 ],
             },
         },
+        'collection-4.0': {
+            'assets': {
+                'integration': 'projects/mapbiomas-public/assets/bolivia/lulc/collection4/mapbiomas_bolivia_collection4_coverage_v1',
+            },
+            'periods': {
+                'Coverage': [
+                    '1985', '1986', '1987', '1988',
+                    '1989', '1990', '1991', '1992',
+                    '1993', '1994', '1995', '1996',
+                    '1997', '1998', '1999', '2000',
+                    '2001', '2002', '2003', '2004',
+                    '2005', '2006', '2007', '2008',
+                    '2009', '2010', '2011', '2012',
+                    '2013', '2014', '2015', '2016',
+                    '2017', '2018', '2019', '2020',
+                    '2021', '2022', '2023', '2024', '2025'
+                ],
+            },
+        },
     },
     'mapbiomas-colombia': {
         'collection-1.0': {
@@ -1827,6 +1924,25 @@ var collections = {
                 ],
             },
         },
+        'collection-4.0': {
+            'assets': {
+                'integration': 'projects/mapbiomas-public/assets/venezuela/lulc/collection4/mapbiomas_venezuela_collection4_coverage_v1',
+            },
+            'periods': {
+                'Coverage': [
+                    '1985', '1986', '1987', '1988',
+                    '1989', '1990', '1991', '1992',
+                    '1993', '1994', '1995', '1996',
+                    '1997', '1998', '1999', '2000',
+                    '2001', '2002', '2003', '2004',
+                    '2005', '2006', '2007', '2008',
+                    '2009', '2010', '2011', '2012',
+                    '2013', '2014', '2015', '2016',
+                    '2017', '2018', '2019', '2020',
+                    '2021', '2022', '2023', '2024', '2025'
+                ],
+            },
+        },
     },
     'mapbiomas-uruguay': {
         'collection-1.0': {
@@ -1946,6 +2062,26 @@ var collections = {
                 ],
             },
         },
+        'collection-4.0': {
+            'assets': {
+                'integration': 'projects/mapbiomas-public/assets/uruguay/lulc/collection4/mapbiomas_uruguay_collection4_coverage_v1',
+            },
+            'periods': {
+                'Coverage': [
+                    '1985', '1986', '1987', '1988',
+                    '1989', '1990', '1991', '1992',
+                    '1993', '1994', '1995', '1996',
+                    '1997', '1998', '1999', '2000',
+                    '2001', '2002', '2003', '2004',
+                    '2005', '2006', '2007', '2008',
+                    '2009', '2010', '2011', '2012',
+                    '2013', '2014', '2015', '2016',
+                    '2017', '2018', '2019', '2020',
+                    '2021', '2022', '2023', '2024', '2025'
+                ],
+            },
+        },
+
     },
     'mapbiomas-ecuador': {
         'collection-1.0': {
@@ -2060,6 +2196,25 @@ var collections = {
                     '2013', '2014', '2015', '2016',
                     '2017', '2018', '2019', '2020',
                     '2021', '2022', '2023', '2024'
+                ],
+            },
+        },
+        'collection-4.0': {
+            'assets': {
+                'integration': 'projects/mapbiomas-public/assets/ecuador/lulc/collection4/mapbiomas_ecuador_collection4_coverage_v1',
+            },
+            'periods': {
+                'Coverage': [
+                    '1985', '1986', '1987', '1988',
+                    '1989', '1990', '1991', '1992',
+                    '1993', '1994', '1995', '1996',
+                    '1997', '1998', '1999', '2000',
+                    '2001', '2002', '2003', '2004',
+                    '2005', '2006', '2007', '2008',
+                    '2009', '2010', '2011', '2012',
+                    '2013', '2014', '2015', '2016',
+                    '2017', '2018', '2019', '2020',
+                    '2021', '2022', '2023', '2024', '2025'
                 ],
             },
         },
