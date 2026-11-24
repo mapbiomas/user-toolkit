@@ -184,7 +184,7 @@ var collections = {
                 'textural_classes':'projects/mapbiomas-public/assets/brazil/soil/collection3/mapbiomas_brazil_collection3_soil_textural_class_v1',
                 'textural_subgroups':'projects/mapbiomas-public/assets/brazil/soil/collection3/mapbiomas_brazil_collection3_soil_textural_subgroup_v1',
                 'textural_groups':'projects/mapbiomas-public/assets/brazil/soil/collection3/mapbiomas_brazil_collection3_soil_textural_group_v1',
-                'stoniness':'projects/mapbiomas-public/assets/brazil/soil/collection3/mapbiomas_brazil_collection3_soil_stoniness_v1',
+                'stoniness':'projects/mapbiomas-public/assets/brazil/soil/collection3/mapbiomas_brazil_collection3_soil_stoniness_v2',
             },
             'periods': {
                 'soc_t_ha_000_030cm': [

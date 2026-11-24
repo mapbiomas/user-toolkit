@@ -45,6 +45,7 @@
  *            which stopped answering
  *    2.1.3 - The logo comes from core/v1/logos.js as a data URI: the Code Editor
  *            shows a blank label for an image URL on another site
+ *    2.1.4 - Collection 3 stoniness reads v2, the version the pipeline publishes
  * 
  */
 
@@ -211,7 +212,7 @@ var App = {
 
     options: {
 
-        version: '2.1.3',
+        version: '2.1.4',
 
         logo: {
             image: Logos.solo

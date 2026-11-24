@@ -213,7 +213,7 @@ Land use and land cover toolkit (`mapbiomas-user-toolkit-lulc.js`). Each script 
 | irrigation | 2.1.2 |
 | mining | 2.1.2 |
 | pasture | 2.1.2 |
-| soil | 2.1.3 |
+| soil | 2.1.4 |
 | degradation | 0.2.3 |
 
 <details>
