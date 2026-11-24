@@ -1,6 +1,6 @@
 {
  "toolkit": "deforestation-regeneration",
- "version": "2.2.0",
+ "version": "2.3.0",
  "regions": {
   "mapbiomas-argentina": {
    "collections": {
@@ -37,30 +37,31 @@
   },
   "mapbiomas-bolivia": {
    "collections": {
+    "collection-4.0": null,
     "collection-3.0": null
    },
    "flow": {
-    "collection": "collection-3.0",
+    "collection": "collection-4.0",
     "tables": 12,
     "table": "Basin Level 1",
     "dataType": "deforestation_sec_vegetation",
-    "layer": "basin_level_1 2024",
+    "layer": "basin_level_1 2025",
     "mapLayers": [
-     "basin_level_1 2024"
+     "basin_level_1 2025"
     ],
     "exports": [
      {
       "kind": "image.toDrive",
-      "description": "mapbiomas_bolivia-collection_3_0-deforestation_sec_vegetation-feature_a-2024",
-      "fileNamePrefix": "mapbiomas_bolivia-collection_3_0-deforestation_sec_vegetation-feature_a-2024",
+      "description": "mapbiomas_bolivia-collection_4_0-deforestation_sec_vegetation-feature_a-2025",
+      "fileNamePrefix": "mapbiomas_bolivia-collection_4_0-deforestation_sec_vegetation-feature_a-2025",
       "folder": "MAPBIOMAS-EXPORT",
       "scale": 30,
       "fileFormat": "GeoTIFF"
      },
      {
       "kind": "table.toDrive",
-      "description": "mapbiomas_bolivia-collection_3_0-deforestation_sec_vegetation-feature_a-area",
-      "fileNamePrefix": "mapbiomas_bolivia-collection_3_0-deforestation_sec_vegetation-feature_a-area",
+      "description": "mapbiomas_bolivia-collection_4_0-deforestation_sec_vegetation-feature_a-area",
+      "fileNamePrefix": "mapbiomas_bolivia-collection_4_0-deforestation_sec_vegetation-feature_a-area",
       "folder": "MAPBIOMAS-EXPORT",
       "fileFormat": "CSV"
      }

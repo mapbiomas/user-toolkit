@@ -39,6 +39,7 @@
  *            shows a blank label for an image URL on another site
  *    2.2.0 - Loads argentina 3.0 and uruguay 4.0
  *          - Loads mapbiomas-indonesia collection 5.0
+ *    2.3.0 - Loads bolivia 4.0
  * 
  * @see
  *      Get the MapBiomas exported data in your "Google Drive/MAPBIOMAS-EXPORT" folder
@@ -69,7 +70,7 @@ var App = {
 
     options: {
 
-        version: '2.2.0',
+        version: '2.3.0',
 
         logo: {
             image: Logos.toolkit
