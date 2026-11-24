@@ -1,20 +1,20 @@
 /**
  * @name
  *      Mapbiomas User Toolkit Downloads
- * 
+ *
  * @description
  *      This is a support tool for mapbiomas data users.
- *  
+ *
  * @author
  *    João Siqueira and Wallace Silva
- * 
+ *
  * @contact
  *      Tasso Azevedo, Marcos Rosa and João Siqueira
  *      contato@mapbiomas.org
  *
  * @version
  *    0.0.0 - Versão de desenvolvimento
- *          - Adicionando modulos de degradação 1.0 
+ *          - Adicionando modulos de degradação 1.0
  *    0.0.1 - Primeira versão
  *    0.0.2 - Replicando em memoria as camdas da plataforma (Area de classes borda, Area de classes de tamanho de fragmento e Area de classes de distancias dos fragmentos)
  *    0.0.3 - Atualizando camadas de degradação construidas em memoria
@@ -26,24 +26,27 @@
  *    0.1.0 - Breaking: export names and CSV columns standardized; territory drawn in red
  *    0.1.1 - Removes the legend links that were built at startup and never shown
  *    0.1.2 - Property and feature selects come from core/v1/panel.js; the feature list no
+ *            longer repeats a name that several polygons share
  *    0.1.3 - Export plumbing comes from core/v1/export.js; the Buffer setting is honoured
  *    0.1.4 - Removes the leftover widgets of the States dropdown, which had no select
  *    0.2.0 - Shows the Buffer control, which now applies to the exported raster
- *            if it is ever shown on the panel, where it is commented out
- *            longer repeats a name that several polygons share
- *            and centred in every toolkit
  *    0.2.1 - Collections come from data/collections-degradation.js
  *    0.2.2 - The logo loads from logos/ on GitHub instead of gs://mapbiomas-public,
  *            which stopped answering
  *    0.2.3 - The logo comes from core/v1/logos.js as a data URI: the Code Editor
  *            shows a blank label for an image URL on another site
- * 
+ *    1.0.0 - Breaking: the published modules replace the beta ones, which were built
+ *            from collection 9 work assets: Brazil collection 10.1 (edge area and age,
+ *            patch size, morphology, isolation, fire, secondary vegetation, canopy
+ *            disturbance and selective logging), in projects/mapbiomas-public.
+ *            Classes and colours follow the platform legends, the area CSV names the
+ *            classes, and the informational note comes from data/disclaimers.js
+ *
  * @see
  *      Get the MapBiomas exported data in your "Google Drive/MAPBIOMAS-EXPORT" folder
  *      Code and Tutorial - https://github.com/mapbiomas/user-toolkit
  */
 
-var palettes = require('users/mapbiomas/modules:Palettes.js');
 var fire_palettes = require('users/workspaceipam/packages:mapbiomas-toolkit/utils/palettes');
 
 var Logos = require('users/mapbiomas/user-toolkit:core/v1/logos.js');
@@ -55,263 +58,231 @@ var Territory = require('users/mapbiomas/user-toolkit:core/v1/territory.js');
 var Territories = require('users/mapbiomas/user-toolkit:data/territories.js');
 var Downloads = require('users/mapbiomas/user-toolkit:data/downloads.js');
 var Collections = require('users/mapbiomas/user-toolkit:data/collections-degradation.js');
+var Disclaimers = require('users/mapbiomas/user-toolkit:data/disclaimers.js');
+var Legends = require('users/mapbiomas/user-toolkit:data/legends.js');
 var Panel = require('users/mapbiomas/user-toolkit:core/v1/panel.js');
 var Exports = require('users/mapbiomas/user-toolkit:core/v1/export.js');
 
 /**
- * @description
- *    calculate area for mapbiomas fire map
- * 
- * @author
- *    Wallace Silva e João Siqueira
- * 
+ * Classes of the MapBiomas Brazil platform's degradation legends:
+ * [value, name, colour]. Copied from the platform's legend items, not made up.
  */
-
-
-// Criação das variáveis para cada produto
-// --- base auxiliar
-var landcover = ee.Image('projects/mapbiomas-public/assets/brazil/lulc/collection9/mapbiomas_collection90_integration_v1');
-var mb_landcover_values  = [3, 4, 5, 6, 9, 11, 12, 13, 15, 20, 21, 23, 24, 25, 29, 30, 31, 32, 33, 36, 39, 40, 41, 46, 47, 48, 49, 50, 62];
-var mb_vegNat_values =     [3, 4, 5, 6, 0, 11, 12, 13,  0,  0,  0,  0,  0,  0, 0,  0,  0,  0, 33,  0,  0,  0,  0,  0,  0,  0, 49, 50,  0];
-
-// Remap land cover classes to native vegetation classes
-var landcover_remap = landcover.multiply(0);
-mb_landcover_values.forEach(function(classe, i) {
-  landcover_remap = landcover_remap.where(landcover.eq(classe), mb_vegNat_values[i]);
-});
-
-var vis = {
-  'min': 0,
-  'max': 62,
-  'palette': require('users/mapbiomas/modules:Palettes.js').get('classification8'),
-  'bands':['classification_2022']
-};
-
-var landcover_base = landcover_remap.gte(1);
-// Map.addLayer(landcover, vis, 'landcover',false);
-// Map.addLayer(landcover_base, {min:0,max:1,palette:['#AAAADD','#7DCEB8']}, 'landcover_base',false);
-
-
-var bordasArea = landcover_base.where(landcover_base.eq(1), 9)
-  .blend(ee.Image('projects/mapbiomas-workspace/DEGRADACAO/COLECAO/BETA/PROCESS/edge_area/edge_1000m_col9_v1').gt(1).multiply(8))
-  .blend(ee.Image('projects/mapbiomas-workspace/DEGRADACAO/COLECAO/BETA/PROCESS/edge_area/edge_600m_col9_v1').gt(1).multiply(7))
-  .blend(ee.Image('projects/mapbiomas-workspace/DEGRADACAO/COLECAO/BETA/PROCESS/edge_area/edge_300m_col9_v1').gt(1).multiply(6))
-  .blend(ee.Image('projects/mapbiomas-workspace/DEGRADACAO/COLECAO/BETA/PROCESS/edge_area/edge_150m_col9_v1').gt(1).multiply(5))
-  .blend(ee.Image('projects/mapbiomas-workspace/DEGRADACAO/COLECAO/BETA/PROCESS/edge_area/edge_120m_col9_v1').gt(1).multiply(4))
-  .blend(ee.Image('projects/mapbiomas-workspace/DEGRADACAO/COLECAO/BETA/PROCESS/edge_area/edge_90m_col9_v1').gt(1).multiply(3))
-  .blend(ee.Image('projects/mapbiomas-workspace/DEGRADACAO/COLECAO/BETA/PROCESS/edge_area/edge_60m_col9_v1').gt(1).multiply(2))
-  .blend(ee.Image('projects/mapbiomas-workspace/DEGRADACAO/COLECAO/BETA/PROCESS/edge_area/edge_30m_col9_v1').gt(1).multiply(1));
-
-var fragmentSize = landcover_base.where(landcover_base.eq(1), 7)
-  .blend(ee.Image('projects/mapbiomas-workspace/DEGRADACAO/COLECAO/BETA/PROCESS/patch_size/size_75ha_col9_v1').gt(1).multiply(6))
-  .blend(ee.Image('projects/mapbiomas-workspace/DEGRADACAO/COLECAO/BETA/PROCESS/patch_size/size_50ha_col9_v1').gt(1).multiply(5))
-  .blend(ee.Image('projects/mapbiomas-workspace/DEGRADACAO/COLECAO/BETA/PROCESS/patch_size/size_25ha_col9_v1').gt(1).multiply(4))
-  .blend(ee.Image('projects/mapbiomas-workspace/DEGRADACAO/COLECAO/BETA/PROCESS/patch_size/size_10ha_col9_v1').gt(1).multiply(3))
-  .blend(ee.Image('projects/mapbiomas-workspace/DEGRADACAO/COLECAO/BETA/PROCESS/patch_size/size_5ha_col9_v1').gt(1).multiply(2))
-  .blend(ee.Image('projects/mapbiomas-workspace/DEGRADACAO/COLECAO/BETA/PROCESS/patch_size/size_3ha_col9_v1').gt(1).multiply(1));
-
-var distances100ha = landcover_base.multiply(0)
-  .where(ee.Image('projects/mapbiomas-workspace/DEGRADACAO/ISOLATION_col9_v2/BR_Distance/natural_mask_maior100ha_85_234'),10)
-  .where(ee.Image('projects/mapbiomas-workspace/DEGRADACAO/ISOLATION_col9_v2/nat_uso_frag50_dist05k_100_v7_85_23'),2)
-  .where(ee.Image('projects/mapbiomas-workspace/DEGRADACAO/ISOLATION_col9_v2/nat_uso_frag25_dist05k_100_v7_85_23'),3)
-  .where(ee.Image('projects/mapbiomas-workspace/DEGRADACAO/ISOLATION_col9_v2/nat_uso_frag50_dist10k_100_v7_85_23'),5)
-  .where(ee.Image('projects/mapbiomas-workspace/DEGRADACAO/ISOLATION_col9_v2/nat_uso_frag25_dist10k_100_v7_85_23'),6)
-  .where(ee.Image('projects/mapbiomas-workspace/DEGRADACAO/ISOLATION_col9_v2/nat_uso_frag50_dist20k_100_v7_85_23'),8)
-  .where(ee.Image('projects/mapbiomas-workspace/DEGRADACAO/ISOLATION_col9_v2/nat_uso_frag25_dist20k_100_v7_85_23'),9);
-
-var distances500ha = landcover_base.multiply(0)
-  .where(ee.Image('projects/mapbiomas-workspace/DEGRADACAO/ISOLATION_col9_v2/BR_Distance/natural_mask_maior500ha_85_234'),11)
-  .where(ee.Image('projects/mapbiomas-workspace/DEGRADACAO/ISOLATION_col9_v2/nat_uso_frag100_dist05k_500_v7_85_23'),1)
-  .where(ee.Image('projects/mapbiomas-workspace/DEGRADACAO/ISOLATION_col9_v2/nat_uso_frag50_dist05k_500_v7_85_23'),2)
-  .where(ee.Image('projects/mapbiomas-workspace/DEGRADACAO/ISOLATION_col9_v2/nat_uso_frag25_dist05k_500_v7_85_23'),3)
-  .where(ee.Image('projects/mapbiomas-workspace/DEGRADACAO/ISOLATION_col9_v2/nat_uso_frag100_dist10k_500_v7_85_23'),4)
-  .where(ee.Image('projects/mapbiomas-workspace/DEGRADACAO/ISOLATION_col9_v2/nat_uso_frag50_dist10k_500_v7_85_23'),5)
-  .where(ee.Image('projects/mapbiomas-workspace/DEGRADACAO/ISOLATION_col9_v2/nat_uso_frag25_dist10k_500_v7_85_23'),6)
-  .where(ee.Image('projects/mapbiomas-workspace/DEGRADACAO/ISOLATION_col9_v2/nat_uso_frag50_dist20k_500_v7_85_23'),8)
-  .where(ee.Image('projects/mapbiomas-workspace/DEGRADACAO/ISOLATION_col9_v2/nat_uso_frag25_dist20k_500_v7_85_23'),9);
-
-var distances1000ha = landcover_base.multiply(0)
-  .where(ee.Image('projects/mapbiomas-workspace/DEGRADACAO/ISOLATION_col9_v2/BR_Distance/natural_mask_maior1000ha_85_234'),12)
-  .where(ee.Image('projects/mapbiomas-workspace/DEGRADACAO/ISOLATION_col9_v2/nat_uso_frag100_dist05k_1000_v7_85_23'),1)
-  .where(ee.Image('projects/mapbiomas-workspace/DEGRADACAO/ISOLATION_col9_v2/nat_uso_frag50_dist05k_1000_v7_85_23'),2)
-  .where(ee.Image('projects/mapbiomas-workspace/DEGRADACAO/ISOLATION_col9_v2/nat_uso_frag25_dist05k_1000_v7_85_23'),3)
-  .where(ee.Image('projects/mapbiomas-workspace/DEGRADACAO/ISOLATION_col9_v2/nat_uso_frag100_dist10k_1000_v7_85_23'),4)
-  .where(ee.Image('projects/mapbiomas-workspace/DEGRADACAO/ISOLATION_col9_v2/nat_uso_frag50_dist10k_1000_v7_85_23'),5)
-  .where(ee.Image('projects/mapbiomas-workspace/DEGRADACAO/ISOLATION_col9_v2/nat_uso_frag25_dist10k_1000_v7_85_23'),6)
-  .where(ee.Image('projects/mapbiomas-workspace/DEGRADACAO/ISOLATION_col9_v2/nat_uso_frag100_dist20k_1000_v7_85_23'),7)
-  .where(ee.Image('projects/mapbiomas-workspace/DEGRADACAO/ISOLATION_col9_v2/nat_uso_frag50_dist20k_1000_v7_85_23'),8)
-  .where(ee.Image('projects/mapbiomas-workspace/DEGRADACAO/ISOLATION_col9_v2/nat_uso_frag25_dist20k_1000_v7_85_23'),9);
-
-// Adicionando os objetos ao dicionário assetsConfig
-var assetsConfig = {
-  bordasArea: {
-    name: 'Bordas de 30 a 1000m',
-    assetName: 'mapbiomas_degradation_collection_beta_edge_area_30_to_1000m',
-    bandName: 'classification_',
-    visParams: {
-      min: 0,
-      max: 9,
-      palette: ['#ddddaa', '#FF0001', '#32CD32', '#19B06F', '#6FA8DC', '#0B5394', '#A64D79', '#F54CA9', '#55604B']
-    },
-    legend: {
-      0: "Vetor de pressão", 
-      1: "30m", 
-      2: "60m", 
-      3: "90m", 
-      4: "120m", 
-      5: "150m", 
-      6: "300m", 
-      7: "600m", 
-      8: "1000m", 
-      9: "Área fonte"
-    },
-    theme: 'DEGRADATION',
-    source: 'MAPBIOMAS',
-    pixel: 'Classe referente a faixas da área de borda da vegetação nativa.',
-    eeObject: bordasArea
-  },
-  
-  fragmentSize: {
-    name: 'Tamanho dos fragmentos (≤ 3 a 75 ha)',
-    assetName: 'mapbiomas_degradation_collection_beta_size_lte_3_to_75_ha',
-    bandName: 'classification_',
-    visParams: {
-      min: 0,
-      max: 7,
-      palette: ['#ddddaa', '#E50C08', '#FFAA5F', '#32CD32', '#19B06F', '#6FA8DC', '#0B5394', '#55604B']
-    },
-    legend: {
-      0: "Vetor de pressão",
-      1: "≤ 3ha",
-      2: "≤ 5ha",
-      3: "≤ 10ha",
-      4: "≤ 25ha",
-      5: "≤ 50ha",
-      6: "≤ 75ha",
-      7: "Área Fonte"
-    },
-    theme: 'DEGRADATION',
-    source: 'MAPBIOMAS',
-    pixel: 'Classe referente ao tamanho do fragmento de vegetação nativa.',
-    eeObject: fragmentSize
-  },
-  
-  distances100ha: {
-    name: 'Distâncias de áreas fontes de 100ha',
-    assetName: 'distance_100ha',
-    bandName: 'classification_',
-    visParams: {
-      min: 0,
-      max: 12,
-      palette: [
-        '#DDDDAA', '#000080', '#0000ff', '#8080ff', '#008000', '#00ff00', '#80ff80',
-        '#800000', '#ff0000', '#FF8080', '#90aa90', '#708070', '#55604B'
-      ]
-    },
-    legend: {
-      0: 'Vetor de pressão',
-      2: 'Fragmentos de até 50 ha distantes 5 km de áreas fonte',
-      3: 'Fragmentos de até 25 ha distantes 5 km de áreas fonte',
-      5: 'Fragmentos de até 50 ha distantes 10 km de áreas fonte',
-      6: 'Fragmentos de até 25 ha distantes 10 km de áreas fonte',
-      8: 'Fragmentos de até 50 ha distantes 20 km de áreas fonte',
-      9: 'Fragmentos de até 25 ha distantes 20 km de áreas fonte',
-      10: 'Área fonte com 100 a 500 ha',
-      11: 'Área fonte com 500 a 1000 ha',
-      12: 'Área fonte com 1000 ha ou mais'
-    },
-    theme: 'DEGRADATION',
-    source: 'MAPBIOMAS',
-    pixel: 'Classe de distância do fragmento alvo da fonte de vegetação nativa.',
-    eeObject: distances100ha
-  },
-
-  distances500ha: {
-    name: 'Distâncias de áreas fontes de 500ha',
-    assetName: 'distance_500ha',
-    bandName: 'classification_',
-    visParams: {
-      min: 0,
-      max: 12,
-      palette: [
-        '#DDDDAA', '#000080', '#0000ff', '#8080ff', '#008000', '#00ff00', '#80ff80',
-        '#800000', '#ff0000', '#FF8080', '#90aa90', '#708070', '#55604B'
-      ]
-    },
-    legend: {
-      0: 'Vetor de pressão',
-      1: 'Fragmentos de até 100 ha distantes 5 km de áreas fonte',
-      2: 'Fragmentos de até 50 ha distantes 5 km de áreas fonte',
-      3: 'Fragmentos de até 25 ha distantes 5 km de áreas fonte',
-      4: 'Fragmentos de até 100 ha distantes 10 km de áreas fonte',
-      5: 'Fragmentos de até 50 ha distantes 10 km de áreas fonte',
-      6: 'Fragmentos de até 25 ha distantes 10 km de áreas fonte',
-      7: 'Fragmentos de até 100 ha distantes 20 km de áreas fonte',
-      8: 'Fragmentos de até 50 ha distantes 20 km de áreas fonte',
-      9: 'Fragmentos de até 25 ha distantes 20 km de áreas fonte',
-      10: 'Área fonte com de 100 a 500 ha',
-      11: 'Área fonte com 500 a 1000 ha',
-      12: 'Área fonte com 1000 ha ou mais'
-    },
-    theme: 'DEGRADATION',
-    source: 'MAPBIOMAS',
-    pixel: 'Classe de distância do fragmento alvo da fonte de vegetação nativa.',
-    eeObject: distances500ha
-  },
-
-  distances1000ha: {
-    name: 'Distâncias de áreas fontes de 1000ha',
-    assetName: 'distance_1000ha',
-    bandName: 'classification_',
-    visParams: {
-      min: 0,
-      max: 12,
-      palette: [
-        '#DDDDAA', '#000080', '#0000ff', '#8080ff', '#008000', '#00ff00', '#80ff80',
-        '#800000', '#ff0000', '#FF8080', '#90aa90', '#708070', '#55604B'
-      ]
-    },
-    legend: {
-      0: 'Vetor de pressão',
-      1: 'Fragmentos de até 100 ha distantes 5 km de áreas fonte',
-      2: 'Fragmentos de até 50 ha distantes 5 km de áreas fonte',
-      3: 'Fragmentos de até 25 ha distantes 5 km de áreas fonte',
-      4: 'Fragmentos de até 100 ha distantes 10 km de áreas fonte',
-      5: 'Fragmentos de até 50 ha distantes 10 km de áreas fonte',
-      6: 'Fragmentos de até 25 ha distantes 10 km de áreas fonte',
-      7: 'Fragmentos de até 100 ha distantes 20 km de áreas fonte',
-      8: 'Fragmentos de até 50 ha distantes 20 km de áreas fonte',
-      9: 'Fragmentos de até 25 ha distantes 20 km de áreas fonte',
-      10: 'Área fonte com de 100 a 500 ha',
-      11: 'Área fonte com 500 a 1000 ha',
-      12: 'Área fonte com 1000 ha ou mais'
-    },
-    theme: 'DEGRADATION',
-    source: 'MAPBIOMAS',
-    pixel: 'Classe de distância do fragmento alvo da fonte de vegetação nativa.',
-    eeObject: distances1000ha
-  }
-};
-
-
-// Images built here from several assets. data/collections-degradation.js marks
-// their keys with 'composite', since a required module can't see these variables.
-var composites = {
-  'edge_classes': assetsConfig.bordasArea.eeObject,
-  'size_classes': assetsConfig.fragmentSize.eeObject,
-  'distance_classes_100ha': assetsConfig.distances100ha.eeObject,
-  'distance_classes_500ha': assetsConfig.distances500ha.eeObject,
-  'distance_classes_1000ha': assetsConfig.distances1000ha.eeObject
+var LEGEND = {
+    'edge_area': [
+        [1, "less than or equal to 30m", '#bc4749'],
+        [2, "less than or equal to 60m", '#d68c8d'],
+        [3, "less than or equal to 90m", '#fff59d'],
+        [4, "less than or equal to 120m", '#dce0af'],
+        [5, "less than or equal to 150m", '#a7c957'],
+        [6, "less than or equal to 300m", '#6a994e'],
+        [7, "less than or equal to 600m", '#386641'],
+        [8, "less than or equal to 1000m", '#0d2207']
+    ],
+    'patch_size': [
+        [1, "less than or equal to 5ha", '#8b2a2e'],
+        [2, "less than or equal to 10ha", '#af4122'],
+        [3, "less than or equal to 25ha", '#d35e0e'],
+        [4, "less than or equal to 50ha", '#f0a900'],
+        [5, "less than or equal to 100ha", '#f9d800'],
+        [6, "less than or equal to 250ha", '#fff176'],
+        [7, "less than or equal to 500ha", '#b0d900'],
+        [8, "less than or equal to 1000ha", '#86d017'],
+        [9, "less than or equal to 5000ha", '#5dc734'],
+        [10, "less than or equal to 10000ha", '#39bc68'],
+        [11, "All other patches", '#efefef']
+    ],
+    'isolation': [
+        [1, "Fragments ≤ 100 ha — within 5 km of source area", '#2ca02c'],
+        [2, "Fragments ≤ 50 ha — within 5 km of source area", '#98df8a'],
+        [3, "Fragments ≤ 25 ha — within 5 km of source area", '#c7e9c0'],
+        [4, "Fragments ≤ 100 ha — within 10 km of source area", '#ff7f0e'],
+        [5, "Fragments ≤ 50 ha — within 10 km of source area", '#ffbb78'],
+        [6, "Fragments ≤ 25 ha — within 10 km of source area", '#ffe6cc'],
+        [7, "Fragments ≤ 100 ha — within 20 km of source area", '#d62728'],
+        [8, "Fragments ≤ 50 ha — within 20 km of source area", '#ff9896'],
+        [9, "Fragments ≤ 25 ha — within 20 km of source area", '#fddede'],
+        [10, "Source area", '#1f77b4']
+    ],
+    'landscape_morphology': [
+        [1, "Core", '#1a9650'],
+        [2, "Edge", '#99d3b4'],
+        [3, "Corridor", '#44aab1'],
+        [4, "Branch", '#ffc941'],
+        [5, "Stepping Stone", '#ffadce'],
+        [6, "Perforation", '#a9dae6']
+    ],
+    'canopy_disturbance_frequency': [
+        [1, "1 time", '#440154'],
+        [2, "2 times", '#482172'],
+        [3, "3 times", '#423d84'],
+        [4, "4 times", '#38578c'],
+        [5, "5 times", '#2d6f8e'],
+        [6, "6 times", '#24858d'],
+        [7, "7 times", '#1e9a89'],
+        [8, "8 times", '#2ab07e'],
+        [9, "9 times", '#51c468'],
+        [10, "10 times", '#86d449'],
+        [11, "11 times", '#c2df22'],
+        [12, "12 times", '#fde724']
+    ],
+    'logging': [
+        [1, "Logging detected", '#e66101']
+    ],
+    'secondary_vegetation_age': [
+        [1, "1 Year", '#f5f6f4'],
+        [2, "2 Years", '#f4f6dd'],
+        [3, "3 Years", '#f3f6c6'],
+        [4, "4 Years", '#f2f6af'],
+        [5, "5 Years", '#f1f698'],
+        [6, "6 Years", '#f0f681'],
+        [7, "7 Years", '#eff66a'],
+        [8, "8 Years", '#eef653'],
+        [9, "9 Years", '#e7f647'],
+        [10, "10 Years", '#daf641'],
+        [11, "11 Years", '#cef63c'],
+        [12, "12 Years", '#c2f637'],
+        [13, "13 Years", '#b5f631'],
+        [14, "14 Years", '#a9f62c'],
+        [15, "15 Years", '#9df626'],
+        [16, "16 Years", '#90f622'],
+        [17, "17 Years", '#81f424'],
+        [18, "18 Years", '#71f225'],
+        [19, "19 Years", '#62f027'],
+        [20, "20 Years", '#53ed28'],
+        [21, "21 Years", '#44eb2a'],
+        [22, "22 Years", '#34e92b'],
+        [23, "23 Years", '#25e72d'],
+        [24, "24 Years", '#22da2a'],
+        [25, "25 Years", '#22c925'],
+        [26, "26 Years", '#23b821'],
+        [27, "27 Years", '#23a71d'],
+        [28, "28 Years", '#239718'],
+        [29, "29 Years", '#248614'],
+        [30, "30 Years", '#247510'],
+        [31, "31 Years", '#22650d'],
+        [32, "32 Years", '#1d580d'],
+        [33, "33 Years", '#184a0d'],
+        [34, "34 Years", '#133c0d'],
+        [35, "35 Years", '#0f2e0d'],
+        [36, "36 Years", '#0a210d'],
+        [37, "37 Years", '#05130d'],
+        [38, "38 Years", '#00050d']
+    ]
 };
 
 /**
- * 
+ * The legend each classed data type is drawn and named with.
+ */
+var CLASSED = {
+    'edge_area': LEGEND.edge_area,
+    'patch_size': LEGEND.patch_size,
+    'landscape_morphology': LEGEND.landscape_morphology,
+    'isolation_100ha': LEGEND.isolation,
+    'isolation_500ha': LEGEND.isolation,
+    'isolation_1000ha': LEGEND.isolation,
+    'canopy_disturbance_frequency': LEGEND.canopy_disturbance_frequency,
+    'logging': LEGEND.logging
+};
+
+/**
+ * Ages in years, drawn with the platform's secondary vegetation age ramp (1 to
+ * 38 years; older pixels take its last colour). Edge age has no legend of its
+ * own on the platform. Named "<n> years" in the area CSV, since an age can pass
+ * the end of the ramp.
+ */
+var AGE_RAMP = LEGEND.secondary_vegetation_age;
+
+/**
+ * Data types drawn as a count or an age. The fire ones use the fire module's
+ * palettes, as the beta did.
+ */
+var COUNTS = {
+    'edge_age': {'palette': AGE_RAMP.map(function (c) { return c[2]; }), 'min': 1, 'max': 38, 'unit': ' years'},
+    'secondary_vegetation_age': {'palette': AGE_RAMP.map(function (c) { return c[2]; }), 'min': 1, 'max': 38, 'unit': ' years'},
+    'fire_frequency': {'palette': fire_palettes.get('frequencia_2'), 'min': 0, 'max': 40, 'unit': ' times'},
+    'time_since_last_fire': {'palette': fire_palettes.get('ano_do_ultimo_fogo_2'), 'min': 0, 'max': 40, 'unit': ' years'}
+};
+
+/**
+ * Data types holding a land cover class, drawn with the region's coverage legend.
+ */
+var COVERAGE = ['burned_coverage', 'secondary_vegetation_coverage'];
+
+/**
+ * Value v -> class 1 + (number of upper bounds below v), the classes of the
+ * platform legend. Keeps the band names and the mask.
+ */
+var classify = function (image, upperBounds) {
+    var classes = image.multiply(0).add(1);
+
+    upperBounds.forEach(function (bound) {
+        classes = classes.add(image.gt(bound));
+    });
+
+    return classes.int8();
+};
+
+/**
+ * What each data type shows of its asset. Data types not listed show the asset
+ * as it is.
+ */
+var Decode = {
+    // distance to the edge in metres; past 1000 m it isn't edge area
+    'edge_area': function (image) {
+        return classify(image, [30, 60, 90, 120, 150, 300, 600, 1000])
+            .updateMask(image.lte(1000));
+    },
+    // patch area in hectares
+    'patch_size': function (image) {
+        return classify(image, [5, 10, 25, 50, 100, 250, 500, 1000, 5000, 10000]);
+    },
+    // fire frequency, time since the last fire and secondary vegetation age
+    // store value * 100 + coverage class
+    'fire_frequency': function (image) {
+        return image.divide(100).floor().int8();
+    },
+    'burned_coverage': function (image) {
+        // a frequency of 0 is native vegetation that never burned
+        return image.mod(100).updateMask(image.gte(100)).int8();
+    },
+    'time_since_last_fire': function (image) {
+        return image.divide(100).floor().int8();
+    },
+    'secondary_vegetation_age': function (image) {
+        return image.divide(100).floor().int8();
+    },
+    'secondary_vegetation_coverage': function (image) {
+        return image.mod(100).int8();
+    }
+};
+
+var palette = {};
+var ranges = {};
+var className = {};
+var unit = {};
+
+Object.keys(CLASSED).forEach(function (key) {
+    var classes = CLASSED[key];
+    palette[key] = classes.map(function (c) { return c[2]; });
+    ranges[key] = {'min': classes[0][0], 'max': classes[classes.length - 1][0]};
+    className[key] = {};
+    classes.forEach(function (c) { className[key][String(c[0])] = c[1]; });
+});
+
+Object.keys(COUNTS).forEach(function (key) {
+    palette[key] = COUNTS[key].palette;
+    ranges[key] = {'min': COUNTS[key].min, 'max': COUNTS[key].max};
+    unit[key] = COUNTS[key].unit;
+});
+
+/**
+ *
  */
 var App = {
 
     options: {
 
-        version: '0.2.3',
+        version: '1.0.0',
 
         logo: {
             image: Logos.degradacao
@@ -325,181 +296,30 @@ var App = {
             'mapbiomas-brazil'
         ]),
 
-        bandsNames: {
-          'edge_classes':assetsConfig.bordasArea.bandName,
-          "edge_30m":"edge_30m_",
-          "edge_60m":"edge_60m_",
-          "edge_90m":"edge_90m_",
-          "edge_120m":"edge_120m_",
-          "edge_150m":"edge_150m_",
-          "edge_600m":"edge_600m_",
-          "edge_300m":"edge_300m_",
-          "edge_1000m":"edge_1000m_",
-    
-          'size_classes':assetsConfig.fragmentSize.bandName,
-    
-          "size_3ha":"size_3ha_",
-          "size_5ha":"size_5ha_",
-          "size_10ha":"size_10ha_",
-          "size_25ha":"size_25ha_",
-          "size_50ha":"size_50ha_",
-          "size_75ha":"size_75ha_",
-    
-          "distance_classes_100ha":assetsConfig.distances100ha.bandName,
-          "distance_classes_500ha":assetsConfig.distances500ha.bandName,
-          "distance_classes_1000ha":assetsConfig.distances1000ha.bandName,
-    
-          "Target lte_25ha Distance lte_05km Source gte_100ha":"nat_",
-          "Target lte_25ha Distance lte_05km Source gte_500ha":"nat_",
-          "Target lte_25ha Distance lte_05km Source gte_1000ha":"nat_",
-          "Target lte_25ha Distance lte_10km Source gte_100ha":"nat_",
-          "Target lte_25ha Distance lte_10km Source gte_500ha":"nat_",
-          "Target lte_25ha Distance lte_10km Source gte_1000ha":"nat_",
-          "Target lte_25ha Distance lte_20km Source gte_100ha":"nat_",
-          "Target lte_25ha Distance lte_20km Source gte_500ha":"nat_",
-          "Target lte_25ha Distance lte_20km Source gte_1000ha":"nat_",
-          "Target lte_50ha Distance lte_05km Source gte_100ha":"nat_",
-          "Target lte_50ha Distance lte_05km Source gte_500ha":"nat_",
-          "Target lte_50ha Distance lte_05km Source gte_1000ha":"nat_",
-          "Target lte_50ha Distance lte_10km Source gte_100ha":"nat_",
-          "Target lte_50ha Distance lte_10km Source gte_500ha":"nat_",
-          "Target lte_50ha Distance lte_10km Source gte_1000ha":"nat_",
-          "Target lte_50ha Distance lte_20km Source gte_100ha":"nat_",
-          "Target lte_50ha Distance lte_20km Source gte_500ha":"nat_",
-          "Target lte_50ha Distance lte_20km Source gte_1000ha":"nat_",
-          "Target lte_100ha Distance lte_05km Source gte_500ha":"nat_",
-          "Target lte_100ha Distance lte_05km Source gte_1000ha":"nat_",
-          "Target lte_100ha Distance lte_10km Source gte_500ha":"nat_",
-          "Target lte_100ha Distance lte_10km Source gte_1000ha":"nat_",
-          "Target lte_100ha Distance lte_20km Source gte_500ha":"nat_",
-          "Target lte_100ha Distance lte_20km Source gte_1000ha":"nat_",
-          "accumulated_coverage":"recurrence_",
-          "recurrence":"recurrence_",
-          "age":"age_",
-          "accumulated_burned_coverage":"recurrence_",
-          "secondary_age":"age_",
-          "secondary_coverage":"age_",
-        },
-        dataType: 'edge_30m',
+        disclaimers: Disclaimers.pick('degradation', [
+            'mapbiomas-brazil'
+        ]),
+
+        dataType: 'edge_area',
+
         data: {},
 
+        palette: palette,
 
-        ranges: {
-          'edge_classes':{'min':assetsConfig.bordasArea.visParams.min, 'max':assetsConfig.bordasArea.visParams.max},
-          'size_classes':{'min':assetsConfig.fragmentSize.visParams.min, 'max':assetsConfig.fragmentSize.visParams.max},
-          "distance_classes_100ha":{'min':assetsConfig.distances100ha.visParams.min, 'max':assetsConfig.distances100ha.visParams.max},
-          "distance_classes_500ha":{'min':assetsConfig.distances500ha.visParams.min, 'max':assetsConfig.distances500ha.visParams.max},
-          "distance_classes_1000ha":{'min':assetsConfig.distances1000ha.visParams.min, 'max':assetsConfig.distances1000ha.visParams.max},
-          "edge_30m":{'min':0,'max':69},
-          "edge_60m":{'min':0,'max':69},
-          "edge_90m":{'min':0,'max':69},
-          "edge_120m":{'min':0,'max':69},
-          "edge_150m":{'min':0,'max':69},
-          "edge_600m":{'min':0,'max':69},
-          "edge_300m":{'min':0,'max':69},
-          "edge_1000m":{'min':0,'max':69},
-          "size_3ha":{'min':0,'max':69},
-          "size_5ha":{'min':0,'max':69},
-          "size_10ha":{'min':0,'max':69},
-          "size_25ha":{'min':0,'max':69},
-          "size_50ha":{'min':0,'max':69},
-          "size_75ha":{'min':0,'max':69},
-          "Target_lte_25ha_Distance_lte_05km_Source_gte_100ha":{'min':0,'max':69},
-          "Target_lte_25ha_Distance_lte_05km_Source_gte_500ha":{'min':0,'max':69},
-          "Target_lte_25ha_Distance_lte_05km_Source_gte_1000ha":{'min':0,'max':69},
-          "Target_lte_25ha_Distance_lte_10km_Source_gte_100ha":{'min':0,'max':69},
-          "Target_lte_25ha_Distance_lte_10km_Source_gte_500ha":{'min':0,'max':69},
-          "Target_lte_25ha_Distance_lte_10km_Source_gte_1000ha":{'min':0,'max':69},
-          "Target_lte_25ha_Distance_lte_20km_Source_gte_100ha":{'min':0,'max':69},
-          "Target_lte_25ha_Distance_lte_20km_Source_gte_500ha":{'min':0,'max':69},
-          "Target_lte_25ha_Distance_lte_20km_Source_gte_1000ha":{'min':0,'max':69},
-          "Target_lte_50ha_Distance_lte_05km_Source_gte_100ha":{'min':0,'max':69},
-          "Target_lte_50ha_Distance_lte_05km_Source_gte_500ha":{'min':0,'max':69},
-          "Target_lte_50ha_Distance_lte_05km_Source_gte_1000ha":{'min':0,'max':69},
-          "Target_lte_50ha_Distance_lte_10km_Source_gte_100ha":{'min':0,'max':69},
-          "Target_lte_50ha_Distance_lte_10km_Source_gte_500ha":{'min':0,'max':69},
-          "Target_lte_50ha_Distance_lte_10km_Source_gte_1000ha":{'min':0,'max':69},
-          "Target_lte_50ha_Distance_lte_20km_Source_gte_100ha":{'min':0,'max':69},
-          "Target_lte_50ha_Distance_lte_20km_Source_gte_500ha":{'min':0,'max':69},
-          "Target_lte_50ha_Distance_lte_20km_Source_gte_1000ha":{'min':0,'max':69},
-          "Target_lte_100ha_Distance_lte_05km_Source_gte_500ha":{'min':0,'max':69},
-          "Target_lte_100ha_Distance_lte_05km_Source_gte_1000ha":{'min':0,'max':69},
-          "Target_lte_100ha_Distance_lte_10km_Source_gte_500ha":{'min':0,'max':69},
-          "Target_lte_100ha_Distance_lte_10km_Source_gte_1000ha":{'min':0,'max':69},
-          "Target_lte_100ha_Distance_lte_20km_Source_gte_500ha":{'min':0,'max':69},
-          "Target_lte_100ha_Distance_lte_20km_Source_gte_1000ha":{'min':0,'max':69},
-          "recurrence":{'min':0,'max':39},
-          "age":{'min':0,'max':39},
-          "accumulated_burned_coverage":{'min':0,'max':69},
-          "secondary_age":{'min':0,'max':39},
-          "secondary_coverage":{'min':0,'max':69},
+        ranges: ranges,
 
-        },
+        // {value: name} of the classed data types; the coverage ones are filled
+        // per region by App.setCoverageLegend()
+        className: className,
+
+        // suffix of the class value in the area CSV, for the counts
+        unit: unit,
 
         vector: null,
         activeFeature: null,
         activeName: '',
 
         mapbiomasRegion: '',
-
-        palette: {
-
-          'edge_classes':assetsConfig.bordasArea.visParams.palette,
-          
-          'size_classes':assetsConfig.fragmentSize.visParams.palette,
-          
-          "distance_classes_100ha":assetsConfig.distances100ha.visParams.palette,
-          "distance_classes_500ha":assetsConfig.distances500ha.visParams.palette,
-          "distance_classes_1000ha":assetsConfig.distances1000ha.visParams.palette,
-
-          "edge_30m":palettes.get('classification9'),
-          "edge_60m":palettes.get('classification9'),
-          "edge_90m":palettes.get('classification9'),
-          "edge_120m":palettes.get('classification9'),
-          "edge_150m":palettes.get('classification9'),
-          "edge_600m":palettes.get('classification9'),
-          "edge_300m":palettes.get('classification9'),
-          "edge_1000m":palettes.get('classification9'),
-
-          "size_3ha":palettes.get('classification9'),
-          "size_5ha":palettes.get('classification9'),
-          "size_10ha":palettes.get('classification9'),
-          "size_25ha":palettes.get('classification9'),
-          "size_50ha":palettes.get('classification9'),
-          "size_75ha":palettes.get('classification9'),
-
-          "Target lte_25ha Distance lte_05km Source gte_100ha":palettes.get('classification9'),
-          "Target lte_25ha Distance lte_05km Source gte_500ha":palettes.get('classification9'),
-          "Target lte_25ha Distance lte_05km Source gte_1000ha":palettes.get('classification9'),
-          "Target lte_25ha Distance lte_10km Source gte_100ha":palettes.get('classification9'),
-          "Target lte_25ha Distance lte_10km Source gte_500ha":palettes.get('classification9'),
-          "Target lte_25ha Distance lte_10km Source gte_1000ha":palettes.get('classification9'),
-          "Target lte_25ha Distance lte_20km Source gte_100ha":palettes.get('classification9'),
-          "Target lte_25ha Distance lte_20km Source gte_500ha":palettes.get('classification9'),
-          "Target lte_25ha Distance lte_20km Source gte_1000ha":palettes.get('classification9'),
-          "Target lte_50ha Distance lte_05km Source gte_100ha":palettes.get('classification9'),
-          "Target lte_50ha Distance lte_05km Source gte_500ha":palettes.get('classification9'),
-          "Target lte_50ha Distance lte_05km Source gte_1000ha":palettes.get('classification9'),
-          "Target lte_50ha Distance lte_10km Source gte_100ha":palettes.get('classification9'),
-          "Target lte_50ha Distance lte_10km Source gte_500ha":palettes.get('classification9'),
-          "Target lte_50ha Distance lte_10km Source gte_1000ha":palettes.get('classification9'),
-          "Target lte_50ha Distance lte_20km Source gte_100ha":palettes.get('classification9'),
-          "Target lte_50ha Distance lte_20km Source gte_500ha":palettes.get('classification9'),
-          "Target lte_50ha Distance lte_20km Source gte_1000ha":palettes.get('classification9'),
-          "Target lte_100ha Distance lte_05km Source gte_500ha":palettes.get('classification9'),
-          "Target lte_100ha Distance lte_05km Source gte_1000ha":palettes.get('classification9'),
-          "Target lte_100ha Distance lte_10km Source gte_500ha":palettes.get('classification9'),
-          "Target lte_100ha Distance lte_10km Source gte_1000ha":palettes.get('classification9'),
-          "Target lte_100ha Distance lte_20km Source gte_500ha":palettes.get('classification9'),
-          "Target lte_100ha Distance lte_20km Source gte_1000ha":palettes.get('classification9'),
-          
-          "recurrence":fire_palettes.get('frequencia_2'),
-          "age":fire_palettes.get('ano_do_ultimo_fogo_2'),
-          "accumulated_burned_coverage":palettes.get('classification9'),
-          "secondary_age":fire_palettes.get('vegetacao_secundaria'),
-          "secondary_coverage":palettes.get('classification9'),
-
-        },
 
         taskid: 1,
 
@@ -509,8 +329,49 @@ var App = {
 
     init: function () {
 
+        App.setCoverageLegend('mapbiomas-brazil');
+
         this.ui.init();
 
+    },
+
+    /**
+     * The coverage classes behind burned area and secondary vegetation, from
+     * data/legends.js.
+     */
+    setCoverageLegend: function (region) {
+
+        var coveragePalette = Legends.paletteOf(region);
+
+        COVERAGE.forEach(function (key) {
+            App.options.palette[key] = coveragePalette;
+            App.options.ranges[key] = {'min': 0, 'max': coveragePalette ? coveragePalette.length - 1 : 0};
+            App.options.className[key] = Legends.namesOf(region);
+        });
+
+    },
+
+    /**
+     * One data type of a collection: the asset (or, for isolation, its member of
+     * the isolation ImageCollection), with its bands renamed `<data type>_YYYY`
+     * and decoded.
+     */
+    loadAsset: function (assetId, key) {
+
+        var image = key.indexOf('isolation_') === 0 ?
+            ee.Image(ee.ImageCollection(assetId)
+                .filter(ee.Filter.stringStartsWith('system:index', key + '_'))
+                .first()) :
+            ee.Image(assetId);
+
+        // each asset has its own band prefix: edge_, age_, size_, edge_age_...
+        image = image.regexpRename('^.*_(\\d{4})$', key + '_$1');
+
+        return Decode[key] ? Decode[key](image) : image;
+    },
+
+    bandName: function (period) {
+        return App.options.dataType + '_' + period;
     },
 
     /**
@@ -526,93 +387,102 @@ var App = {
 
     },
 
-    formatName: function (input) {
-          // Mapeamento de caracteres com acentos para caracteres simples
-          var acentos = {
-            'á': 'a', 'ã': 'a', 'â': 'a', 'à': 'a', 'ä': 'a',
-            'é': 'e', 'ê': 'e', 'è': 'e', 'ë': 'e',
-            'í': 'i', 'î': 'i', 'ì': 'i', 'ï': 'i',
-            'ó': 'o', 'õ': 'o', 'ô': 'o', 'ò': 'o', 'ö': 'o',
-            'ú': 'u', 'û': 'u', 'ù': 'u', 'ü': 'u',
-            'ç': 'c',
-            'Á': 'a', 'Ã': 'a', 'Â': 'a', 'À': 'a', 'Ä': 'a',
-            'É': 'e', 'Ê': 'e', 'È': 'e', 'Ë': 'e',
-            'Í': 'i', 'Î': 'i', 'Ì': 'i', 'Ï': 'i',
-            'Ó': 'o', 'Õ': 'o', 'Ô': 'o', 'Ò': 'o', 'Ö': 'o',
-            'Ú': 'u', 'Û': 'u', 'Ù': 'u', 'Ü': 'u',
-            'Ç': 'c'
-          };
-          
-          // Remove acentos
-          var semAcentos = input.split('').map(function(char) {
-            return acentos[char] || char;
-          }).join('');
-          
-          // Converte para caixa baixa
-          var minuscula = semAcentos.toLowerCase();
-          
-          // Substitui espaços por underscores
-          var comUnderscores = minuscula.replace(/\s+/g, '_');
-          
-          // Substitui traço por underscores
-          var comtraco = comUnderscores.replace(/-/g, '_');
-          
-          // Remove caracteres especiais
-          var resultado = comtraco.replace(/[^a-z0-9_]/g, '');
-          
-          return resultado;
-        },
-    
-    formatLabelWithLinks: function(text,links){
-      
-      var panel = ui.Panel({
-          'layout': ui.Panel.Layout.flow('horizontal',true),
-          'style': {'margin': '0px'},
-      });
-      // Função para adicionar texto com links
-      function addTextWithLinks(panel, text, linkDict) {
-        // Expressão regular para encontrar palavras entre **
-        var regex = /\*\*(.*?)\*\*/g;
-        var lastIndex = 0;
-        var match;
-      
-        while ((match = regex.exec(text)) !== null) {
-          // Adiciona texto antes da palavra com link
-          if (match.index > lastIndex) {
-            panel.add(ui.Label(text.substring(lastIndex, match.index),{'margin': '0px 2px 0px 2px'}));
-          }
-      
-          // Adiciona a palavra como link
-          var linkText = match[1];
-          var url = linkDict[linkText];
-          if (url) {
-            var link = ui.Label({
-              value: linkText,
-              targetUrl: url,
-              style: {color: 'blue', textDecoration: 'underline','margin': '0px'}
-            });
-            panel.add(link);
-          } else {
-            // Adiciona como texto normal se não houver URL no dicionário
-            panel.add(ui.Label(linkText,{'margin': '0px'}));
-          }
-      
-          lastIndex = regex.lastIndex;
-        }
-      
-        // Adiciona o restante do texto após a última correspondência
-        if (lastIndex < text.length) {
-          panel.add(ui.Label(text.substring(lastIndex)));
-        }
-      }
-      
-      // Texto com palavras para transformar em links
-      links = links === undefined ? {} : links;
-      
-      // Adiciona o texto e links ao painel
-      addTextWithLinks(panel, text, links);
-      return panel;
+    formatLabelWithLinks: function (text, links, maxChars) {
+        maxChars = maxChars || 60;
 
+        var panel = ui.Panel({
+            layout: ui.Panel.Layout.flow('horizontal', true),
+            style: {margin: '0px'}
+        });
+
+        var txtStyle = {margin: '0px 2px 0px 2px'};
+        var linkStyle = {
+            margin: '0px 2px 0px 2px',
+            color: 'blue',
+            textDecoration: 'underline'
+        };
+
+        // **link** and the punctuation right after it
+        var regex = /\*\*(.*?)\*\*([,.;:!?])?/g;
+
+        function splitLong(txt) {
+            var words = txt.split(' ');
+            var lines = [];
+            var curr = '';
+            for (var i = 0; i < words.length; i++) {
+                var w = words[i];
+                if ((curr + ' ' + w).trim().length > maxChars) {
+                    lines.push(curr.trim());
+                    curr = w;
+                } else {
+                    curr = (curr + ' ' + w).trim();
+                }
+            }
+            if (curr) lines.push(curr);
+            return lines;
+        }
+
+        function addTextLine(str) {
+            panel.add(ui.Label(str, txtStyle));
+        }
+
+        function addLink(labelText, url) {
+            panel.add(ui.Label({
+                value: labelText,
+                targetUrl: url || null,
+                style: url ? linkStyle : txtStyle
+            }));
+        }
+
+        function addPieces(str) {
+            var lastIndex = 0;
+            var m;
+            while ((m = regex.exec(str)) !== null) {
+                if (m.index > lastIndex) {
+                    var chunks = splitLong(str.substring(lastIndex, m.index));
+                    for (var j = 0; j < chunks.length; j++) {
+                        addTextLine(chunks[j]);
+                    }
+                }
+                addLink(m[1] + (m[2] || ''), links[m[1]]);
+                lastIndex = regex.lastIndex;
+            }
+            if (lastIndex < str.length) {
+                var tailChunks = splitLong(str.substring(lastIndex));
+                for (var k = 0; k < tailChunks.length; k++) {
+                    addTextLine(tailChunks[k]);
+                }
+            }
+        }
+
+        links = links || {};
+        addPieces(text);
+        return panel;
+    },
+
+    /**
+     * The widgets of one note from data/disclaimers.js: a heading in bold, and
+     * each paragraph as a label, or through formatLabelWithLinks when it has links.
+     */
+    disclaimerWidgets: function (note) {
+        return note.paragraphs.map(function (paragraph) {
+            var links = {};
+            var text = paragraph.parts.map(function (part) {
+                if (typeof part === 'string') {
+                    return part;
+                }
+                links[part.text] = part.url;
+                return '**' + part.text + '**';
+            }).join('');
+
+            if (Object.keys(links).length > 0) {
+                return App.formatLabelWithLinks(text, links);
+            }
+
+            return ui.Label(text, paragraph.heading ?
+                {'margin': '8px 0px 4px 0px', 'fontWeight': 'bold'} :
+                {'margin': '2px 0px'});
+        });
     },
 
     ui: {
@@ -623,14 +493,13 @@ var App = {
 
         },
 
-
         setMapbiomasRegion: function (regionName) {
 
             App.ui.form.labelDownloads.setUrl(Downloads.pageOf(regionName));
 
             App.options.mapbiomasRegion = regionName;
 
-            // App.setPalette(regionName);
+            App.setCoverageLegend(regionName);
 
             App.ui.loadCollectionList(regionName);
             App.ui.loadTablesNames(regionName);
@@ -650,42 +519,25 @@ var App = {
             App.ui.form.selectCollection = ui.Select({
                 'items': Object.keys(App.options.collections[regionName]).reverse(),
                 'placeholder': 'select collection',
-                'onChange': function (collectioName) {
+                'onChange': function (collectionName) {
                     ee.Number(1).evaluate(
                         function (a) {
-                          
-                          var datas = Object.keys(App.options.collections[regionName][collectioName].assets);
-                          
-    
-                          datas.forEach(function(key){
 
-                            var mod_100_exception = ['accumulated_burned_coverage', 'secondary_coverage'];
-                            var div_100_exception = ['recurrence','age','secondary_age'];
-                            
-                            if (mod_100_exception.indexOf(key) !== -1){
-                              App.options.data[key] = ee.Image(App.options.collections[regionName][collectioName].assets[key]).mod(100).int8();
-                              return ; 
-                            }
-                            
-                            if (div_100_exception.indexOf(key) !== -1){
-                              App.options.data[key] = ee.Image(App.options.collections[regionName][collectioName].assets[key]).divide(100).int8();
-                              return ;
-                            }
+                            var collection = App.options.collections[regionName][collectionName];
+                            var keys = Object.keys(collection.assets);
 
-                              var asset = App.options.collections[regionName][collectioName].assets[key];
-                              App.options.data[key] = asset === 'composite' ? composites[key] : ee.Image(asset);
-                            
-                          });
-                          
-                          App.ui.setDataType(datas[0]);
-                            //--------------------------------------------
+                            App.options.data = {};
 
-                            var year = App.options.collections[regionName][collectioName].periods[datas[0]].slice(-1)[0];
+                            keys.forEach(function (key) {
+                                App.options.data[key] = App.loadAsset(collection.assets[key], key);
+                            });
 
-                            Map.centerObject(App.options.data[Object.keys(App.options.data)[0]], 5);
+                            App.ui.setDataType(keys[0]);
+
+                            Map.centerObject(App.options.data[keys[0]], 5);
 
                             App.ui.loadDataType();
-                            
+
                         }
                     );
 
@@ -715,14 +567,14 @@ var App = {
                         App.options.activeName = tableName;
                         ee.Number(1).evaluate(
                             function (a) {
-                                var collectioName = App.ui.form.selectCollection.getValue();
+                                var collectionName = App.ui.form.selectCollection.getValue();
 
                                 App.ui.loadTable(tableName);
 
                                 // a coleção ainda pode não ter sido escolhida: sem
                                 // períodos a lista fica vazia, em vez de dar erro
                                 var collection = App.options
-                                    .collections[regionName][collectioName];
+                                    .collections[regionName][collectionName];
 
                                 App.ui.makeLayersList(
                                     App.tableShortName(),
@@ -735,8 +587,6 @@ var App = {
                                 App.ui.form.selectDataType.setDisabled(false);
                             }
                         );
-
-                        // App.ui.loadingBox();
                     }
                 },
                 'style': {
@@ -795,12 +645,12 @@ var App = {
 
                             App.ui.loadFeature(featureName);
 
-                            if (App.ui.form.selectDataType.getValue() !== null){
-                              App.ui.makeLayersList(
-                                  featureName,
-                                  App.options.activeFeature,
-                                  App.options.collections[regionName][collectionName]
-                                      .periods[App.options.dataType]);
+                            if (App.ui.form.selectDataType.getValue() !== null) {
+                                App.ui.makeLayersList(
+                                    featureName,
+                                    App.options.activeFeature,
+                                    App.options.collections[regionName][collectionName]
+                                        .periods[App.options.dataType]);
                             }
                             App.ui.form.selectDataType.setDisabled(false);
                         }
@@ -825,15 +675,14 @@ var App = {
                         'onChange': function (dataType) {
 
                             App.ui.setDataType(dataType);
-                            
-                            if (App.ui.form.selectDataType.getValue() !== null){
-                              App.ui.makeLayersList(
-                                  App.tableShortName(),
-                                  App.options.activeFeature,
-                                  App.options.collections[regionName][collectionName]
-                                      .periods[App.options.dataType]);
-                            }
 
+                            if (App.ui.form.selectDataType.getValue() !== null) {
+                                App.ui.makeLayersList(
+                                    App.tableShortName(),
+                                    App.options.activeFeature,
+                                    App.options.collections[regionName][collectionName]
+                                        .periods[App.options.dataType]);
+                            }
 
                         },
                         'style': {
@@ -861,14 +710,9 @@ var App = {
 
         addImageLayer: function (period, label, region) {
 
-
             var image = App.options.data[App.options.dataType]
-                .select([App.options.bandsNames[App.options.dataType] + period])
+                .select([App.bandName(period)])
                 .multiply(ee.Image().paint(region).eq(0));
-                
-
-
-
 
             var imageLayer = ui.Map.Layer({
                 'eeObject': image,
@@ -915,6 +759,7 @@ var App = {
 
             var regionName = App.ui.form.selectRegion.getValue();
             var collectionName = App.ui.form.selectCollection.getValue();
+            var dataType = App.options.dataType;
 
             // Exports.fileName normaliza; aqui vai o rótulo cru
             var featureName = App.ui.form.selectFeature.getValue() || '';
@@ -928,17 +773,14 @@ var App = {
                 if (selected) {
 
                     var period = App.options.collections[regionName][collectionName]
-                        .periods[App.options.dataType][i];
+                        .periods[dataType][i];
 
                     var fileName = Exports.fileName([
-                        regionName,
-                        collectionName.split(': ').slice(-1)[0],
-                        App.options.dataType, featureName, period]);
+                        regionName, collectionName, dataType, featureName, period]);
 
-                    var data = App.options.data[App.options.dataType]
-                        .select([App.options.bandsNames[App.options.dataType] + period]);
+                    var data = App.options.data[dataType]
+                        .select([App.bandName(period)]);
 
-                    // o buffer escolhido pelo usuário era ignorado aqui
                     var region = Exports.regionOf(
                         App.options.activeFeature, App.options.bufferDistance);
 
@@ -951,7 +793,7 @@ var App = {
                         'fileDimensions': 256 * 124
                     });
 
-                    bandIds.push(App.options.bandsNames[App.options.dataType] + period);
+                    bandIds.push(App.bandName(period));
                 }
             }
 
@@ -963,10 +805,13 @@ var App = {
 
             var geometry = App.options.activeFeature.geometry().bounds();
 
+            var names = App.options.className[dataType];
+            var suffix = App.options.unit[dataType] || '';
+
             var areas = bandIds.map(
                 function (band) {
 
-                    var image = App.options.data[App.options.dataType].select(band);
+                    var image = App.options.data[dataType].select(band);
 
                     var area = Area.calculate({
                         "image": image,
@@ -979,11 +824,14 @@ var App = {
 
                     area = ee.FeatureCollection(area).map(
                         function (feature) {
-                            
-                            var className = ee.String(feature.get('class')).cat(' observations');
-                            feature = feature.set('class_name', className).set('band', band);
 
-                            return feature;
+                            var value = ee.Number(feature.get('class')).int().format('%d');
+
+                            var name = names ?
+                                ee.Dictionary(names).get(value, value) :
+                                value.cat(suffix);
+
+                            return feature.set('class_name', name).set('band', band);
                         }
                     );
 
@@ -992,68 +840,58 @@ var App = {
             );
 
             areas = ee.FeatureCollection(areas).flatten();
-            // print(areas);
 
             var tableName = Exports.fileName([
-                regionName,
-                collectionName.split(': ').slice(-1)[0],
-                App.options.dataType, featureName, 'area']);
+                regionName, collectionName, dataType, featureName, 'area']);
 
             Exports.table(areas, tableName);
 
         },
-        
+
         showDisclaimer: function () {
-          
-          App.ui.form.labelDisclaimer = [
-                ui.Label('NOTA INFORMATIVA -  MapBiomas Degradação Módulo BETA'),
-                ui.Label(''),
-                ui.Label('O Módulo Beta de Degradação do MapBiomas disponibiliza dados anuais de vetores de degradação da vegetação nativa \
-                do Brasil entre 1986 a 2022. Esses dados são derivados dos mapas anuais de cobertura e uso da terra da Coleção 9 do MapBiomas \
-                Brasil e dos mapas de cicatrizes de fogo da Coleção 3 do MapBiomas Fogo. Este módulo inclui dados sobre: Área de Borda, Tamanho \
-                do Fragmento, Isolamento do Fragmento, Frequência da Área Queimada; Tempo desde o último Fogo e Idade da Vegetação Secundária. \
-                Todos os mapas estão disponíveis em diferentes recortes territoriais (país, bioma, estado, município, bacia hidrográfica e áreas protegidas)\
-                e por classes de cobertura e uso da terra.',{'margin': '0px'}),
-                ui.Label(''),
-                App.formatLabelWithLinks('Para maiores informações sobre o método, acesse a **página com descrição do método e o ATBD**.',{
-                                            "página com descrição do método e o ATBD": "https://brasil.mapbiomas.org/metodo-degradacao/",
-                                          }),
-                ui.Label(''),
-                App.formatLabelWithLinks('Os mapas estão disponíveis para baixar no **Toolkit**.',{
-                                          'Toolkit':'https://code.earthengine.google.com/?scriptPath=users%2Fmapbiomas%2Fuser-toolkit%3Amapbiomas-user-toolkit-degradation.js',
-                                          }),
-                ui.Label(''),
-                ui.Label('Caso tenha dúvidas, sugestões ou críticas para aprimoramento do módulo, entre em contato pelo e-mail: contato@mapbiomas.org.'),
-                ui.Label(''),
-                ui.Label('Os dados do MapBiomas são públicos, abertos e gratuitos sob licença CC-BY-SA e mediante a referência da fonte, observando \
-                          o seguinte formato: "Módulo de degradação da vegetação nativa do Brasil (1986-2021) - versão beta, acessado em [DATA] [LINK]"'),
-                ui.Label(''),
-                ui.Label('DISCLAIMER MapBiomas Degradation Beta Module'),
-                ui.Label(''),
-                ui.Label('The MapBiomas Degradation Beta Module provides annual data on the degradation drivers of native vegetation in Brazil from 1986 \
-                          to 2022. These data are derived from the land cover and land use annual maps of MapBiomas Brazil Collection 9 and the fire scars \
-                          maps of MapBiomas Fire Collection 3. This module includes data on Edge Area, Fragment Size, Fragment Isolation, Fire Frequency, \
-                          Time since the Last Fire, and Secondary Vegetation Age. All maps are available in different territories \
-                          (country, biome, state, municipality, watershed, and protected area) and by land cover and land use classes.',{'margin': '0px'}),
-                ui.Label(''),
-                App.formatLabelWithLinks('For more information about the methodology, visit the **page with the method description and the ATBD**.',{
-                                            "page with the method description and the ATBD": "https://brasil.mapbiomas.org/metodo-degradacao/",
-                                          }),
-                ui.Label(''),
-                App.formatLabelWithLinks('The maps are available for download in the **Toolkit**.',{
-                                          'Toolkit':'https://code.earthengine.google.com/?scriptPath=users%2Fmapbiomas%2Fuser-toolkit%3Amapbiomas-user-toolkit-fire.js',
-                                          'legend code':'',
-                                          },{'margin': '0px'}),
-                ui.Label(''),
-                ui.Label('If you have questions, suggestions, or feedback for module improvement, please contact us at the following email: contato@mapbiomas.org.'),
-                ui.Label(''),
-                ui.Label('MapBiomas data is public, open, and free under the CC-BY-SA license and must be cited in the following format: "Brazil´s native vegetation degradation module (1986-2021) - beta version, accessed on [DATE] [LINK]"',{'margin': '0px'}),
-            ];
+            var notes = App.options.disclaimers;
+
+            if (notes.length === 0) {
+                return;
+            }
 
             App.ui.form.panelDisclaimer.widgets().reset([]);
-            App.ui.form.panelDisclaimerText.widgets().reset(App.ui.form.labelDisclaimer);
-            App.ui.form.panelDisclaimer.add(App.ui.form.panelDisclaimerText);
-            App.ui.form.panelDisclaimer.add(App.ui.form.buttonDisclaimerOk);
+
+            var panelDisclaimerText = ui.Panel({
+                'widgets': App.disclaimerWidgets(notes[0]),
+                'layout': ui.Panel.Layout.flow('vertical'),
+                'style': {'stretch': 'both'},
+            });
+
+            var panelButtons = ui.Panel({'layout': ui.Panel.Layout.flow('horizontal', true)});
+
+            // one button per note, only when there is more than one
+            if (notes.length > 1) {
+                notes.forEach(function (note) {
+                    panelButtons.add(ui.Button({
+                        "label": note.label,
+                        "onClick": function () {
+                            panelDisclaimerText.widgets().reset(App.disclaimerWidgets(note));
+                        }
+                    }));
+                });
+            }
+
+            var buttonDisclaimerOk = ui.Button({
+                "label": "Ok, I get it!",
+                "onClick": function () {
+                    Map.remove(App.ui.form.panelDisclaimer);
+                    App.ui.form.buttonDisclaimerShow.setDisabled(false);
+                },
+                "disabled": false,
+                "style": {
+                    'stretch': 'horizontal'
+                }
+            });
+
+            App.ui.form.panelDisclaimer.add(panelButtons);
+            App.ui.form.panelDisclaimer.add(panelDisclaimerText);
+            App.ui.form.panelDisclaimer.add(buttonDisclaimerOk);
 
             Map.add(App.ui.form.panelDisclaimer);
 
@@ -1068,17 +906,13 @@ var App = {
                     imageUrl: App.options.logo.image
                 }));
 
-
                 App.ui.form.panelMain.add(App.ui.form.panelLogo);
                 App.ui.form.panelMain.add(App.ui.form.labelTitle);
                 App.ui.form.panelMain.add(App.ui.form.labelSubtitle);
                 App.ui.form.panelMain.add(App.ui.form.labelLegendFiles);
                 App.ui.form.panelMain.add(App.ui.form.labelDownloads);
-                // App.ui.form.panelMain.add(App.ui.form.labelLink);  // substituído pelo link único para os arquivos de legenda
 
                 App.ui.form.panelMain.add(App.ui.form.panel1);
-
-
 
                 App.ui.form.panelRegion.add(App.ui.form.labelRegion);
                 App.ui.form.panelRegion.add(App.ui.form.selectRegion);
@@ -1118,20 +952,17 @@ var App = {
                 ui.root.add(App.ui.form.panelMain);
 
                 App.ui.showDisclaimer();
-                
+
                 var Basemaps = require('users/mapbiomas/user-toolkit:core/v1/basemaps.js');
-        
+
                 Map.setOptions({
-                  'styles': {
-                    'Dark': Basemaps.getStyle('Dark'),
-                    // 'Dark2':Basemaps.getStyle('Dark2'),
-                    // 'Aubergine':Basemaps.getStyle('Aubergine'),
-                    'Silver':Basemaps.getStyle('Silver'),
-                    'Night':Basemaps.getStyle('Night'),
-                  }
+                    'styles': {
+                        'Dark': Basemaps.getStyle('Dark'),
+                        'Silver': Basemaps.getStyle('Silver'),
+                        'Night': Basemaps.getStyle('Night'),
+                    }
                 });
                 Map.setOptions('Silver');
-                
 
             },
 
@@ -1213,40 +1044,25 @@ var App = {
             panelDisclaimer: ui.Panel({
                 'layout': ui.Panel.Layout.flow('vertical'),
                 'style': {
-                    // 'width': '700px',
-                    // 'height': '350px',
-                },
-            }),
-
-            panelDisclaimerText: ui.Panel({
-                'layout': ui.Panel.Layout.flow('vertical'),
-                'style': {
-                    'width': '700px',
-                    'height': '300px',
+                    'maxWidth': '70%',
+                    'maxHeight': '90%',
                 },
             }),
 
             labelRegion: ui.Label('Region', {
-                // 'fontWeight': 'bold',
-                // 'padding': '1px',
                 'fontSize': '16px'
             }),
 
-            labelCollection: ui.Label('Module', {
-                // 'fontWeight': 'bold',
-                // 'padding': '1px',
+            labelCollection: ui.Label('Collection', {
                 'fontSize': '16px'
             }),
 
             labelTitle: ui.Label('MapBiomas User Toolkit', {
                 'fontWeight': 'bold',
-                // 'padding': '1px',
                 'fontSize': '16px'
             }),
 
-            labelSubtitle: ui.Label('Land Use and Land Cover', {
-                // 'fontWeight': 'bold',
-                // 'padding': '1px',
+            labelSubtitle: ui.Label('Native vegetation degradation', {
                 'fontSize': '14px'
             }),
 
@@ -1263,129 +1079,32 @@ var App = {
                 Downloads.DEFAULT_PAGE
             ),
 
-            labelLink: ui.Label('Legend codes:', {
-                'fontSize': '10px'
-            }
-            ),
-
-            // labelLink1: ui.Label('Amazon', {
-            //     'fontSize': '10px',
-            // },
-            //     'http://amazonia.mapbiomas.org/codigos-de-la-leyenda'
-            // ),
-
-            // labelLink2: ui.Label('Atlantic Forest', {
-            //     'fontSize': '10px'
-            // },
-            //     'http://bosqueatlantico.mapbiomas.org/codigos-de-la-leyenda'
-            // ),
-
-            // labelLink3: ui.Label('Bolivia', {
-            //     'fontSize': '10px',
-            // },
-            //     'https://bolivia.mapbiomas.org/codigos-de-la-leyenda/'
-            // ),
-
-            // labelLink4: ui.Label('Brazil', {
-            //     'fontSize': '10px'
-            // },
-            //     'https://brasil.mapbiomas.org/codigos-de-legenda/'
-            // ),
-
-            // labelLink5: ui.Label('Chaco', {
-            //     'fontSize': '10px'
-            // },
-            //     'http://chaco.mapbiomas.org/codigos-de-la-leyenda-1'
-            // ),
-
-            // labelLink6: ui.Label('Colombia', {
-            //     'fontSize': '10px',
-            // },
-            //     'https://colombia.mapbiomas.org/codigos-de-la-leyenda/'
-            // ),
-
-            // labelLink7: ui.Label('Ecuador', {
-            //     'fontSize': '10px',
-            // },
-            //     'https://ecuador.mapbiomas.org/codigos-de-la-leyenda/'
-            // ),
-
-            // labelLink8: ui.Label('Indonesia', {
-            //     'fontSize': '10px',
-            // },
-            //     'https://mapbiomas.nusantara.earth/legendcode'
-            // ),
-
-            // labelLink9: ui.Label('Pampa', {
-            //     'fontSize': '10px'
-            // },
-            //     'https://pampa.mapbiomas.org/codigos-de-la-leyenda/'
-            // ),
-
-            // labelLink10: ui.Label('Peru', {
-            //     'fontSize': '10px',
-            // },
-            //     'https://peru.mapbiomas.org/codigos-de-la-leyenda/'
-            // ),
-
-            // labelLink11: ui.Label('Venezuela', {
-            //     'fontSize': '10px',
-            // },
-            //     'https://venezuela.mapbiomas.org/codigos-de-la-leyenda/'
-            // ),
-
-            // labelLink12: ui.Label('Uruguay', {
-            //     'fontSize': '10px',
-            // },
-            //     'https://uruguay.mapbiomas.org/codigos-de-la-leyenda/'
-            // ),
-
-            labelType: ui.Label('Type:', {
-                // 'padding': '1px',
-                'fontSize': '16px'
-            }),
-
             labelTables: ui.Label('Tables:', {
-                // 'padding': '1px',
                 'fontSize': '16px'
             }),
 
             labelProperties: ui.Label('Properties:', {
-                // 'padding': '1px',
                 'fontSize': '16px'
             }),
 
             labelFeature: ui.Label('Features:', {
-                // 'padding': '1px',
                 'fontSize': '16px'
             }),
 
             labelDataType: ui.Label('Data Type:', {
-                // 'padding': '1px',
                 'fontSize': '16px'
             }),
 
             labelBuffer: ui.Label('Buffer:', {
-                // 'padding': '1px',
                 'fontSize': '16px'
             }),
 
             labelLayers: ui.Label('Layers:', {
-                // 'padding': '1px',
                 'fontSize': '16px'
             }),
 
             labelNotes: ui.Label('Click the RUN button in the TASK tab at the upper-right corner.', {
-                // 'padding': '1px',
                 'fontSize': '16px'
-            }),
-
-            selectName: ui.Select({
-                'items': ['None'],
-                'placeholder': 'None',
-                'style': {
-                    'stretch': 'horizontal'
-                }
             }),
 
             selectCollection: ui.Select({
@@ -1399,7 +1118,6 @@ var App = {
             selectRegion: ui.Select({
                 'items': [
                     'mapbiomas-brazil',
-                    // 'mapbiomas-indonesia',
                 ],
                 'placeholder': 'None',
                 'style': {
@@ -1485,20 +1203,6 @@ var App = {
                 },
                 "disabled": false,
                 "style": {
-                    // 'padding': '2px',
-                    'stretch': 'horizontal'
-                }
-            }),
-            
-            buttonDisclaimerOk: ui.Button({
-                "label": "Ok, I get it!",
-                "onClick": function () {
-                    Map.remove(App.ui.form.panelDisclaimer);
-                    App.ui.form.buttonDisclaimerShow.setDisabled(false);
-                },
-                "disabled": false,
-                "style": {
-                    // 'padding': '2px',
                     'stretch': 'horizontal'
                 }
             }),
@@ -1510,7 +1214,6 @@ var App = {
                 },
                 "disabled": false,
                 "style": {
-                    // 'padding': '2px',
                     'stretch': 'horizontal'
                 }
             }),

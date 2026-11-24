@@ -24,6 +24,97 @@
  */
 
 var notes = {
+    "degradation": {
+        "mapbiomas-brazil": {
+            "label": "MapBiomas Degradação Brasil",
+            "language": "pt-BR",
+            "source": "platform",
+            "paragraphs": [
+                {
+                    "heading": false,
+                    "parts": [
+                        "NOTA INFORMATIVA - DEGRADAÇÃO"
+                    ]
+                },
+                {
+                    "heading": false,
+                    "parts": [
+                        "Atualizado em: Maio de 2026"
+                    ]
+                },
+                {
+                    "heading": false,
+                    "parts": [
+                        "O Módulo de Degradação do MapBiomas disponibiliza dados anuais de vetores de degradação da vegetação nativa do Brasil entre 1986 e 2024. Esses dados são derivados dos mapas anuais de cobertura e uso da terra da Coleção 10.1 do MapBiomas Brasil e dos mapas de cicatrizes de fogo da Coleção 4 do MapBiomas Fogo."
+                    ]
+                },
+                {
+                    "heading": false,
+                    "parts": [
+                        "Este módulo inclui dados sobre: tamanho do fragmento (a partir de 0,5 ha), número de fragmentos, morfologia dos fragmentos, área de borda, idade da borda, distúrbio de dossel, corte seletivo, frequência do fogo, tempo desde o último fogo, isolamento e idade da vegetação secundária."
+                    ]
+                },
+                {
+                    "heading": false,
+                    "parts": [
+                        "O dado de distúrbio de dossel, disponível em versão beta, combina a técnica do Desvio Absoluto da Mediana (DAM) aplicadas em imagens NDFI (Normalized Difference Fraction Index) derivadas do satélite Landsat para a Amazônia Legal, no período de 1988 a 2024. O dado de corte seletivo de madeira, também em versão beta, é derivado do produto de distúrbio de dossel."
+                    ]
+                },
+                {
+                    "heading": false,
+                    "parts": [
+                        "Os dados podem ser analisados isoladamente ou em conjunto, por meio da combinação de parâmetros em uma abordagem de multicritério. Os mapas estão disponíveis em diferentes recortes territoriais, como país, bioma, estado, município, bacia hidrográfica, área protegida, entre outros tipos de territórios."
+                    ]
+                },
+                {
+                    "heading": false,
+                    "parts": [
+                        "Os vetores de degradação disponibilizados no módulo dependem da precisão dos mapas de cobertura e uso da terra e de cicatrizes de fogo utilizados como dados de entrada. Dessa forma, omissões ou imprecisões de classificação presentes nas coleções do MapBiomas Brasil e do MapBiomas Fogo podem influenciar os resultados gerados."
+                    ]
+                },
+                {
+                    "heading": false,
+                    "parts": [
+                        "Além disso, os vetores de fragmentação ainda não incorporam o mapeamento da infraestrutura linear, como estradas, rodovias, ferrovias, linhas de transmissão ou outras estruturas que também promovem fragmentação de habitats e barreiras ecológicas."
+                    ]
+                },
+                {
+                    "heading": false,
+                    "parts": [
+                        "Os vetores representam indicadores espaciais de suscetibilidade à degradação e não devem ser interpretados isoladamente como medidas diretas de perda de biodiversidade, qualidade ambiental ou integridade ecológica. A interpretação dos resultados deve considerar as características ecológicas regionais, o contexto da paisagem e as particularidades de cada formação vegetal."
+                    ]
+                },
+                {
+                    "heading": false,
+                    "parts": [
+                        "Para mais informações sobre os métodos e conceitos utilizados, acesse a página de descrição do método com o documento ATBD do Módulo de Degradação (",
+                        {
+                            "text": "https://brasil.mapbiomas.org/iniciativas-e-produtos/degradacao/",
+                            "url": "https://brasil.mapbiomas.org/iniciativas-e-produtos/degradacao/"
+                        },
+                        ")."
+                    ]
+                },
+                {
+                    "heading": false,
+                    "parts": [
+                        "Caso tenha dúvidas, sugestões ou críticas para aprimoramento do módulo, entre em contato pelo e-mail: ",
+                        {
+                            "text": "contato@mapbiomas.org",
+                            "url": "mailto:contato@mapbiomas.org"
+                        },
+                        "."
+                    ]
+                },
+                {
+                    "heading": false,
+                    "parts": [
+                        "Os dados do MapBiomas são públicos, abertos e gratuitos sob licença CC-BY e mediante a referência da fonte, observando o seguinte formato: \"Módulo de degradação da vegetação nativa do Brasil (1986-2023), versão 2, acessado em [DATA], [LINK]\"."
+                    ]
+                }
+            ]
+        }
+    },
     "fire": {
         "mapbiomas-brazil": {
             "label": "MapBiomas Fogo Brasil",

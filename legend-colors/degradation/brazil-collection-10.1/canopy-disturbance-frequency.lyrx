@@ -1,0 +1,252 @@
+{
+  "type": "CIMLayerDocument",
+  "version": "2.9.0",
+  "build": 32739,
+  "layers": [
+    "CIMPATH=map/mapbiomas_legend.xml"
+  ],
+  "layerDefinitions": [
+    {
+      "type": "CIMRasterLayer",
+      "name": "MapBiomas Degradation brazil C10.1 - canopy disturbance frequency",
+      "uRI": "CIMPATH=map/mapbiomas_legend.xml",
+      "sourceModifiedTime": {
+        "type": "TimeInstant"
+      },
+      "useSourceMetadata": true,
+      "layerType": "Operational",
+      "showLegends": true,
+      "visibility": true,
+      "displayCacheType": "Permanent",
+      "maxDisplayCacheAge": 5,
+      "showPopups": true,
+      "serviceLayerID": -1,
+      "refreshRate": -1,
+      "refreshRateUnit": "esriTimeUnitsSeconds",
+      "blendingMode": "Alpha",
+      "colorizer": {
+        "type": "CIMRasterUniqueValueColorizer",
+        "resamplingType": "NearestNeighbor",
+        "noDataColor": {
+          "type": "CIMRGBColor",
+          "values": [
+            255,
+            255,
+            255,
+            0
+          ]
+        },
+        "defaultColor": {
+          "type": "CIMRGBColor",
+          "values": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "fieldName": "Value",
+        "groups": [
+          {
+            "type": "CIMRasterUniqueValueGroup",
+            "heading": "Value",
+            "classes": [
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "1"
+                ],
+                "label": "1 time",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    68,
+                    1,
+                    84,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "2"
+                ],
+                "label": "2 times",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    72,
+                    33,
+                    114,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "3"
+                ],
+                "label": "3 times",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    66,
+                    61,
+                    132,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "4"
+                ],
+                "label": "4 times",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    56,
+                    87,
+                    140,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "5"
+                ],
+                "label": "5 times",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    45,
+                    111,
+                    142,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "6"
+                ],
+                "label": "6 times",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    36,
+                    133,
+                    141,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "7"
+                ],
+                "label": "7 times",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    30,
+                    154,
+                    137,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "8"
+                ],
+                "label": "8 times",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    42,
+                    176,
+                    126,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "9"
+                ],
+                "label": "9 times",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    81,
+                    196,
+                    104,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "10"
+                ],
+                "label": "10 times",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    134,
+                    212,
+                    73,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "11"
+                ],
+                "label": "11 times",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    194,
+                    223,
+                    34,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "12"
+                ],
+                "label": "12 times",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    253,
+                    231,
+                    36,
+                    100
+                  ]
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

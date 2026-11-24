@@ -30,14 +30,14 @@ The **User Toolkit** is a set of Google Earth Engine (GEE) Code Editor apps that
 | Toolkit | What it gives you | Coverage | Open in GEE |
 |---|---|---|---|
 | **Land use and land cover** | Annual coverage, transitions and quality | 17 regions (below) | [lulc](https://code.earthengine.google.com/?scriptPath=users/mapbiomas/user-toolkit:mapbiomas-user-toolkit-lulc.js) |
-| **Deforestation and secondary vegetation** | Vegetation suppression, regrowth and secondary vegetation age | Brazil C11, Peru C4, Bolivia/Uruguay/Paraguay C3, Colombia C2, Argentina C2 | [deforestation-regeneration](https://code.earthengine.google.com/?scriptPath=users/mapbiomas/user-toolkit:mapbiomas-user-toolkit-deforestation-regeneration.js) |
+| **Deforestation and secondary vegetation** | Vegetation suppression, regrowth and secondary vegetation age | Brazil C11, Peru/Bolivia/Uruguay C4, Argentina/Paraguay C3, Colombia C2, Indonesia C5 | [deforestation-regeneration](https://code.earthengine.google.com/?scriptPath=users/mapbiomas/user-toolkit:mapbiomas-user-toolkit-deforestation-regeneration.js) |
 | **Fire** | Annual and monthly burned area, frequency, accumulated area, year of last fire, severity, scar size | Brazil C5 and monthly monitor, Indonesia, Paraguay, Peru | [fire](https://code.earthengine.google.com/?scriptPath=users/mapbiomas/user-toolkit:mapbiomas-user-toolkit-fire.js) |
 | **Water** | Annual water surface and frequency | Brazil C5, Pan-Amazon countries | [water](https://code.earthengine.google.com/?scriptPath=users/mapbiomas/user-toolkit:mapbiomas-user-toolkit-water.js) |
 | **Irrigation** | Irrigation systems | Brazil C11 | [irrigation](https://code.earthengine.google.com/?scriptPath=users/mapbiomas/user-toolkit:mapbiomas-user-toolkit-irrigation.js) |
 | **Mining** | Mined substances (industrial and artisanal mining) | Brazil C11 | [mining](https://code.earthengine.google.com/?scriptPath=users/mapbiomas/user-toolkit:mapbiomas-user-toolkit-mining.js) |
 | **Pasture** | Pasture quality and vigor | Brazil C11 | [pasture](https://code.earthengine.google.com/?scriptPath=users/mapbiomas/user-toolkit:mapbiomas-user-toolkit-pasture.js) |
 | **Soil** (beta) | Soil organic carbon, texture, granulometry, stoniness | Brazil | [soil](https://code.earthengine.google.com/?scriptPath=users/mapbiomas/user-toolkit:mapbiomas-user-toolkit-soil.js) |
-| **Degradation** (beta) | Edge, patch size, isolation, fire and secondary vegetation age | Brazil | [degradation](https://code.earthengine.google.com/?scriptPath=users/mapbiomas/user-toolkit:mapbiomas-user-toolkit-degradation.js) |
+| **Degradation** | Edge area and age, patch size, morphology, isolation, fire, secondary vegetation age, canopy disturbance, selective logging | Brazil C10.1 | [degradation](https://code.earthengine.google.com/?scriptPath=users/mapbiomas/user-toolkit:mapbiomas-user-toolkit-degradation.js) |
 
 There are also small helper scripts: `calculate-area`, `calculate-area-using-vector`, and three for downloading Landsat mosaics.
 
@@ -200,6 +200,19 @@ If you need the old behaviour while you adapt, the last 1.x of every script is
 tagged [`v1-last`](https://github.com/mapbiomas/user-toolkit/tree/v1-last), in
 this repository and in the Earth Engine one.
 
+### Degradation 1.0.0
+
+The degradation toolkit now offers the published modules of Brazil
+collection 10.1, all in `projects/mapbiomas-public`. The beta
+modules, built from collection 9 work assets, are gone. The collection is now
+`collection-10.1` (or `collection-4.0`), and each product is a data type of its
+own: `edge_area`, `edge_age`, `patch_size`, `landscape_morphology`,
+`isolation_100ha`/`500ha`/`1000ha`, `fire_frequency`, `burned_coverage`,
+`time_since_last_fire`, `secondary_vegetation_age`,
+`secondary_vegetation_coverage`, `canopy_disturbance_frequency` and `logging`
+(the last two only in the Legal Amazon). Edge area and patch size come in the
+classes of the platform legend, and the area CSV names each class.
+
 ## Release history
 
 Land use and land cover toolkit (`mapbiomas-user-toolkit-lulc.js`). Each script keeps its own history in its header.
@@ -214,7 +227,7 @@ Land use and land cover toolkit (`mapbiomas-user-toolkit-lulc.js`). Each script 
 | mining | 2.1.2 |
 | pasture | 2.1.2 |
 | soil | 2.1.4 |
-| degradation | 0.2.3 |
+| degradation | 1.0.0 |
 
 <details>
 <summary>Land use and land cover release history</summary>

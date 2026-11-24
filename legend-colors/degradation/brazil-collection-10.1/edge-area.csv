@@ -1,0 +1,9 @@
+value,label,color
+1,less than or equal to 30m,#bc4749
+2,less than or equal to 60m,#d68c8d
+3,less than or equal to 90m,#fff59d
+4,less than or equal to 120m,#dce0af
+5,less than or equal to 150m,#a7c957
+6,less than or equal to 300m,#6a994e
+7,less than or equal to 600m,#386641
+8,less than or equal to 1000m,#0d2207

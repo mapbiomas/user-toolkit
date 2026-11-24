@@ -1,0 +1,12 @@
+value,label,color
+1,less than or equal to 5ha,#8b2a2e
+2,less than or equal to 10ha,#af4122
+3,less than or equal to 25ha,#d35e0e
+4,less than or equal to 50ha,#f0a900
+5,less than or equal to 100ha,#f9d800
+6,less than or equal to 250ha,#fff176
+7,less than or equal to 500ha,#b0d900
+8,less than or equal to 1000ha,#86d017
+9,less than or equal to 5000ha,#5dc734
+10,less than or equal to 10000ha,#39bc68
+11,All other patches,#efefef

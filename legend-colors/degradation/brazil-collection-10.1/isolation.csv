@@ -1,0 +1,11 @@
+value,label,color
+1,Fragments ≤ 100 ha — within 5 km of source area,#2ca02c
+2,Fragments ≤ 50 ha — within 5 km of source area,#98df8a
+3,Fragments ≤ 25 ha — within 5 km of source area,#c7e9c0
+4,Fragments ≤ 100 ha — within 10 km of source area,#ff7f0e
+5,Fragments ≤ 50 ha — within 10 km of source area,#ffbb78
+6,Fragments ≤ 25 ha — within 10 km of source area,#ffe6cc
+7,Fragments ≤ 100 ha — within 20 km of source area,#d62728
+8,Fragments ≤ 50 ha — within 20 km of source area,#ff9896
+9,Fragments ≤ 25 ha — within 20 km of source area,#fddede
+10,Source area,#1f77b4

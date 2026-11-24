@@ -1,0 +1,236 @@
+{
+  "type": "CIMLayerDocument",
+  "version": "2.9.0",
+  "build": 32739,
+  "layers": [
+    "CIMPATH=map/mapbiomas_legend.xml"
+  ],
+  "layerDefinitions": [
+    {
+      "type": "CIMRasterLayer",
+      "name": "MapBiomas Degradation brazil C10.1 - patch size",
+      "uRI": "CIMPATH=map/mapbiomas_legend.xml",
+      "sourceModifiedTime": {
+        "type": "TimeInstant"
+      },
+      "useSourceMetadata": true,
+      "layerType": "Operational",
+      "showLegends": true,
+      "visibility": true,
+      "displayCacheType": "Permanent",
+      "maxDisplayCacheAge": 5,
+      "showPopups": true,
+      "serviceLayerID": -1,
+      "refreshRate": -1,
+      "refreshRateUnit": "esriTimeUnitsSeconds",
+      "blendingMode": "Alpha",
+      "colorizer": {
+        "type": "CIMRasterUniqueValueColorizer",
+        "resamplingType": "NearestNeighbor",
+        "noDataColor": {
+          "type": "CIMRGBColor",
+          "values": [
+            255,
+            255,
+            255,
+            0
+          ]
+        },
+        "defaultColor": {
+          "type": "CIMRGBColor",
+          "values": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "fieldName": "Value",
+        "groups": [
+          {
+            "type": "CIMRasterUniqueValueGroup",
+            "heading": "Value",
+            "classes": [
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "1"
+                ],
+                "label": "less than or equal to 5ha",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    139,
+                    42,
+                    46,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "2"
+                ],
+                "label": "less than or equal to 10ha",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    175,
+                    65,
+                    34,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "3"
+                ],
+                "label": "less than or equal to 25ha",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    211,
+                    94,
+                    14,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "4"
+                ],
+                "label": "less than or equal to 50ha",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    240,
+                    169,
+                    0,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "5"
+                ],
+                "label": "less than or equal to 100ha",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    249,
+                    216,
+                    0,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "6"
+                ],
+                "label": "less than or equal to 250ha",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    255,
+                    241,
+                    118,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "7"
+                ],
+                "label": "less than or equal to 500ha",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    176,
+                    217,
+                    0,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "8"
+                ],
+                "label": "less than or equal to 1000ha",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    134,
+                    208,
+                    23,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "9"
+                ],
+                "label": "less than or equal to 5000ha",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    93,
+                    199,
+                    52,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "10"
+                ],
+                "label": "less than or equal to 10000ha",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    57,
+                    188,
+                    104,
+                    100
+                  ]
+                }
+              },
+              {
+                "type": "CIMRasterUniqueValueClass",
+                "values": [
+                  "11"
+                ],
+                "label": "All other patches",
+                "color": {
+                  "type": "CIMRGBColor",
+                  "values": [
+                    239,
+                    239,
+                    239,
+                    100
+                  ]
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}
