@@ -40,6 +40,8 @@
  *            shows a blank label for an image URL on another site
  *    2.2.0 - Loads bolivia and ecuador 4.0, and paraguay and uruguay 1.0
  *            (annual water)
+ *    2.3.0 - Loads colombia and peru 3.0, and venezuela 4.0 (annual water). The annual
+ *            water is self-masked on load: colombia 3.0 stores 0 outside the water
  * 
  * @see
  *      Get the MapBiomas exported data in your "Google Drive/MAPBIOMAS-EXPORT" folder
@@ -69,7 +71,7 @@ var App = {
 
     options: {
 
-        version: '2.2.0',
+        version: '2.3.0',
 
 
         logo: {
@@ -330,7 +332,9 @@ var App = {
                             // as coleções novas publicam as bandas como classification_YYYY (o Equador C4,
                             // annual_classification_YYYY) e não têm frequência
                             App.options.data.annual_water_coverage = ee.Image(assets.annual_water_coverage)
-                                .regexpRename('^(annual_)?classification', 'annual_water_coverage');
+                                .regexpRename('^(annual_)?classification', 'annual_water_coverage')
+                                // a Colômbia C3 grava 0 fora da água; as demais já vêm mascaradas
+                                .selfMask();
 
                             App.options.data.water_frequency = assets.water_frequency ?
                                 ee.Image(assets.water_frequency) : null;
